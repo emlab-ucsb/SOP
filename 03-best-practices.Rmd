@@ -1,0 +1,24 @@
+---
+title: "Best Practices"
+output: html_document
+---
+
+# Best Practices
+
+
+## File Structure
+
+
+## Data
+
+
+## Metadata
+
+
+## Code
+
+
+## Computing
+
+
+## Useful Readings

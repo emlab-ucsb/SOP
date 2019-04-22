@@ -1,0 +1,17 @@
+[
+["index.html", "emLab Standard Operating Procedures Overview", " emLab Standard Operating Procedures 2019-04-22 Overview This reference describes standard operating procedures for emLab projects. "],
+["project-and-task-management.html", "1 Project and Task Management ", " 1 Project and Task Management "],
+["project-organization.html", "1.1 Project Organization", " 1.1 Project Organization "],
+["airtable.html", "1.2 Airtable", " 1.2 Airtable "],
+["team-drive.html", "1.3 Team Drive", " 1.3 Team Drive "],
+["data-storage.html", "2 Data Storage ", " 2 Data Storage "],
+["storage-location.html", "2.1 Storage Location", " 2.1 Storage Location 2.1.1 Google Cloud Platform 2.1.2 UCSB Server Cluster "],
+["data-directory.html", "2.2 Data Directory", " 2.2 Data Directory "],
+["best-practices.html", "3 Best Practices ", " 3 Best Practices "],
+["file-structure.html", "3.1 File Structure", " 3.1 File Structure "],
+["data.html", "3.2 Data", " 3.2 Data "],
+["metadata.html", "3.3 Metadata", " 3.3 Metadata "],
+["code.html", "3.4 Code", " 3.4 Code "],
+["computing.html", "3.5 Computing", " 3.5 Computing "],
+["useful-readings.html", "3.6 Useful Readings", " 3.6 Useful Readings "]
+]

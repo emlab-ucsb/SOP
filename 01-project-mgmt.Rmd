@@ -1,0 +1,15 @@
+---
+title: "Project and Task Management"
+output: html_document
+---
+
+# Project and Task Management
+
+
+## Project Organization
+
+
+## Airtable
+
+
+## Team Drive
