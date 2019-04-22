@@ -1,2 +1,3 @@
-# SOP
-emLab standard operating procedure for data storage, file structure, etc. 
+# emLab Standard Operating Procedures
+
+Standard operating procedures for emLab projects
