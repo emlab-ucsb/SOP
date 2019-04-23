@@ -6,7 +6,7 @@ output: html_document
 # Code
 
 
-## Style Guide
+## Style Guide - Gavin
 
 
 ## GitHub Workflow
