@@ -3,10 +3,11 @@ title: "emLab Standard Operating Procedures"
 author: ""
 date: "`r Sys.Date()`"
 description: "Standard operating procedures for emLab projects"
-url: ""
-github-repo: "emlab-ucsb/sop"
+url: "https://emlab-ucsb.github.io/SOP/"
+github-repo: "emlab-ucsb/SOP"
 site: bookdown::bookdown_site
 documentclass: book
+favicon: "favicon.png"
 ---
 
 # Overview {-}
