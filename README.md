@@ -29,6 +29,6 @@ Standard operating procedures for emLab projects:
 
 After adding or revising content, use the following command to render the bookdown:
 
-`bookdown::render(input = "index.Rmd", output_format = "bookdown::gitbook")`
+`bookdown::render_book(input = "index.Rmd", output_format = "bookdown::gitbook")`
 
 Then commit the changes and push to the repo.
