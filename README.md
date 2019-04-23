@@ -7,9 +7,9 @@ Standard operating procedures for emLab projects:
 
 ## Table of Contents
 
-* Project Management - 
-    + Airtable *Erin*
-    + Google Team Drive *Erin*
+* Project Management  
+    + Airtable - *Erin*
+    + Google Team Drive - *Erin*
     + GitHub
 * Data
     + Tidy Data
