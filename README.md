@@ -12,13 +12,13 @@ Standard operating procedures for emLab projects:
     + Google Team Drive - *Erin*
     + GitHub
 * Data
-    + Tidy Data
+    + Tidy Data - *Gavin*
     + Storage
     + Data Directory
     + Metadata
 * Code
     + Scripts and Version Control
-    + Style Guide
+    + Style Guide - *Gavin*
     + GitHub Workflow
 * High Performance Computing
     + Google Cloud Platform - *Juan*
