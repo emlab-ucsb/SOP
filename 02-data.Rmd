@@ -1,0 +1,18 @@
+---
+title: "Data"
+output: html_document
+---
+
+# Data
+
+
+## Tidy Data
+
+
+## Storage
+
+
+## Data Directory
+
+
+## Metadata

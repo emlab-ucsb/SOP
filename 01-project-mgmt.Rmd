@@ -1,15 +1,15 @@
 ---
-title: "Project and Task Management"
+title: "Project Management"
 output: html_document
 ---
 
-# Project and Task Management
-
-
-## Project Organization
+# Project Management
 
 
 ## Airtable
 
 
-## Team Drive
+## Google Team Drive
+
+
+## GitHub
