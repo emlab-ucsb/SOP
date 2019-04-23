@@ -1,6 +1,6 @@
 # emLab Standard Operating Procedures
 
-Standard operating procedures for emLab projects: 
+Standard operating procedures for emLab projects:
 
 <https://emlab-ucsb.github.io/SOP/>
 
