@@ -9,11 +9,11 @@ Standard operating procedures for emLab projects:
 
 * Project Management  
     + Airtable - *Erin*
-    + Google Team Drive - *Erin*
+    + Google Team Drive - *Erin and Juan Carlos*
     + GitHub
 * Data
     + Tidy Data - *Gavin*
-    + Storage
+    + Storage *Juan Carlos*
     + Data Directory
     + Metadata
 * Code
