@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2019-04-22">
+<meta name="date" content="2019-04-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -69,7 +69,9 @@
 <li class="chapter" data-level="1.3" data-path="1-3-github.html"><a href="1-3-github.html"><i class="fa fa-check"></i><b>1.3</b> GitHub</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-data.html"><a href="2-data.html"><i class="fa fa-check"></i><b>2</b> Data</a><ul>
-<li class="chapter" data-level="2.1" data-path="2-1-tidy-data.html"><a href="2-1-tidy-data.html"><i class="fa fa-check"></i><b>2.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="2.1" data-path="2-1-tidy-data.html"><a href="2-1-tidy-data.html"><i class="fa fa-check"></i><b>2.1</b> Tidy Data</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="2-1-tidy-data.html"><a href="2-1-tidy-data.html#recommended-resources"><i class="fa fa-check"></i><b>2.1.1</b> Recommended Resources</a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="2-2-storage.html"><a href="2-2-storage.html"><i class="fa fa-check"></i><b>2.2</b> Storage</a></li>
 <li class="chapter" data-level="2.3" data-path="2-3-data-directory.html"><a href="2-3-data-directory.html"><i class="fa fa-check"></i><b>2.3</b> Data Directory</a></li>
 <li class="chapter" data-level="2.4" data-path="2-4-metadata.html"><a href="2-4-metadata.html"><i class="fa fa-check"></i><b>2.4</b> Metadata</a></li>
@@ -101,6 +103,31 @@
             <section class="normal" id="section-">
 <div id="tidy-data" class="section level2">
 <h2><span class="header-section-number">2.1</span> Tidy Data</h2>
+<p>As researchers, we work with data from many different sources. Often these data are messy. One of the first steps of any analysis is to clean any available raw data so that you can make simple visualizations of the data, calculate simple summary statistics, look for missing or incorrect data, and eventually proceed with more involved analyses or modeling.</p>
+<p>As part of the data cleaning process, we recommend getting all data into a “tidy” format (also known as “long” format, as opposed to “wide” format). According to the <a href="https://r4ds.had.co.nz/tidy-data.html">Tidy Data Guide</a> by Garrett Grolemund and Hadley Wickham, tidy data is defined as:</p>
+<blockquote>
+<ul>
+<li>Each variable must have its own column.<br />
+</li>
+<li>Each observation must have its own row.<br />
+</li>
+<li>Each value must have its own cell.<br />
+</li>
+</ul>
+</blockquote>
+<p>These three features of tidy data can be seen in the following figure, also from the <a href="https://r4ds.had.co.nz/tidy-data.html">Tidy Data Guide</a>:</p>
+<blockquote>
+<div class="figure">
+<img src="images/tidy-data.png" />
+
+</div>
+</blockquote>
+<p>Once data are in this format, it makes subsequent visualization and analysis much easier. If you’ve ever worked with a file that has a separate column for each year (an example of “wide” format data), you know how hard that type of data format is to work with!</p>
+<p>As always, we recommend keeping a backup copy of the raw data you obtained from the original source, and using a reproducible script for transforming these data into a tidy data format.</p>
+<div id="recommended-resources" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Recommended Resources</h3>
+<p>We highly recommend the chapter on <a href="https://r4ds.had.co.nz/tidy-data.html">Tidy Data</a> from the book <a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham. This guide is geared towards R users and provides helpful tips for transforming and working with data in R, but the concepts should be broadly applicable to other languages as well. For tips specific to Python, we recommend a blogpost by Jean-Nicholas Hould titled <a href="http://www.jeannicholashould.com/tidy-data-in-python.html">Tidy Data in Python</a>.</p>
+</div>
 </div>
             </section>
 
