@@ -119,7 +119,7 @@
 # or
 ssh user@pod.cnsi.ucsb.edu</code></pre>
 <p>where <code>user</code> is your server username. You will then be prompted for your password.</p>
-<p>To use GUI applications on the clusters, which is not recommended, a slightly different process is needed in order to enter an XWindows environment. On macOS, <a href="https://www.xquartz.org/">XQuartz</a> must be installed. On Windows, use the X2Go app to connect to the server. More info on X2Go can be found at <a href="http://csc.cnsi.ucsb.edu/docs/using-x2go-gui-login-knot-or-pod" class="uri">http://csc.cnsi.ucsb.edu/docs/using-x2go-gui-login-knot-or-pod</a>. To use GUIs, enter one of the commands</p>
+<p>To use GUI applications on the clusters, which is not recommended because of performance issues, a slightly different process is needed in order to enter an XWindows environment. On macOS, <a href="https://www.xquartz.org/">XQuartz</a> must be installed. On Windows, use the X2Go app to connect to the server. More info on X2Go can be found at <a href="http://csc.cnsi.ucsb.edu/docs/using-x2go-gui-login-knot-or-pod" class="uri">http://csc.cnsi.ucsb.edu/docs/using-x2go-gui-login-knot-or-pod</a>. To use GUIs, enter one of the commands</p>
 <pre><code>ssh -X user@knot.cnsi.ucsb.edu
 # or
 ssh -X user@pod.cnsi.ucsb.edu</code></pre>
@@ -269,7 +269,7 @@ Note: This may not work well for all files. Use arrow keys to navigate and enter
 <p>The Knot cluster uses <a href="http://csc.cnsi.ucsb.edu/docs/example-scripts-running-jobs">TORQUE PBS</a> to schedule jobs.</p>
 <p>First create a new .pbs file with the command</p>
 <pre><code>nano submit.pbs</code></pre>
-<p>The typical structure of a .pbs file for a serial job is</p>
+<p>The typical structure of a .pbs file for a serial job using R is</p>
 <pre><code>#!/bin/bash
 #PBS -l nodes=1:ppn=12
 #PBS -l walltime=2:00:00
@@ -278,7 +278,17 @@ Note: This may not work well for all files. Use arrow keys to navigate and enter
 cd $PBS_O_WORKDIR
 
 Rscript script.R</code></pre>
-<p>where 1 node is requested with a 2-hour timeframe for computation. The <code>Rscript script.R</code> line executes the commands in the specified R script. The filepath for the script should be relative to where the .pbs file is located. This line would change if using different software.</p>
+<p>where 1 node is requested with a 2-hour timeframe for computation. The <code>walltime</code> option can be excluded if the computation time is unknown. The <code>Rscript script.R</code> line executes the commands in the specified R script. The filepath for the script should be relative to where the .pbs file is located or an absolute path can also be used. This line would change if using different software. There are also many other <code>#PBS</code> options that can be included. Parallel jobs require different specifications, such as requesting more than 1 node and using <code>mpirun</code> commands.</p>
+<p>For another example, the structure for a serial job using Stata and that sends e-mail notifications when a job begins and ends is</p>
+<pre><code>#!/bin/bash
+#PBS -l nodes=1:ppn=12
+#PBS -V
+#PBS -m be
+#PBS -M user@ucsb.edu
+
+cd $PBS_O_WORKDIR/
+
+/sw/stata/stata-mp -b do script.do</code></pre>
 <p>To submit a job, use the command</p>
 <pre><code>qsub submit.pbs</code></pre>
 <p>For jobs that require less than one hour, use the short queue to minimize waiting time with the command</p>
@@ -299,7 +309,7 @@ qsub -q xlargemem submit.pbs</code></pre>
 <p>The Pod cluster uses <a href="http://csc.cnsi.ucsb.edu/docs/slurm-job-scheduler">SLURM</a> to schedule jobs.</p>
 <p>First create a new .job file with the command</p>
 <pre><code>nano submit.job</code></pre>
-<p>The typical structure of a .job file for a serial job is</p>
+<p>The typical structure of a .job file for a serial job using R is</p>
 <pre><code>#!/bin/bash -l
 #Serial
 #SBATCH --nodes=1 --ntasks-per-node=1
@@ -308,7 +318,17 @@ cd $SLURM_SUBMIT_DIR
 
 module load R
 Rscript script.R</code></pre>
-<p>where 1 node is requested. The <code>module load R</code> line loads R, and then the <code>Rscript script.R</code> line executes the commands in the specified R script. The filepath for the script should be relative to where the .job file is located. These last two lines would change if using different software.</p>
+<p>where 1 node is requested. The <code>module load R</code> line loads R, and then the <code>Rscript script.R</code> line executes the commands in the specified R script. The filepath for the script should be relative to where the .job file is located or an absolute path can also be used. These last two lines would change if using different software. There are also many other <code>#SBATCH</code> options that can be included. Parallel jobs require different specifications, such as requesting more than 1 node and using <code>mpirun</code> commands.</p>
+<p>For another example, the structure for a serial job using Stata and that sends e-mail notifications is</p>
+<pre><code>#!/bin/bash -l
+#Serial
+#SBATCH --nodes=1 --ntasks-per-node=1
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=user@ucsb.edu
+
+cd $SLURM_SUBMIT_DIR
+
+/sw/stata/stata-mp -b do script.do</code></pre>
 <p>To submit a job, use the command</p>
 <pre><code>sbatch submit.job</code></pre>
 <p>For jobs that require less than one hour, use the short queue to minimize waiting time with the command</p>
