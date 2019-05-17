@@ -12,4 +12,4 @@ favicon: "favicon.png"
 
 # Overview {-}
 
-This reference describes standard operating procedures for emLab projects.
+This reference guide describes standard operating procedures for emLab projects.
