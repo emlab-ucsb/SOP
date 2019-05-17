@@ -13,7 +13,7 @@ Sometimes a single laptop or desktop computer is not powerful enough for your da
 
 ## UCSB Server Clusters
 
-The Center for Scientific Computing at UCSB offers many resources for high performance computing to support research, including more than one server cluster for storing and analyzing data. Find out more information at <http://csc.cnsi.ucsb.edu/>.
+The Center for Scientific Computing at UCSB offers many resources for high performance computing to support research, including more than one server cluster for storing and analyzing data. Find out more information at <http://csc.cnsi.ucsb.edu/>. For a broader introduction to high performance computing with clusters see the HPC Carpentry's lessons at <https://hpc-carpentry.github.io/>.
 
 ### Accessing the server clusters
 
