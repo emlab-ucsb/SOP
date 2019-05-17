@@ -13,22 +13,21 @@ Standard operating procedures for emLab projects:
     + GitHub - *Kat*
 * Data
     + Tidy Data - *Gavin*
-    + Storage *Juan Carlos*
-    + Data Directory
-    + Metadata
+    + Storage - *Juan Carlos*
+    + Metadata and Data Directory
 * Code
     + Scripts and Version Control
     + Style Guide - *Gavin*
     + GitHub Workflow
 * High Performance Computing
     + Google Cloud Platform - *Juan*
-    + UCSB Server Cluster - *Derek*
+    + UCSB Server Clusters - *Derek*
 
 
 ## Contributing
 
-After adding or revising content, use the following command to render the bookdown:
+After pulling the latest updates and adding or revising content, use the following command to render the book:
 
 `bookdown::render_book(input = "index.Rmd", output_format = "bookdown::gitbook")`
 
-Then commit the changes and push to the repo.
+Then commit the changes and push to the repo. The GitHub website will automatically update with the new changes.
