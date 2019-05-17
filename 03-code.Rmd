@@ -6,6 +6,9 @@ output: html_document
 # Code
 
 
+## Scripts and Version Control
+
+
 ## Style Guide  
 
 At emLab, we recommend using a consistent code style for each of the different programming languages we use. Recommended coding styles for a particular language are collated in what is known as a "style guide". Style guides typically include standardized ways of naming script files, defining functions and variables, commenting code, etc. While emLab does not mandate the use of style guides, having a consistent code style allows all emLab staff to easily understand each other's code, collaborate on projects, and jump in on new projects. We consider this an important aspect of collaboration, reproducibility, and transparency.  
