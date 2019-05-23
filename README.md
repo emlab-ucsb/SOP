@@ -14,7 +14,7 @@ Standard operating procedures for emLab projects:
 * Data
     + Tidy Data - *Gavin*
     + Storage - *Juan Carlos*
-    + Metadata and Data Directory
+    + Metadata and Data Directory - *Ian*
 * Code
     + Scripts and Version Control
     + Style Guide - *Gavin*
