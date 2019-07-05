@@ -5,15 +5,24 @@ output: html_document
 
 # High Performance Computing
 
-Sometimes a single laptop or desktop computer is not powerful enough for your data analysis needs. In these cases it is advisable to use high performance computing resources such as cloud computing or the UCSB server clusters.
+Certain use cases require high performance computing resources:
+
+  * big data
+  * parallel computing
+  * lengthy computation times
+  * restricted-use data
+
+For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner. In these cases you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations.
 
 
 ## Google Cloud Platform
 
 
+
+
 ## UCSB Server Clusters
 
-The Center for Scientific Computing at UCSB offers many resources for high performance computing to support research, including more than one server cluster for storing and analyzing data. Find out more information at <http://csc.cnsi.ucsb.edu/>. For a broader introduction to high performance computing with clusters see the HPC Carpentry's lessons at <https://hpc-carpentry.github.io/>.
+The Center for Scientific Computing at UCSB provides resources and support for research involving high performance computing, including multiple server clusters for storing and analyzing data. Find out more information at <http://csc.cnsi.ucsb.edu/>. For a broader introduction to high performance computing with clusters see the HPC Carpentry's lessons at <https://hpc-carpentry.github.io/>. The following sections provide guidance for using the server clusters.
 
 ### Accessing the server clusters
 
@@ -21,25 +30,18 @@ To access the server clusters, you must first request a user account. The reques
 
 #### On campus
 
-Once your account has been created, the clusters can be accessed on campus via a terminal emulator using the `ssh` command or via a GUI SSH app, such as [X2Go](https://wiki.x2go.org/doku.php). On macOS or Linux the default terminal apps can be used. On Windows the [PuTTY](https://www.putty.org/) or X2Go apps can be used. Once the terminal is started, to connect to the Knot or Pod clusters enter one of the commands
+Once your account has been created, the clusters can be accessed on campus via a terminal emulator using the `ssh` command or via a GUI SSH app, such as [X2Go](https://wiki.x2go.org/doku.php). On macOS or Linux the default terminal apps can be used. On Windows the [PuTTY](https://www.putty.org/) or X2Go apps can be used. Once a terminal is started, connect to a cluster by entering one of the commands
 
 ```
 ssh user@knot.cnsi.ucsb.edu
-# or
+```
+```
 ssh user@pod.cnsi.ucsb.edu
 ```
 
-where `user` is your server username. You will then be prompted for your password.
+where `user` is your server username. You will then be prompted for your password. SSH keys can also be set up to skip password entry.
 
-To use GUI applications on the clusters, which is not recommended because of performance issues, a slightly different process is needed in order to enter an XWindows environment. On macOS, [XQuartz](https://www.xquartz.org/) must be installed. On Windows, use the X2Go app to connect to the server. More info on X2Go can be found at <http://csc.cnsi.ucsb.edu/docs/using-x2go-gui-login-knot-or-pod>. To use GUIs, enter one of the commands
-
-```
-ssh -X user@knot.cnsi.ucsb.edu
-# or
-ssh -X user@pod.cnsi.ucsb.edu
-```
-
-Once connected, you will interact with the Linux server using the command line interface. The default working directory is your home folder `/home/user`. Note that this is the login node, but all analyses should be run on compute nodes. These analyses should be submitted as jobs (see below) to the queue, which allocates nodes.
+Once connected, you will interact with the Linux server using the command line interface. The default working directory is your home folder `/home/user`. Note that this is the login node, but all analyses should be run on compute nodes. These analyses should be submitted as jobs (see [below](#submitting-jobs)) to the queue, which allocates compute nodes.
 
 To disconnect from the server, enter `exit`.
 
@@ -47,10 +49,9 @@ To disconnect from the server, enter `exit`.
 
 The servers can be accessed off campus using the UCSB Pulse Secure Connect VPN service for secure remote access. Instructions for installing the VPN app can be found at <https://www.ets.ucsb.edu/services/campus-vpn/get-connected>. Once the app is installed, open it and select connect for UCSB Remote Access. You will then be prompted to enter your UCSBnetID and the associated password. Once connected, indicated by a green checkmark, you can then access the server as you normally would on campus by using a terminal or GUI SSH app.
 
-
 ### Managing files
 
-File management on the server clusters involves commonly used Linux commands to navigate and modify files and folders. The generic setup is `command [options] arguments`. Most of the following commands have multiple options that are not covered here. For detailed documentation enter `man command`. Additionally, for a guided tutorial see the Software Carpentry's lesson on the Unix shell at <http://swcarpentry.github.io/shell-novice/>.
+File management on the server clusters involves commonly used Linux commands to navigate and modify files and folders. The generic setup is `command [options] <arguments>`. Most of the following commands have multiple options that are not covered here. For detailed documentation enter `man command`. Additionally, for a broader introduction to Linux commands see the Software Carpentry's lessons at <http://swcarpentry.github.io/shell-novice/>.
 
 #### Navigation
 
@@ -136,38 +137,36 @@ To change permissions enter
 `Ctrl-U` - clear line from cursor  
 `Ctrl-C` - cancel command  
 `*` - wildcard completion  
-`Tab key` - autocompletion  
+`Tab` - autocompletion  
 `Up and down arrow keys` - cycle through command history
 
 #### Transferring files
 
-To transfer files to and from the server or your local computer, use `scp` or `rsync` commands in the terminal or use a SFTP GUI app. On macOS, [Cyberduck](https://cyberduck.io/) and [FileZilla](https://filezilla-project.org/) are good options. On Windows, [WinSCP](https://winscp.net/eng/index.php) and FileZilla are good options. On Linux, FileZilla is a good option. Another option is to use [Globus Online](http://csc.cnsi.ucsb.edu/docs/globus-online), a web app for transferring large files.
-
+To transfer files between the server and your local computer, use `scp` or `rsync` commands in the terminal or use a SFTP GUI app. On macOS, [Cyberduck](https://cyberduck.io/) and [FileZilla](https://filezilla-project.org/) are good options. On Windows, [WinSCP](https://winscp.net/eng/index.php) and FileZilla are good options. On Linux, FileZilla is a good option. Another option is to use [Globus Online](http://csc.cnsi.ucsb.edu/docs/globus-online), a web app for transferring large files.
 
 ### Using rsync to transfer files
 
-The rsync command line tool provides fast, incremental file transfer. It can be used to transfer files between servers or between a local computer and a server. The primary use case is to sync two folders, such as a synced backup folder. For more detailed documentation see <https://rsync.samba.org/>.
+The rsync command line tool provides fast, incremental file transfer. It can be used to transfer files between servers or between a local computer and a server. The primary use case for rsync is to sync two folders, such as a synced backup folder. For more detailed documentation see <https://rsync.samba.org/>.
 
 The generic setup for an rsync command is
 
 ```
-rsync [options] source destination
+rsync [options] <source> <destination>
 ```
 
-The typical options used, here with an example of transferring an entire directory from a local machine to the Pod server cluster, are
+With an example of transferring an entire directory from a local computer to the Pod server cluster, a typical rsync command with commonly used options is
 
 ```
 rsync -avzP -e ssh /home/user/project/ user@pod.cnsi.ucsb.edu:/home/user/project
 ```
 
-This example represents a push transfer. A pull transfer could also be completed by switching the source and destination. When transferring entire directories, a forward slash on the source matters but never for the destination. In this case, the 'project' folder has a forward slash and all its contents will be replicated exactly in the destination 'project' folder, copying all contents except the top 'project' folder. Without the forward slash on the source there would be another 'project' folder within the 'project' folder at the destination.
+This example represents a push transfer. A pull transfer could also be completed by simply switching the source and destination. When transferring entire directories, a forward slash on the source matters but never for the destination. In this case, the 'project' folder has a forward slash and all its contents will be replicated exactly in the destination 'project' folder, copying all contents except the top 'project' folder. Without the forward slash on the source there would be another 'project' folder within the 'project' folder at the destination.
 
 The rsync options can be specified in short or long forms. In this use case, the `-a`  or `--archive` option completely replicates all folders and files, including recursively through all subdirectories while preserving symbolic links, permissions, and ownership. The `-v` or `--verbose` option increases the amount of information that is logged. The `-z` or `--compress` option compresses files during transit to reduce transfer time. The `-P` or `--partial --progress` option enables partially transferred files to be kept in case of a break or pause and also displays the progress of individual file transfers. Many other options exist, but these are the primary ones. Additionally, add the `-n` or `--dry-run` option to test what an rsync command will do without making changes.
 
 After the command is submitted, the user will be prompted for a password if transferring to or from a server. If using rsync frequently, SSH keys can also be set up to skip password entry.
 
 For large transfers, sometimes the process needs to be paused and resumed, or sometimes the transfer can be interrupted due to a server, network, or power outage. The `-P` or `--partial` option should always be used to preserve the files or parts of files that have already been transferred and to avoid having to start over. To pause a transfer, use `Ctrl-C`. To resume, resubmit the same rsync command with the `--append` option added, which will restart the transfer where it left off. When syncing to a backup folder, add the `--delete` option to delete files and folders that have been deleted in the source.
-
 
 ### Submitting jobs
 
@@ -236,13 +235,13 @@ qsub -q xlargemem submit.pbs
 The `qsub` command will return a job number. To check the status of a job, use the command
 
 ```
-qstat [job number]
+qstat <job number>
 ```
 
 To cancel or delete a job, use the command
 
 ```
-qdel [job number]
+qdel <job number>
 ```
 
 The outputs of the analysis in the script will be returned in the same folder as the .pbs file that was submitted, typically with the filename structure `submit.pbs.[job number]` unless otherwise specified.
@@ -308,7 +307,7 @@ sbatch -p fat submit.job
 The `sbatch` command will return a job number. To check the status of a job, use one of the commands
 
 ```
-showq [job number]
+showq <job number>
 # or
 showq | grep mdono
 # or
@@ -318,11 +317,10 @@ squeue -u $USER
 To cancel or delete a job, use the command
 
 ```
-scancel -i [job number]
+scancel -i <job number>
 ```
 
 The outputs of the analysis in the script will be returned in the same folder as the .job file that was submitted, typically with the filename structure `slurm-[jobnumber].out` unless otherwise specified.
-
 
 #### Available software
 
