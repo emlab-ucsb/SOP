@@ -107,22 +107,17 @@
             <section class="normal" id="section-">
 <div id="ucsb-server-clusters" class="section level2">
 <h2><span class="header-section-number">4.2</span> UCSB Server Clusters</h2>
-<p>The Center for Scientific Computing at UCSB offers many resources for high performance computing to support research, including more than one server cluster for storing and analyzing data. Find out more information at <a href="http://csc.cnsi.ucsb.edu/" class="uri">http://csc.cnsi.ucsb.edu/</a>. For a broader introduction to high performance computing with clusters see the HPC Carpentry’s lessons at <a href="https://hpc-carpentry.github.io/" class="uri">https://hpc-carpentry.github.io/</a>.</p>
+<p>The Center for Scientific Computing at UCSB provides resources and support for research involving high performance computing, including multiple server clusters for storing and analyzing data. Find out more information at <a href="http://csc.cnsi.ucsb.edu/" class="uri">http://csc.cnsi.ucsb.edu/</a>. For a broader introduction to high performance computing with clusters see the HPC Carpentry’s lessons at <a href="https://hpc-carpentry.github.io/" class="uri">https://hpc-carpentry.github.io/</a>. The following sections provide guidance for using the server clusters.</p>
 <div id="accessing-the-server-clusters" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Accessing the server clusters</h3>
 <p>To access the server clusters, you must first request a user account. The request form can be found at <a href="http://csc.cnsi.ucsb.edu/acct" class="uri">http://csc.cnsi.ucsb.edu/acct</a>. On the form, the job type selection should probably be GPU. In the job type description you should enter any relevant information related to user groups, access to specific folders, or special software usage. If needing Stata, you should request access under the <code>econ</code> group, which holds the license to use Stata. The system to be used should be Pod and Knot, which are the two primary Linux-based server clusters. Pod is the newest cluster and offers greater capabilities, but Knot is still adequate for most analysis needs and typically has less active users (i.e., a shorter queue). Either cluster allows 4 TB of storage per user and more can be requested if needed.</p>
 <div id="on-campus" class="section level4">
 <h4><span class="header-section-number">4.2.1.1</span> On campus</h4>
-<p>Once your account has been created, the clusters can be accessed on campus via a terminal emulator using the <code>ssh</code> command or via a GUI SSH app, such as <a href="https://wiki.x2go.org/doku.php">X2Go</a>. On macOS or Linux the default terminal apps can be used. On Windows the <a href="https://www.putty.org/">PuTTY</a> or X2Go apps can be used. Once the terminal is started, to connect to the Knot or Pod clusters enter one of the commands</p>
-<pre><code>ssh user@knot.cnsi.ucsb.edu
-# or
-ssh user@pod.cnsi.ucsb.edu</code></pre>
-<p>where <code>user</code> is your server username. You will then be prompted for your password.</p>
-<p>To use GUI applications on the clusters, which is not recommended because of performance issues, a slightly different process is needed in order to enter an XWindows environment. On macOS, <a href="https://www.xquartz.org/">XQuartz</a> must be installed. On Windows, use the X2Go app to connect to the server. More info on X2Go can be found at <a href="http://csc.cnsi.ucsb.edu/docs/using-x2go-gui-login-knot-or-pod" class="uri">http://csc.cnsi.ucsb.edu/docs/using-x2go-gui-login-knot-or-pod</a>. To use GUIs, enter one of the commands</p>
-<pre><code>ssh -X user@knot.cnsi.ucsb.edu
-# or
-ssh -X user@pod.cnsi.ucsb.edu</code></pre>
-<p>Once connected, you will interact with the Linux server using the command line interface. The default working directory is your home folder <code>/home/user</code>. Note that this is the login node, but all analyses should be run on compute nodes. These analyses should be submitted as jobs (see below) to the queue, which allocates nodes.</p>
+<p>Once your account has been created, the clusters can be accessed on campus via a terminal emulator using the <code>ssh</code> command or via a GUI SSH app, such as <a href="https://wiki.x2go.org/doku.php">X2Go</a>. On macOS or Linux the default terminal apps can be used. On Windows the <a href="https://www.putty.org/">PuTTY</a> or X2Go apps can be used. Once a terminal is started, connect to a cluster by entering one of the commands</p>
+<pre><code>ssh user@knot.cnsi.ucsb.edu</code></pre>
+<pre><code>ssh user@pod.cnsi.ucsb.edu</code></pre>
+<p>where <code>user</code> is your server username. You will then be prompted for your password. SSH keys can also be set up to skip password entry.</p>
+<p>Once connected, you will interact with the Linux server using the command line interface. The default working directory is your home folder <code>/home/user</code>. Note that this is the login node, but all analyses should be run on compute nodes. These analyses should be submitted as jobs (see <a href="4-2-ucsb-server-clusters.html#submitting-jobs">below</a>) to the queue, which allocates compute nodes.</p>
 <p>To disconnect from the server, enter <code>exit</code>.</p>
 </div>
 <div id="off-campus" class="section level4">
@@ -132,7 +127,7 @@ ssh -X user@pod.cnsi.ucsb.edu</code></pre>
 </div>
 <div id="managing-files" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Managing files</h3>
-<p>File management on the server clusters involves commonly used Linux commands to navigate and modify files and folders. The generic setup is <code>command [options] arguments</code>. Most of the following commands have multiple options that are not covered here. For detailed documentation enter <code>man command</code>. Additionally, for a guided tutorial see the Software Carpentry’s lesson on the Unix shell at <a href="http://swcarpentry.github.io/shell-novice/" class="uri">http://swcarpentry.github.io/shell-novice/</a>.</p>
+<p>File management on the server clusters involves commonly used Linux commands to navigate and modify files and folders. The generic setup is <code>command [options] &lt;arguments&gt;</code>. Most of the following commands have multiple options that are not covered here. For detailed documentation enter <code>man command</code>. Additionally, for a broader introduction to Linux commands see the Software Carpentry’s lessons at <a href="http://swcarpentry.github.io/shell-novice/" class="uri">http://swcarpentry.github.io/shell-novice/</a>.</p>
 <div id="navigation" class="section level4">
 <h4><span class="header-section-number">4.2.2.1</span> Navigation</h4>
 <p><code>pwd</code> - present working directory</p>
@@ -240,22 +235,22 @@ Note: This may not work well for all files. Use arrow keys to navigate and enter
 <code>Ctrl-U</code> - clear line from cursor<br />
 <code>Ctrl-C</code> - cancel command<br />
 <code>*</code> - wildcard completion<br />
-<code>Tab key</code> - autocompletion<br />
+<code>Tab</code> - autocompletion<br />
 <code>Up and down arrow keys</code> - cycle through command history</p>
 </div>
 <div id="transferring-files" class="section level4">
 <h4><span class="header-section-number">4.2.2.5</span> Transferring files</h4>
-<p>To transfer files to and from the server or your local computer, use <code>scp</code> or <code>rsync</code> commands in the terminal or use a SFTP GUI app. On macOS, <a href="https://cyberduck.io/">Cyberduck</a> and <a href="https://filezilla-project.org/">FileZilla</a> are good options. On Windows, <a href="https://winscp.net/eng/index.php">WinSCP</a> and FileZilla are good options. On Linux, FileZilla is a good option. Another option is to use <a href="http://csc.cnsi.ucsb.edu/docs/globus-online">Globus Online</a>, a web app for transferring large files.</p>
+<p>To transfer files between the server and your local computer, use <code>scp</code> or <code>rsync</code> commands in the terminal or use a SFTP GUI app. On macOS, <a href="https://cyberduck.io/">Cyberduck</a> and <a href="https://filezilla-project.org/">FileZilla</a> are good options. On Windows, <a href="https://winscp.net/eng/index.php">WinSCP</a> and FileZilla are good options. On Linux, FileZilla is a good option. Another option is to use <a href="http://csc.cnsi.ucsb.edu/docs/globus-online">Globus Online</a>, a web app for transferring large files.</p>
 </div>
 </div>
 <div id="using-rsync-to-transfer-files" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Using rsync to transfer files</h3>
-<p>The rsync command line tool provides fast, incremental file transfer. It can be used to transfer files between servers or between a local computer and a server. The primary use case is to sync two folders, such as a synced backup folder. For more detailed documentation see <a href="https://rsync.samba.org/" class="uri">https://rsync.samba.org/</a>.</p>
+<p>The rsync command line tool provides fast, incremental file transfer. It can be used to transfer files between servers or between a local computer and a server. The primary use case for rsync is to sync two folders, such as a synced backup folder. For more detailed documentation see <a href="https://rsync.samba.org/" class="uri">https://rsync.samba.org/</a>.</p>
 <p>The generic setup for an rsync command is</p>
-<pre><code>rsync [options] source destination</code></pre>
-<p>The typical options used, here with an example of transferring an entire directory from a local machine to the Pod server cluster, are</p>
+<pre><code>rsync [options] &lt;source&gt; &lt;destination&gt;</code></pre>
+<p>With an example of transferring an entire directory from a local computer to the Pod server cluster, a typical rsync command with commonly used options is</p>
 <pre><code>rsync -avzP -e ssh /home/user/project/ user@pod.cnsi.ucsb.edu:/home/user/project</code></pre>
-<p>This example represents a push transfer. A pull transfer could also be completed by switching the source and destination. When transferring entire directories, a forward slash on the source matters but never for the destination. In this case, the ‘project’ folder has a forward slash and all its contents will be replicated exactly in the destination ‘project’ folder, copying all contents except the top ‘project’ folder. Without the forward slash on the source there would be another ‘project’ folder within the ‘project’ folder at the destination.</p>
+<p>This example represents a push transfer. A pull transfer could also be completed by simply switching the source and destination. When transferring entire directories, a forward slash on the source matters but never for the destination. In this case, the ‘project’ folder has a forward slash and all its contents will be replicated exactly in the destination ‘project’ folder, copying all contents except the top ‘project’ folder. Without the forward slash on the source there would be another ‘project’ folder within the ‘project’ folder at the destination.</p>
 <p>The rsync options can be specified in short or long forms. In this use case, the <code>-a</code> or <code>--archive</code> option completely replicates all folders and files, including recursively through all subdirectories while preserving symbolic links, permissions, and ownership. The <code>-v</code> or <code>--verbose</code> option increases the amount of information that is logged. The <code>-z</code> or <code>--compress</code> option compresses files during transit to reduce transfer time. The <code>-P</code> or <code>--partial --progress</code> option enables partially transferred files to be kept in case of a break or pause and also displays the progress of individual file transfers. Many other options exist, but these are the primary ones. Additionally, add the <code>-n</code> or <code>--dry-run</code> option to test what an rsync command will do without making changes.</p>
 <p>After the command is submitted, the user will be prompted for a password if transferring to or from a server. If using rsync frequently, SSH keys can also be set up to skip password entry.</p>
 <p>For large transfers, sometimes the process needs to be paused and resumed, or sometimes the transfer can be interrupted due to a server, network, or power outage. The <code>-P</code> or <code>--partial</code> option should always be used to preserve the files or parts of files that have already been transferred and to avoid having to start over. To pause a transfer, use <code>Ctrl-C</code>. To resume, resubmit the same rsync command with the <code>--append</code> option added, which will restart the transfer where it left off. When syncing to a backup folder, add the <code>--delete</code> option to delete files and folders that have been deleted in the source.</p>
@@ -298,9 +293,9 @@ qsub -q largemem submit.pbs
 # or 512 GB/node
 qsub -q xlargemem submit.pbs</code></pre>
 <p>The <code>qsub</code> command will return a job number. To check the status of a job, use the command</p>
-<pre><code>qstat [job number]</code></pre>
+<pre><code>qstat &lt;job number&gt;</code></pre>
 <p>To cancel or delete a job, use the command</p>
-<pre><code>qdel [job number]</code></pre>
+<pre><code>qdel &lt;job number&gt;</code></pre>
 <p>The outputs of the analysis in the script will be returned in the same folder as the .pbs file that was submitted, typically with the filename structure <code>submit.pbs.[job number]</code> unless otherwise specified.</p>
 </div>
 <div id="pod" class="section level4">
@@ -336,13 +331,13 @@ cd $SLURM_SUBMIT_DIR
 <pre><code># 1.5 TB/node
 sbatch -p fat submit.job</code></pre>
 <p>The <code>sbatch</code> command will return a job number. To check the status of a job, use one of the commands</p>
-<pre><code>showq [job number]
+<pre><code>showq &lt;job number&gt;
 # or
 showq | grep mdono
 # or
 squeue -u $USER</code></pre>
 <p>To cancel or delete a job, use the command</p>
-<pre><code>scancel -i [job number]</code></pre>
+<pre><code>scancel -i &lt;job number&gt;</code></pre>
 <p>The outputs of the analysis in the script will be returned in the same folder as the .job file that was submitted, typically with the filename structure <code>slurm-[jobnumber].out</code> unless otherwise specified.</p>
 </div>
 <div id="available-software" class="section level4">
