@@ -168,6 +168,10 @@ After the command is submitted, the user will be prompted for a password if tran
 
 For large transfers, sometimes the process needs to be paused and resumed, or sometimes the transfer can be interrupted due to a server, network, or power outage. The `-P` or `--partial` option should always be used to preserve the files or parts of files that have already been transferred and to avoid having to start over. To pause a transfer, use `Ctrl-C`. To resume, resubmit the same rsync command with the `--append` option added, which will restart the transfer where it left off. When syncing to a backup folder, add the `--delete` option to delete files and folders that have been deleted in the source.
 
+### Using software containers
+
+Software containers can be used on the server clusters via [Singularity](https://sylabs.io/singularity/). Containers enable fully reproducible research by packaging a computing environment and the necessary software packages and applications as a self-contained image file that can be easily transferred to and run on any other system. They are also useful for collaborating across different institutions and computing infrastructures. Find out more information at <http://csc.cnsi.ucsb.edu/docs/containers>.
+
 ### Submitting jobs
 
 The server clusters are shared resources, and a job queue process is used to manage and allocate resources among users. A job is simply a set of instructions that includes requests for resources and the specific set of commands to be executed, such as commands for analyzing data. When a user submits a job to the server for execution it enters the queue and is scheduled for a specific time.
