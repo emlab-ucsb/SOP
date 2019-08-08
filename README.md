@@ -8,6 +8,8 @@ Standard operating procedures for emLab projects:
 ## Table of Contents
 
 * Project Management  
+    + Google Calendar - *Erin*
+    + Slack - *Erin*
     + Airtable - *Erin*
     + Google Team Drive - *Erin and Juan Carlos*
     + GitHub - *Kat*
