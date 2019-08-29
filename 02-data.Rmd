@@ -5,6 +5,22 @@ output: html_document
 
 # Data
 
+Data should be managed and shared properly to make it useful in research, to promote transparency and facilitate reproducibility, and to ensure the credibility of research. This includes such practices as transforming data into a tidy format, storing data in open file formats, and providing data documentation.
+
+**Recommended readings:**
+
+Borer, Elizabeth T., Eric W. Seabloom, Matthew B. Jones, and Mark Schildhauer. 2009. “Some Simple Guidelines for Effective Data Management.” *The Bulletin of the Ecological Society of America* 90 (2): 205–14. <https://doi.org/10.1890/0012-9623-90.2.205>.
+
+Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” *The American Statistician* 72 (1): 2–10. <https://doi.org/10.1080/00031305.2017.1375989>.
+
+Ellis, Shannon E., and Jeffrey T. Leek. 2018. “How to Share Data for Collaboration.” *The American Statistician* 72 (1): 53–57. <https://doi.org/10.1080/00031305.2017.1375987>.
+
+Goodman, Alyssa, Alberto Pepe, Alexander W. Blocker, Christine L. Borgman, Kyle Cranmer, Merce Crosas, Rosanne Di Stefano, et al. 2014. “Ten Simple Rules for the Care and Feeding of Scientific Data.” *PLOS Computational Biology* 10 (4): e1003542. <https://doi.org/10.1371/journal.pcbi.1003542>.
+
+Hart, Edmund M., Pauline Barmby, David LeBauer, François Michonneau, Sarah Mount, Patrick Mulrooney, Timothée Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister. 2016. “Ten Simple Rules for Digital Data Storage.” *PLOS Computational Biology* 12 (10): e1005097. <https://doi.org/10.1371/journal.pcbi.1005097>.
+
+Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” *Scientific Data* 3 (March): 160018. <https://doi.org/10.1038/sdata.2016.18>.
+
 
 ## Tidy Data  
 
