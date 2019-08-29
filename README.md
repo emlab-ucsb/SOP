@@ -18,9 +18,8 @@ Standard operating procedures for emLab projects:
     + Storage - *Juan Carlos*
     + Metadata and Data Directory - *Ian*
 * Code
-    + Scripts and Version Control
+    + Scripts and Version Control - *Derek*
     + Style Guide - *Gavin*
-    + GitHub Workflow
 * High Performance Computing
     + Google Cloud Platform - *Juan*
     + UCSB Server Clusters - *Derek*

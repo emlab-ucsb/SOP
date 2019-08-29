@@ -5,8 +5,26 @@ output: html_document
 
 # Code
 
+All data transformation and analysis should be performed with code (i.e., avoid spreadsheets), and all code should be packaged in scripts that are version controlled and follow a style guide. Using code and scripts allows for better organization, documentation, and reproducibility of analysis workflows.
+
+**Recommended readings:**
+
+Bryan, Jennifer. 2018. “Excuse Me, Do You Have a Moment to Talk About Version Control?” *The American Statistician* 72 (1): 20–27. <https://doi.org/10.1080/00031305.2017.1399928>.
+
+Stodden, Victoria, and Sheila Miguez. 2014. “Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research.” *Journal of Open Research Software* 2 (1): e21. <https://doi.org/10.5334/jors.ay>.
+
+Wilson, Greg, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, et al. 2014. “Best Practices for Scientific Computing.” *PLOS Biology* 12 (1): e1001745. <https://doi.org/10.1371/journal.pbio.1001745>.
+
+Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. “Good Enough Practices in Scientific Computing.” *PLOS Computational Biology* 13 (6): e1005510. <https://doi.org/10.1371/journal.pcbi.1005510>.
+
 
 ## Scripts and Version Control
+
+Code should be maintained in script files and organized in such a way to enhance readability and comprehension. For example, use a standardized header to describe scripts and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, scripts should use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document and run all scripts in a specified order. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.
+
+Scripts should be version controlled using [Git](https://git-scm.com/), which tracks changes in code by line. Git documents changes in code when you submit a commit. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and make it easier to revert changes. Git commit messages should be informative and follow a certain style, such as the guide found [here](https://chris.beams.io/posts/git-commit/). Git is a command-line tool, but there are also GUI apps like [GitKraken](https://www.gitkraken.com/) or [GitFiend](https://gitfiend.com/) that may make it easier to use. RStudio also has built-in support for using Git through a GUI. There is an art to the version control process, so just keep in mind the general principle of making atomic commits. For an introduction to Git, see the Software Carpentry's lesson at <http://swcarpentry.github.io/git-novice/>.
+
+emLab uses [GitHub](https://github.com/emlab-ucsb) to host code in the cloud, which makes collaborative code development easier and also provides related project management tools. (You may need to be added to emLab's GitHub organization.) Code repositories can be public or private, depending on the nature of the project. Furthermore, workflows for Git and GitHub, such as using pull requests or not, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.
 
 
 ## Style Guide  
@@ -19,6 +37,3 @@ Rather than re-invent the wheel, we leverage existing code style guidelines for 
 * *Python* - [Google's Python Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)  
 * *Stata* - [Suggestions on Stata programming style](https://www.stata-journal.com/sjpdf.html?articlenum=pr0018), by Nicolas J. Cox  
 * *Other languages* - [Google style guides for other languages](https://github.com/google/styleguide)  
-
-
-## GitHub Workflow
