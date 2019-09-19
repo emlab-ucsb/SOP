@@ -21,6 +21,7 @@ Hart, Edmund M., Pauline Barmby, David LeBauer, François Michonneau, Sarah Moun
 
 Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” *Scientific Data* 3 (March): 160018. <https://doi.org/10.1038/sdata.2016.18>.
 
+Also see the resources available at [DataONE](https://www.dataone.org/resources).
 
 ## Tidy Data  
 
