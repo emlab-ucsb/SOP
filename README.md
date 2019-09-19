@@ -27,8 +27,8 @@ Standard operating procedures for emLab projects:
 
 ## Contributing
 
-After pulling the latest updates and adding or revising content, use the following command to render the book:
+The website is built using the `bookdown` package for R. After pulling the latest updates and adding or revising content, use the following command to render the website:
 
-`bookdown::render_book(input = "index.Rmd", output_format = "bookdown::gitbook")`
+`bookdown::render_book(input = "index.Rmd")`
 
 Then commit the changes and push to the repo. The GitHub website will automatically update with the new changes.
