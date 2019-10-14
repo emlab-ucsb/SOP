@@ -25,12 +25,12 @@ See this [Room Scheduling](https://docs.google.com/document/d/18Caz3DMFJAN25Yo3v
 
 ## Slack
 
-Our team uses Slack on a daily basis to keep communication channels open within teams and across our different offices. We have an emLab workspace that houses all of our channels. When you are first added to Slack, you will be added to the General, Random, Communications, Report and Publications, and Code channels. We also have a channel for every project, which you will be aded to as needed. We recommend downloading the desktop app, but you can also view Slack in a browser window.
+Our team uses Slack on a daily basis to keep communication channels open within teams and across our different offices. We have an emLab work space that houses all of our channels. When you are first added to Slack, you will be added to the General, Random, Communications, Report and Publications, and Code channels. We also have a channel for every project, which you will be added to as needed. We recommend downloading the desktop app, but you can also view Slack in a browser window.
 
 ### Slack basics
 Slack is organized into Channels and Direct Messages. Channels are a way to organize conversations and other than a couple general emLab channels, are often project specific. Whatever you share in a channel is viewable by all members of that channel. You can also send direct messages to an individual or a group of up to 9 people. 
 
-One great thing about Slack is that it’s searchable. You can search either by person or keywords to find old messages. Additionally, if someone sends you something you will need to reference multiple times, you can star messages and view them by clicking the star in the upper righthand corner.
+One great thing about Slack is that it’s searchable. You can search either by person or keywords to find old messages. Additionally, if someone sends you something you will need to reference multiple times, you can star messages and view them by clicking the star in the upper right-hand corner.
 
 People have differing notification preferences, which you can set under Preferences → Notifications. If someone sends you a direct message or tags you, a number will show up on your slack app. If they add something to a channel you are on but don’t tag you, a red dot will show up. To ensure someone gets a numbered notification (number is based on the number of messages), either tag them (i.e. @Erin) or tag the channel (i.e. @channel). Tagging the channel will send a notification to every member of that channel.
 
@@ -100,7 +100,7 @@ There are 5 different ways to view your base:
 * Kanaban: view in columns (similar to Trello)
 * Calendar: view items on a calendar
 * Gallery: view each entry as its own card
-* Form: creates something similar to a GoogleForm
+* Form: creates something similar to a Google Form
 
 You can also name different views of the same tab. For example, say you have a tasks tab and want to separately group them by deliverable and view what items are complete. Instead of manually changing this each time, create and name one view that groups by deliverable and then create and name another view that groups by completed. This way you can toggle back and forth with ease. 
 
@@ -114,20 +114,20 @@ Grouping allows you to bucket your spreadsheet by field type.
 
 Example 1: Say you have a “Complete?” checkbox column. If you choose to group by “Complete?” it will place all records with the box checked in one bucket and all records that aren’t checked in another bucket. 
 
-Example 2: For the clean seafood project, there are four different research tracks and general items for the team to complete. If you create a “Research Track” column with a dropdown of the different tracks and group by track, you can view deliverables separated out by research track. 
+Example 2: For the clean seafood project, there are four different research tracks and general items for the team to complete. If you create a “Research Track” column with a drop-down of the different tracks and group by track, you can view deliverables separated out by research track. 
 Expanding record
 Within each tab, you can expand records in the first column to view all its information at once by clicking the two opposing arrows before the text. This option combines information from all of the columns into an easy to read card format.
 
 ## Google Shared Drive
 
-We have all experienced the moment where we can’t remember where a GoogleDoc is. To help solve this problem, we created an emLab Shared Google Drive, which is a centralized space for all of our documents to live within a shared file structure. Unlike files in My Drive (your personal Google Drive account), files within the Shared Drive belong to the team instead of an individual. So even if people leave, the files stay exactly where they are and aren’t lost with that person’s account. You can read more about Shared Drives [here](https://support.google.com/a/users/answer/9310351). 
+We have all experienced the moment where we can’t remember where a Google Doc is. To help solve this problem, we created an emLab Shared Google Drive, which is a centralized space for all of our documents to live within a shared file structure. Unlike files in My Drive (your personal Google Drive account), files within the Shared Drive belong to the team instead of an individual. So even if people leave, the files stay exactly where they are and aren’t lost with that person’s account. You can read more about Shared Drives [here](https://support.google.com/a/users/answer/9310351). 
 
 ### General structure
 
 The emLab Shared Drive is organized into four main folders:
 
 * Central emLab Resources: includes meeting and event information, onboarding materials, information about travel reimbursements, and the team roster
-* Communications: includes the blog schedule, Adobe design projects, powerpoint templates, photo repository, and publication and media tracking
+* Communications: includes the blog schedule, Adobe design projects, PowerPoint templates, photo repository, and publication and media tracking
 * Data: will include the emLab data directory and all datasets we work with
 * Projects: includes information on past and current projects, and project management guidelines
 
@@ -156,4 +156,123 @@ If you want to share files with people outside of the emLab Shared Drive, that i
 * *Background of why people would want to install drive file stream*
 * *Include both simple instructions and instructions of how to deal with mounting 2 different accounts*
 
-## GitHub
+## Git and GitHub
+
+Since most of our projects at emLab involve code, we use Git to track changes made to our code and faciliate collaboration by merging changes made by others, and GitHub to organize, share, and backup our code. 
+
+This section provides a brief overview of how Git and Github work, how to install them on your computer (and how to join the emLab GitHub page), and some general guidelines for how to use GitHub to organizing code associated with emLab projects. 
+
+### What are Git and GitHub? 
+
+Git is an open-source version control system designed for programmers. Git can operate as a standalone program on your computer, but can also operated through many other programs (or "clients"). GitHub (really github.com) is a hosting service that provides online storage for your Git-projects. Think of Git as a little creature that keeps a record of all of the changes made to a file stored on your computer, and GitHub as a safe place on the internet that the little creature can go and put a copy of that file (and the changes you've made) when you tell it to do so.  
+
+There are a number of good tutorials with more information on how Git and GitHub work (as well as how you can set them up to sync directly through other programs such as RStudio). The [Ocean Health Index team at the National Center for Ecological Analysis and Synthesis (NCEAS)](https://www.nceas.ucsb.edu/ocean-health-index) here in Santa Barbara created a very detailed [data science training](http://ohi-science.org/data-science-training/) that includes two excellent tutorials on setting up and collaborating with GitHub: 
+- [GitHub](http://ohi-science.org/data-science-training/github.html)
+- [Collaborating with GitHub](http://ohi-science.org/data-science-training/collaborating.html)
+
+If you're new to using Git and GitHub, the two tutorials listed above are a great place to start since NCEAS and emLab often operate in a similar way. If you primarily use (or will use) R for coding, Jenny Bryan also has an **excellent** tutorial specifically about how to integrate Git and GitHub with R: 
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+
+If you're interested in learning more about all of the functionality GitHub has to offer, the [Openscapes team at NCEAS](https://www.openscapes.org/) has also tutorials on how to use GitHub for publishing code and for project management:
+- [GitHub for Publishing](https://openscapes.github.io/series/github-pub.html)
+- [GitHub for Project Management](https://openscapes.github.io/series/github-issues.html)
+
+### Helpful terminology
+
+Git and GitHub use some wierd terms that might be unfamilar. Before installing and setting up Git and GitHub, here are a few key terms you may come across: 
+
+- repository ("repo"): a collection of files pertaining to the same project, document, goal, etc. Generally there's a single repository for each project at emLab containing all of the code associated with that project. This repository can be organized with multiple folders and subfolders.  
+- commit: a set of changes made by a user to one or more files in a repository that the user wants to prepare to send to GitHub.
+- push: the action of sending a commit from your local machine to the remote GitHub directory. 
+- pull: the action of retrieving any commits that have been made to the repository and are stored in the remote GitHub directory but are NOT on your local machine.
+
+### How to install Git and Github
+
+Most of tutorials listed above include detailed instructions on how to install Git and Github. The short version (and steps specific to getting incorporated with the emLab GitHub page) are listed below. For more detailed instructions, please refer to the tutorials listed above. 
+
+1. Create a free [GitHub](https://github.com/) account (Note: use your @ucsb.edu email!). 
+
+![Landing page for GitHubt](images/github-create-account.png)
+
+Since GitHub is a company, and is used by many different types of organizations in many different industries, they offer a few different pricing schemes/deals. As an individual, once you create a username and sign up for an account, you get an unlimited number of free public and private repositories, but the number of external collaborators allowed in private repositories is limited to three. GitHub also offers a "Pro" plan for $7/month giving you  unlimited external collaborators on all of your private repositories. However, for students, faculty, and research staff, or official nonprofit organizations and charities GitHub waives this fee through its [GitHub Education](https://education.github.com/) and [GitHub for Good](https://github.com/nonprofit) programs. 
+
+Good news! emLab qualifies as an edcuational organization through the GitHub Education program, and as a UCSB staff member you qualify for the individual educational discount. So, once you've signed up for a free account on GitHub... 
+
+2. Go to the [GitHub Education](https://education.github.com/) page and register as a researcher (Note: this is why you should use your @ucsb.edu email for step 1).
+
+![Landing page for GitHub Education](images/github-education.png) 
+
+Click on the "Get benefits" link in the top right-hand corner and follow the directions to upgrade your account to a "Pro" account for free. You may need to take a picture of your UCSB ID card to submit as part of this process. GitHub may also periodically ask you to re-verify your eligability to qualify for this program. 
+
+3. Send Darcy Bradley a Slack message (or an email if you must... darcybradley@ucsb.edu) with your new GitHub username so you can be added to the emLab GitHub page!
+
+![emLab GitHub page](images/github-emlab.png) 
+
+The emLab GitHub page is where the repositories for all emLab projects live (more on this later), and once you are a member of the organization you will be able to create new public and private repositories that appear here (as well as on your personal page). 
+
+4. Install Git
+
+If you're very very lucky, Git will already be installed on your computer. Open the shell for your opperating system. If you're using Mac OS X, this is called Terminal. If you're using Windows, you have multiple types of shells, but you should be using a **Git Bash** shell (NOT Power Shell). The easiest way to find out whether Git is already installed on your machine is to type the following: 
+
+```{bash, eval = F}
+git --version
+## git version 2.20.1 (Apple Git-117)
+```
+
+If it returns a version number, you already have Git installed! However, if it returns something like `git: command not found`, you need to install Git. 
+
+There are a number of different ways to install Git. Stand-alone installers exist for [Mac OS X](https://sourceforge.net/projects/git-osx-installer/files/) and [Windows](https://gitforwindows.org/). If you're using Linux, you probably already know how to install Git.  
+
+If you're using Mac OS X, Git can also be installed as part of the XCode Command Line tools, or you can also install it using Homebrew. If you're interested in either of those options, follow the cooresponding directions in Jenny Bryan's tutorial. If that sentence doesn't mean anything to you, download the installer from the link above and follow the prompts.
+
+Once you've installed Git via whichever method you've chosen for your operating system, open the shell again and retype the same command to verify that the installation was successful: 
+
+```{bash, eval = F}
+git --version
+## git version 2.20.1 (Apple Git-117)
+```
+
+It should now return a version number.
+
+5. Tell Git who you are
+
+Git needs to know a little bit more about you in order to play nicely. In particular there are two things that it's helpful to configure: 1) The name that will be associated with any commits you make, and 2) the email address asssociated with your GitHub account. To set these two things, type the following into the shell: 
+
+```{bash, eval = F}
+git config --global user.name 'Jane Doe'
+git config --global user.email 'jane@example.com'
+```
+
+using your name and email. The user name input here should be your full name (i.e. it **does not** need to be the same as your username for GitHub), but the email **DOES** need to be the same as that associated with your GitHub account. 
+
+You can then check to make sure these were entered correctly by typing: 
+
+```{bash, eval = F}
+git config --global --list
+```
+
+6. Optional: Make a repository on GitHub and practice connecting to it
+
+[Do a practice example here].
+
+7. Optional: Instal a client for Git to make your life easier
+
+If you actually tried step 6 and you're still reading this, you probably don't usually spend a lot of time running commands in the shell and the last step didn't make a lot of sense. If that's the case, you might want to also install a Git client in order to help you visualize what Git is actually doing. You do not need a Git client to take advantage of version-control functionality of Git, as everything can be done using the shell (as in the previous step). However, the shell is not user-friendly. 
+
+There are a number of Git/GitHub clients that you can download to interact with Git and GitHub in a more visual way. 
+
+If you use RStudio, there is a very basic Git client built in that may be enough to get you started (more on this later). Other nice free Git clients include: 
+- [GitKraken](https://www.gitkraken.com/) (available for all platforms, plus the logo octopus is pretty sweet...)
+- [SourceTree](https://www.sourcetreeapp.com/) (has some problems on Mac OS X)
+- [GitHub Desktop](https://desktop.github.com/) (not available for Linux)
+- [GitUp](https://gitup.co/) (only for Mac OS X)
+
+There are many more. See Jenny Bryan's tutorial if you're not satisfied with those choices. 
+
+One you've installed a Git client, follow the directions to connect to your GitHub account. Once you've done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.
+
+### Some general guidelines for using GitHub at emLab
+
+
+
+
