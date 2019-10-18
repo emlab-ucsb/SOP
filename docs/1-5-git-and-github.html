@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.5 Git and GitHub | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.5 Git and GitHub | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -21,18 +21,17 @@
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
 
-<meta name="author" content="" />
 
 
-<meta name="date" content="2019-10-14" />
+<meta name="date" content="2019-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="1-4-google-shared-drive.html"/>
-<link rel="next" href="2-data.html"/>
+<link rel="prev" href="1-4-google-shared-drive.html">
+<link rel="next" href="2-data.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,9 +39,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -53,66 +49,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -194,14 +165,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="what-are-git-and-github" class="section level3">
 <h3><span class="header-section-number">1.5.1</span> What are Git and GitHub?</h3>
 <p>Git is an open-source version control system designed for programmers. Git can operate as a standalone program on your computer, but can also operated through many other programs (or “clients”). GitHub (really github.com) is a hosting service that provides online storage for your Git-projects. Think of Git as a little creature that keeps a record of all of the changes made to a file stored on your computer, and GitHub as a safe place on the internet that the little creature can go and put a copy of that file (and the changes you’ve made) when you tell it to do so.</p>
-<p>There are a number of good tutorials with more information on how Git and GitHub work (as well as how you can set them up to sync directly through other programs such as RStudio). The <a href="https://www.nceas.ucsb.edu/ocean-health-index">Ocean Health Index team at the National Center for Ecological Analysis and Synthesis (NCEAS)</a> here in Santa Barbara created a very detailed <a href="http://ohi-science.org/data-science-training/">data science training</a> that includes two excellent tutorials on setting up and collaborating with GitHub:
-- <a href="http://ohi-science.org/data-science-training/github.html">GitHub</a>
-- <a href="http://ohi-science.org/data-science-training/collaborating.html">Collaborating with GitHub</a></p>
-<p>If you’re new to using Git and GitHub, the two tutorials listed above are a great place to start since NCEAS and emLab often operate in a similar way. If you primarily use (or will use) R for coding, Jenny Bryan also has an <strong>excellent</strong> tutorial specifically about how to integrate Git and GitHub with R:
-- <a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></p>
-<p>If you’re interested in learning more about all of the functionality GitHub has to offer, the <a href="https://www.openscapes.org/">Openscapes team at NCEAS</a> has also tutorials on how to use GitHub for publishing code and for project management:
-- <a href="https://openscapes.github.io/series/github-pub.html">GitHub for Publishing</a>
-- <a href="https://openscapes.github.io/series/github-issues.html">GitHub for Project Management</a></p>
+<p>There are a number of good tutorials with more information on how Git and GitHub work (as well as how you can set them up to sync directly through other programs such as RStudio). The <a href="https://www.nceas.ucsb.edu/ocean-health-index">Ocean Health Index team at the National Center for Ecological Analysis and Synthesis (NCEAS)</a> here in Santa Barbara created a very detailed <a href="http://ohi-science.org/data-science-training/">data science training</a> that includes two excellent tutorials on setting up and collaborating with GitHub: - <a href="http://ohi-science.org/data-science-training/github.html">GitHub</a> - <a href="http://ohi-science.org/data-science-training/collaborating.html">Collaborating with GitHub</a></p>
+<p>If you’re new to using Git and GitHub, the two tutorials listed above are a great place to start since NCEAS and emLab often operate in a similar way. If you primarily use (or will use) R for coding, Jenny Bryan also has an <strong>excellent</strong> tutorial specifically about how to integrate Git and GitHub with R: - <a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></p>
+<p>If you’re interested in learning more about all of the functionality GitHub has to offer, the <a href="https://www.openscapes.org/">Openscapes team at NCEAS</a> has also tutorials on how to use GitHub for publishing code and for project management: - <a href="https://openscapes.github.io/series/github-pub.html">GitHub for Publishing</a> - <a href="https://openscapes.github.io/series/github-issues.html">GitHub for Project Management</a></p>
 </div>
 <div id="helpful-terminology-1" class="section level3">
 <h3><span class="header-section-number">1.5.2</span> Helpful terminology</h3>
@@ -235,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Click on the “Get benefits” link in the top right-hand corner and follow the directions to upgrade your account to a “Pro” account for free. You may need to take a picture of your UCSB ID card to submit as part of this process. GitHub may also periodically ask you to re-verify your eligability to qualify for this program.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Send Darcy Bradley a Slack message (or an email if you must… <a href="mailto:darcybradley@ucsb.edu" class="email">darcybradley@ucsb.edu</a>) with your new GitHub username so you can be added to the emLab GitHub page!</li>
+<li>Send Darcy Bradley a Slack message (or an email if you must… <a href="mailto:darcybradley@ucsb.edu">darcybradley@ucsb.edu</a>) with your new GitHub username so you can be added to the emLab GitHub page!</li>
 </ol>
 <div class="figure">
 <img src="images/github-emlab.png" alt="emLab GitHub page" />
@@ -246,24 +212,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Install Git</li>
 </ol>
 <p>If you’re very very lucky, Git will already be installed on your computer. Open the shell for your opperating system. If you’re using Mac OS X, this is called Terminal. If you’re using Windows, you have multiple types of shells, but you should be using a <strong>Git Bash</strong> shell (NOT Power Shell). The easiest way to find out whether Git is already installed on your machine is to type the following:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fu">git</span> --version</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">## git version 2.20.1 (Apple Git-117)</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> --version
+<span class="co">## git version 2.20.1 (Apple Git-117)</span></code></pre></div>
 <p>If it returns a version number, you already have Git installed! However, if it returns something like <code>git: command not found</code>, you need to install Git.</p>
 <p>There are a number of different ways to install Git. Stand-alone installers exist for <a href="https://sourceforge.net/projects/git-osx-installer/files/">Mac OS X</a> and <a href="https://gitforwindows.org/">Windows</a>. If you’re using Linux, you probably already know how to install Git.</p>
 <p>If you’re using Mac OS X, Git can also be installed as part of the XCode Command Line tools, or you can also install it using Homebrew. If you’re interested in either of those options, follow the cooresponding directions in Jenny Bryan’s tutorial. If that sentence doesn’t mean anything to you, download the installer from the link above and follow the prompts.</p>
 <p>Once you’ve installed Git via whichever method you’ve chosen for your operating system, open the shell again and retype the same command to verify that the installation was successful:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">git</span> --version</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">## git version 2.20.1 (Apple Git-117)</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> --version
+<span class="co">## git version 2.20.1 (Apple Git-117)</span></code></pre></div>
 <p>It should now return a version number.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>Tell Git who you are</li>
 </ol>
 <p>Git needs to know a little bit more about you in order to play nicely. In particular there are two things that it’s helpful to configure: 1) The name that will be associated with any commits you make, and 2) the email address asssociated with your GitHub account. To set these two things, type the following into the shell:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">git</span> config --global user.name <span class="st">&#39;Jane Doe&#39;</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">git</span> config --global user.email <span class="st">&#39;jane@example.com&#39;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> config --global user.name <span class="st">&#39;Jane Doe&#39;</span>
+<span class="fu">git</span> config --global user.email <span class="st">&#39;jane@example.com&#39;</span></code></pre></div>
 <p>using your name and email. The user name input here should be your full name (i.e. it <strong>does not</strong> need to be the same as your username for GitHub), but the email <strong>DOES</strong> need to be the same as that associated with your GitHub account.</p>
 <p>You can then check to make sure these were entered correctly by typing:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">git</span> config --global --list</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> config --global --list</code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>Optional: Make a repository on GitHub and practice connecting to it</li>
 </ol>
@@ -273,11 +239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>If you actually tried step 6 and you’re still reading this, you probably don’t usually spend a lot of time running commands in the shell and the last step didn’t make a lot of sense. If that’s the case, you might want to also install a Git client in order to help you visualize what Git is actually doing. You do not need a Git client to take advantage of version-control functionality of Git, as everything can be done using the shell (as in the previous step). However, the shell is not user-friendly.</p>
 <p>There are a number of Git/GitHub clients that you can download to interact with Git and GitHub in a more visual way.</p>
-<p>If you use RStudio, there is a very basic Git client built in that may be enough to get you started (more on this later). Other nice free Git clients include:
-- <a href="https://www.gitkraken.com/">GitKraken</a> (available for all platforms, plus the logo octopus is pretty sweet…)
-- <a href="https://www.sourcetreeapp.com/">SourceTree</a> (has some problems on Mac OS X)
-- <a href="https://desktop.github.com/">GitHub Desktop</a> (not available for Linux)
-- <a href="https://gitup.co/">GitUp</a> (only for Mac OS X)</p>
+<p>If you use RStudio, there is a very basic Git client built in that may be enough to get you started (more on this later). Other nice free Git clients include: - <a href="https://www.gitkraken.com/">GitKraken</a> (available for all platforms, plus the logo octopus is pretty sweet…) - <a href="https://www.sourcetreeapp.com/">SourceTree</a> (has some problems on Mac OS X) - <a href="https://desktop.github.com/">GitHub Desktop</a> (not available for Linux) - <a href="https://gitup.co/">GitUp</a> (only for Mac OS X)</p>
 <p>There are many more. See Jenny Bryan’s tutorial if you’re not satisfied with those choices.</p>
 <p>One you’ve installed a Git client, follow the directions to connect to your GitHub account. Once you’ve done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.</p>
 </div>
@@ -298,13 +260,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
