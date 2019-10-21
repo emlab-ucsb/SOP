@@ -157,7 +157,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="2-1-tidy-data.html"><a href="2-1-tidy-data.html"><i class="fa fa-check"></i><b>2.1</b> Tidy Data</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="2-1-tidy-data.html"><a href="2-1-tidy-data.html#recommended-resources"><i class="fa fa-check"></i><b>2.1.1</b> Recommended Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="2-2-storage.html"><a href="2-2-storage.html"><i class="fa fa-check"></i><b>2.2</b> Storage</a></li>
+<li class="chapter" data-level="2.2" data-path="2-2-storage.html"><a href="2-2-storage.html"><i class="fa fa-check"></i><b>2.2</b> Storage</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="2-2-storage.html"><a href="2-2-storage.html#datashared"><i class="fa fa-check"></i><b>2.2.1</b> <code>Data/shared</code></a></li>
+<li class="chapter" data-level="2.2.2" data-path="2-2-storage.html"><a href="2-2-storage.html#project-specific-data"><i class="fa fa-check"></i><b>2.2.2</b> Project-specific data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="2-2-storage.html"><a href="2-2-storage.html#general-structure-of-the-data-folder"><i class="fa fa-check"></i><b>2.2.3</b> General structure of the <code>Data</code> folder</a></li>
+</ul></li>
 <li class="chapter" data-level="2.3" data-path="2-3-metadata-and-data-directory.html"><a href="2-3-metadata-and-data-directory.html"><i class="fa fa-check"></i><b>2.3</b> Metadata and Data Directory</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-code.html"><a href="3-code.html"><i class="fa fa-check"></i><b>3</b> Code</a><ul>
@@ -187,6 +191,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="storage" class="section level2">
 <h2><span class="header-section-number">2.2</span> Storage</h2>
+<p>Data from all projects will be stored in the <code>Data</code> directory of our emLab shared drive. Some data will be of general interest to different projects (for example, the “Upsides database”), while some data may be relevant to just one project (<em>e.g.</em> lobster landings for November 2014 in Montserrat Island). As such, data should be stored in the appropriate folders. Data of general interest will be sotred under a <code>Data/shared/</code> folder, subsequently divided as needed. Data relevant to only a few projects will be stored under <code>Data/project_name</code>. The name of this project should match the name of the project, as defined in the <a href="https://docs.google.com/document/d/1a26a6N4akF2dSXWfp0fWxGegd0wvrPVUeaA09en2EPE">emLab Shared Drive Structure</a>.</p>
+<div id="datashared" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> <code>Data/shared</code></h3>
+<p>The data living under <code>Data/shares</code> will often be the product of previous projects, or clean raw data obtained from data providers. For example, the “upsides database” is the product of the <a href="https://www.pnas.org/content/113/18/5125">Costello <em>et al.</em> 2016 paper</a>. On the other hand, the RAM Legacy stock assessment database is often shared with us by the <a href="https://www.ramlegacy.org/">RAM Legacy team</a>. Therefore, when a project uses thes data as input, we make no distinction between “raw” and “processed” data, and treat all data in this folder as “raw data”. This means that these data should not be modified or updated by projects. When needed, updated versions of some data may become available.</p>
+</div>
+<div id="project-specific-data" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Project-specific data</h3>
+<p>For project-specific cases, however, the teams will often receive data from partners, compile it from multiple sources, use survey responses, or extract it from a literature review. These data are termed “raw data”, and should <strong>never</strong> be directly modified -all the errors, mistakes, and gremlins should be kept in the original versions. Instead, they should be processed / cleaned, and then exported as “clean data”, that can be used in analyses.</p>
+<p>For example, suppose that a team working in Montserrat receives a database of lobster landings by the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes and errors that need to be fixed. The team will clean the data (preferabily, using a reproducible script), and then export it to a different location within the project folder. Therefore, the project-level data folders will be divided into <code>raw_data</code> and <code>data</code> folders. The first one will contain all raw data as-is. The second folder will contain clean data, whcich can then be used as input for analyses.</p>
+</div>
+<div id="general-structure-of-the-data-folder" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> General structure of the <code>Data</code> folder</h3>
+<pre><code>Data
+|__shared
+|   |__ upsides
+|   |__ RAM
+|   |   |__ RAM v4.10
+|   |   |__ RAM v4.15
+|   |   |__ RAM v4.25
+|   |   |__ RAM v4.40
+|   |   |__ ...
+|   |__ SST
+|__ montserrat_project
+    |__ raw_data
+    |   |__ lobster_landings_nov_2012.xslx
+    |__ data
+        |__ lobster_landings_nov_2012.csv</code></pre>
+</div>
 </div>
             </section>
 
