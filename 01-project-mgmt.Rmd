@@ -151,10 +151,69 @@ Members of the Shared Drive can see all folders and files within the Drive. If y
 
 If you want to share files with people outside of the emLab Shared Drive, that is still possible. Within a document, click on Share in the upper right hand corner. From there are two options: either add people’s emails or create a shared link. To create a shared link, click Who Has Access and turn link sharing on. From there you can select the level of editing capabilities and either keep the just UCSB access or expand to allow external access. 
 
-### How to install locally (Juan Carlos)
+### Linking the shared drive and your computer
 
-* *Background of why people would want to install drive file stream*
-* *Include both simple instructions and instructions of how to deal with mounting 2 different accounts*
+#### Why install Drive File Stream?
+
+As explained above, using a shared drive means that individuals don't "own" the files. All files are instead owned by the emLab Shared Drive, which lives "on the cloud". You can access these files through a web browser, just as you would access them on Google Drive. However, it is nice to have the files directly in your computer. To do so, you'll need to [install Drive File Stream](https://support.google.com/a/answer/7491144?hl=en), Google's new system that will partially replace Google Backup and Sync
+
+There are important distinctions between **Backup and Sync** and **Drive File Stream**. As the names indicate it, **Backup and Sync** syncs and stores Drive content locally on your computer (that is, it takes up space in your hard drive). **Drive File Stream**, however *streams* all files and folders from the cloud. You can think of these as owning a DVD vs. streming the movie from NetFlix. You can read more on the differences between these approaches [here](https://support.google.com/drive/answer/7638428?hl=en&ref_topic=6069785).
+
+#### Step-by-step installation
+
+- Go to [Get started with Drive File Stream](https://support.google.com/drive/answer/7329379) and select the appropriate installer for your operating system.
+
+    - Note: Make sure you are on your ucsb account
+
+![Dowload Drive File Stream](images/shared-drive-download-installer.png)
+
+- If you are on a Windows machine, execute the `googledrivefilestream.exe` file. If you are on MacOS, run the `googledrivefilestream.dmg` file and then run the `GoogleDriveFileStream.pkg` file
+
+- Follow instruction on the helper (accept all defaults)
+
+Once the installation is complete, you'll need to sign in to your account. To do so:
+
+- Click on the Drive File Stram icon (![](images/shared-drive-icon.png))
+
+    - On Windows machines, it should be on the bottom right corner of your screen
+    
+    - On MacOS, it should be at the top right of your screen
+
+- Sign in with your ucsb account
+
+- After signing in, the application will launch a short 4-screen overview of the product
+
+- The last screen should look like the screenshot below. Click on the button to open your GoogleDrive folder and access your files
+
+![four-screen overview](images/shared-drive-open-folder.png)
+
+Once that finder / explorer opens, you should be able to see two folders: 1) `My Drive` and 2) `Shared drives`. The first folder will contain files owned by you (that is, your normal Google Drive Files stored on your ucsb account). The second folder will contain all shared drives you are part of. By navigating to that folder, you should see the emLab shared drive, containing all the folders mentioned earlier. A general structure of the GoogleDrive folder is shown below:
+
+```
+Google Drive
+  |__ My Drive
+      |__ Whatever files you have on your GoogleDrive
+  |__ Shared drives
+      |__ emLab
+          |__Central emLab Resources
+          |__Communications
+          |__Data
+          |__Projects
+          |__Strategy
+          |__ other files
+```
+
+### Other considerations
+
+#### *Actual* location of the Google Drive folder on my computer
+
+Remember that File Stream will *stream*, not save files to your computer. Therefore, there will be no folder directly under your devices / hard drives. Instead, your computer will detect the Google Drive folder as if it were an external device connected to your machine. On a Mac, the folder will therefore appear on your desktop, or under the `Devices` tab of your Finder. On a Windows machine, it will appear under `This PC`, next to your hard drive and any other connected devices.
+
+![Location of the Google Drive folder depending on your operating system. Left panel shows location of the folder on Mac, and right shows the location of the folder on Windows.](images/shared-drive-location.png)
+
+#### I also want to link a personal gmail account
+
+If you also want to sync files from your personal gmail account, you'll need to use Backup and Sync. You can install it, and make sure to sign in using your gmail account, not your ucsb account. Everything else should stay the same.
 
 ## Git and GitHub
 
