@@ -192,7 +192,7 @@ Once that finder / explorer opens, you should be able to see two folders: 1) `My
 ```
 Google Drive
   |__ My Drive
-      |__ Whatever files you have on your GoogleDrive
+  |   |__ Whatever files you have on your GoogleDrive
   |__ Shared drives
       |__ emLab
           |__Central emLab Resources

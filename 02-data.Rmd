@@ -53,9 +53,40 @@ We highly recommend the chapter on [Tidy Data](https://r4ds.had.co.nz/tidy-data.
 
 ## Storage
 
+Data from all projects will be stored in the `Data` directory of our emLab shared drive. Some data will be of general interest to different projects (for example, the "Upsides database"), while some data may be relevant to just one project (*e.g.* lobster landings for November 2014 in Montserrat Island). As such, data should be stored in the appropriate folders. Data of general interest will be sotred under a `Data/shared/` folder, subsequently divided as needed. Data relevant to only a few projects will be stored under `Data/project_name`. The name of this project should match the name of the project, as defined in the [emLab Shared Drive Structure](https://docs.google.com/document/d/1a26a6N4akF2dSXWfp0fWxGegd0wvrPVUeaA09en2EPE).
+
+### `Data/shared`
+
+The data living under `Data/shares` will often be the product of previous projects, or clean raw data obtained from data providers. For example, the "upsides database" is the product of the [Costello *et al.* 2016 paper](https://www.pnas.org/content/113/18/5125). On the other hand, the RAM Legacy stock assessment database is often shared with us by the [RAM Legacy team](https://www.ramlegacy.org/). Therefore, when a project uses thes data as input, we make no distinction between "raw" and "processed" data, and treat all data in this folder as "raw data". This means that these data should not be modified or updated by projects. When needed, updated versions of some data may become available.
+
+### Project-specific data
+
+For project-specific cases, however, the teams will often receive data from partners, compile it from multiple sources, use survey responses, or extract it from a literature review. These data are termed "raw data", and should **never** be directly modified -all the errors, mistakes, and gremlins should be kept in the original versions. Instead, they should be processed / cleaned, and then exported as "clean data", that can be used in analyses.
+
+For example, suppose that a team working in Montserrat receives a database of lobster landings by the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes and errors that need to be fixed. The team will clean the data (preferabily, using a reproducible script), and then export it to a different location within the project folder. Therefore, the project-level data folders will be divided into `raw_data` and `data` folders. The first one will contain all raw data as-is. The second folder will contain clean data, whcich can then be used as input for analyses.
+
+### General structure of the `Data` folder
+
+```
+Data
+|__shared
+|   |__ upsides
+|   |__ RAM
+|   |   |__ RAM v4.10
+|   |   |__ RAM v4.15
+|   |   |__ RAM v4.25
+|   |   |__ RAM v4.40
+|   |   |__ ...
+|   |__ SST
+|__ montserrat_project
+    |__ raw_data
+    |   |__ lobster_landings_nov_2012.xslx
+    |__ data
+        |__ lobster_landings_nov_2012.csv
+```
 
 ## Metadata and Data Directory
 
-Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1fGUcQuDC4o7yaGqxutP8GnBLZGEmIC7zqJ8qYYhwKa8/edit#gid=1396207639) located on the team's shared Google Drive. The key for the columns on the Data Directory, "the meta-metadata", can be found on the second "Metadata" tab and is also reproduced below. It is important to include entries for data sets/layers at each stage in the analysis (e.g. raw, processed, intermediates, and/or published to assist other emLabbers in navigating the data directory and avoid redundant effort.
+Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1fGUcQuDC4o7yaGqxutP8GnBLZGEmIC7zqJ8qYYhwKa8/edit#gid=1396207639) located on the team's shared Google Drive. The key for the columns on the Data Directory, "the meta-metadata", can be found on the second "Metadata" tab and is also reproduced below. It is important to include entries for data sets/layers at each stage in the analysis (*e.g.* raw, processed, intermediates, and/or published to assist other emLabbers in navigating the data directory and avoid redundant effort.
 
 ![](images/metametadata.png)
