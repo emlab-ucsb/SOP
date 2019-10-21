@@ -160,7 +160,7 @@ If you want to share files with people outside of the emLab Shared Drive, that i
 
 Since most of our projects at emLab involve code, we use Git to track changes made to our code and faciliate collaboration by merging changes made by others, and GitHub to organize, share, and backup our code. 
 
-This section provides a brief overview of how Git and Github work, how to install them on your computer (and how to join the emLab GitHub page), and some general guidelines for how to use GitHub to organizing code associated with emLab projects. 
+This section provides a brief overview of how Git and Github work, how to install them on your computer (and how to join the emLab GitHub page), and some general guidelines for how to use GitHub to organie code associated with emLab projects. 
 
 ### What are Git and GitHub? 
 
@@ -190,9 +190,14 @@ Git and GitHub use some wierd terms that might be unfamilar. Before installing a
 
 Most of tutorials listed above include detailed instructions on how to install Git and Github. The short version (and steps specific to getting incorporated with the emLab GitHub page) are listed below. For more detailed instructions, please refer to the tutorials listed above. 
 
-1. Create a free [GitHub](https://github.com/) account (Note: use your @ucsb.edu email!). 
+1. Create a free [GitHub](https://github.com/) account
 
-![Landing page for GitHubt](images/github-create-account.png)
+- Notes:
+
+  - use your @ucsb.edu email
+  - make sure you remember your **username** and **password**, you'll need this later
+
+![Landing page for GitHub](images/github-create-account.png)
 
 Since GitHub is a company, and is used by many different types of organizations in many different industries, they offer a few different pricing schemes/deals. As an individual, once you create a username and sign up for an account, you get an unlimited number of free public and private repositories, but the number of external collaborators allowed in private repositories is limited to three. GitHub also offers a "Pro" plan for $7/month giving you  unlimited external collaborators on all of your private repositories. However, for students, faculty, and research staff, or official nonprofit organizations and charities GitHub waives this fee through its [GitHub Education](https://education.github.com/) and [GitHub for Good](https://github.com/nonprofit) programs. 
 
@@ -251,11 +256,26 @@ You can then check to make sure these were entered correctly by typing:
 git config --global --list
 ```
 
-6. Optional: Make a repository on GitHub and practice connecting to it
+6. Optional: Store your credentials (so you don't have to type your password every time):
+
+`Git` will sometimes want to make sure you are you when performing certain operations. For example, when cloning a private repo or when you want to push changes to a repo. If you don't want to do this every time, you can tell `Git` to rememberyour password too. You can read more about `Git`'s credential management [here](https://Git-scm.com/docs/gitcredentials).
+
+On your terminal, navigate to a repository on your computer. (You can also use the Terminal pane within RStudio) and type the following into the shell:
+
+```{bash, eval = F}
+# Tell git to use the credential.helper
+git config --global credential.helper store 
+# git pull (or git push) will prompt you to enter your password
+git pull
+```
+
+What we just did was to tell `Git` to store our credentials. So, after typing them this one time, you should not need to type it again.
+
+7. Optional: Make a repository on GitHub and practice connecting to it
 
 [Do a practice example here].
 
-7. Optional: Instal a client for Git to make your life easier
+8. Optional: Instal a client for Git to make your life easier
 
 If you actually tried step 6 and you're still reading this, you probably don't usually spend a lot of time running commands in the shell and the last step didn't make a lot of sense. If that's the case, you might want to also install a Git client in order to help you visualize what Git is actually doing. You do not need a Git client to take advantage of version-control functionality of Git, as everything can be done using the shell (as in the previous step). However, the shell is not user-friendly. 
 
