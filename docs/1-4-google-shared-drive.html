@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2019-10-20" />
+<meta name="date" content="2019-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -143,7 +143,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html"><i class="fa fa-check"></i><b>1.4</b> Google Shared Drive</a><ul>
 <li class="chapter" data-level="1.4.1" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html#general-structure"><i class="fa fa-check"></i><b>1.4.1</b> General structure</a></li>
 <li class="chapter" data-level="1.4.2" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html#sharing-files"><i class="fa fa-check"></i><b>1.4.2</b> Sharing files</a></li>
-<li class="chapter" data-level="1.4.3" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html#how-to-install-locally-juan-carlos"><i class="fa fa-check"></i><b>1.4.3</b> How to install locally (Juan Carlos)</a></li>
+<li class="chapter" data-level="1.4.3" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html#linking-the-shared-drive-and-your-computer"><i class="fa fa-check"></i><b>1.4.3</b> Linking the shared drive and your computer</a></li>
+<li class="chapter" data-level="1.4.4" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html#other-considerations"><i class="fa fa-check"></i><b>1.4.4</b> Other considerations</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html"><i class="fa fa-check"></i><b>1.5</b> Git and GitHub</a><ul>
 <li class="chapter" data-level="1.5.1" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#what-are-git-and-github"><i class="fa fa-check"></i><b>1.5.1</b> What are Git and GitHub?</a></li>
@@ -213,12 +214,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Members of the Shared Drive can see all folders and files within the Drive. If you want to send a quick link to someone who is part of the Shared Drive, simply copy the URL from your browser. There is no need to create a shared link if you are sending it to someone with access to the emLab Shared Drive.</p>
 <p>If you want to share files with people outside of the emLab Shared Drive, that is still possible. Within a document, click on Share in the upper right hand corner. From there are two options: either add people’s emails or create a shared link. To create a shared link, click Who Has Access and turn link sharing on. From there you can select the level of editing capabilities and either keep the just UCSB access or expand to allow external access.</p>
 </div>
-<div id="how-to-install-locally-juan-carlos" class="section level3">
-<h3><span class="header-section-number">1.4.3</span> How to install locally (Juan Carlos)</h3>
+<div id="linking-the-shared-drive-and-your-computer" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> Linking the shared drive and your computer</h3>
+<div id="why-install-drive-file-stream" class="section level4">
+<h4><span class="header-section-number">1.4.3.1</span> Why install Drive File Stream?</h4>
+<p>As explained above, using a shared drive means that individuals don’t “own” the files. All files are instead owned by the emLab Shared Drive, which lives “on the cloud”. You can access these files through a web browser, just as you would access them on Google Drive. However, it is nice to have the files directly in your computer. To do so, you’ll need to <a href="https://support.google.com/a/answer/7491144?hl=en">install Drive File Stream</a>, Google’s new system that will partially replace Google Backup and Sync</p>
+<p>There are important distinctions between <strong>Backup and Sync</strong> and <strong>Drive File Stream</strong>. As the names indicate it, <strong>Backup and Sync</strong> syncs and stores Drive content locally on your computer (that is, it takes up space in your hard drive). <strong>Drive File Stream</strong>, however <em>streams</em> all files and folders from the cloud. You can think of these as owning a DVD vs. streming the movie from NetFlix. You can read more on the differences between these approaches <a href="https://support.google.com/drive/answer/7638428?hl=en&amp;ref_topic=6069785">here</a>.</p>
+</div>
+<div id="step-by-step-installation" class="section level4">
+<h4><span class="header-section-number">1.4.3.2</span> Step-by-step installation</h4>
 <ul>
-<li><em>Background of why people would want to install drive file stream</em></li>
-<li><em>Include both simple instructions and instructions of how to deal with mounting 2 different accounts</em></li>
+<li><p>Go to <a href="https://support.google.com/drive/answer/7329379">Get started with Drive File Stream</a> and select the appropriate installer for your operating system.</p>
+<ul>
+<li>Note: Make sure you are on your ucsb account</li>
+</ul></li>
 </ul>
+<div class="figure">
+<img src="images/shared-drive-download-installer.png" alt="Dowload Drive File Stream" />
+<p class="caption">Dowload Drive File Stream</p>
+</div>
+<ul>
+<li><p>If you are on a Windows machine, execute the <code>googledrivefilestream.exe</code> file. If you are on MacOS, run the <code>googledrivefilestream.dmg</code> file and then run the <code>GoogleDriveFileStream.pkg</code> file</p></li>
+<li><p>Follow instruction on the helper (accept all defaults)</p></li>
+</ul>
+<p>Once the installation is complete, you’ll need to sign in to your account. To do so:</p>
+<ul>
+<li><p>Click on the Drive File Stram icon (<img src="images/shared-drive-icon.png" />)</p>
+<ul>
+<li><p>On Windows machines, it should be on the bottom right corner of your screen</p></li>
+<li><p>On MacOS, it should be at the top right of your screen</p></li>
+</ul></li>
+<li><p>Sign in with your ucsb account</p></li>
+<li><p>After signing in, the application will launch a short 4-screen overview of the product</p></li>
+<li><p>The last screen should look like the screenshot below. Click on the button to open your GoogleDrive folder and access your files</p></li>
+</ul>
+<div class="figure">
+<img src="images/shared-drive-open-folder.png" alt="four-screen overview" />
+<p class="caption">four-screen overview</p>
+</div>
+<p>Once that finder / explorer opens, you should be able to see two folders: 1) <code>My Drive</code> and 2) <code>Shared drives</code>. The first folder will contain files owned by you (that is, your normal Google Drive Files stored on your ucsb account). The second folder will contain all shared drives you are part of. By navigating to that folder, you should see the emLab shared drive, containing all the folders mentioned earlier. A general structure of the GoogleDrive folder is shown below:</p>
+<pre><code>Google Drive
+  |__ My Drive
+      |__ Whatever files you have on your GoogleDrive
+  |__ Shared drives
+      |__ emLab
+          |__Central emLab Resources
+          |__Communications
+          |__Data
+          |__Projects
+          |__Strategy
+          |__ other files</code></pre>
+</div>
+</div>
+<div id="other-considerations" class="section level3">
+<h3><span class="header-section-number">1.4.4</span> Other considerations</h3>
+<div id="actual-location-of-the-google-drive-folder-on-my-computer" class="section level4">
+<h4><span class="header-section-number">1.4.4.1</span> <em>Actual</em> location of the Google Drive folder on my computer</h4>
+<p>Remember that File Stream will <em>stream</em>, not save files to your computer. Therefore, there will be no folder directly under your devices / hard drives. Instead, your computer will detect the Google Drive folder as if it were an external device connected to your machine. On a Mac, the folder will therefore appear on your desktop, or under the <code>Devices</code> tab of your Finder. On a Windows machine, it will appear under <code>This PC</code>, next to your hard drive and any other connected devices.</p>
+<div class="figure">
+<img src="images/shared-drive-location.png" alt="Location of the Google Drive folder depending on your operating system. Left panel shows location of the folder on Mac, and right shows the location of the folder on Windows." />
+<p class="caption">Location of the Google Drive folder depending on your operating system. Left panel shows location of the folder on Mac, and right shows the location of the folder on Windows.</p>
+</div>
+</div>
+<div id="i-also-want-to-link-a-personal-gmail-account" class="section level4">
+<h4><span class="header-section-number">1.4.4.2</span> I also want to link a personal gmail account</h4>
+<p>If you also want to sync files from your personal gmail account, you’ll need to use Backup and Sync. You can install it, and make sure to sign in using your gmail account, not your ucsb account. Everything else should stay the same.</p>
+</div>
 </div>
 </div>
             </section>
