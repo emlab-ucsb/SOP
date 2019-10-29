@@ -89,4 +89,12 @@ Data
 
 Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1fGUcQuDC4o7yaGqxutP8GnBLZGEmIC7zqJ8qYYhwKa8/edit#gid=1396207639) located on the team's shared Google Drive. The key for the columns on the Data Directory, "the meta-metadata", can be found on the second "Metadata" tab and is also reproduced below. It is important to include entries for data sets/layers at each stage in the analysis (*e.g.* raw, processed, intermediates, and/or published to assist other emLabbers in navigating the data directory and avoid redundant effort.
 
-![](images/metametadata.png)
+```{r render meta_metadata table, results= 'asis', echo = F, message = F}
+require(tidyverse)
+require(knitr)
+
+meta_metadatatable <- read_csv("images/meta_metadata.csv", col_names = F)
+colnames(meta_metadatatable) <- c("Column","Description")
+kable(meta_metadatatable)
+```
+

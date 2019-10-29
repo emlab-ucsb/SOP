@@ -1,0 +1,19 @@
+emLab domain,Ocean; Climate; Land; Poverty
+Description,A few word description (e.g. SST US 2017); max 5 words
+Filename,"Name of data, hyperlinked to dataset"
+Year,Year of publication
+Project,"Project name that used these data (can have multiple listings) or 'General' if widely used (e.g. FAO data), hyperlinked to Google Drive/Box folder"
+Code,Link to Github repo or wherever code is stored
+Raw/Processed/Published,"Raw' if raw data; 'Processed' if data has been subset, processed for QA/QC, gapfilled (documentation should be included); 'Published' for what was used for the project (can have multiple listings; e.g. Raw, Published)"
+File type,"File type (e.g. raster, tabular database); multiple file types OK"
+Citation,Hyperlinked reference to publication or online resource or contact for individual/group data author
+URL,Link to original data source
+Zotero,Link to emLab Zotero reference library
+Global,Y/N: 'Y' = yes if dataset is global; 'N' = no it is not a global dataset
+Permissions,"Y/N: 'Y' = yes, emLab has permission to use (i.e. open data/our data); 'N'= no, emLab does not have permission to use freely"
+emLab data,Y/N; are these original emLab data?
+emLab contact,Name and email of contact person in emLab who used/stored data
+emLab reference,Hyperlinked reference to emLab publication using data (can be NA)
+Keywords,"e.g. fisheries, land, climate, MPA, oceanography, habitat, biodiversity (up to 5 per entry)"
+Summary,"Brief description of the data (1-2 sentences); include years for timeseries, location/spatial extent for spatial data, key variables, etc."
+Notes,"Other relevant information about data, initial your entry (e.g. if it was processed (e.g. subset from a larger dataset), what specifically was done; are there suspicious data points?; etc.)"
