@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.5 Git and GitHub | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.5 Git and GitHub | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -23,15 +23,15 @@
 
 
 
-<meta name="date" content="2019-10-29" />
+<meta name="date" content="2019-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="1-4-google-shared-drive.html">
-<link rel="next" href="2-data.html">
+<link rel="prev" href="1-4-google-shared-drive.html"/>
+<link rel="next" href="2-data.html"/>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -123,7 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.5" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html"><i class="fa fa-check"></i><b>1.5</b> Git and GitHub</a><ul>
 <li class="chapter" data-level="1.5.1" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#what-are-git-and-github"><i class="fa fa-check"></i><b>1.5.1</b> What are Git and GitHub?</a></li>
 <li class="chapter" data-level="1.5.2" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#helpful-terminology-1"><i class="fa fa-check"></i><b>1.5.2</b> Helpful terminology</a></li>
-<li class="chapter" data-level="1.5.3" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#how-to-install-git-and-github"><i class="fa fa-check"></i><b>1.5.3</b> How to install Git and Github</a></li>
+<li class="chapter" data-level="1.5.3" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#how-to-install-git-and-github"><i class="fa fa-check"></i><b>1.5.3</b> How to install Git and GitHub</a></li>
 <li class="chapter" data-level="1.5.4" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#some-general-guidelines-for-using-github-at-emlab"><i class="fa fa-check"></i><b>1.5.4</b> Some general guidelines for using GitHub at emLab</a></li>
 </ul></li>
 </ul></li>
@@ -170,13 +173,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="what-are-git-and-github" class="section level3">
 <h3><span class="header-section-number">1.5.1</span> What are Git and GitHub?</h3>
 <p>Git is an open-source version control system designed for programmers. Git can operate as a standalone program on your computer, but can also operated through many other programs (or “clients”). GitHub (really github.com) is a hosting service that provides online storage for your Git-projects. Think of Git as a little creature that keeps a record of all of the changes made to a file stored on your computer, and GitHub as a safe place on the internet that the little creature can go and put a copy of that file (and the changes you’ve made) when you tell it to do so.</p>
-<p>There are a number of good tutorials with more information on how Git and GitHub work (as well as how you can set them up to sync directly through other programs such as RStudio). The <a href="https://www.nceas.ucsb.edu/ocean-health-index">Ocean Health Index team at the National Center for Ecological Analysis and Synthesis (NCEAS)</a> here in Santa Barbara created a very detailed <a href="http://ohi-science.org/data-science-training/">data science training</a> that includes two excellent tutorials on setting up and collaborating with GitHub: - <a href="http://ohi-science.org/data-science-training/github.html">GitHub</a> - <a href="http://ohi-science.org/data-science-training/collaborating.html">Collaborating with GitHub</a></p>
-<p>If you’re new to using Git and GitHub, the two tutorials listed above are a great place to start since NCEAS and emLab often operate in a similar way. If you primarily use (or will use) R for coding, Jenny Bryan also has an <strong>excellent</strong> tutorial specifically about how to integrate Git and GitHub with R: - <a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></p>
-<p>If you’re interested in learning more about all of the functionality GitHub has to offer, the <a href="https://www.openscapes.org/">Openscapes team at NCEAS</a> has also tutorials on how to use GitHub for publishing code and for project management: - <a href="https://openscapes.github.io/series/github-pub.html">GitHub for Publishing</a> - <a href="https://openscapes.github.io/series/github-issues.html">GitHub for Project Management</a></p>
+<p>There are a number of good tutorials with more information on how Git and GitHub work (as well as how you can set them up to sync directly through other programs such as RStudio). The <a href="https://www.nceas.ucsb.edu/ocean-health-index">Ocean Health Index team at the National Center for Ecological Analysis and Synthesis (NCEAS)</a> here in Santa Barbara created a very detailed <a href="http://ohi-science.org/data-science-training/">data science training</a> that includes two excellent tutorials on setting up and collaborating with GitHub:</p>
+<ul>
+<li><a href="http://ohi-science.org/data-science-training/github.html">GitHub</a></li>
+<li><a href="http://ohi-science.org/data-science-training/collaborating.html">Collaborating with GitHub</a></li>
+</ul>
+<p>If you’re new to using Git and GitHub, the two tutorials listed above are a great place to start since NCEAS and emLab often operate in a similar way. Additionally, see the Software Carpentry’s lesson for the <a href="http://swcarpentry.github.io/git-novice/">Git novice</a>. If you primarily use (or will use) R for coding, Jenny Bryan also has an <strong>excellent</strong> tutorial specifically about how to integrate Git and GitHub with R:</p>
+<ul>
+<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></li>
+</ul>
+<p>If you’re interested in learning more about all of the functionality GitHub has to offer, the <a href="https://www.openscapes.org/">Openscapes team at NCEAS</a> has also tutorials on how to use GitHub for publishing code and for project management:</p>
+<ul>
+<li><a href="https://openscapes.github.io/series/github-pub.html">GitHub for Publishing</a></li>
+<li><a href="https://openscapes.github.io/series/github-issues.html">GitHub for Project Management</a></li>
+</ul>
 </div>
 <div id="helpful-terminology-1" class="section level3">
 <h3><span class="header-section-number">1.5.2</span> Helpful terminology</h3>
-<p>Git and GitHub use some wierd terms that might be unfamilar. Before installing and setting up Git and GitHub, here are a few key terms you may come across:</p>
+<p>Git and GitHub use some weird terms that might be unfamiliar. Before installing and setting up Git and GitHub, here are a few key terms you may come across:</p>
 <ul>
 <li>repository (“repo”): a collection of files pertaining to the same project, document, goal, etc. Generally there’s a single repository for each project at emLab containing all of the code associated with that project. This repository can be organized with multiple folders and subfolders.<br />
 </li>
@@ -186,8 +200,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="how-to-install-git-and-github" class="section level3">
-<h3><span class="header-section-number">1.5.3</span> How to install Git and Github</h3>
-<p>Most of tutorials listed above include detailed instructions on how to install Git and Github. The short version (and steps specific to getting incorporated with the emLab GitHub page) are listed below. For more detailed instructions, please refer to the tutorials listed above.</p>
+<h3><span class="header-section-number">1.5.3</span> How to install Git and GitHub</h3>
+<p>Most of tutorials listed above include detailed instructions on how to install Git and GitHub. The short version (and steps specific to getting incorporated with the emLab GitHub page) are listed below. For more detailed instructions, please refer to the tutorials listed above.</p>
 <ol style="list-style-type: decimal">
 <li>Create a free <a href="https://github.com/">GitHub</a> account</li>
 </ol>
@@ -255,13 +269,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p>[Do a practice example here].</p>
 <ol start="8" style="list-style-type: decimal">
-<li>Optional: Instal a client for Git to make your life easier</li>
+<li>Optional: Install a client for Git to make your life easier</li>
 </ol>
 <p>If you actually tried step 6 and you’re still reading this, you probably don’t usually spend a lot of time running commands in the shell and the last step didn’t make a lot of sense. If that’s the case, you might want to also install a Git client in order to help you visualize what Git is actually doing. You do not need a Git client to take advantage of version-control functionality of Git, as everything can be done using the shell (as in the previous step). However, the shell is not user-friendly.</p>
 <p>There are a number of Git/GitHub clients that you can download to interact with Git and GitHub in a more visual way.</p>
-<p>If you use RStudio, there is a very basic Git client built in that may be enough to get you started (more on this later). Other nice free Git clients include: - <a href="https://www.gitkraken.com/">GitKraken</a> (available for all platforms, plus the logo octopus is pretty sweet…) - <a href="https://www.sourcetreeapp.com/">SourceTree</a> (has some problems on Mac OS X) - <a href="https://desktop.github.com/">GitHub Desktop</a> (not available for Linux) - <a href="https://gitup.co/">GitUp</a> (only for Mac OS X)</p>
+<p>If you use RStudio, there is a very basic Git client built in that may be enough to get you started (more on this later). Other nice free Git clients include:</p>
+<ul>
+<li><a href="https://www.gitkraken.com/">GitKraken</a> (available for all platforms, plus the logo octopus is pretty sweet…)</li>
+<li><a href="https://gitfiend.com/">GitFiend</a> (cross-platform)</li>
+<li><a href="https://www.sourcetreeapp.com/">SourceTree</a> (has some problems on Mac OS X)</li>
+<li><a href="https://desktop.github.com/">GitHub Desktop</a> (not available for Linux)</li>
+<li><a href="https://gitup.co/">GitUp</a> (only for Mac OS X)</li>
+</ul>
 <p>There are many more. See Jenny Bryan’s tutorial if you’re not satisfied with those choices.</p>
-<p>One you’ve installed a Git client, follow the directions to connect to your GitHub account. Once you’ve done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.</p>
+<p>Once you’ve installed a Git client, follow the directions to connect to your GitHub account. Once you’ve done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.</p>
 </div>
 <div id="some-general-guidelines-for-using-github-at-emlab" class="section level3">
 <h3><span class="header-section-number">1.5.4</span> Some general guidelines for using GitHub at emLab</h3>
@@ -280,11 +301,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

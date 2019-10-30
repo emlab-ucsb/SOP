@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.1 Scripts and Version Control | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.1 Scripts and Version Control | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -23,15 +23,15 @@
 
 
 
-<meta name="date" content="2019-10-29" />
+<meta name="date" content="2019-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="3-code.html">
-<link rel="next" href="3-2-style-guide.html">
+<link rel="prev" href="3-code.html"/>
+<link rel="next" href="3-2-style-guide.html"/>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -123,7 +126,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.5" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html"><i class="fa fa-check"></i><b>1.5</b> Git and GitHub</a><ul>
 <li class="chapter" data-level="1.5.1" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#what-are-git-and-github"><i class="fa fa-check"></i><b>1.5.1</b> What are Git and GitHub?</a></li>
 <li class="chapter" data-level="1.5.2" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#helpful-terminology-1"><i class="fa fa-check"></i><b>1.5.2</b> Helpful terminology</a></li>
-<li class="chapter" data-level="1.5.3" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#how-to-install-git-and-github"><i class="fa fa-check"></i><b>1.5.3</b> How to install Git and Github</a></li>
+<li class="chapter" data-level="1.5.3" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#how-to-install-git-and-github"><i class="fa fa-check"></i><b>1.5.3</b> How to install Git and GitHub</a></li>
 <li class="chapter" data-level="1.5.4" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#some-general-guidelines-for-using-github-at-emlab"><i class="fa fa-check"></i><b>1.5.4</b> Some general guidelines for using GitHub at emLab</a></li>
 </ul></li>
 </ul></li>
@@ -165,9 +168,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="scripts-and-version-control" class="section level2">
 <h2><span class="header-section-number">3.1</span> Scripts and Version Control</h2>
-<p>Code should be maintained in script files and organized in such a way to enhance readability and comprehension. For example, use a standardized header to describe scripts and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, scripts should use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document and run all scripts in a specified order. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.</p>
-<p>Scripts should be version controlled using <a href="https://git-scm.com/">Git</a>, which tracks changes in code by line. Git documents changes in code when you submit a commit. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and make it easier to revert changes. Git commit messages should be informative and follow a certain style, such as the guide found <a href="https://chris.beams.io/posts/git-commit/">here</a>. Git is a command-line tool, but there are also GUI apps like <a href="https://www.gitkraken.com/">GitKraken</a> or <a href="https://gitfiend.com/">GitFiend</a> that may make it easier to use. RStudio also has built-in support for using Git through a GUI. There is an art to the version control process, so just keep in mind the general principle of making atomic commits. For an introduction to Git, see the Software Carpentry’s lesson at <a href="http://swcarpentry.github.io/git-novice/" class="uri">http://swcarpentry.github.io/git-novice/</a>.</p>
-<p>emLab uses <a href="https://github.com/emlab-ucsb">GitHub</a> to host code in the cloud, which makes collaborative code development easier and also provides related project management tools. (You may need to be added to emLab’s GitHub organization.) Code repositories can be public or private, depending on the nature of the project. Furthermore, workflows for Git and GitHub, such as using pull requests or not, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.</p>
+<p>Code should be crafted according to the following guidelines:</p>
+<ul>
+<li>Use scripts.</li>
+<li>Document scripts, but not too much.</li>
+<li>Organize scripts appropriately.</li>
+<li>Use Git to version control scripts.</li>
+<li>Make atomic Git commits.</li>
+</ul>
+<p>Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.</p>
+<p>Here is an example template for R scripts:</p>
+<pre><code># =============================================================================
+# Name:           script.R
+# Description:    Visualizes data
+# 
+# Inputs:         data.csv
+# Outputs:        graph.png
+# 
+# Notes:          - Use a diverging color palette for best results
+#                 - Output format can be changed as needed
+# =============================================================================
+
+
+# Set up environment ----------------------------------------------------------
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+sessionInfo()
+
+
+# Import data -----------------------------------------------------------------
+
+...</code></pre>
+<p><a href="https://git-scm.com/">Git</a> tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found <a href="https://chris.beams.io/posts/git-commit/">here</a>. There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.</p>
+<p>emLab uses <a href="https://github.com/emlab-ucsb">GitHub</a> to host Git repos in the cloud, which makes collaborative code development easier and also provides related project management tools. Repos can be public or private, depending on the nature of the project. Furthermore, workflows for Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.</p>
 </div>
             </section>
 
@@ -180,11 +217,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

@@ -5,7 +5,7 @@ output: html_document
 
 # High Performance Computing
 
-Certain use cases require high performance computing resources:
+Certain analysis use cases require high performance computing resources:
 
   * big data
   * parallel computing
@@ -14,8 +14,17 @@ Certain use cases require high performance computing resources:
 
 For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.
 
-In these cases, you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations.
+In these cases, you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations, such as job queues.
 
+When to use Google Cloud Platform:
+
+  -  need maximum computational flexibility
+
+When to use UCSB server clusters:
+
+  - costs are a concern
+  - using Stata
+  - using restricted-use data (depends on data use agreement)
 
 ## Google Cloud Platform
 

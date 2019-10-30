@@ -225,29 +225,32 @@ This section provides a brief overview of how Git and Github work, how to instal
 
 Git is an open-source version control system designed for programmers. Git can operate as a standalone program on your computer, but can also operated through many other programs (or "clients"). GitHub (really github.com) is a hosting service that provides online storage for your Git-projects. Think of Git as a little creature that keeps a record of all of the changes made to a file stored on your computer, and GitHub as a safe place on the internet that the little creature can go and put a copy of that file (and the changes you've made) when you tell it to do so.  
 
-There are a number of good tutorials with more information on how Git and GitHub work (as well as how you can set them up to sync directly through other programs such as RStudio). The [Ocean Health Index team at the National Center for Ecological Analysis and Synthesis (NCEAS)](https://www.nceas.ucsb.edu/ocean-health-index) here in Santa Barbara created a very detailed [data science training](http://ohi-science.org/data-science-training/) that includes two excellent tutorials on setting up and collaborating with GitHub: 
+There are a number of good tutorials with more information on how Git and GitHub work (as well as how you can set them up to sync directly through other programs such as RStudio). The [Ocean Health Index team at the National Center for Ecological Analysis and Synthesis (NCEAS)](https://www.nceas.ucsb.edu/ocean-health-index) here in Santa Barbara created a very detailed [data science training](http://ohi-science.org/data-science-training/) that includes two excellent tutorials on setting up and collaborating with GitHub:
+
 - [GitHub](http://ohi-science.org/data-science-training/github.html)
 - [Collaborating with GitHub](http://ohi-science.org/data-science-training/collaborating.html)
 
-If you're new to using Git and GitHub, the two tutorials listed above are a great place to start since NCEAS and emLab often operate in a similar way. If you primarily use (or will use) R for coding, Jenny Bryan also has an **excellent** tutorial specifically about how to integrate Git and GitHub with R: 
+If you're new to using Git and GitHub, the two tutorials listed above are a great place to start since NCEAS and emLab often operate in a similar way. Additionally, see the Software Carpentry's lesson for the [Git novice](http://swcarpentry.github.io/git-novice/). If you primarily use (or will use) R for coding, Jenny Bryan also has an **excellent** tutorial specifically about how to integrate Git and GitHub with R:
+
 - [Happy Git and GitHub for the useR](https://happygitwithr.com/)
 
 If you're interested in learning more about all of the functionality GitHub has to offer, the [Openscapes team at NCEAS](https://www.openscapes.org/) has also tutorials on how to use GitHub for publishing code and for project management:
+
 - [GitHub for Publishing](https://openscapes.github.io/series/github-pub.html)
 - [GitHub for Project Management](https://openscapes.github.io/series/github-issues.html)
 
 ### Helpful terminology
 
-Git and GitHub use some wierd terms that might be unfamilar. Before installing and setting up Git and GitHub, here are a few key terms you may come across: 
+Git and GitHub use some weird terms that might be unfamiliar. Before installing and setting up Git and GitHub, here are a few key terms you may come across: 
 
 - repository ("repo"): a collection of files pertaining to the same project, document, goal, etc. Generally there's a single repository for each project at emLab containing all of the code associated with that project. This repository can be organized with multiple folders and subfolders.  
 - commit: a set of changes made by a user to one or more files in a repository that the user wants to prepare to send to GitHub.
 - push: the action of sending a commit from your local machine to the remote GitHub directory. 
 - pull: the action of retrieving any commits that have been made to the repository and are stored in the remote GitHub directory but are NOT on your local machine.
 
-### How to install Git and Github
+### How to install Git and GitHub
 
-Most of tutorials listed above include detailed instructions on how to install Git and Github. The short version (and steps specific to getting incorporated with the emLab GitHub page) are listed below. For more detailed instructions, please refer to the tutorials listed above. 
+Most of tutorials listed above include detailed instructions on how to install Git and GitHub. The short version (and steps specific to getting incorporated with the emLab GitHub page) are listed below. For more detailed instructions, please refer to the tutorials listed above. 
 
 1. Create a free [GitHub](https://github.com/) account
 
@@ -334,21 +337,23 @@ What we just did was to tell `Git` to store our credentials. So, after typing th
 
 [Do a practice example here].
 
-8. Optional: Instal a client for Git to make your life easier
+8. Optional: Install a client for Git to make your life easier
 
 If you actually tried step 6 and you're still reading this, you probably don't usually spend a lot of time running commands in the shell and the last step didn't make a lot of sense. If that's the case, you might want to also install a Git client in order to help you visualize what Git is actually doing. You do not need a Git client to take advantage of version-control functionality of Git, as everything can be done using the shell (as in the previous step). However, the shell is not user-friendly. 
 
 There are a number of Git/GitHub clients that you can download to interact with Git and GitHub in a more visual way. 
 
-If you use RStudio, there is a very basic Git client built in that may be enough to get you started (more on this later). Other nice free Git clients include: 
+If you use RStudio, there is a very basic Git client built in that may be enough to get you started (more on this later). Other nice free Git clients include:
+
 - [GitKraken](https://www.gitkraken.com/) (available for all platforms, plus the logo octopus is pretty sweet...)
+- [GitFiend](https://gitfiend.com/) (cross-platform)
 - [SourceTree](https://www.sourcetreeapp.com/) (has some problems on Mac OS X)
 - [GitHub Desktop](https://desktop.github.com/) (not available for Linux)
 - [GitUp](https://gitup.co/) (only for Mac OS X)
 
 There are many more. See Jenny Bryan's tutorial if you're not satisfied with those choices. 
 
-One you've installed a Git client, follow the directions to connect to your GitHub account. Once you've done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.
+Once you've installed a Git client, follow the directions to connect to your GitHub account. Once you've done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.
 
 ### Some general guidelines for using GitHub at emLab
 
