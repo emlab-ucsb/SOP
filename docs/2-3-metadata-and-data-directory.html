@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.3 Metadata and Data Directory | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.3 Metadata and Data Directory | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -23,15 +23,15 @@
 
 
 
-<meta name="date" content="2019-10-30" />
+<meta name="date" content="2019-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="2-2-storage.html"/>
-<link rel="next" href="3-code.html"/>
+<link rel="prev" href="2-2-storage.html">
+<link rel="next" href="3-code.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,9 +39,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -168,7 +165,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="metadata-and-data-directory" class="section level2">
 <h2><span class="header-section-number">2.3</span> Metadata and Data Directory</h2>
-<p>Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the <a href="https://docs.google.com/spreadsheets/d/1fGUcQuDC4o7yaGqxutP8GnBLZGEmIC7zqJ8qYYhwKa8/edit#gid=1396207639">emLab Data Directory</a> located on the team’s shared Google Drive. The key for the columns on the Data Directory, “the meta-metadata”, can be found on the second “Metadata” tab and is also reproduced below. It is important to include entries for data sets/layers at each stage in the analysis (<em>e.g.</em> raw, processed, intermediates, and/or published to assist other emLabbers in navigating the data directory and avoid redundant effort.</p>
+<p>Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a> located on the team’s shared Google Drive. The key for the columns on the Data Directory, “the meta-metadata”, can be found on the second “Metadata” tab and is also reproduced below.</p>
 <table>
 <thead>
 <tr class="header">
@@ -178,20 +175,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">emLab domain</td>
-<td align="left">Ocean; Climate; Land; Poverty</td>
+<td align="left">Domain</td>
+<td align="left">Ocean; Climate; Land; Energy; General; Demographic; Urban [drop down menu]</td>
 </tr>
 <tr class="even">
 <td align="left">Description</td>
 <td align="left">A few word description (e.g. SST US 2017); max 5 words</td>
 </tr>
 <tr class="odd">
-<td align="left">Filename</td>
-<td align="left">Name of data, hyperlinked to dataset</td>
+<td align="left">Folder</td>
+<td align="left">Name of folder containing data</td>
 </tr>
 <tr class="even">
+<td align="left">Filename</td>
+<td align="left">Name of data</td>
+</tr>
+<tr class="odd">
 <td align="left">Year</td>
 <td align="left">Year of publication</td>
+</tr>
+<tr class="even">
+<td align="left">Version</td>
+<td align="left">Sub category of year; NA if not applicable</td>
 </tr>
 <tr class="odd">
 <td align="left">Project</td>
@@ -202,12 +207,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">Link to Github repo or wherever code is stored</td>
 </tr>
 <tr class="odd">
-<td align="left">Raw/Processed/Published</td>
-<td align="left">Raw’ if raw data; ‘Processed’ if data has been subset, processed for QA/QC, gapfilled (documentation should be included); ‘Published’ for what was used for the project (can have multiple listings; e.g. Raw, Published)</td>
+<td align="left">Raw/Output</td>
+<td align="left">raw’ if raw data; ‘output’ for what was used for the project (can have multiple listings; e.g. Raw, Published)</td>
 </tr>
 <tr class="even">
-<td align="left">File type</td>
-<td align="left">File type (e.g. raster, tabular database); multiple file types OK</td>
+<td align="left">Filetype</td>
+<td align="left">Drop down menu of file extension</td>
 </tr>
 <tr class="odd">
 <td align="left">Citation</td>
@@ -218,40 +223,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">Link to original data source</td>
 </tr>
 <tr class="odd">
-<td align="left">Zotero</td>
-<td align="left">Link to emLab Zotero reference library</td>
+<td align="left">Extent</td>
+<td align="left">global; regional; national; local [drop down menu]</td>
 </tr>
 <tr class="even">
-<td align="left">Global</td>
-<td align="left">Y/N: ‘Y’ = yes if dataset is global; ‘N’ = no it is not a global dataset</td>
+<td align="left">Resolution</td>
+<td align="left">Resolution of spatial data (in degrees)</td>
 </tr>
 <tr class="odd">
 <td align="left">Permissions</td>
-<td align="left">Y/N: ‘Y’ = yes, emLab has permission to use (i.e. open data/our data); ‘N’= no, emLab does not have permission to use freely</td>
+<td align="left">open; restricted; secure [drop down menu]</td>
 </tr>
 <tr class="even">
-<td align="left">emLab data</td>
-<td align="left">Y/N; are these original emLab data?</td>
+<td align="left">Start year</td>
+<td align="left">Data set start year; numeric</td>
 </tr>
 <tr class="odd">
-<td align="left">emLab contact</td>
+<td align="left">End year</td>
+<td align="left">Data set end year;numeric</td>
+</tr>
+<tr class="even">
+<td align="left">Source</td>
+<td align="left">e.g. “emLab”; “FAO”; “Rare”</td>
+</tr>
+<tr class="odd">
+<td align="left">Contact</td>
 <td align="left">Name and email of contact person in emLab who used/stored data</td>
-</tr>
-<tr class="even">
-<td align="left">emLab reference</td>
-<td align="left">Hyperlinked reference to emLab publication using data (can be NA)</td>
-</tr>
-<tr class="odd">
-<td align="left">Keywords</td>
-<td align="left">e.g. fisheries, land, climate, MPA, oceanography, habitat, biodiversity (up to 5 per entry)</td>
-</tr>
-<tr class="even">
-<td align="left">Summary</td>
-<td align="left">Brief description of the data (1-2 sentences); include years for timeseries, location/spatial extent for spatial data, key variables, etc.</td>
-</tr>
-<tr class="odd">
-<td align="left">Notes</td>
-<td align="left">Other relevant information about data, initial your entry (e.g. if it was processed (e.g. subset from a larger dataset), what specifically was done; are there suspicious data points?; etc.)</td>
 </tr>
 </tbody>
 </table>
@@ -269,13 +266,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
