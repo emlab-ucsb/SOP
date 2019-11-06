@@ -33,7 +33,55 @@ Also see the resources available at [DataONE](https://www.dataone.org/resources)
 
 ### General Structure
 
+```
+Google Drive
+  |__ My Drive
+  |   |__ Whatever files you have on your GoogleDrive
+  |__ Shared drives
+      |__ emLab
+          |__ Central emLab Resources
+          |__ Communications
+          |__ Data
+          |__ Projects
+```
+
+The emLab Shared Drive is organized into four main folders:
+* Central emLab Resources: includes meeting and event information, onboarding materials, information about travel reimbursements, and the team roster
+* Communications: includes the blog schedule, Adobe design projects, PowerPoint templates, photo repository, and publication and media tracking
+* Data: will include the emLab data directory and all datasets we work with
+* Projects: includes information on past and current projects, and project management guidelines
+
+A full table of contents can be seen [here](https://docs.google.com/document/d/1a26a6N4akF2dSXWfp0fWxGegd0wvrPVUeaA09en2EPE/edit). 
+
 ### Project Folder Structure
+
+```
+Google Drive
+  |__ Shared drives
+      |__ emLab
+          |__ Projects
+              |__ Archived Projects
+              |__ Current Projects
+                  |__ Project Example
+                      |__ Data
+                      |__ Deliverables
+                      |__ Grant Reporting
+                      |__ Meetings and Events
+                      |__ Presentations
+                      |__ Project Materials
+              |__ Resources
+```
+
+Each project folder must contain the following 6 folders:
+
+* Data: all input/raw data will live in the `emLab/Data` folder. This data folder will contain all intermediate datasets as well as output datasets. Be sure to also add a copy of your final datasets to the `emLab/Data` folder and data directory.
+* Deliverables: final reports, paper manuscripts, other final deliverables not related to data outputs
+* Grant Reporting: grant reports for funders 
+* Meetings and Events: meeting notes, agendas, documentation for workshop/event planning
+* Presentations: any presentations created for the project
+* Project Materials: everything else that does not fit into one of these folders (i.e. drafts of methods, literature review, etc.)
+
+From here, each project can add sub-folders as they see fit within these 6 folders.
 
 ### Data Storage
 
