@@ -12,4 +12,8 @@ favicon: "favicon.png"
 
 # Overview {-}
 
-This reference guide describes standard operating procedures for emLab projects.
+This reference guide describes standard operating procedures (SOP) for emLab projects. This schema outlines the major platforms used for all emLab projects:
+
+*insert image of the platforms*
+
+This SOP is organized into 4 different sections: (1) Project Management, (2) Files, (3) Code, and (4) High Performance Computing. Section 1 provides an overview of the platforms we use and how to install them, Section 2 covers file structure and storage, Section 3 highlights best practices for coding, and Section 4 covers high performance computing. 
