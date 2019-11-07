@@ -1,77 +1,71 @@
 ---
-title: "Code"
+title: "Data"
 output: html_document
 ---
 
-# Code
+# Data
 
-All data transformation and analysis should be performed with code (i.e., avoid spreadsheets), and all code should be packaged in scripts that are version controlled and follow a style guide. Using code and scripts allows for better organization, documentation, and reproducibility of analysis workflows.
+Data should be managed and shared properly to make it useful in research, to promote transparency and facilitate reproducibility, and to ensure the credibility of research. This includes such practices as transforming data into a tidy format, storing data in open file formats, and providing data documentation.
 
 **Recommended readings:**
 
-Bryan, Jennifer. 2018. “Excuse Me, Do You Have a Moment to Talk About Version Control?” *The American Statistician* 72 (1): 20–27. <https://doi.org/10.1080/00031305.2017.1399928>.
+Borer, Elizabeth T., Eric W. Seabloom, Matthew B. Jones, and Mark Schildhauer. 2009. “Some Simple Guidelines for Effective Data Management.” *The Bulletin of the Ecological Society of America* 90 (2): 205–14. <https://doi.org/10.1890/0012-9623-90.2.205>.
 
-Stodden, Victoria, and Sheila Miguez. 2014. “Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research.” *Journal of Open Research Software* 2 (1): e21. <https://doi.org/10.5334/jors.ay>.
+Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” *The American Statistician* 72 (1): 2–10. <https://doi.org/10.1080/00031305.2017.1375989>.
 
-Wilson, Greg, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, et al. 2014. “Best Practices for Scientific Computing.” *PLOS Biology* 12 (1): e1001745. <https://doi.org/10.1371/journal.pbio.1001745>.
+Ellis, Shannon E., and Jeffrey T. Leek. 2018. “How to Share Data for Collaboration.” *The American Statistician* 72 (1): 53–57. <https://doi.org/10.1080/00031305.2017.1375987>.
 
-Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. “Good Enough Practices in Scientific Computing.” *PLOS Computational Biology* 13 (6): e1005510. <https://doi.org/10.1371/journal.pcbi.1005510>.
+Goodman, Alyssa, Alberto Pepe, Alexander W. Blocker, Christine L. Borgman, Kyle Cranmer, Merce Crosas, Rosanne Di Stefano, et al. 2014. “Ten Simple Rules for the Care and Feeding of Scientific Data.” *PLOS Computational Biology* 10 (4): e1003542. <https://doi.org/10.1371/journal.pcbi.1003542>.
 
+Hart, Edmund M., Pauline Barmby, David LeBauer, François Michonneau, Sarah Mount, Patrick Mulrooney, Timothée Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister. 2016. “Ten Simple Rules for Digital Data Storage.” *PLOS Computational Biology* 12 (10): e1005097. <https://doi.org/10.1371/journal.pcbi.1005097>.
 
-## Scripts and Version Control
+Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” *Scientific Data* 3 (March): 160018. <https://doi.org/10.1038/sdata.2016.18>.
 
-Code should be crafted according to the following guidelines:
+Also see the resources available at [DataONE](https://www.dataone.org/resources).
 
-- Use scripts.
-- Document scripts, but not too much.
-- Organize scripts appropriately.
-- Use Git to version control scripts.
-- Make atomic Git commits.
+## Metadata 
+*Add text about where/store data for each dataset. This is different than the data directory, which is meta-metadata.*
 
-Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.
+### Metadata Standards
 
-Here is an example template for R scripts:
+### Where to store metadata
 
-```
-# =============================================================================
-# Name:           script.R
-# Description:    Visualizes data
-# 
-# Inputs:         data.csv
-# Outputs:        graph.png
-# 
-# Notes:          - Use a diverging color palette for best results
-#                 - Output format can be changed as needed
-# =============================================================================
+## Data Directory
 
+Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) located on the team's shared Google Drive. The key for the columns on the Data Directory, "the meta-metadata", can be found on the second "Metadata" tab and is also reproduced below. 
 
-# Set up environment ----------------------------------------------------------
+```{r render meta_metadata table, results= 'asis', echo = F, message = F, warning=F}
+require(tidyverse)
+require(knitr)
 
-library(readr)
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-
-sessionInfo()
-
-
-# Import data -----------------------------------------------------------------
-
-...
+meta_metadatatable <- read_csv("images/meta_metadata.csv", col_names = F)
+colnames(meta_metadatatable) <- c("Column","Description")
+kable(meta_metadatatable)
 ```
 
-[Git](https://git-scm.com/) tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found [here](https://chris.beams.io/posts/git-commit/). There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.
+## Tidy Data  
 
-emLab uses [GitHub](https://github.com/emlab-ucsb) to host Git repos in the cloud, which makes collaborative code development easier and also provides related project management tools. Repos can be public or private, depending on the nature of the project. Furthermore, workflows for Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.
+As researchers, we work with data from many different sources. Often these data are messy. One of the first steps of any analysis is to clean any available raw data so that you can make simple visualizations of the data, calculate simple summary statistics, look for missing or incorrect data, and eventually proceed with more involved analyses or modeling.
 
+As part of the data cleaning process, we recommend getting all data into a "tidy" format (also known as "long" format, as opposed to "wide" format). According to the [Tidy Data Guide](https://r4ds.had.co.nz/tidy-data.html) by Garrett Grolemund and Hadley Wickham, tidy data is defined as:
 
-## Style Guide  
+<blockquote>
+* Each variable must have its own column.  
+* Each observation must have its own row.  
+* Each value must have its own cell.  
+</blockquote>
 
-At emLab, we recommend using a consistent code style for each of the different programming languages we use. Recommended coding styles for a particular language are collated in what is known as a "style guide". Style guides typically include standardized ways of naming script files, defining functions and variables, commenting code, etc. While emLab does not mandate the use of style guides, having a consistent code style allows all emLab staff to easily understand each other's code, collaborate on projects, and jump in on new projects. We consider this an important aspect of collaboration, reproducibility, and transparency.  
+These three features of tidy data can be seen in the following figure, also from the [Tidy Data Guide](https://r4ds.had.co.nz/tidy-data.html):
 
-Rather than re-invent the wheel, we leverage existing code style guidelines for each of the languages we use. Below is a summary of the code style guidelines we recommend for various languages:  
+<blockquote>
+![](images/tidy-data.png)
 
-* *R* - [Tidyverse Style Guide](https://style.tidyverse.org), by Hadley Wickham  
-* *Python* - [Google's Python Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)  
-* *Stata* - [Suggestions on Stata programming style](https://www.stata-journal.com/sjpdf.html?articlenum=pr0018), by Nicolas J. Cox  
-* *Other languages* - [Google style guides for other languages](https://github.com/google/styleguide)  
+</blockquote>
+
+Once data are in this format, it makes subsequent visualization and analysis much easier. If you've ever worked with a file that has a separate column for each year (an example of "wide" format data), you know how hard that type of data format is to work with!  
+
+As always, we recommend keeping a backup copy of the raw data you obtained from the original source, and using a reproducible script for transforming these data into a tidy data format.
+
+### Recommended Resources  
+
+We highly recommend the chapter on [Tidy Data](https://r4ds.had.co.nz/tidy-data.html) from the book [R for Data Science](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham. This guide is geared towards R users and provides helpful tips for transforming and working with data in R, but the concepts should be broadly applicable to other languages as well. For tips specific to Python, we recommend a blogpost by Jean-Nicholas Hould titled [Tidy Data in Python](http://www.jeannicholashould.com/tidy-data-in-python.html).
