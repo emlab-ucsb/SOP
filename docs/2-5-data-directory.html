@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>emLab Standard Operating Procedures</title>
+  <title>2.5 Data Directory | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2.5 Data Directory | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://emlab-ucsb.github.io/SOP/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2.5 Data Directory | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-
-<link rel="next" href="1-project-management.html">
+<link rel="prev" href="2-4-metadata.html">
+<link rel="next" href="2-6-tidy-data.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -191,24 +191,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">emLab Standard Operating Procedures</h1>
-<p class="date"><em>2019-11-06</em></p>
-</div>
-<div id="overview" class="section level1 unnumbered">
-<h1>Overview</h1>
-<p>This reference guide describes standard operating procedures (SOP) for emLab projects. This schema outlines the major platforms used for all emLab projects:</p>
-<p><em>insert image of the platforms</em></p>
-<p>This SOP is organized into 4 different sections: (1) Project Management, (2) Files, (3) Code, and (4) High Performance Computing. Section 1 provides an overview of the platforms we use and how to install them, Section 2 covers file structure and storage, Section 3 highlights best practices for coding, and Section 4 covers high performance computing.</p>
-
+<div id="data-directory" class="section level2">
+<h2><span class="header-section-number">2.5</span> Data Directory</h2>
+<p>Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a> located on the team’s shared Google Drive. The key for the columns on the Data Directory, “the meta-metadata”, can be found on the second “Metadata” tab and is also reproduced below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Column</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Domain</td>
+<td align="left">Ocean; Climate; Land; Energy; General; Demographic; Urban [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Description</td>
+<td align="left">A few word description (e.g. SST US 2017); max 5 words</td>
+</tr>
+<tr class="odd">
+<td align="left">Folder</td>
+<td align="left">Name of folder containing data</td>
+</tr>
+<tr class="even">
+<td align="left">Filename</td>
+<td align="left">Name of data</td>
+</tr>
+<tr class="odd">
+<td align="left">Year</td>
+<td align="left">Year of publication</td>
+</tr>
+<tr class="even">
+<td align="left">Version</td>
+<td align="left">Sub category of year; NA if not applicable</td>
+</tr>
+<tr class="odd">
+<td align="left">Project</td>
+<td align="left">Project name that used these data (can have multiple listings) or ‘General’ if widely used (e.g. FAO data), hyperlinked to Google Drive/Box folder</td>
+</tr>
+<tr class="even">
+<td align="left">Code</td>
+<td align="left">Link to Github repo or wherever code is stored</td>
+</tr>
+<tr class="odd">
+<td align="left">Raw/Output</td>
+<td align="left">raw’ if raw data; ‘output’ for what was used for the project (can have multiple listings; e.g. Raw, Published)</td>
+</tr>
+<tr class="even">
+<td align="left">Filetype</td>
+<td align="left">Drop down menu of file extension</td>
+</tr>
+<tr class="odd">
+<td align="left">Citation</td>
+<td align="left">Hyperlinked reference to publication or online resource or contact for individual/group data author</td>
+</tr>
+<tr class="even">
+<td align="left">URL</td>
+<td align="left">Link to original data source</td>
+</tr>
+<tr class="odd">
+<td align="left">Extent</td>
+<td align="left">global; regional; national; local [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Resolution</td>
+<td align="left">Resolution of spatial data (in degrees)</td>
+</tr>
+<tr class="odd">
+<td align="left">Permissions</td>
+<td align="left">open; restricted; secure [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Start year</td>
+<td align="left">Data set start year; numeric</td>
+</tr>
+<tr class="odd">
+<td align="left">End year</td>
+<td align="left">Data set end year;numeric</td>
+</tr>
+<tr class="even">
+<td align="left">Source</td>
+<td align="left">e.g. “emLab”; “FAO”; “Rare”</td>
+</tr>
+<tr class="odd">
+<td align="left">Contact</td>
+<td align="left">Name and email of contact person in emLab who used/stored data</td>
+</tr>
+</tbody>
+</table>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-project-management.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2-4-metadata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2-6-tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
