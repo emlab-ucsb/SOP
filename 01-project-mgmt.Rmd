@@ -39,7 +39,7 @@ When a new project starts, create a slack channel for it and add the relevant te
 
 ## Airtable
 
-At emLab, we use Airtable as our primary project management software. To put it simply, it’s a glorified spreadsheet that you can mold to fit your needs. Email Erin (eoreilly@ucsb.edu) to be added to Airtable. 
+At emLab, we use [Airtable](https://airtable.com/) as our primary project management software. To put it simply, it’s a glorified spreadsheet that you can mold to fit your needs. Email Erin (eoreilly@ucsb.edu) to be added to Airtable. 
 
 ### Helpful terminology
 
@@ -55,6 +55,8 @@ Within the emLab workspace, we have the following bases:
 * Project template
 * Project specific
 
+![](images/airtable-workspace.png)
+
 The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage). 
 
 The Project Template provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team. 
@@ -67,42 +69,50 @@ It is up to you and your team to determine how to make Airtable work for you. Ou
 
 #### Tab ideas
 
-* Deliverables (required): high level deliverables stated in the scope of work
-* Tasks: more detailed steps of how to reach a deliverable; could be day-to-day tasks
-  * Note: you can link a tasks tab with the deliverables tab to see how they feed into one another
-* Team (required): list of team members with their emails and project role
-  * Note: this can be linked to the deliverables and tasks tab so you know who is working on what
-* Datasets: way to keep track of all the datasets going into an analysis and what stage of collection and processing they are in
-  * Example: for the NatGeo Conservation Priorities project, they grouped data by goal (biodiversity, food provision, impacts, carbon), whether it had been collected, the stage of processing, data source, and description of the data
-* Analyses: tracking different versions of a model run to keep track of progress and outputs of different simulations run
-  * Example: for the NatGeo Conservation Priorities project, they listed each version and what was run in that version, and attached figures of the results
+- Deliverables (required): high level deliverables stated in the scope of work
+
+- Tasks: more detailed steps of how to reach a deliverable; could be day-to-day tasks
+
+    - Note: you can link a tasks tab with the deliverables tab to see how they feed into one another
+
+- Team (required): list of team members with their emails and project role
+
+    - Note: this can be linked to the deliverables and tasks tab so you know who is working on what
+- Datasets: way to keep track of all the datasets going into an analysis and what stage of collection and processing they are in
+
+    - Example
+    ![](images/airtable-example3.png)
+
+- Analyses: tracking different versions of a model run to keep track of progress and outputs of different simulations run
+
+    - Example
+    ![](images/airtable-example2.png)
   
 #### Column options
 
 There are 25 column type options within Airtable. The ones we most commonly use are:
 
-* Link to another record: links information from different tabs within the same base
-  * Example: create an “assigned to” column in your deliverables tab and link it with your team tab. When looking at the deliverables tab, you can see how tasks are distributed across the team, and when looking at the team tab, you can see what deliverables each person is working on.
-* Single line text
-* Attachment
-* Checkbox
-* Multiple select
-* Single select
-* Date
+- Link to another record: links information from different tabs within the same base
+
+    - Example: create an “assigned to” column in your deliverables tab and link it with your team tab. When looking at the deliverables tab, you can see how tasks are distributed across the team, and when looking at the team tab, you can see what deliverables each person is working on.
+    
+- Single line text
+
+- Attachment
+
+- Checkbox
+
+- Multiple select
+
+- Single select
+
+- Date
 
 #### Ways to view your base
 
 **Different views** 
 
-There are 5 different ways to view your base:
-
-* Grid: view as a spreadsheet (most used!)
-* Kanaban: view in columns (similar to Trello)
-* Calendar: view items on a calendar
-* Gallery: view each entry as its own card
-* Form: creates something similar to a Google Form
-
-You can also name different views of the same tab. For example, say you have a tasks tab and want to separately group them by deliverable and view what items are complete. Instead of manually changing this each time, create and name one view that groups by deliverable and then create and name another view that groups by completed. This way you can toggle back and forth with ease. 
+There are 5 different ways to view your base: grid, calendar, gallery, kanaban, and form, which can be explored [here](https://airtable.com/product). 
 
 **Filtering**
 
@@ -112,36 +122,23 @@ This works like the normal filtering function in spreadsheets. You can sort A to
 
 Grouping allows you to bucket your spreadsheet by field type. 
 
-Example 1: Say you have a “Complete?” checkbox column. If you choose to group by “Complete?” it will place all records with the box checked in one bucket and all records that aren’t checked in another bucket. 
+Example 1: Clean seafood grouping tasks by complete v. not complete.
 
-Example 2: For the clean seafood project, there are four different research tracks and general items for the team to complete. If you create a “Research Track” column with a drop-down of the different tracks and group by track, you can view deliverables separated out by research track. 
-Expanding record
+![](images/airtable-groupcomplete.png)
+
+Example 2: Clean seafood grouping deliverables by research track.
+
+![](images/airtable-example1.png)
+
+**Expanding a record**
+
 Within each tab, you can expand records in the first column to view all its information at once by clicking the two opposing arrows before the text. This option combines information from all of the columns into an easy to read card format.
+
+![](images/airtable-expandedrecord.png)
 
 ## Google Shared Drive
 
-We have all experienced the moment where we can’t remember where a Google Doc is. To help solve this problem, we created an emLab Shared Google Drive, which is a centralized space for all of our documents to live within a shared file structure. Unlike files in My Drive (your personal Google Drive account), files within the Shared Drive belong to the team instead of an individual. So even if people leave, the files stay exactly where they are and aren’t lost with that person’s account. You can read more about Shared Drives [here](https://support.google.com/a/users/answer/9310351). 
-
-### General structure
-
-The emLab Shared Drive is organized into four main folders:
-
-* Central emLab Resources: includes meeting and event information, onboarding materials, information about travel reimbursements, and the team roster
-* Communications: includes the blog schedule, Adobe design projects, PowerPoint templates, photo repository, and publication and media tracking
-* Data: will include the emLab data directory and all datasets we work with
-* Projects: includes information on past and current projects, and project management guidelines
-
-A full table of contents can be seen [here](https://docs.google.com/document/d/1a26a6N4akF2dSXWfp0fWxGegd0wvrPVUeaA09en2EPE/edit). 
-
-Each project folder must contain the following 5 folders:
-
-* Deliverables
-* Grant Reporting
-* Meetings and Events
-* Presentations
-* Project Materials
-
-From here, each project can add sub-folders as they see fit.
+We have all experienced the moment where we can’t remember where a Google Doc is. To help solve this problem, we created an emLab Shared Google Drive, which is a centralized space for all of our documents to live within a shared file structure. Unlike files in My Drive (your personal Google Drive account), files within the Shared Drive belong to the team instead of an individual. So even if people leave, the files stay exactly where they are and aren’t lost with that person’s account. The structure of Shared Drive is detailed in Section 2. You can read more about Shared Drives [here](https://support.google.com/a/users/answer/9310351). 
 
 ### Sharing files
 
@@ -174,7 +171,7 @@ There are important distinctions between **Backup and Sync** and **Drive File St
 Once the installation is complete, you'll need to sign in to your account. To do so:
 
 - Click on the Drive File Stram icon (![](images/shared-drive-icon.png))
-
+    
     - On Windows machines, it should be on the bottom right corner of your screen
     
     - On MacOS, it should be at the top right of your screen
@@ -199,8 +196,6 @@ Google Drive
           |__Communications
           |__Data
           |__Projects
-          |__Strategy
-          |__ other files
 ```
 
 ### Other considerations
