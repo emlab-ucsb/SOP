@@ -11,19 +11,22 @@ Standard operating procedures for emLab projects:
     + Google Calendar - *Erin*
     + Slack - *Erin*
     + Airtable - *Erin*
-    + Google Team Drive - *Erin and Juan Carlos*
-    + GitHub - *Kat*
+    + Google Shared Drive - *Erin and Juan Carlos*
+    + Git and GitHub - *Kat*
+* File Structure
+    + File Naming
+    + Shared Drive Files
+    + GitHub Structure
 * Data
+    + Metadata - *Ian*
+    + Data Directory - *Ian*
     + Tidy Data - *Gavin*
-    + Storage - *Juan Carlos*
-    + Metadata and Data Directory - *Ian*
 * Code
     + Scripts and Version Control - *Derek*
     + Style Guide - *Gavin*
 * High Performance Computing
     + Google Cloud Platform - *Juan*
     + UCSB Server Clusters - *Derek*
-* Placeholder
 
 
 ## Contributing
