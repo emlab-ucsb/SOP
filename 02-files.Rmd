@@ -1,30 +1,13 @@
 ---
-title: "Files"
+title: "File Structure"
 output: html_document
 ---
 
-# Files
+# File Structure
 
 <!--
-    Note to self: update the text on this first page to be broader than data
+    Note to self: add intro text
 -->
-Data should be managed and shared properly to make it useful in research, to promote transparency and facilitate reproducibility, and to ensure the credibility of research. This includes such practices as transforming data into a tidy format, storing data in open file formats, and providing data documentation.
-
-**Recommended readings:**
-
-Borer, Elizabeth T., Eric W. Seabloom, Matthew B. Jones, and Mark Schildhauer. 2009. “Some Simple Guidelines for Effective Data Management.” *The Bulletin of the Ecological Society of America* 90 (2): 205–14. <https://doi.org/10.1890/0012-9623-90.2.205>.
-
-Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” *The American Statistician* 72 (1): 2–10. <https://doi.org/10.1080/00031305.2017.1375989>.
-
-Ellis, Shannon E., and Jeffrey T. Leek. 2018. “How to Share Data for Collaboration.” *The American Statistician* 72 (1): 53–57. <https://doi.org/10.1080/00031305.2017.1375987>.
-
-Goodman, Alyssa, Alberto Pepe, Alexander W. Blocker, Christine L. Borgman, Kyle Cranmer, Merce Crosas, Rosanne Di Stefano, et al. 2014. “Ten Simple Rules for the Care and Feeding of Scientific Data.” *PLOS Computational Biology* 10 (4): e1003542. <https://doi.org/10.1371/journal.pcbi.1003542>.
-
-Hart, Edmund M., Pauline Barmby, David LeBauer, François Michonneau, Sarah Mount, Patrick Mulrooney, Timothée Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister. 2016. “Ten Simple Rules for Digital Data Storage.” *PLOS Computational Biology* 12 (10): e1005097. <https://doi.org/10.1371/journal.pcbi.1005097>.
-
-Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” *Scientific Data* 3 (March): 160018. <https://doi.org/10.1038/sdata.2016.18>.
-
-Also see the resources available at [DataONE](https://www.dataone.org/resources).
 
 ## File Naming
 *add text about standardized file naming* 
@@ -122,46 +105,3 @@ Data
 ```
 
 ## GitHub Structure
-
-## Metadata 
-*Add text about where/store data for each dataset. This is different than the data directory, which is meta-metadata.
-
-## Data Directory
-
-Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) located on the team's shared Google Drive. The key for the columns on the Data Directory, "the meta-metadata", can be found on the second "Metadata" tab and is also reproduced below. 
-
-```{r render meta_metadata table, results= 'asis', echo = F, message = F, warning=F}
-require(tidyverse)
-require(knitr)
-
-meta_metadatatable <- read_csv("images/meta_metadata.csv", col_names = F)
-colnames(meta_metadatatable) <- c("Column","Description")
-kable(meta_metadatatable)
-```
-
-## Tidy Data  
-
-As researchers, we work with data from many different sources. Often these data are messy. One of the first steps of any analysis is to clean any available raw data so that you can make simple visualizations of the data, calculate simple summary statistics, look for missing or incorrect data, and eventually proceed with more involved analyses or modeling.
-
-As part of the data cleaning process, we recommend getting all data into a "tidy" format (also known as "long" format, as opposed to "wide" format). According to the [Tidy Data Guide](https://r4ds.had.co.nz/tidy-data.html) by Garrett Grolemund and Hadley Wickham, tidy data is defined as:
-
-<blockquote>
-* Each variable must have its own column.  
-* Each observation must have its own row.  
-* Each value must have its own cell.  
-</blockquote>
-
-These three features of tidy data can be seen in the following figure, also from the [Tidy Data Guide](https://r4ds.had.co.nz/tidy-data.html):
-
-<blockquote>
-![](images/tidy-data.png)
-
-</blockquote>
-
-Once data are in this format, it makes subsequent visualization and analysis much easier. If you've ever worked with a file that has a separate column for each year (an example of "wide" format data), you know how hard that type of data format is to work with!  
-
-As always, we recommend keeping a backup copy of the raw data you obtained from the original source, and using a reproducible script for transforming these data into a tidy data format.
-
-### Recommended Resources  
-
-We highly recommend the chapter on [Tidy Data](https://r4ds.had.co.nz/tidy-data.html) from the book [R for Data Science](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham. This guide is geared towards R users and provides helpful tips for transforming and working with data in R, but the concepts should be broadly applicable to other languages as well. For tips specific to Python, we recommend a blogpost by Jean-Nicholas Hould titled [Tidy Data in Python](http://www.jeannicholashould.com/tidy-data-in-python.html).
