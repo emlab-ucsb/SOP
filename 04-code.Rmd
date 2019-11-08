@@ -5,28 +5,27 @@ output: html_document
 
 # Code
 
-All data transformation and analysis should be performed with code (i.e., avoid spreadsheets), and all code should be packaged in scripts that are version controlled and follow a style guide. Using code and scripts allows for better organization, documentation, and reproducibility of analysis workflows.
+All data processing and analysis should be performed with code (i.e., avoid spreadsheets), and all code should be packaged in scripts that are version controlled and follow a style guide. Using code and scripts allows for better organization, documentation, and reproducibility of analysis workflows.
 
 **Recommended readings:**
 
-Bryan, Jennifer. 2018. “Excuse Me, Do You Have a Moment to Talk About Version Control?” *The American Statistician* 72 (1): 20–27. <https://doi.org/10.1080/00031305.2017.1399928>.
+* Bryan, Jennifer. 2018. “Excuse Me, Do You Have a Moment to Talk About Version Control?” *The American Statistician* 72 (1): 20–27. <https://doi.org/10.1080/00031305.2017.1399928>.  
+* Stodden, Victoria, and Sheila Miguez. 2014. “Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research.” *Journal of Open Research Software* 2 (1): e21. <https://doi.org/10.5334/jors.ay>.  
 
-Stodden, Victoria, and Sheila Miguez. 2014. “Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research.” *Journal of Open Research Software* 2 (1): e21. <https://doi.org/10.5334/jors.ay>.
+* Wilson, Greg, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, et al. 2014. “Best Practices for Scientific Computing.” *PLOS Biology* 12 (1): e1001745. <https://doi.org/10.1371/journal.pbio.1001745>.  
 
-Wilson, Greg, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, et al. 2014. “Best Practices for Scientific Computing.” *PLOS Biology* 12 (1): e1001745. <https://doi.org/10.1371/journal.pbio.1001745>.
-
-Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. “Good Enough Practices in Scientific Computing.” *PLOS Computational Biology* 13 (6): e1005510. <https://doi.org/10.1371/journal.pcbi.1005510>.
+* Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. “Good Enough Practices in Scientific Computing.” *PLOS Computational Biology* 13 (6): e1005510. <https://doi.org/10.1371/journal.pcbi.1005510>.  
 
 
 ## Scripts and Version Control
 
 Code should be crafted according to the following guidelines:
 
-- Use scripts.
-- Document scripts, but not too much.
-- Organize scripts appropriately.
-- Use Git to version control scripts.
-- Make atomic Git commits.
+* Use scripts  
+* Document scripts, but not too much  
+* Organize scripts consistently (see format below)    
+* Use Git to version control scripts  
+* Make atomic Git commits (see description below)  
 
 Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.
 
@@ -47,15 +46,22 @@ Here is an example template for R scripts:
 
 # Set up environment ----------------------------------------------------------
 
-library(readr)
-library(dplyr)
-library(tidyr)
-library(ggplot2)
+library(tidyverse)
 
-sessionInfo()
+# Set path for Goolge Drive filstream based on system type --------------------
 
+team_path <- case_when(Sys.info()["sysname"]=="Windows" ~ "G:/",
+                       Sys.info()["sysname"]=="Darwin" ~ "/Volumes/GoogleDrive/")
 
 # Import data -----------------------------------------------------------------
+
+# Process data ----------------------------------------------------------------
+
+# Analysis ----------------------------------------------------------------
+
+# Visualize results -----------------------------------------------------------
+
+# Save results ----------------------------------------------------------------
 
 ...
 ```
