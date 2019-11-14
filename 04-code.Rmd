@@ -10,6 +10,7 @@ All data processing and analysis should be performed with code (i.e., avoid spre
 **Recommended readings:**
 
 * Bryan, Jennifer. 2018. “Excuse Me, Do You Have a Moment to Talk About Version Control?” *The American Statistician* 72 (1): 20–27. <https://doi.org/10.1080/00031305.2017.1399928>.  
+
 * Stodden, Victoria, and Sheila Miguez. 2014. “Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research.” *Journal of Open Research Software* 2 (1): e21. <https://doi.org/10.5334/jors.ay>.  
 
 * Wilson, Greg, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, et al. 2014. “Best Practices for Scientific Computing.” *PLOS Biology* 12 (1): e1001745. <https://doi.org/10.1371/journal.pbio.1001745>.  
@@ -48,22 +49,26 @@ Here is an example template for R scripts:
 
 library(tidyverse)
 
-# Set path for Goolge Drive filstream based on system type --------------------
-
+# Set path for Google Drive filestream based on OS type
 team_path <- case_when(Sys.info()["sysname"]=="Windows" ~ "G:/",
                        Sys.info()["sysname"]=="Darwin" ~ "/Volumes/GoogleDrive/")
 
+
 # Import data -----------------------------------------------------------------
+
 
 # Process data ----------------------------------------------------------------
 
-# Analysis ----------------------------------------------------------------
+
+# Analyze data ----------------------------------------------------------------
+
 
 # Visualize results -----------------------------------------------------------
 
+
 # Save results ----------------------------------------------------------------
 
-...
+
 ```
 
 [Git](https://git-scm.com/) tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found [here](https://chris.beams.io/posts/git-commit/). There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.
