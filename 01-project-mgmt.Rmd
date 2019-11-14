@@ -352,6 +352,6 @@ Once you've installed a Git client, follow the directions to connect to your Git
 
 ### Some general guidelines for using GitHub at emLab
 
+The GitHub [Projects feature](https://github.com/orgs/emlab-ucsb/projects) provides project management tools for planning, creating and assigning tasks, and tracking progress. Project boards help organize and prioritize work. They can be specific to one repo or used to connect multiple repos under the same project. Within repos, Issues and Pull Requests should be used for discussion, creating and assigning tasks, code review, etc., which are connected to project boards.
 
-
-
+The GitHub [Teams feature](https://github.com/orgs/emlab-ucsb/teams) allows for subgroups within the emLab GitHub organization, which enables easier communication among teams and better access control for repos.
