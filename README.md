@@ -7,26 +7,26 @@ Standard operating procedures for emLab projects:
 
 ## Table of Contents
 
-* Project Management  
-    + Google Calendar - *Erin*
-    + Slack - *Erin*
-    + Airtable - *Erin*
-    + Google Shared Drive - *Erin and Juan Carlos*
-    + Git and GitHub - *Kat*
-* File Structure
-    + File Naming
-    + Shared Drive Files
-    + GitHub Structure
-* Data
-    + Metadata - *Ian*
-    + Data Directory - *Ian*
-    + Tidy Data - *Gavin*
-* Code
-    + Scripts and Version Control - *Derek*
-    + Style Guide - *Gavin*
-* High Performance Computing
-    + Google Cloud Platform - *Juan*
-    + UCSB Server Clusters - *Derek*
+1. Project Management  
+    - Google Calendar
+    - Slack
+    - Airtable
+    - Google Shared Drive
+    - Git and GitHub
+2. File Structure
+    - File Naming
+    - Shared Drive Files
+    - GitHub Structure
+3. Data
+    - Metadata
+    - Data Directory
+    - Tidy Data
+4. Code
+    - Scripts and Version Control
+    - Style Guide
+5. High Performance Computing
+    - Google Cloud Platform
+    - UCSB Server Clusters
 
 
 ## Contributing
@@ -35,4 +35,4 @@ The website is built using the `bookdown` package for R. After pulling the lates
 
 `bookdown::render_book(input = "index.Rmd")`
 
-Then commit the changes and push to the repo. The GitHub website will automatically update with the new changes.
+To produce a clean build of the website, simply delete the 'docs' folder before rendering, which is where generated files are stored. Once rendered, then commit the changes and push to the repo. The GitHub website will automatically update with the new changes.
