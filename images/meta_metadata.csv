@@ -6,7 +6,7 @@ Year,Year of publication
 Version,Sub category of year; NA if not applicable
 Project,"Project name that used these data (can have multiple listings) or 'General' if widely used (e.g. FAO data), hyperlinked to Google Drive/Box folder"
 Code,Link to Github repo or wherever code is stored
-Raw/Output,"'raw' if raw data; 'output' for what was used for the project and/or published [drop down menu]
+Raw/Output,raw' if raw data; 'output' for what was used for the project and/or published [drop down menu]
 Filetype,File extension (e.g. csv, tif, rds); note, do note include '.'
 Citation,Hyperlinked reference to publication or online resource or contact for individual/group data author
 URL,Link to original data source
@@ -15,7 +15,7 @@ Resolution,Resolution of spatial data (in degrees)
 Permissions,open; restricted; secure [drop down menu]
 Start year,Data set start year; numeric
 End year,Data set end year;numeric
-Source,"e.g. emLab; FAO; Rare"
+Source,e.g. emLab; FAO; Rare
 Contact,Name and email of contact person in emLab who used/stored data
 emLab reference,Hyperlinked reference to emLab publication using data (can be NA)
 Keywords,e.g. fisheries; fire; utilities; property value; VDS; MPA; oceanography; temperature; habitat; biodiversity (up to 5 per entry, separated by semi-colons)
