@@ -26,15 +26,27 @@ Data should be managed and shared properly to make it useful in research, to pro
 
 ## Metadata
 
-*Add text about where/store data for each dataset. This is different than the data directory, which is meta-metadata.*
+Metadata is data about your data. It includes information about your data's content, structure, authors, and permissions to make your data interpretable and usable by your future self and others. EVERY data file should be accompanied by a metadata file.
 
 ### Metadata Standards
 
+We use "readme" style metadata, named "_readme_datafilename", and stored in the same folder as the data file.  
+
+**Create one readme file for each data file.** Use this [template](https://docs.google.com/document/d/1xwBwlGUv3ry-_Ezla1HqCHEEwEPiQL4HQRraGlxnQZA/edit) to create your readme file.
+
+**Name the readme "_readme_datafilename"** and save as a text file or Google Doc
+
+**Format the readme document so it is easy to understand** (use bullets, break up information, etc.)
+
+**Use a standardized date format** YYYY-MM-DD
+
 ### Where to store metadata
 
-## Data Directory
+All readme metadata files are stored in the folder that contains the data file in the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0).
 
-Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) located on the team's shared Google Drive. The key for the columns on the Data Directory, "the meta-metadata", can be found on the second "Metadata" tab and is also reproduced below. 
+## Data Directory 
+
+All emLab data is stored in subfolders of the Data folder on the emLab Team Drive. To document these data, we use the [emLab Data Directory] (https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) that includes key, standardized information from each readme metadata file. Every data file in the Data folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)
 
 ```{r render meta_metadata table, results= 'asis', echo = F, message = F, warning=F}
 require(tidyverse)
