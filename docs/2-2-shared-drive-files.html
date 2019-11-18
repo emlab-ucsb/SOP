@@ -247,9 +247,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="data-storage" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Data Storage</h3>
-<p>As stated above, there are two folders where data will be stored. The two locations are <code>emLab/Data</code> and <code>emLab/Projects/project_name/Data</code>. This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: <code>emLab/Data</code> contains only input and output data. On the other hand, <code>project_name/Data</code> may contain raw, cleaned, intermediate, and output files for a project. More detail is provided in the following subsections.</p>
+<p>As stated above, there are two folders where data will be stored. The two locations are <code>emLab/Projects/project_name/Data</code> and <code>emLab/Data</code>. This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: <code>project_name/Data</code> may contain raw, cleaned, intermediate, and output files for a given project, and will be used as the “workspace” while the project develops. On the other hand, <code>emLab/Data</code> contains only input and output data from a finalized project. More detail is provided in the following subsections.</p>
+<div id="project_namedata" class="section level4">
+<h4><span class="header-section-number">2.2.3.1</span> <code>project_name/Data</code></h4>
+<p><strong>All</strong> data used in a project should live in this project-specific repository. This repository will typically contain at least subfolders for <code>raw_data</code> and <code>data</code>, although each team might make slight modifications to this structure.</p>
+<p>A team will often receive data from partners, compile it from multiple sources, use survey responses, extract it from a literature review, or use results from previous projects as input. These data are termed “raw data”, and should never be directly modified -all the errors, mistakes, and gremlins should be kept in the original versions. Instead, they should be processed / cleaned, and then exported as “clean data”, that can be used in analyses.</p>
+<p>For example, suppose that a team working in Montserrat is tasked to perform a stock assessment on lobster populations and receives a database of lobster landings from the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes that need to be fixed prior to running anly analyses. The team will clean the data (preferabily, using a reproducible script), and then export it to a different location within the project folder. The team will then perform the stock assessment, and produce results before reporting back. Therefore, the project-level data folders will be divided into <code>raw_data</code> and <code>data</code> folders, and perhaps an <code>output</code> folder. The first one will contain all raw data as-is. The second folder will contain clean data, whcich can then be used as input for analyses within this project. The <code>output</code> folder could contain information relevant to other projects.</p>
+<pre><code>Projects
+|__ ... other projects
+|__ montserrat_project
+    |__ raw_data
+    |   |__ lobster_landings_nov_2012.xslx
+    |__ data
+        |__ lobster_landings_nov_2012.csv
+    |__ output
+        |__ lobster_stock_assessment.csv</code></pre>
+<p>As stated above, the <code>output</code> folder could contain information relevant to other projects. Once a project is completed, the raw data and output data should be made available to other emLab projects. To do this, the data should be moved to the <code>emLab/Data</code> folder, as described below.</p>
+</div>
 <div id="emlabdata" class="section level4">
-<h4><span class="header-section-number">2.2.3.1</span> <code>emLab/Data</code></h4>
+<h4><span class="header-section-number">2.2.3.2</span> <code>emLab/Data</code></h4>
 <p>As a general rule, this folder will contain all data <em>used</em> and <em>produced</em> by emLab projects. The idea is to make it esasier for people to find data that is used across projects. At the same time, it makes it easier for future projects to use previous results as input for their work. For example, the <a href="https://www.ramlegacy.org/">RAM Legacy stock assessment database</a> is key to many projects, and was used as input in the <a href="https://www.pnas.org/content/113/18/5125">Costello <em>et al.</em> 2016 “upsides” paper</a>. The “upsides database” is an output from the Costello paper, which can be used as input for other projects. Therefore, the <code>emLab/Data</code> folder contains both the RAM and upsides datasets.</p>
 <p>This large central data repository has the potential to become messy. Therefore, it is important to follow some key guidelines to store the data. All data in this folder should be a folder that includes at minimum the data and metadata files. For example, a file structure for the two datasets mentioned above might be:</p>
 <pre><code>emLab
@@ -265,29 +281,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
        |   |__ RAM v4.25             [the data]
        |   |__ RAM v4.40             [the data]
        |__ ...                       [other folders]</code></pre>
-</div>
-<div id="project-specific-data" class="section level4">
-<h4><span class="header-section-number">2.2.3.2</span> Project-specific data</h4>
-<p>For project-specific cases, however, the teams will often receive data from partners, compile it from multiple sources, use survey responses, or extract it from a literature review. These data are termed “raw data”, and should <strong>never</strong> be directly modified -all the errors, mistakes, and gremlins should be kept in the original versions. Instead, they should be processed / cleaned, and then exported as “clean data”, that can be used in analyses.</p>
-<p>For example, suppose that a team working in Montserrat receives a database of lobster landings by the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes and errors that need to be fixed. The team will clean the data (preferabily, using a reproducible script), and then export it to a different location within the project folder. Therefore, the project-level data folders will be divided into <code>raw_data</code> and <code>data</code> folders. The first one will contain all raw data as-is. The second folder will contain clean data, whcich can then be used as input for analyses.</p>
-</div>
-<div id="general-structure-of-the-data-folder" class="section level4">
-<h4><span class="header-section-number">2.2.3.3</span> General structure of the <code>Data</code> folder</h4>
-<pre><code>Data
-|__shared
-|   |__ upsides
-|   |__ RAM
-|   |   |__ RAM v4.10
-|   |   |__ RAM v4.15
-|   |   |__ RAM v4.25
-|   |   |__ RAM v4.40
-|   |   |__ ...
-|   |__ SST
-|__ montserrat_project
-    |__ raw_data
-    |   |__ lobster_landings_nov_2012.xslx
-    |__ data
-        |__ lobster_landings_nov_2012.csv</code></pre>
 </div>
 </div>
 </div>

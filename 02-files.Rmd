@@ -77,7 +77,30 @@ From here, each project can add sub-folders as they see fit within these 6 folde
 
 ### Data Storage
 
-As stated above, there are two folders where data will be stored. The two locations are `emLab/Data` and `emLab/Projects/project_name/Data`. This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: `emLab/Data` contains only input and output data. On the other hand, `project_name/Data` may contain raw, cleaned, intermediate, and output files for a project. More detail is provided in the following subsections.
+As stated above, there are two folders where data will be stored. The two locations are `emLab/Projects/project_name/Data` and `emLab/Data`. This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: `project_name/Data` may contain raw, cleaned, intermediate, and output files for a given project, and will be used as the "workspace" while the project develops. On the other hand, `emLab/Data` contains only input and output data from a finalized project. More detail is provided in the following subsections.
+
+#### `project_name/Data`
+
+**All** data used in a project should live in this project-specific repository. This repository will typically contain at least subfolders for `raw_data` and `data`, although each team might make slight modifications to this structure.
+
+A team will often receive data from partners, compile it from multiple sources, use survey responses, extract it from a literature review, or use results from previous projects as input. These data are termed “raw data”, and should never be directly modified -all the errors, mistakes, and gremlins should be kept in the original versions. Instead, they should be processed / cleaned, and then exported as “clean data”, that can be used in analyses.
+
+For example, suppose that a team working in Montserrat is tasked to perform a stock assessment on lobster populations and receives a database of lobster landings from the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes that need to be fixed prior to running anly analyses. The team will clean the data (preferabily, using a reproducible script), and then export it to a different location within the project folder. The team will then perform the stock assessment, and produce results before reporting back. Therefore, the project-level data folders will be divided into `raw_data` and `data` folders, and perhaps an `output` folder. The first one will contain all raw data as-is. The second folder will contain clean data, whcich can then be used as input for analyses within this project. The `output` folder could contain information relevant to other projects.
+
+
+```
+Projects
+|__ ... other projects
+|__ montserrat_project
+    |__ raw_data
+    |   |__ lobster_landings_nov_2012.xslx
+    |__ data
+        |__ lobster_landings_nov_2012.csv
+    |__ output
+        |__ lobster_stock_assessment.csv
+```
+
+As stated above, the `output` folder could contain information relevant to other projects. Once a project is completed, the raw data and output data should be made available to other emLab projects. To do this, the data should be moved to the `emLab/Data` folder, as described below.
 
 #### `emLab/Data`
 
@@ -99,33 +122,6 @@ emLab
        |   |__ RAM v4.25             [the data]
        |   |__ RAM v4.40             [the data]
        |__ ...                       [other folders]
-```
-
-
-#### Project-specific data
-
-For project-specific cases, however, the teams will often receive data from partners, compile it from multiple sources, use survey responses, or extract it from a literature review. These data are termed "raw data", and should **never** be directly modified -all the errors, mistakes, and gremlins should be kept in the original versions. Instead, they should be processed / cleaned, and then exported as "clean data", that can be used in analyses.
-
-For example, suppose that a team working in Montserrat receives a database of lobster landings by the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes and errors that need to be fixed. The team will clean the data (preferabily, using a reproducible script), and then export it to a different location within the project folder. Therefore, the project-level data folders will be divided into `raw_data` and `data` folders. The first one will contain all raw data as-is. The second folder will contain clean data, whcich can then be used as input for analyses.
-
-#### General structure of the `Data` folder
-
-```
-Data
-|__shared
-|   |__ upsides
-|   |__ RAM
-|   |   |__ RAM v4.10
-|   |   |__ RAM v4.15
-|   |   |__ RAM v4.25
-|   |   |__ RAM v4.40
-|   |   |__ ...
-|   |__ SST
-|__ montserrat_project
-    |__ raw_data
-    |   |__ lobster_landings_nov_2012.xslx
-    |__ data
-        |__ lobster_landings_nov_2012.csv
 ```
 
 ## GitHub Structure
