@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2019-11-13" />
+<meta name="date" content="2019-11-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -175,7 +175,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="data-directory" class="section level2">
 <h2><span class="header-section-number">3.2</span> Data Directory</h2>
-<p>Logging and storing robust metadata is important in maintaining the transparency and resuability of the data used in our analyses. Metadata records are currently listed in the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a> located on the team’s shared Google Drive. The key for the columns on the Data Directory, “the meta-metadata”, can be found on the second “Metadata” tab and is also reproduced below.</p>
+<p>All emLab data is stored in subfolders of the Data folder on the emLab Team Drive. To document these data, we use the [emLab Data Directory] (<a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0" class="uri">https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0</a>) that includes key, standardized information from each readme metadata file. Every data file in the Data folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)</p>
 <table>
 <thead>
 <tr class="header">
@@ -186,7 +186,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tbody>
 <tr class="odd">
 <td align="left">Domain</td>
-<td align="left">Ocean; Climate; Land; Energy; General; Demographic; Urban [drop down menu]</td>
+<td align="left">Climate/Energy; Land; Ocean; Other [drop down menu]</td>
 </tr>
 <tr class="even">
 <td align="left">Description</td>
@@ -218,11 +218,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="odd">
 <td align="left">Raw/Output</td>
-<td align="left">raw’ if raw data; ‘output’ for what was used for the project (can have multiple listings; e.g. Raw, Published)</td>
+<td align="left">raw’ if raw data; ‘output’ for what was used for the project and/or published [drop down menu]</td>
 </tr>
 <tr class="even">
 <td align="left">Filetype</td>
-<td align="left">Drop down menu of file extension</td>
+<td align="left">File extension (e.g. csv</td>
 </tr>
 <tr class="odd">
 <td align="left">Citation</td>
@@ -254,11 +254,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="even">
 <td align="left">Source</td>
-<td align="left">e.g. “emLab”; “FAO”; “Rare”</td>
+<td align="left">e.g. emLab; FAO; Rare</td>
 </tr>
 <tr class="odd">
 <td align="left">Contact</td>
 <td align="left">Name and email of contact person in emLab who used/stored data</td>
+</tr>
+<tr class="even">
+<td align="left">emLab reference</td>
+<td align="left">Hyperlinked reference to emLab publication using data (can be NA)</td>
+</tr>
+<tr class="odd">
+<td align="left">Keywords</td>
+<td align="left">e.g. fisheries; fire; utilities; property value; VDS; MPA; oceanography; temperature; habitat; biodiversity (up to 5 per entry</td>
+</tr>
+<tr class="even">
+<td align="left">Summary</td>
+<td align="left">Brief description of the data (1-2 sentences); include years for timeseries</td>
+</tr>
+<tr class="odd">
+<td align="left">Notes</td>
+<td align="left">Other relevant information about data</td>
 </tr>
 </tbody>
 </table>
