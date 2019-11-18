@@ -7,17 +7,17 @@ Version,Sub category of year; NA if not applicable
 Project,"Project name that used these data (can have multiple listings) or 'General' if widely used (e.g. FAO data), hyperlinked to Google Drive/Box folder"
 Code,Link to Github repo or wherever code is stored
 Raw/Output,raw' if raw data; 'output' for what was used for the project and/or published [drop down menu]
-Filetype,File extension (e.g. csv, tif, rds); note, do note include '.'
+Filetype,File extension (e.g. csv; tif; rds); note: do note include '.'
 Citation,Hyperlinked reference to publication or online resource or contact for individual/group data author
 URL,Link to original data source
 Extent,global; regional; national; local [drop down menu]
 Resolution,Resolution of spatial data (in degrees)
-Permissions,open; restricted; secure [drop down menu]
+Permissions,open = open source/open access; restricted = need author permission; secure = confidential data and likely involves an NDA [drop down menu]
 Start year,Data set start year; numeric
-End year,Data set end year;numeric
+End year,Data set end year; numeric
 Source,e.g. emLab; FAO; Rare
 Contact,Name and email of contact person in emLab who used/stored data
 emLab reference,Hyperlinked reference to emLab publication using data (can be NA)
-Keywords,e.g. fisheries; fire; utilities; property value; VDS; MPA; oceanography; temperature; habitat; biodiversity (up to 5 per entry, separated by semi-colons)
-Summary,Brief description of the data (1-2 sentences); include years for timeseries, location/spatial extent for spatial data, key variables, resolution, sampling frequency, species, etc.
-Notes,Other relevant information about data, initial your entry (e.g. if it was processed (e.g. subset from a larger dataset), what specifically was done; are there suspicious data points?; note if there are issues; etc.)
+Keywords,"e.g. fisheries; fire; utilities; property value; VDS; MPA; oceanography; temperature; habitat; biodiversity (up to 5 per entry, separated by semi-colons)"
+Summary,Brief description of the data (1-2 sentences). Include years for timeseries; location/spatial extent for spatial data; key variables; resolution; sampling frequency; species; etc.
+Notes,Other relevant information about data. Initial your entry (e.g. if it was processed (e.g. subset from a larger dataset); what specifically was done; are there suspicious data points?; note if there are issues; etc.)
