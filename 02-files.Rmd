@@ -10,8 +10,21 @@ output: html_document
 -->
 
 ## File Naming
-*add text about standardized file naming* 
 
+"Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread" - Hadley Wickham
+
+Coding styles guides provide teams with a shared language that promotes consistency, improves collaboration, and makes code easier to write as it simplifies the number of decisions we need to make on a daily basis (e.g., do I use - or _ to name this file? ). 
+
+All style guides are opinionated and while they al intend to make code easier to read and write, some decisions are arbitrary. Thus, instead of us at EmLab creating our own, we want to adopt the "proven and tested" [Tidyverse style guide](https://style.tidyverse.org/). This styles guide has good advice not only for naming files but also for naming functions, objects, and general best coding practices. We encourage all EmLab member to read the guide and work towards adopting it. 
+
+When it comes to file naming, best practices include: 
+
+  - Names should be descriptive and meaningful. Many coding interfaces now have autocompletion tools, so the length of the filename is less of a concern. 
+  - Avoid spaces and upper case letters. Some operating systems are case sensitive so in the interest of collaboration, let's use only **only** lower case. 
+  - Use `_` to separate words in filenames. Do not use `-`, `.`, or any other special characters. 
+  - Strive to use verbs for function names. 
+  - If files should be run in a particular order, prefix them with numbers. If you’ll have more than 10 files left pad with zero (e.g., 01_get_data.R)
+  
 ## Shared Drive Files
 
 ### General Structure
