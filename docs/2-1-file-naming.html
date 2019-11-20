@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 File Naming | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 File Naming | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2019-11-18" />
+<meta name="date" content="2019-11-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="2-file-structure.html">
-<link rel="next" href="2-2-shared-drive-files.html">
+<link rel="prev" href="2-file-structure.html"/>
+<link rel="next" href="2-2-shared-drive-files.html"/>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -66,7 +69,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -198,7 +201,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="file-naming" class="section level2">
 <h2><span class="header-section-number">2.1</span> File Naming</h2>
-<p><em>add text about standardized file naming</em></p>
+<p>“Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread” - Hadley Wickham</p>
+<p>Coding styles guides provide teams with a shared language that promotes consistency, improves collaboration, and makes code easier to write as it simplifies the number of decisions we need to make on a daily basis (e.g., do I use - or _ to name this file? ).</p>
+<p>All style guides are opinionated and while they al intend to make code easier to read and write, some decisions are arbitrary. Thus, instead of us at EmLab creating our own, we want to adopt the “proven and tested” <a href="https://style.tidyverse.org/">Tidyverse style guide</a>. This styles guide has good advice not only for naming files but also for naming functions, objects, and general best coding practices. We encourage all EmLab member to read the guide and work towards adopting it.</p>
+<p>When it comes to file naming, best practices include:</p>
+<ul>
+<li>Names should be descriptive and meaningful. Many coding interfaces now have autocompletion tools, so the length of the filename is less of a concern.</li>
+<li>Avoid spaces and upper case letters. Some operating systems are case sensitive so in the interest of collaboration, let’s use only <strong>only</strong> lower case.</li>
+<li>Use <code>_</code> to separate words in filenames. Do not use <code>-</code>, <code>.</code>, or any other special characters.</li>
+<li>Strive to use verbs for function names.</li>
+<li>If files should be run in a particular order, prefix them with numbers. If you’ll have more than 10 files left pad with zero (e.g., 01_get_data.R)</li>
+</ul>
 </div>
             </section>
 
@@ -211,11 +224,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
