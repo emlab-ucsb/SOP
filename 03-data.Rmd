@@ -32,13 +32,13 @@ Metadata is data about your data. It includes information about your data's cont
 
 We use "readme" style metadata, named "_readme_datafilename", and stored in the same folder as the data file.  
 
-**Create one readme file for each data file.** Use this [template](https://docs.google.com/document/d/1xwBwlGUv3ry-_Ezla1HqCHEEwEPiQL4HQRraGlxnQZA/edit) to create your readme file.
+* Create one readme file for each data file. Download and use this [template](https://drive.google.com/open?id=1AmB69bCh4wqnZFdYuzcXR6R3cKpyUfDT) to create your readme file (when one is not already available).
 
-**Name the readme _readme_datafilename** and save as a text file or Google Doc
+* Name the readme _readme_datafilename and save as a text file.
 
-**Format the readme document so it is easy to understand** (use bullets, break up information, etc.)
+* Format the readme so it is easy to understand (use bullets, break up information, etc.)
 
-**Use a standardized date format** YYYY-MM-DD
+* Use a standardized date format (YYYY-MM-DD)
 
 ### Where to store metadata
 
