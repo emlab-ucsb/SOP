@@ -137,4 +137,8 @@ emLab
        |__ ...                       [other folders]
 ```
 
+##### Folder Naming
+
+All data folders within the emLab data repository should use a consistent naming style. The naming style for folders is similar to those for data files described above (i.e., be descriptive but concise, avoid spaces, avoid uppercase, avoid special characters), *except* that `-` should be used to separate words. An example folder name could be `blue-paradox-paper` . 
+
 ## GitHub Structure
