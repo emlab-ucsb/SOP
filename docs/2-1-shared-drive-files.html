@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.2 Style Guide | emLab Standard Operating Procedures</title>
+  <title>2.1 Shared Drive Files | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.2 Style Guide | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2.1 Shared Drive Files | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://emlab-ucsb.github.io/SOP/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.2 Style Guide | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2.1 Shared Drive Files | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="4-1-scripts-and-version-control.html">
-<link rel="next" href="5-high-performance-computing.html">
+<link rel="prev" href="2-file-structure.html">
+<link rel="next" href="2-2-github-structure.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -198,29 +198,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="style-guide" class="section level2">
-<h2><span class="header-section-number">4.2</span> Style Guide</h2>
-<p>At emLab, we recommend using a consistent code style for each of the different programming languages we use. Recommended coding styles for a particular language are collated in what is known as a “style guide”. Style guides typically include standardized ways of naming script files, defining functions and variables, commenting code, etc. While emLab does not mandate the use of style guides, having a consistent code style allows all emLab staff to easily understand each other’s code, collaborate on projects, and jump in on new projects. We consider this an important aspect of collaboration, reproducibility, and transparency.</p>
-<p>Rather than re-invent the wheel, we leverage existing code style guidelines for each of the languages we use. Below is a summary of the code style guidelines we recommend for various languages:</p>
+<div id="shared-drive-files" class="section level2">
+<h2><span class="header-section-number">2.1</span> Shared Drive Files</h2>
+<div id="general-structure" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> General Structure</h3>
+<pre><code>Google Drive
+  |__ My Drive
+  |   |__ Whatever files you have on your GoogleDrive
+  |__ Shared drives
+      |__ emLab
+          |__ Central emLab Resources
+          |__ Communications
+          |__ Data
+          |__ Projects</code></pre>
+<p>The emLab Shared Drive is organized into four main folders:</p>
 <ul>
-<li><em>R</em> - <a href="https://style.tidyverse.org">Tidyverse Style Guide</a>, by Hadley Wickham<br />
-</li>
-<li><em>Python</em> - <a href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md">Google’s Python Style Guide</a><br />
-</li>
-<li><em>Stata</em> - <a href="https://www.stata-journal.com/sjpdf.html?articlenum=pr0018">Suggestions on Stata programming style</a>, by Nicolas J. Cox<br />
-</li>
-<li><em>Other languages</em> - <a href="https://github.com/google/styleguide">Google style guides for other languages</a></li>
+<li><p>Central emLab Resources: includes meeting and event information, onboarding materials, information about travel reimbursements, and the team roster</p></li>
+<li><p>Communications: includes the blog schedule, Adobe design projects, PowerPoint templates, photo repository, and publication and media tracking</p></li>
+<li><p>Data: will include the emLab data directory and all datasets we work with</p></li>
+<li><p>Projects: includes information on past and current projects, and project management guidelines</p></li>
 </ul>
-
+<p>A full table of contents can be seen <a href="https://docs.google.com/document/d/1a26a6N4akF2dSXWfp0fWxGegd0wvrPVUeaA09en2EPE/edit">here</a>.</p>
 </div>
-<!-- </div> -->
+<div id="project-folder-structure" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Project Folder Structure</h3>
+<pre><code>Google Drive
+  |__ Shared drives
+      |__ emLab
+          |__ Projects
+              |__ Archived Projects
+              |__ Current Projects
+                  |__ Project Example
+                      |__ Data
+                      |__ Deliverables
+                      |__ Grant Reporting
+                      |__ Meetings and Events
+                      |__ Presentations
+                      |__ Project Materials
+              |__ Resources</code></pre>
+<p>Each project folder must contain the following 6 folders:</p>
+<ul>
+<li><p>Data: all input/raw data will live in the <code>emLab/Data</code> folder. This data folder will contain all intermediate datasets as well as output datasets. Be sure to also add a copy of your final datasets to the <code>emLab/Data</code> folder and data directory.</p></li>
+<li><p>Deliverables: final reports, paper manuscripts, other final deliverables not related to data outputs</p></li>
+<li><p>Grant Reporting: grant reports for funders</p></li>
+<li><p>Meetings and Events: meeting notes, agendas, documentation for workshop/event planning</p></li>
+<li><p>Presentations: any presentations created for the project</p></li>
+<li><p>Project Materials: everything else that does not fit into one of these folders (i.e. drafts of methods, literature review, etc.)</p></li>
+</ul>
+<p>From here, each project can add sub-folders as they see fit within these 6 folders.</p>
+</div>
+<div id="data-storage" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Data Storage</h3>
+<p>As stated above, there are two folders where data will be stored. The two locations are <code>emLab/Projects/project_name/Data</code> and <code>emLab/Data</code>. This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: <code>project_name/Data</code> may contain raw, cleaned, intermediate, and output files for a given project, and will be used as the “workspace” while the project develops. On the other hand, <code>emLab/Data</code> contains only input and output data from a finalized project. More detail is provided in the following subsections.</p>
+<div id="project_namedata" class="section level4">
+<h4><span class="header-section-number">2.1.3.1</span> <code>project_name/Data</code></h4>
+<p><strong>All</strong> data used in a project should live in this project-specific repository. This repository will typically contain at least subfolders for <code>raw_data</code> and <code>data</code>, although each team might make slight modifications to this structure.</p>
+<p>A team will often receive data from partners, compile it from multiple sources, use survey responses, extract it from a literature review, or use results from previous projects as input. These data are termed “raw data”, and should never be directly modified -all the errors, mistakes, and gremlins should be kept in the original versions. Instead, they should be processed / cleaned, and then exported as “clean data”, that can be used in analyses.</p>
+<p>For example, suppose that a team working in Montserrat is tasked to perform a stock assessment on lobster populations and receives a database of lobster landings from the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes that need to be fixed prior to running anly analyses. The team will clean the data (preferabily, using a reproducible script), and then export it to a different location within the project folder. The team will then perform the stock assessment, and produce results before reporting back. Therefore, the project-level data folders will be divided into <code>raw_data</code> and <code>data</code> folders, and perhaps an <code>output</code> folder. The first one will contain all raw data as-is. The second folder will contain clean data, whcich can then be used as input for analyses within this project. The <code>output</code> folder could contain information relevant to other projects.</p>
+<pre><code>Projects
+|__ ... other projects
+|__ montserrat_project
+    |__ raw_data
+    |   |__ lobster_landings_nov_2012.xslx
+    |__ data
+        |__ lobster_landings_nov_2012.csv
+    |__ output
+        |__ lobster_stock_assessment.csv</code></pre>
+<p>As stated above, the <code>output</code> folder could contain information relevant to other projects. Once a project is completed, the raw data and output data should be made available to other emLab projects. To do this, the data should be moved to the <code>emLab/Data</code> folder, as described below.</p>
+</div>
+<div id="emlabdata" class="section level4">
+<h4><span class="header-section-number">2.1.3.2</span> <code>emLab/Data</code></h4>
+<p>As a general rule, this folder will contain all data <em>used</em> and <em>produced</em> by emLab projects. The idea is to make it esasier for people to find data that is used across projects. At the same time, it makes it easier for future projects to use previous results as input for their work. For example, the <a href="https://www.ramlegacy.org/">RAM Legacy stock assessment database</a> is key to many projects, and was used as input in the <a href="https://www.pnas.org/content/113/18/5125">Costello <em>et al.</em> 2016 “upsides” paper</a>. The “upsides database” is an output from the Costello paper, which can be used as input for other projects. Therefore, the <code>emLab/Data</code> folder contains both the RAM and upsides datasets.</p>
+<p>This large central data repository has the potential to become messy. Therefore, it is important to follow some key guidelines to store the data. All data in this folder should be a folder that includes at minimum the data and metadata files. For example, a file structure for the two datasets mentioned above might be:</p>
+<pre><code>emLab
+  |__ ...                            [other folders]
+  |__ Data
+       |__ upsides
+       |   |__ _readme_upsides.txt   [the metadata]
+       |   |__ upsides.csv           [the data]
+       |__ RAM
+       |   |__ _readme_RAM.txt       [the metadata]
+       |   |__ RAM v4.10             [the data]
+       |   |__ RAM v4.15             [the data]
+       |   |__ RAM v4.25             [the data]
+       |   |__ RAM v4.40             [the data]
+       |__ ...                       [other folders]</code></pre>
+<div id="folder-naming" class="section level5">
+<h5><span class="header-section-number">2.1.3.2.1</span> Folder Naming</h5>
+<p>All data folders within the emLab data repository should use a consistent naming style. The naming style for folders is similar to those for data files described above (i.e., be descriptive but concise, avoid spaces, avoid uppercase, avoid special characters), <em>except</em> that <code>-</code> should be used to separate words. An example folder name could be <code>blue-paradox-paper</code> .</p>
+</div>
+</div>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="4-1-scripts-and-version-control.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5-high-performance-computing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2-file-structure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2-2-github-structure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
