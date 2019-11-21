@@ -47,7 +47,7 @@ A key consideration when using virtual machines is being able to access data sto
 
 In a VM running Ubuntu, follow the installation instructions via PPA repository found [here](https://github.com/astrada/google-drive-ocamlfuse/wiki/Installation). 
 
-```{bash}
+```{bash, eval = F}
 sudo add-apt-repository ppa:alessandro-strada/google-drive-ocamlfuse-beta
 sudo apt-get update
 sudo apt-get install google-drive-ocamlfuse
@@ -55,7 +55,7 @@ sudo apt-get install google-drive-ocamlfuse
 
 After installation you need to authorize `google-drive-ocamlfuse` and create a label for the connection. Labels are useful if you want to mount your personal drive as well as EmLabs Team Drive. To authorize and create a label for our shared drive run: 
 
-```{bash}
+```{bash, eval = F}
 google-drive-ocamlfuse -headless -label emlab_drive -id ##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####
 ```
 
@@ -63,7 +63,7 @@ Copy and paste the clientID and secret which can be found [here](https://console
 
 You will get an output like this:
 
-```{bash}
+```{bash, eval = F}
 Please, open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth?client_id=##yourClientID##.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&response_type=code&access_type=offline&approval_prompt=force
 ```
 
@@ -73,7 +73,7 @@ The last step to mount the team drive is to save the Team Drive ID to the corres
 
 Now you are ready to mount the drive to a local folder! 
 
-```{bash}
+```{bash, eval = F}
 google-drive-ocamlfuse -label emlab_drive mountPoint
 ```
 
