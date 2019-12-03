@@ -73,8 +73,7 @@ team_path <- case_when(Sys.info()["sysname"]=="Windows" ~ "G:/",
 
 [Git](https://git-scm.com/) tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found [here](https://chris.beams.io/posts/git-commit/). There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.
 
-emLab uses [GitHub](https://github.com/emlab-ucsb) to host Git repos in the cloud, which makes collaborative code development easier and also provides related project management tools. Repos can be public or private, depending on the nature of the project. Furthermore, workflows for Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.
-
+More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.
 
 ## Style Guide  
 

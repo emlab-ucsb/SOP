@@ -328,11 +328,7 @@ git pull
 
 What we just did was to tell `Git` to store our credentials. So, after typing them this one time, you should not need to type it again.
 
-7. Optional: Make a repository on GitHub and practice connecting to it
-
-[Do a practice example here].
-
-8. Optional: Install a client for Git to make your life easier
+7. Optional: Install a client for Git to make your life easier
 
 If you actually tried step 6 and you're still reading this, you probably don't usually spend a lot of time running commands in the shell and the last step didn't make a lot of sense. If that's the case, you might want to also install a Git client in order to help you visualize what Git is actually doing. You do not need a Git client to take advantage of version-control functionality of Git, as everything can be done using the shell (as in the previous step). However, the shell is not user-friendly. 
 
@@ -350,8 +346,11 @@ There are many more. See Jenny Bryan's tutorial if you're not satisfied with tho
 
 Once you've installed a Git client, follow the directions to connect to your GitHub account. Once you've done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.
 
-### Some general guidelines for using GitHub at emLab
+### General guidelines for using GitHub at emLab
 
-The GitHub [Projects feature](https://github.com/orgs/emlab-ucsb/projects) provides project management tools for planning, creating and assigning tasks, and tracking progress. Project boards help organize and prioritize work. They can be specific to one repo or used to connect multiple repos under the same project. Within repos, Issues and Pull Requests should be used for discussion, creating and assigning tasks, code review, etc., which are connected to project boards.
+In general, each emLab project should have its own repository. There may be some cases in which multiple repositories may be associated with the same project, but this should be avoided if possible. The project repository should be created within the emLab GitHub page (exceptions may exist for example if a parner organization requires that the project repository be created within their organization's GitHub page). 
 
-The GitHub [Teams feature](https://github.com/orgs/emlab-ucsb/teams) allows for subgroups within the emLab GitHub organization, which enables easier communication among teams and better access control for repos.
+Repositories can be made public or private when they are created (depending on the nature of the project) while the project is ongoing, but should be made public when the project is complete. 
+
+Since many previous (and ongoing) projects were created within the personal GitHub pages of emLab members, the ownership of these repositories should be transfered to the emLab GitHub page at the conclusion of the project if possible. 
+
