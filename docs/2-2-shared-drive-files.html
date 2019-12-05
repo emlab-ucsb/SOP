@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.2 Shared Drive Files | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.2 Shared Drive Files | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2019-12-03" />
+<meta name="date" content="2019-12-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="2-1-folder-naming.html"/>
-<link rel="next" href="2-3-github-structure.html"/>
+<link rel="prev" href="2-1-folder-naming.html">
+<link rel="next" href="2-3-github-structure.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,9 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -183,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-high-performance-computing.html"><a href="5-high-performance-computing.html"><i class="fa fa-check"></i><b>5</b> High Performance Computing</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html"><i class="fa fa-check"></i><b>5.1</b> Google Cloud Platform</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-team-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to Emlab’s Team Drive</a></li>
+<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-shared-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to emLab’s Shared Drive</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5-2-ucsb-server-clusters.html"><a href="5-2-ucsb-server-clusters.html"><i class="fa fa-check"></i><b>5.2</b> UCSB Server Clusters</a></li>
 </ul></li>
@@ -223,11 +220,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- ``` -->
 <p>The emLab Shared Drive is organized into five main folders:</p>
 <ul>
-<li><p>Central emLab Resources: includes meeting and event information, onboarding materials, information about travel reimbursements, and the team roster</p></li>
-<li><p>Communications: includes the blog schedule, Adobe design projects, PowerPoint templates, photo repository, and publication and media tracking</p></li>
-<li><p>Data: includes the emLab data directory and all datasets we work with (see section 2.2.3 for more on this)</p></li>
-<li><p>Projects: includes information on past and current projects, and project management guidelines</p></li>
-<li><p>Strategy</p></li>
+<li><p><code>central-emlab-resources</code>: includes meeting and event information, onboarding materials, information about travel reimbursements, and the team roster</p></li>
+<li><p><code>communications</code>: includes the blog schedule, Adobe design projects, PowerPoint templates, photo repository, and publication and media tracking</p></li>
+<li><p><code>data</code>: includes the emLab data directory and all datasets we work with (see section 2.2.3 for more on this)</p></li>
+<li><p><code>projects</code>: includes information on past and current projects, and project management guidelines</p></li>
+<li><p><code>strategy</code>: includes information about emLab’s strategic plan</p></li>
 </ul>
 <p>A full table of contents can be seen <a href="https://docs.google.com/document/d/1a26a6N4akF2dSXWfp0fWxGegd0wvrPVUeaA09en2EPE/edit">here</a>.</p>
 </div>
@@ -254,23 +251,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- ``` -->
 <p>Each project folder must contain the following 6 folders:</p>
 <ul>
-<li><p>Data: This data folder will contain all of the intermediate datasets as well as output datasets associated with the project (see section 2.2.3 for more on this). Be sure to also add a copy of your final datasets to the <code>emLab/Data</code> folder and data directory.</p></li>
-<li><p>Deliverables: final reports, paper manuscripts, other final deliverables not related to data outputs</p></li>
-<li><p>Grant Reporting: grant reports for funders</p></li>
-<li><p>Meetings and Events: meeting notes, agendas, documentation for workshop/event planning</p></li>
-<li><p>Presentations: any presentations created for the project</p></li>
-<li><p>Project Materials: everything else that does not fit into one of these folders (i.e. drafts of methods, literature review, etc.)</p></li>
+<li><p><code>data</code>: This data folder will contain all of the intermediate datasets as well as output datasets associated with the project (see section 2.2.3 for more on this). Be sure to also add a copy of your final datasets to the <code>emlab/data</code> folder and data directory.</p></li>
+<li><p><code>deliverables</code>: final reports, paper manuscripts, other final deliverables not related to data outputs</p></li>
+<li><p><code>grant-reporting</code>: grant reports for funders</p></li>
+<li><p><code>meetings-and-events</code>: meeting notes, agendas, documentation for workshop/event planning</p></li>
+<li><p><code>presentations</code>: any presentations created for the project</p></li>
+<li><p><code>project-materials</code>: everything else that does not fit into one of these folders (i.e. drafts of methods, literature review, etc.)</p></li>
 </ul>
 <p>From here, each project can add sub-folders as they see fit within these 6 folders.</p>
 </div>
 <div id="data-storage" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Data Storage</h3>
-<p>As stated above, there are two locations in which data can be stored. The two locations are <code>Google Drive/Shared drives/emLab/Projects/example-project/Data</code> and <code>Google Drive/Shared drives/emLab/Data</code>. This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: <code>example-project/Data</code> may contain raw, cleaned, intermediate, and output files for a given project, and will be used as the “workspace” while the project develops. On the other hand, <code>example-project/Data</code> contains only (raw) input and output data from a finalized project. More detail is provided in the subsequent sections.</p>
+<p>As stated above, there are two locations in which data can be stored. The two locations are <code>Google Drive/Shared drives/emlab/projects/example-project/data</code> and <code>Google Drive/Shared drives/emlab/data</code>. This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: <code>example-project/data</code> may contain raw, cleaned, intermediate, and output files for a given project, and will be used as the “workspace” while the project develops. On the other hand, <code>emlab/data</code> contains only (raw) input and output data from a finalized project. More detail is provided in the subsequent sections.</p>
 <div id="example-projectdata" class="section level4">
-<h4><span class="header-section-number">2.2.3.1</span> <code>example-project/Data</code></h4>
-<p><strong>All</strong> data used in a project should live in this project-specific repository. This repository will typically contain subfolders for <code>raw</code>, <code>processed</code> (or <code>clean</code>), and <code>output</code>, although each team might make slight modifications to this structure as it suits their needs.</p>
-<p>To illustrate how each of these subfolders might be used, consider the following. A team may receive data from partners, extract data from external sources, compile survey responses, create a new dataset from a literature review, or use results from previous projects as input. These data are termed “raw data”, and should never be directly modified - <strong>all of the errors, mistakes, and gremlins should be kept in the original versions</strong>. Instead, they should be processed / cleaned, and then exported as “clean data”, that is actually used in analyses. The script used to do the processing / cleaning then acts as a reproducable record of everything that was done to the raw data.</p>
-<p>Suppose that a team working in Montserrat is tasked to perform a stock assessment on lobster populations and receives a database of lobster landings from the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes that need to be fixed prior to running anly analyses. The team will clean the data (preferabily, using a reproducible script), and then export a new version of the data in which the mistakes have been fixed. The team will then perform the stock assessment, and produce results before reporting back. Therefore, the project-level data folder could be subdivided into <code>raw</code>, <code>clean</code>, and <code>output</code> folders. The first one will contain the excel file recieved from the government. The second folder will contain the cleaned data (perhaps exported as a csv), which can then be used as input for analyses within this project. The <code>output</code> folder will then contain the stock assessment results that might be relevant to other projects.</p>
+<h4><span class="header-section-number">2.2.3.1</span> <code>example-project/data</code></h4>
+<p><strong>All</strong> data used in a project should live in this project-specific repository. This repository will typically contain subfolders for <code>raw</code>, <code>processed</code> (or <code>clean</code>), and <code>output</code>, although each team might make slight modifications to this structure to suit their needs.</p>
+<p>To illustrate how each of these subfolders might be used, consider the following. A team may receive data from partners, extract data from external sources, compile survey responses, create a new dataset from a literature review, or use results from previous projects as input. These data are termed “raw data” and should never be directly modified - <strong>all of the errors, mistakes, and gremlins should be kept in the original versions</strong>. Instead, they should be processed / cleaned, and then exported as “clean data” that is actually used in analyses. The script used to do the processing / cleaning then acts as a reproducable record of everything that was done to the raw data.
+Suppose that a team working in Montserrat is tasked to perform a stock assessment on lobster populations and receives a database of lobster landings from the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes that need to be fixed prior to running anly analyses. The team will clean the data (preferabily, using a reproducible script), and then export a new version of the data in which the mistakes have been fixed. The team will then perform the stock assessment, and produce results before reporting back. Therefore, the project-level data folder could be subdivided into <code>raw</code>, <code>clean</code>, and <code>output</code> folders. The first one will contain the excel file recieved from the government. The second folder will contain the cleaned data (perhaps exported as a csv), which can then be used as input for analyses within this project. The <code>output</code> folder will then contain the stock assessment results that might be relevant to other projects.</p>
 <p><img src="images/shared_drive_project_data.png" /></p>
 <!-- ``` -->
 <!-- Projects -->
@@ -285,13 +282,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!--     |       |__ lobster_stock_assessment.csv -->
 <!--     |__ ... other projects ...      -->
 <!-- ``` -->
-<p>As stated above, since the <code>output</code> folder could contain information relevant to other projects, this data should be made available to other emLab projects once the project is complete. To do this, any <code>output</code> data (and <code>raw</code> data if it is not already there) should be moved to the <code>emLab/Data</code> folder, as described below.</p>
+<p>As stated above, since the <code>output</code> folder could contain information relevant to other projects, this data should be made available to other emLab projects once the project is complete. To do this, any <code>output</code> data (and <code>raw</code> data if it is not already there) should be moved to the <code>emlab/data</code> folder, as described below.</p>
 </div>
 <div id="emlabdata" class="section level4">
-<h4><span class="header-section-number">2.2.3.2</span> <code>emLab/Data</code></h4>
+<h4><span class="header-section-number">2.2.3.2</span> <code>emlab/data</code></h4>
 <p>As a general rule, this folder contains all data <em>used</em> and <em>produced</em> by emLab projects. The idea is to make it easier for people to find data that has been used in previous projects, as well as to use previous results as inputs for new projects.</p>
-<p>To illustrate types of data that should be in the <code>emLab/Data</code> folder, consider the following. The <a href="https://www.ramlegacy.org/">RAM Legacy stock assessment database</a> is key to many projects, and was used as input in the <a href="https://www.pnas.org/content/113/18/5125">Costello <em>et al.</em> 2016 “upsides” paper</a>. The “upsides database” is an output from the Costello paper, which has then been used as input for other projects. Therefore, the <code>emLab/Data</code> folder contains both the RAM and upsides datasets.</p>
-<p>This large central data repository has the potential to become messy. Therefore, it is important to follow some key guidelines to store the data. All datasets in this folder should be contained within their own folders that include at minimum the data and metadata files. For example, a file structure for the two datasets mentioned above might be:</p>
+<p>To illustrate types of data that should be in the <code>emlab/data</code> folder, consider the following. The <a href="https://www.ramlegacy.org/">RAM Legacy stock assessment database</a> is key to many projects, and was used as input in the <a href="https://www.pnas.org/content/113/18/5125">Costello <em>et al.</em> 2016 “upsides” paper</a>. The “upsides database” is an output from the Costello paper, which has then been used as input for other projects. Therefore, the <code>emlab/data</code> folder contains separate folders for both the RAM and upsides datasets.</p>
+<p>This large central data repository has the potential to become messy. Therefore, it is important to follow some key guidelines to store the data. <strong>All datasets in this folder should be contained within their own folders that include at minimum the data and metadata files.</strong> For example, a file structure for the two datasets mentioned above might be:</p>
 <p><img src="images/shared_drive_data.png" /></p>
 <!-- ``` -->
 <!-- emLab -->
@@ -308,7 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!--        |   |__ RAM v4.40             [the data] -->
 <!--        |__ ... other data sets ...             -->
 <!-- ``` -->
-<p>In the above example, the folder containing the upsides database is relatively straightforward with the metadata file and a single csv file. However, the folder containing the RAM database is more complicated as this is a dataset that is re-released every so often as a new version. Specific guidelines for organizing different types of data within the <code>emLab/Data</code> folder are discussed in detail in section 3.</p>
+<p>In the above example, the folder containing the upsides database is relatively straightforward with the metadata file and a single csv file. However, the folder containing the RAM database is more complicated as this is a dataset that is re-released every so often as a new version. Specific guidelines for organizing different types of data within the <code>emlab/data</code> folder are discussed in detail in section 3.</p>
 </div>
 </div>
 </div>
@@ -323,13 +320,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -344,10 +339,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },

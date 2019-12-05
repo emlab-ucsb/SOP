@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.1 Google Cloud Platform | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.1 Google Cloud Platform | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2019-12-03" />
+<meta name="date" content="2019-12-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="5-high-performance-computing.html"/>
-<link rel="next" href="5-2-ucsb-server-clusters.html"/>
+<link rel="prev" href="5-high-performance-computing.html">
+<link rel="next" href="5-2-ucsb-server-clusters.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,9 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -183,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-high-performance-computing.html"><a href="5-high-performance-computing.html"><i class="fa fa-check"></i><b>5</b> High Performance Computing</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html"><i class="fa fa-check"></i><b>5.1</b> Google Cloud Platform</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-team-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to Emlab’s Team Drive</a></li>
+<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-shared-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to emLab’s Shared Drive</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5-2-ucsb-server-clusters.html"><a href="5-2-ucsb-server-clusters.html"><i class="fa fa-check"></i><b>5.2</b> UCSB Server Clusters</a></li>
 </ul></li>
@@ -206,9 +203,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="google-cloud-platform" class="section level2">
 <h2><span class="header-section-number">5.1</span> Google Cloud Platform</h2>
-<p>Google Cloud Platform (GCP) is a suite of cloud-based products that work together to provide robust and seamless solutions to high performance computing, big data storage, data analytics, machine learning and more. The platform is built on Google’s internal infrastructure and it’s known for it’s reliability, flexibility, speed, and a relatively low cost “pay-as-you” model. At EmLab we mainly use three of GCP’s products: <a href="https://console.cloud.google.com/storage">Cloud Storage</a>, <a href="https://bigquery.cloud.google.com">BigQuery</a>, and <a href="https://console.cloud.google.com/compute">Compute Engine</a> and each year we have a limited amount of credits to cover the costs of using these tools for projects that require the storage and use of very large datasets, projects that require large computational power, or those that use Global Fishing Watch data.</p>
+<p>Google Cloud Platform (GCP) is a suite of cloud-based products that work together to provide robust and seamless solutions to high performance computing, big data storage, data analytics, machine learning and more. The platform is built on Google’s internal infrastructure and it’s known for it’s reliability, flexibility, speed, and a relatively low cost “pay-as-you” model. At emLab we mainly use three of GCP’s products: <a href="https://console.cloud.google.com/storage">Cloud Storage</a>, <a href="https://bigquery.cloud.google.com">BigQuery</a>, and <a href="https://console.cloud.google.com/compute">Compute Engine</a> and each year we have a limited amount of credits to cover the costs of using these tools for projects that require the storage and use of very large datasets, projects that require large computational power, or those that use Global Fishing Watch data.</p>
 <p>When it comes to high performance computing, <a href="https://console.cloud.google.com/compute">Compute Engine</a> is a very useful tool. It allows us to easily create custom-made virtual machines with the storage, memory, and number of cores needed for a given task. Virtual machines can run public images of Linux, Windows Server, and can also be used to deploy Docker containers. Starting, stopping, and deleting virtual machines is easy and fast which means we have full control on the amount of resources we use and get billed for.</p>
-<p>To get up and running with a virtual machine, Grant McDermott (SFG alumn and fellow) wrote this really good step by step <a href="https://grantmcdermott.com/2017/05/30/rstudio-server-compute-engine/">tutorial</a>. Here you will learn how to create, start, connect to, and stop a virtual machine in Compute Engine and how to install Rstudio server and git. Importantly, you will also find a link that walks you through the installation of Google Cloud SDK command line utility (<code>gcloud</code>) which is a prerequisite to be able to speak to your virtual machine from your local terminal. When you install <code>gcloud</code> and autenthicate your credentials you will be able to set <code>ucsb-gfw</code> as your project which will link you to Emlab’s billing account. If you have not joined <code>ucsb-gfw</code> please get in touch with and we will set you up!</p>
+<p>To get up and running with a virtual machine, Grant McDermott (SFG alumn and fellow) wrote this really good step by step <a href="https://grantmcdermott.com/2017/05/30/rstudio-server-compute-engine/">tutorial</a>. Here you will learn how to create, start, connect to, and stop a virtual machine in Compute Engine and how to install Rstudio server and Git. Importantly, you will also find a link that walks you through the installation of Google Cloud SDK command line utility (<code>gcloud</code>) which is a prerequisite to be able to speak to your virtual machine from your local terminal. When you install <code>gcloud</code> and autenthicate your credentials you will be able to set <code>emlab-gcp</code> as your project which will link you to emlab’s billing account. If you have not joined <code>emlab-gcp</code> please get in touch with and we will set you up!</p>
 <p>General guidelines for creating and running virtual machines:</p>
 <ul>
 <li>Give your VM a descriptive name associated with the specific project you will be using it for.</li>
@@ -216,20 +213,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Always turn off your VM when not it use. Remember we get charged for every minute it is on.</li>
 <li>Delete the VM once the project is finished. That way we keep things tidy.</li>
 </ul>
-<div id="connecting-to-emlabs-team-drive" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Connecting to Emlab’s Team Drive</h3>
-<p>A key consideration when using virtual machines is being able to access data stored elsewhere instead of having to copy data to the VMs hardrive. At EmLab we use google drive as the central repository for datasets and project files, and fortunately, there are tools to connect to it from VMs created in Compute Engine. For VMs using GUI interfaces (e.g., Windows or MacOS), one can simply use <code>filestream</code> as one would locally. However, for headless VMs such as those running Ubuntu which - we create often to run Rstudio server - we need to use a FUSE filesystem over Google Drive called <a href="https://github.com/astrada/google-drive-ocamlfuse">google-drive-ocamlfuse</a>. At of November 2019, this workflow works for <code>zesty</code> and <code>xenial</code> distributions of Ubuntu.</p>
+<div id="connecting-to-emlabs-shared-drive" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Connecting to emLab’s Shared Drive</h3>
+<p>A key consideration when using virtual machines is being able to access data stored elsewhere instead of having to copy data to the VMs hardrive. At emLab we use Google Drive as the central repository for datasets and project files, and fortunately, there are tools to connect to it from VMs created in Compute Engine. For VMs using GUI interfaces (e.g., Windows or MacOS), one can simply use <code>filestream</code> as one would locally. However, for headless VMs such as those running Ubuntu which - we create often to run Rstudio server - we need to use a FUSE filesystem over Google Drive called <a href="https://github.com/astrada/google-drive-ocamlfuse">google-drive-ocamlfuse</a>. At of November 2019, this workflow works for <code>zesty</code> and <code>xenial</code> distributions of Ubuntu.</p>
 <p>In a VM running Ubuntu, follow the installation instructions via PPA repository found <a href="https://github.com/astrada/google-drive-ocamlfuse/wiki/Installation">here</a>.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="fu">sudo</span> add-apt-repository ppa:alessandro-strada/google-drive-ocamlfuse-beta</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="fu">sudo</span> apt-get update</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="fu">sudo</span> apt-get install google-drive-ocamlfuse</a></code></pre></div>
-<p>After installation you need to authorize <code>google-drive-ocamlfuse</code> and create a label for the connection. Labels are useful if you want to mount your personal drive as well as EmLabs Team Drive. To authorize and create a label for our shared drive run:</p>
+<p>After installation you need to authorize <code>google-drive-ocamlfuse</code> and create a label for the connection. Labels are useful if you want to mount your personal drive as well as emLab’s Shared Drive. To authorize and create a label for our shared drive run:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="ex">google-drive-ocamlfuse</span> -headless -label emlab_drive -id <span class="co">##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####</span></a></code></pre></div>
 <p>Copy and paste the clientID and secret which can be found <a href="https://console.cloud.google.com/apis/credentials?project=ucsb-gfw&amp;authuser=1&amp;folder&amp;organizationId">here</a> under the <code>file-stream</code> OAuth 2.0 client ID.</p>
 <p>You will get an output like this:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="ex">Please</span>, open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth?client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri=</span>urn<span class="ex">%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob</span><span class="kw">&amp;</span><span class="va">scope=</span>https<span class="ex">%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive</span><span class="kw">&amp;</span><span class="va">response_type=</span>code<span class="kw">&amp;</span><span class="va">access_type=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt=</span>force</a></code></pre></div>
 <p>Follow the prompt, grant access, and copy and paste the verification code in the terminal prompt. You should see a message saying the token was succesfully authorized.</p>
-<p>The last step to mount the team drive is to save the Team Drive ID to the corresponding <code>config</code> file. This step is not necessary if you want to connect to your personal drive only. Open the config file in <code>~/.gdfuse/emlab_drive/config</code> and look for the team_drive_id setting. Add our Team Drive ID (0AHyeeMXswgGLUk9PVA) and save the file.</p>
+<p>The last step to mount the team drive is to save the Shared Drive ID to the corresponding <code>config</code> file. This step is not necessary if you want to connect to your personal drive only. Open the config file in <code>~/.gdfuse/emlab_drive/config</code> and look for the team_drive_id setting. Add our Team Drive ID (0AHyeeMXswgGLUk9PVA) and save the file.</p>
 <p>Now you are ready to mount the drive to a local folder!</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="ex">google-drive-ocamlfuse</span> -label emlab_drive mountPoint</a></code></pre></div>
 </div>
@@ -245,13 +242,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -266,10 +261,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },

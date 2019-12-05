@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.3 Airtable | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.3 Airtable | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2019-12-03" />
+<meta name="date" content="2019-12-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="1-2-slack.html"/>
-<link rel="next" href="1-4-google-shared-drive.html"/>
+<link rel="prev" href="1-2-slack.html">
+<link rel="next" href="1-4-google-shared-drive.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,9 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -183,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-high-performance-computing.html"><a href="5-high-performance-computing.html"><i class="fa fa-check"></i><b>5</b> High Performance Computing</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html"><i class="fa fa-check"></i><b>5.1</b> Google Cloud Platform</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-team-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to Emlab’s Team Drive</a></li>
+<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-shared-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to emLab’s Shared Drive</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5-2-ucsb-server-clusters.html"><a href="5-2-ucsb-server-clusters.html"><i class="fa fa-check"></i><b>5.2</b> UCSB Server Clusters</a></li>
 </ul></li>
@@ -209,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>At emLab, we use <a href="https://airtable.com/">Airtable</a> as our primary project management software. To put it simply, it’s a glorified spreadsheet that you can mold to fit your needs. Email Erin (<a href="mailto:eoreilly@ucsb.edu" class="email">eoreilly@ucsb.edu</a>) to be added to Airtable.</p>
 <div id="helpful-terminology" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Helpful terminology</h3>
-<p>Base: think of it like a database. A base is made up of tabs of spreadsheets that can be customized and linked to one another</p>
+<p>Base: think of it like a database. A base is made up of tabs of spreadsheets that can be customized and linked to one another.</p>
 <p>Workspace: multiple bases can be organized within a workspace. For example, we have an emLab workspace and individual project bases.</p>
 </div>
 <div id="getting-to-know-the-emlab-workspace" class="section level3">
@@ -221,22 +218,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Project specific</li>
 </ul>
 <p><img src="images/airtable-workspace.png" /></p>
-<p>The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage).</p>
-<p>The Project Template provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team.</p>
-<p>Each emLab project has its own base. Teams can customize these as they see fit, but at a minimum, please include the deliverables in the project’s scope of work and the team. Within the team tab, it is often helpful to add everyone’s project role because these might differ from project to project (i.e. might be a project manager on one and a researcher on another).</p>
+<p>The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage). <strong>It is mandatory to enter your project to the <code>Projects</code> tab and the associated deliverables outlined in the scope of work in the <code>Deliverables</code> tab.</strong></p>
+<p>For each project, determine your project-specific approach for managing tasks and activities. A project base in Airtable is one suggested option, but it is not mandatory. Determine the system that works best for your team and partners to track progress against project deliverables.</p>
 </div>
 <div id="customizing-your-project-base" class="section level3">
 <h3><span class="header-section-number">1.3.3</span> Customizing your project base</h3>
 <p>It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases that have been created for inspiration!</p>
+<p>The Project Template provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team.</p>
 <div id="tab-ideas" class="section level4">
 <h4><span class="header-section-number">1.3.3.1</span> Tab ideas</h4>
 <ul>
-<li><p>Deliverables (required): high level deliverables stated in the scope of work</p></li>
+<li><p>Deliverables: high level deliverables stated in the scope of work</p></li>
 <li><p>Tasks: more detailed steps of how to reach a deliverable; could be day-to-day tasks</p>
 <ul>
 <li>Note: you can link a tasks tab with the deliverables tab to see how they feed into one another</li>
 </ul></li>
-<li><p>Team (required): list of team members with their emails and project role</p>
+<li><p>Team: list of team members with their emails and project role</p>
 <ul>
 <li>Note: this can be linked to the deliverables and tasks tab so you know who is working on what</li>
 </ul></li>
@@ -254,19 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="column-options" class="section level4">
 <h4><span class="header-section-number">1.3.3.2</span> Column options</h4>
-<p>There are 25 column type options within Airtable. The ones we most commonly use are:</p>
-<ul>
-<li><p>Link to another record: links information from different tabs within the same base</p>
-<ul>
-<li>Example: create an “assigned to” column in your deliverables tab and link it with your team tab. When looking at the deliverables tab, you can see how tasks are distributed across the team, and when looking at the team tab, you can see what deliverables each person is working on.</li>
-</ul></li>
-<li><p>Single line text</p></li>
-<li><p>Attachment</p></li>
-<li><p>Checkbox</p></li>
-<li><p>Multiple select</p></li>
-<li><p>Single select</p></li>
-<li><p>Date</p></li>
-</ul>
+<p>There are 25 column type options within Airtable. The ones we most commonly use are: link to another record (links information from different tabs within the same base), single line text, attachment, checkbox, multiple select, single select, and date.</p>
 </div>
 <div id="ways-to-view-your-base" class="section level4">
 <h4><span class="header-section-number">1.3.3.3</span> Ways to view your base</h4>
@@ -276,9 +261,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This works like the normal filtering function in spreadsheets. You can sort A to Z, by date, exclude records with certain names, etc.</p>
 <p><strong>Grouping</strong></p>
 <p>Grouping allows you to bucket your spreadsheet by field type.</p>
-<p>Example 1: Clean seafood grouping tasks by complete v. not complete.</p>
+<p>Example 1: The clean seafood project grouping tasks by complete v. not complete.</p>
 <p><img src="images/airtable-groupcomplete.png" /></p>
-<p>Example 2: Clean seafood grouping deliverables by research track.</p>
+<p>Example 2: The clean seafood project grouping deliverables by research track.</p>
 <p><img src="images/airtable-example1.png" /></p>
 <p><strong>Expanding a record</strong></p>
 <p>Within each tab, you can expand records in the first column to view all its information at once by clicking the two opposing arrows before the text. This option combines information from all of the columns into an easy to read card format.</p>
@@ -297,13 +282,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -318,10 +301,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },
