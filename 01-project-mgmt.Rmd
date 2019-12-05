@@ -5,7 +5,7 @@ output: html_document
 
 # Project Management
 
-This section details the project management platforms we use at emLab to help set up projects for success. Please additionally review the [project management best practices](https://docs.google.com/document/d/1DzlJktSw3LyN9gWNx0HIAlz_TyQDhyyPjXaWsWUuGSY/edit) document.
+This section details the project management platforms we use at emLab to help set up projects for success. The first step for a new project will be to determine a common name to use across these platforms. Please additionally review the [project management best practices](https://docs.google.com/document/d/1DzlJktSw3LyN9gWNx0HIAlz_TyQDhyyPjXaWsWUuGSY/edit) document.
 
 ![](images/project_management_overview.png)
 
@@ -23,21 +23,21 @@ To view team member’s calendars, click on the plus symbol next to “Other cal
 
 ### Scheduling rooms
 
-See this [Room Scheduling](https://docs.google.com/document/d/18Caz3DMFJAN25Yo3vGXtRraMCA8Qt-qLaEGMv89WHUw/edit) document for full details on how to reserve rooms in both Bren and MSI. As a reminder, please add bren-sfg@ucsb.edu to any meeting invite you want hold in MSI 1304. 
+See this [Room Scheduling](https://docs.google.com/document/d/18Caz3DMFJAN25Yo3vGXtRraMCA8Qt-qLaEGMv89WHUw/edit) document for full details on how to reserve rooms in both Bren and MSI. As a reminder, please add bren-sfg@ucsb.edu to the calendar invite for any meeting held in MSI 1304. 
 
 ## Slack
 
-Our team uses Slack on a daily basis to keep communication channels open within teams and across our different offices. We have an emLab work space that houses all of our channels. When you are first added to Slack, you will be added to the General, Random, Communications, Report and Publications, and Code channels. We also have a channel for every project, which you will be added to as needed. We recommend downloading the desktop app, but you can also view Slack in a browser window.
+Our team uses Slack on a daily basis to keep communication channels open within teams and across our different offices. We have an emLab workspace that houses all of our channels. When you are first added to Slack, you will be added to the General, Random, Communications, Report and Publications, and Code channels. We also have a channel for every project, which you will be added to as needed. You can view Slack either through a broswer window or by [downloading the desktop app](https://slack.com/help/categories/360000049043-getting-started).
 
 ### Slack basics
-Slack is organized into Channels and Direct Messages. Channels are a way to organize conversations and other than a couple general emLab channels, are often project specific. Whatever you share in a channel is viewable by all members of that channel. You can also send direct messages to an individual or a group of up to 9 people. 
+Slack is organized into channels and direct messages. Channels are a way to organize conversations and other than a couple general emLab channels, are often project specific. Whatever you share in a channel is viewable by all members of that channel. You can also send direct messages to an individual or a group of up to 9 people. 
 
 One great thing about Slack is that it’s searchable. You can search either by person or keywords to find old messages. Additionally, if someone sends you something you will need to reference multiple times, you can star messages and view them by clicking the star in the upper right-hand corner.
 
-People have differing notification preferences, which you can set under Preferences → Notifications. If someone sends you a direct message or tags you, a number will show up on your slack app. If they add something to a channel you are on but don’t tag you, a red dot will show up. To ensure someone gets a numbered notification (number is based on the number of messages), either tag them (i.e. @Erin) or tag the channel (i.e. @channel). Tagging the channel will send a notification to every member of that channel.
+People have differing notification preferences, which you can set under Preferences → Notifications. If someone sends you a direct message or tags you, a number will show up on your slack app. If they add something to a channel you are on but don’t tag you, a red dot will show up. To ensure someone gets a numbered notification, either tag them (i.e. @Erin) or tag the channel (i.e. @channel). Tagging the channel will send a notification to every member of that channel.
 
 ### Creating a channel
-When a new project starts, create a slack channel for it and add the relevant team members to it. To create a channel, simply click on the plus symbol next to channels and fill out the channel information (Name, Purpose, and Send invites to). It’s that easy!
+When a new project starts, create a slack channel for it and add the relevant team members to it. To create a channel, simply click on the plus symbol next to channels and fill out the channel information (Name, Purpose, and Send invites to). 
 
 ## Airtable
 
@@ -45,7 +45,7 @@ At emLab, we use [Airtable](https://airtable.com/) as our primary project manage
 
 ### Helpful terminology
 
-Base: think of it like a database. A base is made up of tabs of spreadsheets that can be customized and linked to one another
+Base: think of it like a database. A base is made up of tabs of spreadsheets that can be customized and linked to one another.
 
 Workspace: multiple bases can be organized within a workspace. For example, we have an emLab workspace and individual project bases. 
 
@@ -59,27 +59,29 @@ Within the emLab workspace, we have the following bases:
 
 ![](images/airtable-workspace.png)
 
-The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage). 
+The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage). **It is mandatory to enter your project to the `Projects` tab and the associated deliverables outlined in the scope of work in the `Deliverables` tab.**
 
-The Project Template provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team. 
+For each project, determine your project-specific approach for managing tasks and activities. A project base in Airtable is one suggested option, but it is not mandatory. Determine the system that works best for your team and partners to track progress against project deliverables. 
 
-Each emLab project has its own base. Teams can customize these as they see fit, but at a minimum, please include the deliverables in the project’s scope of work and the team. Within the team tab, it is often helpful to add everyone’s project role because these might differ from project to project (i.e. might be a project manager on one and a researcher on another). 
 
 ### Customizing your project base
 
-It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases that have been created for inspiration!
+It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases that have been created for inspiration! 
+
+The Project Template provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team.
 
 #### Tab ideas
 
-- Deliverables (required): high level deliverables stated in the scope of work
+- Deliverables: high level deliverables stated in the scope of work
 
 - Tasks: more detailed steps of how to reach a deliverable; could be day-to-day tasks
 
     - Note: you can link a tasks tab with the deliverables tab to see how they feed into one another
 
-- Team (required): list of team members with their emails and project role
+- Team: list of team members with their emails and project role
 
     - Note: this can be linked to the deliverables and tasks tab so you know who is working on what
+    
 - Datasets: way to keep track of all the datasets going into an analysis and what stage of collection and processing they are in
 
     - Example
@@ -92,23 +94,7 @@ It is up to you and your team to determine how to make Airtable work for you. Ou
   
 #### Column options
 
-There are 25 column type options within Airtable. The ones we most commonly use are:
-
-- Link to another record: links information from different tabs within the same base
-
-    - Example: create an “assigned to” column in your deliverables tab and link it with your team tab. When looking at the deliverables tab, you can see how tasks are distributed across the team, and when looking at the team tab, you can see what deliverables each person is working on.
-    
-- Single line text
-
-- Attachment
-
-- Checkbox
-
-- Multiple select
-
-- Single select
-
-- Date
+There are 25 column type options within Airtable. The ones we most commonly use are: link to another record (links information from different tabs within the same base), single line text, attachment, checkbox, multiple select, single select, and date.
 
 #### Ways to view your base
 
@@ -124,11 +110,11 @@ This works like the normal filtering function in spreadsheets. You can sort A to
 
 Grouping allows you to bucket your spreadsheet by field type. 
 
-Example 1: Clean seafood grouping tasks by complete v. not complete.
+Example 1: The clean seafood project grouping tasks by complete v. not complete.
 
 ![](images/airtable-groupcomplete.png)
 
-Example 2: Clean seafood grouping deliverables by research track.
+Example 2: The clean seafood project grouping deliverables by research track.
 
 ![](images/airtable-example1.png)
 
@@ -144,7 +130,7 @@ We have all experienced the moment where we can’t remember where a Google Doc 
 
 ### Sharing files
 
-Note: for Shared Drive, you either add someone to the entire Drive or share individual files with them. **You cannot share individual folders within a Shared Drive.** 
+Note: for Shared Drive, you either add someone to the entire Drive OR share individual files with them. **You cannot share folders within a Shared Drive with external collaborators.** 
 
 Members of the Shared Drive can see all folders and files within the Drive. If you want to send a quick link to someone who is part of the Shared Drive, simply copy the URL from your browser. There is no need to create a shared link if you are sending it to someone with access to the emLab Shared Drive.
 
@@ -164,9 +150,9 @@ There are important distinctions between **Backup and Sync** and **Drive File St
 
     - Note: Make sure you are on your ucsb account
 
-![Dowload Drive File Stream](images/shared-drive-download-installer.png)
+![Download Drive File Stream](images/shared-drive-download-installer.png)
 
-- If you are on a Windows machine, execute the `googledrivefilestream.exe` file. If you are on MacOS, run the `googledrivefilestream.dmg` file and then run the `GoogleDriveFileStream.pkg` file
+- If you are on a Windows machine, execute the `googledrivefilestream.exe` file. If you are on MacOS, run the `googledrivefilestream.dmg` file and then run the `GoogleDriveFileStream.pkg` file.
 
 - Follow instruction on the helper (accept all defaults)
 
@@ -216,7 +202,7 @@ If you also want to sync files from your personal gmail account, you'll need to 
 
 Since most of our projects at emLab involve code, we use Git to track changes made to our code and faciliate collaboration by merging changes made by others, and GitHub to organize, share, and backup our code. 
 
-This section provides a brief overview of how Git and Github work, how to install them on your computer (and how to join the emLab GitHub page), and some general guidelines for how to use GitHub to organie code associated with emLab projects. 
+This section provides a brief overview of how Git and Github work, how to install them on your computer (and how to join the emLab GitHub page), and some general guidelines for how to use GitHub to organize code associated with emLab projects. 
 
 ### What are Git and GitHub? 
 
@@ -260,7 +246,7 @@ Most of tutorials listed above include detailed instructions on how to install G
 
 Since GitHub is a company, and is used by many different types of organizations in many different industries, they offer a few different pricing schemes/deals. As an individual, once you create a username and sign up for an account, you get an unlimited number of free public and private repositories, but the number of external collaborators allowed in private repositories is limited to three. GitHub also offers a "Pro" plan for $7/month giving you  unlimited external collaborators on all of your private repositories. However, for students, faculty, and research staff, or official nonprofit organizations and charities GitHub waives this fee through its [GitHub Education](https://education.github.com/) and [GitHub for Good](https://github.com/nonprofit) programs. 
 
-Good news! emLab qualifies as an edcuational organization through the GitHub Education program, and as a UCSB staff member you qualify for the individual educational discount. So, once you've signed up for a free account on GitHub... 
+Good news! emLab qualifies as an educational organization through the GitHub Education program, and as a UCSB staff member you qualify for the individual educational discount. So, once you've signed up for a free account on GitHub... 
 
 2. Go to the [GitHub Education](https://education.github.com/) page and register as a researcher (Note: this is why you should use your @ucsb.edu email for step 1).
 
@@ -300,14 +286,14 @@ It should now return a version number.
 
 5. Tell Git who you are
 
-Git needs to know a little bit more about you in order to play nicely. In particular there are two things that it's helpful to configure: 1) The name that will be associated with any commits you make, and 2) the email address asssociated with your GitHub account. To set these two things, type the following into the shell: 
+Git needs to know a little bit more about you in order to play nicely. In particular there are two things that it's helpful to configure: 1) The name that will be associated with any commits you make, and 2) the email address asssociated with your GitHub account. To set these two things, type the following into the shell using your name and email: 
 
 ```{bash, eval = F}
 git config --global user.name 'Jane Doe'
 git config --global user.email 'jane@example.com'
 ```
 
-using your name and email. The user name input here should be your full name (i.e. it **does not** need to be the same as your username for GitHub), but the email **DOES** need to be the same as that associated with your GitHub account. 
+The user name input here should be your full name (i.e. it **does not** need to be the same as your username for GitHub), but the email **DOES** need to be the same as that associated with your GitHub account. 
 
 You can then check to make sure these were entered correctly by typing: 
 
@@ -317,7 +303,7 @@ git config --global --list
 
 6. Optional: Store your credentials (so you don't have to type your password every time):
 
-`Git` will sometimes want to make sure you are you when performing certain operations. For example, when cloning a private repo or when you want to push changes to a repo. If you don't want to do this every time, you can tell `Git` to rememberyour password too. You can read more about `Git`'s credential management [here](https://Git-scm.com/docs/gitcredentials).
+`Git` will sometimes want to make sure you are you when performing certain operations. For example, when cloning a private repo or when you want to push changes to a repo. If you don't want to do this every time, you can tell `Git` to remember your password too. You can read more about `Git`'s credential management [here](https://Git-scm.com/docs/gitcredentials).
 
 On your terminal, navigate to a repository on your computer. (You can also use the Terminal pane within RStudio) and type the following into the shell:
 

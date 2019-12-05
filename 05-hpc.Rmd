@@ -28,11 +28,11 @@ When to use UCSB server clusters:
 
 ## Google Cloud Platform
 
-Google Cloud Platform (GCP) is a suite of cloud-based products that work together to provide robust and seamless solutions to high performance computing, big data storage, data analytics, machine learning and more. The platform is built on Google's internal infrastructure and it's known for it's reliability, flexibility, speed, and a relatively low cost "pay-as-you" model. At EmLab we mainly use three of GCP's products: [Cloud Storage](https://console.cloud.google.com/storage), [BigQuery](https://bigquery.cloud.google.com), and [Compute Engine](https://console.cloud.google.com/compute) and each year we have a limited amount of credits to cover the costs of using these tools for projects that require the storage and use of very large datasets, projects that require large computational power, or those that use Global Fishing Watch data. 
+Google Cloud Platform (GCP) is a suite of cloud-based products that work together to provide robust and seamless solutions to high performance computing, big data storage, data analytics, machine learning and more. The platform is built on Google's internal infrastructure and it's known for it's reliability, flexibility, speed, and a relatively low cost "pay-as-you" model. At emLab we mainly use three of GCP's products: [Cloud Storage](https://console.cloud.google.com/storage), [BigQuery](https://bigquery.cloud.google.com), and [Compute Engine](https://console.cloud.google.com/compute) and each year we have a limited amount of credits to cover the costs of using these tools for projects that require the storage and use of very large datasets, projects that require large computational power, or those that use Global Fishing Watch data. 
 
 When it comes to high performance computing, [Compute Engine](https://console.cloud.google.com/compute) is a very useful tool. It allows us to easily create custom-made virtual machines with the storage, memory, and number of cores needed for a given task. Virtual machines can run public images of Linux, Windows Server, and can also be used to deploy Docker containers. Starting, stopping, and deleting virtual machines is easy and fast which means we have full control on the amount of resources we use and get billed for. 
 
-To get up and running with a virtual machine, Grant McDermott (SFG alumn and fellow) wrote this really good step by step [tutorial](https://grantmcdermott.com/2017/05/30/rstudio-server-compute-engine/). Here you will learn how to create, start, connect to, and stop a virtual machine in Compute Engine and how to install Rstudio server and git. Importantly, you will also find a link that walks you through the installation of Google Cloud SDK command line utility (`gcloud`) which is a prerequisite to be able to speak to your virtual machine from your local terminal. When you install `gcloud` and autenthicate your credentials you will be able to set `ucsb-gfw` as your project which will link you to Emlab's billing account. If you have not joined `ucsb-gfw` please get in touch with and we will set you up! 
+To get up and running with a virtual machine, Grant McDermott (SFG alumn and fellow) wrote this really good step by step [tutorial](https://grantmcdermott.com/2017/05/30/rstudio-server-compute-engine/). Here you will learn how to create, start, connect to, and stop a virtual machine in Compute Engine and how to install Rstudio server and Git. Importantly, you will also find a link that walks you through the installation of Google Cloud SDK command line utility (`gcloud`) which is a prerequisite to be able to speak to your virtual machine from your local terminal. When you install `gcloud` and autenthicate your credentials you will be able to set `emlab-gcp` as your project which will link you to emlab's billing account. If you have not joined `emlab-gcp` please get in touch with and we will set you up! 
 
 General guidelines for creating and running virtual machines:
 
@@ -41,9 +41,9 @@ General guidelines for creating and running virtual machines:
   - Always turn off your VM when not it use. Remember we get charged for every minute it is on. 
   - Delete the VM once the project is finished. That way we keep things tidy. 
 
-### Connecting to Emlab's Team Drive
+### Connecting to emLab's Shared Drive
 
-A key consideration when using virtual machines is being able to access data stored elsewhere instead of having to copy data to the VMs hardrive. At EmLab we use google drive as the central repository for datasets and project files, and fortunately, there are tools to connect to it from VMs created in Compute Engine. For VMs using GUI interfaces (e.g., Windows or MacOS), one can simply use `filestream` as one would locally. However, for headless VMs such as those running Ubuntu which - we create often to run Rstudio server - we need to use a FUSE filesystem over Google Drive called [google-drive-ocamlfuse](https://github.com/astrada/google-drive-ocamlfuse). At of November 2019, this workflow works for `zesty` and `xenial` distributions of Ubuntu. 
+A key consideration when using virtual machines is being able to access data stored elsewhere instead of having to copy data to the VMs hardrive. At emLab we use Google Drive as the central repository for datasets and project files, and fortunately, there are tools to connect to it from VMs created in Compute Engine. For VMs using GUI interfaces (e.g., Windows or MacOS), one can simply use `filestream` as one would locally. However, for headless VMs such as those running Ubuntu which - we create often to run Rstudio server - we need to use a FUSE filesystem over Google Drive called [google-drive-ocamlfuse](https://github.com/astrada/google-drive-ocamlfuse). At of November 2019, this workflow works for `zesty` and `xenial` distributions of Ubuntu. 
 
 In a VM running Ubuntu, follow the installation instructions via PPA repository found [here](https://github.com/astrada/google-drive-ocamlfuse/wiki/Installation). 
 
@@ -53,7 +53,7 @@ sudo apt-get update
 sudo apt-get install google-drive-ocamlfuse
 ```
 
-After installation you need to authorize `google-drive-ocamlfuse` and create a label for the connection. Labels are useful if you want to mount your personal drive as well as EmLabs Team Drive. To authorize and create a label for our shared drive run: 
+After installation you need to authorize `google-drive-ocamlfuse` and create a label for the connection. Labels are useful if you want to mount your personal drive as well as emLab's Shared Drive. To authorize and create a label for our shared drive run: 
 
 ```{bash, eval = F}
 google-drive-ocamlfuse -headless -label emlab_drive -id ##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####
@@ -69,7 +69,7 @@ Please, open the following URL in a web browser: https://accounts.google.com/o/o
 
 Follow the prompt, grant access, and copy and paste the verification code in the terminal prompt. You should see a message saying the token was succesfully authorized. 
 
-The last step to mount the team drive is to save the Team Drive ID to the corresponding `config` file. This step is not necessary if you want to connect to your personal drive only. Open the config file in `~/.gdfuse/emlab_drive/config` and look for the team_drive_id setting. Add our Team Drive ID (0AHyeeMXswgGLUk9PVA) and save the file. 
+The last step to mount the team drive is to save the Shared Drive ID to the corresponding `config` file. This step is not necessary if you want to connect to your personal drive only. Open the config file in `~/.gdfuse/emlab_drive/config` and look for the team_drive_id setting. Add our Team Drive ID (0AHyeeMXswgGLUk9PVA) and save the file. 
 
 Now you are ready to mount the drive to a local folder! 
 

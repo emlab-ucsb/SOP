@@ -5,7 +5,7 @@ output: html_document
 
 # Data
 
-Data should be managed and shared properly to make it useful in research, to promote transparency and facilitate reproducibility, and to ensure the credibility of research. This includes such practices as transforming data into a tidy format, storing data in open file formats, and providing data documentation.
+Data should be managed and shared properly to make it useful in research, to promote transparency and facilitate reproducibility, and to ensure the credibility of research. This includes such practices as transforming data into a tidy format, storing data in open file formats, and providing data documentation. **All emLab data, unless restricted, should be stored in the emLab Shared Drive (location dependent on type of data, see Section 2.2.3).**
 
 **Recommended readings:**
 
@@ -29,7 +29,7 @@ Data should be managed and shared properly to make it useful in research, to pro
 
 Coding styles guides provide teams with a shared language that promotes consistency, improves collaboration, and makes code easier to write as it simplifies the number of decisions we need to make on a daily basis (e.g., do I use - or _ to name this file? ). 
 
-All style guides are opinionated and while they al intend to make code easier to read and write, some decisions are arbitrary. Thus, instead of us at EmLab creating our own, we want to adopt the "proven and tested" [Tidyverse style guide](https://style.tidyverse.org/). This styles guide has good advice not only for naming files but also for naming functions, objects, and general best coding practices. We encourage all EmLab member to read the guide and work towards adopting it. 
+All style guides are opinionated and while they all intend to make code easier to read and write, some decisions are arbitrary. Thus, instead of us at emLab creating our own, we want to adopt the "proven and tested" [Tidyverse style guide](https://style.tidyverse.org/). This styles guide has good advice not only for naming files but also for naming functions, objects, and general best coding practices. We encourage all emLab members to read the guide and work towards adopting it. 
 
 When it comes to file naming, best practices include: 
 
@@ -39,17 +39,19 @@ When it comes to file naming, best practices include:
   - Strive to use verbs for function names. 
   - If files should be run in a particular order, prefix them with numbers. If you’ll have more than 10 files left pad with zero (e.g., 01_get_data.R)
 
+<!-- add file name examples? -->
+
 ## Metadata
 
 Metadata is data about your data. It includes information about your data's content, structure, authors, and permissions to make your data interpretable and usable by your future self and others. EVERY data file should be accompanied by a metadata file.
 
 ### Metadata Standards
 
-We use "readme" style metadata, named "_readme_datafilename", and stored in the same folder as the data file.  
+We use "readme" style metadata, named `_readme_datafilename`, and stored in the same folder as the data file.  
 
 * Create one readme file for each data file. Download and use this [template](https://drive.google.com/open?id=1AmB69bCh4wqnZFdYuzcXR6R3cKpyUfDT) to create your readme file (when one is not already available).
 
-* Name the readme _readme_datafilename and save as a text file.
+* Name the readme `_readme_datafilename` and save as a text file.
 
 * Format the readme so it is easy to understand (use bullets, break up information, etc.)
 
@@ -61,7 +63,7 @@ All readme metadata files are stored in the folder that contains the data file i
 
 ## Data Directory 
 
-All emLab data is stored in subfolders of the Data folder on the emLab Team Drive. To document these data, we use the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) that includes key, standardized information from each readme metadata file. Every data file in the Data folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)
+All emLab data is stored in subfolders of the Data folder on the emLab Team Drive (`emlab/data`). To document these data, we use the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) that includes key, standardized information from each readme metadata file. Every data file in the `emlab/data` folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)
 
 ```{r render meta_metadata table, results= 'asis', echo = F, message = F, warning=F}
 require(tidyverse)
