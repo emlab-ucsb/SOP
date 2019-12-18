@@ -17,7 +17,7 @@ This folder naming convention should be used for any folder added to the emLab S
 
 ### General Structure
 
-![](images/shared_drive_general.png)
+![](images/shared_drive_overview.png)
 
 <!-- ``` -->
 <!-- Google Drive -->
@@ -149,7 +149,7 @@ In the above example, the folder containing the upsides database is relatively s
 
 The structure of each emlab repository on GitHub will likely vary depending on the needs of the project, but the following structure is suggested as a starting point. 
 
-![](images/github_structure.png)
+![](images/github_project.png)
 <!-- ``` -->
 <!-- Github -->
 <!--   |__ emlab-ucsb [organization] -->

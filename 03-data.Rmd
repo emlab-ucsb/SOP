@@ -89,7 +89,7 @@ As part of the data cleaning process, we recommend getting all data into a "tidy
 These three features of tidy data can be seen in the following figure, also from the [Tidy Data Guide](https://r4ds.had.co.nz/tidy-data.html):
 
 <blockquote>
-![](images/tidy-data.png)
+![](images/tidy_data.png)
 
 </blockquote>
 

@@ -57,7 +57,7 @@ Within the emLab workspace, we have the following bases:
 * Project template
 * Project specific
 
-![](images/airtable-workspace.png)
+![](images/airtable_workspace.png)
 
 The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage). **It is mandatory to enter your project to the `Projects` tab and the associated deliverables outlined in the scope of work in the `Deliverables` tab.**
 
@@ -85,12 +85,12 @@ The Project Template provides the basic structure for a project specific base. T
 - Datasets: way to keep track of all the datasets going into an analysis and what stage of collection and processing they are in
 
     - Example
-    ![](images/airtable-example3.png)
+    ![](images/airtable_datasets_example.png)
 
 - Analyses: tracking different versions of a model run to keep track of progress and outputs of different simulations run
 
     - Example
-    ![](images/airtable-example2.png)
+    ![](images/airtable_analyses_example.png)
   
 #### Column options
 
@@ -112,17 +112,17 @@ Grouping allows you to bucket your spreadsheet by field type.
 
 Example 1: The clean seafood project grouping tasks by complete v. not complete.
 
-![](images/airtable-groupcomplete.png)
+![](images/airtable_grouping_completion.png)
 
 Example 2: The clean seafood project grouping deliverables by research track.
 
-![](images/airtable-example1.png)
+![](images/airtable_grouping_track.png)
 
 **Expanding a record**
 
 Within each tab, you can expand records in the first column to view all its information at once by clicking the two opposing arrows before the text. This option combines information from all of the columns into an easy to read card format.
 
-![](images/airtable-expandedrecord.png)
+![](images/airtable_expanded_record.png)
 
 ## Google Shared Drive
 
@@ -150,7 +150,7 @@ There are important distinctions between **Backup and Sync** and **Drive File St
 
     - Note: Make sure you are on your ucsb account
 
-![Download Drive File Stream](images/shared-drive-download-installer.png)
+![Download Drive File Stream](images/shared_drive_download_installer.png)
 
 - If you are on a Windows machine, execute the `googledrivefilestream.exe` file. If you are on MacOS, run the `googledrivefilestream.dmg` file and then run the `GoogleDriveFileStream.pkg` file.
 
@@ -158,7 +158,7 @@ There are important distinctions between **Backup and Sync** and **Drive File St
 
 Once the installation is complete, you'll need to sign in to your account. To do so:
 
-- Click on the Drive File Stram icon (![](images/shared-drive-icon.png))
+- Click on the Drive File Stram icon (![](images/shared_drive_icon.png))
     
     - On Windows machines, it should be on the bottom right corner of your screen
     
@@ -170,7 +170,7 @@ Once the installation is complete, you'll need to sign in to your account. To do
 
 - The last screen should look like the screenshot below. Click on the button to open your GoogleDrive folder and access your files
 
-![four-screen overview](images/shared-drive-open-folder.png)
+![four-screen overview](images/shared_drive_open_folder.png)
 
 Once that finder / explorer opens, you should be able to see two folders: 1) `My Drive` and 2) `Shared drives`. The first folder will contain files owned by you (that is, your normal Google Drive Files stored on your ucsb account). The second folder will contain all shared drives you are part of. By navigating to that folder, you should see the emLab shared drive, containing all the folders mentioned earlier. A general structure of the GoogleDrive folder is shown below:
 
@@ -192,7 +192,7 @@ Google Drive
 
 Remember that File Stream will *stream*, not save files to your computer. Therefore, there will be no folder directly under your devices / hard drives. Instead, your computer will detect the Google Drive folder as if it were an external device connected to your machine. On a Mac, the folder will therefore appear on your desktop, or under the `Devices` tab of your Finder. On a Windows machine, it will appear under `This PC`, next to your hard drive and any other connected devices.
 
-![Location of the Google Drive folder depending on your operating system. Left panel shows location of the folder on Mac, and right shows the location of the folder on Windows.](images/shared-drive-location.png)
+![Location of the Google Drive folder depending on your operating system. Left panel shows location of the folder on Mac, and right shows the location of the folder on Windows.](images/shared_drive_location.png)
 
 #### I also want to link a personal gmail account
 
@@ -242,7 +242,7 @@ Most of tutorials listed above include detailed instructions on how to install G
   - use your @ucsb.edu email
   - make sure you remember your **username** and **password**, you'll need this later
 
-![Landing page for GitHub](images/github-create-account.png)
+![Landing page for GitHub](images/github_create_account.png)
 
 Since GitHub is a company, and is used by many different types of organizations in many different industries, they offer a few different pricing schemes/deals. As an individual, once you create a username and sign up for an account, you get an unlimited number of free public and private repositories, but the number of external collaborators allowed in private repositories is limited to three. GitHub also offers a "Pro" plan for $7/month giving you  unlimited external collaborators on all of your private repositories. However, for students, faculty, and research staff, or official nonprofit organizations and charities GitHub waives this fee through its [GitHub Education](https://education.github.com/) and [GitHub for Good](https://github.com/nonprofit) programs. 
 
@@ -250,13 +250,13 @@ Good news! emLab qualifies as an educational organization through the GitHub Edu
 
 2. Go to the [GitHub Education](https://education.github.com/) page and register as a researcher (Note: this is why you should use your @ucsb.edu email for step 1).
 
-![Landing page for GitHub Education](images/github-education.png) 
+![Landing page for GitHub Education](images/github_education.png) 
 
 Click on the "Get benefits" link in the top right-hand corner and follow the directions to upgrade your account to a "Pro" account for free. You may need to take a picture of your UCSB ID card to submit as part of this process. GitHub may also periodically ask you to re-verify your eligability to qualify for this program. 
 
 3. Send Darcy Bradley a Slack message (or an email if you must... darcybradley@ucsb.edu) with your new GitHub username so you can be added to the emLab GitHub page!
 
-![emLab GitHub page](images/github-emlab.png) 
+![emLab GitHub page](images/github_emlab.png) 
 
 The emLab GitHub page is where the repositories for all emLab projects live (more on this later), and once you are a member of the organization you will be able to create new public and private repositories that appear here (as well as on your personal page). 
 
