@@ -50,8 +50,9 @@ Here is an example template for R scripts:
 library(tidyverse)
 
 # Set path for Google Drive filestream based on OS type
-team_path <- case_when(Sys.info()["sysname"]=="Windows" ~ "G:/",
-                       Sys.info()["sysname"]=="Darwin" ~ "/Volumes/GoogleDrive/")
+# Note - this will work for Windows and Mac machines.
+# If you use Linux, you will need to set your own path to where Google Drive filestream lives.
+team_path <- ifelse(Sys.info()["sysname"]=="Windows","G:/","/Volumes/GoogleDrive/")
 
 
 # Import data -----------------------------------------------------------------
