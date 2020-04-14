@@ -32,7 +32,7 @@ Through UCSB, we have access to a paid Zoom account, which we use for all video 
 
 To make scheduling with Zoom easier, install [Zoom for GSuite](https://gsuite.google.com/marketplace/app/zoom_for_gsuite/364750910244). Once synced with your Zoom account, it will show up as an option along with Hangouts under conferencing when you create a calendar invite. Once created, you will also be able to see the meeting on your Zoom account.
 
-![](images/zoom_calendar.png){:height="50%" width="50%"}
+![](images/zoom_calendar.png){height="50%" width="50%"}
 
 ### Being an effective communicator on Zoom...
 
