@@ -25,6 +25,68 @@ To view team member’s calendars, click on the plus symbol next to “Other cal
 
 See this [Room Scheduling](https://docs.google.com/document/d/18Caz3DMFJAN25Yo3vGXtRraMCA8Qt-qLaEGMv89WHUw/edit) document for full details on how to reserve rooms in both Bren and MSI. As a reminder, please add bren-sfg@ucsb.edu to the calendar invite for any meeting held in MSI 1304. 
 
+## Zoom
+Through UCSB, we have access to a paid Zoom account, which we use for all video conferencing. You can schedule a Zoom meeting (or recurring meetings) through your [browser](https://ucsb.zoom.us/) or the [Zoom app](https://zoom.us/download). Below are our Zoom best practices and guidelines. 
+
+### Making scheduling easier
+
+To make scheduling with Zoom easier, install [Zoom for GSuite](https://gsuite.google.com/marketplace/app/zoom_for_gsuite/364750910244). Once synced with your Zoom account, it will show up as an option along with Hangouts under conferencing when you create a calendar invite. Once created, you will also be able to see the meeting on your Zoom account.
+
+![](images/zoom_calendar.png)
+
+### Being an effective communicator on Zoom...
+
+**...for meetings**
+
+Here are a couple of tips for getting the most out of virtual meetings:
+
+- __Everyone on video__: it’s nice to see everyone’s face instead of talking to black boxes. If your internet isn’t acting up, turn your video on to have a more engaging conversation. 
+
+- __Sharing screens__: to keep everyone on the same page, have the presenter share their screen so all of the participants are looking at the same information to avoid any possible confusion. This is a good way to troubleshoot code, walk through documents, etc.
+
+    - The new Zoom default is to only allow the host to screen share. To allow all participants to share their screens, go to your settings and under “who can share?” select “all participants.” 
+  ![](images/zoom_screenshare.png)
+
+    - Note: If you aren’t comfortable changing this setting, instead turn on the ability to have co-hosts and in the meeting select the screen-sharers to be co-hosts.
+
+- __Whiteboard__: Zoom has a whiteboard feature that allows you to draw on your screen for everyone to see. To use this feature, share your screen and select “whiteboard” instead of a browser window. 
+
+- __Nonverbal communication__: use the reactions feature in the bottom bar of your zoom meeting to react during a meeting (so far there is a clap and thumbs up option). You can also raise your hand in the meeting to signal that you have a question. To raise your hand, open the participant panel by clicking on participants in the lower bar and then click “raise hand” in the lower right hand corner (note: the host can’t raise their hand). 
+
+- __Making the most of virtual meetings__:	
+
+    - Circulate as much as possible (agenda, slides, google docs, etc.) before the meeting so people have time to read/review them 
+  
+    - If needed, schedule longer meetings to avoid feeling rushed and allow time to repeat things or deal with technical difficulties 
+  
+    - Notify people ASAP if they are cutting out
+  
+    - Dial-in and use phone for audio if your internet connection is poor 
+  
+    - Turn off videos if connection is poor
+
+**...for lectures**
+
+For teaching online courses, here are a couple additional tips. These are more geared towards keeping students engaged in a remote learning setting.
+
+- __Zoom polls__: you can enable “polling” for meetings and develop a list of preset questions to ask the group. For example, after introducing a topic, you can have students do a practice problem and respond to the poll with their answer. Instructions on how to do this [here](https://support.zoom.us/hc/en-us/articles/213756303-Polling-for-Meetings).
+
+- __Zoom whiteboard__: if you are used to drawing on the whiteboard in class, there is a virtual option for that through zoom! When sharing your screen, select whiteboard instead of your browser and draw away. 
+
+- __Breakout rooms__: if your classes are more discussion-based, you can use the breakout room feature to break the class into smaller groups. The groups can either be automatically assigned randomly or manually assigned in specific groups ahead of time. More information on [breakout rooms](https://support.zoom.us/hc/en-us/articles/206476093) and [pre-assigning rooms](https://support.zoom.us/hc/en-us/articles/360032752671-Pre-assigning-participants-to-breakout-rooms). 
+
+- __Record video__: record lectures and post them online for students to refer to later. You could also record yourself walking through a homework or test problem for them to reference.
+
+- __Pause for questions__: since it will be harder to see students raise their hands, build in more breaks to pause for questions. You can also encourage students to either (1) add questions to the chat and pause once a couple of questions come in or (2) have them use the raise hand feature (see nonverbal communication above).  
+
+### Avoiding Zoom bombings
+
+UCSB has developed guidelines for preventing Zoom bombing. emLab is not mandating any of these settings, these are just UCSB recommendations for making meetings more secure.
+
+- Class-specific recommendations [here](https://keepteaching.id.ucsb.edu/wp-content/uploads/2020/04/Secure-Zoom-For-Classes-Cheat-Sheet-Graphics.pdf) 
+
+- General information on securing Zoom [here](https://www.it.ucsb.edu/increasing-your-zoom-security) 
+
 ## Slack
 
 Our team uses Slack on a daily basis to keep communication channels open within teams and across our different offices. We have an emLab workspace that houses all of our channels. When you are first added to Slack, you will be added to the General, Random, Communications, Report and Publications, and Code channels. We also have a channel for every project, which you will be added to as needed. You can view Slack either through a broswer window or by [downloading the desktop app](https://slack.com/help/categories/360000049043-getting-started).
@@ -41,7 +103,7 @@ When a new project starts, create a slack channel for it and add the relevant te
 
 ## Airtable
 
-At emLab, we use [Airtable](https://airtable.com/) as our primary project management software. To put it simply, it’s a glorified spreadsheet that you can mold to fit your needs. Email Erin (eoreilly@ucsb.edu) to be added to Airtable. 
+At emLab, we use [Airtable](https://airtable.com/) as our primary project management software for tracking project deliverables, activities, and roles. To put it simply, it’s a glorified spreadsheet that you can mold to fit your needs. Email Erin (eoreilly@ucsb.edu) to be added to Airtable. 
 
 ### Helpful terminology
 
@@ -53,34 +115,51 @@ Workspace: multiple bases can be organized within a workspace. For example, we h
 
 Within the emLab workspace, we have the following bases:
 
-* emLab projects and pipeline
-* Project template
-* Project specific
+* emLab Projects and Pipeline
+* Project Template
+* Project-specific bases
 
 ![](images/airtable_workspace.png)
 
-The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage). **It is mandatory to enter your project to the `Projects` tab and the associated deliverables outlined in the scope of work in the `Deliverables` tab.**
+The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage). 
 
-For each project, determine your project-specific approach for managing tasks and activities. A project base in Airtable is one suggested option, but it is not mandatory. Determine the system that works best for your team and partners to track progress against project deliverables. 
+The Project Template provides the basic structure for a new project-specific base. It should be copied when starting a project base from scratch. 
 
+Each emLab project has its own base. Teams can customize the number and content of the spreadsheets in their baseas they see fit, but at a minimum, must include the spreadsheets and columns specified in the Project Template base (see ‘required information’ below).
 
 ### Customizing your project base
 
-It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases that have been created for inspiration! 
+It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases that have been created for inspiration!
+
+#### Required information
+
+To maintain transparency within the team and keep track of who is working on what to foster collaboration, all projects should keep their Airtable base up to date. 
 
 The Project Template provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team.
 
-#### Tab ideas
+The following tabs are required in your project base:
 
-- Deliverables: high level deliverables stated in the scope of work
+- Deliverables: all deliverables stated in the scope of work
 
-- Tasks: more detailed steps of how to reach a deliverable; could be day-to-day tasks
+- Activities: steps to achieve the deliverables. These are a level above individual tasks. For example if the deliverable is a report, an activity could be a literature review, and tasks would be specific components of the literature review. 
 
+- Within the Activities tab, we employ a RACI chart to track responsibilities, with is broken into:
+
+    - Responsible/Assigned to: who is responsible for doing the actual work for the task
+  
+    - Accountable: who is held accountable for the success of the task and is the decision maker
+  
+    - Consulted/Reviewer: who needs to be consulted for additional input or review 
+
+    - Informed: who needs to be kept in the loop on project progress
+  
+- Team: list of team members with their project roles. This will be linked to the activities tab so you can see who is responsible and accountable for different activities. 
+
+#### Additional tab ideas
+
+- Tasks: more detailed steps of how to reach an activity; could be day-to-day tasks
+    
     - Note: you can link a tasks tab with the deliverables tab to see how they feed into one another
-
-- Team: list of team members with their emails and project role
-
-    - Note: this can be linked to the deliverables and tasks tab so you know who is working on what
     
 - Datasets: way to keep track of all the datasets going into an analysis and what stage of collection and processing they are in
 
@@ -94,13 +173,17 @@ The Project Template provides the basic structure for a project specific base. T
   
 #### Column options
 
-There are 25 column type options within Airtable. The ones we most commonly use are: link to another record (links information from different tabs within the same base), single line text, attachment, checkbox, multiple select, single select, and date.
+There are 25 column type options within Airtable. The ones we most commonly use are: link to another record (links information from different tabs within the same base), single line text, long text, attachment, checkbox, multiple select, single select, and date.
+
+*Pro tip: enable rich text formatting for the long text option to add checklists, bold and italic text, bullets, etc.*
 
 #### Ways to view your base
 
 **Different views** 
 
 There are 5 different ways to view your base: grid, calendar, gallery, kanaban, and form, which can be explored [here](https://airtable.com/product). 
+
+*Pro tip: click on “Row Height” in the menu row to change the height of rows and therefore wrap text.*
 
 **Filtering**
 
@@ -342,3 +425,45 @@ Repositories can be made public or private when they are created (depending on t
 
 Since many previous (and ongoing) projects were created within the personal GitHub pages of emLab members, the ownership of these repositories should be transfered to the emLab GitHub page at the conclusion of the project if possible. 
 
+## Zotero
+
+emLab uses Zotero to collaboratively collect, organize, and cite publications. We organize publications into Group Libraries which can be at the project or paper level. Our account – `emlab-ucsb` – has unlimited storage and there is no limit to the number of people you can add to a library. In Zotero, storage for a library only counts against the owner, so **the emLab account must be the owner of the library for access to unlimited storage.** 
+
+### Making emLab the owner of a library
+
+If creating a new group library, email Erin (eoreilly@ucsb.edu) and she can directly create the library under the emLab account. 
+
+If you are the owner of an existing library and would like to transfer ownership to emLab, first invite `emlab-ucsb` to be a member of the library. Once that invitation has been accepted, then go to "Group Settings" for the library and in the bottom right of the page, select transfer ownership to the emLab account. 
+### Saving publications to a library
+
+To use Zotero properly, you need to install the Zotero Connector for your browser in addition to the Zotero desktop app (see [this page for downloads](https://www.zotero.org/download/)). 
+
+The most convenient way to save publications to Zotero is through Zotero Connector. The Zotero Connector allows you to add publications from your browser to Zotero with a single click. The “save” button shows up in the upper right corner of your browser and the symbol appears  differently depending on the type of reference you are viewing (e.g. book, PDF, webpage). After you click the save button, a popup will appear that allows you to select the library to save the reference to.
+
+![](images/zotero_connector.png)
+
+Read more about saving items to Zotero [here](https://www.zotero.org/support/adding_items_to_zotero). 
+
+### Zotero integration with GoogleDocs and Word
+
+Zotero is a great resource for adding references to a manuscript. It is integrated into both [Word](https://www.zotero.org/support/word_processor_plugin_usage) and [GoogleDocs](https://www.zotero.org/support/google_docs) for easy use. As a note (and warning), GoogleDocs and Word reference managers currently don’t speak to each other. If you add references in GoogleDocs and download to Word (or vice versa), the Zotero links will break. 
+
+#### Adding a citation to your document
+
+In both Word and GoogleDocs, Zotero shows up as a separate tab/menu item for you to choose from. For example, this is the Zotero tab in Word.
+
+![](images/zotero_tab.png)
+
+To add an in-text citation, place your cursor after the statement you want to reference and then click on “Add/Edit Citation.” This brings up a Zotero search bar that allows you to search for a reference within your libraries based on a keyword or author. As you type, Zotero brings up options that you can select from. 
+
+![](images/zotero_search.png)
+
+Once you select the citation, either insert a comma to add another citation or select enter to add the reference. 
+
+Note: If you are adding a citation for the first time to a document, you will be asked to select the citation style. This allows you to add a reference style based on your target journal.
+
+![](images/zotero_citationstyle.png)
+
+#### Adding a bibliography to your document
+
+The most amazing thing about Zotero is that it automatically generates a bibliography for you based on your in-text citations. To add a bibliography, simply place your cursor where you want to add your reference list and select “Add/Edit Bibliography.” It will add all of the references for you based on the citation style selected. 
