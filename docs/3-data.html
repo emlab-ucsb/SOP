@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Data | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Data | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -21,17 +21,18 @@
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
 
+<meta name="author" content="" />
 
 
-<meta name="date" content="2019-12-18" />
+<meta name="date" content="2020-04-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="2-3-github-structure.html"/>
-<link rel="next" href="3-1-data-file-naming.html"/>
+<link rel="prev" href="2-3-github-structure.html">
+<link rel="next" href="3-1-data-file-naming.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,9 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -52,41 +50,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -108,25 +131,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1.2" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#adding-other-calendars"><i class="fa fa-check"></i><b>1.1.2</b> Adding other calendars</a></li>
 <li class="chapter" data-level="1.1.3" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#scheduling-rooms"><i class="fa fa-check"></i><b>1.1.3</b> Scheduling rooms</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="1-2-slack.html"><a href="1-2-slack.html"><i class="fa fa-check"></i><b>1.2</b> Slack</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="1-2-slack.html"><a href="1-2-slack.html#slack-basics"><i class="fa fa-check"></i><b>1.2.1</b> Slack basics</a></li>
-<li class="chapter" data-level="1.2.2" data-path="1-2-slack.html"><a href="1-2-slack.html#creating-a-channel"><i class="fa fa-check"></i><b>1.2.2</b> Creating a channel</a></li>
+<li class="chapter" data-level="1.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html"><i class="fa fa-check"></i><b>1.2</b> Zoom</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="1-2-zoom.html"><a href="1-2-zoom.html#making-scheduling-easier"><i class="fa fa-check"></i><b>1.2.1</b> Making scheduling easier</a></li>
+<li class="chapter" data-level="1.2.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html#being-an-effective-communicator-on-zoom"><i class="fa fa-check"></i><b>1.2.2</b> Being an effective communicator on Zoom…</a></li>
+<li class="chapter" data-level="1.2.3" data-path="1-2-zoom.html"><a href="1-2-zoom.html#avoiding-zoom-bombings"><i class="fa fa-check"></i><b>1.2.3</b> Avoiding Zoom bombings</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="1-3-airtable.html"><a href="1-3-airtable.html"><i class="fa fa-check"></i><b>1.3</b> Airtable</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="1-3-airtable.html"><a href="1-3-airtable.html#helpful-terminology"><i class="fa fa-check"></i><b>1.3.1</b> Helpful terminology</a></li>
-<li class="chapter" data-level="1.3.2" data-path="1-3-airtable.html"><a href="1-3-airtable.html#getting-to-know-the-emlab-workspace"><i class="fa fa-check"></i><b>1.3.2</b> Getting to know the emLab workspace</a></li>
-<li class="chapter" data-level="1.3.3" data-path="1-3-airtable.html"><a href="1-3-airtable.html#customizing-your-project-base"><i class="fa fa-check"></i><b>1.3.3</b> Customizing your project base</a></li>
+<li class="chapter" data-level="1.3" data-path="1-3-slack.html"><a href="1-3-slack.html"><i class="fa fa-check"></i><b>1.3</b> Slack</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1-3-slack.html"><a href="1-3-slack.html#slack-basics"><i class="fa fa-check"></i><b>1.3.1</b> Slack basics</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-3-slack.html"><a href="1-3-slack.html#creating-a-channel"><i class="fa fa-check"></i><b>1.3.2</b> Creating a channel</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html"><i class="fa fa-check"></i><b>1.4</b> Google Shared Drive</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html#sharing-files"><i class="fa fa-check"></i><b>1.4.1</b> Sharing files</a></li>
-<li class="chapter" data-level="1.4.2" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html#linking-the-shared-drive-and-your-computer"><i class="fa fa-check"></i><b>1.4.2</b> Linking the shared drive and your computer</a></li>
-<li class="chapter" data-level="1.4.3" data-path="1-4-google-shared-drive.html"><a href="1-4-google-shared-drive.html#other-considerations"><i class="fa fa-check"></i><b>1.4.3</b> Other considerations</a></li>
+<li class="chapter" data-level="1.4" data-path="1-4-airtable.html"><a href="1-4-airtable.html"><i class="fa fa-check"></i><b>1.4</b> Airtable</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="1-4-airtable.html"><a href="1-4-airtable.html#helpful-terminology"><i class="fa fa-check"></i><b>1.4.1</b> Helpful terminology</a></li>
+<li class="chapter" data-level="1.4.2" data-path="1-4-airtable.html"><a href="1-4-airtable.html#getting-to-know-the-emlab-workspace"><i class="fa fa-check"></i><b>1.4.2</b> Getting to know the emLab workspace</a></li>
+<li class="chapter" data-level="1.4.3" data-path="1-4-airtable.html"><a href="1-4-airtable.html#customizing-your-project-base"><i class="fa fa-check"></i><b>1.4.3</b> Customizing your project base</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html"><i class="fa fa-check"></i><b>1.5</b> Git and GitHub</a><ul>
-<li class="chapter" data-level="1.5.1" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#what-are-git-and-github"><i class="fa fa-check"></i><b>1.5.1</b> What are Git and GitHub?</a></li>
-<li class="chapter" data-level="1.5.2" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#helpful-terminology-1"><i class="fa fa-check"></i><b>1.5.2</b> Helpful terminology</a></li>
-<li class="chapter" data-level="1.5.3" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#how-to-install-git-and-github"><i class="fa fa-check"></i><b>1.5.3</b> How to install Git and GitHub</a></li>
-<li class="chapter" data-level="1.5.4" data-path="1-5-git-and-github.html"><a href="1-5-git-and-github.html#general-guidelines-for-using-github-at-emlab"><i class="fa fa-check"></i><b>1.5.4</b> General guidelines for using GitHub at emLab</a></li>
+<li class="chapter" data-level="1.5" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html"><i class="fa fa-check"></i><b>1.5</b> Google Shared Drive</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#sharing-files"><i class="fa fa-check"></i><b>1.5.1</b> Sharing files</a></li>
+<li class="chapter" data-level="1.5.2" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#linking-the-shared-drive-and-your-computer"><i class="fa fa-check"></i><b>1.5.2</b> Linking the shared drive and your computer</a></li>
+<li class="chapter" data-level="1.5.3" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#other-considerations"><i class="fa fa-check"></i><b>1.5.3</b> Other considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html"><i class="fa fa-check"></i><b>1.6</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#what-are-git-and-github"><i class="fa fa-check"></i><b>1.6.1</b> What are Git and GitHub?</a></li>
+<li class="chapter" data-level="1.6.2" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#helpful-terminology-1"><i class="fa fa-check"></i><b>1.6.2</b> Helpful terminology</a></li>
+<li class="chapter" data-level="1.6.3" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#how-to-install-git-and-github"><i class="fa fa-check"></i><b>1.6.3</b> How to install Git and GitHub</a></li>
+<li class="chapter" data-level="1.6.4" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#general-guidelines-for-using-github-at-emlab"><i class="fa fa-check"></i><b>1.6.4</b> General guidelines for using GitHub at emLab</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="1-7-zotero.html"><a href="1-7-zotero.html"><i class="fa fa-check"></i><b>1.7</b> Zotero</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="1-7-zotero.html"><a href="1-7-zotero.html#making-emlab-the-owner-of-a-library"><i class="fa fa-check"></i><b>1.7.1</b> Making emLab the owner of a library</a></li>
+<li class="chapter" data-level="1.7.2" data-path="1-7-zotero.html"><a href="1-7-zotero.html#zotero-integration-with-googledocs-and-word"><i class="fa fa-check"></i><b>1.7.2</b> Zotero integration with GoogleDocs and Word</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-file-structure.html"><a href="2-file-structure.html"><i class="fa fa-check"></i><b>2</b> File Structure</a><ul>
@@ -186,9 +218,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Borer, Elizabeth T., Eric W. Seabloom, Matthew B. Jones, and Mark Schildhauer. 2009. “Some Simple Guidelines for Effective Data Management.” <em>The Bulletin of the Ecological Society of America</em> 90 (2): 205–14. <a href="https://doi.org/10.1890/0012-9623-90.2.205" class="uri">https://doi.org/10.1890/0012-9623-90.2.205</a>.</p></li>
 <li><p>Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989" class="uri">https://doi.org/10.1080/00031305.2017.1375989</a>.</p></li>
 <li><p>Ellis, Shannon E., and Jeffrey T. Leek. 2018. “How to Share Data for Collaboration.” <em>The American Statistician</em> 72 (1): 53–57. <a href="https://doi.org/10.1080/00031305.2017.1375987" class="uri">https://doi.org/10.1080/00031305.2017.1375987</a>.</p></li>
-<li><p>Goodman, Alyssa, Alberto Pepe, Alexander W. Blocker, Christine L. Borgman, Kyle Cranmer, Merce Crosas, Rosanne Di Stefano, et al. 2014. “Ten Simple Rules for the Care and Feeding of Scientific Data.” <em>PLOS Computational Biology</em> 10 (4): e1003542. <a href="https://doi.org/10.1371/journal.pcbi.1003542" class="uri">https://doi.org/10.1371/journal.pcbi.1003542</a>.</p></li>
+<li><p>Goodman, Alyssa, Alberto Pepe, Alexander W. Blocker, Christine L. Borgman, Kyle Cranmer, Merce Crosas, Rosanne Di Stefano, et al. 2014. “Ten Simple Rules for the Care and Feeding of Scientific Data.” <em>PLOS Computational Biology</em> 10 (4): e1003542. <a href="https://doi.org/10.1371/journal.pcbi.1003542" class="uri">https://doi.org/10.1371/journal.pcbi.1003542</a>.</p></li>
 <li><p>Hart, Edmund M., Pauline Barmby, David LeBauer, François Michonneau, Sarah Mount, Patrick Mulrooney, Timothée Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister. 2016. “Ten Simple Rules for Digital Data Storage.” <em>PLOS Computational Biology</em> 12 (10): e1005097. <a href="https://doi.org/10.1371/journal.pcbi.1005097" class="uri">https://doi.org/10.1371/journal.pcbi.1005097</a>.</p></li>
-<li><p>Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” <em>Scientific Data</em> 3 (March): 160018. <a href="https://doi.org/10.1038/sdata.2016.18" class="uri">https://doi.org/10.1038/sdata.2016.18</a>.</p></li>
+<li><p>Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” <em>Scientific Data</em> 3 (March): 160018. <a href="https://doi.org/10.1038/sdata.2016.18" class="uri">https://doi.org/10.1038/sdata.2016.18</a>.</p></li>
 <li><p>Also see the resources available at <a href="https://www.dataone.org/resources">DataONE</a>.</p></li>
 </ul> 
 </div>
@@ -203,13 +235,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -224,10 +254,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },

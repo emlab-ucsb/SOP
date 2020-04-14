@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.6 Git and GitHub | emLab Standard Operating Procedures</title>
+  <meta name="description" content="Standard operating procedures for emLab projects" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.6 Git and GitHub | emLab Standard Operating Procedures" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://emlab-ucsb.github.io/SOP/" />
+  
+  <meta property="og:description" content="Standard operating procedures for emLab projects" />
+  <meta name="github-repo" content="emlab-ucsb/SOP" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.6 Git and GitHub | emLab Standard Operating Procedures" />
+  
+  <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
+  
+
+<meta name="author" content="" />
+
+
+<meta name="date" content="2020-04-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+<link rel="prev" href="1-5-google-shared-drive.html">
+<link rel="next" href="1-7-zotero.html">
+<script src="assets/jquery-2.2.3/jquery.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="1-project-management.html"><a href="1-project-management.html"><i class="fa fa-check"></i><b>1</b> Project Management</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html"><i class="fa fa-check"></i><b>1.1</b> Google Calendar</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#setting-out-of-office-notifications"><i class="fa fa-check"></i><b>1.1.1</b> Setting out of office notifications</a></li>
+<li class="chapter" data-level="1.1.2" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#adding-other-calendars"><i class="fa fa-check"></i><b>1.1.2</b> Adding other calendars</a></li>
+<li class="chapter" data-level="1.1.3" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#scheduling-rooms"><i class="fa fa-check"></i><b>1.1.3</b> Scheduling rooms</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html"><i class="fa fa-check"></i><b>1.2</b> Zoom</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="1-2-zoom.html"><a href="1-2-zoom.html#making-scheduling-easier"><i class="fa fa-check"></i><b>1.2.1</b> Making scheduling easier</a></li>
+<li class="chapter" data-level="1.2.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html#being-an-effective-communicator-on-zoom"><i class="fa fa-check"></i><b>1.2.2</b> Being an effective communicator on Zoom…</a></li>
+<li class="chapter" data-level="1.2.3" data-path="1-2-zoom.html"><a href="1-2-zoom.html#avoiding-zoom-bombings"><i class="fa fa-check"></i><b>1.2.3</b> Avoiding Zoom bombings</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1-3-slack.html"><a href="1-3-slack.html"><i class="fa fa-check"></i><b>1.3</b> Slack</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="1-3-slack.html"><a href="1-3-slack.html#slack-basics"><i class="fa fa-check"></i><b>1.3.1</b> Slack basics</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-3-slack.html"><a href="1-3-slack.html#creating-a-channel"><i class="fa fa-check"></i><b>1.3.2</b> Creating a channel</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="1-4-airtable.html"><a href="1-4-airtable.html"><i class="fa fa-check"></i><b>1.4</b> Airtable</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="1-4-airtable.html"><a href="1-4-airtable.html#helpful-terminology"><i class="fa fa-check"></i><b>1.4.1</b> Helpful terminology</a></li>
+<li class="chapter" data-level="1.4.2" data-path="1-4-airtable.html"><a href="1-4-airtable.html#getting-to-know-the-emlab-workspace"><i class="fa fa-check"></i><b>1.4.2</b> Getting to know the emLab workspace</a></li>
+<li class="chapter" data-level="1.4.3" data-path="1-4-airtable.html"><a href="1-4-airtable.html#customizing-your-project-base"><i class="fa fa-check"></i><b>1.4.3</b> Customizing your project base</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html"><i class="fa fa-check"></i><b>1.5</b> Google Shared Drive</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#sharing-files"><i class="fa fa-check"></i><b>1.5.1</b> Sharing files</a></li>
+<li class="chapter" data-level="1.5.2" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#linking-the-shared-drive-and-your-computer"><i class="fa fa-check"></i><b>1.5.2</b> Linking the shared drive and your computer</a></li>
+<li class="chapter" data-level="1.5.3" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#other-considerations"><i class="fa fa-check"></i><b>1.5.3</b> Other considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html"><i class="fa fa-check"></i><b>1.6</b> Git and GitHub</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#what-are-git-and-github"><i class="fa fa-check"></i><b>1.6.1</b> What are Git and GitHub?</a></li>
+<li class="chapter" data-level="1.6.2" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#helpful-terminology-1"><i class="fa fa-check"></i><b>1.6.2</b> Helpful terminology</a></li>
+<li class="chapter" data-level="1.6.3" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#how-to-install-git-and-github"><i class="fa fa-check"></i><b>1.6.3</b> How to install Git and GitHub</a></li>
+<li class="chapter" data-level="1.6.4" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#general-guidelines-for-using-github-at-emlab"><i class="fa fa-check"></i><b>1.6.4</b> General guidelines for using GitHub at emLab</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="1-7-zotero.html"><a href="1-7-zotero.html"><i class="fa fa-check"></i><b>1.7</b> Zotero</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="1-7-zotero.html"><a href="1-7-zotero.html#making-emlab-the-owner-of-a-library"><i class="fa fa-check"></i><b>1.7.1</b> Making emLab the owner of a library</a></li>
+<li class="chapter" data-level="1.7.2" data-path="1-7-zotero.html"><a href="1-7-zotero.html#zotero-integration-with-googledocs-and-word"><i class="fa fa-check"></i><b>1.7.2</b> Zotero integration with GoogleDocs and Word</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-file-structure.html"><a href="2-file-structure.html"><i class="fa fa-check"></i><b>2</b> File Structure</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-1-folder-naming.html"><a href="2-1-folder-naming.html"><i class="fa fa-check"></i><b>2.1</b> Folder Naming</a></li>
+<li class="chapter" data-level="2.2" data-path="2-2-shared-drive-files.html"><a href="2-2-shared-drive-files.html"><i class="fa fa-check"></i><b>2.2</b> Shared Drive Files</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="2-2-shared-drive-files.html"><a href="2-2-shared-drive-files.html#general-structure"><i class="fa fa-check"></i><b>2.2.1</b> General Structure</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2-2-shared-drive-files.html"><a href="2-2-shared-drive-files.html#project-folder-structure"><i class="fa fa-check"></i><b>2.2.2</b> Project Folder Structure</a></li>
+<li class="chapter" data-level="2.2.3" data-path="2-2-shared-drive-files.html"><a href="2-2-shared-drive-files.html#data-storage"><i class="fa fa-check"></i><b>2.2.3</b> Data Storage</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2-3-github-structure.html"><a href="2-3-github-structure.html"><i class="fa fa-check"></i><b>2.3</b> GitHub Structure</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="2-3-github-structure.html"><a href="2-3-github-structure.html#project-repository-structure"><i class="fa fa-check"></i><b>2.3.1</b> Project Repository Structure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-data.html"><a href="3-data.html"><i class="fa fa-check"></i><b>3</b> Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-1-data-file-naming.html"><a href="3-1-data-file-naming.html"><i class="fa fa-check"></i><b>3.1</b> Data File Naming</a></li>
+<li class="chapter" data-level="3.2" data-path="3-2-metadata.html"><a href="3-2-metadata.html"><i class="fa fa-check"></i><b>3.2</b> Metadata</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3-2-metadata.html"><a href="3-2-metadata.html#metadata-standards"><i class="fa fa-check"></i><b>3.2.1</b> Metadata Standards</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3-2-metadata.html"><a href="3-2-metadata.html#where-to-store-metadata"><i class="fa fa-check"></i><b>3.2.2</b> Where to store metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html"><i class="fa fa-check"></i><b>3.3</b> Data Directory</a></li>
+<li class="chapter" data-level="3.4" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy Data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html#recommended-resources"><i class="fa fa-check"></i><b>3.4.1</b> Recommended Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-code.html"><a href="4-code.html"><i class="fa fa-check"></i><b>4</b> Code</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-1-scripts-and-version-control.html"><a href="4-1-scripts-and-version-control.html"><i class="fa fa-check"></i><b>4.1</b> Scripts and Version Control</a></li>
+<li class="chapter" data-level="4.2" data-path="4-2-style-guide.html"><a href="4-2-style-guide.html"><i class="fa fa-check"></i><b>4.2</b> Style Guide</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-high-performance-computing.html"><a href="5-high-performance-computing.html"><i class="fa fa-check"></i><b>5</b> High Performance Computing</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html"><i class="fa fa-check"></i><b>5.1</b> Google Cloud Platform</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-shared-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to emLab’s Shared Drive</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="5-2-ucsb-server-clusters.html"><a href="5-2-ucsb-server-clusters.html"><i class="fa fa-check"></i><b>5.2</b> UCSB Server Clusters</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">emLab Standard Operating Procedures</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="git-and-github" class="section level2">
+<h2><span class="header-section-number">1.6</span> Git and GitHub</h2>
+<p>Since most of our projects at emLab involve code, we use Git to track changes made to our code and faciliate collaboration by merging changes made by others, and GitHub to organize, share, and backup our code.</p>
+<p>This section provides a brief overview of how Git and Github work, how to install them on your computer (and how to join the emLab GitHub page), and some general guidelines for how to use GitHub to organize code associated with emLab projects.</p>
+<div id="what-are-git-and-github" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> What are Git and GitHub?</h3>
+<p>Git is an open-source version control system designed for programmers. Git can operate as a standalone program on your computer, but can also operated through many other programs (or “clients”). GitHub (really github.com) is a hosting service that provides online storage for your Git-projects. Think of Git as a little creature that keeps a record of all of the changes made to a file stored on your computer, and GitHub as a safe place on the internet that the little creature can go and put a copy of that file (and the changes you’ve made) when you tell it to do so.</p>
+<p>There are a number of good tutorials with more information on how Git and GitHub work (as well as how you can set them up to sync directly through other programs such as RStudio). The <a href="https://www.nceas.ucsb.edu/ocean-health-index">Ocean Health Index team at the National Center for Ecological Analysis and Synthesis (NCEAS)</a> here in Santa Barbara created a very detailed <a href="http://ohi-science.org/data-science-training/">data science training</a> that includes two excellent tutorials on setting up and collaborating with GitHub:</p>
+<ul>
+<li><a href="http://ohi-science.org/data-science-training/github.html">GitHub</a></li>
+<li><a href="http://ohi-science.org/data-science-training/collaborating.html">Collaborating with GitHub</a></li>
+</ul>
+<p>If you’re new to using Git and GitHub, the two tutorials listed above are a great place to start since NCEAS and emLab often operate in a similar way. Additionally, see the Software Carpentry’s lesson for the <a href="http://swcarpentry.github.io/git-novice/">Git novice</a>. If you primarily use (or will use) R for coding, Jenny Bryan also has an <strong>excellent</strong> tutorial specifically about how to integrate Git and GitHub with R:</p>
+<ul>
+<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></li>
+</ul>
+<p>If you’re interested in learning more about all of the functionality GitHub has to offer, the <a href="https://www.openscapes.org/">Openscapes team at NCEAS</a> has also tutorials on how to use GitHub for publishing code and for project management:</p>
+<ul>
+<li><a href="https://openscapes.github.io/series/github-pub.html">GitHub for Publishing</a></li>
+<li><a href="https://openscapes.github.io/series/github-issues.html">GitHub for Project Management</a></li>
+</ul>
+</div>
+<div id="helpful-terminology-1" class="section level3">
+<h3><span class="header-section-number">1.6.2</span> Helpful terminology</h3>
+<p>Git and GitHub use some weird terms that might be unfamiliar. Before installing and setting up Git and GitHub, here are a few key terms you may come across:</p>
+<ul>
+<li>repository (“repo”): a collection of files pertaining to the same project, document, goal, etc. Generally there’s a single repository for each project at emLab containing all of the code associated with that project. This repository can be organized with multiple folders and subfolders.<br />
+</li>
+<li>commit: a set of changes made by a user to one or more files in a repository that the user wants to prepare to send to GitHub.</li>
+<li>push: the action of sending a commit from your local machine to the remote GitHub directory.</li>
+<li>pull: the action of retrieving any commits that have been made to the repository and are stored in the remote GitHub directory but are NOT on your local machine.</li>
+</ul>
+</div>
+<div id="how-to-install-git-and-github" class="section level3">
+<h3><span class="header-section-number">1.6.3</span> How to install Git and GitHub</h3>
+<p>Most of tutorials listed above include detailed instructions on how to install Git and GitHub. The short version (and steps specific to getting incorporated with the emLab GitHub page) are listed below. For more detailed instructions, please refer to the tutorials listed above.</p>
+<ol style="list-style-type: decimal">
+<li>Create a free <a href="https://github.com/">GitHub</a> account</li>
+</ol>
+<ul>
+<li><p>Notes:</p>
+<ul>
+<li>use your <span class="citation">@ucsb.edu</span> email</li>
+<li>make sure you remember your <strong>username</strong> and <strong>password</strong>, you’ll need this later</li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="images/github_create_account.png" alt="Landing page for GitHub" />
+<p class="caption">Landing page for GitHub</p>
+</div>
+<p>Since GitHub is a company, and is used by many different types of organizations in many different industries, they offer a few different pricing schemes/deals. As an individual, once you create a username and sign up for an account, you get an unlimited number of free public and private repositories, but the number of external collaborators allowed in private repositories is limited to three. GitHub also offers a “Pro” plan for $7/month giving you unlimited external collaborators on all of your private repositories. However, for students, faculty, and research staff, or official nonprofit organizations and charities GitHub waives this fee through its <a href="https://education.github.com/">GitHub Education</a> and <a href="https://github.com/nonprofit">GitHub for Good</a> programs.</p>
+<p>Good news! emLab qualifies as an educational organization through the GitHub Education program, and as a UCSB staff member you qualify for the individual educational discount. So, once you’ve signed up for a free account on GitHub…</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Go to the <a href="https://education.github.com/">GitHub Education</a> page and register as a researcher (Note: this is why you should use your <span class="citation">@ucsb.edu</span> email for step 1).</li>
+</ol>
+<div class="figure">
+<img src="images/github_education.png" alt="Landing page for GitHub Education" />
+<p class="caption">Landing page for GitHub Education</p>
+</div>
+<p>Click on the “Get benefits” link in the top right-hand corner and follow the directions to upgrade your account to a “Pro” account for free. You may need to take a picture of your UCSB ID card to submit as part of this process. GitHub may also periodically ask you to re-verify your eligability to qualify for this program.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Send Darcy Bradley a Slack message (or an email if you must… <a href="mailto:darcybradley@ucsb.edu" class="email">darcybradley@ucsb.edu</a>) with your new GitHub username so you can be added to the emLab GitHub page!</li>
+</ol>
+<div class="figure">
+<img src="images/github_emlab.png" alt="emLab GitHub page" />
+<p class="caption">emLab GitHub page</p>
+</div>
+<p>The emLab GitHub page is where the repositories for all emLab projects live (more on this later), and once you are a member of the organization you will be able to create new public and private repositories that appear here (as well as on your personal page).</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Install Git</li>
+</ol>
+<p>If you’re very very lucky, Git will already be installed on your computer. Open the shell for your opperating system. If you’re using Mac OS X, this is called Terminal. If you’re using Windows, you have multiple types of shells, but you should be using a <strong>Git Bash</strong> shell (NOT Power Shell). The easiest way to find out whether Git is already installed on your machine is to type the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">git</span> --version</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">## git version 2.20.1 (Apple Git-117)</span></a></code></pre></div>
+<p>If it returns a version number, you already have Git installed! However, if it returns something like <code>git: command not found</code>, you need to install Git.</p>
+<p>There are a number of different ways to install Git. Stand-alone installers exist for <a href="https://sourceforge.net/projects/git-osx-installer/files/">Mac OS X</a> and <a href="https://gitforwindows.org/">Windows</a>. If you’re using Linux, you probably already know how to install Git.</p>
+<p>If you’re using Mac OS X, Git can also be installed as part of the XCode Command Line tools, or you can also install it using Homebrew. If you’re interested in either of those options, follow the cooresponding directions in Jenny Bryan’s tutorial. If that sentence doesn’t mean anything to you, download the installer from the link above and follow the prompts.</p>
+<p>Once you’ve installed Git via whichever method you’ve chosen for your operating system, open the shell again and retype the same command to verify that the installation was successful:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">git</span> --version</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">## git version 2.20.1 (Apple Git-117)</span></a></code></pre></div>
+<p>It should now return a version number.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Tell Git who you are</li>
+</ol>
+<p>Git needs to know a little bit more about you in order to play nicely. In particular there are two things that it’s helpful to configure: 1) The name that will be associated with any commits you make, and 2) the email address asssociated with your GitHub account. To set these two things, type the following into the shell using your name and email:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">git</span> config --global user.name <span class="st">&#39;Jane Doe&#39;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="fu">git</span> config --global user.email <span class="st">&#39;jane@example.com&#39;</span></a></code></pre></div>
+<p>The user name input here should be your full name (i.e. it <strong>does not</strong> need to be the same as your username for GitHub), but the email <strong>DOES</strong> need to be the same as that associated with your GitHub account.</p>
+<p>You can then check to make sure these were entered correctly by typing:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">git</span> config --global --list</a></code></pre></div>
+<ol start="6" style="list-style-type: decimal">
+<li>Optional: Store your credentials (so you don’t have to type your password every time):</li>
+</ol>
+<p><code>Git</code> will sometimes want to make sure you are you when performing certain operations. For example, when cloning a private repo or when you want to push changes to a repo. If you don’t want to do this every time, you can tell <code>Git</code> to remember your password too. You can read more about <code>Git</code>’s credential management <a href="https://Git-scm.com/docs/gitcredentials">here</a>.</p>
+<p>On your terminal, navigate to a repository on your computer. (You can also use the Terminal pane within RStudio) and type the following into the shell:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Tell git to use the credential.helper</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="fu">git</span> config --global credential.helper store </a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># git pull (or git push) will prompt you to enter your password</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="fu">git</span> pull</a></code></pre></div>
+<p>What we just did was to tell <code>Git</code> to store our credentials. So, after typing them this one time, you should not need to type it again.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Optional: Install a client for Git to make your life easier</li>
+</ol>
+<p>If you actually tried step 6 and you’re still reading this, you probably don’t usually spend a lot of time running commands in the shell and the last step didn’t make a lot of sense. If that’s the case, you might want to also install a Git client in order to help you visualize what Git is actually doing. You do not need a Git client to take advantage of version-control functionality of Git, as everything can be done using the shell (as in the previous step). However, the shell is not user-friendly.</p>
+<p>There are a number of Git/GitHub clients that you can download to interact with Git and GitHub in a more visual way.</p>
+<p>If you use RStudio, there is a very basic Git client built in that may be enough to get you started (more on this later). Other nice free Git clients include:</p>
+<ul>
+<li><a href="https://www.gitkraken.com/">GitKraken</a> (available for all platforms, plus the logo octopus is pretty sweet…)</li>
+<li><a href="https://gitfiend.com/">GitFiend</a> (cross-platform)</li>
+<li><a href="https://www.sourcetreeapp.com/">SourceTree</a> (has some problems on Mac OS X)</li>
+<li><a href="https://desktop.github.com/">GitHub Desktop</a> (not available for Linux)</li>
+<li><a href="https://gitup.co/">GitUp</a> (only for Mac OS X)</li>
+</ul>
+<p>There are many more. See Jenny Bryan’s tutorial if you’re not satisfied with those choices.</p>
+<p>Once you’ve installed a Git client, follow the directions to connect to your GitHub account. Once you’ve done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.</p>
+</div>
+<div id="general-guidelines-for-using-github-at-emlab" class="section level3">
+<h3><span class="header-section-number">1.6.4</span> General guidelines for using GitHub at emLab</h3>
+<p>In general, each emLab project should have its own repository. There may be some cases in which multiple repositories may be associated with the same project, but this should be avoided if possible. The project repository should be created within the emLab GitHub page (exceptions may exist for example if a parner organization requires that the project repository be created within their organization’s GitHub page).</p>
+<p>Repositories can be made public or private when they are created (depending on the nature of the project) while the project is ongoing, but should be made public when the project is complete.</p>
+<p>Since many previous (and ongoing) projects were created within the personal GitHub pages of emLab members, the ownership of these repositories should be transfered to the emLab GitHub page at the conclusion of the project if possible.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="1-5-google-shared-drive.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="1-7-zotero.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "static"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

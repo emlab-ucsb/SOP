@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>emLab Standard Operating Procedures</title>
+  <title>1.4 Airtable | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="emLab Standard Operating Procedures" />
+  <meta property="og:title" content="1.4 Airtable | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://emlab-ucsb.github.io/SOP/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="1.4 Airtable | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-
-<link rel="next" href="1-project-management.html">
+<link rel="prev" href="1-3-slack.html">
+<link rel="next" href="1-5-google-shared-drive.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -210,22 +210,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">emLab Standard Operating Procedures</h1>
-<p class="date"><em>2020-04-14</em></p>
+<div id="airtable" class="section level2">
+<h2><span class="header-section-number">1.4</span> Airtable</h2>
+<p>At emLab, we use <a href="https://airtable.com/">Airtable</a> as our primary project management software for tracking project deliverables, activities, and roles. To put it simply, it’s a glorified spreadsheet that you can mold to fit your needs. Email Erin (<a href="mailto:eoreilly@ucsb.edu" class="email">eoreilly@ucsb.edu</a>) to be added to Airtable.</p>
+<div id="helpful-terminology" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Helpful terminology</h3>
+<p>Base: think of it like a database. A base is made up of tabs of spreadsheets that can be customized and linked to one another.</p>
+<p>Workspace: multiple bases can be organized within a workspace. For example, we have an emLab workspace and individual project bases.</p>
 </div>
-<div id="overview" class="section level1 unnumbered">
-<h1>Overview</h1>
-<p>This reference guide describes standard operating procedures (SOP) for emLab projects. This SOP is organized into 5 different sections: (1) Project Management, (2) Folder Structure, (3) Data, (4) Code, and (5) High Performance Computing. Section 1 provides an overview of the platforms we use and how to install them; Section 2 covers file structure and storage; Section 3 describes file naming and metadata standards, as well as what the emLab data directory is composed of; Section 4 highlights best practices for coding; and Section 5 covers high performance computing.</p>
-
+<div id="getting-to-know-the-emlab-workspace" class="section level3">
+<h3><span class="header-section-number">1.4.2</span> Getting to know the emLab workspace</h3>
+<p>Within the emLab workspace, we have the following bases:</p>
+<ul>
+<li>emLab Projects and Pipeline</li>
+<li>Project Template</li>
+<li>Project-specific bases</li>
+</ul>
+<p><img src="images/airtable_workspace.png" /></p>
+<p>The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage).</p>
+<p>The Project Template provides the basic structure for a new project-specific base. It should be copied when starting a project base from scratch.</p>
+<p>Each emLab project has its own base. Teams can customize the number and content of the spreadsheets in their baseas they see fit, but at a minimum, must include the spreadsheets and columns specified in the Project Template base (see ‘required information’ below).</p>
+</div>
+<div id="customizing-your-project-base" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> Customizing your project base</h3>
+<p>It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases that have been created for inspiration!</p>
+<div id="required-information" class="section level4">
+<h4><span class="header-section-number">1.4.3.1</span> Required information</h4>
+<p>To maintain transparency within the team and keep track of who is working on what to foster collaboration, all projects should keep their Airtable base up to date.</p>
+<p>The Project Template provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team.</p>
+<p>The following tabs are required in your project base:</p>
+<ul>
+<li><p>Deliverables: all deliverables stated in the scope of work</p></li>
+<li><p>Activities: steps to achieve the deliverables. These are a level above individual tasks. For example if the deliverable is a report, an activity could be a literature review, and tasks would be specific components of the literature review.</p></li>
+<li><p>Within the Activities tab, we employ a RACI chart to track responsibilities, with is broken into:</p>
+<ul>
+<li><p>Responsible/Assigned to: who is responsible for doing the actual work for the task</p></li>
+<li><p>Accountable: who is held accountable for the success of the task and is the decision maker</p></li>
+<li><p>Consulted/Reviewer: who needs to be consulted for additional input or review</p></li>
+<li><p>Informed: who needs to be kept in the loop on project progress</p></li>
+</ul></li>
+<li><p>Team: list of team members with their project roles. This will be linked to the activities tab so you can see who is responsible and accountable for different activities.</p></li>
+</ul>
+</div>
+<div id="additional-tab-ideas" class="section level4">
+<h4><span class="header-section-number">1.4.3.2</span> Additional tab ideas</h4>
+<ul>
+<li><p>Tasks: more detailed steps of how to reach an activity; could be day-to-day tasks</p>
+<ul>
+<li>Note: you can link a tasks tab with the deliverables tab to see how they feed into one another</li>
+</ul></li>
+<li><p>Datasets: way to keep track of all the datasets going into an analysis and what stage of collection and processing they are in</p>
+<ul>
+<li>Example
+<img src="images/airtable_datasets_example.png" /></li>
+</ul></li>
+<li><p>Analyses: tracking different versions of a model run to keep track of progress and outputs of different simulations run</p>
+<ul>
+<li>Example
+<img src="images/airtable_analyses_example.png" /></li>
+</ul></li>
+</ul>
+</div>
+<div id="column-options" class="section level4">
+<h4><span class="header-section-number">1.4.3.3</span> Column options</h4>
+<p>There are 25 column type options within Airtable. The ones we most commonly use are: link to another record (links information from different tabs within the same base), single line text, long text, attachment, checkbox, multiple select, single select, and date.</p>
+<p><em>Pro tip: enable rich text formatting for the long text option to add checklists, bold and italic text, bullets, etc.</em></p>
+</div>
+<div id="ways-to-view-your-base" class="section level4">
+<h4><span class="header-section-number">1.4.3.4</span> Ways to view your base</h4>
+<p><strong>Different views</strong></p>
+<p>There are 5 different ways to view your base: grid, calendar, gallery, kanaban, and form, which can be explored <a href="https://airtable.com/product">here</a>.</p>
+<p><em>Pro tip: click on “Row Height” in the menu row to change the height of rows and therefore wrap text.</em></p>
+<p><strong>Filtering</strong></p>
+<p>This works like the normal filtering function in spreadsheets. You can sort A to Z, by date, exclude records with certain names, etc.</p>
+<p><strong>Grouping</strong></p>
+<p>Grouping allows you to bucket your spreadsheet by field type.</p>
+<p>Example 1: The clean seafood project grouping tasks by complete v. not complete.</p>
+<p><img src="images/airtable_grouping_completion.png" /></p>
+<p>Example 2: The clean seafood project grouping deliverables by research track.</p>
+<p><img src="images/airtable_grouping_track.png" /></p>
+<p><strong>Expanding a record</strong></p>
+<p>Within each tab, you can expand records in the first column to view all its information at once by clicking the two opposing arrows before the text. This option combines information from all of the columns into an easy to read card format.</p>
+<p><img src="images/airtable_expanded_record.png" /></p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-project-management.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1-3-slack.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="1-5-google-shared-drive.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
