@@ -121,29 +121,31 @@ Within the emLab workspace, we have the following bases:
 
 ![](images/airtable_workspace.png)
 
-The emLab Projects and Pipeline base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage). 
+The `emLab Projects and Pipeline` base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage). 
 
-The Project Template provides the basic structure for a new project-specific base. It should be copied when starting a project base from scratch. 
+The `Project Template` provides the basic structure for a new project-specific base. It should be copied when starting a project base from scratch. 
 
-Each emLab project has its own base. Teams can customize the number and content of the spreadsheets in their baseas they see fit, but at a minimum, must include the spreadsheets and columns specified in the Project Template base (see ‘required information’ below).
+Each emLab project has its own base. Teams can customize the number and content of the spreadsheets in their baseas they see fit, but at a minimum, must include the spreadsheets and columns specified in the `Project Template` base (see ‘required information’ below). *If you are working on a smaller project that does not require its own base, add it to the `Special Projects` base.*
 
 ### Customizing your project base
 
-It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases that have been created for inspiration!
+It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases for inspiration!
 
 #### Required information
 
 To maintain transparency within the team and keep track of who is working on what to foster collaboration, all projects should keep their Airtable base up to date. 
 
-The Project Template provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team.
+The `Project Template` provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team.
 
 The following tabs are required in your project base:
 
 - Deliverables: all deliverables stated in the scope of work
 
+    - Pro tip: add a number to the beginning of each deliverable so that when you group by deliverable in the activities tab, they show up in order instead of alphabetically 
+
 - Activities: steps to achieve the deliverables. These are a level above individual tasks. For example if the deliverable is a report, an activity could be a literature review, and tasks would be specific components of the literature review. 
 
-- Within the Activities tab, we employ a RACI chart to track responsibilities, with is broken into:
+- Within the Activities tab, we employ a RACI chart to track responsibilities, which is broken into:
 
     - Responsible/Assigned to: who is responsible for doing the actual work for the task
   
@@ -159,9 +161,9 @@ The following tabs are required in your project base:
 
 - Tasks: more detailed steps of how to reach an activity; could be day-to-day tasks
     
-    - Note: you can link a tasks tab with the deliverables tab to see how they feed into one another
-    
-- Datasets: way to keep track of all the datasets going into an analysis and what stage of collection and processing they are in
+    - Note: you can link a tasks tab with the activities tab to see how they feed into one another
+
+- Datasets: way to keep track of all the datasets going into an analysis, if they have been collected, and what their priority is
 
     - Example
     ![](images/airtable_datasets_example.png)
@@ -170,12 +172,27 @@ The following tabs are required in your project base:
 
     - Example
     ![](images/airtable_analyses_example.png)
+    
+- Murder board: tracking gaps in analysis
+
+- On the back burner: bonus analysis that can be added on if there is extra time
+
+- Stakeholders: tracking groups of stakeholders, what you want their feedback on, and when in the project you want their input
+
+- Conferences and events: helps track potential conferences or events to present your work at
+
+- Papers: if a project is planning to write multiple papers, dedicate a specific tab to tracking the papers and their progress
+
+- Questions for PIs/team: place to keep track of unanswered questions 
+
   
 #### Column options
 
-There are 25 column type options within Airtable. The ones we most commonly use are: link to another record (links information from different tabs within the same base), single line text, long text, attachment, checkbox, multiple select, single select, and date.
+There are 25 column type options within Airtable. The ones we most commonly use are: link to another record (links information from different tabs within the same base; you can't link information across bases), single line text, long text, attachment, checkbox, multiple select, single select, and date.
 
-*Pro tip: enable rich text formatting for the long text option to add checklists, bold and italic text, bullets, etc.*
+*Pro tip: enable rich text formatting for the long text option to add checklists, bold and italic text, bullets, etc. Once enabled, double-click on the box you want to edit and select the ¶ symbol to see all of the formatting options.*
+
+![](images/airtable_rich_text.png){height="50%" width="50%"}
 
 #### Ways to view your base
 
@@ -185,21 +202,18 @@ There are 5 different ways to view your base: grid, calendar, gallery, kanaban, 
 
 *Pro tip: click on “Row Height” in the menu row to change the height of rows and therefore wrap text.*
 
+![](images/airtable_row_height.png){height="50%" width="50%"}
+
 **Filtering**
 
 This works like the normal filtering function in spreadsheets. You can sort A to Z, by date, exclude records with certain names, etc.
 
 **Grouping**
 
-Grouping allows you to bucket your spreadsheet by field type. 
+Grouping allows you to bucket your spreadsheet by field type. You can group by deliverable, complete v. not complete, research track, etc.
 
-Example 1: The clean seafood project grouping tasks by complete v. not complete.
-
-![](images/airtable_grouping_completion.png)
-
-Example 2: The clean seafood project grouping deliverables by research track.
-
-![](images/airtable_grouping_track.png)
+Example: 
+![](images/airtable_grouping.png)
 
 **Expanding a record**
 
