@@ -9,15 +9,18 @@ Standard operating procedures for emLab projects:
 
 1. Project Management  
     - Google Calendar
+    - Zoom
     - Slack
     - Airtable
     - Google Shared Drive
     - Git and GitHub
+    - Zotero
 2. File Structure
-    - File Naming
+    - Folder Naming
     - Shared Drive Files
     - GitHub Structure
 3. Data
+    - Data File Naming
     - Metadata
     - Data Directory
     - Tidy Data

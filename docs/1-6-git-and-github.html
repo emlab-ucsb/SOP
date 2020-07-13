@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.4 Tidy Data | emLab Standard Operating Procedures</title>
+  <title>1.6 Git and GitHub | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.4 Tidy Data | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="1.6 Git and GitHub | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://emlab-ucsb.github.io/SOP/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.4 Tidy Data | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="1.6 Git and GitHub | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="3-3-data-directory.html"/>
-<link rel="next" href="4-code.html"/>
+<link rel="prev" href="1-5-google-shared-drive.html"/>
+<link rel="next" href="1-7-zotero.html"/>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -217,40 +217,136 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tidy-data" class="section level2">
-<h2><span class="header-section-number">3.4</span> Tidy Data</h2>
-<p>As researchers, we work with data from many different sources. Often these data are messy. One of the first steps of any analysis is to clean any available raw data so that you can make simple visualizations of the data, calculate simple summary statistics, look for missing or incorrect data, and eventually proceed with more involved analyses or modeling.</p>
-<p>As part of the data cleaning process, we recommend getting all data into a “tidy” format (also known as “long” format, as opposed to “wide” format). According to the <a href="https://r4ds.had.co.nz/tidy-data.html">Tidy Data Guide</a> by Garrett Grolemund and Hadley Wickham, tidy data is defined as:</p>
-<blockquote>
+<div id="git-and-github" class="section level2">
+<h2><span class="header-section-number">1.6</span> Git and GitHub</h2>
+<p>Since most of our projects at emLab involve code, we use Git to track changes made to our code and faciliate collaboration by merging changes made by others, and GitHub to organize, share, and backup our code.</p>
+<p>This section provides a brief overview of how Git and Github work, how to install them on your computer (and how to join the emLab GitHub page), and some general guidelines for how to use GitHub to organize code associated with emLab projects.</p>
+<div id="what-are-git-and-github" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> What are Git and GitHub?</h3>
+<p>Git is an open-source version control system designed for programmers. Git can operate as a standalone program on your computer, but can also operated through many other programs (or “clients”). GitHub (really github.com) is a hosting service that provides online storage for your Git-projects. Think of Git as a little creature that keeps a record of all of the changes made to a file stored on your computer, and GitHub as a safe place on the internet that the little creature can go and put a copy of that file (and the changes you’ve made) when you tell it to do so.</p>
+<p>There are a number of good tutorials with more information on how Git and GitHub work (as well as how you can set them up to sync directly through other programs such as RStudio). The <a href="https://www.nceas.ucsb.edu/ocean-health-index">Ocean Health Index team at the National Center for Ecological Analysis and Synthesis (NCEAS)</a> here in Santa Barbara created a very detailed <a href="http://ohi-science.org/data-science-training/">data science training</a> that includes two excellent tutorials on setting up and collaborating with GitHub:</p>
 <ul>
-<li>Each variable must have its own column.<br />
-</li>
-<li>Each observation must have its own row.<br />
-</li>
-<li>Each value must have its own cell.<br />
-</li>
+<li><a href="http://ohi-science.org/data-science-training/github.html">GitHub</a></li>
+<li><a href="http://ohi-science.org/data-science-training/collaborating.html">Collaborating with GitHub</a></li>
 </ul>
-</blockquote>
-<p>These three features of tidy data can be seen in the following figure, also from the <a href="https://r4ds.had.co.nz/tidy-data.html">Tidy Data Guide</a>:</p>
-<blockquote>
-<p><img src="images/tidy_data.png" /></p>
-</blockquote>
-<p>Once data are in this format, it makes subsequent visualization and analysis much easier. If you’ve ever worked with a file that has a separate column for each year (an example of “wide” format data), you know how hard that type of data format is to work with!</p>
-<p>As always, we recommend keeping a backup copy of the raw data you obtained from the original source, and using a reproducible script for transforming these data into a tidy data format.</p>
-<div id="recommended-resources" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Recommended Resources</h3>
-<p>We highly recommend the chapter on <a href="https://r4ds.had.co.nz/tidy-data.html">Tidy Data</a> from the book <a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham. This guide is geared towards R users and provides helpful tips for transforming and working with data in R, but the concepts should be broadly applicable to other languages as well. For tips specific to Python, we recommend a blogpost by Jean-Nicholas Hould titled <a href="http://www.jeannicholashould.com/tidy-data-in-python.html">Tidy Data in Python</a>.</p>
-
+<p>If you’re new to using Git and GitHub, the two tutorials listed above are a great place to start since NCEAS and emLab often operate in a similar way. Additionally, see the Software Carpentry’s lesson for the <a href="http://swcarpentry.github.io/git-novice/">Git novice</a>. If you primarily use (or will use) R for coding, Jenny Bryan also has an <strong>excellent</strong> tutorial specifically about how to integrate Git and GitHub with R:</p>
+<ul>
+<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></li>
+</ul>
+<p>If you’re interested in learning more about all of the functionality GitHub has to offer, the <a href="https://www.openscapes.org/">Openscapes team at NCEAS</a> has also tutorials on how to use GitHub for publishing code and for project management:</p>
+<ul>
+<li><a href="https://openscapes.github.io/series/github-pub.html">GitHub for Publishing</a></li>
+<li><a href="https://openscapes.github.io/series/github-issues.html">GitHub for Project Management</a></li>
+</ul>
+</div>
+<div id="helpful-terminology-1" class="section level3">
+<h3><span class="header-section-number">1.6.2</span> Helpful terminology</h3>
+<p>Git and GitHub use some weird terms that might be unfamiliar. Before installing and setting up Git and GitHub, here are a few key terms you may come across:</p>
+<ul>
+<li>repository (“repo”): a collection of files pertaining to the same project, document, goal, etc. Generally there’s a single repository for each project at emLab containing all of the code associated with that project. This repository can be organized with multiple folders and subfolders.<br />
+</li>
+<li>commit: a set of changes made by a user to one or more files in a repository that the user wants to prepare to send to GitHub.</li>
+<li>push: the action of sending a commit from your local machine to the remote GitHub directory.</li>
+<li>pull: the action of retrieving any commits that have been made to the repository and are stored in the remote GitHub directory but are NOT on your local machine.</li>
+</ul>
+</div>
+<div id="how-to-install-git-and-github" class="section level3">
+<h3><span class="header-section-number">1.6.3</span> How to install Git and GitHub</h3>
+<p>Most of tutorials listed above include detailed instructions on how to install Git and GitHub. The short version (and steps specific to getting incorporated with the emLab GitHub page) are listed below. For more detailed instructions, please refer to the tutorials listed above.</p>
+<ol style="list-style-type: decimal">
+<li>Create a free <a href="https://github.com/">GitHub</a> account</li>
+</ol>
+<ul>
+<li><p>Notes:</p>
+<ul>
+<li>use your <span class="citation">@ucsb.edu</span> email</li>
+<li>make sure you remember your <strong>username</strong> and <strong>password</strong>, you’ll need this later</li>
+</ul></li>
+</ul>
+<div class="figure">
+<img src="images/github_create_account.png" alt="" />
+<p class="caption">Landing page for GitHub</p>
+</div>
+<p>Since GitHub is a company, and is used by many different types of organizations in many different industries, they offer a few different pricing schemes/deals. As an individual, once you create a username and sign up for an account, you get an unlimited number of free public and private repositories, but the number of external collaborators allowed in private repositories is limited to three. GitHub also offers a “Pro” plan for $7/month giving you unlimited external collaborators on all of your private repositories. However, for students, faculty, and research staff, or official nonprofit organizations and charities GitHub waives this fee through its <a href="https://education.github.com/">GitHub Education</a> and <a href="https://github.com/nonprofit">GitHub for Good</a> programs.</p>
+<p>Good news! emLab qualifies as an educational organization through the GitHub Education program, and as a UCSB staff member you qualify for the individual educational discount. So, once you’ve signed up for a free account on GitHub…</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Go to the <a href="https://education.github.com/">GitHub Education</a> page and register as a researcher (Note: this is why you should use your <span class="citation">@ucsb.edu</span> email for step 1).</li>
+</ol>
+<div class="figure">
+<img src="images/github_education.png" alt="" />
+<p class="caption">Landing page for GitHub Education</p>
+</div>
+<p>Click on the “Get benefits” link in the top right-hand corner and follow the directions to upgrade your account to a “Pro” account for free. You may need to take a picture of your UCSB ID card to submit as part of this process. GitHub may also periodically ask you to re-verify your eligability to qualify for this program.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Send Darcy Bradley a Slack message (or an email if you must… <a href="mailto:darcybradley@ucsb.edu" class="email">darcybradley@ucsb.edu</a>) with your new GitHub username so you can be added to the emLab GitHub page!</li>
+</ol>
+<div class="figure">
+<img src="images/github_emlab.png" alt="" />
+<p class="caption">emLab GitHub page</p>
+</div>
+<p>The emLab GitHub page is where the repositories for all emLab projects live (more on this later), and once you are a member of the organization you will be able to create new public and private repositories that appear here (as well as on your personal page).</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Install Git</li>
+</ol>
+<p>If you’re very very lucky, Git will already be installed on your computer. Open the shell for your opperating system. If you’re using Mac OS X, this is called Terminal. If you’re using Windows, you have multiple types of shells, but you should be using a <strong>Git Bash</strong> shell (NOT Power Shell). The easiest way to find out whether Git is already installed on your machine is to type the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="1-6-git-and-github.html#cb2-1"></a><span class="fu">git</span> --version</span>
+<span id="cb2-2"><a href="1-6-git-and-github.html#cb2-2"></a><span class="co">## git version 2.20.1 (Apple Git-117)</span></span></code></pre></div>
+<p>If it returns a version number, you already have Git installed! However, if it returns something like <code>git: command not found</code>, you need to install Git.</p>
+<p>There are a number of different ways to install Git. Stand-alone installers exist for <a href="https://sourceforge.net/projects/git-osx-installer/files/">Mac OS X</a> and <a href="https://gitforwindows.org/">Windows</a>. If you’re using Linux, you probably already know how to install Git.</p>
+<p>If you’re using Mac OS X, Git can also be installed as part of the XCode Command Line tools, or you can also install it using Homebrew. If you’re interested in either of those options, follow the cooresponding directions in Jenny Bryan’s tutorial. If that sentence doesn’t mean anything to you, download the installer from the link above and follow the prompts.</p>
+<p>Once you’ve installed Git via whichever method you’ve chosen for your operating system, open the shell again and retype the same command to verify that the installation was successful:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="1-6-git-and-github.html#cb3-1"></a><span class="fu">git</span> --version</span>
+<span id="cb3-2"><a href="1-6-git-and-github.html#cb3-2"></a><span class="co">## git version 2.20.1 (Apple Git-117)</span></span></code></pre></div>
+<p>It should now return a version number.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Tell Git who you are</li>
+</ol>
+<p>Git needs to know a little bit more about you in order to play nicely. In particular there are two things that it’s helpful to configure: 1) The name that will be associated with any commits you make, and 2) the email address asssociated with your GitHub account. To set these two things, type the following into the shell using your name and email:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="1-6-git-and-github.html#cb4-1"></a><span class="fu">git</span> config --global user.name <span class="st">&#39;Jane Doe&#39;</span></span>
+<span id="cb4-2"><a href="1-6-git-and-github.html#cb4-2"></a><span class="fu">git</span> config --global user.email <span class="st">&#39;jane@example.com&#39;</span></span></code></pre></div>
+<p>The user name input here should be your full name (i.e. it <strong>does not</strong> need to be the same as your username for GitHub), but the email <strong>DOES</strong> need to be the same as that associated with your GitHub account.</p>
+<p>You can then check to make sure these were entered correctly by typing:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="1-6-git-and-github.html#cb5-1"></a><span class="fu">git</span> config --global --list</span></code></pre></div>
+<ol start="6" style="list-style-type: decimal">
+<li>Optional: Store your credentials (so you don’t have to type your password every time):</li>
+</ol>
+<p><code>Git</code> will sometimes want to make sure you are you when performing certain operations. For example, when cloning a private repo or when you want to push changes to a repo. If you don’t want to do this every time, you can tell <code>Git</code> to remember your password too. You can read more about <code>Git</code>’s credential management <a href="https://Git-scm.com/docs/gitcredentials">here</a>.</p>
+<p>On your terminal, navigate to a repository on your computer. (You can also use the Terminal pane within RStudio) and type the following into the shell:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="1-6-git-and-github.html#cb6-1"></a><span class="co"># Tell git to use the credential.helper</span></span>
+<span id="cb6-2"><a href="1-6-git-and-github.html#cb6-2"></a><span class="fu">git</span> config --global credential.helper store </span>
+<span id="cb6-3"><a href="1-6-git-and-github.html#cb6-3"></a><span class="co"># git pull (or git push) will prompt you to enter your password</span></span>
+<span id="cb6-4"><a href="1-6-git-and-github.html#cb6-4"></a><span class="fu">git</span> pull</span></code></pre></div>
+<p>What we just did was to tell <code>Git</code> to store our credentials. So, after typing them this one time, you should not need to type it again.</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Optional: Install a client for Git to make your life easier</li>
+</ol>
+<p>If you actually tried step 6 and you’re still reading this, you probably don’t usually spend a lot of time running commands in the shell and the last step didn’t make a lot of sense. If that’s the case, you might want to also install a Git client in order to help you visualize what Git is actually doing. You do not need a Git client to take advantage of version-control functionality of Git, as everything can be done using the shell (as in the previous step). However, the shell is not user-friendly.</p>
+<p>There are a number of Git/GitHub clients that you can download to interact with Git and GitHub in a more visual way.</p>
+<p>If you use RStudio, there is a very basic Git client built in that may be enough to get you started (more on this later). Other nice free Git clients include:</p>
+<ul>
+<li><a href="https://www.gitkraken.com/">GitKraken</a> (available for all platforms, plus the logo octopus is pretty sweet…)</li>
+<li><a href="https://gitfiend.com/">GitFiend</a> (cross-platform)</li>
+<li><a href="https://www.sourcetreeapp.com/">SourceTree</a> (has some problems on Mac OS X)</li>
+<li><a href="https://desktop.github.com/">GitHub Desktop</a> (not available for Linux)</li>
+<li><a href="https://gitup.co/">GitUp</a> (only for Mac OS X)</li>
+</ul>
+<p>There are many more. See Jenny Bryan’s tutorial if you’re not satisfied with those choices.</p>
+<p>Once you’ve installed a Git client, follow the directions to connect to your GitHub account. Once you’ve done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.</p>
+</div>
+<div id="general-guidelines-for-using-github-at-emlab" class="section level3">
+<h3><span class="header-section-number">1.6.4</span> General guidelines for using GitHub at emLab</h3>
+<p>In general, each emLab project should have its own repository. There may be some cases in which multiple repositories may be associated with the same project, but this should be avoided if possible. The project repository should be created within the emLab GitHub page (exceptions may exist for example if a parner organization requires that the project repository be created within their organization’s GitHub page).</p>
+<p>Repositories can be made public or private when they are created (depending on the nature of the project) while the project is ongoing, but should be made public when the project is complete.</p>
+<p>Since many previous (and ongoing) projects were created within the personal GitHub pages of emLab members, the ownership of these repositories should be transfered to the emLab GitHub page at the conclusion of the project if possible.</p>
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="3-3-data-directory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1-5-google-shared-drive.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="1-7-zotero.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
