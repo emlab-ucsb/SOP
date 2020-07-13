@@ -52,11 +52,27 @@ library(tidyverse)
 # Set path for Google Drive filestream based on OS type
 # Note - this will work for Windows and Mac machines.
 # If you use Linux, you will need to set your own path to where Google Drive filestream lives.
+
 team_path <- ifelse(Sys.info()["sysname"]=="Windows","G:/","/Volumes/GoogleDrive/")
+
+# Next, set the path for data directory based on whether project is current or archived.
+# Note that if you use a different Team Drive file structure than the one recommended in the "File Structure" section, you will need to manually define your data path.
+# You should always double-check the automatically generated paths in order to ensure they point to the correct directory.
+
+# First, set the name of your project
+
+project_name <- "my-project"
+
+# This will automatically determine if the project exists in the "current-projects" or "archived-projects" Team Drive folder, and set the appropriate data path accordingly.
+data_path <- ifelse(dir.exists(paste0(team_path,"Shared drives/emlab/projects/current-projects/",project_name)),
+                       paste0(team_path,"Shared drives/emlab/projects/current-projects/",project_name,"/data/"),
+                       (paste0(team_path,"Shared drives/emlab/projects/archived-projects/",project_name,"/data/")))
 
 
 # Import data -----------------------------------------------------------------
 
+# Load data from Team Drive using appropriate data path
+my_raw_data <- read_csv(paste0(data_path,"raw/my_raw_data.csv"))
 
 # Process data ----------------------------------------------------------------
 
