@@ -74,6 +74,16 @@ colnames(meta_metadatatable) <- c("Column","Description")
 kable(meta_metadatatable)
 ```
 
+Research teams may find it useful to keep track of project-related data in a separate spreadsheet stored in the project’s Google Shared Drive data folder. This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can be used to guide and simplify data migration to the emLab Data Directory data directory. Suggested attributes include:
+  - File name
+  - Folder name
+  - Source of data
+  - Link where data was downloaded
+  - Description of data
+  - Name of the researcher who downloaded the data
+
+
+
 ## Tidy Data  
 
 As researchers, we work with data from many different sources. Often these data are messy. One of the first steps of any analysis is to clean any available raw data so that you can make simple visualizations of the data, calculate simple summary statistics, look for missing or incorrect data, and eventually proceed with more involved analyses or modeling.
