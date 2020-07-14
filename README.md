@@ -24,6 +24,7 @@ Standard operating procedures for emLab projects:
     - Metadata
     - Data Directory
     - Tidy Data
+    - Making Your Data Publicly Available
 4. Code
     - Scripts and Version Control
     - Style Guide
