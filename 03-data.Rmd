@@ -74,7 +74,7 @@ colnames(meta_metadatatable) <- c("Column","Description")
 kable(meta_metadatatable)
 ```
 
-Research teams may find it useful to keep track of project-related data in a separate spreadsheet stored in the project’s Google Shared Drive data folder. This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can be used to guide and simplify data migration to the emLab Data Directory data directory. Suggested attributes include:
+Research teams may find it useful to keep track of project-related data in a separate spreadsheet stored in the project’s Google Shared Drive data folder. This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can be used to guide and simplify data migration to the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0). Suggested attributes include:
   - File name
   - Folder name
   - Source of data
