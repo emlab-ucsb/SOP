@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-07-15" />
+<meta name="date" content="2020-07-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -69,7 +69,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -217,7 +217,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="metadata" class="section level2">
 <h2><span class="header-section-number">3.2</span> Metadata</h2>
-<p>Metadata is data about your data. It includes information about your data’s content, structure, authors, and permissions to make your data interpretable and usable by your future self and others. EVERY data file should be accompanied by a metadata file.</p>
+<p>Metadata is data about your data. It includes information about your data’s content, structure, authors, and permissions to make your data interpretable and usable by your future self and others. EVERY* data file should be accompanied by a metadata file.</p>
+<p>*This includes files that people tend to overlook or think are not useful for the broader team. For example, if you’re using Google Sheets to keep track of literature or data reviews for a specific project, these documents should also have some form of accompanying metadata.</p>
 <div id="metadata-standards" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Metadata Standards</h3>
 <p>We use “readme” style metadata, named <code>_readme_datafilename</code>, and stored in the same folder as the data file.</p>
@@ -228,6 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Use a standardized date format (YYYY-MM-DD)</p></li>
 </ul>
 <p>We acknowledge that it may not always be feasible to draft robust metadata immediately when a dataset is first uploaded to the emLab data folder. In this case, a minimal readme file can be created as a temporary placeholder that contains the following information: your name, contact info, a very brief (1-2 lines) description of the data, and a note on how you obtained them. Please refer to the <em>Data Directory</em> subheading for further instruction on how to incorporate this form of temporary documentation into the emLab Data Directory.</p>
+<p>For files that may be considered more “internal notes” than datasets (Google Sheets example mentioned above), please ensure that some sort of metadata is present. One alternative to a “readme” file is to create an extra tab on the Google Sheet labeled “metadata”. Here, you can include information on the column names (column 1) and their definitions (column 2). Now, collaborators and team members can easily interpret the columns and use the dataset approriately.</p>
 </div>
 <div id="where-to-store-metadata" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Where to store metadata</h3>

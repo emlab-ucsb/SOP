@@ -43,7 +43,9 @@ When it comes to file naming, best practices include:
 
 ## Metadata
 
-Metadata is data about your data. It includes information about your data's content, structure, authors, and permissions to make your data interpretable and usable by your future self and others. EVERY data file should be accompanied by a metadata file.
+Metadata is data about your data. It includes information about your data's content, structure, authors, and permissions to make your data interpretable and usable by your future self and others. EVERY* data file should be accompanied by a metadata file.
+
+*This includes files that people tend to overlook or think are not useful for the broader team. For example, if you're using Google Sheets to keep track of literature or data reviews for a specific project, these documents should also have some form of accompanying metadata.
 
 ### Metadata Standards
 
@@ -58,6 +60,8 @@ We use "readme" style metadata, named `_readme_datafilename`, and stored in the 
 * Use a standardized date format (YYYY-MM-DD)
 
 We acknowledge that it may not always be feasible to draft robust metadata immediately when a dataset is first uploaded to the emLab data folder. In this case, a minimal readme file can be created as a temporary placeholder that contains the following information: your name, contact info, a very brief (1-2 lines) description of the data, and a note on how you obtained them. Please refer to the *Data Directory* subheading for further instruction on how to incorporate this form of temporary documentation into the emLab Data Directory.
+
+For files that may be considered more "internal notes" than datasets (Google Sheets example mentioned above), please ensure that some sort of metadata is present. One alternative to a "readme" file is to create an extra tab on the Google Sheet labeled "metadata". Here, you can include information on the column names (column 1) and their definitions (column 2). Now, collaborators and team members can easily interpret the columns and use the dataset approriately.
 
 ### Where to store metadata
 
