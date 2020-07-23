@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.2 Style Guide | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.2 Style Guide | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-07-16" />
+<meta name="date" content="2020-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="4-1-scripts-and-version-control.html"/>
-<link rel="next" href="5-high-performance-computing.html"/>
+<link rel="prev" href="4-1-scripts-and-version-control.html">
+<link rel="next" href="5-high-performance-computing.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,9 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -186,7 +183,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy Data</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html#recommended-resources"><i class="fa fa-check"></i><b>3.4.1</b> Recommended Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="3-5-making-your-data-publicly-available.html"><a href="3-5-making-your-data-publicly-available.html"><i class="fa fa-check"></i><b>3.5</b> Making Your Data Publicly Available</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-code.html"><a href="4-code.html"><i class="fa fa-check"></i><b>4</b> Code</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-scripts-and-version-control.html"><a href="4-1-scripts-and-version-control.html"><i class="fa fa-check"></i><b>4.1</b> Scripts and Version Control</a></li>
@@ -197,6 +193,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-shared-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to emLab’s Shared Drive</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5-2-ucsb-server-clusters.html"><a href="5-2-ucsb-server-clusters.html"><i class="fa fa-check"></i><b>5.2</b> UCSB Server Clusters</a></li>
+<li class="chapter" data-level="5.3" data-path="5-3-emlab-affiliation.html"><a href="5-3-emlab-affiliation.html"><i class="fa fa-check"></i><b>5.3</b> emLab Affiliation</a></li>
+<li class="chapter" data-level="5.4" data-path="5-4-making-your-data-publicly-available.html"><a href="5-4-making-your-data-publicly-available.html"><i class="fa fa-check"></i><b>5.4</b> Making Your Data Publicly Available</a></li>
+<li class="chapter" data-level="5.5" data-path="5-5-preparing-a-public-github-repository.html"><a href="5-5-preparing-a-public-github-repository.html"><i class="fa fa-check"></i><b>5.5</b> Preparing a Public GitHub Repository</a></li>
 </ul></li>
 </ul>
 
@@ -242,13 +241,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -263,10 +260,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },

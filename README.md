@@ -24,13 +24,16 @@ Standard operating procedures for emLab projects:
     - Metadata
     - Data Directory
     - Tidy Data
-    - Making Your Data Publicly Available
 4. Code
     - Scripts and Version Control
     - Style Guide
 5. High Performance Computing
     - Google Cloud Platform
     - UCSB Server Clusters
+6. Publications
+    - emLab Affiliation
+    - Making Your Data Publicly Available
+    - Preparing a Public GitHub Repository
 
 
 ## Contributing
