@@ -3,7 +3,7 @@ title: "Publications"
 output: html_document
 ---
 
-#Publications
+# Publications
 
 ## emLab Affiliation
 
