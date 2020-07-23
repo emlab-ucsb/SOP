@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.1 Google Cloud Platform | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.1 Google Cloud Platform | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,6 @@
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
 
-<meta name="author" content="" />
 
 
 <meta name="date" content="2020-07-23" />
@@ -31,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="5-high-performance-computing.html">
-<link rel="next" href="5-2-ucsb-server-clusters.html">
+<link rel="prev" href="5-high-performance-computing.html"/>
+<link rel="next" href="5-2-ucsb-server-clusters.html"/>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -50,66 +52,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -133,7 +110,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html"><i class="fa fa-check"></i><b>1.2</b> Zoom</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="1-2-zoom.html"><a href="1-2-zoom.html#making-scheduling-easier"><i class="fa fa-check"></i><b>1.2.1</b> Making scheduling easier</a></li>
-<li class="chapter" data-level="1.2.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html#being-an-effective-communicator-on-zoom"><i class="fa fa-check"></i><b>1.2.2</b> Being an effective communicator on Zoom…</a></li>
+<li class="chapter" data-level="1.2.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html#being-an-effective-communicator-on-zoom..."><i class="fa fa-check"></i><b>1.2.2</b> Being an effective communicator on Zoom...</a></li>
 <li class="chapter" data-level="1.2.3" data-path="1-2-zoom.html"><a href="1-2-zoom.html#avoiding-zoom-bombings"><i class="fa fa-check"></i><b>1.2.3</b> Avoiding Zoom bombings</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="1-3-slack.html"><a href="1-3-slack.html"><i class="fa fa-check"></i><b>1.3</b> Slack</a><ul>
@@ -190,12 +167,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-high-performance-computing.html"><a href="5-high-performance-computing.html"><i class="fa fa-check"></i><b>5</b> High Performance Computing</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html"><i class="fa fa-check"></i><b>5.1</b> Google Cloud Platform</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-shared-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to emLab’s Shared Drive</a></li>
+<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-shared-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to emLab's Shared Drive</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5-2-ucsb-server-clusters.html"><a href="5-2-ucsb-server-clusters.html"><i class="fa fa-check"></i><b>5.2</b> UCSB Server Clusters</a></li>
-<li class="chapter" data-level="5.3" data-path="5-3-emlab-affiliation.html"><a href="5-3-emlab-affiliation.html"><i class="fa fa-check"></i><b>5.3</b> emLab Affiliation</a></li>
-<li class="chapter" data-level="5.4" data-path="5-4-making-your-data-publicly-available.html"><a href="5-4-making-your-data-publicly-available.html"><i class="fa fa-check"></i><b>5.4</b> Making Your Data Publicly Available</a></li>
-<li class="chapter" data-level="5.5" data-path="5-5-preparing-a-public-github-repository.html"><a href="5-5-preparing-a-public-github-repository.html"><i class="fa fa-check"></i><b>5.5</b> Preparing a Public GitHub Repository</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-publications.html"><a href="6-publications.html"><i class="fa fa-check"></i><b>6</b> Publications</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-1-emlab-affiliation.html"><a href="6-1-emlab-affiliation.html"><i class="fa fa-check"></i><b>6.1</b> emLab Affiliation</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-making-your-data-publicly-available.html"><a href="6-2-making-your-data-publicly-available.html"><i class="fa fa-check"></i><b>6.2</b> Making Your Data Publicly Available</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-preparing-a-public-github-repository.html"><a href="6-3-preparing-a-public-github-repository.html"><i class="fa fa-check"></i><b>6.3</b> Preparing a Public GitHub Repository</a></li>
 </ul></li>
 </ul>
 
@@ -216,9 +195,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="google-cloud-platform" class="section level2">
 <h2><span class="header-section-number">5.1</span> Google Cloud Platform</h2>
-<p>Google Cloud Platform (GCP) is a suite of cloud-based products that work together to provide robust and seamless solutions to high performance computing, big data storage, data analytics, machine learning and more. The platform is built on Google’s internal infrastructure and it’s known for it’s reliability, flexibility, speed, and a relatively low cost “pay-as-you” model. At emLab we mainly use three of GCP’s products: <a href="https://console.cloud.google.com/storage">Cloud Storage</a>, <a href="https://bigquery.cloud.google.com">BigQuery</a>, and <a href="https://console.cloud.google.com/compute">Compute Engine</a> and each year we have a limited amount of credits to cover the costs of using these tools for projects that require the storage and use of very large datasets, projects that require large computational power, or those that use Global Fishing Watch data.</p>
+<p>Google Cloud Platform (GCP) is a suite of cloud-based products that work together to provide robust and seamless solutions to high performance computing, big data storage, data analytics, machine learning and more. The platform is built on Google's internal infrastructure and it's known for it's reliability, flexibility, speed, and a relatively low cost &quot;pay-as-you&quot; model. At emLab we mainly use three of GCP's products: <a href="https://console.cloud.google.com/storage">Cloud Storage</a>, <a href="https://bigquery.cloud.google.com">BigQuery</a>, and <a href="https://console.cloud.google.com/compute">Compute Engine</a> and each year we have a limited amount of credits to cover the costs of using these tools for projects that require the storage and use of very large datasets, projects that require large computational power, or those that use Global Fishing Watch data.</p>
 <p>When it comes to high performance computing, <a href="https://console.cloud.google.com/compute">Compute Engine</a> is a very useful tool. It allows us to easily create custom-made virtual machines with the storage, memory, and number of cores needed for a given task. Virtual machines can run public images of Linux, Windows Server, and can also be used to deploy Docker containers. Starting, stopping, and deleting virtual machines is easy and fast which means we have full control on the amount of resources we use and get billed for.</p>
-<p>To get up and running with a virtual machine, Grant McDermott (SFG alumn and fellow) wrote this really good step by step <a href="https://grantmcdermott.com/2017/05/30/rstudio-server-compute-engine/">tutorial</a>. Here you will learn how to create, start, connect to, and stop a virtual machine in Compute Engine and how to install Rstudio server and Git. Importantly, you will also find a link that walks you through the installation of Google Cloud SDK command line utility (<code>gcloud</code>) which is a prerequisite to be able to speak to your virtual machine from your local terminal. When you install <code>gcloud</code> and autenthicate your credentials you will be able to set <code>emlab-gcp</code> as your project which will link you to emlab’s billing account. If you have not joined <code>emlab-gcp</code> please get in touch with and we will set you up!</p>
+<p>To get up and running with a virtual machine, Grant McDermott (SFG alumn and fellow) wrote this really good step by step <a href="https://grantmcdermott.com/2017/05/30/rstudio-server-compute-engine/">tutorial</a>. Here you will learn how to create, start, connect to, and stop a virtual machine in Compute Engine and how to install Rstudio server and Git. Importantly, you will also find a link that walks you through the installation of Google Cloud SDK command line utility (<code>gcloud</code>) which is a prerequisite to be able to speak to your virtual machine from your local terminal. When you install <code>gcloud</code> and autenthicate your credentials you will be able to set <code>emlab-gcp</code> as your project which will link you to emlab's billing account. If you have not joined <code>emlab-gcp</code> please get in touch with and we will set you up!</p>
 <p>General guidelines for creating and running virtual machines:</p>
 <ul>
 <li>Give your VM a descriptive name associated with the specific project you will be using it for.</li>
@@ -227,21 +206,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Delete the VM once the project is finished. That way we keep things tidy.</li>
 </ul>
 <div id="connecting-to-emlabs-shared-drive" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Connecting to emLab’s Shared Drive</h3>
+<h3><span class="header-section-number">5.1.1</span> Connecting to emLab's Shared Drive</h3>
 <p>A key consideration when using virtual machines is being able to access data stored elsewhere instead of having to copy data to the VMs hardrive. At emLab we use Google Drive as the central repository for datasets and project files, and fortunately, there are tools to connect to it from VMs created in Compute Engine. For VMs using GUI interfaces (e.g., Windows or MacOS), one can simply use <code>filestream</code> as one would locally. However, for headless VMs such as those running Ubuntu which - we create often to run Rstudio server - we need to use a FUSE filesystem over Google Drive called <a href="https://github.com/astrada/google-drive-ocamlfuse">google-drive-ocamlfuse</a>. At of November 2019, this workflow works for <code>zesty</code> and <code>xenial</code> distributions of Ubuntu.</p>
 <p>In a VM running Ubuntu, follow the installation instructions via PPA repository found <a href="https://github.com/astrada/google-drive-ocamlfuse/wiki/Installation">here</a>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="fu">sudo</span> add-apt-repository ppa:alessandro-strada/google-drive-ocamlfuse-beta</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="fu">sudo</span> apt-get update</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="fu">sudo</span> apt-get install google-drive-ocamlfuse</a></code></pre></div>
-<p>After installation you need to authorize <code>google-drive-ocamlfuse</code> and create a label for the connection. Labels are useful if you want to mount your personal drive as well as emLab’s Shared Drive. To authorize and create a label for our shared drive run:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="ex">google-drive-ocamlfuse</span> -headless -label emlab_drive -id <span class="co">##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> add-apt-repository ppa:alessandro-strada/google-drive-ocamlfuse-beta
+<span class="fu">sudo</span> apt-get update
+<span class="fu">sudo</span> apt-get install google-drive-ocamlfuse</code></pre></div>
+<p>After installation you need to authorize <code>google-drive-ocamlfuse</code> and create a label for the connection. Labels are useful if you want to mount your personal drive as well as emLab's Shared Drive. To authorize and create a label for our shared drive run:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">google-drive-ocamlfuse</span> -headless -label emlab_drive -id <span class="co">##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####</span></code></pre></div>
 <p>Copy and paste the clientID and secret which can be found <a href="https://console.cloud.google.com/apis/credentials?project=ucsb-gfw&amp;authuser=1&amp;folder&amp;organizationId">here</a> under the <code>file-stream</code> OAuth 2.0 client ID.</p>
 <p>You will get an output like this:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="ex">Please</span>, open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth?client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri=</span>urn<span class="ex">%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob</span><span class="kw">&amp;</span><span class="va">scope=</span>https<span class="ex">%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive</span><span class="kw">&amp;</span><span class="va">response_type=</span>code<span class="kw">&amp;</span><span class="va">access_type=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt=</span>force</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">Please</span>, open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth?client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri=</span>urn<span class="ex">%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob</span><span class="kw">&amp;</span><span class="va">scope=</span>https<span class="ex">%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive</span><span class="kw">&amp;</span><span class="va">response_type=</span>code<span class="kw">&amp;</span><span class="va">access_type=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt=</span>force</code></pre></div>
 <p>Follow the prompt, grant access, and copy and paste the verification code in the terminal prompt. You should see a message saying the token was succesfully authorized.</p>
 <p>The last step to mount the team drive is to save the Shared Drive ID to the corresponding <code>config</code> file. This step is not necessary if you want to connect to your personal drive only. Open the config file in <code>~/.gdfuse/emlab_drive/config</code> and look for the team_drive_id setting. Add our Team Drive ID (0AHyeeMXswgGLUk9PVA) and save the file.</p>
 <p>Now you are ready to mount the drive to a local folder!</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="ex">google-drive-ocamlfuse</span> -label emlab_drive mountPoint</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">google-drive-ocamlfuse</span> -label emlab_drive mountPoint</code></pre></div>
 </div>
 </div>
             </section>
@@ -255,11 +234,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -274,6 +255,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
