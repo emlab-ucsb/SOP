@@ -13,28 +13,28 @@ This section details the project management platforms we use at emLab to help se
 
 Our team relies heavily on Google Calendar to check team member’s availability and schedule meetings. Please keep your calendar up to date!
 
-### Setting out of office notifications
+### Setting Out of Office Notifications
 
 The best way to let people know if you are on vacation or out of the office is by setting up your calendar event as “Out of Office” instead of a regular event. You can customize this to automatically decline meetings on that day.
 
-### Adding other calendars
+### Adding Other Calendars
 
 To view team member’s calendars, click on the plus symbol next to “Other calendars” on the left hand side of your calendar and select “Subscribe to calendar.” There is a full list of team emails in the [emLab Team Roster](https://docs.google.com/spreadsheets/d/1hjFkcU68e7AMs-ueEYR82idqi3-dMJk-p1VRd5_YZV8/edit#gid=0) document. 
 
-### Scheduling rooms
+### Scheduling Rooms
 
 See this [Room Scheduling](https://docs.google.com/document/d/18Caz3DMFJAN25Yo3vGXtRraMCA8Qt-qLaEGMv89WHUw/edit) document for full details on how to reserve rooms in both Bren and MSI. As a reminder, please add bren-sfg@ucsb.edu to the calendar invite for any meeting held in MSI 1304. 
 
 ## Zoom
 Through UCSB, we have access to a paid Zoom account, which we use for all video conferencing. You can schedule a Zoom meeting (or recurring meetings) through your [browser](https://ucsb.zoom.us/) or the [Zoom app](https://zoom.us/download). Below are our Zoom best practices and guidelines. 
 
-### Making scheduling easier
+### Making Scheduling Easier
 
 To make scheduling with Zoom easier, install [Zoom for GSuite](https://gsuite.google.com/marketplace/app/zoom_for_gsuite/364750910244). Once synced with your Zoom account, it will show up as an option along with Hangouts under conferencing when you create a calendar invite. Once created, you will also be able to see the meeting on your Zoom account.
 
 ![](images/zoom_calendar.png){height="50%" width="50%"}
 
-### Being an effective communicator on Zoom...
+### Being an Effective Communicator on Zoom...
 
 **...for meetings**
 
@@ -79,7 +79,7 @@ For teaching online courses, here are a couple additional tips. These are more g
 
 - __Pause for questions__: since it will be harder to see students raise their hands, build in more breaks to pause for questions. You can also encourage students to either (1) add questions to the chat and pause once a couple of questions come in or (2) have them use the raise hand feature (see nonverbal communication above).  
 
-### Avoiding Zoom bombings
+### Avoiding Zoom Bombings
 
 UCSB has developed guidelines for preventing Zoom bombing. emLab is not mandating any of these settings, these are just UCSB recommendations for making meetings more secure.
 
@@ -91,27 +91,27 @@ UCSB has developed guidelines for preventing Zoom bombing. emLab is not mandatin
 
 Our team uses Slack on a daily basis to keep communication channels open within teams and across our different offices. We have an emLab workspace that houses all of our channels. When you are first added to Slack, you will be added to the General, Random, Communications, Report and Publications, and Code channels. We also have a channel for every project, which you will be added to as needed. You can view Slack either through a broswer window or by [downloading the desktop app](https://slack.com/help/categories/360000049043-getting-started).
 
-### Slack basics
+### Slack Basics
 Slack is organized into channels and direct messages. Channels are a way to organize conversations and other than a couple general emLab channels, are often project specific. Whatever you share in a channel is viewable by all members of that channel. You can also send direct messages to an individual or a group of up to 9 people. 
 
 One great thing about Slack is that it’s searchable. You can search either by person or keywords to find old messages. Additionally, if someone sends you something you will need to reference multiple times, you can star messages and view them by clicking the star in the upper right-hand corner.
 
 People have differing notification preferences, which you can set under Preferences → Notifications. If someone sends you a direct message or tags you, a number will show up on your slack app. If they add something to a channel you are on but don’t tag you, a red dot will show up. To ensure someone gets a numbered notification, either tag them (i.e. @Erin) or tag the channel (i.e. @channel). Tagging the channel will send a notification to every member of that channel.
 
-### Creating a channel
+### Creating a Channel
 When a new project starts, create a slack channel for it and add the relevant team members to it. To create a channel, simply click on the plus symbol next to channels and fill out the channel information (Name, Purpose, and Send invites to). 
 
 ## Airtable
 
 At emLab, we use [Airtable](https://airtable.com/) as our primary project management software for tracking project deliverables, activities, and roles. To put it simply, it’s a glorified spreadsheet that you can mold to fit your needs. Email Erin (eoreilly@ucsb.edu) to be added to Airtable. 
 
-### Helpful terminology
+### Helpful Terminology
 
 Base: think of it like a database. A base is made up of tabs of spreadsheets that can be customized and linked to one another.
 
 Workspace: multiple bases can be organized within a workspace. For example, we have an emLab workspace and individual project bases. 
 
-### Getting to know the emLab workspace
+### Getting to Know the emLab Workspace
 
 Within the emLab workspace, we have the following bases:
 
@@ -127,11 +127,11 @@ The `Project Template` provides the basic structure for a new project-specific b
 
 Each emLab project has its own base. Teams can customize the number and content of the spreadsheets in their baseas they see fit, but at a minimum, must include the spreadsheets and columns specified in the `Project Template` base (see ‘required information’ below). *If you are working on a smaller project that does not require its own base, add it to the `Special Projects` base.*
 
-### Customizing your project base
+### Customizing your Project Base
 
 It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases for inspiration!
 
-#### Required information
+#### Required Information
 
 To maintain transparency within the team and keep track of who is working on what to foster collaboration, all projects should keep their Airtable base up to date. 
 
@@ -157,7 +157,7 @@ The following tabs are required in your project base:
   
 - Team: list of team members with their project roles. This will be linked to the activities tab so you can see who is responsible and accountable for different activities. 
 
-#### Additional tab ideas
+#### Additional Tab Ideas
 
 - Tasks: more detailed steps of how to reach an activity; could be day-to-day tasks
     
@@ -186,7 +186,7 @@ The following tabs are required in your project base:
 - Questions for PIs/team: place to keep track of unanswered questions 
 
   
-#### Column options
+#### Column Options
 
 There are 25 column type options within Airtable. The ones we most commonly use are: link to another record (links information from different tabs within the same base; you can't link information across bases), single line text, long text, attachment, checkbox, multiple select, single select, and date.
 
@@ -194,7 +194,7 @@ There are 25 column type options within Airtable. The ones we most commonly use 
 
 ![](images/airtable_rich_text.png){height="50%" width="50%"}
 
-#### Ways to view your base
+#### Ways to View your Base
 
 **Different views** 
 
@@ -225,23 +225,23 @@ Within each tab, you can expand records in the first column to view all its info
 
 We have all experienced the moment where we can’t remember where a Google Doc is. To help solve this problem, we created an emLab Shared Google Drive, which is a centralized space for all of our documents to live within a shared file structure. Unlike files in My Drive (your personal Google Drive account), files within the Shared Drive belong to the team instead of an individual. So even if people leave, the files stay exactly where they are and aren’t lost with that person’s account. The structure of Shared Drive is detailed in Section 2. You can read more about Shared Drives [here](https://support.google.com/a/users/answer/9310351). 
 
-### Sharing files
+### Sharing Files
 
 Note: for Shared Drive, you either add someone to the entire Drive OR share individual files with them. **You cannot share folders within a Shared Drive with external collaborators.** 
 
 Members of the Shared Drive can see all folders and files within the Drive. If you want to send a quick link to someone who is part of the Shared Drive, simply copy the URL from your browser. There is no need to create a shared link if you are sending it to someone with access to the emLab Shared Drive.
 
-If you want to share files with people outside of the emLab Shared Drive, that is still possible. Within a document, click on Share in the upper right hand corner. From there are two options: either add people’s emails or create a shared link. To create a shared link, click Who Has Access and turn link sharing on. From there you can select the level of editing capabilities and either keep the just UCSB access or expand to allow external access. 
+If you want to share files with people outside of the emLab Shared Drive, that is still possible. Within a document, click on Share in the upper right hand corner. From there are two options: either add people’s emails or create a shared link. 
 
-### Linking the shared drive and your computer
+### Linking the Shared Drive and your Computer
 
-#### Why install Drive File Stream?
+#### Why Install Drive File Stream?
 
-As explained above, using a shared drive means that individuals don't "own" the files. All files are instead owned by the emLab Shared Drive, which lives "on the cloud". You can access these files through a web browser, just as you would access them on Google Drive. However, it is nice to have the files directly in your computer. To do so, you'll need to [install Drive File Stream](https://support.google.com/a/answer/7491144?hl=en), Google's new system that will partially replace Google Backup and Sync
+As explained above, using a Shared Drive means that individuals don't "own" the files. All files are instead owned by the emLab Shared Drive, which lives "on the cloud". You can access these files through a web browser, just as you would access them on Google Drive. However, it is nice to have the files directly in your computer. To do so, you'll need to [install Drive File Stream](https://support.google.com/a/answer/7491144?hl=en), Google's new system that will partially replace Google Backup and Sync
 
-There are important distinctions between **Backup and Sync** and **Drive File Stream**. As the names indicate it, **Backup and Sync** syncs and stores Drive content locally on your computer (that is, it takes up space in your hard drive). **Drive File Stream**, however *streams* all files and folders from the cloud. You can think of these as owning a DVD vs. streming the movie from NetFlix. You can read more on the differences between these approaches [here](https://support.google.com/drive/answer/7638428?hl=en&ref_topic=6069785).
+There are important distinctions between **Backup and Sync** and **Drive File Stream**. As the names indicate it, **Backup and Sync** syncs and stores Drive content locally on your computer (that is, it takes up space in your hard drive). **Drive File Stream**, however *streams* all files and folders from the cloud. You can think of these as owning a DVD vs. streaming the movie from NetFlix. You can read more on the differences between these approaches [here](https://support.google.com/drive/answer/7638428?hl=en&ref_topic=6069785).
 
-#### Step-by-step installation
+#### Step-by-step Installation
 
 - Go to [Get started with Drive File Stream](https://support.google.com/drive/answer/7329379) and select the appropriate installer for your operating system.
 
@@ -255,10 +255,10 @@ There are important distinctions between **Backup and Sync** and **Drive File St
 
 Once the installation is complete, you'll need to sign in to your account. To do so:
 
-- Click on the Drive File Stram icon (![](images/shared_drive_icon.png))
+- Click on the Drive File Stream icon (![](images/shared_drive_icon.png))
     
     - On Windows machines, it should be on the bottom right corner of your screen
-    
+        
     - On MacOS, it should be at the top right of your screen
 
 - Sign in with your ucsb account
@@ -276,14 +276,15 @@ Google Drive
   |__ My Drive
   |   |__ Whatever files you have on your GoogleDrive
   |__ Shared drives
-      |__ emLab
-          |__Central emLab Resources
-          |__Communications
-          |__Data
-          |__Projects
+      |__ emlab
+          |__central-emlab-resources
+          |__communications
+          |__data
+          |__projects
+          |__strategy
 ```
 
-### Other considerations
+### Other Considerations
 
 #### *Actual* location of the Google Drive folder on my computer
 
@@ -319,7 +320,7 @@ If you're interested in learning more about all of the functionality GitHub has 
 - [GitHub for Publishing](https://openscapes.github.io/series/github-pub.html)
 - [GitHub for Project Management](https://openscapes.github.io/series/github-issues.html)
 
-### Helpful terminology
+### Helpful Terminology
 
 Git and GitHub use some weird terms that might be unfamiliar. Before installing and setting up Git and GitHub, here are a few key terms you may come across: 
 
@@ -328,7 +329,7 @@ Git and GitHub use some weird terms that might be unfamiliar. Before installing 
 - push: the action of sending a commit from your local machine to the remote GitHub directory. 
 - pull: the action of retrieving any commits that have been made to the repository and are stored in the remote GitHub directory but are NOT on your local machine.
 
-### How to install Git and GitHub
+### How to Install Git and GitHub
 
 Most of tutorials listed above include detailed instructions on how to install Git and GitHub. The short version (and steps specific to getting incorporated with the emLab GitHub page) are listed below. For more detailed instructions, please refer to the tutorials listed above. 
 
@@ -336,8 +337,8 @@ Most of tutorials listed above include detailed instructions on how to install G
 
 - Notes:
 
-  - use your @ucsb.edu email
-  - make sure you remember your **username** and **password**, you'll need this later
+    - use your @ucsb.edu email
+    - make sure you remember your **username** and **password**, you'll need this later
 
 ![Landing page for GitHub](images/github_create_account.png)
 
@@ -351,7 +352,7 @@ Good news! emLab qualifies as an educational organization through the GitHub Edu
 
 Click on the "Get benefits" link in the top right-hand corner and follow the directions to upgrade your account to a "Pro" account for free. You may need to take a picture of your UCSB ID card to submit as part of this process. GitHub may also periodically ask you to re-verify your eligability to qualify for this program. 
 
-3. Send Darcy Bradley a Slack message (or an email if you must... darcybradley@ucsb.edu) with your new GitHub username so you can be added to the emLab GitHub page!
+3. Send Erin O'Reilly a Slack message (or an email if you must... eoreilly@ucsb.edu) with your new GitHub username so you can be added to the emLab GitHub page!
 
 ![emLab GitHub page](images/github_emlab.png) 
 
@@ -431,7 +432,7 @@ There are many more. See Jenny Bryan's tutorial if you're not satisfied with tho
 
 Once you've installed a Git client, follow the directions to connect to your GitHub account. Once you've done this, try opening the local version of the repository you made in step 6, and notice the nice visual representation of the changes you made.
 
-### General guidelines for using GitHub at emLab
+### General Guidelines for using GitHub at emLab
 
 In general, each emLab project should have its own repository. There may be some cases in which multiple repositories may be associated with the same project, but this should be avoided if possible. The project repository should be created within the emLab GitHub page (exceptions may exist for example if a parner organization requires that the project repository be created within their organization's GitHub page). 
 
@@ -443,13 +444,13 @@ Since many previous (and ongoing) projects were created within the personal GitH
 
 emLab uses Zotero to collaboratively collect, organize, and cite publications. We organize publications into Group Libraries which can be at the project or paper level. Our account – `emlab-ucsb` – has unlimited storage and there is no limit to the number of people you can add to a library. In Zotero, storage for a library only counts against the owner, so **the emLab account must be the owner of the library for access to unlimited storage.** 
 
-### Making emLab the owner of a library
+### Making emLab the Owner of a Library
 
 If creating a new group library, email Erin (eoreilly@ucsb.edu) and she can directly create the library under the emLab account. 
 
 If you are the owner of an existing library and would like to transfer ownership to emLab, first invite `emlab-ucsb` to be a member of the library. Once that invitation has been accepted, then go to "Group Settings" for the library and in the bottom right of the page, select transfer ownership to the emLab account.
 
-### Saving publications to a library
+### Saving Publications to a Library
 
 To use Zotero properly, you need to install the Zotero Connector for your browser in addition to the Zotero desktop app (see [this page for downloads](https://www.zotero.org/download/)). 
 
@@ -459,11 +460,11 @@ The most convenient way to save publications to Zotero is through Zotero Connect
 
 Read more about saving items to Zotero [here](https://www.zotero.org/support/adding_items_to_zotero). 
 
-### Zotero integration with GoogleDocs and Word
+### Zotero Integration with GoogleDocs and Word
 
 Zotero is a great resource for adding references to a manuscript. It is integrated into both [Word](https://www.zotero.org/support/word_processor_plugin_usage) and [GoogleDocs](https://www.zotero.org/support/google_docs) for easy use. As a note (and warning), GoogleDocs and Word reference managers currently don’t speak to each other. If you add references in GoogleDocs and download to Word (or vice versa), the Zotero links will break. 
 
-#### Adding a citation to your document
+#### Adding a Citation to your Document
 
 In both Word and GoogleDocs, Zotero shows up as a separate tab/menu item for you to choose from. For example, this is the Zotero tab in Word.
 
@@ -479,6 +480,6 @@ Note: If you are adding a citation for the first time to a document, you will be
 
 ![](images/zotero_citationstyle.png)
 
-#### Adding a bibliography to your document
+#### Adding a Bibliography to your Document
 
 The most amazing thing about Zotero is that it automatically generates a bibliography for you based on your in-text citations. To add a bibliography, simply place your cursor where you want to add your reference list and select “Add/Edit Bibliography.” It will add all of the references for you based on the citation style selected. 

@@ -5,7 +5,7 @@ output: html_document
 
 # File Structure
 
-This section details the emLab's organizational stucture for files and data stored on Google Drive and code stored on Github.
+This section details the emLab's organizational stucture for files and data stored on Google Drive and code stored on GitHub.
 
 ## Folder Naming 
 
@@ -36,7 +36,7 @@ The emLab Shared Drive is organized into five main folders:
 
 * `central-emlab-resources`: includes meeting and event information, onboarding materials, information about travel reimbursements, and the team roster
 
-* `communications`: includes the blog schedule, Adobe design projects, PowerPoint templates, photo repository, and publication and media tracking
+* `communications`: includes the blog schedule, Adobe design projects, PowerPoint templates, photo repository, emLab logos, and publication and media tracking
 
 * `data`: includes the emLab data directory and all datasets we work with (see section 2.2.3 for more on this)
 

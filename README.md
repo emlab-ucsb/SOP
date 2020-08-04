@@ -32,6 +32,7 @@ Standard operating procedures for emLab projects:
     - UCSB Server Clusters
 6. Publications
     - emLab Affiliation
+    - Author Contribution
     - Making Your Data Publicly Available
     - Preparing a Public GitHub Repository
 
