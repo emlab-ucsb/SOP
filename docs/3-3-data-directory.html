@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.3 Data Directory | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.3 Data Directory | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -21,17 +21,18 @@
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
 
+<meta name="author" content="" />
 
 
-<meta name="date" content="2020-07-23" />
+<meta name="date" content="2020-08-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="3-2-metadata.html"/>
-<link rel="next" href="3-4-tidy-data.html"/>
+<link rel="prev" href="3-2-metadata.html">
+<link rel="next" href="3-4-tidy-data.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,9 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -52,41 +50,66 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -104,39 +127,39 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="1-project-management.html"><a href="1-project-management.html"><i class="fa fa-check"></i><b>1</b> Project Management</a><ul>
 <li class="chapter" data-level="1.1" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html"><i class="fa fa-check"></i><b>1.1</b> Google Calendar</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#setting-out-of-office-notifications"><i class="fa fa-check"></i><b>1.1.1</b> Setting out of office notifications</a></li>
-<li class="chapter" data-level="1.1.2" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#adding-other-calendars"><i class="fa fa-check"></i><b>1.1.2</b> Adding other calendars</a></li>
-<li class="chapter" data-level="1.1.3" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#scheduling-rooms"><i class="fa fa-check"></i><b>1.1.3</b> Scheduling rooms</a></li>
+<li class="chapter" data-level="1.1.1" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#setting-out-of-office-notifications"><i class="fa fa-check"></i><b>1.1.1</b> Setting Out of Office Notifications</a></li>
+<li class="chapter" data-level="1.1.2" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#adding-other-calendars"><i class="fa fa-check"></i><b>1.1.2</b> Adding Other Calendars</a></li>
+<li class="chapter" data-level="1.1.3" data-path="1-1-google-calendar.html"><a href="1-1-google-calendar.html#scheduling-rooms"><i class="fa fa-check"></i><b>1.1.3</b> Scheduling Rooms</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html"><i class="fa fa-check"></i><b>1.2</b> Zoom</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="1-2-zoom.html"><a href="1-2-zoom.html#making-scheduling-easier"><i class="fa fa-check"></i><b>1.2.1</b> Making scheduling easier</a></li>
-<li class="chapter" data-level="1.2.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html#being-an-effective-communicator-on-zoom..."><i class="fa fa-check"></i><b>1.2.2</b> Being an effective communicator on Zoom...</a></li>
-<li class="chapter" data-level="1.2.3" data-path="1-2-zoom.html"><a href="1-2-zoom.html#avoiding-zoom-bombings"><i class="fa fa-check"></i><b>1.2.3</b> Avoiding Zoom bombings</a></li>
+<li class="chapter" data-level="1.2.1" data-path="1-2-zoom.html"><a href="1-2-zoom.html#making-scheduling-easier"><i class="fa fa-check"></i><b>1.2.1</b> Making Scheduling Easier</a></li>
+<li class="chapter" data-level="1.2.2" data-path="1-2-zoom.html"><a href="1-2-zoom.html#being-an-effective-communicator-on-zoom"><i class="fa fa-check"></i><b>1.2.2</b> Being an Effective Communicator on Zoom…</a></li>
+<li class="chapter" data-level="1.2.3" data-path="1-2-zoom.html"><a href="1-2-zoom.html#avoiding-zoom-bombings"><i class="fa fa-check"></i><b>1.2.3</b> Avoiding Zoom Bombings</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="1-3-slack.html"><a href="1-3-slack.html"><i class="fa fa-check"></i><b>1.3</b> Slack</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="1-3-slack.html"><a href="1-3-slack.html#slack-basics"><i class="fa fa-check"></i><b>1.3.1</b> Slack basics</a></li>
-<li class="chapter" data-level="1.3.2" data-path="1-3-slack.html"><a href="1-3-slack.html#creating-a-channel"><i class="fa fa-check"></i><b>1.3.2</b> Creating a channel</a></li>
+<li class="chapter" data-level="1.3.1" data-path="1-3-slack.html"><a href="1-3-slack.html#slack-basics"><i class="fa fa-check"></i><b>1.3.1</b> Slack Basics</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1-3-slack.html"><a href="1-3-slack.html#creating-a-channel"><i class="fa fa-check"></i><b>1.3.2</b> Creating a Channel</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="1-4-airtable.html"><a href="1-4-airtable.html"><i class="fa fa-check"></i><b>1.4</b> Airtable</a><ul>
-<li class="chapter" data-level="1.4.1" data-path="1-4-airtable.html"><a href="1-4-airtable.html#helpful-terminology"><i class="fa fa-check"></i><b>1.4.1</b> Helpful terminology</a></li>
-<li class="chapter" data-level="1.4.2" data-path="1-4-airtable.html"><a href="1-4-airtable.html#getting-to-know-the-emlab-workspace"><i class="fa fa-check"></i><b>1.4.2</b> Getting to know the emLab workspace</a></li>
-<li class="chapter" data-level="1.4.3" data-path="1-4-airtable.html"><a href="1-4-airtable.html#customizing-your-project-base"><i class="fa fa-check"></i><b>1.4.3</b> Customizing your project base</a></li>
+<li class="chapter" data-level="1.4.1" data-path="1-4-airtable.html"><a href="1-4-airtable.html#helpful-terminology"><i class="fa fa-check"></i><b>1.4.1</b> Helpful Terminology</a></li>
+<li class="chapter" data-level="1.4.2" data-path="1-4-airtable.html"><a href="1-4-airtable.html#getting-to-know-the-emlab-workspace"><i class="fa fa-check"></i><b>1.4.2</b> Getting to Know the emLab Workspace</a></li>
+<li class="chapter" data-level="1.4.3" data-path="1-4-airtable.html"><a href="1-4-airtable.html#customizing-your-project-base"><i class="fa fa-check"></i><b>1.4.3</b> Customizing your Project Base</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html"><i class="fa fa-check"></i><b>1.5</b> Google Shared Drive</a><ul>
-<li class="chapter" data-level="1.5.1" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#sharing-files"><i class="fa fa-check"></i><b>1.5.1</b> Sharing files</a></li>
-<li class="chapter" data-level="1.5.2" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#linking-the-shared-drive-and-your-computer"><i class="fa fa-check"></i><b>1.5.2</b> Linking the shared drive and your computer</a></li>
-<li class="chapter" data-level="1.5.3" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#other-considerations"><i class="fa fa-check"></i><b>1.5.3</b> Other considerations</a></li>
+<li class="chapter" data-level="1.5.1" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#sharing-files"><i class="fa fa-check"></i><b>1.5.1</b> Sharing Files</a></li>
+<li class="chapter" data-level="1.5.2" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#linking-the-shared-drive-and-your-computer"><i class="fa fa-check"></i><b>1.5.2</b> Linking the Shared Drive and your Computer</a></li>
+<li class="chapter" data-level="1.5.3" data-path="1-5-google-shared-drive.html"><a href="1-5-google-shared-drive.html#other-considerations"><i class="fa fa-check"></i><b>1.5.3</b> Other Considerations</a></li>
 </ul></li>
 <li class="chapter" data-level="1.6" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html"><i class="fa fa-check"></i><b>1.6</b> Git and GitHub</a><ul>
 <li class="chapter" data-level="1.6.1" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#what-are-git-and-github"><i class="fa fa-check"></i><b>1.6.1</b> What are Git and GitHub?</a></li>
-<li class="chapter" data-level="1.6.2" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#helpful-terminology-1"><i class="fa fa-check"></i><b>1.6.2</b> Helpful terminology</a></li>
-<li class="chapter" data-level="1.6.3" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#how-to-install-git-and-github"><i class="fa fa-check"></i><b>1.6.3</b> How to install Git and GitHub</a></li>
-<li class="chapter" data-level="1.6.4" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#general-guidelines-for-using-github-at-emlab"><i class="fa fa-check"></i><b>1.6.4</b> General guidelines for using GitHub at emLab</a></li>
+<li class="chapter" data-level="1.6.2" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#helpful-terminology-1"><i class="fa fa-check"></i><b>1.6.2</b> Helpful Terminology</a></li>
+<li class="chapter" data-level="1.6.3" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#how-to-install-git-and-github"><i class="fa fa-check"></i><b>1.6.3</b> How to Install Git and GitHub</a></li>
+<li class="chapter" data-level="1.6.4" data-path="1-6-git-and-github.html"><a href="1-6-git-and-github.html#general-guidelines-for-using-github-at-emlab"><i class="fa fa-check"></i><b>1.6.4</b> General Guidelines for using GitHub at emLab</a></li>
 </ul></li>
 <li class="chapter" data-level="1.7" data-path="1-7-zotero.html"><a href="1-7-zotero.html"><i class="fa fa-check"></i><b>1.7</b> Zotero</a><ul>
-<li class="chapter" data-level="1.7.1" data-path="1-7-zotero.html"><a href="1-7-zotero.html#making-emlab-the-owner-of-a-library"><i class="fa fa-check"></i><b>1.7.1</b> Making emLab the owner of a library</a></li>
-<li class="chapter" data-level="1.7.2" data-path="1-7-zotero.html"><a href="1-7-zotero.html#saving-publications-to-a-library"><i class="fa fa-check"></i><b>1.7.2</b> Saving publications to a library</a></li>
-<li class="chapter" data-level="1.7.3" data-path="1-7-zotero.html"><a href="1-7-zotero.html#zotero-integration-with-googledocs-and-word"><i class="fa fa-check"></i><b>1.7.3</b> Zotero integration with GoogleDocs and Word</a></li>
+<li class="chapter" data-level="1.7.1" data-path="1-7-zotero.html"><a href="1-7-zotero.html#making-emlab-the-owner-of-a-library"><i class="fa fa-check"></i><b>1.7.1</b> Making emLab the Owner of a Library</a></li>
+<li class="chapter" data-level="1.7.2" data-path="1-7-zotero.html"><a href="1-7-zotero.html#saving-publications-to-a-library"><i class="fa fa-check"></i><b>1.7.2</b> Saving Publications to a Library</a></li>
+<li class="chapter" data-level="1.7.3" data-path="1-7-zotero.html"><a href="1-7-zotero.html#zotero-integration-with-googledocs-and-word"><i class="fa fa-check"></i><b>1.7.3</b> Zotero Integration with GoogleDocs and Word</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-file-structure.html"><a href="2-file-structure.html"><i class="fa fa-check"></i><b>2</b> File Structure</a><ul>
@@ -154,7 +177,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="3-1-data-file-naming.html"><a href="3-1-data-file-naming.html"><i class="fa fa-check"></i><b>3.1</b> Data File Naming</a></li>
 <li class="chapter" data-level="3.2" data-path="3-2-metadata.html"><a href="3-2-metadata.html"><i class="fa fa-check"></i><b>3.2</b> Metadata</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="3-2-metadata.html"><a href="3-2-metadata.html#metadata-standards"><i class="fa fa-check"></i><b>3.2.1</b> Metadata Standards</a></li>
-<li class="chapter" data-level="3.2.2" data-path="3-2-metadata.html"><a href="3-2-metadata.html#where-to-store-metadata"><i class="fa fa-check"></i><b>3.2.2</b> Where to store metadata</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3-2-metadata.html"><a href="3-2-metadata.html#where-to-store-metadata"><i class="fa fa-check"></i><b>3.2.2</b> Where to Store Metadata</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html"><i class="fa fa-check"></i><b>3.3</b> Data Directory</a></li>
 <li class="chapter" data-level="3.4" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy Data</a><ul>
@@ -167,14 +190,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-high-performance-computing.html"><a href="5-high-performance-computing.html"><i class="fa fa-check"></i><b>5</b> High Performance Computing</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html"><i class="fa fa-check"></i><b>5.1</b> Google Cloud Platform</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-shared-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to emLab's Shared Drive</a></li>
+<li class="chapter" data-level="5.1.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html#connecting-to-emlabs-shared-drive"><i class="fa fa-check"></i><b>5.1.1</b> Connecting to emLab’s Shared Drive</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5-2-ucsb-server-clusters.html"><a href="5-2-ucsb-server-clusters.html"><i class="fa fa-check"></i><b>5.2</b> UCSB Server Clusters</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-publications.html"><a href="6-publications.html"><i class="fa fa-check"></i><b>6</b> Publications</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-emlab-affiliation.html"><a href="6-1-emlab-affiliation.html"><i class="fa fa-check"></i><b>6.1</b> emLab Affiliation</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-making-your-data-publicly-available.html"><a href="6-2-making-your-data-publicly-available.html"><i class="fa fa-check"></i><b>6.2</b> Making Your Data Publicly Available</a></li>
-<li class="chapter" data-level="6.3" data-path="6-3-preparing-a-public-github-repository.html"><a href="6-3-preparing-a-public-github-repository.html"><i class="fa fa-check"></i><b>6.3</b> Preparing a Public GitHub Repository</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-author-contribution.html"><a href="6-2-author-contribution.html"><i class="fa fa-check"></i><b>6.2</b> Author Contribution</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-making-your-data-publicly-available.html"><a href="6-3-making-your-data-publicly-available.html"><i class="fa fa-check"></i><b>6.3</b> Making Your Data Publicly Available</a></li>
+<li class="chapter" data-level="6.4" data-path="6-4-preparing-a-public-github-repository.html"><a href="6-4-preparing-a-public-github-repository.html"><i class="fa fa-check"></i><b>6.4</b> Preparing a Public GitHub Repository</a></li>
 </ul></li>
 </ul>
 
@@ -195,7 +219,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="data-directory" class="section level2">
 <h2><span class="header-section-number">3.3</span> Data Directory</h2>
-<p>All emLab data is stored in subfolders of the Data folder on the emLab Team Drive (<code>emlab/data</code>). To document these data, we use the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a> that includes key, standardized information from each readme metadata file. Every data file in the <code>emlab/data</code> folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)</p>
+<p>All emLab data is stored in subfolders of the Data folder on the emLab Team Drive (<code>emlab/data</code>). To document these data, we use the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a> that includes key, standardized information from each readme metadata file. Every data file in the <code>emlab/data</code> folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)</p>
 <p>In the case of placeholder metadata (as described in the <em>Metadata</em> section), only the following columns should be filled out: folder, filename, contact, and summary. This (mostly blank) row serves two purposes: 1) it retains some of the searchability function for that dataset and 2) it serves as a visual reminder that those datasets are in need of more robust metadata development.</p>
 <table>
 <thead>
@@ -211,7 +235,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="even">
 <td align="left">Description</td>
-<td align="left">A few word description (e.g. SST US 2017); max 5 words</td>
+<td align="left">A few word description (e.g. SST US 2017); max 5 words</td>
 </tr>
 <tr class="odd">
 <td align="left">Folder</td>
@@ -231,7 +255,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="odd">
 <td align="left">Project</td>
-<td align="left">Project name that used these data (can have multiple listings) or 'General' if widely used (e.g. FAO data), hyperlinked to Google Drive/Box folder</td>
+<td align="left">Project name that used these data (can have multiple listings) or ‘General’ if widely used (e.g. FAO data), hyperlinked to Google Drive/Box folder</td>
 </tr>
 <tr class="even">
 <td align="left">Code</td>
@@ -239,11 +263,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="odd">
 <td align="left">Data Stage</td>
-<td align="left">raw' if raw data; 'final input' for the input data used for the analysis; 'output' for what was used for the project and/or published [drop down menu]</td>
+<td align="left">raw’ if raw data; ‘final input’ for the input data used for the analysis; ‘output’ for what was used for the project and/or published [drop down menu]</td>
 </tr>
 <tr class="even">
 <td align="left">Filetype</td>
-<td align="left">File extension (e.g. csv; tif; rds); note: do note include '.'</td>
+<td align="left">File extension (e.g. csv; tif; rds); note: do note include ‘.’</td>
 </tr>
 <tr class="odd">
 <td align="left">Citation</td>
@@ -275,7 +299,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="even">
 <td align="left">Source</td>
-<td align="left">e.g. emLab; FAO; Rare</td>
+<td align="left">e.g. emLab; FAO; Rare</td>
 </tr>
 <tr class="odd">
 <td align="left">Contact</td>
@@ -287,7 +311,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="odd">
 <td align="left">Keywords</td>
-<td align="left">e.g. fisheries; fire; utilities; property value; VDS; MPA; oceanography; temperature; habitat; biodiversity (up to 5 per entry, separated by semi-colons)</td>
+<td align="left">e.g. fisheries; fire; utilities; property value; VDS; MPA; oceanography; temperature; habitat; biodiversity (up to 5 per entry, separated by semi-colons)</td>
 </tr>
 <tr class="even">
 <td align="left">Summary</td>
@@ -295,11 +319,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="odd">
 <td align="left">Notes</td>
-<td align="left">Other relevant information about data. Initial your entry (e.g. if it was processed (e.g. subset from a larger dataset); what specifically was done; are there suspicious data points?; note if there are issues; etc.)</td>
+<td align="left">Other relevant information about data. Initial your entry (e.g. if it was processed (e.g. subset from a larger dataset); what specifically was done; are there suspicious data points?; note if there are issues; etc.)</td>
 </tr>
 </tbody>
 </table>
-<p>Research teams may find it useful to keep track of project-related data in a separate spreadsheet stored in the project’s Google Shared Drive data folder. This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can be used to guide and simplify data migration to the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a>. Suggested attributes include: - File name - Folder name - Source of data - Link where data was downloaded - Description of data - Name of the researcher who downloaded the data</p>
+<p>Research teams may find it useful to keep track of project-related data in a separate spreadsheet stored in the project’s Google Shared Drive data folder. This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can be used to guide and simplify data migration to the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a>. Suggested attributes include:</p>
+<ul>
+<li>File name</li>
+<li>Folder name</li>
+<li>Source of data</li>
+<li>Link where data was downloaded</li>
+<li>Description of data</li>
+<li>Name of the researcher who downloaded the data</li>
+</ul>
 </div>
             </section>
 
@@ -312,13 +344,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -333,10 +363,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },
