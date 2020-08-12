@@ -37,3 +37,106 @@ Dryad is an open-access repository of research data that makes data searchable, 
 10. Once the dataset is approved, the Dryad DOI is officially registered and made public. Note that you can contact Dryad in order to delay the publication of your data until your publication date. Include DOI in your manuscript’s Data Availability statement, or consider citing it the References section.
 
 ## Preparing a Public GitHub Repository
+
+As with data, we strive to make all our code available. This provides a roadmap of converting input data into tangible results, which may be of interest for external people seeking to replicate our study or for internal emLabers seeking to understand what someone did a few years ago.
+
+### Documentation
+
+One of the most important things to include in the repo is a `README.md` file. This will be automatically displayed as rendered markdown on GitHub, and should provide a simple explanation of what's in the repo, how to run it, and how it was run in the past. If possible / necessary, you might want to include a file structure (Take a look at using [`startR::create_readme()`](https://github.com/jcvdav/startR) for automating this). If relevant, you might want to include the title of the paper / project, and a link to any online material (e.g. the publication itself).
+
+In paragraph or bullet-list form, make sure to specify the following:
+
+- Operative System(s) in which the project was run (e.g. `MacOSX Catalina` or `Ubuntu 18.4`)
+- The version of R /  STATA / MATLAB / Julia / Python... including major and minor (e.g. `R 3.6.2`)
+- Any special mentions of performance needed (e.g. "This analyses requires a machine with at least 32 GB RAM and 16 cores")
+- Link to any relevant data repositories
+- Any relevant contact information, should interested people have trouble running your code
+
+When in doubt, check out [the repository](https://github.com/grantmcdermott/bycatch) that Grant McDermott and Matt Burgess provided for their Science paper on [Effort reduction and bycatch](https://science.sciencemag.org/content/359/6381/1255.
+
+### Sanitizing the repository
+
+When tracking a project, we'll usually end up with many small, meaningless commit messages such as "fixed typo", "fixed bug", or "actually fixed bug". While these small incremental changes allow us to revert back during the production process, in the end, we may not want to have the full list of bug fixes and meaningless commit messages visible. Thankfully, Git allows us to clean things up a bit using `git rebase`. Here's an example of what your code might look like:
+
+```
+871adf OK, plot actually done       --- newer commit
+0c3317 Whoops, not yet...
+87871a Plot finalized
+afb581 Fix this and that
+4e9baa Fixed typo on x-axis
+d94e78 Plot model output
+6394dc Fixing model                 --- older commit
+```
+
+The top 6 commit messages are all related to each other. And, had you been making this plot at 9 am and not 3 pm, it would all have been a single push. Instead, we might want this to look like this:
+
+```
+871adf OK, plot actually done       --- newer commit -┐
+0c3317 Whoops, not yet...                             |
+87871a Plot finalized                                 |
+afb581 Fix this and that                              | ---- Join all this into one
+4e9baa Fixed typo on x-axis                           |
+d94e78 Plot model output           -------------------┘
+6394dc Fixing model                 --- older commit
+```
+
+In this case, we want to merge the last 6 commits into one. We want it to look like this in the end:
+
+```
+84d1f8 Plot model output                          --- newer commit (result of rebase, combining 6 messages)
+6394dc Fixing model                               --- older commit
+```
+
+We can do so by running the following line:
+
+```{shell, echo = F}
+git rebase --interactive HEAD~6
+```
+
+Notice that I've specified the value `6` after the argument `HEAD~`. If you don't want to count the number of commits, you can simply reference the last commit (by its hash) that you want to leave out. For example, we wanted to leave out the `Fixing model` commit, with hash (`6394dc`). Therefore, we can also run:
+
+```{shell, echo = F}
+git rebase --interactive 6394dc
+```
+
+Whichever way you go, your predetermined text editor will open. You'll see a list of commits, containing the ones you want. (Head's up, the older one will be on top). At the bottom of the page, you'll see the following list of possible instructions:
+
+```
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+# .       create a merge commit using the original merge commit's
+# .       message (or the oneline, if no original merge commit was
+# .       specified). Use -c <commit> to reword the commit message.
+```
+
+You'll need to preface the hash with whichever command (or shortcut) you want to use. You might want to reword a commit (i.e. remove all those "F%@#!!"), so you'll use `r`. You might want to pick the head of the commit, so you'll use `p`. You might want to squash multiple commits into one, so you'll use `s`. In the example above, you'll have to edit the first word of each hash to make it look like this:
+
+```
+pick d94e78 Plot model output            --- older commit
+s 4e9baa Fixed typo on x-axis
+s afb581 Fix this and that
+s 87871a Plot finalized
+s 0c3317 Whoops, not yet...
+s 871adf OK, plot actually done          --- newer commit
+```
+
+Now, simply save and close the file; you'll be prompted back to your command line. The next thing to do is to give the new commit a name. Your editor will pup up. You can use the default message, or replace it with something like "Plot model output". Save the file, close it, and push your changes. You can read much more about this on Git's help page for [Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) (sounds cool, right?).
+
+
+
+
+
+
+
+
+
