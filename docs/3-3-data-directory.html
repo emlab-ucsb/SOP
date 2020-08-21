@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.3 Data Directory | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.3 Data Directory | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-08-04" />
+<meta name="date" content="2020-08-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="3-2-metadata.html">
-<link rel="next" href="3-4-tidy-data.html">
+<link rel="prev" href="3-2-metadata.html"/>
+<link rel="next" href="3-4-tidy-data.html"/>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,7 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,12 +48,15 @@
 
 
 
+
+
+<script src="assets/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -61,14 +65,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -77,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -171,6 +177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="2-3-github-structure.html"><a href="2-3-github-structure.html"><i class="fa fa-check"></i><b>2.3</b> GitHub Structure</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="2-3-github-structure.html"><a href="2-3-github-structure.html#project-repository-structure"><i class="fa fa-check"></i><b>2.3.1</b> Project Repository Structure</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2-3-github-structure.html"><a href="2-3-github-structure.html#a-repo-inside-a-repo"><i class="fa fa-check"></i><b>2.3.2</b> A repo inside a repo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-data.html"><a href="3-data.html"><i class="fa fa-check"></i><b>3</b> Data</a><ul>
@@ -187,6 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="4-code.html"><a href="4-code.html"><i class="fa fa-check"></i><b>4</b> Code</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-1-scripts-and-version-control.html"><a href="4-1-scripts-and-version-control.html"><i class="fa fa-check"></i><b>4.1</b> Scripts and Version Control</a></li>
 <li class="chapter" data-level="4.2" data-path="4-2-style-guide.html"><a href="4-2-style-guide.html"><i class="fa fa-check"></i><b>4.2</b> Style Guide</a></li>
+<li class="chapter" data-level="4.3" data-path="4-3-reproducibility.html"><a href="4-3-reproducibility.html"><i class="fa fa-check"></i><b>4.3</b> Reproducibility</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-high-performance-computing.html"><a href="5-high-performance-computing.html"><i class="fa fa-check"></i><b>5</b> High Performance Computing</a><ul>
 <li class="chapter" data-level="5.1" data-path="5-1-google-cloud-platform.html"><a href="5-1-google-cloud-platform.html"><i class="fa fa-check"></i><b>5.1</b> Google Cloud Platform</a><ul>
@@ -198,7 +206,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="6-1-emlab-affiliation.html"><a href="6-1-emlab-affiliation.html"><i class="fa fa-check"></i><b>6.1</b> emLab Affiliation</a></li>
 <li class="chapter" data-level="6.2" data-path="6-2-author-contribution.html"><a href="6-2-author-contribution.html"><i class="fa fa-check"></i><b>6.2</b> Author Contribution</a></li>
 <li class="chapter" data-level="6.3" data-path="6-3-making-your-data-publicly-available.html"><a href="6-3-making-your-data-publicly-available.html"><i class="fa fa-check"></i><b>6.3</b> Making Your Data Publicly Available</a></li>
-<li class="chapter" data-level="6.4" data-path="6-4-preparing-a-public-github-repository.html"><a href="6-4-preparing-a-public-github-repository.html"><i class="fa fa-check"></i><b>6.4</b> Preparing a Public GitHub Repository</a></li>
+<li class="chapter" data-level="6.4" data-path="6-4-preparing-a-public-github-repository.html"><a href="6-4-preparing-a-public-github-repository.html"><i class="fa fa-check"></i><b>6.4</b> Preparing a Public GitHub Repository</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="6-4-preparing-a-public-github-repository.html"><a href="6-4-preparing-a-public-github-repository.html#documentation"><i class="fa fa-check"></i><b>6.4.1</b> Documentation</a></li>
+<li class="chapter" data-level="6.4.2" data-path="6-4-preparing-a-public-github-repository.html"><a href="6-4-preparing-a-public-github-repository.html#sanitizing-the-repository"><i class="fa fa-check"></i><b>6.4.2</b> Sanitizing the repository</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -344,11 +355,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -363,6 +376,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
