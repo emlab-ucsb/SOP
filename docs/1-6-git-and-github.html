@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.6 Git and GitHub | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.6 Git and GitHub | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-08-21" />
+<meta name="date" content="2020-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="1-5-google-shared-drive.html"/>
-<link rel="next" href="1-7-zotero.html"/>
+<link rel="prev" href="1-5-google-shared-drive.html">
+<link rel="next" href="1-7-zotero.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,7 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,15 +47,12 @@
 
 
 
-
-
-<script src="assets/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -65,16 +61,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +77,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -275,7 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <div class="figure">
-<img src="images/github_create_account.png" alt="" />
+<img src="images/github_create_account.png" alt="Landing page for GitHub" />
 <p class="caption">Landing page for GitHub</p>
 </div>
 <p>Since GitHub is a company, and is used by many different types of organizations in many different industries, they offer a few different pricing schemes/deals. As an individual, once you create a username and sign up for an account, you get an unlimited number of free public and private repositories, but the number of external collaborators allowed in private repositories is limited to three. GitHub also offers a “Pro” plan for $7/month giving you unlimited external collaborators on all of your private repositories. However, for students, faculty, and research staff, or official nonprofit organizations and charities GitHub waives this fee through its <a href="https://education.github.com/">GitHub Education</a> and <a href="https://github.com/nonprofit">GitHub for Good</a> programs.</p>
@@ -284,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Go to the <a href="https://education.github.com/">GitHub Education</a> page and register as a researcher (Note: this is why you should use your <span class="citation">@ucsb.edu</span> email for step 1).</li>
 </ol>
 <div class="figure">
-<img src="images/github_education.png" alt="" />
+<img src="images/github_education.png" alt="Landing page for GitHub Education" />
 <p class="caption">Landing page for GitHub Education</p>
 </div>
 <p>Click on the “Get benefits” link in the top right-hand corner and follow the directions to upgrade your account to a “Pro” account for free. You may need to take a picture of your UCSB ID card to submit as part of this process. GitHub may also periodically ask you to re-verify your eligability to qualify for this program.</p>
@@ -292,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Send Erin O’Reilly a Slack message (or an email if you must… <a href="mailto:eoreilly@ucsb.edu" class="email">eoreilly@ucsb.edu</a>) with your new GitHub username so you can be added to the emLab GitHub page!</li>
 </ol>
 <div class="figure">
-<img src="images/github_emlab.png" alt="" />
+<img src="images/github_emlab.png" alt="emLab GitHub page" />
 <p class="caption">emLab GitHub page</p>
 </div>
 <p>The emLab GitHub page is where the repositories for all emLab projects live (more on this later), and once you are a member of the organization you will be able to create new public and private repositories that appear here (as well as on your personal page).</p>
@@ -300,33 +294,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Install Git</li>
 </ol>
 <p>If you’re very very lucky, Git will already be installed on your computer. Open the shell for your opperating system. If you’re using Mac OS X, this is called Terminal. If you’re using Windows, you have multiple types of shells, but you should be using a <strong>Git Bash</strong> shell (NOT Power Shell). The easiest way to find out whether Git is already installed on your machine is to type the following:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="1-6-git-and-github.html#cb2-1"></a><span class="fu">git</span> --version</span>
-<span id="cb2-2"><a href="1-6-git-and-github.html#cb2-2"></a><span class="co">## git version 2.20.1 (Apple Git-117)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">git</span> --version</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">## git version 2.20.1 (Apple Git-117)</span></a></code></pre></div>
 <p>If it returns a version number, you already have Git installed! However, if it returns something like <code>git: command not found</code>, you need to install Git.</p>
 <p>There are a number of different ways to install Git. Stand-alone installers exist for <a href="https://sourceforge.net/projects/git-osx-installer/files/">Mac OS X</a> and <a href="https://gitforwindows.org/">Windows</a>. If you’re using Linux, you probably already know how to install Git.</p>
 <p>If you’re using Mac OS X, Git can also be installed as part of the XCode Command Line tools, or you can also install it using Homebrew. If you’re interested in either of those options, follow the cooresponding directions in Jenny Bryan’s tutorial. If that sentence doesn’t mean anything to you, download the installer from the link above and follow the prompts.</p>
 <p>Once you’ve installed Git via whichever method you’ve chosen for your operating system, open the shell again and retype the same command to verify that the installation was successful:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="1-6-git-and-github.html#cb3-1"></a><span class="fu">git</span> --version</span>
-<span id="cb3-2"><a href="1-6-git-and-github.html#cb3-2"></a><span class="co">## git version 2.20.1 (Apple Git-117)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">git</span> --version</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">## git version 2.20.1 (Apple Git-117)</span></a></code></pre></div>
 <p>It should now return a version number.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>Tell Git who you are</li>
 </ol>
 <p>Git needs to know a little bit more about you in order to play nicely. In particular there are two things that it’s helpful to configure: 1) The name that will be associated with any commits you make, and 2) the email address asssociated with your GitHub account. To set these two things, type the following into the shell using your name and email:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="1-6-git-and-github.html#cb4-1"></a><span class="fu">git</span> config --global user.name <span class="st">&#39;Jane Doe&#39;</span></span>
-<span id="cb4-2"><a href="1-6-git-and-github.html#cb4-2"></a><span class="fu">git</span> config --global user.email <span class="st">&#39;jane@example.com&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">git</span> config --global user.name <span class="st">&#39;Jane Doe&#39;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="fu">git</span> config --global user.email <span class="st">&#39;jane@example.com&#39;</span></a></code></pre></div>
 <p>The user name input here should be your full name (i.e. it <strong>does not</strong> need to be the same as your username for GitHub), but the email <strong>DOES</strong> need to be the same as that associated with your GitHub account.</p>
 <p>You can then check to make sure these were entered correctly by typing:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="1-6-git-and-github.html#cb5-1"></a><span class="fu">git</span> config --global --list</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">git</span> config --global --list</a></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>Optional: Store your credentials (so you don’t have to type your password every time):</li>
 </ol>
 <p><code>Git</code> will sometimes want to make sure you are you when performing certain operations. For example, when cloning a private repo or when you want to push changes to a repo. If you don’t want to do this every time, you can tell <code>Git</code> to remember your password too. You can read more about <code>Git</code>’s credential management <a href="https://Git-scm.com/docs/gitcredentials">here</a>.</p>
 <p>On your terminal, navigate to a repository on your computer. (You can also use the Terminal pane within RStudio) and type the following into the shell:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="1-6-git-and-github.html#cb6-1"></a><span class="co"># Tell git to use the credential.helper</span></span>
-<span id="cb6-2"><a href="1-6-git-and-github.html#cb6-2"></a><span class="fu">git</span> config --global credential.helper store </span>
-<span id="cb6-3"><a href="1-6-git-and-github.html#cb6-3"></a><span class="co"># git pull (or git push) will prompt you to enter your password</span></span>
-<span id="cb6-4"><a href="1-6-git-and-github.html#cb6-4"></a><span class="fu">git</span> pull</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Tell git to use the credential.helper</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="fu">git</span> config --global credential.helper store </a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># git pull (or git push) will prompt you to enter your password</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="fu">git</span> pull</a></code></pre></div>
 <p>What we just did was to tell <code>Git</code> to store our credentials. So, after typing them this one time, you should not need to type it again.</p>
 <ol start="7" style="list-style-type: decimal">
 <li>Optional: Install a client for Git to make your life easier</li>
@@ -362,13 +356,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -383,10 +375,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },

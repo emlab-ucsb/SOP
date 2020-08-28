@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.4 Preparing a Public GitHub Repository | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.4 Preparing a Public GitHub Repository | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,14 +24,14 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-08-21" />
+<meta name="date" content="2020-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="6-3-making-your-data-publicly-available.html"/>
+<link rel="prev" href="6-3-making-your-data-publicly-available.html">
 
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -40,7 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,15 +47,12 @@
 
 
 
-
-
-<script src="assets/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -65,16 +61,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +77,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -236,13 +230,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>One of the most important things to include in the repo is a <code>README.md</code> file. This will be automatically displayed as rendered markdown on GitHub, and should provide a simple explanation of what’s in the repo, how to run it, and how it was run in the past. If possible / necessary, you might want to include a file structure (Take a look at using <a href="https://github.com/jcvdav/startR"><code>startR::create_readme()</code></a> for automating this). If relevant, you might want to include the title of the paper / project, and a link to any online material (e.g. the publication itself).</p>
 <p>In paragraph or bullet-list form, make sure to specify the following:</p>
 <ul>
-<li>Operative System(s) in which the project was run (e.g. <code>MacOSX Catalina</code> or <code>Ubuntu 18.4</code>)</li>
-<li>The version of R / STATA / MATLAB / Julia / Python… including major and minor (e.g. <code>R 3.6.2</code>)</li>
-<li>Any special mentions of performance needed (e.g. “This analyses requires a machine with at least 32 GB RAM and 16 cores”)</li>
+<li>Operative System(s) in which the project was run (e.g. <code>MacOSX Catalina</code> or <code>Ubuntu 18.4</code>)</li>
+<li>The version of R / STATA / MATLAB / Julia / Python… including major and minor (e.g. <code>R 3.6.2</code>)</li>
+<li>Any special mentions of performance needed (e.g. “This analyses requires a machine with at least 32 GB RAM and 16 cores”)</li>
 <li>Link to any relevant data repositories</li>
 <li>Any relevant contact information, should interested people have trouble running your code</li>
 </ul>
-<p>When in doubt, check out <a href="https://github.com/grantmcdermott/bycatch">the repository</a> that Grant McDermott and Matt Burgess provided for their Science paper on [Effort reduction and bycatch](<a href="https://science.sciencemag.org/content/359/6381/1255" class="uri">https://science.sciencemag.org/content/359/6381/1255</a>.</p>
+<p>When in doubt, check out <a href="https://github.com/grantmcdermott/bycatch">the repository</a> that Grant McDermott and Matt Burgess provided for their Science paper on <a href="https://science.sciencemag.org/content/359/6381/1255">Effort reduction and bycatch</a>.</p>
 </div>
 <div id="sanitizing-the-repository" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Sanitizing the repository</h3>
@@ -306,13 +300,11 @@ s 871adf OK, plot actually done          --- newer commit</code></pre>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -327,10 +319,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },
