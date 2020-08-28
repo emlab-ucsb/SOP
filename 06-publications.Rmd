@@ -52,7 +52,7 @@ In paragraph or bullet-list form, make sure to specify the following:
 - Link to any relevant data repositories
 - Any relevant contact information, should interested people have trouble running your code
 
-When in doubt, check out [the repository](https://github.com/grantmcdermott/bycatch) that Grant McDermott and Matt Burgess provided for their Science paper on [Effort reduction and bycatch](https://science.sciencemag.org/content/359/6381/1255.
+When in doubt, check out [the repository](https://github.com/grantmcdermott/bycatch) that Grant McDermott and Matt Burgess provided for their Science paper on [Effort reduction and bycatch](https://science.sciencemag.org/content/359/6381/1255).
 
 ### Sanitizing the repository
 

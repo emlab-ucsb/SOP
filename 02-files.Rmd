@@ -173,7 +173,7 @@ Different types of projects may require more or fewer folders and these are only
 
 ### A repo inside a repo
 
-Sometimes, a project may have more than one paper or analysis sections. On some corner scenarios, we might want to have multiple "paper folders" within a "project folder". This would imply that we will have a repo inside a repo. If that is something that makes sense for you, your project, and your team, then `git submodules` are your solution. If you want to read more on when / how to use submodules, visit the [documentation page here](https://git-scm.com/book/en/v2/Git-Tools-Submodules.
+Sometimes, a project may have more than one paper or analysis sections. On some corner scenarios, we might want to have multiple "paper folders" within a "project folder". This would imply that we will have a repo inside a repo. If that is something that makes sense for you, your project, and your team, then `git submodules` are your solution. If you want to read more on when / how to use submodules, visit the [documentation page here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 Including submodules in your workflow is simple. Here's an example. you are working on a big project called "Blue Future". The project has six PIs, 13 Research Specialists, two PostDocs, and three PhD Students. After a long kick-off meeting, the team realizes that the project will produce two papers and a ShinyApp. You are all determined to keep everything on the same folder, but correctly categorized and organized. As such, you go to GitHub and create the following four repositories:
 
