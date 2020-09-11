@@ -119,4 +119,15 @@ As always, we recommend keeping a backup copy of the raw data you obtained from 
 
 We highly recommend the chapter on [Tidy Data](https://r4ds.had.co.nz/tidy-data.html) from the book [R for Data Science](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham. This guide is geared towards R users and provides helpful tips for transforming and working with data in R, but the concepts should be broadly applicable to other languages as well. For tips specific to Python, we recommend a blogpost by Jean-Nicholas Hould titled [Tidy Data in Python](http://www.jeannicholashould.com/tidy-data-in-python.html).
 
+## Data Formats
+
+Data should preferably be stored and/or archived in open formats. Open formats maximize accessibility because they have freely available specifications and generally do not require proprietary software to open them. The exact format will vary depending on the file type, but some common examples are comma separated value (.csv) as opposed to closed format Excel spreadsheets (.xls) for tabular data, and .pdf or .odt (Open document format for office applications) as opposed to Word documents for final versions of reports. 
+
+When saving final geospatial products, we recommend [geopackage](http://www.geopackage.org/) (.gpkg) which has several advantages over the commonly used shapefile format (more [here](http://switchfromshapefile.org/)):
+
+- Single file
+- Open format (shapefile is ESRI-dependent)
+- Fewer limitations: e.g. no limits on attribute file names (shapefile has max. 254 characters), max file size 140 TB! (shapefile max. 4GB).
+
+Geopackage files can be written and read in R, QGIS, and ArcGIS. 
 

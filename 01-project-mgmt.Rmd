@@ -462,7 +462,7 @@ Read more about saving items to Zotero [here](https://www.zotero.org/support/add
 
 ### Zotero Integration with GoogleDocs and Word
 
-Zotero is a great resource for adding references to a manuscript. It is integrated into both [Word](https://www.zotero.org/support/word_processor_plugin_usage) and [GoogleDocs](https://www.zotero.org/support/google_docs) for easy use. As a note (and warning), GoogleDocs and Word reference managers currently don’t speak to each other. If you add references in GoogleDocs and download to Word (or vice versa), the Zotero links will break. 
+Zotero is a great resource for adding references to a manuscript. It is integrated into both [Word](https://www.zotero.org/support/word_processor_plugin_usage) and [GoogleDocs](https://www.zotero.org/support/google_docs) for easy use. As a note, you have to take extra steps to ensure that your references remain linked when switching between Word and GoogleDocs. See [this document](https://www.zotero.org/support/kb/moving_documents_between_word_processors) for more information about moving documents with Zotero citations between word processors.
 
 #### Adding a Citation to your Document
 

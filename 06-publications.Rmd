@@ -1,9 +1,9 @@
 ---
-title: "Publications"
+title: "Reports and Publications"
 output: html_document
 ---
 
-# Publications
+# Reports and Publications
 
 ## emLab Affiliation
 
@@ -14,6 +14,14 @@ Since emLab is joint between MSI and Bren and also its own research entity, we r
 3. Environmental Market Solutions Lab, University of California, Santa Barbara, Santa Barbara, CA, USA
 
 Note that journals may list affiliation addresses slightly different than what is listed above.
+
+## Reports
+
+Many final deliverables for our projects include creating reports. To aid in the final report development, please see the [Report template](https://docs.google.com/document/d/1GBlTP7LVc2yTd9R3ByDxDFP9YGfRYOutJK4S4fdnOmk/edit) for information on a draft cover page, inside page, logos to use, and suggested citation.
+
+To ensure future searchability, **please upload all final reports to Zenodo** - a public repository that creates a DOI and link for all uploaded information - if the report can be made publicly available. If you don't have an account, you can sign up [here](https://zenodo.org/signup/) with your email, GitHub account, or ORCID.
+
+We have created an [emLab repository](https://zenodo.org/communities/emlab-ucsb/) for all of our reports to live. To upload to the emLab community repository, use [this link](https://zenodo.org/deposit/new?c=emlab-ucsb) and fill out all of the required information.
 
 ## Author Contribution
 
