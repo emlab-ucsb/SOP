@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.1 Scripts and Version Control | emLab Standard Operating Procedures</title>
+  <title>6.3 Author Contribution | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.1 Scripts and Version Control | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="6.3 Author Contribution | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://emlab-ucsb.github.io/SOP/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.1 Scripts and Version Control | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="6.3 Author Contribution | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="4-code.html">
-<link rel="next" href="4-2-style-guide.html">
+<link rel="prev" href="6-2-reports.html">
+<link rel="next" href="6-4-making-your-data-publicly-available.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -224,85 +224,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="scripts-and-version-control" class="section level2">
-<h2><span class="header-section-number">4.1</span> Scripts and Version Control</h2>
-<p>Code should be crafted according to the following guidelines:</p>
-<ul>
-<li>Use scripts<br />
-</li>
-<li>Document scripts, but not too much<br />
-</li>
-<li>Organize scripts consistently (see format below)<br />
-</li>
-<li>Use Git to version control scripts<br />
-</li>
-<li>Make atomic Git commits (see description below)</li>
-</ul>
-<p>Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.</p>
-<p>Here is an example template for R scripts:</p>
-<pre><code># =============================================================================
-# Name:           script.R
-# Description:    Visualizes data
-# 
-# Inputs:         data.csv
-# Outputs:        graph.png
-# 
-# Notes:          - Use a diverging color palette for best results
-#                 - Output format can be changed as needed
-# =============================================================================
-
-
-# Set up environment ----------------------------------------------------------
-
-library(tidyverse)
-
-# Set path for Google Drive filestream based on OS type
-# Note - this will work for Windows and Mac machines.
-# If you use Linux, you will need to set your own path to where Google Drive filestream lives.
-
-team_path &lt;- ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,&quot;G:/&quot;,&quot;/Volumes/GoogleDrive/&quot;)
-
-# Next, set the path for data directory based on whether project is current or archived.
-# Note that if you use a different Shared Drive file structure than the one recommended in the &quot;File Structure&quot; section, you will need to manually define your data path.
-# You should always double-check the automatically generated paths in order to ensure they point to the correct directory.
-
-# First, set the name of your project
-
-project_name &lt;- &quot;my-project&quot;
-
-# This will automatically determine if the project exists in the &quot;current-projects&quot; or &quot;archived-projects&quot; Shared Drive folder, and set the appropriate data path accordingly.
-data_path &lt;- ifelse(dir.exists(paste0(team_path,&quot;Shared drives/emlab/projects/current-projects/&quot;,project_name)),
-                       paste0(team_path,&quot;Shared drives/emlab/projects/current-projects/&quot;,project_name,&quot;/data/&quot;),
-                       (paste0(team_path,&quot;Shared drives/emlab/projects/archived-projects/&quot;,project_name,&quot;/data/&quot;)))
-
-
-# Import data -----------------------------------------------------------------
-
-# Load data from Shared Drive using appropriate data path
-my_raw_data &lt;- read_csv(paste0(data_path,&quot;raw/my_raw_data.csv&quot;))
-
-# Process data ----------------------------------------------------------------
-
-
-# Analyze data ----------------------------------------------------------------
-
-
-# Visualize results -----------------------------------------------------------
-
-
-# Save results ----------------------------------------------------------------
-
-</code></pre>
-<p><a href="https://git-scm.com/">Git</a> tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found <a href="https://chris.beams.io/posts/git-commit/">here</a>. There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.</p>
-<p>More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.</p>
+<div id="author-contribution" class="section level2">
+<h2><span class="header-section-number">6.3</span> Author Contribution</h2>
+<p>Transparency in authors’ contribution is a critical component of open science. Determining authorship is ultimately the responsibility of the project leads (i.e. principal investigator and/or first author), but because author contribution is not always straightforward, we follow <a href="https://www.pnas.org/content/115/11/2557">McNutt et al. (2018)</a> and others in recommending the <a href="https://www.cell.com/pb/assets/raw/shared/guidelines/CRediT-taxonomy.pdf">Contributor Roles Taxonomy (CRediT)</a> system. For a simplified version of this most relevant to our project infrastructure, feel free to use and modify our <a href="https://docs.google.com/spreadsheets/d/1qWJea1Bo8lpbYqEJjojZ_WpSS500uaYjCJzyiy3s3bc/edit#gid=0">Author Contribution Template</a>, which allows individuals to identify their contributions or to opt-out of participation in a paper. We recommend discussing authorship expectations early in a project to avoid future complications.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="4-code.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4-2-style-guide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="6-2-reports.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="6-4-making-your-data-publicly-available.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
