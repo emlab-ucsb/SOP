@@ -1,4 +1,4 @@
-Domain,Climate/Energy; Land; Ocean; Other [drop down menu]
+Domain,Climate/Energy; Land; Ocean; General; Other [drop down menu]
 Description,A few word description (e.g. SST US 2017); max 5 words
 Folder,Name of folder containing data
 Filename,Name of data
