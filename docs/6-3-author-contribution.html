@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.3 Author Contribution | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.3 Author Contribution | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-09-14" />
+<meta name="date" content="2020-09-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="6-2-reports.html"/>
-<link rel="next" href="6-4-making-your-data-publicly-available.html"/>
+<link rel="prev" href="6-2-reports.html">
+<link rel="next" href="6-4-making-your-data-publicly-available.html">
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,9 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -69,7 +66,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -183,7 +180,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="3-2-metadata.html"><a href="3-2-metadata.html#metadata-standards"><i class="fa fa-check"></i><b>3.2.1</b> Metadata Standards</a></li>
 <li class="chapter" data-level="3.2.2" data-path="3-2-metadata.html"><a href="3-2-metadata.html#where-to-store-metadata"><i class="fa fa-check"></i><b>3.2.2</b> Where to Store Metadata</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html"><i class="fa fa-check"></i><b>3.3</b> Data Directory</a></li>
+<li class="chapter" data-level="3.3" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html"><i class="fa fa-check"></i><b>3.3</b> Data Directory</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html#emlab-data-directory"><i class="fa fa-check"></i><b>3.3.1</b> emLab Data Directory</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html#project-level-data-directory"><i class="fa fa-check"></i><b>3.3.2</b> Project-level Data Directory</a></li>
+</ul></li>
 <li class="chapter" data-level="3.4" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy Data</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html#recommended-resources"><i class="fa fa-check"></i><b>3.4.1</b> Recommended Resources</a></li>
 </ul></li>
@@ -229,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="author-contribution" class="section level2">
 <h2><span class="header-section-number">6.3</span> Author Contribution</h2>
-<p>Transparency in authors’ contribution is a critical component of open science. Determining authorship is ultimately the responsibility of the project leads (i.e. principal investigator and/or first author), but because author contribution is not always straightforward, we follow <a href="https://www.pnas.org/content/115/11/2557">McNutt et al. (2018)</a> and others in recommending the <a href="https://www.cell.com/pb/assets/raw/shared/guidelines/CRediT-taxonomy.pdf">Contributor Roles Taxonomy (CRediT)</a> system. For a simplified version of this most relevant to our project infrastructure, feel free to use and modify our <a href="https://docs.google.com/spreadsheets/d/1qWJea1Bo8lpbYqEJjojZ_WpSS500uaYjCJzyiy3s3bc/edit#gid=0">Author Contribution Template</a>, which allows individuals to identify their contributions or to opt-out of participation in a paper. We recommend discussing authorship expectations early in a project to avoid future complications.</p>
+<p>Transparency in authors’ contribution is a critical component of open science. Determining authorship is ultimately the responsibility of the project leads (i.e. principal investigator and/or first author), but because author contribution is not always straightforward, we follow <a href="https://www.pnas.org/content/115/11/2557">McNutt et al. (2018)</a> and others in recommending the <a href="https://www.cell.com/pb/assets/raw/shared/guidelines/CRediT-taxonomy.pdf">Contributor Roles Taxonomy (CRediT)</a> system. For a simplified version of this most relevant to our project infrastructure, feel free to use and modify our <a href="https://docs.google.com/spreadsheets/d/1qWJea1Bo8lpbYqEJjojZ_WpSS500uaYjCJzyiy3s3bc/edit#gid=0">Author Contribution Template</a>, which allows individuals to identify their contributions or to opt-out of participation in a paper. We recommend discussing authorship expectations early in a project to avoid future complications.</p>
 </div>
             </section>
 
@@ -242,13 +242,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -263,10 +261,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },

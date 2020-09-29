@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.5 Preparing a Public GitHub Repository | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.5 Preparing a Public GitHub Repository | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -24,14 +24,14 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2020-09-14" />
+<meta name="date" content="2020-09-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="6-4-making-your-data-publicly-available.html"/>
+<link rel="prev" href="6-4-making-your-data-publicly-available.html">
 
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -40,9 +40,6 @@
 <link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -69,7 +66,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -183,7 +180,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="3-2-metadata.html"><a href="3-2-metadata.html#metadata-standards"><i class="fa fa-check"></i><b>3.2.1</b> Metadata Standards</a></li>
 <li class="chapter" data-level="3.2.2" data-path="3-2-metadata.html"><a href="3-2-metadata.html#where-to-store-metadata"><i class="fa fa-check"></i><b>3.2.2</b> Where to Store Metadata</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html"><i class="fa fa-check"></i><b>3.3</b> Data Directory</a></li>
+<li class="chapter" data-level="3.3" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html"><i class="fa fa-check"></i><b>3.3</b> Data Directory</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html#emlab-data-directory"><i class="fa fa-check"></i><b>3.3.1</b> emLab Data Directory</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3-3-data-directory.html"><a href="3-3-data-directory.html#project-level-data-directory"><i class="fa fa-check"></i><b>3.3.2</b> Project-level Data Directory</a></li>
+</ul></li>
 <li class="chapter" data-level="3.4" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy Data</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html#recommended-resources"><i class="fa fa-check"></i><b>3.4.1</b> Recommended Resources</a></li>
 </ul></li>
@@ -235,9 +235,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>One of the most important things to include in the repo is a <code>README.md</code> file. This will be automatically displayed as rendered markdown on GitHub, and should provide a simple explanation of what’s in the repo, how to run it, and how it was run in the past. If possible / necessary, you might want to include a file structure (Take a look at using <a href="https://github.com/jcvdav/startR"><code>startR::create_readme()</code></a> for automating this). If relevant, you might want to include the title of the paper / project, and a link to any online material (e.g. the publication itself).</p>
 <p>In paragraph or bullet-list form, make sure to specify the following:</p>
 <ul>
-<li>Operative System(s) in which the project was run (e.g. <code>MacOSX Catalina</code> or <code>Ubuntu 18.4</code>)</li>
-<li>The version of R / STATA / MATLAB / Julia / Python… including major and minor (e.g. <code>R 3.6.2</code>)</li>
-<li>Any special mentions of performance needed (e.g. “This analyses requires a machine with at least 32 GB RAM and 16 cores”)</li>
+<li>Operative System(s) in which the project was run (e.g. <code>MacOSX Catalina</code> or <code>Ubuntu 18.4</code>)</li>
+<li>The version of R / STATA / MATLAB / Julia / Python… including major and minor (e.g. <code>R 3.6.2</code>)</li>
+<li>Any special mentions of performance needed (e.g. “This analyses requires a machine with at least 32 GB RAM and 16 cores”)</li>
 <li>Link to any relevant data repositories</li>
 <li>Any relevant contact information, should interested people have trouble running your code</li>
 </ul>
@@ -305,13 +305,11 @@ s 871adf OK, plot actually done          --- newer commit</code></pre>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/lunr.js"></script>
-<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -326,10 +324,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },
