@@ -69,6 +69,8 @@ All readme metadata files are stored in the folder that contains the data file i
 
 ## Data Directory 
 
+### emLab Data Directory
+
 All emLab data is stored in subfolders of the Data folder on the emLab Team Drive (`emlab/data`). To document these data, we use the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) that includes key, standardized information from each readme metadata file. Every data file in the `emlab/data` folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)
 
 In the case of placeholder metadata (as described in the *Metadata* section), only the following columns should be filled out: folder, filename, contact, and summary. This (mostly blank) row serves two purposes: 1) it retains some of the searchability function for that dataset and 2) it serves as a visual reminder that those datasets are in need of more robust metadata development.  
@@ -82,7 +84,9 @@ colnames(meta_metadatatable) <- c("Column","Description")
 kable(meta_metadatatable)
 ```
 
-Research teams may find it useful to keep track of project-related data in a separate spreadsheet stored in the project’s Google Shared Drive data folder. This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can be used to guide and simplify data migration to the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0). Suggested attributes include:
+### Project-level Data Directory
+
+We highly recommend that research teams create a `data_overview` spreadsheet for keeping track of project-related data (i.e. a separate spreadsheet stored in the project’s Google Shared Drive data folder). This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can then be used to guide and simplify data migration to the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) once the project is complete. Suggested attributes include:
 
   - File name
   - Folder name
@@ -90,6 +94,8 @@ Research teams may find it useful to keep track of project-related data in a sep
   - Link where data was downloaded
   - Description of data
   - Name of the researcher who downloaded the data
+  - Data directory entry (complete, in progress, not started, etc.)
+  - Metadata sheet (complete, in progress, not started, etc.)
 
 
 ## Tidy Data  

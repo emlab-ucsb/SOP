@@ -71,7 +71,7 @@ A full table of contents can be seen [here](https://docs.google.com/document/d/1
 
 Each project folder must contain the following 6 folders:
 
-* `data`: This data folder will contain all of the intermediate datasets as well as output datasets associated with the project (see section 2.2.3 for more on this). Be sure to also add a copy of your final datasets to the `emlab/data` folder and data directory. 
+* `data`: This data folder will contain a `data_overview` spreadsheet and all of the intermediate datasets as well as output datasets associated with the project (see section 2.2.3 for more on this). Be sure to also add a copy of your final datasets to the `emlab/data` folder and data directory. 
 
 * `deliverables`: final reports, paper manuscripts, other final deliverables not related to data outputs
 
@@ -91,9 +91,10 @@ As stated above, there are two locations in which data can be stored. The two lo
 
 #### `example-project/data`
 
-**All** data used in a project should live in this project-specific repository. This repository will typically contain subfolders for `raw`, `processed` (or `clean`), and `output`, although each team might make slight modifications to this structure to suit their needs.
+**All** data used in a project should live in this project-specific repository. To help keep track of project data, we highly recommend creating a `data_overview` spreadsheet (see section 3.3.2 for more information). This overview spreadsheet will provide a centralized summary of the data inputs and outputs for a project, and also allow teams to keep track of the status of adding the data to the `emlab/data` folder and creating the necessary metadata documentation. This repository will typically contain subfolders for `raw`, `processed` (or `clean`), and `output`, although each team might make slight modifications to this structure to suit their needs.
 
 To illustrate how each of these subfolders might be used, consider the following. A team may receive data from partners, extract data from external sources, compile survey responses, create a new dataset from a literature review, or use results from previous projects as input. These data are termed “raw data” and should never be directly modified - **all of the errors, mistakes, and gremlins should be kept in the original versions**. Instead, they should be processed / cleaned, and then exported as “clean data” that is actually used in analyses. The script used to do the processing / cleaning then acts as a reproducable record of everything that was done to the raw data. 
+
 Suppose that a team working in Montserrat is tasked to perform a stock assessment on lobster populations and receives a database of lobster landings from the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes that need to be fixed prior to running anly analyses. The team will clean the data (preferabily, using a reproducible script), and then export a new version of the data in which the mistakes have been fixed. The team will then perform the stock assessment, and produce results before reporting back. Therefore, the project-level data folder could be subdivided into `raw`, `clean`, and `output` folders. The first one will contain the excel file recieved from the government. The second folder will contain the cleaned data (perhaps exported as a csv), which can then be used as input for analyses within this project. The `output` folder will then contain the stock assessment results that might be relevant to other projects.
 
 ![](images/shared_drive_project_data.png)
