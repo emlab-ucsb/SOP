@@ -434,11 +434,13 @@ Once you've installed a Git client, follow the directions to connect to your Git
 
 ### General Guidelines for using GitHub at emLab
 
-In general, each emLab project should have its own repository. There may be some cases in which multiple repositories may be associated with the same project, but this should be avoided if possible. The project repository should be created within the emLab GitHub page (exceptions may exist for example if a parner organization requires that the project repository be created within their organization's GitHub page). 
+In general, each emLab project should have its own repository. There may be some cases in which multiple repositories may be associated with the same project, but this should be avoided if possible. The project repository should be created within the emLab GitHub page (exceptions may exist for example if a partner organization requires that the project repository be created within their organization's GitHub page). 
 
 Repositories can be made public or private when they are created (depending on the nature of the project) while the project is ongoing, but should be made public when the project is complete. 
 
-Since many previous (and ongoing) projects were created within the personal GitHub pages of emLab members, the ownership of these repositories should be transfered to the emLab GitHub page at the conclusion of the project if possible. 
+Since many previous (and ongoing) projects were created within the personal GitHub pages of emLab members, the ownership of these repositories should be transferred to the emLab GitHub page at the conclusion of the project if possible.
+
+In order to ensure that the relevant researchers are notified of issues and other activities, researchers should "watch" or "subscribe" to repositories in which they work.
 
 ## Zotero
 
