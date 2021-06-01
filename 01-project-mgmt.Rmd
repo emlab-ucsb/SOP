@@ -5,7 +5,7 @@ output: html_document
 
 # Project Management
 
-This section details the project management platforms we use at emLab to help set up projects for success. The first step for a new project will be to determine a common name to use across these platforms. Please additionally review the [project management best practices](https://docs.google.com/document/d/1DzlJktSw3LyN9gWNx0HIAlz_TyQDhyyPjXaWsWUuGSY/edit) document.
+This section details the project management platforms we use at emLab to help set up projects for success. The first step for a new project will be to determine a common name to use across these platforms (note: name should be all lowercase with a dash separating words). Please additionally review the [project management best practices](https://docs.google.com/document/d/1DzlJktSw3LyN9gWNx0HIAlz_TyQDhyyPjXaWsWUuGSY/edit) document.
 
 ![](images/project_management_overview.png)
 
