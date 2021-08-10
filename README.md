@@ -38,6 +38,7 @@ Standard operating procedures for emLab projects:
     - Author Contribution
     - Making Your Data Publicly Available
     - Preparing a Public GitHub Repository
+    - Sharing public data, Shiny apps, and tools on our website  
 
 
 ## Contributing
