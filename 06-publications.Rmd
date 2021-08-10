@@ -44,8 +44,6 @@ Dryad is an open-access repository of research data that makes data searchable, 
 9. During curation, Dryad will check your submission to ensure the validity of files and metadata. Dryad may contact you questions, suggestions, and/or identified problems.
 10. Once the dataset is approved, the Dryad DOI is officially registered and made public. Note that you can contact Dryad in order to delay the publication of your data until your publication date. Include DOI in your manuscript’s Data Availability statement, or consider citing it the References section.
 
-We would love to share any publicly available datasets on the emLab website. Any time you release a publicly available dataset, please Slack or email Erin O'Reilly (eoreilly@ucsb.edu) the following information: your name, link to the dataset, date published, and the emLab project it is associated with.
-
 ## Preparing a Public GitHub Repository
 
 As with data, we strive to make all our code available. This provides a roadmap of converting input data into tangible results, which may be of interest for external people seeking to replicate our study or for internal emLabers seeking to understand what someone did a few years ago.
@@ -142,6 +140,9 @@ s 871adf OK, plot actually done          --- newer commit
 
 Now, simply save and close the file; you'll be prompted back to your command line. The next thing to do is to give the new commit a name. Your editor will pup up. You can use the default message, or replace it with something like "Plot model output". Save the file, close it, and push your changes. You can read much more about this on Git's help page for [Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) (sounds cool, right?).
 
+## Sharing public data, Shiny apps, and tools on our website
+
+Any time emLab develops publicly available datasets, Shiny apps, or tools, we would love to share these on the emLab website. Any time you release a publicly available dataset, Shiny app, or other tool, please Slack or email Erin O'Reilly (eoreilly@ucsb.edu) the following information: name of the dataset app or tool, link, date published, and the emLab project it is associated with.
 
 
 
