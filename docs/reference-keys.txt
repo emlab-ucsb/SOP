@@ -75,3 +75,4 @@ making-your-data-publicly-available
 preparing-a-public-github-repository
 documentation
 sanitizing-the-repository
+sharing-public-data-shiny-apps-and-tools-on-our-website
