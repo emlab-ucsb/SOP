@@ -84,6 +84,8 @@ colnames(meta_metadatatable) <- c("Column","Description")
 kable(meta_metadatatable)
 ```
 
+Any time you add a new dataset to the shared emLab data folder and directory, please message the `#data-streamlining` Slack channel so that others on the team know about the new dataset.
+
 ### Project-level Data Directory
 
 We highly recommend that research teams create a `data_overview` spreadsheet for keeping track of project-related data (i.e. a separate spreadsheet stored in the project’s Google Shared Drive data folder). This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can then be used to guide and simplify data migration to the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) once the project is complete. Suggested attributes include:
