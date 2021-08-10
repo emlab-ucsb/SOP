@@ -44,6 +44,8 @@ Dryad is an open-access repository of research data that makes data searchable, 
 9. During curation, Dryad will check your submission to ensure the validity of files and metadata. Dryad may contact you questions, suggestions, and/or identified problems.
 10. Once the dataset is approved, the Dryad DOI is officially registered and made public. Note that you can contact Dryad in order to delay the publication of your data until your publication date. Include DOI in your manuscript’s Data Availability statement, or consider citing it the References section.
 
+We would love to share any publicly available datasets on the emLab website. Any time you release a publicly available dataset, please Slack or email Erin O'Reilly (eoreilly@ucsb.edu) the following information: your name, link to the dataset, date published, and the emLab project it is associated with.
+
 ## Preparing a Public GitHub Repository
 
 As with data, we strive to make all our code available. This provides a roadmap of converting input data into tangible results, which may be of interest for external people seeking to replicate our study or for internal emLabers seeking to understand what someone did a few years ago.
