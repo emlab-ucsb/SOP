@@ -29,6 +29,8 @@ Standard operating procedures for emLab projects:
     - Scripts and Version Control
     - Style Guide
     - Reproducibility
+    - Coding pipelines
+    - Internal code review
 5. High Performance Computing
     - Google Cloud Platform
     - UCSB Server Clusters
