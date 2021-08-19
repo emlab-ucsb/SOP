@@ -112,3 +112,56 @@ Prioritizing reproducibility when writing code code not only fosters collaborati
 - **Functions:** If you find yourself copying and pasting similar blocks of code over and over to repeat tasks, turn it into a function!
 - **R Markdown:** R users can take advantage of [R  Markdown](https://rmarkdown.rstudio.com/lesson-1.html) for a coding format that seamlessly integrates sections of text alongside code chunks. R Markdown also enables you to transform your code and text into report-friendly formats such as PDFs or Word documents. 
 - **Git and GitHub:** [As described above,](#scripts-and-version-control) Git tracks changes to files line-by-line in commits that are attributable to each team member working on the project. GitHub then compiles the history of any Git-tracked file online, and synchronizes the work of all collaborators in a central repository. Using Git and GitHub allow multiple people to code collaboratively, examine changes as they occur, and restore prior versions of files if necessary.
+
+## Coding pipelines  
+
+Often, a project contains multiple script files that are each run separately, but which produce or use interconnected inputs and outputs through a coding pipeline. They must therefore be run in the correct order, and any time a change is made to an upstream script or file, all downstream scripts may need to be run for their outputs to stay up-to-date. This presents a challenge to reproducibility, and also a challenge to anyone trying to work with or review complicated coding pipelines.
+
+Consider the following example, from Juan Carlos Villaseñor-Derbez's excellent tutorial: [Make: End-to-end reproducibility](https://github.com/jcvdav/make_tutorial).
+
+Consider you have the following project file structure in a GitHub repository, where `clean_data.R` is run first and processes the raw data file `raw_data.csv`. When this is run, `clean_data.R` produces the cleaned data file `clean_data.csv`. `plot_data.R` is run next, which uses `clean_data.csv` and produces the final output `figure1.png`.  
+
+```
+data
+    |_raw_data.csv
+    |_clean_data.csv
+scripts
+    |_clean_data.R
+    |_plot_data.R
+results
+    |_figure1.png
+    |_raw_data.csv
+    |_clean_data.csv
+```
+
+These scripts must be run in the correct order, and any time changes are made to upstream data or scripts, downstream scripts must be run to update downstream data and results. To ensure reproducibility of your code, we recommend everyone employ one of the three following options when using a coding pipeline, with the three options in ascending order of recommendation from "minimum required" to "best practice."
+
+* **Option 1 (minimum required):**  Provide clear documentation in the repo's `README.md` file. This documentation should provide the complete file structure, including both scripts and data files, and should provide a narrative description of the order in which the scripts should be run, as well as which files each script uses and produces.  
+* **Option 2 (better practice):** Create a `run_all.R` script that runs all scripts in the correct order, and can be run to fully reproduce the entire project repo's outputs. This `run_all.R` script should be described in `README.md`. Using the example above, this script could contain the following:
+
+```
+# Run all scripts
+# This script runs all the code in my project, from scratch
+source("scripts/clean_data.R")      # To clean the data
+source("scripts/plot_data.R")       # To plot the data
+```
+
+* **Option 3 (best practice):** Use the [make package](https://www.gnu.org/software/make/), which uses a `Makefile` to fully describe the coding pipeline through a standardized syntax of targets (output files that need to be created), prerequisites (file dependencies), and commands (how to go from prerequisites to targets). The advantage of this approach is that it automatically runs scripts in the correct order, keeps track of when changes are made to scripts or data files, and it only runs the necessary scripts to ensure that all outputs are up-to-date. If using `make`, you should describe how to use it in the repo's `README.md`.
+
+The `Makefile` uses the following syntax:
+
+```
+target: prerequisites
+  command
+```
+
+Therefore, in our example, the `Makefile` would simply be the following, and the single command `make` would execute this:
+
+```
+results/figure1.png: scripts/plot_data.R data/clean_data.csv
+  Rscript scripts/plot_data.R
+data/clean_data.csv: scripts/clean_data.R data/raw_data.csv
+  Rscript scripts/clean_data.R
+```
+
+Please refer to Juan Carlos Villaseñor-Derbez's very helpful tutorial for more information: [Make: End-to-end reproducibility](https://github.com/jcvdav/make_tutorial).

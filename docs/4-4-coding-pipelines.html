@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.1 Scripts and Version Control | Reports and Publications</title>
+  <title>4.4 Coding pipelines | Reports and Publications</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.1 Scripts and Version Control | Reports and Publications" />
+  <meta property="og:title" content="4.4 Coding pipelines | Reports and Publications" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://emlab-ucsb.github.io/SOP/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.1 Scripts and Version Control | Reports and Publications" />
+  <meta name="twitter:title" content="4.4 Coding pipelines | Reports and Publications" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="4-code.html"/>
-<link rel="next" href="4-2-style-guide.html"/>
+<link rel="prev" href="4-3-reproducibility.html"/>
+<link rel="next" href="5-high-performance-computing.html"/>
 <script src="assets/header-attrs-2.8/header-attrs.js"></script>
 <script src="assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -257,85 +257,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="scripts-and-version-control" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Scripts and Version Control</h2>
-<p>Code should be crafted according to the following guidelines:</p>
+<div id="coding-pipelines" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Coding pipelines</h2>
+<p>Often, a project contains multiple script files that are each run separately, but which produce or use interconnected inputs and outputs through a coding pipeline. They must therefore be run in the correct order, and any time a change is made to an upstream script or file, all downstream scripts may need to be run for their outputs to stay up-to-date. This presents a challenge to reproducibility, and also a challenge to anyone trying to work with or review complicated coding pipelines.</p>
+<p>Consider the following example, from Juan Carlos Villaseñor-Derbez’s excellent tutorial: <a href="https://github.com/jcvdav/make_tutorial">Make: End-to-end reproducibility</a>.</p>
+<p>Consider you have the following project file structure in a GitHub repository, where <code>clean_data.R</code> is run first and processes the raw data file <code>raw_data.csv</code>. When this is run, <code>clean_data.R</code> produces the cleaned data file <code>clean_data.csv</code>. <code>plot_data.R</code> is run next, which uses <code>clean_data.csv</code> and produces the final output <code>figure1.png</code>.</p>
+<pre><code>data
+    |_raw_data.csv
+    |_clean_data.csv
+scripts
+    |_clean_data.R
+    |_plot_data.R
+results
+    |_figure1.png
+    |_raw_data.csv
+    |_clean_data.csv</code></pre>
+<p>These scripts must be run in the correct order, and any time changes are made to upstream data or scripts, downstream scripts must be run to update downstream data and results. To ensure reproducibility of your code, we recommend everyone employ one of the three following options when using a coding pipeline, with the three options in ascending order of recommendation from “minimum required” to “best practice.”</p>
 <ul>
-<li>Use scripts<br />
+<li><strong>Option 1 (minimum required):</strong> Provide clear documentation in the repo’s <code>README.md</code> file. This documentation should provide the complete file structure, including both scripts and data files, and should provide a narrative description of the order in which the scripts should be run, as well as which files each script uses and produces.<br />
 </li>
-<li>Document scripts, but not too much<br />
-</li>
-<li>Organize scripts consistently (see format below)<br />
-</li>
-<li>Use Git to version control scripts<br />
-</li>
-<li>Make atomic Git commits (see description below)</li>
+<li><strong>Option 2 (better practice):</strong> Create a <code>run_all.R</code> script that runs all scripts in the correct order, and can be run to fully reproduce the entire project repo’s outputs. This <code>run_all.R</code> script should be described in <code>README.md</code>. Using the example above, this script could contain the following:</li>
 </ul>
-<p>Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.</p>
-<p>Here is an example template for R scripts:</p>
-<pre><code># =============================================================================
-# Name:           script.R
-# Description:    Visualizes data
-# 
-# Inputs:         data.csv
-# Outputs:        graph.png
-# 
-# Notes:          - Use a diverging color palette for best results
-#                 - Output format can be changed as needed
-# =============================================================================
+<pre><code># Run all scripts
+# This script runs all the code in my project, from scratch
+source(&quot;scripts/clean_data.R&quot;)      # To clean the data
+source(&quot;scripts/plot_data.R&quot;)       # To plot the data</code></pre>
+<ul>
+<li><strong>Option 3 (best practice):</strong> Use the <a href="https://www.gnu.org/software/make/">make package</a>, which uses a <code>Makefile</code> to fully describe the coding pipeline through a standardized syntax of targets (output files that need to be created), prerequisites (file dependencies), and commands (how to go from prerequisites to targets). The advantage of this approach is that it automatically runs scripts in the correct order, keeps track of when changes are made to scripts or data files, and it only runs the necessary scripts to ensure that all outputs are up-to-date. If using <code>make</code>, you should describe how to use it in the repo’s <code>README.md</code>.</li>
+</ul>
+<p>The <code>Makefile</code> uses the following syntax:</p>
+<pre><code>target: prerequisites
+  command</code></pre>
+<p>Therefore, in our example, the <code>Makefile</code> would simply be the following, and the single command <code>make</code> would execute this:</p>
+<pre><code>results/figure1.png: scripts/plot_data.R data/clean_data.csv
+  Rscript scripts/plot_data.R
+data/clean_data.csv: scripts/clean_data.R data/raw_data.csv
+  Rscript scripts/clean_data.R</code></pre>
+<p>Please refer to Juan Carlos Villaseñor-Derbez’s very helpful tutorial for more information: <a href="https://github.com/jcvdav/make_tutorial">Make: End-to-end reproducibility</a>.</p>
 
-
-# Set up environment ----------------------------------------------------------
-
-library(tidyverse)
-
-# Set path for Google Drive filestream based on OS type
-# Note - this will work for Windows and Mac machines.
-# If you use Linux, you will need to set your own path to where Google Drive filestream lives.
-
-team_path &lt;- ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,&quot;G:/&quot;,&quot;/Volumes/GoogleDrive/&quot;)
-
-# Next, set the path for data directory based on whether project is current or archived.
-# Note that if you use a different Shared Drive file structure than the one recommended in the &quot;File Structure&quot; section, you will need to manually define your data path.
-# You should always double-check the automatically generated paths in order to ensure they point to the correct directory.
-
-# First, set the name of your project
-
-project_name &lt;- &quot;my-project&quot;
-
-# This will automatically determine if the project exists in the &quot;current-projects&quot; or &quot;archived-projects&quot; Shared Drive folder, and set the appropriate data path accordingly.
-data_path &lt;- ifelse(dir.exists(paste0(team_path,&quot;Shared drives/emlab/projects/current-projects/&quot;,project_name)),
-                       paste0(team_path,&quot;Shared drives/emlab/projects/current-projects/&quot;,project_name,&quot;/data/&quot;),
-                       (paste0(team_path,&quot;Shared drives/emlab/projects/archived-projects/&quot;,project_name,&quot;/data/&quot;)))
-
-
-# Import data -----------------------------------------------------------------
-
-# Load data from Shared Drive using appropriate data path
-my_raw_data &lt;- read_csv(paste0(data_path,&quot;raw/my_raw_data.csv&quot;))
-
-# Process data ----------------------------------------------------------------
-
-
-# Analyze data ----------------------------------------------------------------
-
-
-# Visualize results -----------------------------------------------------------
-
-
-# Save results ----------------------------------------------------------------
-
-</code></pre>
-<p><a href="https://git-scm.com/">Git</a> tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found <a href="https://chris.beams.io/posts/git-commit/">here</a>. There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.</p>
-<p>More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.</p>
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="4-code.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4-2-style-guide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4-3-reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="5-high-performance-computing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

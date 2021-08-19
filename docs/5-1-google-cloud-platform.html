@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2021-08-10" />
+<meta name="date" content="2021-08-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -217,6 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="4-1-scripts-and-version-control.html"><a href="4-1-scripts-and-version-control.html"><i class="fa fa-check"></i><b>4.1</b> Scripts and Version Control</a></li>
 <li class="chapter" data-level="4.2" data-path="4-2-style-guide.html"><a href="4-2-style-guide.html"><i class="fa fa-check"></i><b>4.2</b> Style Guide</a></li>
 <li class="chapter" data-level="4.3" data-path="4-3-reproducibility.html"><a href="4-3-reproducibility.html"><i class="fa fa-check"></i><b>4.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="4.4" data-path="4-4-coding-pipelines.html"><a href="4-4-coding-pipelines.html"><i class="fa fa-check"></i><b>4.4</b> Coding pipelines</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-high-performance-computing.html"><a href="5-high-performance-computing.html"><i class="fa fa-check"></i><b>5</b> High Performance Computing</a>
 <ul>
@@ -272,18 +273,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">5.1.1</span> Connecting to emLab’s Shared Drive</h3>
 <p>A key consideration when using virtual machines is being able to access data stored elsewhere instead of having to copy data to the VMs hardrive. At emLab we use Google Drive as the central repository for datasets and project files, and fortunately, there are tools to connect to it from VMs created in Compute Engine. For VMs using GUI interfaces (e.g., Windows or MacOS), one can simply use <code>filestream</code> as one would locally. However, for headless VMs such as those running Ubuntu which - we create often to run Rstudio server - we need to use a FUSE filesystem over Google Drive called <a href="https://github.com/astrada/google-drive-ocamlfuse">google-drive-ocamlfuse</a>. At of November 2019, this workflow works for <code>zesty</code> and <code>xenial</code> distributions of Ubuntu.</p>
 <p>In a VM running Ubuntu, follow the installation instructions via PPA repository found <a href="https://github.com/astrada/google-drive-ocamlfuse/wiki/Installation">here</a>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="5-1-google-cloud-platform.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:alessandro-strada/google-drive-ocamlfuse-beta</span>
-<span id="cb10-2"><a href="5-1-google-cloud-platform.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
-<span id="cb10-3"><a href="5-1-google-cloud-platform.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install google-drive-ocamlfuse</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="5-1-google-cloud-platform.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:alessandro-strada/google-drive-ocamlfuse-beta</span>
+<span id="cb14-2"><a href="5-1-google-cloud-platform.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb14-3"><a href="5-1-google-cloud-platform.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install google-drive-ocamlfuse</span></code></pre></div>
 <p>After installation you need to authorize <code>google-drive-ocamlfuse</code> and create a label for the connection. Labels are useful if you want to mount your personal drive as well as emLab’s Shared Drive. To authorize and create a label for our shared drive run:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="5-1-google-cloud-platform.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-headless</span> <span class="at">-label</span> emlab_drive <span class="at">-id</span> <span class="co">##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="5-1-google-cloud-platform.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-headless</span> <span class="at">-label</span> emlab_drive <span class="at">-id</span> <span class="co">##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####</span></span></code></pre></div>
 <p>Copy and paste the clientID and secret which can be found <a href="https://console.cloud.google.com/apis/credentials?project=ucsb-gfw&amp;authuser=1&amp;folder&amp;organizationId">here</a> under the <code>file-stream</code> OAuth 2.0 client ID.</p>
 <p>You will get an output like this:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="5-1-google-cloud-platform.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Please,</span> open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth<span class="pp">?</span>client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri=</span>urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob<span class="kw">&amp;</span><span class="va">scope=</span>https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive<span class="kw">&amp;</span><span class="va">response_type=</span>code<span class="kw">&amp;</span><span class="va">access_type=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt=</span>force</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="5-1-google-cloud-platform.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Please,</span> open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth<span class="pp">?</span>client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri=</span>urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob<span class="kw">&amp;</span><span class="va">scope=</span>https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive<span class="kw">&amp;</span><span class="va">response_type=</span>code<span class="kw">&amp;</span><span class="va">access_type=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt=</span>force</span></code></pre></div>
 <p>Follow the prompt, grant access, and copy and paste the verification code in the terminal prompt. You should see a message saying the token was succesfully authorized.</p>
 <p>The last step to mount the team drive is to save the Shared Drive ID to the corresponding <code>config</code> file. This step is not necessary if you want to connect to your personal drive only. Open the config file in <code>~/.gdfuse/emlab_drive/config</code> and look for the team_drive_id setting. Add our Team Drive ID (0AHyeeMXswgGLUk9PVA) and save the file.</p>
 <p>Now you are ready to mount the drive to a local folder!</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="5-1-google-cloud-platform.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-label</span> emlab_drive mountPoint</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="5-1-google-cloud-platform.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-label</span> emlab_drive mountPoint</span></code></pre></div>
 </div>
 </div>
             </section>

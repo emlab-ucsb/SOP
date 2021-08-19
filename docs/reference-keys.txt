@@ -63,6 +63,7 @@ code
 scripts-and-version-control
 style-guide
 reproducibility
+coding-pipelines
 high-performance-computing
 google-cloud-platform
 connecting-to-emlabs-shared-drive
