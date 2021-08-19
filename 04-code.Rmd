@@ -165,3 +165,11 @@ data/clean_data.csv: scripts/clean_data.R data/raw_data.csv
 ```
 
 Please refer to Juan Carlos Villaseñor-Derbez's very helpful tutorial for more information: [Make: End-to-end reproducibility](https://github.com/jcvdav/make_tutorial).
+
+## Internal code review  
+
+Peer-review of each other's code is a great method for mutual learning through exposure to different coding styles and packages, ensuring reproducibility, catching any bugs, and uncovering opportunities for doing things better. We recognize that this takes time, but we believe that the time commitment is worth it for us to all become better coders and write better code. As a best practice, we recommend that for any project that has at least two researchers, there should be a systematic review of any major coding elements by the researcher who did not initially write the code. By following the best practices outlined in the `Coding Pipeline` section of this SOP, the original coder can ensure that the reviewing coder knows exactly which pieces of code are critical for their review.  
+
+Code reviews should be respectful and collegial in manner. The goal is to make all of our work better and make all us better coders, not to criticize or single anyone out.
+
+The original coder and reviewing coder should coordinate on the best method for feedback, whether that is through direct pull requests to the code, an email outlining suggestions, or a Google doc outlining suggestions.  
