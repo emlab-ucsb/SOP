@@ -65,6 +65,7 @@ style-guide
 reproducibility
 coding-pipelines
 internal-code-review
+exploratory-data-analysis
 high-performance-computing
 google-cloud-platform
 connecting-to-emlabs-shared-drive
