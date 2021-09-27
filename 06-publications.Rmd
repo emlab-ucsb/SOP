@@ -1,11 +1,10 @@
----
-title: "Reports and Publications"
-output: html_document
----
-
 # Reports and Publications
 
-## emLab Affiliation
+This section describes best practices related to emLab reports and publications.  
+
+
+## emLab Affiliation  
+
 
 Since emLab is joint between MSI and Bren and also its own research entity, we recommend emLab staff use the following affiliations for any emLab publication:
 
@@ -15,7 +14,7 @@ Since emLab is joint between MSI and Bren and also its own research entity, we r
 
 Note that journals may list affiliation addresses slightly different than what is listed above.
 
-## Reports
+## Reports  
 
 Many final deliverables for our projects include creating reports. To aid in the final report development, please see the [Report template](https://docs.google.com/document/d/1GBlTP7LVc2yTd9R3ByDxDFP9YGfRYOutJK4S4fdnOmk/edit) for information on a draft cover page, inside page, logos to use, and suggested citation.
 
@@ -23,11 +22,11 @@ To ensure future searchability, **please upload all final reports to Zenodo** - 
 
 We have created an [emLab repository](https://zenodo.org/communities/emlab-ucsb/) for all of our reports to live. To upload to the emLab community repository, use [this link](https://zenodo.org/deposit/new?c=emlab-ucsb) and fill out all of the required information.
 
-## Author Contribution
+## Author Contribution  
 
 Transparency in authors’ contribution is a critical component of open science. Determining authorship is ultimately the responsibility of the project leads (i.e. principal investigator and/or first author), but because author contribution is not always straightforward, we follow [McNutt et al. (2018)](https://www.pnas.org/content/115/11/2557) and others in recommending the [Contributor Roles Taxonomy (CRediT)](https://www.cell.com/pb/assets/raw/shared/guidelines/CRediT-taxonomy.pdf) system. For a simplified version of this most relevant to our project infrastructure, feel free to use and modify our [Author Contribution Template](https://docs.google.com/spreadsheets/d/1qWJea1Bo8lpbYqEJjojZ_WpSS500uaYjCJzyiy3s3bc/edit#gid=0), which allows individuals to identify their contributions or to opt-out of participation in a paper. We recommend discussing authorship expectations early in a project to avoid future complications.
 
-## Making Your Data Publicly Available
+## Making Your Data Publicly Available  
 
 Generally, emLab researchers should be prepared to share a public GitHub repository (see Section 6.4) and a Dryad data repository with publications. The repositories contain code scripts and data (respectively) needed to conduct the study. Increasingly, journals are requiring both sets of documentation at the point of submission or publication. 
 
@@ -44,11 +43,11 @@ Dryad is an open-access repository of research data that makes data searchable, 
 9. During curation, Dryad will check your submission to ensure the validity of files and metadata. Dryad may contact you questions, suggestions, and/or identified problems.
 10. Once the dataset is approved, the Dryad DOI is officially registered and made public. Note that you can contact Dryad in order to delay the publication of your data until your publication date. Include DOI in your manuscript’s Data Availability statement, or consider citing it the References section.
 
-## Preparing a Public GitHub Repository
+## Preparing a Public GitHub Repository  
 
 As with data, we strive to make all our code available. This provides a roadmap of converting input data into tangible results, which may be of interest for external people seeking to replicate our study or for internal emLabers seeking to understand what someone did a few years ago.
 
-### Documentation
+### Documentation  
 
 One of the most important things to include in the repo is a `README.md` file. This will be automatically displayed as rendered markdown on GitHub, and should provide a simple explanation of what's in the repo, how to run it, and how it was run in the past. If possible / necessary, you might want to include a file structure (Take a look at using [`startR::create_readme()`](https://github.com/jcvdav/startR) for automating this). If relevant, you might want to include the title of the paper / project, and a link to any online material (e.g. the publication itself).
 
@@ -62,7 +61,7 @@ In paragraph or bullet-list form, make sure to specify the following:
 
 When in doubt, check out [the repository](https://github.com/grantmcdermott/bycatch) that Grant McDermott and Matt Burgess provided for their Science paper on [Effort reduction and bycatch](https://science.sciencemag.org/content/359/6381/1255).
 
-### Sanitizing the repository
+### Sanitizing the repository  
 
 When tracking a project, we'll usually end up with many small, meaningless commit messages such as "fixed typo", "fixed bug", or "actually fixed bug". While these small incremental changes allow us to revert back during the production process, in the end, we may not want to have the full list of bug fixes and meaningless commit messages visible. Thankfully, Git allows us to clean things up a bit using `git rebase`. Here's an example of what your code might look like:
 
@@ -140,14 +139,7 @@ s 871adf OK, plot actually done          --- newer commit
 
 Now, simply save and close the file; you'll be prompted back to your command line. The next thing to do is to give the new commit a name. Your editor will pup up. You can use the default message, or replace it with something like "Plot model output". Save the file, close it, and push your changes. You can read much more about this on Git's help page for [Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) (sounds cool, right?).
 
-## Sharing public data, Shiny apps, and tools on our website  
+## Sharing public data, Shiny apps, and tools on our website    
 
 Any time emLab develops publicly available datasets, Shiny apps, or tools, we would love to share these on the emLab website. Any time you release a publicly available dataset, Shiny app, or other tool, please Slack or email Erin O'Reilly (eoreilly@ucsb.edu) the following information: name of the dataset app or tool, link, date published, and the emLab project it is associated with.
-
-
-
-
-
-
-
 

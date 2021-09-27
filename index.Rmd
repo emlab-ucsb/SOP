@@ -1,6 +1,6 @@
 ---
 title: "emLab Standard Operating Procedures"
-author: ""
+author: "Environmental Markets Lab (emLab)"
 date: "`r Sys.Date()`"
 description: "Standard operating procedures for emLab projects"
 url: "https://emlab-ucsb.github.io/SOP/"

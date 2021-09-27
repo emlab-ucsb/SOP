@@ -1,8 +1,3 @@
----
-title: "Data"
-output: html_document
----
-
 # Data
 
 Data should be managed and shared properly to make it useful in research, to promote transparency and facilitate reproducibility, and to ensure the credibility of research. This includes such practices as transforming data into a tidy format, storing data in open file formats, and providing data documentation. **All emLab data, unless restricted, should be stored in the emLab Shared Drive (location dependent on type of data, see Section 2.2.3).**

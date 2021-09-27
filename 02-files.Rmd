@@ -1,8 +1,3 @@
----
-title: "File Structure"
-output: html_document
----
-
 # File Structure
 
 This section details the emLab's organizational stucture for files and data stored on Google Drive and code stored on GitHub.
