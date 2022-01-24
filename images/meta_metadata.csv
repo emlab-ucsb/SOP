@@ -12,7 +12,7 @@ Citation,Hyperlinked reference to publication or online resource or contact for 
 URL,Link to original data source
 Extent,global; regional; national; local [drop down menu]
 Resolution,Resolution of spatial data (in degrees)
-Permissions,open = open source/open access; restricted = need author permission; secure = confidential data and likely involves an NDA [drop down menu]
+Permissions,open = open source/open access; restricted = need author permission; secure = confidential data and likely involves a DUA or NDA [drop down menu]
 Start year,Data set start year; numeric
 End year,Data set end year; numeric
 Source,e.g. emLab; FAO; Rare
