@@ -24,7 +24,7 @@
 <meta name="author" content="Environmental Markets Lab (emLab)" />
 
 
-<meta name="date" content="2021-09-27" />
+<meta name="date" content="2022-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,6 +212,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="3-4-tidy-data.html"><a href="3-4-tidy-data.html#recommended-resources"><i class="fa fa-check"></i><b>3.4.1</b> Recommended Resources</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="3-5-data-formats.html"><a href="3-5-data-formats.html"><i class="fa fa-check"></i><b>3.5</b> Data Formats</a></li>
+<li class="chapter" data-level="3.6" data-path="3-6-data-use-agreements-and-confidential-data.html"><a href="3-6-data-use-agreements-and-confidential-data.html"><i class="fa fa-check"></i><b>3.6</b> Data Use Agreements and Confidential Data</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="3-6-data-use-agreements-and-confidential-data.html"><a href="3-6-data-use-agreements-and-confidential-data.html#the-process-for-establishing-a-data-use-agreement-or-non-disclosure-agreement"><i class="fa fa-check"></i><b>3.6.1</b> The process for establishing a Data Use Agreement or Non-Disclosure Agreement</a></li>
+<li class="chapter" data-level="3.6.2" data-path="3-6-data-use-agreements-and-confidential-data.html"><a href="3-6-data-use-agreements-and-confidential-data.html#data-storage-options"><i class="fa fa-check"></i><b>3.6.2</b> Data storage options</a></li>
+<li class="chapter" data-level="3.6.3" data-path="3-6-data-use-agreements-and-confidential-data.html"><a href="3-6-data-use-agreements-and-confidential-data.html#other-best-practices"><i class="fa fa-check"></i><b>3.6.3</b> Other best practices</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-code.html"><a href="4-code.html"><i class="fa fa-check"></i><b>4</b> Code</a>
 <ul>
@@ -283,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="5-1-google-cloud-platform.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-headless</span> <span class="at">-label</span> emlab_drive <span class="at">-id</span> <span class="co">##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####</span></span></code></pre></div>
 <p>Copy and paste the clientID and secret which can be found <a href="https://console.cloud.google.com/apis/credentials?project=ucsb-gfw&amp;authuser=1&amp;folder&amp;organizationId">here</a> under the <code>file-stream</code> OAuth 2.0 client ID.</p>
 <p>You will get an output like this:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="5-1-google-cloud-platform.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Please,</span> open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth<span class="pp">?</span>client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri=</span>urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob<span class="kw">&amp;</span><span class="va">scope=</span>https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive<span class="kw">&amp;</span><span class="va">response_type=</span>code<span class="kw">&amp;</span><span class="va">access_type=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt=</span>force</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="5-1-google-cloud-platform.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Please,</span> open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth<span class="pp">?</span>client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri</span><span class="op">=</span>urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob<span class="kw">&amp;</span><span class="va">scope</span><span class="op">=</span>https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive<span class="kw">&amp;</span><span class="va">response_type</span><span class="op">=</span>code<span class="kw">&amp;</span><span class="va">access_type</span><span class="op">=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt</span><span class="op">=</span>force</span></code></pre></div>
 <p>Follow the prompt, grant access, and copy and paste the verification code in the terminal prompt. You should see a message saying the token was succesfully authorized.</p>
 <p>The last step to mount the team drive is to save the Shared Drive ID to the corresponding <code>config</code> file. This step is not necessary if you want to connect to your personal drive only. Open the config file in <code>~/.gdfuse/emlab_drive/config</code> and look for the team_drive_id setting. Add our Team Drive ID (0AHyeeMXswgGLUk9PVA) and save the file.</p>
 <p>Now you are ready to mount the drive to a local folder!</p>

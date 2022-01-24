@@ -59,6 +59,10 @@ project-level-data-directory
 tidy-data
 recommended-resources
 data-formats
+data-use-agreements-and-confidential-data
+the-process-for-establishing-a-data-use-agreement-or-non-disclosure-agreement
+data-storage-options
+other-best-practices
 code
 scripts-and-version-control
 style-guide

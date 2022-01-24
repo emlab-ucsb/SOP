@@ -134,3 +134,39 @@ When saving final geospatial products, we recommend [geopackage](http://www.geop
 
 Geopackage files can be written and read in R, QGIS, and ArcGIS. 
 
+## Data Use Agreements and Confidential Data  
+
+### The process for establishing a Data Use Agreement or Non-Disclosure Agreement
+
+* At project launch, the project manager and the rest of the project team should determine if a Data Use Agreement (DUA; common) or Non-Disclosure Agreement (NDA; not common) is necessary. Any project that will involve the use and sharing of data that is not publicly available should establish a DUA or NDA.  
+* Start this process right away.  
+* DUA is preferred if possible; only do NDA if necessary or requested by partner.  
+* These agreements should go through UCSB’s [Office of Technology & Industry Alliances (TIA)](https://tia.ucsb.edu).  
+    + [This page](https://tia.ucsb.edu/industry-contracts/data-use-agreements/) provides guidelines for establishing a DUA. The first step in establishing a DUA is to fill out a [DUA Request Form](https://tia.ucsb.edu/wp-content/uploads/2021/09/DUA-Request-Form.pdf) and send it to Jenna Nakano (nakano@tia.ucsb.edu).
+    + [This page](https://tia.ucsb.edu/industry-contracts/non-disclosure-agreements/) provides guidelines for establishing an NDA. The first step in establishing an NDA is to fill out a [NDA Request Form](https://tia.ucsb.edu/wp-content/uploads/2021/09/Request-for-Confidential-Disclosure-Agreement-Form-5.pdf) and send it to Jenna Nakano (nakano@tia.ucsb.edu).  
+    + CC emLab's Amanda Kelley (aekelley@ucsb.edu) on all emails relating to the DUA or NDA.  
+    + Once a request form has been sent, TIA will help produce standardized agreements that are based on answers to these forms. Alternatively, TIA can also review DUAs or NDAs that partners share.
+
+### Data storage options  
+
+* emLab is generally happy to work with partners to determine the most appropriate method for data storage. Some partners may have specific data storage requirements that will be laid out in the DUA or NDA.   
+* If the DUA or NDA does not have specific data storage requirements, we recommend one of the following three approaches depending on how sensitive the data are:  
+    + For data that are *not* confidential or sensitive, data should be stored in a project-specific directory on the emLab Team Drive. Only emLab PIs and full-time emLab staff will have default access to this data directory. Any additional access for postdocs, students, or other external collaborators will only be granted on an as-needed basis and only after the collaborator has read the DUA or NDA. This option is used for the vast majority of emLab projects.
+    + For confidential or sensitive data, the first recommended approach is the UCSB [Knot Cluster](http://csc.cnsi.ucsb.edu/clusters/knot) through the [Center for Scientific Computing](https://csc.cnsi.ucsb.edu/resources). 
+        - To set this up, use the [request form here](http://csc.cnsi.ucsb.edu/acct). Nathan (Fuzzy) Rogers (Research Computing Administrator, fuz@mrl.ucsb.edu) and Paul Weakliem (CNSI Research Computing Support, weakliem@cnsi.ucsb.edu) are good resources for questions. 
+        - Anyone storing sensitive data with the knot cluster should ensure that UCSB locks the data so that they remain private.
+    + For confidential or sensitive data, the second recommended approach is storing data on the [Secure Compute Research Environment (SCRE)](https://www.it.ucsb.edu/research-computing/secure-compute-research-environment) at UCSB’s [North Hall Data Center](https://www.it.ucsb.edu/enterprise-technology-services/north-hall-data-center). The SCRE “is a private, secure, virtual environment for researchers to remotely analyze sensitive data, create research results, and output results and analyses.”  
+        - Setting up an SCRE gives you access to a secure virtual desktop that comes pre-loaded with applications such as R and R Studio. Once it is set up, using this virtual desktop should provide a similar feeling experience to using a personal computer.
+        - You can make a request for an SCRE using the [request form here](https://www.it.ucsb.edu/secure-compute-research-environment/request-secure-compute-research-virtual-desktop).
+        - UCSB IT will help set this up. You can follow up with questions at scre-support@ets.ucsb.edu
+        - Requests are usually fulfilled within one week.
+        - Further information can be found in the [SCRE user guide](https://www.it.ucsb.edu/secure-compute-research-environment/secure-compute-research-environment-user-guide).
+        - It should be noted that the SCRE is relatively slow, and is very difficult to access for non-UCSB collaborators  
+
+### Other best practices
+
+Regardless of the data storage option chosen, we recommend several additional best practices:
+
+* High-level metadata for all datasets should be added to the _emlab_data_directory. See this section in the emLab SOP for further description of the emLab data directory. This will help emLab be internally transparent in how we are using data for different projects, even if the entire group doesn’t have access to the data.  
+    + For datasets that are confidential, ensure that the “Permissions” column is set to “Secure = confidential data and likely involves a DUA or NDA.”  
+* Researchers should consider anonymizing individual-level data before publicly releasing the data (see [this R package](https://github.com/paulhendricks/anonymizer) as one example for how to do this).
