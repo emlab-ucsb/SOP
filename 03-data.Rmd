@@ -152,16 +152,18 @@ Geopackage files can be written and read in R, QGIS, and ArcGIS.
 * emLab is generally happy to work with partners to determine the most appropriate method for data storage. Some partners may have specific data storage requirements that will be laid out in the DUA or NDA.   
 * If the DUA or NDA does not have specific data storage requirements, we recommend one of the following three approaches depending on how sensitive the data are:  
     + For data that are *not* confidential or sensitive, data should be stored in a project-specific directory on the emLab Team Drive. Only emLab PIs and full-time emLab staff will have default access to this data directory. Any additional access for postdocs, students, or other external collaborators will only be granted on an as-needed basis and only after the collaborator has read the DUA or NDA. This option is used for the vast majority of emLab projects.
-    + For confidential or sensitive data, the first recommended approach is the UCSB [Knot Cluster](http://csc.cnsi.ucsb.edu/clusters/knot) through the [Center for Scientific Computing](https://csc.cnsi.ucsb.edu/resources). 
+    + For confidential or sensitive data, the primary recommended approach is the UCSB [Knot Cluster](http://csc.cnsi.ucsb.edu/clusters/knot) through the [Center for Scientific Computing](https://csc.cnsi.ucsb.edu/resources). 
+        - We recommend using this approach if your DUA or NDA allows for it.  
         - To set this up, use the [request form here](http://csc.cnsi.ucsb.edu/acct). Nathan (Fuzzy) Rogers (Research Computing Administrator, fuz@mrl.ucsb.edu) and Paul Weakliem (CNSI Research Computing Support, weakliem@cnsi.ucsb.edu) are good resources for questions. 
         - Anyone storing sensitive data with the knot cluster should ensure that UCSB locks the data so that they remain private.
-    + For confidential or sensitive data, the second recommended approach is storing data on the [Secure Compute Research Environment (SCRE)](https://www.it.ucsb.edu/research-computing/secure-compute-research-environment) at UCSB’s [North Hall Data Center](https://www.it.ucsb.edu/enterprise-technology-services/north-hall-data-center). The SCRE “is a private, secure, virtual environment for researchers to remotely analyze sensitive data, create research results, and output results and analyses.”  
-        - Setting up an SCRE gives you access to a secure virtual desktop that comes pre-loaded with applications such as R and R Studio. Once it is set up, using this virtual desktop should provide a similar feeling experience to using a personal computer.
+    + For confidential or sensitive data, the second option is storing data on the [Secure Compute Research Environment (SCRE)](https://www.it.ucsb.edu/research-computing/secure-compute-research-environment) at UCSB’s [North Hall Data Center](https://www.it.ucsb.edu/enterprise-technology-services/north-hall-data-center). The SCRE “is a private, secure, virtual environment for researchers to remotely analyze sensitive data, create research results, and output results and analyses.”  
+        - We only recommend this approach if your DUA or NDA requires data be stored in a secure facility like the North Hall Data Center  
+        - Setting up an SCRE gives you access to a secure virtual desktop that comes pre-loaded with applications such as R and R Studio.
         - You can make a request for an SCRE using the [request form here](https://www.it.ucsb.edu/secure-compute-research-environment/request-secure-compute-research-virtual-desktop).
         - UCSB IT will help set this up. You can follow up with questions at scre-support@ets.ucsb.edu
         - Requests are usually fulfilled within one week.
-        - Further information can be found in the [SCRE user guide](https://www.it.ucsb.edu/secure-compute-research-environment/secure-compute-research-environment-user-guide).
-        - It should be noted that the SCRE is relatively slow, and is very difficult to access for non-UCSB collaborators  
+        - Further information can be found in the [SCRE user guide](https://www.it.ucsb.edu/secure-compute-research-environment/secure-compute-research-environment-user-guide). Jennifer Mehl (Information Security Analyst, jennifer.mehl@ucsb.edu) is another good resource for questions.  
+        - The SCRE has a number of important limitations: it is relatively slow; it is very difficult to access for non-UCSB collaborators; it can only be set up after the NDA/DUA is established; it can be difficult to install Stata and may require an individual license; any non-standard R packages need to be installed manually by a UCSB person managing the SCRE 
 
 ### Other best practices
 
