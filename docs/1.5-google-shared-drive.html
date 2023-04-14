@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 High Performance Computing | emLab Standard Operating Procedures</title>
+  <title>1.5 Google Shared Drive | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="1.5 Google Shared Drive | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="1.5 Google Shared Drive | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="4.6-exploratory-data-analysis.html"/>
-<link rel="next" href="5.1-google-cloud-platform.html"/>
+<link rel="prev" href="1.4-airtable.html"/>
+<link rel="next" href="1.6-git-and-github.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,35 +265,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="high-performance-computing" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> High Performance Computing<a href="5-high-performance-computing.html#high-performance-computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Certain analysis use cases require high performance computing resources:</p>
+<div id="google-shared-drive" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Google Shared Drive<a href="1.5-google-shared-drive.html#google-shared-drive" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We have all experienced the moment where we can’t remember where a Google Doc is. To help solve this problem, we created an emLab Shared Google Drive, which is a centralized space for all of our documents to live within a shared file structure. Unlike files in My Drive (your personal Google Drive account), files within the Shared Drive belong to the team instead of an individual. So even if people leave, the files stay exactly where they are and aren’t lost with that person’s account. The structure of Shared Drive is detailed in Section 2. You can read more about Shared Drives <a href="https://support.google.com/a/users/answer/9310351">here</a>.</p>
+<div id="sharing-files" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Sharing Files<a href="1.5-google-shared-drive.html#sharing-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Note: for Shared Drive, you either add someone to the entire Drive OR share individual files with them. <strong>You cannot share folders within a Shared Drive with external collaborators.</strong></p>
+<p>Members of the Shared Drive can see all folders and files within the Drive. If you want to send a quick link to someone who is part of the Shared Drive, simply copy the URL from your browser. There is no need to create a shared link if you are sending it to someone with access to the emLab Shared Drive.</p>
+<p>If you want to share files with people outside of the emLab Shared Drive, that is still possible. Within a document, click on Share in the upper right hand corner. From there are two options: either add people’s emails or create a shared link.</p>
+</div>
+<div id="linking-the-shared-drive-and-your-computer" class="section level3 hasAnchor" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Linking the Shared Drive and your Computer<a href="1.5-google-shared-drive.html#linking-the-shared-drive-and-your-computer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="why-install-drive-file-stream" class="section level4 hasAnchor" number="1.5.2.1">
+<h4><span class="header-section-number">1.5.2.1</span> Why Install Drive File Stream?<a href="1.5-google-shared-drive.html#why-install-drive-file-stream" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As explained above, using a Shared Drive means that individuals don’t “own” the files. All files are instead owned by the emLab Shared Drive, which lives “on the cloud”. You can access these files through a web browser, just as you would access them on Google Drive. However, it is nice to have the files directly in your computer. To do so, you’ll need to <a href="https://support.google.com/a/answer/7491144?hl=en">install Drive File Stream</a>, Google’s new system that will partially replace Google Backup and Sync</p>
+<p>There are important distinctions between <strong>Backup and Sync</strong> and <strong>Drive File Stream</strong>. As the names indicate it, <strong>Backup and Sync</strong> syncs and stores Drive content locally on your computer (that is, it takes up space in your hard drive). <strong>Drive File Stream</strong>, however <em>streams</em> all files and folders from the cloud. You can think of these as owning a DVD vs. streaming the movie from NetFlix. You can read more on the differences between these approaches <a href="https://support.google.com/drive/answer/7638428?hl=en&amp;ref_topic=6069785">here</a>.</p>
+</div>
+<div id="step-by-step-installation" class="section level4 hasAnchor" number="1.5.2.2">
+<h4><span class="header-section-number">1.5.2.2</span> Step-by-step Installation<a href="1.5-google-shared-drive.html#step-by-step-installation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
-<li>big data</li>
-<li>parallel computing</li>
-<li>lengthy computation times</li>
-<li>restricted-use data</li>
-</ul>
-<p>For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.</p>
-<p>In these cases, you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations, such as job queues.</p>
-<p>When to use Google Cloud Platform:</p>
+<li><p>Go to <a href="https://support.google.com/drive/answer/7329379">Get started with Drive File Stream</a> and select the appropriate installer for your operating system.</p>
 <ul>
-<li>need maximum computational flexibility</li>
+<li>Note: Make sure you are on your ucsb account</li>
+</ul></li>
 </ul>
-<p>When to use UCSB server clusters:</p>
+<div class="figure">
+<img src="images/shared_drive_download_installer.PNG" alt="" />
+<p class="caption">Download Drive File Stream</p>
+</div>
 <ul>
-<li>costs are a concern</li>
-<li>using Stata</li>
-<li>using restricted-use data (depends on data use agreement)</li>
+<li><p>If you are on a Windows machine, execute the <code>googledrivefilestream.exe</code> file. If you are on MacOS, run the <code>googledrivefilestream.dmg</code> file and then run the <code>GoogleDriveFileStream.pkg</code> file.</p></li>
+<li><p>Follow instruction on the helper (accept all defaults)</p></li>
 </ul>
+<p>Once the installation is complete, you’ll need to sign in to your account. To do so:</p>
+<ul>
+<li><p>Click on the Drive File Stream icon (<img src="images/shared_drive_icon.png" />)</p>
+<ul>
+<li><p>On Windows machines, it should be on the bottom right corner of your screen</p></li>
+<li><p>On MacOS, it should be at the top right of your screen</p></li>
+</ul></li>
+<li><p>Sign in with your ucsb account</p></li>
+<li><p>After signing in, the application will launch a short 4-screen overview of the product</p></li>
+<li><p>The last screen should look like the screenshot below. Click on the button to open your GoogleDrive folder and access your files</p></li>
+</ul>
+<div class="figure">
+<img src="images/shared_drive_open_folder.png" alt="" />
+<p class="caption">four-screen overview</p>
+</div>
+<p>Once that finder / explorer opens, you should be able to see two folders: 1) <code>My Drive</code> and 2) <code>Shared drives</code>. The first folder will contain files owned by you (that is, your normal Google Drive Files stored on your ucsb account). The second folder will contain all shared drives you are part of. By navigating to that folder, you should see the emLab shared drive, containing all the folders mentioned earlier. A general structure of the GoogleDrive folder is shown below:</p>
+<pre><code>Google Drive
+  |__ My Drive
+  |   |__ Whatever files you have on your GoogleDrive
+  |__ Shared drives
+      |__ emlab
+          |__central-emlab-resources
+          |__communications
+          |__data
+          |__projects
+          |__strategy</code></pre>
+</div>
+</div>
+<div id="other-considerations" class="section level3 hasAnchor" number="1.5.3">
+<h3><span class="header-section-number">1.5.3</span> Other Considerations<a href="1.5-google-shared-drive.html#other-considerations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="actual-location-of-the-google-drive-folder-on-my-computer" class="section level4 hasAnchor" number="1.5.3.1">
+<h4><span class="header-section-number">1.5.3.1</span> <em>Actual</em> location of the Google Drive folder on my computer<a href="1.5-google-shared-drive.html#actual-location-of-the-google-drive-folder-on-my-computer" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Remember that File Stream will <em>stream</em>, not save files to your computer. Therefore, there will be no folder directly under your devices / hard drives. Instead, your computer will detect the Google Drive folder as if it were an external device connected to your machine. On a Mac, the folder will therefore appear on your desktop, or under the <code>Devices</code> tab of your Finder. On a Windows machine, it will appear under <code>This PC</code>, next to your hard drive and any other connected devices.</p>
+<div class="figure">
+<img src="images/shared_drive_location.png" alt="" />
+<p class="caption">Location of the Google Drive folder depending on your operating system. Left panel shows location of the folder on Mac, and right shows the location of the folder on Windows.</p>
+</div>
+</div>
+<div id="i-also-want-to-link-a-personal-gmail-account" class="section level4 hasAnchor" number="1.5.3.2">
+<h4><span class="header-section-number">1.5.3.2</span> I also want to link a personal gmail account<a href="1.5-google-shared-drive.html#i-also-want-to-link-a-personal-gmail-account" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If you also want to sync files from your personal gmail account, you’ll need to use Backup and Sync. You can install it, and make sure to sign in using your gmail account, not your ucsb account. Everything else should stay the same.</p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="4.6-exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5.1-google-cloud-platform.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1.4-airtable.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="1.6-git-and-github.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

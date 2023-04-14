@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 High Performance Computing | emLab Standard Operating Procedures</title>
+  <title>1.2 Zoom | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="1.2 Zoom | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="1.2 Zoom | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="4.6-exploratory-data-analysis.html"/>
-<link rel="next" href="5.1-google-cloud-platform.html"/>
+<link rel="prev" href="1.1-google-calendar.html"/>
+<link rel="next" href="1.3-slack.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,35 +265,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="high-performance-computing" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> High Performance Computing<a href="5-high-performance-computing.html#high-performance-computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Certain analysis use cases require high performance computing resources:</p>
+<div id="zoom" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Zoom<a href="1.2-zoom.html#zoom" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Through UCSB, we have access to a paid Zoom account, which we use for all video conferencing. You can schedule a Zoom meeting (or recurring meetings) through your <a href="https://ucsb.zoom.us/">browser</a> or the <a href="https://zoom.us/download">Zoom app</a>. Below are our Zoom best practices and guidelines.</p>
+<div id="making-scheduling-easier" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Making Scheduling Easier<a href="1.2-zoom.html#making-scheduling-easier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To make scheduling with Zoom easier, install <a href="https://gsuite.google.com/marketplace/app/zoom_for_gsuite/364750910244">Zoom for GSuite</a>. Once synced with your Zoom account, it will show up as an option along with Hangouts under conferencing when you create a calendar invite. Once created, you will also be able to see the meeting on your Zoom account.</p>
+<p><img src="images/zoom_calendar.png" style="width:50.0%;height:50.0%" /></p>
+</div>
+<div id="being-an-effective-communicator-on-zoom" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Being an Effective Communicator on Zoom…<a href="1.2-zoom.html#being-an-effective-communicator-on-zoom" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>…for meetings</strong></p>
+<p>Here are a couple of tips for getting the most out of virtual meetings:</p>
 <ul>
-<li>big data</li>
-<li>parallel computing</li>
-<li>lengthy computation times</li>
-<li>restricted-use data</li>
-</ul>
-<p>For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.</p>
-<p>In these cases, you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations, such as job queues.</p>
-<p>When to use Google Cloud Platform:</p>
+<li><p><strong>Everyone on video</strong>: it’s nice to see everyone’s face instead of talking to black boxes. If your internet isn’t acting up, turn your video on to have a more engaging conversation.</p></li>
+<li><p><strong>Sharing screens</strong>: to keep everyone on the same page, have the presenter share their screen so all of the participants are looking at the same information to avoid any possible confusion. This is a good way to troubleshoot code, walk through documents, etc.</p>
 <ul>
-<li>need maximum computational flexibility</li>
-</ul>
-<p>When to use UCSB server clusters:</p>
+<li><p>The new Zoom default is to only allow the host to screen share. To allow all participants to share their screens, go to your settings and under “who can share?” select “all participants.”
+<img src="images/zoom_screenshare.png" /></p></li>
+<li><p>Note: If you aren’t comfortable changing this setting, instead turn on the ability to have co-hosts and in the meeting select the screen-sharers to be co-hosts.</p></li>
+</ul></li>
+<li><p><strong>Whiteboard</strong>: Zoom has a whiteboard feature that allows you to draw on your screen for everyone to see. To use this feature, share your screen and select “whiteboard” instead of a browser window.</p></li>
+<li><p><strong>Nonverbal communication</strong>: use the reactions feature in the bottom bar of your zoom meeting to react during a meeting (so far there is a clap and thumbs up option). You can also raise your hand in the meeting to signal that you have a question. To raise your hand, open the participant panel by clicking on participants in the lower bar and then click “raise hand” in the lower right hand corner (note: the host can’t raise their hand).</p></li>
+<li><p><strong>Making the most of virtual meetings</strong>:</p>
 <ul>
-<li>costs are a concern</li>
-<li>using Stata</li>
-<li>using restricted-use data (depends on data use agreement)</li>
+<li><p>Circulate as much as possible (agenda, slides, google docs, etc.) before the meeting so people have time to read/review them</p></li>
+<li><p>If needed, schedule longer meetings to avoid feeling rushed and allow time to repeat things or deal with technical difficulties</p></li>
+<li><p>Notify people ASAP if they are cutting out</p></li>
+<li><p>Dial-in and use phone for audio if your internet connection is poor</p></li>
+<li><p>Turn off videos if connection is poor</p></li>
+</ul></li>
 </ul>
+<p><strong>…for lectures</strong></p>
+<p>For teaching online courses, here are a couple additional tips. These are more geared towards keeping students engaged in a remote learning setting.</p>
+<ul>
+<li><p><strong>Zoom polls</strong>: you can enable “polling” for meetings and develop a list of preset questions to ask the group. For example, after introducing a topic, you can have students do a practice problem and respond to the poll with their answer. Instructions on how to do this <a href="https://support.zoom.us/hc/en-us/articles/213756303-Polling-for-Meetings">here</a>.</p></li>
+<li><p><strong>Zoom whiteboard</strong>: if you are used to drawing on the whiteboard in class, there is a virtual option for that through zoom! When sharing your screen, select whiteboard instead of your browser and draw away.</p></li>
+<li><p><strong>Breakout rooms</strong>: if your classes are more discussion-based, you can use the breakout room feature to break the class into smaller groups. The groups can either be automatically assigned randomly or manually assigned in specific groups ahead of time. More information on <a href="https://support.zoom.us/hc/en-us/articles/206476093">breakout rooms</a> and <a href="https://support.zoom.us/hc/en-us/articles/360032752671-Pre-assigning-participants-to-breakout-rooms">pre-assigning rooms</a>.</p></li>
+<li><p><strong>Record video</strong>: record lectures and post them online for students to refer to later. You could also record yourself walking through a homework or test problem for them to reference.</p></li>
+<li><p><strong>Pause for questions</strong>: since it will be harder to see students raise their hands, build in more breaks to pause for questions. You can also encourage students to either (1) add questions to the chat and pause once a couple of questions come in or (2) have them use the raise hand feature (see nonverbal communication above).</p></li>
+</ul>
+</div>
+<div id="avoiding-zoom-bombings" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Avoiding Zoom Bombings<a href="1.2-zoom.html#avoiding-zoom-bombings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>UCSB has developed guidelines for preventing Zoom bombing. emLab is not mandating any of these settings, these are just UCSB recommendations for making meetings more secure.</p>
+<ul>
+<li><p>Class-specific recommendations <a href="https://keepteaching.id.ucsb.edu/wp-content/uploads/2020/04/Secure-Zoom-For-Classes-Cheat-Sheet-Graphics.pdf">here</a></p></li>
+<li><p>General information on securing Zoom <a href="https://www.it.ucsb.edu/increasing-your-zoom-security">here</a></p></li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="4.6-exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5.1-google-cloud-platform.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1.1-google-calendar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="1.3-slack.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

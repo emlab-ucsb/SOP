@@ -169,6 +169,8 @@ Code reviews should be respectful and collegial in manner. The goal is to make a
 
 The original coder and reviewing coder should coordinate on the best method for feedback, whether that is through direct pull requests to the code, an email outlining suggestions, or a Google doc outlining suggestions.  
 
+For further guidance on effective code reviewing techniques and guiding principles, we recommend using the [Tidyteam code review principles](https://tidyverse.github.io/code-review/). These were developed by the `tidyteam` for maintaining packages such as those found in the `tidyverse` and `tidymodels`. These guidelines are based on Google's [Code Review Developer Guide](https://google.github.io/eng-practices/review/), another helpful resource.
+
 ## Exploratory Data Analysis    
 
 Much of the work emLab does is Exploratory Data Analysis (EDA), especially during the beginning stages of a project when we are familiarizing ourselves we new datasets and rapidly prototyping data wrangling and modeling approaches. The following quote from [Hadley Wickham's R for Data Science](https://r4ds.had.co.nz/exploratory-data-analysis.html) describes EDA as:

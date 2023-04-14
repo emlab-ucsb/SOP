@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 High Performance Computing | emLab Standard Operating Procedures</title>
+  <title>1.4 Airtable | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="1.4 Airtable | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="1.4 Airtable | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="4.6-exploratory-data-analysis.html"/>
-<link rel="next" href="5.1-google-cloud-platform.html"/>
+<link rel="prev" href="1.3-slack.html"/>
+<link rel="next" href="1.5-google-shared-drive.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,35 +265,107 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="high-performance-computing" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> High Performance Computing<a href="5-high-performance-computing.html#high-performance-computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Certain analysis use cases require high performance computing resources:</p>
+<div id="airtable" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Airtable<a href="1.4-airtable.html#airtable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>At emLab, we use <a href="https://airtable.com/">Airtable</a> as our primary project management software for tracking project deliverables, activities, and roles. To put it simply, it’s a glorified spreadsheet that you can mold to fit your needs. Email Erin (<a href="mailto:eoreilly@ucsb.edu" class="email">eoreilly@ucsb.edu</a>) to be added to Airtable.</p>
+<div id="helpful-terminology" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Helpful Terminology<a href="1.4-airtable.html#helpful-terminology" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Base: think of it like a database. A base is made up of tabs of spreadsheets that can be customized and linked to one another.</p>
+<p>Workspace: multiple bases can be organized within a workspace. For example, we have an emLab workspace and individual project bases.</p>
+</div>
+<div id="getting-to-know-the-emlab-workspace" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Getting to Know the emLab Workspace<a href="1.4-airtable.html#getting-to-know-the-emlab-workspace" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Within the emLab workspace, we have the following bases:</p>
 <ul>
-<li>big data</li>
-<li>parallel computing</li>
-<li>lengthy computation times</li>
-<li>restricted-use data</li>
+<li>emLab Projects and Pipeline</li>
+<li>Project Template</li>
+<li>Project-specific bases</li>
 </ul>
-<p>For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.</p>
-<p>In these cases, you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations, such as job queues.</p>
-<p>When to use Google Cloud Platform:</p>
+<p><img src="images/airtable_workspace.png" /></p>
+<p>The <code>emLab Projects and Pipeline</code> base contains overview information about current and potential projects. It is organized into the following tabs: Team Directory, Projects (current and archived), Deliverables (as outlined in the scope of work), and In the Pipeline (potential projects and their current stage).</p>
+<p>The <code>Project Template</code> provides the basic structure for a new project-specific base. It should be copied when starting a project base from scratch.</p>
+<p>Each emLab project has its own base. Teams can customize the number and content of the spreadsheets in their baseas they see fit, but at a minimum, must include the spreadsheets and columns specified in the <code>Project Template</code> base (see ‘required information’ below). <em>If you are working on a smaller project that does not require its own base, add it to the <code>Special Projects</code> base.</em></p>
+</div>
+<div id="customizing-your-project-base" class="section level3 hasAnchor" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Customizing your Project Base<a href="1.4-airtable.html#customizing-your-project-base" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is up to you and your team to determine how to make Airtable work for you. Outlined below are different ways to customize your base. Feel free to look at other bases for inspiration!</p>
+<div id="required-information" class="section level4 hasAnchor" number="1.4.3.1">
+<h4><span class="header-section-number">1.4.3.1</span> Required Information<a href="1.4-airtable.html#required-information" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To maintain transparency within the team and keep track of who is working on what to foster collaboration, all projects should keep their Airtable base up to date.</p>
+<p>The <code>Project Template</code> provides the basic structure for a project specific base. To copy, click on the arrow in the bottom right hand corner and select “duplicate base.” Then rename the base and customize it to the needs of your team.</p>
+<p>The following tabs are required in your project base:</p>
 <ul>
-<li>need maximum computational flexibility</li>
-</ul>
-<p>When to use UCSB server clusters:</p>
+<li><p>Deliverables: all deliverables stated in the scope of work</p>
 <ul>
-<li>costs are a concern</li>
-<li>using Stata</li>
-<li>using restricted-use data (depends on data use agreement)</li>
+<li>Pro tip: add a number to the beginning of each deliverable so that when you group by deliverable in the activities tab, they show up in order instead of alphabetically</li>
+</ul></li>
+<li><p>Activities: steps to achieve the deliverables. These are a level above individual tasks. For example if the deliverable is a report, an activity could be a literature review, and tasks would be specific components of the literature review.</p></li>
+<li><p>Within the Activities tab, we employ a RACI chart to track responsibilities, which is broken into:</p>
+<ul>
+<li><p>Responsible/Assigned to: who is responsible for doing the actual work for the task</p></li>
+<li><p>Accountable: who is held accountable for the success of the task and is the decision maker</p></li>
+<li><p>Consulted/Reviewer: who needs to be consulted for additional input or review</p></li>
+<li><p>Informed: who needs to be kept in the loop on project progress</p></li>
+</ul></li>
+<li><p>Team: list of team members with their project roles. This will be linked to the activities tab so you can see who is responsible and accountable for different activities.</p></li>
 </ul>
+</div>
+<div id="additional-tab-ideas" class="section level4 hasAnchor" number="1.4.3.2">
+<h4><span class="header-section-number">1.4.3.2</span> Additional Tab Ideas<a href="1.4-airtable.html#additional-tab-ideas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p>Tasks: more detailed steps of how to reach an activity; could be day-to-day tasks</p>
+<ul>
+<li>Note: you can link a tasks tab with the activities tab to see how they feed into one another</li>
+</ul></li>
+<li><p>Datasets: way to keep track of all the datasets going into an analysis, if they have been collected, and what their priority is</p>
+<ul>
+<li>Example
+<img src="images/airtable_datasets_example.png" /></li>
+</ul></li>
+<li><p>Analyses: tracking different versions of a model run to keep track of progress and outputs of different simulations run</p>
+<ul>
+<li>Example
+<img src="images/airtable_analyses_example.png" /></li>
+</ul></li>
+<li><p>Murder board: tracking gaps in analysis</p></li>
+<li><p>On the back burner: bonus analysis that can be added on if there is extra time</p></li>
+<li><p>Stakeholders: tracking groups of stakeholders, what you want their feedback on, and when in the project you want their input</p></li>
+<li><p>Conferences and events: helps track potential conferences or events to present your work at</p></li>
+<li><p>Papers: if a project is planning to write multiple papers, dedicate a specific tab to tracking the papers and their progress</p></li>
+<li><p>Questions for PIs/team: place to keep track of unanswered questions</p></li>
+</ul>
+</div>
+<div id="column-options" class="section level4 hasAnchor" number="1.4.3.3">
+<h4><span class="header-section-number">1.4.3.3</span> Column Options<a href="1.4-airtable.html#column-options" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>There are 25 column type options within Airtable. The ones we most commonly use are: link to another record (links information from different tabs within the same base; you can’t link information across bases), single line text, long text, attachment, checkbox, multiple select, single select, and date.</p>
+<p><em>Pro tip: enable rich text formatting for the long text option to add checklists, bold and italic text, bullets, etc. Once enabled, double-click on the box you want to edit and select the ¶ symbol to see all of the formatting options.</em></p>
+<p><img src="images/airtable_rich_text.png" style="width:50.0%;height:50.0%" /></p>
+</div>
+<div id="ways-to-view-your-base" class="section level4 hasAnchor" number="1.4.3.4">
+<h4><span class="header-section-number">1.4.3.4</span> Ways to View your Base<a href="1.4-airtable.html#ways-to-view-your-base" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Different views</strong></p>
+<p>There are 5 different ways to view your base: grid, calendar, gallery, kanaban, and form, which can be explored <a href="https://airtable.com/product">here</a>.</p>
+<p><em>Pro tip: click on “Row Height” in the menu row to change the height of rows and therefore wrap text.</em></p>
+<p><img src="images/airtable_row_height.png" style="width:50.0%;height:50.0%" /></p>
+<p><strong>Filtering</strong></p>
+<p>This works like the normal filtering function in spreadsheets. You can sort A to Z, by date, exclude records with certain names, etc.</p>
+<p><strong>Grouping</strong></p>
+<p>Grouping allows you to bucket your spreadsheet by field type. You can group by deliverable, complete v. not complete, research track, etc.</p>
+<p>Example:
+<img src="images/airtable_grouping.png" /></p>
+<p><strong>Expanding a record</strong></p>
+<p>Within each tab, you can expand records in the first column to view all its information at once by clicking the two opposing arrows before the text. This option combines information from all of the columns into an easy to read card format.</p>
+<p><img src="images/airtable_expanded_record.png" /></p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="4.6-exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5.1-google-cloud-platform.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1.3-slack.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="1.5-google-shared-drive.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

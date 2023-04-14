@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 High Performance Computing | emLab Standard Operating Procedures</title>
+  <title>4.4 Coding pipelines | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.4 Coding pipelines | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.4 Coding pipelines | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="4.6-exploratory-data-analysis.html"/>
-<link rel="next" href="5.1-google-cloud-platform.html"/>
+<link rel="prev" href="4.3-reproducibility.html"/>
+<link rel="next" href="4.5-internal-code-review.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,35 +265,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="high-performance-computing" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> High Performance Computing<a href="5-high-performance-computing.html#high-performance-computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Certain analysis use cases require high performance computing resources:</p>
+<div id="coding-pipelines" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Coding pipelines<a href="4.4-coding-pipelines.html#coding-pipelines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Often, a project contains multiple script files that are each run separately, but which produce or use interconnected inputs and outputs through a coding pipeline. They must therefore be run in the correct order, and any time a change is made to an upstream script or file, all downstream scripts may need to be run for their outputs to stay up-to-date. This presents a challenge to reproducibility, and also a challenge to anyone trying to work with or review complicated coding pipelines.</p>
+<p>Consider the following example, from Juan Carlos Villaseñor-Derbez’s excellent tutorial: <a href="https://github.com/jcvdav/make_tutorial">Make: End-to-end reproducibility</a>.</p>
+<p>Consider you have the following project file structure in a GitHub repository, where <code>clean_data.R</code> is run first and processes the raw data file <code>raw_data.csv</code>. When this is run, <code>clean_data.R</code> produces the cleaned data file <code>clean_data.csv</code>. <code>plot_data.R</code> is run next, which uses <code>clean_data.csv</code> and produces the final output <code>figure1.png</code>.</p>
+<pre><code>data
+    |_raw_data.csv
+    |_clean_data.csv
+scripts
+    |_clean_data.R
+    |_plot_data.R
+results
+    |_figure1.png
+    |_raw_data.csv
+    |_clean_data.csv</code></pre>
+<p>These scripts must be run in the correct order, and any time changes are made to upstream data or scripts, downstream scripts must be run to update downstream data and results. To ensure reproducibility of your code, we recommend everyone employ one of the three following options when using a coding pipeline, with the three options in ascending order of recommendation from “minimum required” to “best practice.”</p>
 <ul>
-<li>big data</li>
-<li>parallel computing</li>
-<li>lengthy computation times</li>
-<li>restricted-use data</li>
+<li><strong>Option 1 (minimum required):</strong> Provide clear documentation in the repo’s <code>README.md</code> file. This documentation should provide the complete file structure, including both scripts and data files, and should provide a narrative description of the order in which the scripts should be run, as well as which files each script uses and produces.<br />
+</li>
+<li><strong>Option 2 (better practice):</strong> Create a <code>run_all.R</code> script that runs all scripts in the correct order, and can be run to fully reproduce the entire project repo’s outputs. This <code>run_all.R</code> script should be described in <code>README.md</code>. Using the example above, this script could contain the following:</li>
 </ul>
-<p>For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.</p>
-<p>In these cases, you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations, such as job queues.</p>
-<p>When to use Google Cloud Platform:</p>
+<pre><code># Run all scripts
+# This script runs all the code in my project, from scratch
+source(&quot;scripts/clean_data.R&quot;)      # To clean the data
+source(&quot;scripts/plot_data.R&quot;)       # To plot the data</code></pre>
 <ul>
-<li>need maximum computational flexibility</li>
+<li><strong>Option 3 (best practice):</strong> Use the <a href="https://www.gnu.org/software/make/">make package</a>, which uses a <code>Makefile</code> to fully describe the coding pipeline through a standardized syntax of targets (output files that need to be created), prerequisites (file dependencies), and commands (how to go from prerequisites to targets). The advantage of this approach is that it automatically runs scripts in the correct order, keeps track of when changes are made to scripts or data files, and it only runs the necessary scripts to ensure that all outputs are up-to-date. If using <code>make</code>, you should describe how to use it in the repo’s <code>README.md</code>.</li>
 </ul>
-<p>When to use UCSB server clusters:</p>
-<ul>
-<li>costs are a concern</li>
-<li>using Stata</li>
-<li>using restricted-use data (depends on data use agreement)</li>
-</ul>
+<p>The <code>Makefile</code> uses the following syntax:</p>
+<pre><code>target: prerequisites
+  command</code></pre>
+<p>Therefore, in our example, the <code>Makefile</code> would simply be the following, and the single command <code>make</code> would execute this:</p>
+<pre><code>results/figure1.png: scripts/plot_data.R data/clean_data.csv
+  Rscript scripts/plot_data.R
+data/clean_data.csv: scripts/clean_data.R data/raw_data.csv
+  Rscript scripts/clean_data.R</code></pre>
+<p>Please refer to Juan Carlos Villaseñor-Derbez’s very helpful tutorial for more information: <a href="https://github.com/jcvdav/make_tutorial">Make: End-to-end reproducibility</a>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="4.6-exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5.1-google-cloud-platform.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.3-reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.5-internal-code-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
