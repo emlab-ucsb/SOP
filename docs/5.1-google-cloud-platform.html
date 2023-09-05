@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.1 Google Cloud Platform | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.1 Google Cloud Platform | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Environmental Markets Lab (emLab)" />
 
 
-<meta name="date" content="2023-04-14" />
+<meta name="date" content="2023-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -281,18 +281,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">5.1.1</span> Connecting to emLab’s Shared Drive<a href="5.1-google-cloud-platform.html#connecting-to-emlabs-shared-drive" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A key consideration when using virtual machines is being able to access data stored elsewhere instead of having to copy data to the VMs hardrive. At emLab we use Google Drive as the central repository for datasets and project files, and fortunately, there are tools to connect to it from VMs created in Compute Engine. For VMs using GUI interfaces (e.g., Windows or MacOS), one can simply use <code>filestream</code> as one would locally. However, for headless VMs such as those running Ubuntu which - we create often to run Rstudio server - we need to use a FUSE filesystem over Google Drive called <a href="https://github.com/astrada/google-drive-ocamlfuse">google-drive-ocamlfuse</a>. At of November 2019, this workflow works for <code>zesty</code> and <code>xenial</code> distributions of Ubuntu.</p>
 <p>In a VM running Ubuntu, follow the installation instructions via PPA repository found <a href="https://github.com/astrada/google-drive-ocamlfuse/wiki/Installation">here</a>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="5.1-google-cloud-platform.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:alessandro-strada/google-drive-ocamlfuse-beta</span>
-<span id="cb14-2"><a href="5.1-google-cloud-platform.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
-<span id="cb14-3"><a href="5.1-google-cloud-platform.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install google-drive-ocamlfuse</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="5.1-google-cloud-platform.html#cb14-1" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:alessandro-strada/google-drive-ocamlfuse-beta</span>
+<span id="cb14-2"><a href="5.1-google-cloud-platform.html#cb14-2" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb14-3"><a href="5.1-google-cloud-platform.html#cb14-3" tabindex="-1"></a><span class="fu">sudo</span> apt-get install google-drive-ocamlfuse</span></code></pre></div>
 <p>After installation you need to authorize <code>google-drive-ocamlfuse</code> and create a label for the connection. Labels are useful if you want to mount your personal drive as well as emLab’s Shared Drive. To authorize and create a label for our shared drive run:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="5.1-google-cloud-platform.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-headless</span> <span class="at">-label</span> emlab_drive <span class="at">-id</span> <span class="co">##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="5.1-google-cloud-platform.html#cb15-1" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-headless</span> <span class="at">-label</span> emlab_drive <span class="at">-id</span> <span class="co">##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####</span></span></code></pre></div>
 <p>Copy and paste the clientID and secret which can be found <a href="https://console.cloud.google.com/apis/credentials?project=ucsb-gfw&amp;authuser=1&amp;folder&amp;organizationId">here</a> under the <code>file-stream</code> OAuth 2.0 client ID.</p>
 <p>You will get an output like this:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="5.1-google-cloud-platform.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Please,</span> open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth<span class="pp">?</span>client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri</span><span class="op">=</span>urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob<span class="kw">&amp;</span><span class="va">scope</span><span class="op">=</span>https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive<span class="kw">&amp;</span><span class="va">response_type</span><span class="op">=</span>code<span class="kw">&amp;</span><span class="va">access_type</span><span class="op">=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt</span><span class="op">=</span>force</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="5.1-google-cloud-platform.html#cb16-1" tabindex="-1"></a><span class="ex">Please,</span> open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth<span class="pp">?</span>client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri</span><span class="op">=</span>urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob<span class="kw">&amp;</span><span class="va">scope</span><span class="op">=</span>https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive<span class="kw">&amp;</span><span class="va">response_type</span><span class="op">=</span>code<span class="kw">&amp;</span><span class="va">access_type</span><span class="op">=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt</span><span class="op">=</span>force</span></code></pre></div>
 <p>Follow the prompt, grant access, and copy and paste the verification code in the terminal prompt. You should see a message saying the token was succesfully authorized.</p>
 <p>The last step to mount the team drive is to save the Shared Drive ID to the corresponding <code>config</code> file. This step is not necessary if you want to connect to your personal drive only. Open the config file in <code>~/.gdfuse/emlab_drive/config</code> and look for the team_drive_id setting. Add our Team Drive ID (0AHyeeMXswgGLUk9PVA) and save the file.</p>
 <p>Now you are ready to mount the drive to a local folder!</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="5.1-google-cloud-platform.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-label</span> emlab_drive mountPoint</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="5.1-google-cloud-platform.html#cb17-1" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-label</span> emlab_drive mountPoint</span></code></pre></div>
 </div>
 </div>
             </section>
