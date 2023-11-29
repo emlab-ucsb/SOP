@@ -67,6 +67,7 @@ code
 scripts-and-version-control
 style-guide
 reproducibility
+package-dependencies
 coding-pipelines
 internal-code-review
 exploratory-data-analysis

@@ -108,9 +108,17 @@ Prioritizing reproducibility when writing code code not only fosters collaborati
 - **R Markdown:** R users can take advantage of [R  Markdown](https://rmarkdown.rstudio.com/lesson-1.html) for a coding format that seamlessly integrates sections of text alongside code chunks. R Markdown also enables you to transform your code and text into report-friendly formats such as PDFs or Word documents. 
 - **Git and GitHub:** [As described above,](#scripts-and-version-control) Git tracks changes to files line-by-line in commits that are attributable to each team member working on the project. GitHub then compiles the history of any Git-tracked file online, and synchronizes the work of all collaborators in a central repository. Using Git and GitHub allow multiple people to code collaboratively, examine changes as they occur, and restore prior versions of files if necessary.
 
-## Coding pipelines  
+We also recommend managing package dependencies and creating a reproducible coding pipeline. These two aspects are discussed in more detail below.
 
-Often, a project contains multiple script files that are each run separately, but which produce or use interconnected inputs and outputs through a coding pipeline. They must therefore be run in the correct order, and any time a change is made to an upstream script or file, all downstream scripts may need to be run for their outputs to stay up-to-date. This presents a challenge to reproducibility, and also a challenge to anyone trying to work with or review complicated coding pipelines.
+### Package dependencies
+
+A key aspect of reproducibility is package dependency management. For example, your code may run perfectly when using an old version of a particular package, but might fail when using the latest version of that package. In this case, even if someone has the exact code you used, it would fail to run on their machine if they are using the latest version of that package. It is therefore important that along with providing the code you use, you should also somehow provide the packages and package versions you use.
+
+If using R, we recommend using [renv](https://rstudio.github.io/renv/articles/renv.html) package for managing package dependencies. `renv` was developed by the R Studio (now Posit) team. It is used at the project-level, and can thus be included as part of your GitHub respotitory. To set up your project to use `renv`, first initialize it by running `renv::init()`. You will then be able "snapshot" the packages and package version you are using in a project (by running `renv::snapshot`), and save that snapshot so that yourself or others can "restore" to that snapshot and use the exact same packages and package versions (by running `renv::restore`). This will ensure that your code will run on other machines, even if new versions of packages come out that are not backwards compatible.
+
+### Coding pipelines  
+
+Often, a project contains multiple script files that are each run separately, but which produce or use interconnected inputs and outputs through a coding pipeline. They must therefore be run in the correct order, and any time a change is made to an upstream script or file, all downstream scripts may need to be run for their outputs to stay up-to-date. This presents a challenge to reproducibility, and also a challenge to anyone trying to work with or review complicated coding pipelines. Additionally, not knowing which files and scripts are up-to-date could mean that long-running operations are re-run unnecessarily.
 
 Consider the following example, from Juan Carlos Villaseñor-Derbez's excellent tutorial: [Make: End-to-end reproducibility](https://github.com/jcvdav/make_tutorial).
 
@@ -129,7 +137,7 @@ results
     |_clean_data.csv
 ```
 
-These scripts must be run in the correct order, and any time changes are made to upstream data or scripts, downstream scripts must be run to update downstream data and results. To ensure reproducibility of your code, we recommend everyone employ one of the three following options when using a coding pipeline, with the three options in ascending order of recommendation from "minimum required" to "best practice."
+These scripts must be run in the correct order, and any time changes are made to upstream data or scripts, downstream scripts must be run to update downstream data and results. To ensure reproducibility of your code, we recommend everyone employ one of the three following options when using a coding pipeline, with the four options in ascending order of recommendation from "minimum required" to "best practice." We provide a best practice for non-R code, as well as a best practice for R code.
 
 * **Option 1 (minimum required):**  Provide clear documentation in the repo's `README.md` file. This documentation should provide the complete file structure, including both scripts and data files, and should provide a narrative description of the order in which the scripts should be run, as well as which files each script uses and produces.  
 * **Option 2 (better practice):** Create a `run_all.R` script that runs all scripts in the correct order, and can be run to fully reproduce the entire project repo's outputs. This `run_all.R` script should be described in `README.md`. Using the example above, this script could contain the following:
@@ -141,7 +149,7 @@ source("scripts/clean_data.R")      # To clean the data
 source("scripts/plot_data.R")       # To plot the data
 ```
 
-* **Option 3 (best practice):** Use the [make package](https://www.gnu.org/software/make/), which uses a `Makefile` to fully describe the coding pipeline through a standardized syntax of targets (output files that need to be created), prerequisites (file dependencies), and commands (how to go from prerequisites to targets). The advantage of this approach is that it automatically runs scripts in the correct order, keeps track of when changes are made to scripts or data files, and it only runs the necessary scripts to ensure that all outputs are up-to-date. If using `make`, you should describe how to use it in the repo's `README.md`.
+* **Option 3 (best practice for non-R code):** For non-R code, we recommend using the [make package](https://www.gnu.org/software/make/). This uses a `Makefile` to fully describe the coding pipeline through a standardized syntax of targets (output files that need to be created), prerequisites (file dependencies), and commands (how to go from prerequisites to targets). The advantage of this approach is that it automatically runs scripts in the correct order, keeps track of when changes are made to scripts or data files, and it only runs the necessary scripts to ensure that all outputs are up-to-date. If using `make`, you should describe how to use it in the repo's `README.md`.
 
 The `Makefile` uses the following syntax:
 
@@ -160,6 +168,10 @@ data/clean_data.csv: scripts/clean_data.R data/raw_data.csv
 ```
 
 Please refer to Juan Carlos Villaseñor-Derbez's very helpful tutorial for more information: [Make: End-to-end reproducibility](https://github.com/jcvdav/make_tutorial).
+
+* **Option 4 (best practice for R code):** For R code, we recommend using the [targets](https://github.com/ropensci/targets) package. Targets is a Make-like pipeline tool that has been specifically developed for R. Using targets means that anytime an upstream change is made to the data or models, all downstream components of the data processing and analysis will be re-run automatically when the `targets::tar_make()` command is run. It also means that once components of the analysis have already been run and are up-to-date, they will not need to be re-run. All interim objects are cached in a `_targets` directory. This directory can either be within in the project directory when the objects are small (e.g., within the GitHub repo), or can be set to another directory when objects are larger (e.g., on Google Shared Drive or Google Cloud Storage). Targets also has a built-in parallel processing option, which can allow long-running components of the analysis to be run in parallel. It also plays nicely with `renv` for package management.
+
+For further information, the [targets package documentation](https://github.com/ropensci/targets) is a great place to start. We also recommend the [presentation](https://docs.google.com/presentation/d/1PSysoO479d8FrIIs1iXxBJZnW1KBwD24bNE4ewA19Ic/edit#slide=id.p) (and associated [GitHub repository](https://github.com/traceybit/rladies-sb-targets)) developed by Tracey Mangin for [R-Ladies Santa Barbara](https://www.meetup.com/rladies-santa-barbara/) as another great primer.
 
 ## Internal code review  
 
