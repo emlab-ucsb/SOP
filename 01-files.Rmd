@@ -35,10 +35,6 @@ The emLab Google Shared Drive is organized into three main folders:
 
 * `projects`: includes information on  past (archive) and current projects
 
-A full table of contents can be seen [here](https://docs.google.com/document/d/1a26a6N4akF2dSXWfp0fWxGegd0wvrPVUeaA09en2EPE/edit). 
-
-### Project Folder Structure
-
 ```
 Google Drive
   |__ Shared drives

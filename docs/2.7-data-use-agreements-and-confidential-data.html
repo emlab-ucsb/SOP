@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 High Performance Computing | emLab Standard Operating Procedures</title>
+  <title>2.7 Data Use Agreements and Confidential Data | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2.7 Data Use Agreements and Confidential Data | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2.7 Data Use Agreements and Confidential Data | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="3.5-exploratory-data-analysis.html"/>
-<link rel="next" href="4.1-google-cloud-platform.html"/>
+<link rel="prev" href="2.6-data-formats.html"/>
+<link rel="next" href="3-code.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -228,35 +228,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="high-performance-computing" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">4</span> High Performance Computing<a href="4-high-performance-computing.html#high-performance-computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Certain analysis use cases require high performance computing resources:</p>
+<div id="data-use-agreements-and-confidential-data" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Data Use Agreements and Confidential Data<a href="2.7-data-use-agreements-and-confidential-data.html#data-use-agreements-and-confidential-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-process-for-establishing-a-data-use-agreement-or-non-disclosure-agreement" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> The process for establishing a Data Use Agreement or Non-Disclosure Agreement<a href="2.7-data-use-agreements-and-confidential-data.html#the-process-for-establishing-a-data-use-agreement-or-non-disclosure-agreement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>big data</li>
-<li>parallel computing</li>
-<li>lengthy computation times</li>
-<li>restricted-use data</li>
-</ul>
-<p>For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.</p>
-<p>In these cases, you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations, such as job queues.</p>
-<p>When to use Google Cloud Platform:</p>
+<li>At project launch, the project manager and the rest of the project team should determine if a Data Use Agreement (DUA; common) or Non-Disclosure Agreement (NDA; not common) is necessary. Any project that will involve the use and sharing of data that is not publicly available should establish a DUA or NDA.<br />
+</li>
+<li>Start this process right away.<br />
+</li>
+<li>DUA is preferred if possible; only do NDA if necessary or requested by partner.<br />
+</li>
+<li>These agreements should go through UCSB’s <a href="https://tia.ucsb.edu">Office of Technology &amp; Industry Alliances (TIA)</a>.
 <ul>
-<li>need maximum computational flexibility</li>
-</ul>
-<p>When to use UCSB server clusters:</p>
-<ul>
-<li>costs are a concern</li>
-<li>using Stata</li>
-<li>using restricted-use data (depends on data use agreement)</li>
+<li><a href="https://tia.ucsb.edu/industry-contracts/data-use-agreements/">This page</a> provides guidelines for establishing a DUA. The first step in establishing a DUA is to fill out a <a href="https://tia.ucsb.edu/wp-content/uploads/2021/09/DUA-Request-Form.pdf">DUA Request Form</a> and send it to Jenna Nakano (<a href="mailto:nakano@tia.ucsb.edu" class="email">nakano@tia.ucsb.edu</a>).</li>
+<li><a href="https://tia.ucsb.edu/industry-contracts/non-disclosure-agreements/">This page</a> provides guidelines for establishing an NDA. The first step in establishing an NDA is to fill out a <a href="https://tia.ucsb.edu/wp-content/uploads/2021/09/Request-for-Confidential-Disclosure-Agreement-Form-5.pdf">NDA Request Form</a> and send it to Jenna Nakano (<a href="mailto:nakano@tia.ucsb.edu" class="email">nakano@tia.ucsb.edu</a>).<br />
+</li>
+<li>CC emLab’s Amanda Kelley (<a href="mailto:aekelley@ucsb.edu" class="email">aekelley@ucsb.edu</a>) on all emails relating to the DUA or NDA.<br />
+</li>
+<li>Once a request form has been sent, TIA will help produce standardized agreements that are based on answers to these forms. Alternatively, TIA can also review DUAs or NDAs that partners share.</li>
+</ul></li>
 </ul>
 </div>
+<div id="data-storage-options" class="section level3 hasAnchor" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Data storage options<a href="2.7-data-use-agreements-and-confidential-data.html#data-storage-options" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>emLab is generally happy to work with partners to determine the most appropriate method for data storage. Some partners may have specific data storage requirements that will be laid out in the DUA or NDA.<br />
+</li>
+<li>If the DUA or NDA does not have specific data storage requirements, we recommend one of the following three approaches depending on how sensitive the data are:
+<ul>
+<li>For data that are <em>not</em> confidential or sensitive, data should be stored in a project-specific directory on the emLab Team Drive. Only emLab PIs and full-time emLab staff will have default access to this data directory. Any additional access for postdocs, students, or other external collaborators will only be granted on an as-needed basis and only after the collaborator has read the DUA or NDA. This option is used for the vast majority of emLab projects.</li>
+<li>For confidential or sensitive data, the primary recommended approach is the UCSB <a href="http://csc.cnsi.ucsb.edu/clusters/knot">Knot Cluster</a> through the <a href="https://csc.cnsi.ucsb.edu/resources">Center for Scientific Computing</a>.
+<ul>
+<li>We recommend using this approach if your DUA or NDA allows for it.<br />
+</li>
+<li>To set this up, use the <a href="http://csc.cnsi.ucsb.edu/acct">request form here</a>. Nathan (Fuzzy) Rogers (Research Computing Administrator, <a href="mailto:fuz@mrl.ucsb.edu" class="email">fuz@mrl.ucsb.edu</a>) and Paul Weakliem (CNSI Research Computing Support, <a href="mailto:weakliem@cnsi.ucsb.edu" class="email">weakliem@cnsi.ucsb.edu</a>) are good resources for questions.</li>
+<li>Anyone storing sensitive data with the knot cluster should ensure that UCSB locks the data so that they remain private.</li>
+</ul></li>
+<li>For confidential or sensitive data, the second option is storing data on the <a href="https://www.it.ucsb.edu/research-computing/secure-compute-research-environment">Secure Compute Research Environment (SCRE)</a> at UCSB’s <a href="https://www.it.ucsb.edu/enterprise-technology-services/north-hall-data-center">North Hall Data Center</a>. The SCRE “is a private, secure, virtual environment for researchers to remotely analyze sensitive data, create research results, and output results and analyses.”
+<ul>
+<li>We only recommend this approach if your DUA or NDA requires data be stored in a secure facility like the North Hall Data Center<br />
+</li>
+<li>Setting up an SCRE gives you access to a secure virtual desktop that comes pre-loaded with applications such as R and R Studio.</li>
+<li>You can make a request for an SCRE using the <a href="https://www.it.ucsb.edu/secure-compute-research-environment/request-secure-compute-research-virtual-desktop">request form here</a>.</li>
+<li>UCSB IT will help set this up. You can follow up with questions at <a href="mailto:scre-support@ets.ucsb.edu" class="email">scre-support@ets.ucsb.edu</a></li>
+<li>Requests are usually fulfilled within one week.</li>
+<li>Further information can be found in the <a href="https://www.it.ucsb.edu/secure-compute-research-environment/secure-compute-research-environment-user-guide">SCRE user guide</a>. Jennifer Mehl (Information Security Analyst, <a href="mailto:jennifer.mehl@ucsb.edu" class="email">jennifer.mehl@ucsb.edu</a>) is another good resource for questions.<br />
+</li>
+<li>The SCRE has a number of important limitations: it is relatively slow; it is very difficult to access for non-UCSB collaborators; it can only be set up after the NDA/DUA is established; it can be difficult to install Stata and may require an individual license; any non-standard R packages need to be installed manually by a UCSB person managing the SCRE</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="other-best-practices" class="section level3 hasAnchor" number="2.7.3">
+<h3><span class="header-section-number">2.7.3</span> Other best practices<a href="2.7-data-use-agreements-and-confidential-data.html#other-best-practices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Regardless of the data storage option chosen, we recommend several additional best practices:</p>
+<ul>
+<li>High-level metadata for all datasets should be added to the _emlab_data_directory. See this section in the emLab SOP for further description of the emLab data directory. This will help emLab be internally transparent in how we are using data for different projects, even if the entire group doesn’t have access to the data.
+<ul>
+<li>For datasets that are confidential, ensure that the “Permissions” column is set to “Secure = confidential data and likely involves a DUA or NDA.”<br />
+</li>
+</ul></li>
+<li>Researchers should consider anonymizing individual-level data before publicly releasing the data (see <a href="https://github.com/paulhendricks/anonymizer">this R package</a> as one example for how to do this).</li>
+</ul>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="3.5-exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4.1-google-cloud-platform.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2.6-data-formats.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="3-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

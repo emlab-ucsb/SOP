@@ -62,7 +62,7 @@ For files that may be considered more "internal notes" than datasets (Google She
 
 All readme metadata files are stored in the folder that contains the data file in the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0).
 
-## Data Directory 
+## Data Directories
 
 ### emLab Data Directory {#emlab-data-directory}
 
@@ -93,6 +93,44 @@ We highly recommend that research teams create a `data_overview` spreadsheet for
   - Name of the researcher who downloaded the data
   - Data directory entry (complete, in progress, not started, etc.)
   - Metadata sheet (complete, in progress, not started, etc.)
+
+## Accessing emLab data in R
+
+This section will go over how to access data stored in the emLab data directories (either the shared emLab directory, or project-specific data directories) using R. We provide instructions for accessing data using R on your personal local machine, or on one of emLab's GRIT servers.
+
+1. Accessing GRIT data on your local machine requires you to use the Nextcloud desktop app and set it up as described in the emLab manual. If you haven’t done so already, please complete that section. The GRIT data storage space has already been linked to our emLab `quebracho` server (and will eventually be to our forthcoming `sequoia` server).
+
+2. Set the base data directory at the top of your code to the location directory lives. You should be able to use the following code snippet to do this, which should work on either your local machines, or on a GRIT server such as quebracho or sequoia. Note that this code will automatically generate the correct directory path if using a GRIT server or a local Mac or Windows machine. If using a local Linux machine, you will need to manually modify this to incorporate your unique user name so that it matches the directory entered in Step 9 above.
+
+```
+# First determine if system is quebracho or sequoia, our GRIT servers. If so, set directory appropriately
+data_directory_base <-  ifelse(Sys.info()["nodename"] == "quebracho" | Sys.info()["nodename"] == "sequoia",
+                               "/home/emlab",
+                               # Otherwise, set the directory for local machines based on the OS
+                               # If using Mac OS, the directory will be automatically set as follows
+                               ifelse(Sys.info()["sysname"]=="Darwin",
+                                      "/Users/Shared/nextcloud/emLab",
+                               # If using Windows, the directory will be automatically set as follows
+                               ifelse(Sys.info()["sysname"]=="Windows",
+                                      "G:/Shared\ drives/nextcloud/emLab",
+                                      # If using Linux, will need to manually modify the following directory path based on their user name
+                                      # Replace your_username with your local machine user name
+                                      "/home/your_username/Nextcloud")))
+```
+
+
+Now set the project-specific directory. For example:
+
+```
+data_directory_project <- file.path(data_directory_base, "projects/current-projects/test-project-nextcloud/data")
+```
+You should now be able to read and write data into the project data directory. For example:
+
+```
+penguins <- read.csv(file.path(data_directory_project, "raw/penguins.csv"))
+```
+
+Note that you can also always navigate to the data directory in the RStudio viewer pane. To do so, simply click the 3 dots in the viewer pane, and type in the appropriate path. 
 
 
 ## Tidy Data  

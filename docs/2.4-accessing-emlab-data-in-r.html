@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 High Performance Computing | emLab Standard Operating Procedures</title>
+  <title>2.4 Accessing emLab data in R | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2.4 Accessing emLab data in R | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2.4 Accessing emLab data in R | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="3.5-exploratory-data-analysis.html"/>
-<link rel="next" href="4.1-google-cloud-platform.html"/>
+<link rel="prev" href="2.3-data-directories.html"/>
+<link rel="next" href="2.5-tidy-data.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -228,35 +228,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="high-performance-computing" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">4</span> High Performance Computing<a href="4-high-performance-computing.html#high-performance-computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Certain analysis use cases require high performance computing resources:</p>
-<ul>
-<li>big data</li>
-<li>parallel computing</li>
-<li>lengthy computation times</li>
-<li>restricted-use data</li>
-</ul>
-<p>For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.</p>
-<p>In these cases, you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations, such as job queues.</p>
-<p>When to use Google Cloud Platform:</p>
-<ul>
-<li>need maximum computational flexibility</li>
-</ul>
-<p>When to use UCSB server clusters:</p>
-<ul>
-<li>costs are a concern</li>
-<li>using Stata</li>
-<li>using restricted-use data (depends on data use agreement)</li>
-</ul>
+<div id="accessing-emlab-data-in-r" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Accessing emLab data in R<a href="2.4-accessing-emlab-data-in-r.html#accessing-emlab-data-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This section will go over how to access data stored in the emLab data directories (either the shared emLab directory, or project-specific data directories) using R. We provide instructions for accessing data using R on your personal local machine, or on one of emLab’s GRIT servers.</p>
+<ol style="list-style-type: decimal">
+<li><p>Accessing GRIT data on your local machine requires you to use the Nextcloud desktop app and set it up as described in the emLab manual. If you haven’t done so already, please complete that section. The GRIT data storage space has already been linked to our emLab <code>quebracho</code> server (and will eventually be to our forthcoming <code>sequoia</code> server).</p></li>
+<li><p>Set the base data directory at the top of your code to the location directory lives. You should be able to use the following code snippet to do this, which should work on either your local machines, or on a GRIT server such as quebracho or sequoia. Note that this code will automatically generate the correct directory path if using a GRIT server or a local Mac or Windows machine. If using a local Linux machine, you will need to manually modify this to incorporate your unique user name so that it matches the directory entered in Step 9 above.</p></li>
+</ol>
+<pre><code># First determine if system is quebracho or sequoia, our GRIT servers. If so, set directory appropriately
+data_directory_base &lt;-  ifelse(Sys.info()[&quot;nodename&quot;] == &quot;quebracho&quot; | Sys.info()[&quot;nodename&quot;] == &quot;sequoia&quot;,
+                               &quot;/home/emlab&quot;,
+                               # Otherwise, set the directory for local machines based on the OS
+                               # If using Mac OS, the directory will be automatically set as follows
+                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Darwin&quot;,
+                                      &quot;/Users/Shared/nextcloud/emLab&quot;,
+                               # If using Windows, the directory will be automatically set as follows
+                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,
+                                      &quot;G:/Shared\ drives/nextcloud/emLab&quot;,
+                                      # If using Linux, will need to manually modify the following directory path based on their user name
+                                      # Replace your_username with your local machine user name
+                                      &quot;/home/your_username/Nextcloud&quot;)))</code></pre>
+<p>Now set the project-specific directory. For example:</p>
+<pre><code>data_directory_project &lt;- file.path(data_directory_base, &quot;projects/current-projects/test-project-nextcloud/data&quot;)</code></pre>
+<p>You should now be able to read and write data into the project data directory. For example:</p>
+<pre><code>penguins &lt;- read.csv(file.path(data_directory_project, &quot;raw/penguins.csv&quot;))</code></pre>
+<p>Note that you can also always navigate to the data directory in the RStudio viewer pane. To do so, simply click the 3 dots in the viewer pane, and type in the appropriate path.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="3.5-exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4.1-google-cloud-platform.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2.3-data-directories.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2.5-tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 High Performance Computing | emLab Standard Operating Procedures</title>
+  <title>2.3 Data Directories | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2.3 Data Directories | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 High Performance Computing | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2.3 Data Directories | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="3.5-exploratory-data-analysis.html"/>
-<link rel="next" href="4.1-google-cloud-platform.html"/>
+<link rel="prev" href="2.2-metadata.html"/>
+<link rel="next" href="2.4-accessing-emlab-data-in-r.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -228,35 +228,142 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="high-performance-computing" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">4</span> High Performance Computing<a href="4-high-performance-computing.html#high-performance-computing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Certain analysis use cases require high performance computing resources:</p>
+<div id="data-directories" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Data Directories<a href="2.3-data-directories.html#data-directories" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="emlab-data-directory" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> emLab Data Directory<a href="2.3-data-directories.html#emlab-data-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>All emLab data is stored in subfolders of the Data folder on the emLab Team Drive (<code>emlab/data</code>). To document these data, we use the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a> that includes key, standardized information from each readme metadata file. Every data file in the <code>emlab/data</code> folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)</p>
+<p>In the case of placeholder metadata (as described in the <em>Metadata</em> section), only the following columns should be filled out: folder, filename, contact, and summary. This (mostly blank) row serves two purposes: 1) it retains some of the searchability function for that dataset and 2) it serves as a visual reminder that those datasets are in need of more robust metadata development.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Column</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Domain</td>
+<td align="left">Climate/Energy; Land; Ocean; General; Other [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Description</td>
+<td align="left">A few word description (e.g. SST US 2017); max 5 words</td>
+</tr>
+<tr class="odd">
+<td align="left">Folder</td>
+<td align="left">Name of folder containing data</td>
+</tr>
+<tr class="even">
+<td align="left">Filename</td>
+<td align="left">Name of data</td>
+</tr>
+<tr class="odd">
+<td align="left">Year</td>
+<td align="left">Year of publication</td>
+</tr>
+<tr class="even">
+<td align="left">Version</td>
+<td align="left">Sub category of year; NA if not applicable</td>
+</tr>
+<tr class="odd">
+<td align="left">Project</td>
+<td align="left">Project name that used these data (can have multiple listings) or ‘General’ if widely used (e.g. FAO data), hyperlinked to Google Drive/Box folder</td>
+</tr>
+<tr class="even">
+<td align="left">Code</td>
+<td align="left">Link to Github repo or wherever code is stored</td>
+</tr>
+<tr class="odd">
+<td align="left">Data Stage</td>
+<td align="left">raw’ if raw data; ‘final input’ for the input data used for the analysis; ‘output’ for what was used for the project and/or published [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Filetype</td>
+<td align="left">File extension (e.g. csv; tif; rds); note: do note include ‘.’</td>
+</tr>
+<tr class="odd">
+<td align="left">Citation</td>
+<td align="left">Hyperlinked reference to publication or online resource or contact for individual/group data author</td>
+</tr>
+<tr class="even">
+<td align="left">URL</td>
+<td align="left">Link to original data source</td>
+</tr>
+<tr class="odd">
+<td align="left">Extent</td>
+<td align="left">global; regional; national; local [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Resolution</td>
+<td align="left">Resolution of spatial data (in degrees)</td>
+</tr>
+<tr class="odd">
+<td align="left">Permissions</td>
+<td align="left">open = open source/open access; restricted = need author permission; secure = confidential data and likely involves a DUA or NDA [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Start year</td>
+<td align="left">Data set start year; numeric</td>
+</tr>
+<tr class="odd">
+<td align="left">End year</td>
+<td align="left">Data set end year; numeric</td>
+</tr>
+<tr class="even">
+<td align="left">Source</td>
+<td align="left">e.g. emLab; FAO; Rare</td>
+</tr>
+<tr class="odd">
+<td align="left">Contact</td>
+<td align="left">Name and email of contact person in emLab who used/stored data</td>
+</tr>
+<tr class="even">
+<td align="left">emLab reference</td>
+<td align="left">Hyperlinked reference to emLab publication using data (can be NA)</td>
+</tr>
+<tr class="odd">
+<td align="left">Keywords</td>
+<td align="left">e.g. fisheries; fire; utilities; property value; VDS; MPA; oceanography; temperature; habitat; biodiversity (up to 5 per entry, separated by semi-colons)</td>
+</tr>
+<tr class="even">
+<td align="left">Summary</td>
+<td align="left">Brief description of the data (1-2 sentences). Include years for timeseries; location/spatial extent for spatial data; key variables; resolution; sampling frequency; species; etc.</td>
+</tr>
+<tr class="odd">
+<td align="left">Notes</td>
+<td align="left">Other relevant information about data. Initial your entry (e.g. if it was processed (e.g. subset from a larger dataset); what specifically was done; are there suspicious data points?; note if there are issues; etc.)</td>
+</tr>
+</tbody>
+</table>
+<p>Any time you add a new dataset to the shared emLab data folder and directory, please message the <code>#data-streamlining</code> Slack channel so that others on the team know about the new dataset.</p>
+</div>
+<div id="project-data-directory" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Project-level Data Directory<a href="2.3-data-directories.html#project-data-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We highly recommend that research teams create a <code>data_overview</code> spreadsheet for keeping track of project-related data (i.e. a separate spreadsheet stored in the project’s Google Shared Drive data folder). This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can then be used to guide and simplify data migration to the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a> once the project is complete. Suggested attributes include:</p>
 <ul>
-<li>big data</li>
-<li>parallel computing</li>
-<li>lengthy computation times</li>
-<li>restricted-use data</li>
+<li>File name</li>
+<li>Folder name</li>
+<li>Source of data</li>
+<li>Link where data was downloaded</li>
+<li>Description of data</li>
+<li>Name of the researcher who downloaded the data</li>
+<li>Data directory entry (complete, in progress, not started, etc.)</li>
+<li>Metadata sheet (complete, in progress, not started, etc.)</li>
 </ul>
-<p>For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.</p>
-<p>In these cases, you should use the high performance computing resources available to emLab, including cloud computing through Google Cloud Platform and the UCSB server clusters. Cloud computing incurs costs but is flexible whereas the UCSB server clusters are free but have some limitations, such as job queues.</p>
-<p>When to use Google Cloud Platform:</p>
-<ul>
-<li>need maximum computational flexibility</li>
-</ul>
-<p>When to use UCSB server clusters:</p>
-<ul>
-<li>costs are a concern</li>
-<li>using Stata</li>
-<li>using restricted-use data (depends on data use agreement)</li>
-</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="3.5-exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4.1-google-cloud-platform.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2.2-metadata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2.4-accessing-emlab-data-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
