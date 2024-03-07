@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.5 Preparing a Public GitHub Repository | emLab Standard Operating Procedures</title>
+  <title>1.2 Google Shared Drive | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.5 Preparing a Public GitHub Repository | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.5 Preparing a Public GitHub Repository | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="5.4-making-your-data-publicly-available.html"/>
-<link rel="next" href="5.6-sharing-public-data-shiny-apps-and-tools-on-our-website.html"/>
+<link rel="prev" href="1.1-folder-naming.html"/>
+<link rel="next" href="1.3-grit-data-storage-space.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -228,69 +228,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preparing-a-public-github-repository" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Preparing a Public GitHub Repository<a href="5.5-preparing-a-public-github-repository.html#preparing-a-public-github-repository" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As with data, we strive to make all our code available. This provides a roadmap of converting input data into tangible results, which may be of interest for external people seeking to replicate our study or for internal emLabers seeking to understand what someone did a few years ago.</p>
-<div id="documentation" class="section level3 hasAnchor" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> Documentation<a href="5.5-preparing-a-public-github-repository.html#documentation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>One of the most important things to include in the repo is a <code>README.md</code> file. This will be automatically displayed as rendered markdown on GitHub, and should provide a simple explanation of what’s in the repo, how to run it, and how it was run in the past. If possible / necessary, you might want to include a file structure (Take a look at using <a href="https://github.com/jcvdav/startR"><code>startR::create_readme()</code></a> for automating this). If relevant, you might want to include the title of the paper / project, and a link to any online material (e.g. the publication itself).</p>
-<p>In paragraph or bullet-list form, make sure to specify the following:</p>
+<div id="google-shared-drive" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Google Shared Drive<a href="1.2-google-shared-drive.html#google-shared-drive" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Google Shared Drive and GRIT storage space share a very similar folder structure. The main difference is that the Google Shared Drive does not have any <code>data</code> folders, since all data is stored at GRIT. And of course, all files on Google Shared Drive are only collaborative Google Docs/Sheets/Slides. Everything else is stored at GRIT.</p>
+<div id="general-structure" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> General Structure<a href="1.2-google-shared-drive.html#general-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>Google Drive
+  |__ My Drive
+  |   |__ ... whatever files you have on your Google Drive ...
+  |__ Shared drives
+      |__ emLab
+          |__ central-emlab-resources
+          |__ communications
+          |__ projects</code></pre>
+<p>The emLab Google Shared Drive is organized into three main folders:</p>
 <ul>
-<li>Operative System(s) in which the project was run (e.g. <code>MacOSX Catalina</code> or <code>Ubuntu 18.4</code>)</li>
-<li>The version of R / STATA / MATLAB / Julia / Python… including major and minor (e.g. <code>R 3.6.2</code>)</li>
-<li>Any special mentions of performance needed (e.g. “This analyses requires a machine with at least 32 GB RAM and 16 cores”)</li>
-<li>Link to any relevant data repositories</li>
-<li>Any relevant contact information, should interested people have trouble running your code</li>
+<li><p><code>central-emlab-resources</code>: includes meeting and event information, project management guidelines, onboarding materials, information about travel reimbursements, strategy, computing, and the team roster</p></li>
+<li><p><code>communications</code>: includes the blog schedule, publication and media tracking, and any Google Docs/Sheets/Slides relating to communications</p></li>
+<li><p><code>projects</code>: includes information on past (archive) and current projects</p></li>
 </ul>
-<p>When in doubt, check out <a href="https://github.com/grantmcdermott/bycatch">the repository</a> that Grant McDermott and Matt Burgess provided for their Science paper on <a href="https://science.sciencemag.org/content/359/6381/1255">Effort reduction and bycatch</a>.</p>
+<p>A full table of contents can be seen <a href="https://docs.google.com/document/d/1a26a6N4akF2dSXWfp0fWxGegd0wvrPVUeaA09en2EPE/edit">here</a>.</p>
 </div>
-<div id="sanitizing-the-repository" class="section level3 hasAnchor" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> Sanitizing the repository<a href="5.5-preparing-a-public-github-repository.html#sanitizing-the-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When tracking a project, we’ll usually end up with many small, meaningless commit messages such as “fixed typo”, “fixed bug”, or “actually fixed bug”. While these small incremental changes allow us to revert back during the production process, in the end, we may not want to have the full list of bug fixes and meaningless commit messages visible. Thankfully, Git allows us to clean things up a bit using <code>git rebase</code>. Here’s an example of what your code might look like:</p>
-<pre><code>871adf OK, plot actually done       --- newer commit
-0c3317 Whoops, not yet...
-87871a Plot finalized
-afb581 Fix this and that
-4e9baa Fixed typo on x-axis
-d94e78 Plot model output
-6394dc Fixing model                 --- older commit</code></pre>
-<p>The top 6 commit messages are all related to each other. And, had you been making this plot at 9 am and not 3 pm, it would all have been a single push. Instead, we might want this to look like this:</p>
-<pre><code>871adf OK, plot actually done       --- newer commit -┐
-0c3317 Whoops, not yet...                             |
-87871a Plot finalized                                 |
-afb581 Fix this and that                              | ---- Join all this into one
-4e9baa Fixed typo on x-axis                           |
-d94e78 Plot model output           -------------------┘
-6394dc Fixing model                 --- older commit</code></pre>
-<p>In this case, we want to merge the last 6 commits into one. We want it to look like this in the end:</p>
-<pre><code>84d1f8 Plot model output                          --- newer commit (result of rebase, combining 6 messages)
-6394dc Fixing model                               --- older commit</code></pre>
-<p>We can do so by running the following line:</p>
-<p>Notice that I’ve specified the value <code>6</code> after the argument <code>HEAD~</code>. If you don’t want to count the number of commits, you can simply reference the last commit (by its hash) that you want to leave out. For example, we wanted to leave out the <code>Fixing model</code> commit, with hash (<code>6394dc</code>). Therefore, we can also run:</p>
-<p>Whichever way you go, your predetermined text editor will open. You’ll see a list of commits, containing the ones you want. (Head’s up, the older one will be on top). At the bottom of the page, you’ll see the following list of possible instructions:</p>
-<pre><code># Commands:
-# p, pick &lt;commit&gt; = use commit
-# r, reword &lt;commit&gt; = use commit, but edit the commit message
-# e, edit &lt;commit&gt; = use commit, but stop for amending
-# s, squash &lt;commit&gt; = use commit, but meld into previous commit
-# f, fixup &lt;commit&gt; = like &quot;squash&quot;, but discard this commit&#39;s log message
-# x, exec &lt;command&gt; = run command (the rest of the line) using shell
-# b, break = stop here (continue rebase later with &#39;git rebase --continue&#39;)
-# d, drop &lt;commit&gt; = remove commit
-# l, label &lt;label&gt; = label current HEAD with a name
-# t, reset &lt;label&gt; = reset HEAD to a label
-# m, merge [-C &lt;commit&gt; | -c &lt;commit&gt;] &lt;label&gt; [# &lt;oneline&gt;]
-# .       create a merge commit using the original merge commit&#39;s
-# .       message (or the oneline, if no original merge commit was
-# .       specified). Use -c &lt;commit&gt; to reword the commit message.</code></pre>
-<p>You’ll need to preface the hash with whichever command (or shortcut) you want to use. You might want to reword a commit (i.e. remove all those “F%@#!!”), so you’ll use <code>r</code>. You might want to pick the head of the commit, so you’ll use <code>p</code>. You might want to squash multiple commits into one, so you’ll use <code>s</code>. In the example above, you’ll have to edit the first word of each hash to make it look like this:</p>
-<pre><code>pick d94e78 Plot model output            --- older commit
-s 4e9baa Fixed typo on x-axis
-s afb581 Fix this and that
-s 87871a Plot finalized
-s 0c3317 Whoops, not yet...
-s 871adf OK, plot actually done          --- newer commit</code></pre>
-<p>Now, simply save and close the file; you’ll be prompted back to your command line. The next thing to do is to give the new commit a name. Your editor will pup up. You can use the default message, or replace it with something like “Plot model output”. Save the file, close it, and push your changes. You can read much more about this on Git’s help page for <a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History">Rewriting History</a> (sounds cool, right?).</p>
+<div id="project-folder-structure" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Project Folder Structure<a href="1.2-google-shared-drive.html#project-folder-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>Google Drive
+  |__ Shared drives
+      |__ emLab
+          |__ projects
+              |__ archived-projects
+              |__ current-project
+              |   |__ example-project
+              |   |   |__ deliverables
+              |   |   |__ grant-eporting
+              |   |   |__ meetings-and-events
+              |   |   |__ presentations
+              |   |   |__ project-materials</code></pre>
+<p>Each project folder must contain at least the following 5 folders:</p>
+<ul>
+<li><p><code>deliverables</code>: final reports, paper manuscripts, other final deliverables not related to data outputs</p></li>
+<li><p><code>grant-reporting</code>: grant reports for funders</p></li>
+<li><p><code>meetings-and-events</code>: meeting notes, agendas, documentation for workshop/event planning</p></li>
+<li><p><code>presentations</code>: any presentations created for the project</p></li>
+<li><p><code>project-materials</code>: everything else that does not fit into one of these folders (i.e. drafts of methods, literature review, etc.)</p></li>
+</ul>
+<p>From here, each project can add additional folders or sub-folders as needed. Ensure that any folders or sub-folders you add to the project’s Google Shared Drive folder are also added to the folder on GRIT.</p>
 </div>
 </div>
             </section>
@@ -298,8 +279,8 @@ s 871adf OK, plot actually done          --- newer commit</code></pre>
           </div>
         </div>
       </div>
-<a href="5.4-making-your-data-publicly-available.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5.6-sharing-public-data-shiny-apps-and-tools-on-our-website.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1.1-folder-naming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="1.3-grit-data-storage-space.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
