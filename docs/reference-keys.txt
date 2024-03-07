@@ -16,7 +16,6 @@ data-file-naming
 metadata
 metadata-standards
 where-to-store-metadata
-data-directories
 emlab-data-directory
 project-data-directory
 accessing-emlab-data-in-r

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.1 Scripts and Version Control | emLab Standard Operating Procedures</title>
+  <title>2.5 Accessing emLab data in R | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.1 Scripts and Version Control | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2.5 Accessing emLab data in R | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.1 Scripts and Version Control | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2.5 Accessing emLab data in R | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="3-code.html"/>
-<link rel="next" href="3.2-style-guide.html"/>
+<link rel="prev" href="2.4-project-data-directory.html"/>
+<link rel="next" href="2.6-tidy-data.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -225,85 +225,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="scripts-and-version-control" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Scripts and Version Control<a href="3.1-scripts-and-version-control.html#scripts-and-version-control" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Code should be crafted according to the following guidelines:</p>
-<ul>
-<li>Use scripts<br />
-</li>
-<li>Document scripts, but not too much<br />
-</li>
-<li>Organize scripts consistently (see format below)<br />
-</li>
-<li>Use Git to version control scripts<br />
-</li>
-<li>Make atomic Git commits (see description below)</li>
-</ul>
-<p>Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.</p>
-<p>Here is an example template for R scripts:</p>
-<pre><code># =============================================================================
-# Name:           script.R
-# Description:    Visualizes data
-# 
-# Inputs:         data.csv
-# Outputs:        graph.png
-# 
-# Notes:          - Use a diverging color palette for best results
-#                 - Output format can be changed as needed
-# =============================================================================
-
-
-# Set up environment ----------------------------------------------------------
-
-library(tidyverse)
-
-# Set path for Google Drive filestream based on OS type
-# Note - this will work for Windows and Mac machines.
-# If you use Linux, you will need to set your own path to where Google Drive filestream lives.
-
-team_path &lt;- ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,&quot;G:/&quot;,&quot;/Volumes/GoogleDrive/&quot;)
-
-# Next, set the path for data directory based on whether project is current or archived.
-# Note that if you use a different Shared Drive file structure than the one recommended in the &quot;File Structure&quot; section, you will need to manually define your data path.
-# You should always double-check the automatically generated paths in order to ensure they point to the correct directory.
-
-# First, set the name of your project
-
-project_name &lt;- &quot;my-project&quot;
-
-# This will automatically determine if the project exists in the &quot;current-projects&quot; or &quot;archived-projects&quot; Shared Drive folder, and set the appropriate data path accordingly.
-data_path &lt;- ifelse(dir.exists(paste0(team_path,&quot;Shared drives/emlab/projects/current-projects/&quot;,project_name)),
-                       paste0(team_path,&quot;Shared drives/emlab/projects/current-projects/&quot;,project_name,&quot;/data/&quot;),
-                       (paste0(team_path,&quot;Shared drives/emlab/projects/archived-projects/&quot;,project_name,&quot;/data/&quot;)))
-
-
-# Import data -----------------------------------------------------------------
-
-# Load data from Shared Drive using appropriate data path
-my_raw_data &lt;- read_csv(paste0(data_path,&quot;raw/my_raw_data.csv&quot;))
-
-# Process data ----------------------------------------------------------------
-
-
-# Analyze data ----------------------------------------------------------------
-
-
-# Visualize results -----------------------------------------------------------
-
-
-# Save results ----------------------------------------------------------------
-
-</code></pre>
-<p><a href="https://git-scm.com/">Git</a> tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found <a href="https://chris.beams.io/posts/git-commit/">here</a>. There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.</p>
-<p>More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.</p>
+<div id="accessing-emlab-data-in-r" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Accessing emLab data in R<a href="2.5-accessing-emlab-data-in-r.html#accessing-emlab-data-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This section will go over how to access data stored in the emLab data directories (either the common emLab data directory, or project-specific data directories) using R. We provide instructions for accessing data using R on your personal local machine, or on one of emLab’s GRIT servers.</p>
+<ol style="list-style-type: decimal">
+<li><p>Accessing GRIT data on your local machine requires you to use the Nextcloud desktop app and set it up as described in the emLab manual. If you haven’t done so already, please complete that section. The GRIT data storage space has already been linked to our emLab <code>quebracho</code> server (and will eventually be to our forthcoming <code>sequoia</code> server).</p></li>
+<li><p>Set the base data directory at the top of your code to the location directory lives. You should be able to use the following code snippet to do this, which should work on either your local machines, or on a GRIT server such as quebracho or sequoia. Note that this code will automatically generate the correct directory path if using a GRIT server or a local Mac or Windows machine. If using a local Linux machine, you will need to manually modify this to incorporate your unique user name so that it matches the directory entered in Step 9 above.</p></li>
+</ol>
+<pre><code># First determine if system is quebracho or sequoia, our GRIT servers. If so, set directory appropriately
+data_directory_base &lt;-  ifelse(Sys.info()[&quot;nodename&quot;] == &quot;quebracho&quot; | Sys.info()[&quot;nodename&quot;] == &quot;sequoia&quot;,
+                               &quot;/home/emlab&quot;,
+                               # Otherwise, set the directory for local machines based on the OS
+                               # If using Mac OS, the directory will be automatically set as follows
+                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Darwin&quot;,
+                                      &quot;/Users/Shared/nextcloud/emLab&quot;,
+                               # If using Windows, the directory will be automatically set as follows
+                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,
+                                      &quot;G:/Shared\ drives/nextcloud/emLab&quot;,
+                                      # If using Linux, will need to manually modify the following directory path based on their user name
+                                      # Replace your_username with your local machine user name
+                                      &quot;/home/your_username/Nextcloud&quot;)))</code></pre>
+<p>Now set the project-specific directory. For example:</p>
+<pre><code>data_directory_project &lt;- file.path(data_directory_base, &quot;projects/current-projects/test-project-nextcloud/data&quot;)</code></pre>
+<p>You should now be able to read and write data into the project data directory. For example:</p>
+<pre><code>penguins &lt;- read.csv(file.path(data_directory_project, &quot;raw/penguins.csv&quot;))</code></pre>
+<p>Note that you can also always navigate to the data directory in the RStudio viewer pane. To do so, simply click the 3 dots in the viewer pane, and type in the appropriate path.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="3-code.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="3.2-style-guide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2.4-project-data-directory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2.6-tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

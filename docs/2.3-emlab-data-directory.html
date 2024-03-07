@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.1 Scripts and Version Control | emLab Standard Operating Procedures</title>
+  <title>2.3 emLab common data directory | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.1 Scripts and Version Control | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2.3 emLab common data directory | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.1 Scripts and Version Control | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2.3 emLab common data directory | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="3-code.html"/>
-<link rel="next" href="3.2-style-guide.html"/>
+<link rel="prev" href="2.2-metadata.html"/>
+<link rel="next" href="2.4-project-data-directory.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -225,85 +225,125 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="scripts-and-version-control" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Scripts and Version Control<a href="3.1-scripts-and-version-control.html#scripts-and-version-control" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Code should be crafted according to the following guidelines:</p>
-<ul>
-<li>Use scripts<br />
-</li>
-<li>Document scripts, but not too much<br />
-</li>
-<li>Organize scripts consistently (see format below)<br />
-</li>
-<li>Use Git to version control scripts<br />
-</li>
-<li>Make atomic Git commits (see description below)</li>
-</ul>
-<p>Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.</p>
-<p>Here is an example template for R scripts:</p>
-<pre><code># =============================================================================
-# Name:           script.R
-# Description:    Visualizes data
-# 
-# Inputs:         data.csv
-# Outputs:        graph.png
-# 
-# Notes:          - Use a diverging color palette for best results
-#                 - Output format can be changed as needed
-# =============================================================================
-
-
-# Set up environment ----------------------------------------------------------
-
-library(tidyverse)
-
-# Set path for Google Drive filestream based on OS type
-# Note - this will work for Windows and Mac machines.
-# If you use Linux, you will need to set your own path to where Google Drive filestream lives.
-
-team_path &lt;- ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,&quot;G:/&quot;,&quot;/Volumes/GoogleDrive/&quot;)
-
-# Next, set the path for data directory based on whether project is current or archived.
-# Note that if you use a different Shared Drive file structure than the one recommended in the &quot;File Structure&quot; section, you will need to manually define your data path.
-# You should always double-check the automatically generated paths in order to ensure they point to the correct directory.
-
-# First, set the name of your project
-
-project_name &lt;- &quot;my-project&quot;
-
-# This will automatically determine if the project exists in the &quot;current-projects&quot; or &quot;archived-projects&quot; Shared Drive folder, and set the appropriate data path accordingly.
-data_path &lt;- ifelse(dir.exists(paste0(team_path,&quot;Shared drives/emlab/projects/current-projects/&quot;,project_name)),
-                       paste0(team_path,&quot;Shared drives/emlab/projects/current-projects/&quot;,project_name,&quot;/data/&quot;),
-                       (paste0(team_path,&quot;Shared drives/emlab/projects/archived-projects/&quot;,project_name,&quot;/data/&quot;)))
-
-
-# Import data -----------------------------------------------------------------
-
-# Load data from Shared Drive using appropriate data path
-my_raw_data &lt;- read_csv(paste0(data_path,&quot;raw/my_raw_data.csv&quot;))
-
-# Process data ----------------------------------------------------------------
-
-
-# Analyze data ----------------------------------------------------------------
-
-
-# Visualize results -----------------------------------------------------------
-
-
-# Save results ----------------------------------------------------------------
-
-</code></pre>
-<p><a href="https://git-scm.com/">Git</a> tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found <a href="https://chris.beams.io/posts/git-commit/">here</a>. There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.</p>
-<p>More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.</p>
+<div id="emlab-data-directory" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> emLab common data directory<a href="2.3-emlab-data-directory.html#emlab-data-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>All commonly used emLab data is stored in subfolders of the Data folder on the emLab GRIT storage space (<code>emlab/data</code>). To document these data, we use the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a> that includes key, standardized information from each readme metadata file. Every data file in the <code>emlab/data</code> folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)</p>
+<p>In the case of placeholder metadata (as described in the <em>Metadata</em> section), only the following columns should be filled out: folder, filename, contact, and summary. This (mostly blank) row serves two purposes: 1) it retains some of the searchability function for that dataset and 2) it serves as a visual reminder that those datasets are in need of more robust metadata development.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Column</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Domain</td>
+<td align="left">Climate/Energy; Land; Ocean; General; Other [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Description</td>
+<td align="left">A few word description (e.g. SST US 2017); max 5 words</td>
+</tr>
+<tr class="odd">
+<td align="left">Folder</td>
+<td align="left">Name of folder containing data</td>
+</tr>
+<tr class="even">
+<td align="left">Filename</td>
+<td align="left">Name of data</td>
+</tr>
+<tr class="odd">
+<td align="left">Year</td>
+<td align="left">Year of publication</td>
+</tr>
+<tr class="even">
+<td align="left">Version</td>
+<td align="left">Sub category of year; NA if not applicable</td>
+</tr>
+<tr class="odd">
+<td align="left">Project</td>
+<td align="left">Project name that used these data (can have multiple listings) or ‘General’ if widely used (e.g. FAO data), hyperlinked to Google Drive/Box folder</td>
+</tr>
+<tr class="even">
+<td align="left">Code</td>
+<td align="left">Link to Github repo or wherever code is stored</td>
+</tr>
+<tr class="odd">
+<td align="left">Data Stage</td>
+<td align="left">raw’ if raw data; ‘final input’ for the input data used for the analysis; ‘output’ for what was used for the project and/or published [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Filetype</td>
+<td align="left">File extension (e.g. csv; tif; rds); note: do note include ‘.’</td>
+</tr>
+<tr class="odd">
+<td align="left">Citation</td>
+<td align="left">Hyperlinked reference to publication or online resource or contact for individual/group data author</td>
+</tr>
+<tr class="even">
+<td align="left">URL</td>
+<td align="left">Link to original data source</td>
+</tr>
+<tr class="odd">
+<td align="left">Extent</td>
+<td align="left">global; regional; national; local [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Resolution</td>
+<td align="left">Resolution of spatial data (in degrees)</td>
+</tr>
+<tr class="odd">
+<td align="left">Permissions</td>
+<td align="left">open = open source/open access; restricted = need author permission; secure = confidential data and likely involves a DUA or NDA [drop down menu]</td>
+</tr>
+<tr class="even">
+<td align="left">Start year</td>
+<td align="left">Data set start year; numeric</td>
+</tr>
+<tr class="odd">
+<td align="left">End year</td>
+<td align="left">Data set end year; numeric</td>
+</tr>
+<tr class="even">
+<td align="left">Source</td>
+<td align="left">e.g. emLab; FAO; Rare</td>
+</tr>
+<tr class="odd">
+<td align="left">Contact</td>
+<td align="left">Name and email of contact person in emLab who used/stored data</td>
+</tr>
+<tr class="even">
+<td align="left">emLab reference</td>
+<td align="left">Hyperlinked reference to emLab publication using data (can be NA)</td>
+</tr>
+<tr class="odd">
+<td align="left">Keywords</td>
+<td align="left">e.g. fisheries; fire; utilities; property value; VDS; MPA; oceanography; temperature; habitat; biodiversity (up to 5 per entry, separated by semi-colons)</td>
+</tr>
+<tr class="even">
+<td align="left">Summary</td>
+<td align="left">Brief description of the data (1-2 sentences). Include years for timeseries; location/spatial extent for spatial data; key variables; resolution; sampling frequency; species; etc.</td>
+</tr>
+<tr class="odd">
+<td align="left">Notes</td>
+<td align="left">Other relevant information about data. Initial your entry (e.g. if it was processed (e.g. subset from a larger dataset); what specifically was done; are there suspicious data points?; note if there are issues; etc.)</td>
+</tr>
+</tbody>
+</table>
+<p>Any time you add a new dataset to the shared emLab data folder and directory, please message the <code>#data-streamlining</code> Slack channel so that others on the team know about the new dataset.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="3-code.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="3.2-style-guide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2.2-metadata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2.4-project-data-directory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
