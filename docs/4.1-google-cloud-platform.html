@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>emLab Standard Operating Procedures</title>
+  <title>4.1 Google Cloud Platform | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.1 Google Cloud Platform | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.1 Google Cloud Platform | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-
-<link rel="next" href="1-file-structure.html"/>
+<link rel="prev" href="4-high-performance-computing.html"/>
+<link rel="next" href="4.2-ucsb-server-clusters.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -223,23 +223,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">emLab Standard Operating Procedures</h1>
-<p class="author"><em>Environmental Markets Lab (emLab)</em></p>
-<p class="date"><em>2024-03-07</em></p>
+<div id="google-cloud-platform" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Google Cloud Platform<a href="4.1-google-cloud-platform.html#google-cloud-platform" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Google Cloud Platform (GCP) is a suite of cloud-based products that work together to provide robust and seamless solutions to high performance computing, big data storage, data analytics, machine learning and more. The platform is built on Google’s internal infrastructure and it’s known for it’s reliability, flexibility, speed, and a relatively low cost “pay-as-you” model. At emLab we mainly use three of GCP’s products: <a href="https://console.cloud.google.com/storage">Cloud Storage</a>, <a href="https://bigquery.cloud.google.com">BigQuery</a>, and <a href="https://console.cloud.google.com/compute">Compute Engine</a> and each year we have a limited amount of credits to cover the costs of using these tools for projects that require the storage and use of very large datasets, projects that require large computational power, or those that use Global Fishing Watch data.</p>
+<p>When it comes to high performance computing, <a href="https://console.cloud.google.com/compute">Compute Engine</a> is a very useful tool. It allows us to easily create custom-made virtual machines with the storage, memory, and number of cores needed for a given task. Virtual machines can run public images of Linux, Windows Server, and can also be used to deploy Docker containers. Starting, stopping, and deleting virtual machines is easy and fast which means we have full control on the amount of resources we use and get billed for.</p>
+<p>To get up and running with a virtual machine, Grant McDermott (SFG alumn and fellow) wrote this really good step by step <a href="https://grantmcdermott.com/rstudio-server-compute-engine/">tutorial</a>. Here you will learn how to create, start, connect to, and stop a virtual machine in Compute Engine and how to install Rstudio server and Git. Importantly, you will also find a link that walks you through the installation of Google Cloud SDK command line utility (<code>gcloud</code>) which is a prerequisite to be able to speak to your virtual machine from your local terminal. When you install <code>gcloud</code> and autenthicate your credentials you will be able to set <code>emlab-gcp</code> as your project which will link you to emlab’s billing account. If you have not joined <code>emlab-gcp</code> please get in touch with and we will set you up!</p>
+<p>General guidelines for creating and running virtual machines:</p>
+<ul>
+<li>Give your VM a descriptive name associated with the specific project you will be using it for.</li>
+<li>Give your VM a static IP address. That way you can add it to your bookmarks and access it easily.</li>
+<li>Always turn off your VM when not it use. Remember we get charged for every minute it is on.</li>
+<li>Delete the VM once the project is finished. That way we keep things tidy.</li>
+</ul>
+<div id="connecting-to-emlabs-shared-drive" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Connecting to emLab’s Shared Drive<a href="4.1-google-cloud-platform.html#connecting-to-emlabs-shared-drive" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A key consideration when using virtual machines is being able to access data stored elsewhere instead of having to copy data to the VMs hardrive. At emLab we use Google Drive as the central repository for datasets and project files, and fortunately, there are tools to connect to it from VMs created in Compute Engine. For VMs using GUI interfaces (e.g., Windows or MacOS), one can simply use <code>filestream</code> as one would locally. However, for headless VMs such as those running Ubuntu which - we create often to run Rstudio server - we need to use a FUSE filesystem over Google Drive called <a href="https://github.com/astrada/google-drive-ocamlfuse">google-drive-ocamlfuse</a>. At of November 2019, this workflow works for <code>zesty</code> and <code>xenial</code> distributions of Ubuntu.</p>
+<p>In a VM running Ubuntu, follow the installation instructions via PPA repository found <a href="https://github.com/astrada/google-drive-ocamlfuse/wiki/Installation">here</a>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="4.1-google-cloud-platform.html#cb8-1" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:alessandro-strada/google-drive-ocamlfuse-beta</span>
+<span id="cb8-2"><a href="4.1-google-cloud-platform.html#cb8-2" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb8-3"><a href="4.1-google-cloud-platform.html#cb8-3" tabindex="-1"></a><span class="fu">sudo</span> apt-get install google-drive-ocamlfuse</span></code></pre></div>
+<p>After installation you need to authorize <code>google-drive-ocamlfuse</code> and create a label for the connection. Labels are useful if you want to mount your personal drive as well as emLab’s Shared Drive. To authorize and create a label for our shared drive run:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="4.1-google-cloud-platform.html#cb9-1" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-headless</span> <span class="at">-label</span> emlab_drive <span class="at">-id</span> <span class="co">##yourClientID##.apps.googleusercontent.com -secret ###yoursecret#####</span></span></code></pre></div>
+<p>Copy and paste the clientID and secret which can be found <a href="https://console.cloud.google.com/apis/credentials?project=ucsb-gfw&amp;authuser=1&amp;folder&amp;organizationId">here</a> under the <code>file-stream</code> OAuth 2.0 client ID.</p>
+<p>You will get an output like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="4.1-google-cloud-platform.html#cb10-1" tabindex="-1"></a><span class="ex">Please,</span> open the following URL in a web browser: https://accounts.google.com/o/oauth2/auth<span class="pp">?</span>client_id=##yourClientID##.apps.googleusercontent.com<span class="kw">&amp;</span><span class="va">redirect_uri</span><span class="op">=</span>urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob<span class="kw">&amp;</span><span class="va">scope</span><span class="op">=</span>https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive<span class="kw">&amp;</span><span class="va">response_type</span><span class="op">=</span>code<span class="kw">&amp;</span><span class="va">access_type</span><span class="op">=</span>offline<span class="kw">&amp;</span><span class="va">approval_prompt</span><span class="op">=</span>force</span></code></pre></div>
+<p>Follow the prompt, grant access, and copy and paste the verification code in the terminal prompt. You should see a message saying the token was succesfully authorized.</p>
+<p>The last step to mount the team drive is to save the Shared Drive ID to the corresponding <code>config</code> file. This step is not necessary if you want to connect to your personal drive only. Open the config file in <code>~/.gdfuse/emlab_drive/config</code> and look for the team_drive_id setting. Add our Team Drive ID (0AHyeeMXswgGLUk9PVA) and save the file.</p>
+<p>Now you are ready to mount the drive to a local folder!</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="4.1-google-cloud-platform.html#cb11-1" tabindex="-1"></a><span class="ex">google-drive-ocamlfuse</span> <span class="at">-label</span> emlab_drive mountPoint</span></code></pre></div>
 </div>
-<div id="overview" class="section level1 unnumbered hasAnchor">
-<h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This reference guide describes standard operating procedures (SOP) for emLab projects. This SOP is organized into 5 different sections: (1) File Structure, (2) Data, (3) Code, (4) High Performance Computing, and (5) Reports and Publications. Section 1 covers file structure and storage; Section 2 describes file naming and metadata standards, as well as what the emLab data directory is composed of; Section 3 highlights best practices for coding; Section 4 covers high performance computing; and Section 5 outlines aspects of the publication process from emLab affiliations to preparing a public GitHub repository.</p>
-
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-file-structure.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4-high-performance-computing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.2-ucsb-server-clusters.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

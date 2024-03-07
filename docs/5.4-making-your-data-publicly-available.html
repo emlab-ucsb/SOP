@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>emLab Standard Operating Procedures</title>
+  <title>5.4 Making Your Data Publicly Available | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="emLab Standard Operating Procedures" />
+  <meta property="og:title" content="5.4 Making Your Data Publicly Available | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="5.4 Making Your Data Publicly Available | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-
-<link rel="next" href="1-file-structure.html"/>
+<link rel="prev" href="5.3-author-contribution.html"/>
+<link rel="next" href="5.5-preparing-a-public-github-repository.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -223,23 +223,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">emLab Standard Operating Procedures</h1>
-<p class="author"><em>Environmental Markets Lab (emLab)</em></p>
-<p class="date"><em>2024-03-07</em></p>
-</div>
-<div id="overview" class="section level1 unnumbered hasAnchor">
-<h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This reference guide describes standard operating procedures (SOP) for emLab projects. This SOP is organized into 5 different sections: (1) File Structure, (2) Data, (3) Code, (4) High Performance Computing, and (5) Reports and Publications. Section 1 covers file structure and storage; Section 2 describes file naming and metadata standards, as well as what the emLab data directory is composed of; Section 3 highlights best practices for coding; Section 4 covers high performance computing; and Section 5 outlines aspects of the publication process from emLab affiliations to preparing a public GitHub repository.</p>
-
+<div id="making-your-data-publicly-available" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Making Your Data Publicly Available<a href="5.4-making-your-data-publicly-available.html#making-your-data-publicly-available" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Generally, emLab researchers should be prepared to share a public GitHub repository (see Section 6.4) and a Dryad data repository with publications. The repositories contain code scripts and data (respectively) needed to conduct the study. Increasingly, journals are requiring both sets of documentation at the point of submission or publication.</p>
+<p>Dryad is an open-access repository of research data that makes data searchable, freely accessible, and citable. Data repositories do not need to be associated with a publication. Dryad is <a href="https://www.library.ucsb.edu/research-data-services/repository">free for UCSB affiliates</a> with a UCSB NetID. The following steps document the process for creating a Dryad repository. Review Dryad’s <a href="https://datadryad.org/stash/best_practices#organize">Best Practices website</a> for more useful information.</p>
+<ol style="list-style-type: decimal">
+<li>If you do not already have one, visit the <a href="https://orcid.org/">ORCID site</a> to obtain an ORCID identifier. You will need this to deposit data on Dryad.</li>
+<li>Use your ORCID username and password to sign into <a href="https://datadryad.org/stash/sessions/choose_login">Dryad</a>.</li>
+<li>Under My Datasets, select “+ Start New Dataset.”</li>
+<li>Fill in the required fields and describe your dataset. If your data is related to a manuscript in progress or a published article, you will be asked to provide the Manuscript Number or DOI.</li>
+<li>Upload your files. Note that while you cannot load a folder to Dryad, you can load a .zip file that includes a folder structure. This approach is suggested as it allows for improved organization.</li>
+<li>Review and submit. In this phase you can choose to “Enable Private for Peer Review,” which keeps your dataset private during your article’s review period. You will have access to a private dataset download URL that you can share with collaborators or the journal. If you make this selection, your dataset <strong>will not enter curation or be published</strong>. If you do not select “Enable Private for Peer Review,” you will submit your dataset to Dryad for curation. Skip to step 9 if you did not “Enable Private for Peer Review.”</li>
+<li>If you chose “Enable Private for Peer Review,” copy the URL to share with collaborators or the journal. Those who use this link may be asked to provide an email address in order to obtain the dataset. Note that in this case, users will receive an email from Dryad with instructions for how to download the dataset – <strong>notify users to check their Spam folder for this email</strong>.</li>
+<li>Once the manuscript is accepted, you can go back to your dataset and submit it to Dryad for curation. <strong>Make sure to incorporate any relevant changes that occurred during the revision period.</strong></li>
+<li>During curation, Dryad will check your submission to ensure the validity of files and metadata. Dryad may contact you questions, suggestions, and/or identified problems.</li>
+<li>Once the dataset is approved, the Dryad DOI is officially registered and made public. Note that you can contact Dryad in order to delay the publication of your data until your publication date. Include DOI in your manuscript’s Data Availability statement, or consider citing it the References section.</li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-file-structure.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="5.3-author-contribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="5.5-preparing-a-public-github-repository.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

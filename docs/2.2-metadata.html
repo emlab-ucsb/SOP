@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>emLab Standard Operating Procedures</title>
+  <title>2.2 Metadata | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2.2 Metadata | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2.2 Metadata | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-
-<link rel="next" href="1-file-structure.html"/>
+<link rel="prev" href="2.1-data-file-naming.html"/>
+<link rel="next" href="2.3-data-directory.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -223,23 +223,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">emLab Standard Operating Procedures</h1>
-<p class="author"><em>Environmental Markets Lab (emLab)</em></p>
-<p class="date"><em>2024-03-07</em></p>
+<div id="metadata" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Metadata<a href="2.2-metadata.html#metadata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Metadata is data about your data. It includes information about your data’s content, structure, authors, and permissions to make your data interpretable and usable by your future self and others. <strong>EVERY</strong> data file should be accompanied by a metadata file.</p>
+<p>This includes files that people tend to overlook or think are not useful for the broader team. For example, if you’re using Google Sheets to keep track of literature or data reviews for a specific project, these documents should also have some form of accompanying metadata.</p>
+<div id="metadata-standards" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Metadata Standards<a href="2.2-metadata.html#metadata-standards" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We use “readme” style metadata, named <code>_readme_datafilename</code>, and stored in the same folder as the data file.</p>
+<ul>
+<li><p>Create one readme file for each data file. Download and use this <a href="https://drive.google.com/open?id=1AmB69bCh4wqnZFdYuzcXR6R3cKpyUfDT">template</a> to create your readme file (when one is not already available).</p></li>
+<li><p>Name the readme <code>_readme_datafilename</code> and save as a text file.</p></li>
+<li><p>Format the readme so it is easy to understand (use bullets, break up information, etc.)</p></li>
+<li><p>Use a standardized date format (YYYY-MM-DD)</p></li>
+</ul>
+<p>We acknowledge that it may not always be feasible to draft robust metadata immediately when a dataset is first uploaded to the <code>emlab/data</code> folder. In this case, a minimal readme file can be created as a temporary placeholder that contains the following information: your name, contact info, a very brief (1-2 lines) description of the data, and a note on how you obtained them. Please refer to the <em>Data Directory</em> subheading for further instruction on how to incorporate this form of temporary documentation into the emLab Data Directory.</p>
+<p>For files that may be considered more “internal notes” than datasets (Google Sheets example mentioned above), please ensure that some sort of metadata is present. One alternative to a “readme” file is to create an extra tab on the Google Sheet labeled “metadata”. Here, you can include information on the column names (column 1) and their definitions (column 2). This allows collaborators and team members to easily interpret the columns and use the dataset appropriately.</p>
 </div>
-<div id="overview" class="section level1 unnumbered hasAnchor">
-<h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This reference guide describes standard operating procedures (SOP) for emLab projects. This SOP is organized into 5 different sections: (1) File Structure, (2) Data, (3) Code, (4) High Performance Computing, and (5) Reports and Publications. Section 1 covers file structure and storage; Section 2 describes file naming and metadata standards, as well as what the emLab data directory is composed of; Section 3 highlights best practices for coding; Section 4 covers high performance computing; and Section 5 outlines aspects of the publication process from emLab affiliations to preparing a public GitHub repository.</p>
-
+<div id="where-to-store-metadata" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Where to Store Metadata<a href="2.2-metadata.html#where-to-store-metadata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>All readme metadata files are stored in the folder that contains the data file in the <a href="https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0">emLab Data Directory</a>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-file-structure.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2.1-data-file-naming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2.3-data-directory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

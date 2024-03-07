@@ -7,35 +7,27 @@ Standard operating procedures for emLab projects:
 
 ## Table of Contents
 
-1. Project Management  
-    - Google Calendar
-    - Zoom
-    - Slack
-    - Airtable
-    - Google Shared Drive
-    - Git and GitHub
-    - Zotero
-2. File Structure
+1. File Structure
     - Folder Naming
     - Shared Drive Files
     - GitHub Structure
-3. Data
+2. Data
     - Data File Naming
     - Metadata
     - Data Directory
     - Tidy Data
     - Data Formats
-4. Code
+3. Code
     - Scripts and Version Control
     - Style Guide
     - Reproducibility
     - Coding pipelines
     - Internal code review
     - Exploratory Data Analysis
-5. High Performance Computing
+4. High Performance Computing
     - Google Cloud Platform
     - UCSB Server Clusters
-6. Reports and Publications
+5. Reports and Publications
     - emLab Affiliation
     - Reports
     - Author Contribution

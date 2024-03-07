@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>emLab Standard Operating Procedures</title>
+  <title>2 Data | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2 Data | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2 Data | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-
-<link rel="next" href="1-file-structure.html"/>
+<link rel="prev" href="1.3-github-structure.html"/>
+<link rel="next" href="2.1-data-file-naming.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -223,23 +223,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">emLab Standard Operating Procedures</h1>
-<p class="author"><em>Environmental Markets Lab (emLab)</em></p>
-<p class="date"><em>2024-03-07</em></p>
-</div>
-<div id="overview" class="section level1 unnumbered hasAnchor">
-<h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This reference guide describes standard operating procedures (SOP) for emLab projects. This SOP is organized into 5 different sections: (1) File Structure, (2) Data, (3) Code, (4) High Performance Computing, and (5) Reports and Publications. Section 1 covers file structure and storage; Section 2 describes file naming and metadata standards, as well as what the emLab data directory is composed of; Section 3 highlights best practices for coding; Section 4 covers high performance computing; and Section 5 outlines aspects of the publication process from emLab affiliations to preparing a public GitHub repository.</p>
-
+<div id="data" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Data<a href="2-data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Data should be managed and shared properly to make it useful in research, to promote transparency and facilitate reproducibility, and to ensure the credibility of research. This includes such practices as transforming data into a tidy format, storing data in open file formats, and providing data documentation. <strong>All emLab data, unless restricted, should be stored in the emLab Shared Drive (location dependent on type of data, see Section 2.2.3).</strong></p>
+<p><strong>Recommended readings:</strong></p>
+<ul>
+<li><p>Borer, Elizabeth T., Eric W. Seabloom, Matthew B. Jones, and Mark Schildhauer. 2009. “Some Simple Guidelines for Effective Data Management.” <em>The Bulletin of the Ecological Society of America</em> 90 (2): 205–14. <a href="https://doi.org/10.1890/0012-9623-90.2.205" class="uri">https://doi.org/10.1890/0012-9623-90.2.205</a>.</p></li>
+<li><p>Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989" class="uri">https://doi.org/10.1080/00031305.2017.1375989</a>.</p></li>
+<li><p>Ellis, Shannon E., and Jeffrey T. Leek. 2018. “How to Share Data for Collaboration.” <em>The American Statistician</em> 72 (1): 53–57. <a href="https://doi.org/10.1080/00031305.2017.1375987" class="uri">https://doi.org/10.1080/00031305.2017.1375987</a>.</p></li>
+<li><p>Goodman, Alyssa, Alberto Pepe, Alexander W. Blocker, Christine L. Borgman, Kyle Cranmer, Merce Crosas, Rosanne Di Stefano, et al. 2014. “Ten Simple Rules for the Care and Feeding of Scientific Data.” <em>PLOS Computational Biology</em> 10 (4): e1003542. <a href="https://doi.org/10.1371/journal.pcbi.1003542" class="uri">https://doi.org/10.1371/journal.pcbi.1003542</a>.</p></li>
+<li><p>Hart, Edmund M., Pauline Barmby, David LeBauer, François Michonneau, Sarah Mount, Patrick Mulrooney, Timothée Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister. 2016. “Ten Simple Rules for Digital Data Storage.” <em>PLOS Computational Biology</em> 12 (10): e1005097. <a href="https://doi.org/10.1371/journal.pcbi.1005097" class="uri">https://doi.org/10.1371/journal.pcbi.1005097</a>.</p></li>
+<li><p>Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” <em>Scientific Data</em> 3 (March): 160018. <a href="https://doi.org/10.1038/sdata.2016.18" class="uri">https://doi.org/10.1038/sdata.2016.18</a>.</p></li>
+<li><p>Also see the resources available at <a href="https://www.dataone.org/resources">DataONE</a>.</p></li>
+</ul>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-file-structure.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="1.3-github-structure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2.1-data-file-naming.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
