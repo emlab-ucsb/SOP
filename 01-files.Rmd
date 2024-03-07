@@ -35,6 +35,8 @@ The emLab Google Shared Drive is organized into three main folders:
 
 * `projects`: includes information on  past (archive) and current projects
 
+### Project Folder Structure
+
 ```
 Google Drive
   |__ Shared drives
@@ -126,9 +128,9 @@ Each project folder must contain the following 6 folders:
 
 From here, each project can add additional folders or sub-folders as needed. Ensure that any folders or sub-folders you add to the project's Google Shared Drive folder are also added to the folder on GRIT.
 
-### Data Storage
+### Data Directories
 
-As stated above, there are two locations in which data can be stored. The two locations are both on GRIT, and are either the commonly shared emLab data (`emLab/data`) or project-specific data (e.g.,`emLab/current-projects/example-project/data`. This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: `example-project/data` may contain raw, cleaned, intermediate, and output files for a given project, and will be used as the "workspace" while the project develops. On the other hand, `emlab/data` contains only (raw) input and output data from a finalized project. It also only contains datasets that researchers envision may eventually be helpful to other researchers. More detail is provided in the subsequent sections.
+As stated above, there are two locations in which data can be stored. The two locations are both on GRIT, and are either the commonly used data shared across emLab projects (`emLab/data`) or project-specific data (e.g.,`emLab/current-projects/example-project/data`). This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: `example-project/data` will contain all raw, cleaned, intermediate, and output data files for a given project, and will be used as the "workspace" while the project develops. On the other hand, `emlab/data` contains only (raw) input and output data from a finalized project. It therefore contains datasets that researchers envision may eventually be helpful to other researchers and that may be commonly used across multiple projects. More detail is provided in the subsequent sections.
 
 #### `example-project/data`
 
@@ -155,7 +157,7 @@ As stated above, since the `output` folder could contain information relevant to
 
 #### `emlab/data`
 
-As a general rule, this folder contains all data *used* and *produced* by emLab projects. The idea is to make it easier for people to find data that has been used in previous projects, as well as to use previous results as inputs for new projects.
+As a general rule, this folder contains all data *used* and *produced* by emLab projects. The idea is to make it easier for people to find data that has been used in previous projects, as well as to use previous results as inputs for new projects. In other words, it is the place to store data that could be used commonly across multiple projects.
 
 To illustrate types of data that should be in the `emlab/data` folder, consider the following. The [RAM Legacy stock assessment database](https://www.ramlegacy.org/) is key to many projects, and was used as input in the [Costello *et al.* 2016 "upsides" paper](https://www.pnas.org/content/113/18/5125). The "upsides database" is an output from the Costello paper, which has then been used as input for other projects. Therefore, the `emlab/data` folder contains separate folders for both the RAM and upsides datasets.
 

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Making Your Data Publicly Available | emLab Standard Operating Procedures</title>
+  <title>2.3 Accessing emLab data in R | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Making Your Data Publicly Available | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="2.3 Accessing emLab data in R | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Making Your Data Publicly Available | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="2.3 Accessing emLab data in R | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="5.3-author-contribution.html"/>
-<link rel="next" href="5.5-preparing-a-public-github-repository.html"/>
+<link rel="prev" href="2.2-metadata.html"/>
+<link rel="next" href="2.4-tidy-data.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -225,30 +225,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="making-your-data-publicly-available" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Making Your Data Publicly Available<a href="5.4-making-your-data-publicly-available.html#making-your-data-publicly-available" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Generally, emLab researchers should be prepared to share a public GitHub repository (see Section 6.4) and a Dryad data repository with publications. The repositories contain code scripts and data (respectively) needed to conduct the study. Increasingly, journals are requiring both sets of documentation at the point of submission or publication.</p>
-<p>Dryad is an open-access repository of research data that makes data searchable, freely accessible, and citable. Data repositories do not need to be associated with a publication. Dryad is <a href="https://www.library.ucsb.edu/research-data-services/repository">free for UCSB affiliates</a> with a UCSB NetID. The following steps document the process for creating a Dryad repository. Review Dryad’s <a href="https://datadryad.org/stash/best_practices#organize">Best Practices website</a> for more useful information.</p>
+<div id="accessing-emlab-data-in-r" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Accessing emLab data in R<a href="2.3-accessing-emlab-data-in-r.html#accessing-emlab-data-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This section will go over how to access data stored in the emLab data directories (either the common emLab data directory, or project-specific data directories) using R. We provide instructions for accessing data using R on your personal local machine, or on one of emLab’s GRIT servers.</p>
 <ol style="list-style-type: decimal">
-<li>If you do not already have one, visit the <a href="https://orcid.org/">ORCID site</a> to obtain an ORCID identifier. You will need this to deposit data on Dryad.</li>
-<li>Use your ORCID username and password to sign into <a href="https://datadryad.org/stash/sessions/choose_login">Dryad</a>.</li>
-<li>Under My Datasets, select “+ Start New Dataset.”</li>
-<li>Fill in the required fields and describe your dataset. If your data is related to a manuscript in progress or a published article, you will be asked to provide the Manuscript Number or DOI.</li>
-<li>Upload your files. Note that while you cannot load a folder to Dryad, you can load a .zip file that includes a folder structure. This approach is suggested as it allows for improved organization.</li>
-<li>Review and submit. In this phase you can choose to “Enable Private for Peer Review,” which keeps your dataset private during your article’s review period. You will have access to a private dataset download URL that you can share with collaborators or the journal. If you make this selection, your dataset <strong>will not enter curation or be published</strong>. If you do not select “Enable Private for Peer Review,” you will submit your dataset to Dryad for curation. Skip to step 9 if you did not “Enable Private for Peer Review.”</li>
-<li>If you chose “Enable Private for Peer Review,” copy the URL to share with collaborators or the journal. Those who use this link may be asked to provide an email address in order to obtain the dataset. Note that in this case, users will receive an email from Dryad with instructions for how to download the dataset – <strong>notify users to check their Spam folder for this email</strong>.</li>
-<li>Once the manuscript is accepted, you can go back to your dataset and submit it to Dryad for curation. <strong>Make sure to incorporate any relevant changes that occurred during the revision period.</strong></li>
-<li>During curation, Dryad will check your submission to ensure the validity of files and metadata. Dryad may contact you questions, suggestions, and/or identified problems.</li>
-<li>Once the dataset is approved, the Dryad DOI is officially registered and made public. Note that you can contact Dryad in order to delay the publication of your data until your publication date. Include DOI in your manuscript’s Data Availability statement, or consider citing it the References section.</li>
+<li><p>Accessing GRIT data on your local machine requires you to use the Nextcloud desktop app and set it up as described in the emLab manual. If you haven’t done so already, please complete that section. The GRIT data storage space has already been linked to our emLab <code>quebracho</code> server (and will eventually be to our forthcoming <code>sequoia</code> server).</p></li>
+<li><p>Set the base data directory at the top of your code to the location directory lives. You should be able to use the following code snippet to do this, which should work on either your local machines, or on a GRIT server such as quebracho or sequoia. Note that this code will automatically generate the correct directory path if using a GRIT server or a local Mac or Windows machine. If using a local Linux machine, you will need to manually modify this to incorporate your unique user name so that it matches the directory entered in Step 9 above.</p></li>
 </ol>
+<pre><code># First determine if system is quebracho or sequoia, our GRIT servers. If so, set directory appropriately
+data_directory_base &lt;-  ifelse(Sys.info()[&quot;nodename&quot;] == &quot;quebracho&quot; | Sys.info()[&quot;nodename&quot;] == &quot;sequoia&quot;,
+                               &quot;/home/emlab&quot;,
+                               # Otherwise, set the directory for local machines based on the OS
+                               # If using Mac OS, the directory will be automatically set as follows
+                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Darwin&quot;,
+                                      &quot;/Users/Shared/nextcloud/emLab&quot;,
+                               # If using Windows, the directory will be automatically set as follows
+                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,
+                                      &quot;G:/Shared\ drives/nextcloud/emLab&quot;,
+                                      # If using Linux, will need to manually modify the following directory path based on their user name
+                                      # Replace your_username with your local machine user name
+                                      &quot;/home/your_username/Nextcloud&quot;)))</code></pre>
+<p>Now set the project-specific directory. For example:</p>
+<pre><code>data_directory_project &lt;- file.path(data_directory_base, &quot;projects/current-projects/test-project-nextcloud/data&quot;)</code></pre>
+<p>You should now be able to read and write data into the project data directory. For example:</p>
+<pre><code>penguins &lt;- read.csv(file.path(data_directory_project, &quot;raw/penguins.csv&quot;))</code></pre>
+<p>Note that you can also always navigate to the data directory in the RStudio viewer pane. To do so, simply click the 3 dots in the viewer pane, and type in the appropriate path.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="5.3-author-contribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5.5-preparing-a-public-github-repository.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2.2-metadata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2.4-tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

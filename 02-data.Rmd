@@ -58,11 +58,7 @@ We acknowledge that it may not always be feasible to draft robust metadata immed
 
 For files that may be considered more "internal notes" than datasets (Google Sheets example mentioned above), please ensure that some sort of metadata is present. One alternative to a "readme" file is to create an extra tab on the Google Sheet labeled "metadata". Here, you can include information on the column names (column 1) and their definitions (column 2). This allows collaborators and team members to easily interpret the columns and use the dataset appropriately.
 
-### Where to Store Metadata
-
-All readme metadata files are stored in the folder that contains the data file in the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0).
-
-## emLab common data directory {#emlab-data-directory}
+### emLab common data directory {#emlab-data-directory}
 
 All commonly used emLab data is stored in subfolders of the Data folder on the emLab GRIT storage space (`emlab/data`). To document these data, we use the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) that includes key, standardized information from each readme metadata file. Every data file in the `emlab/data` folder has a record (row) in the emLab Data Directory. The emLab Data Directory file contains two sheets: (1) Data directory (the record and standardized documentation for each data file); (2) Metadata (information needed to populate the Data Directory, i.e. the meta-metadata)
 
@@ -79,7 +75,7 @@ kable(meta_metadatatable)
 
 Any time you add a new dataset to the shared emLab data folder and directory, please message the `#data-streamlining` Slack channel so that others on the team know about the new dataset.
 
-## Project-specific data directories {#project-data-directory}
+### Project-specific data directories {#project-data-directory}
 
 We highly recommend that research teams create a `data_overview` spreadsheet for keeping track of project-related data (i.e. a separate spreadsheet stored in the project’s Google Shared Drive data folder). This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can then be used to guide and simplify data migration to the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) once the project is complete. Suggested attributes include:
 

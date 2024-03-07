@@ -2,10 +2,11 @@ file-structure
 folder-naming
 google-shared-drive
 general-structure
+project-folder-structure
 grit-data-storage-space
 general-structure-1
-project-folder-structure
-data-storage
+project-folder-structure-1
+data-directories
 example-projectdata
 emlabdata
 github-structure
@@ -15,7 +16,6 @@ data
 data-file-naming
 metadata
 metadata-standards
-where-to-store-metadata
 emlab-data-directory
 project-data-directory
 accessing-emlab-data-in-r
