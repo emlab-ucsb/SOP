@@ -64,7 +64,7 @@ Each project folder must contain at least the following 5 folders:
 
 * `project-materials`: everything else that does not fit into one of these folders (i.e. drafts of methods, literature review, etc.)
 
-From here, each project can add additional folders or sub-folders as needed. Ensure that any folders or sub-folders you add to the project's Google Shared Drive folder are also added to the folder on GRIT, and vice versa.
+From here, each project can add additional folders or sub-folders as needed. Just ensure that only collaborative Google Docs/Sheets/Slides are stored on Google Shared Drive. All other files should be stored on GRIT.
 
 ## GRIT data storage space
 
@@ -120,7 +120,7 @@ Each project folder on GRIT must contain the following 6 folders:
 
 * `project-materials`: everything else that does not fit into one of these folders (i.e. drafts of methods, literature review, etc.)
 
-From here, each project can add additional folders or sub-folders as needed. Ensure that any folders or sub-folders you add to the project's Google Shared Drive folder are also added to the folder on GRIT, and vice versa.
+From here, each project can add additional folders or sub-folders as needed.
 
 ### Data Directories
 
