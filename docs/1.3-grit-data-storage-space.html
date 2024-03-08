@@ -23,7 +23,7 @@
 <meta name="author" content="Environmental Markets Lab (emLab)" />
 
 
-<meta name="date" content="2024-03-07" />
+<meta name="date" content="2024-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -230,39 +230,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Generally, the GRIT data storage space has a very similar structure to the Google Shared Drive, except it also has folders for <code>data</code>.</p>
 <div id="general-structure-1" class="section level3 hasAnchor" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> General Structure<a href="1.3-grit-data-storage-space.html#general-structure-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ My Drive
-  |   |__ ... whatever files you have on your Google Drive ...
-  |__ Shared drives
-      |__ emLab
-          |__ central-emlab-resources
-          |__ communications
-          |__ data
-          |__ projects</code></pre>
-<p>The emLab Shared Drive is organized into five main folders:</p>
+<pre><code>|__ emLab
+  |__ central-emlab-resources
+  |__ communications
+  |__ data
+  |__ projects</code></pre>
+<p>The emLab GRIT data directory is organized into five main folders:</p>
 <ul>
 <li><p><code>central-emlab-resources</code>: includes meeting and event information, project management guidelines, onboarding materials, information about travel reimbursements, strategy, computing, and the team roster</p></li>
 <li><p><code>communications</code>: includes the blog schedule, Adobe design projects, PowerPoint templates, photo repository, emLab logos, and publication and media tracking</p></li>
-<li><p><code>data</code>: includes the centralized emLab data directory and of the commonly used datasets we work with (see Section <a href="2.2-metadata.html#emlab-data-directory">2.2.2</a> for more on this)</p></li>
+<li><p><code>data</code>: includes the centralized emLab data directory of the commonly used datasets we work with across projects (see Sections <a href="1.3-grit-data-storage-space.html#emlab-data-directory-overview">1.3.3.2</a> and <a href="2.2-metadata.html#emlab-data-directory">2.2.2</a> for more on this)</p></li>
 <li><p><code>projects</code>: includes data and files on past (archive) and current projects</p></li>
 </ul>
 </div>
 <div id="project-folder-structure-1" class="section level3 hasAnchor" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> Project Folder Structure<a href="1.3-grit-data-storage-space.html#project-folder-structure-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ Shared drives
-      |__ emLab
-          |__ projects
-              |__ archived-projects
-              |__ current-project
-              |   |__ example-project
-              |   |   |__ data
-              |   |   |__ deliverables
-              |   |   |__ grant-eporting
-              |   |   |__ meetings-and-events
-              |   |   |__ presentations
-              |   |   |__ project-materials</code></pre>
-<p>Each project folder must contain the following 6 folders:</p>
+<pre><code>|__ emLab
+  |__ projects
+    |__ archived-projects
+    |__ current-project
+    |   |__ example-project
+    |   |   |__ data
+    |   |   |__ deliverables
+    |   |   |__ grant-eporting
+    |   |   |__ meetings-and-events
+    |   |   |__ presentations
+    |   |   |__ project-materials</code></pre>
+<p>Each project folder on GRIT must contain the following 6 folders:</p>
 <ul>
 <li><p><code>data</code>: This data folder will contain a <code>data_overview</code> spreadsheet and all of the intermediate datasets as well as output datasets associated with the project (see Section <a href="2.2-metadata.html#project-data-directory">2.2.3</a> for more on this). Be sure to also add a copy of your final datasets to the <code>emlab/data</code>data directory.</p></li>
 <li><p><code>deliverables</code>: final reports, paper manuscripts, other final deliverables not related to data outputs</p></li>
@@ -271,45 +265,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>presentations</code>: any presentations created for the project</p></li>
 <li><p><code>project-materials</code>: everything else that does not fit into one of these folders (i.e. drafts of methods, literature review, etc.)</p></li>
 </ul>
-<p>From here, each project can add additional folders or sub-folders as needed. Ensure that any folders or sub-folders you add to the project’s Google Shared Drive folder are also added to the folder on GRIT.</p>
+<p>From here, each project can add additional folders or sub-folders as needed. Ensure that any folders or sub-folders you add to the project’s Google Shared Drive folder are also added to the folder on GRIT, and vice versa.</p>
 </div>
 <div id="data-directories" class="section level3 hasAnchor" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> Data Directories<a href="1.3-grit-data-storage-space.html#data-directories" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As stated above, there are two locations in which data can be stored. The two locations are both on GRIT, and are either the commonly used data shared across emLab projects (<code>emLab/data</code>) or project-specific data (e.g.,<code>emLab/current-projects/example-project/data</code>). This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: <code>example-project/data</code> will contain all raw, cleaned, intermediate, and output data files for a given project, and will be used as the “workspace” while the project develops. On the other hand, <code>emlab/data</code> contains only (raw) input and output data from a finalized project. It therefore contains datasets that researchers envision may eventually be helpful to other researchers and that may be commonly used across multiple projects. More detail is provided in the subsequent sections.</p>
+<p>As stated above, there are two locations in which data can be stored. The two locations are both on GRIT, and are either: 1) project-specific data (e.g.,<code>emLab/current-projects/example-project/data</code>); or 2) the commonly used data shared across emLab projects (<code>emLab/data</code>) . This may seem confusing and redundant, but this section explains the differences between these two locations. As a short summary: <code>example-project/data</code> will contain all raw, cleaned, intermediate, and output data files for a given project, and will be used as the “workspace” while the project develops. On the other hand, <code>emlab/data</code> contains only (raw) input and output data from a finalized project. It therefore contains datasets that researchers envision may eventually be helpful to other researchers and that may be commonly used across multiple projects. More detail is provided in the subsequent sections.</p>
 <div id="example-projectdata" class="section level4 hasAnchor" number="1.3.3.1">
 <h4><span class="header-section-number">1.3.3.1</span> <code>example-project/data</code><a href="1.3-grit-data-storage-space.html#example-projectdata" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>All</strong> data used in a project should live in this project-specific repository. To help keep track of project data, we highly recommend creating and maintaining a <code>data_overview</code> Google sheet on the Google Shared Drive (see Section <a href="2.2-metadata.html#project-data-directory">2.2.3</a> for more information). This overview spreadsheet will provide a centralized summary of the data inputs and outputs for a project, and also allow teams to keep track of the status of adding the data to the <code>emlab/data</code> folder and creating the necessary metadata documentation. This repository will typically contain subfolders for <code>raw</code>, <code>processed</code> (or <code>clean</code>), and <code>output</code>, although each team might make slight modifications to this structure to suit their needs.</p>
 <p>To illustrate how each of these subfolders might be used, consider the following. A team may receive data from partners, extract data from external sources, compile survey responses, create a new dataset from a literature review, or use results from previous projects as input. These data are termed “raw data” and should never be directly modified - <strong>all of the errors, mistakes, and gremlins should be kept in the original versions</strong>. Instead, they should be processed / cleaned, and then exported as “clean data” that is actually used in analyses. The script used to do the processing / cleaning then acts as a reproducable record of everything that was done to the raw data.</p>
 <p>Suppose that a team working in Montserrat is tasked to perform a stock assessment on lobster populations and receives a database of lobster landings from the government. These data are stored as an excel spreadsheet, and will surely contain many mistakes that need to be fixed prior to running anly analyses. The team will clean the data (preferabily, using a reproducible script), and then export a new version of the data in which the mistakes have been fixed. The team will then perform the stock assessment, and produce results before reporting back. Therefore, the project-level data folder could be subdivided into <code>raw</code>, <code>clean</code>, and <code>output</code> folders. The first one will contain the excel file recieved from the government. The second folder will contain the cleaned data (perhaps exported as a csv), which can then be used as input for analyses within this project. The <code>output</code> folder will then contain the stock assessment results that might be relevant to other projects.</p>
-<pre><code>projects
-|__ current-rojects
-    |__ montserrat-project
-    |   |__ Data
-    |   |__ raw
-    |   |   |__ lobster_landings_nov_2012.xslx
-    |   |__ clean
-    |   |   |__ lobster_landings_nov_2012.csv
-    |   |__ output
-    |       |__ lobster_stock_assessment.csv</code></pre>
+<pre><code>|__ emLab
+  |__ projects
+    |__ current-rojects
+      |__ montserrat-project
+      |   |__ Data
+      |   |__ raw
+      |   |   |__ lobster_landings_nov_2012.xslx
+      |   |__ clean
+      |   |   |__ lobster_landings_nov_2012.csv
+      |   |__ output
+      |       |__ lobster_stock_assessment.csv</code></pre>
 <p>As stated above, since the <code>output</code> folder could contain information relevant to other projects, this data should be made available to other emLab projects once the project is complete. To do this, any <code>output</code> data (and <code>raw</code> data if it is not already there) should be moved to the <code>emlab/data</code> folder, as described below.</p>
 </div>
-<div id="emlabdata" class="section level4 hasAnchor" number="1.3.3.2">
-<h4><span class="header-section-number">1.3.3.2</span> <code>emlab/data</code><a href="1.3-grit-data-storage-space.html#emlabdata" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>As a general rule, this folder contains all data <em>used</em> and <em>produced</em> by emLab projects. The idea is to make it easier for people to find data that has been used in previous projects, as well as to use previous results as inputs for new projects. In other words, it is the place to store data that could be used commonly across multiple projects.</p>
+<div id="emlab-data-directory-overview" class="section level4 hasAnchor" number="1.3.3.2">
+<h4><span class="header-section-number">1.3.3.2</span> <code>emlab/data</code><a href="1.3-grit-data-storage-space.html#emlab-data-directory-overview" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As a general rule, this folder contains all data <em>used</em> and <em>produced</em> by emLab projects. The idea is to make it easier for people to find data that has been used in previous projects, as well as to use previous results as inputs for new projects. In other words, it is the place to store data that could be used commonly across multiple projects. Please see Section @ref(#emlab-data-directory) for an overview of metadata that should be included with each dataset.</p>
 <p>To illustrate types of data that should be in the <code>emlab/data</code> folder, consider the following. The <a href="https://www.ramlegacy.org/">RAM Legacy stock assessment database</a> is key to many projects, and was used as input in the <a href="https://www.pnas.org/content/113/18/5125">Costello <em>et al.</em> 2016 “upsides” paper</a>. The “upsides database” is an output from the Costello paper, which has then been used as input for other projects. Therefore, the <code>emlab/data</code> folder contains separate folders for both the RAM and upsides datasets.</p>
 <p>This large central data repository has the potential to become messy. Therefore, it is important to follow some key guidelines to store the data. <strong>All datasets in this folder should be contained within their own folders that include at minimum the data and metadata files.</strong> For example, a file structure for the two datasets mentioned above might be:</p>
-<pre><code>emLab
+<pre><code>|__ emLab
   |__ data
-       |__ upsides
-       |   |__ _readme_upsides.txt   [the metadata]
-       |   |__ upsides.csv           [the data]
-       |__ ram
-       |   |__ _readme_RAM.txt       [the metadata]
-       |   |__ RAM v4.10             [the data]
-       |   |__ RAM v4.15             [the data]
-       |   |__ RAM v4.25             [the data]
-       |   |__ RAM v4.40             [the data]
-       |__ ... other data sets ...</code></pre>
+    |__ upsides
+    |   |__ _readme_upsides.txt   [the metadata]
+    |   |__ upsides.csv           [the data]
+    |__ ram
+    |   |__ _readme_RAM.txt       [the metadata]
+    |   |__ RAM v4.10             [the data]
+    |   |__ RAM v4.15             [the data]
+    |   |__ RAM v4.25             [the data]
+    |   |__ RAM v4.40             [the data]
+    |__ ... other data sets ...</code></pre>
 <p>In the above example, the folder containing the upsides database is relatively straightforward with the metadata file and a single csv file. However, the folder containing the RAM database is more complicated as this is a dataset that is re-released every so often as a new version. Specific guidelines for organizing different types of data within the <code>emlab/data</code> folder are discussed in detail in Section <a href="2-data.html#data">2</a>.</p>
 </div>
 </div>

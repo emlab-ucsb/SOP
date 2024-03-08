@@ -8,7 +8,7 @@ general-structure-1
 project-folder-structure-1
 data-directories
 example-projectdata
-emlabdata
+emlab-data-directory-overview
 github-structure
 project-repository-structure
 a-repo-inside-a-repo

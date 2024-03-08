@@ -77,7 +77,7 @@ Any time you add a new dataset to the shared emLab data folder and directory, pl
 
 ### Project-specific data directories {#project-data-directory}
 
-We highly recommend that research teams create a `data_overview` spreadsheet for keeping track of project-related data (i.e. a separate spreadsheet stored in the project’s Google Shared Drive data folder). This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can then be used to guide and simplify data migration to the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) once the project is complete. Suggested attributes include:
+We highly recommend that research teams create a `data_overview` spreadsheet for keeping track of project-related data (i.e. a separate Google Sheet stored in the project’s Google Shared Drive folder). This centralized document can be used to document project-relevant information and communicate to team members datasets that have already been saved. This document can then be used to guide and simplify data migration to the [emLab Data Directory](https://docs.google.com/spreadsheets/d/1lCzpP1X0qPQrqDzVBi78XJQVUumbcQqRck60OkHtANk/edit#gid=0) once the project is complete. Suggested attributes include:
 
   - File name
   - Folder name
