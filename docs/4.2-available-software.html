@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Google Shared Drive | emLab Standard Operating Procedures</title>
+  <title>4.2 Available software | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.2 Available software | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.2 Available software | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="1.1-folder-naming.html"/>
-<link rel="next" href="1.3-grit-data-storage-space.html"/>
+<link rel="prev" href="4.1-available-resources.html"/>
+<link rel="next" href="4.3-installing-packages.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -169,74 +169,54 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="google-shared-drive" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Google Shared Drive<a href="1.2-google-shared-drive.html#google-shared-drive" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Google Shared Drive and GRIT storage space share a very similar
-folder structure. The main difference is that the Google Shared Drive
-does not have any <code>data</code> folders, since all data is stored at GRIT. And
-of course, all files on Google Shared Drive are only collaborative
-Google Docs/Sheets/Slides. Everything else is stored at GRIT.</p>
-<div id="general-structure" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> General Structure<a href="1.2-google-shared-drive.html#general-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ My Drive
-  |   |__ ... whatever files you have on your personal Google Drive ...
-  |__ Shared drives
-      |__ emLab
-          |__ central-emlab-resources
-          |__ communications
-          |__ projects</code></pre>
-<p>The emLab Google Shared Drive is organized into three main folders:</p>
-<ul>
-<li><p><code>central-emlab-resources</code>: includes meeting and event information,
-project management guidelines, onboarding materials, information
-about travel reimbursements, strategy, computing, and the team
-roster</p></li>
-<li><p><code>communications</code>: includes the blog schedule, publication and media
-tracking, and any Google Docs/Sheets/Slides relating to
-communications</p></li>
-<li><p><code>projects</code>: includes information on past (archive) and current
-projects</p></li>
-</ul>
-</div>
-<div id="project-folder-structure" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Project Folder Structure<a href="1.2-google-shared-drive.html#project-folder-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ Shared drives
-      |__ emLab
-          |__ projects
-              |__ archived-projects
-              |__ current-project
-              |   |__ example-project
-              |   |   |__ deliverables
-              |   |   |__ grant-eporting
-              |   |   |__ meetings-and-events
-              |   |   |__ presentations
-              |   |   |__ project-materials</code></pre>
-<p>Each project folder must contain at least the following 5 folders:</p>
-<ul>
-<li><p><code>deliverables</code>: final reports, paper manuscripts, other final
-deliverables not related to data outputs</p></li>
-<li><p><code>grant-reporting</code>: grant reports for funders</p></li>
-<li><p><code>meetings-and-events</code>: meeting notes, agendas, documentation for
-workshop/event planning</p></li>
-<li><p><code>presentations</code>: any presentations created for the project</p></li>
-<li><p><code>project-materials</code>: everything else that does not fit into one of
-these folders (i.e. drafts of methods, literature review, etc.)</p></li>
-</ul>
-<p>From here, each project can add additional folders or sub-folders as
-needed. Just ensure that only collaborative Google Docs/Sheets/Slides
-are stored on Google Shared Drive. All other files should be stored on
-GRIT.</p>
-</div>
+<div id="available-software" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Available software<a href="4.2-available-software.html#available-software" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Quebracho currently has R Studio Server and JupyterLab installed. We
+currently have R Studio installed on sequoia. GRIT manages these
+installations for us. They will also manage updates for these.</p>
+<p>If we wish to install additional software, we will need to decide on
+these as a group and have GRIT install them for us. When considering new
+software to install, we should consider whether or not it is already
+available on other campus servers; what it will cost; and how many
+people in emLab would use it. Generally speaking, if a specific piece of
+software is expensive (e.g., Stata or Matlab), will not be used by too
+many emLab folks, and is already available on other campus servers, we
+should rely on these other campus servers and not install it on our own
+servers. Users interested in MatLab should first try Pod which has the
+necessary licenses and is available for free.</p>
+<p>Sequoia will not have a python interface by default. If there is enough
+interest, JupyterLab may be installed by making a request to GRIT. If
+users wish to use python it is recommended that they install Visual
+Studio Code (VS Code) available for free from Microsoft. With VS Code
+installed, users can add the Remote SSH extension and access sequoia via
+SSH tunnel. Further instructions can be found in the <a href="https://csc.cnsi.ucsb.edu/clusters/pod">VS Code
+Documentation</a>. After accessing
+sequoia via SSH tunnel, users may install their preferred python
+distribution.
+<a href="https://docs.anaconda.com/free/miniconda/miniconda-install/">Miniconda</a>
+is a good starting point, though other options are available. This
+<a href="https://vinurad13.medium.com/setting-up-miniconda-and-run-jupyter-notebooks-remotely-on-ubuntu-20-04-server-8d98a6cf4642">Medium
+article</a>
+is a good place for further installation guidance. Finally, it is
+recommended to create custom python
+<a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">environments</a>
+for each project. </p>
+<p>For users that need Stata, it is already available on both UCSB’s Knot
+cluster. More details for using Stata on Knot can be found
+<a href="https://static1.squarespace.com/static/573f69a2cf80a1adb090ba64/t/5b2c1f1288251b7405a4cb7a/1529618194751/UCSB_server_tutorial.pdf">here</a>.
+We will not be installing Stata on quebracho or sequoia.</p>
+<p>For users of Matlab, it is already available on all campus clusters.
+More details can be found
+he<a href="https://csc.cnsi.ucsb.edu/docs/using-matlab" class="uri">https://csc.cnsi.ucsb.edu/docs/using-matlab</a>re. We will not be
+installing Matlab on quebracho or sequoia.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="1.1-folder-naming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="1.3-grit-data-storage-space.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.1-available-resources.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.3-installing-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

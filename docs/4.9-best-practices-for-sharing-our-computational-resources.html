@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Google Shared Drive | emLab Standard Operating Procedures</title>
+  <title>4.9 Best practices for sharing our computational resources | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.9 Best practices for sharing our computational resources | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.9 Best practices for sharing our computational resources | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="1.1-folder-naming.html"/>
-<link rel="next" href="1.3-grit-data-storage-space.html"/>
+<link rel="prev" href="4.8-using-htop-to-monitor-shared-resources.html"/>
+<link rel="next" href="5-reports-and-publications.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -169,74 +169,47 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="google-shared-drive" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Google Shared Drive<a href="1.2-google-shared-drive.html#google-shared-drive" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Google Shared Drive and GRIT storage space share a very similar
-folder structure. The main difference is that the Google Shared Drive
-does not have any <code>data</code> folders, since all data is stored at GRIT. And
-of course, all files on Google Shared Drive are only collaborative
-Google Docs/Sheets/Slides. Everything else is stored at GRIT.</p>
-<div id="general-structure" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> General Structure<a href="1.2-google-shared-drive.html#general-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ My Drive
-  |   |__ ... whatever files you have on your personal Google Drive ...
-  |__ Shared drives
-      |__ emLab
-          |__ central-emlab-resources
-          |__ communications
-          |__ projects</code></pre>
-<p>The emLab Google Shared Drive is organized into three main folders:</p>
+<div id="best-practices-for-sharing-our-computational-resources" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> Best practices for sharing our computational resources<a href="4.9-best-practices-for-sharing-our-computational-resources.html#best-practices-for-sharing-our-computational-resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here we outline our best practices for using shared computational
+resources. These are meant to be living guidelines that will be adapted
+by our team as needed:</p>
 <ul>
-<li><p><code>central-emlab-resources</code>: includes meeting and event information,
-project management guidelines, onboarding materials, information
-about travel reimbursements, strategy, computing, and the team
-roster</p></li>
-<li><p><code>communications</code>: includes the blog schedule, publication and media
-tracking, and any Google Docs/Sheets/Slides relating to
-communications</p></li>
-<li><p><code>projects</code>: includes information on past (archive) and current
-projects</p></li>
+<li><p>In order to keep some of our computational resources easy to use
+interactively without queues or SLURM, we will need to coordinate
+and share. Sharing is caring! Common courtesy can go a long way.
+Hopefully we can largely self-manage this. If not, we will need to
+move computational resources onto queues and SLURM, which could
+introduce barriers to analysis and rapid prototyping.</p></li>
+<li><p>Always run <a href="https://htop.dev/">htop</a> in the terminal to see how the
+many cores and how much RAM are currently being used by others</p></li>
+<li><p>In general on sequoia, feel free to run analyses that use up to 20
+cores and 150GB of RAM. We will likely adaptively manage these
+specific numbers once we start using sequoia and getting a better
+understanding of how many resources we are using.</p></li>
+<li><p>For larger analyses that require more cores or RAM, coordinate with
+others over the server slack channel (<code>#hpc-core-dination</code>) to
+ensure that workflows are not disrupted and that everyone has
+reasonable access to computational resources</p></li>
+<li><p>Generally, we recommend piloting your code using a small subset of
+your data and/or just a single core, either on your local computer
+or on one of our HPC servers. Then once you know it works and have a
+sense of how much memory it will use and how long it will take to
+execute, you can go ahead and run the full analysis on the server.
+And if it looks like the full analysis will require resources beyond
+the standard recommend 20 cores and 150GB, coordinate with the team
+on <code>#hpc-core-dination</code>.</p></li>
 </ul>
+
 </div>
-<div id="project-folder-structure" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Project Folder Structure<a href="1.2-google-shared-drive.html#project-folder-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ Shared drives
-      |__ emLab
-          |__ projects
-              |__ archived-projects
-              |__ current-project
-              |   |__ example-project
-              |   |   |__ deliverables
-              |   |   |__ grant-eporting
-              |   |   |__ meetings-and-events
-              |   |   |__ presentations
-              |   |   |__ project-materials</code></pre>
-<p>Each project folder must contain at least the following 5 folders:</p>
-<ul>
-<li><p><code>deliverables</code>: final reports, paper manuscripts, other final
-deliverables not related to data outputs</p></li>
-<li><p><code>grant-reporting</code>: grant reports for funders</p></li>
-<li><p><code>meetings-and-events</code>: meeting notes, agendas, documentation for
-workshop/event planning</p></li>
-<li><p><code>presentations</code>: any presentations created for the project</p></li>
-<li><p><code>project-materials</code>: everything else that does not fit into one of
-these folders (i.e. drafts of methods, literature review, etc.)</p></li>
-</ul>
-<p>From here, each project can add additional folders or sub-folders as
-needed. Just ensure that only collaborative Google Docs/Sheets/Slides
-are stored on Google Shared Drive. All other files should be stored on
-GRIT.</p>
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="1.1-folder-naming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="1.3-grit-data-storage-space.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.8-using-htop-to-monitor-shared-resources.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="5-reports-and-publications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
