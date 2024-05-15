@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.3 Installing packages | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.3 Installing packages | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Environmental Markets Lab (emLab)" />
 
 
-<meta name="date" content="2024-05-06" />
+<meta name="date" content="2024-05-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,10 +55,6 @@
 
 
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 </head>
 
@@ -174,15 +170,9 @@
 <p>You can install regular user-level R packages just like you would
 normally using R Studio on your local machine. We recommend using the
 renv R package to manage package dependencies for each project (i.e.,
-GitHub repo) you work in. Please refer to the<a href="https://emlab-ucsb.github.io/SOP/3.3-reproducibility.html#package-dependencies">emLab SOP section on
+GitHub repo) you work in. Please refer to the <a href="https://emlab-ucsb.github.io/SOP/3.3-reproducibility.html#package-dependencies">emLab SOP section on
 reproducibility</a>
 for more information on renv.</p>
-<p>In order for renv to work effectively on the server, <a href="https://github.com/rstudio/renv/issues/180#issuecomment-528912117">ensure that renv
-uses “packrat”-style
-snapshots</a>,
-so that only packages that are actually used will enter the lockfile.
-This will help by avoiding unnecessary package tracking. To do this, run
-the following line of code: <code>renv::settings$snapshot.type("packrat")</code></p>
 <p>Additionally, GRIT installs and updates many commonly used R packages on
 the servers, which are accessible in a “site-library” for each server.
 They update these once or twice a year. To add the GRIT R package

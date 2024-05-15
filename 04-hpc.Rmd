@@ -39,7 +39,7 @@ quebracho.
 ## Available resources
 
 |                                                     | Cores   | RAM             | GPU | USE                                   |
-|-----------------------|-----------|-----------|-----------|----------------|
+|------------------|--------------|--------------|--------------|--------------|
 | quebracho                                           | 64      | 1TB             | Yes | Only land-use projects (for now)      |
 | sequoia                                             | 192     | 1.5TB           | No  | All other emLab research              |
 | [Knot](https://csc.cnsi.ucsb.edu/clusters/knot)     | 1,500   | 48 GB - 1TB     | Yes | UCSB shared resource                  |
@@ -111,16 +111,9 @@ installing Matlab on quebracho or sequoia.
 You can install regular user-level R packages just like you would
 normally using R Studio on your local machine. We recommend using the
 renv R package to manage package dependencies for each project (i.e.,
-GitHub repo) you work in. Please refer to the[ emLab SOP section on
+GitHub repo) you work in. Please refer to the [emLab SOP section on
 reproducibility](https://emlab-ucsb.github.io/SOP/3.3-reproducibility.html#package-dependencies)
 for more information on renv.
-
-In order for renv to work effectively on the server, [ensure that renv
-uses "packrat"-style
-snapshots](https://github.com/rstudio/renv/issues/180#issuecomment-528912117),
-so that only packages that are actually used will enter the lockfile.
-This will help by avoiding unnecessary package tracking. To do this, run
-the following line of code: `renv::settings$snapshot.type("packrat")`
 
 Additionally, GRIT installs and updates many commonly used R packages on
 the servers, which are accessible in a “site-library” for each server.
@@ -157,17 +150,11 @@ GRIT.
     server. To access R Studio Server, you can simply navigate to one of
     these links. Once there, you will be prompted to enter your GRIT
     user ID and password. Once you’ve done this, you are ready to use R
-    Studio Server! Note: These links use \`http\`, not \`https\`. Some
-    browsers like Safari or Chrome may try to auto-correct this. If you
-    have trouble accessing these links, you can try clearing your
-    browser history and cache.
+    Studio Server!
 
-    -   Sequoia:
-        [http://sequoia.grit.ucsb.edu:8787](http://sequoia.grit.ucsb.edu:8787/)
-        (or via the IP address 128.111.104.67:8787)
+    -   Sequoia: <https://sequoia.grit.ucsb.edu/rstudio/>
 
-    -   Quebracho:
-        [http://quebracho.grit.ucsb.edu:8787](http://quebracho.grit.ucsb.edu:8787/)
+    -   Quebracho: <https://quebracho.geog.ucsb.edu/rstudio/>
 
 ## Accessing data
 
