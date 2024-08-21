@@ -39,7 +39,7 @@ quebracho.
 ## Available resources
 
 |                                                     | Cores   | RAM             | GPU | USE                                   |
-|------------------|--------------|--------------|--------------|--------------|
+|-----------------------------------------------------|---------|-----------------|-----|---------------------------------------|
 | quebracho                                           | 64      | 1TB             | Yes | Only land-use projects (for now)      |
 | sequoia                                             | 192     | 1.5TB           | No  | All other emLab research              |
 | [Knot](https://csc.cnsi.ucsb.edu/clusters/knot)     | 1,500   | 48 GB - 1TB     | Yes | UCSB shared resource                  |
@@ -133,8 +133,8 @@ directly with GRIT: [help\@grit.ucsb.edu](mailto:help@grit.ucsb.edu) .
 ## Setting up a GRIT account
 
 To use emLab’s HPC servers, you must have a GRIT account. Please refer
-to the emLab Manual section on setting up and managing an account with
-GRIT.
+to the [emLab Manual section on setting up and managing an account with
+GRIT](https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#signing-up-for-an-account-with-grit).
 
 ## Logging in
 
