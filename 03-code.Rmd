@@ -110,11 +110,13 @@ Prioritizing reproducibility when writing code code not only fosters collaborati
 
 We also recommend managing package dependencies and creating a reproducible coding pipeline. These two aspects are discussed in more detail below.
 
-### Package dependencies
+### Package management
 
 A key aspect of reproducibility is package dependency management. For example, your code may run perfectly when using an old version of a particular package, but might fail when using the latest version of that package. In this case, even if someone has the exact code you used, it would fail to run on their machine if they are using the latest version of that package. It is therefore important that along with providing the code you use, you should also somehow provide the packages and package versions you use.
 
 If using R, we recommend using [renv](https://rstudio.github.io/renv/articles/renv.html) package for managing package dependencies. `renv` was developed by the R Studio (now Posit) team. It is used at the project-level, and can thus be included as part of your GitHub respotitory. To set up your project to use `renv`, first initialize it by running `renv::init()`. You will then be able "snapshot" the packages and package version you are using in a project (by running `renv::snapshot`), and save that snapshot so that yourself or others can "restore" to that snapshot and use the exact same packages and package versions (by running `renv::restore`). This will ensure that your code will run on other machines, even if new versions of packages come out that are not backwards compatible.
+
+We also recommend you set up R Studio to use the Posit Public Package Manager instead of the default option of CRAN. The Posit Public Pckage Manager hosts binaries of all of the latest and older historic package versions, which means that `renv` will always be able to find the correct package version, and should be able to install it more quickly than needing to install it from source which may be required by CRAN. See [this link](https://packagemanager.posit.co/client/#/repos/cran/setup) for instructions, and [this link](https://www.pipinghotdata.com/posts/2024-09-16-ease-renvrestore-by-updating-your-repositories-to-p3m/) for why this is important.
 
 ### Coding pipelines  
 

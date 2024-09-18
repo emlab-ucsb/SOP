@@ -30,7 +30,7 @@ code
 scripts-and-version-control
 style-guide
 reproducibility
-package-dependencies
+package-management
 coding-pipelines
 internal-code-review
 exploratory-data-analysis

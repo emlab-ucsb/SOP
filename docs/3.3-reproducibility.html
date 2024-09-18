@@ -23,7 +23,7 @@
 <meta name="author" content="Environmental Markets Lab (emLab)" />
 
 
-<meta name="date" content="2024-08-21" />
+<meta name="date" content="2024-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -117,7 +117,7 @@
 <li class="chapter" data-level="3.2" data-path="3.2-style-guide.html"><a href="3.2-style-guide.html"><i class="fa fa-check"></i><b>3.2</b> Style Guide</a></li>
 <li class="chapter" data-level="3.3" data-path="3.3-reproducibility.html"><a href="3.3-reproducibility.html"><i class="fa fa-check"></i><b>3.3</b> Reproducibility</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="3.3-reproducibility.html"><a href="3.3-reproducibility.html#package-dependencies"><i class="fa fa-check"></i><b>3.3.1</b> Package dependencies</a></li>
+<li class="chapter" data-level="3.3.1" data-path="3.3-reproducibility.html"><a href="3.3-reproducibility.html#package-management"><i class="fa fa-check"></i><b>3.3.1</b> Package management</a></li>
 <li class="chapter" data-level="3.3.2" data-path="3.3-reproducibility.html"><a href="3.3-reproducibility.html#coding-pipelines"><i class="fa fa-check"></i><b>3.3.2</b> Coding pipelines</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="3.4-internal-code-review.html"><a href="3.4-internal-code-review.html"><i class="fa fa-check"></i><b>3.4</b> Internal code review</a></li>
@@ -177,10 +177,11 @@
 <li><strong>Git and GitHub:</strong> <a href="3.1-scripts-and-version-control.html#scripts-and-version-control">As described above,</a> Git tracks changes to files line-by-line in commits that are attributable to each team member working on the project. GitHub then compiles the history of any Git-tracked file online, and synchronizes the work of all collaborators in a central repository. Using Git and GitHub allow multiple people to code collaboratively, examine changes as they occur, and restore prior versions of files if necessary.</li>
 </ul>
 <p>We also recommend managing package dependencies and creating a reproducible coding pipeline. These two aspects are discussed in more detail below.</p>
-<div id="package-dependencies" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Package dependencies<a href="3.3-reproducibility.html#package-dependencies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="package-management" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Package management<a href="3.3-reproducibility.html#package-management" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A key aspect of reproducibility is package dependency management. For example, your code may run perfectly when using an old version of a particular package, but might fail when using the latest version of that package. In this case, even if someone has the exact code you used, it would fail to run on their machine if they are using the latest version of that package. It is therefore important that along with providing the code you use, you should also somehow provide the packages and package versions you use.</p>
 <p>If using R, we recommend using <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> package for managing package dependencies. <code>renv</code> was developed by the R Studio (now Posit) team. It is used at the project-level, and can thus be included as part of your GitHub respotitory. To set up your project to use <code>renv</code>, first initialize it by running <code>renv::init()</code>. You will then be able “snapshot” the packages and package version you are using in a project (by running <code>renv::snapshot</code>), and save that snapshot so that yourself or others can “restore” to that snapshot and use the exact same packages and package versions (by running <code>renv::restore</code>). This will ensure that your code will run on other machines, even if new versions of packages come out that are not backwards compatible.</p>
+<p>We also recommend you set up R Studio to use the Posit Public Package Manager instead of the default option of CRAN. The Posit Public Pckage Manager hosts binaries of all of the latest and older historic package versions, which means that <code>renv</code> will always be able to find the correct package version, and should be able to install it more quickly than needing to install it from source which may be required by CRAN. See <a href="https://packagemanager.posit.co/client/#/repos/cran/setup">this link</a> for instructions, and <a href="https://www.pipinghotdata.com/posts/2024-09-16-ease-renvrestore-by-updating-your-repositories-to-p3m/">this link</a> for why this is important.</p>
 </div>
 <div id="coding-pipelines" class="section level3 hasAnchor" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Coding pipelines<a href="3.3-reproducibility.html#coding-pipelines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
