@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Google Shared Drive | emLab Standard Operating Procedures</title>
+  <title>4.10 Accessing code | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.10 Accessing code | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.10 Accessing code | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="1.1-folder-naming.html"/>
-<link rel="next" href="1.3-grit-data-storage-space.html"/>
+<link rel="prev" href="4.9-accessing-data.html"/>
+<link rel="next" href="5-reports-and-publications.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,74 +170,135 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="google-shared-drive" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Google Shared Drive<a href="1.2-google-shared-drive.html#google-shared-drive" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Google Shared Drive and GRIT storage space share a very similar
-folder structure. The main difference is that the Google Shared Drive
-does not have any <code>data</code> folders, since all data is stored at GRIT. And
-of course, all files on Google Shared Drive are only collaborative
-Google Docs/Sheets/Slides. Everything else is stored at GRIT.</p>
-<div id="general-structure" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> General Structure<a href="1.2-google-shared-drive.html#general-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ My Drive
-  |   |__ ... whatever files you have on your personal Google Drive ...
-  |__ Shared drives
-      |__ emLab
-          |__ central-emlab-resources
-          |__ communications
-          |__ projects</code></pre>
-<p>The emLab Google Shared Drive is organized into three main folders:</p>
-<ul>
-<li><p><code>central-emlab-resources</code>: includes meeting and event information,
-project management guidelines, onboarding materials, information
-about travel reimbursements, strategy, computing, and the team
-roster</p></li>
-<li><p><code>communications</code>: includes the blog schedule, publication and media
-tracking, and any Google Docs/Sheets/Slides relating to
-communications</p></li>
-<li><p><code>projects</code>: includes information on past (archive) and current
-projects</p></li>
-</ul>
+<div id="accessing-code" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Accessing code<a href="4.10-accessing-code.html#accessing-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here we can talk about how to use the servers with GitHub code
+management. Essentially, you can work with projects and GitHub
+repositories on RStudio Server exactly like you can on your personal
+machine. One major difference is how to set up GitHub authentication,
+which is a little different on the servers than it would be on your
+personal machine. So we can provide explicit instructions on doing that.</p>
+<p>Please refer to <a href="https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#git-and-github">this
+section</a>
+of the emLab SOP for directions on how to set up and manage git and
+GitHub for your new server workspace. One important difference between
+your personal laptop and using a server is that file permissions may be
+such that other users can see and sometimes read or write files in your
+directories. Ideally, any confidential information such as your git
+credentials should be secured differently from your personal computer.
+Step 6 of the Git and Github section of the emLab manual is therefore
+not recommended in a multi-user server environment because your token
+may end up viewable to other users as plain text. <br />
+</p>
+<p>Instead of storing your Personal Authentication Token (PAT) as plain
+text, it is recommended to use one of the following options. Using
+either of these two approaches will also mean that credentials are
+stored between sessions, which should make the user experience a bit
+easier. The first approach, using an SSH key, is recommended</p>
+<ol style="list-style-type: decimal">
+<li><p>Use an SSH key instead of a PAT</p>
+<ol style="list-style-type: decimal">
+<li><p>Set up your SSH key on the GRIT server.</p>
+<ol style="list-style-type: decimal">
+<li><p>If you are not using R Studio Server, or prefer to use the
+terminal, follow these instructions: </p>
+<ol style="list-style-type: decimal">
+<li><p>You can generate a new SSH key with the terminal command</p>
+<ol style="list-style-type: decimal">
+<li>ssh-keygen -t ed25519 -C “email@example.com”</li>
+</ol></li>
+<li><p>You are prompted to select a location (hit enter for the
+default location)</p></li>
+<li><p>You are prompted to set a password (hit enter to not
+require one)</p></li>
+<li><p>Start your SSH agent in the background with </p>
+<ol style="list-style-type: decimal">
+<li>eval “$(ssh-agent -s)”</li>
+</ol></li>
+<li><p>Add your private key to the SSH agent with</p>
+<ol style="list-style-type: decimal">
+<li>ssh-add ~/.ssh/id_ed25519</li>
+</ol></li>
+<li><p>Copy your public key with </p>
+<ol style="list-style-type: decimal">
+<li>cat ~/.ssh/id_rsa.pub | xclip -selection clipboard</li>
+</ol></li>
+</ol></li>
+<li><p>If you are using R Studio Server and you prefer to not use
+the terminal approach, the instructions are a bit more
+streamlined. Follow the instructions in this
+<a href="https://happygitwithr.com/ssh-keys#option-1-set-up-from-rstudio">link</a>.  </p>
+<ol style="list-style-type: decimal">
+<li>If after going through these instructions you prefer to
+not use a password, you can remove it using the
+instructions provided in this
+<a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#adding-or-changing-a-passphrase">link</a>.</li>
+</ol></li>
+</ol></li>
+<li><p>Add your public key to your GitHub account</p>
+<ol style="list-style-type: decimal">
+<li><p>GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key</p></li>
+<li><p>Paste in your key (either from Step 6 in the terminal option
+above, or copied from R Studio Server in the R Studio option
+above)</p></li>
+</ol></li>
+<li><p>Now you can clone your repository onto the GRIT server. This
+means that you need to either: 1) when cloning the repository
+for the first time you need to use the SSH url rather than the
+HTTPS url; or 2) if you’ve already clone the repository, set
+your repository URL to the SSH version</p>
+<ol style="list-style-type: decimal">
+<li><p>If cloning a repo for the first time using R Studio Server,
+you can simply click “File &gt; New Project &gt; Version Control
+&gt; Git”, and then enter your repo’s SSH link</p>
+<ol style="list-style-type: decimal">
+<li><a href="mailto:git@github.com">git@github.com</a>:username/example_repo.git
+(for example, this might look like
+git@github.com:emlab-ucsb/ocean-ghg.git)</li>
+</ol></li>
+<li><p>Alternatively, in the terminal You can manually set specific
+repo URLs to SSH with: </p>
+<ol style="list-style-type: decimal">
+<li>git remote set-url origin
+<a href="mailto:git@github.com">git@github.com</a>:username/example_repo.git
+(for example, this might look like
+git@github.com:emlab-ucsb/ocean-ghg.git)</li>
+</ol></li>
+</ol></li>
+</ol></li>
+<li><p>Caching your PAT temporarily </p>
+<ol style="list-style-type: decimal">
+<li><p>Create a PAT on GitHub</p></li>
+<li><p>Add credential cache timeout instructions to your git config
+file</p>
+<ol style="list-style-type: decimal">
+<li><p>git config –global credential.helper ‘cache –timeout=3600’</p></li>
+<li><p>Adjust the timeout length (in seconds) as needed </p></li>
+</ol></li>
+<li><p>Push changes to GitHub</p>
+<ol style="list-style-type: decimal">
+<li><p>When prompted enter your username </p></li>
+<li><p>For the password enter your PAT</p>
+<ol style="list-style-type: decimal">
+<li>Future pushes will not not require you to enter
+credentials within the timeout window</li>
+</ol></li>
+</ol></li>
+<li><p>This is not a good long term solution because you will need to
+re-enter your credentials anytime the server restarts or when
+your cache timeout ends</p></li>
+</ol></li>
+</ol>
+
 </div>
-<div id="project-folder-structure" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Project Folder Structure<a href="1.2-google-shared-drive.html#project-folder-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ Shared drives
-      |__ emLab
-          |__ projects
-              |__ archived-projects
-              |__ current-project
-              |   |__ example-project
-              |   |   |__ deliverables
-              |   |   |__ grant-eporting
-              |   |   |__ meetings-and-events
-              |   |   |__ presentations
-              |   |   |__ project-materials</code></pre>
-<p>Each project folder must contain at least the following 5 folders:</p>
-<ul>
-<li><p><code>deliverables</code>: final reports, paper manuscripts, other final
-deliverables not related to data outputs</p></li>
-<li><p><code>grant-reporting</code>: grant reports for funders</p></li>
-<li><p><code>meetings-and-events</code>: meeting notes, agendas, documentation for
-workshop/event planning</p></li>
-<li><p><code>presentations</code>: any presentations created for the project</p></li>
-<li><p><code>project-materials</code>: everything else that does not fit into one of
-these folders (i.e. drafts of methods, literature review, etc.)</p></li>
-</ul>
-<p>From here, each project can add additional folders or sub-folders as
-needed. Just ensure that only collaborative Google Docs/Sheets/Slides
-are stored on Google Shared Drive. All other files should be stored on
-GRIT.</p>
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="1.1-folder-naming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="1.3-grit-data-storage-space.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.9-accessing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="5-reports-and-publications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

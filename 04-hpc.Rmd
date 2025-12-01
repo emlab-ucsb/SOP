@@ -38,13 +38,13 @@ quebracho.
 
 ## Available resources
 
-|                                                     | Cores   | RAM             | GPU | USE                                   |
-|-----------------------------------------------------|---------|-----------------|-----|---------------------------------------|
-| quebracho                                           | 64      | 1TB             | Yes | Only land-use projects (for now)      |
-| sequoia                                             | 192     | 1.5TB           | No  | All other emLab research              |
-| [Knot](https://csc.cnsi.ucsb.edu/clusters/knot)     | 1,500   | 48 GB - 1TB     | Yes | UCSB shared resource                  |
-| [Pod](https://csc.cnsi.ucsb.edu/clusters/pod)       | \~2,600 | 190 GB - 1.5 TB | Yes | UCSB shared resource                  |
-| [Braid2](https://csc.cnsi.ucsb.edu/clusters/braid2) | \~2,200 | 192 - 368 GB    | Yes | UCSB condo cluster (PI must buy node) |
+|   | Cores | RAM | GPU | USE |
+|---------------|---------------|---------------|---------------|---------------|
+| quebracho | 64 | 1TB | Yes | Only land-use projects (please check before using) |
+| sequoia | 192 | 1.5TB | No | All other emLab research |
+| [Knot](https://csc.cnsi.ucsb.edu/clusters/knot) | 1,500 | 48 GB - 1TB | Yes | UCSB shared resource |
+| [Pod](https://csc.cnsi.ucsb.edu/clusters/pod) | \~2,600 | 190 GB - 1.5 TB | Yes | UCSB shared resource |
+| [Braid2](https://csc.cnsi.ucsb.edu/clusters/braid2) | \~2,200 | 192 - 368 GB | Yes | UCSB condo cluster (PI must buy node) |
 
 : HPC resources available to emLab researchers
 
@@ -63,9 +63,16 @@ GCE](https://grantmcdermott.com/rstudio-server-compute-engine/).
 
 ## Available software
 
-Quebracho currently has R Studio Server and JupyterLab installed. We
-currently have R Studio installed on sequoia. GRIT manages these
-installations for us. They will also manage updates for these.
+Both quebracho and sequoia currently have R Studio Server, Jupyter
+Notebook, and VSCode installed. Positron is available on sequoia through
+a remote desktop Linux server. GRIT manages these installations for us.
+They will also manage updates for these.
+
+Both quebracho and sequoia also leverage [SLURM queueing
+systems](https://slurm.schedmd.com/overview.html). All computational
+activity is forced to go through SLURM, even interactive R Studio and
+Jupyter Notebook sessions (see section on Open OnDemand below). Scrontab
+can be used to manage SLURM crontab files.
 
 If we wish to install additional software, we will need to decide on
 these as a group and have GRIT install them for us. When considering new
@@ -78,9 +85,7 @@ should rely on these other campus servers and not install it on our own
 servers. Users interested in MatLab should first try Pod which has the
 necessary licenses and is available for free.
 
-Sequoia will not have a python interface by default. If there is enough
-interest, JupyterLab may be installed by making a request to GRIT. If
-users wish to use python it is recommended that they install Visual
+If users wish to use python it is recommended that they install Visual
 Studio Code (VS Code) available for free from Microsoft. With VS Code
 installed, users can add the Remote SSH extension and access sequoia via
 SSH tunnel. Further instructions can be found in the [VS Code
@@ -94,7 +99,7 @@ article](https://vinurad13.medium.com/setting-up-miniconda-and-run-jupyter-noteb
 is a good place for further installation guidance. Finally, it is
 recommended to create custom python
 [environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-for each project. 
+for each project. All ssh sessions go into the slurm queue.
 
 For users that need Stata, it is already available on both UCSB’s Knot
 cluster. More details for using Stata on Knot can be found
@@ -121,7 +126,6 @@ They update these once or twice a year. To add the GRIT R package
 library to your library paths, you can run this line of code:
 `.libPaths(c("/usr/local/lib/R/site-library/", .libPaths()))`
 
-\
 For system-level packages that you would normally need to install
 through the terminal on your local machine (e.g., packages like `gdal`
 or `libproj`), we will need to have GRIT install and manage these for
@@ -136,7 +140,193 @@ To use emLab’s HPC servers, you must have a GRIT account. Please refer
 to the [emLab Manual section on setting up and managing an account with
 GRIT](https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#signing-up-for-an-account-with-grit).
 
-## Logging in
+## Using sequoia
+
+Sequoia leverages Open OnDemand (OOD), a system managed by GRIT to
+connect our HPC resources to commonly used software. OOD is accessed via
+an online dashboard in your web browser: <https://hpc.grit.ucsb.edu>
+
+Once at the website, you can use your GRIT user ID and password. The
+system does not require you to be on campus or use a VPN.
+
+Through OOD, you can use the following software:
+
+-   R Studio Server
+-   Jupyter Notebook
+-   VS Code Server
+-   Positron (via a Linux remote desktop server)
+
+To use any of these, click "Interactive Apps", then click on your
+software of choice (to access Positron, click "Desktop"). Each time you
+launch an interactive app, you need to specify the following up-front
+before launching the job:
+
+-   Partition name: Type `emlab_nodes` to use emLab's private sequoia
+    resources (this should be used in most cases). Alternatively, you
+    can type `grit_nodes` to use GRIT's campus-wide shared resources
+
+-   Job duration (up to 168 hours): Your interactive session will run
+    for this amount of time, and then shut down (you can cancel jobs
+    before the ending time if you desire)
+
+-   Number of cores: How many CPU cores you want to use for your
+    interactive session. Currently, we have this set to a maximum of 24
+    cores per session. Since sequoia is a shared resource, please be
+    considerate of others when requesting cores. If you are unsure of
+    how many cores to use, we have another section of the SOP below to
+    help you figure this out.
+
+-   RAM: How much RAM you want to use for your interactive session.
+    Currently, we have this set to a maximum of 256GB per session. Since
+    sequoia is a shared resource, please be considerate of others when
+    requesting cores. If you are unsure of how much RAM to use, we have
+    another section of the SOP below to help you figure this out.
+
+Please do not enable to "Use GPU" option unless you have already
+discussed this with Kathy or Robert (it is only available on quebracho
+for land use projects at this time).
+
+Note that for convenience, your last used settings will be saved for the
+next time you launch an interactive app.
+
+Once you've configured your session, click "Launch". It may take a few
+minutes for your session to start up. Once it is ready, you will see a
+link to open R Studio Server (or whichever app you selected). Click the
+link to open R Studio Server in a new browser tab.
+
+Note that you may use OOD to launch *multiple* interactive sessions at
+the same time! They are each still managed through SLURM.
+
+More resources for OOD are available on GRIT's bookstack:
+
+-   [OOD landing
+    page](https://bookstack.grit.ucsb.edu/books/hpc-usage/chapter/openondemand-ood)
+
+-   [R Studio
+    Server](https://bookstack.grit.ucsb.edu/books/hpc-usage/page/r-studio)
+
+-   [Jupyter
+    Notebook](https://bookstack.grit.ucsb.edu/books/hpc-usage/page/jupyter-notebook)
+
+-   [VS Code
+    Server](https://bookstack.grit.ucsb.edu/books/hpc-usage/page/vs-code-server)
+
+## Best practices for sharing our computational resources
+
+Here we outline our best practices for using shared computational
+resources. These are meant to be living guidelines that will be adapted
+by our team as needed:
+
+-   Sharing is caring! Common courtesy can go a long way. As much as
+    possible, try to use only the resources you need.
+
+-   Leverage the tools below to monitor how many cores and how much RAM
+    you and others are currently using
+
+-   In general on sequoia, feel free to run analyses that use up to 24
+    cores and 256GB of RAM. We will likely adaptively manage these
+    specific numbers once we start using sequoia and getting a better
+    understanding of how many resources we are using. And if you don't
+    need that much, please request less so that others can use the
+    resources they need.
+
+-   For larger analyses that require lots of cores or RAM, coordinate
+    with others over the server slack channel (`#hpc-core-dination`) to
+    ensure that workflows are not disrupted and that everyone has
+    reasonable access to computational resources
+
+-   Generally, we recommend piloting your code using a small subset of
+    your data and/or just a single core, either on your local computer
+    or on one of our HPC servers. Then once you know it works and have a
+    sense of how much memory it will use and how long it will take to
+    execute, you can go ahead and run the full analysis on the server.
+    And if it looks like the full analysis will require resources beyond
+    the standard recommend 24 cores and 256GB, coordinate with the team
+    on the Slack channel `#hpc-core-dination`.
+
+## Specifying and monitoring resource allocation
+
+It is up to each researcher to: 1) decide how much computational
+resources they need prior to starting each job (i.e., how many cores and
+how much RAM will your job need); and 2) monitor their resource usage
+during each job to not only ensure they are not exceeding their
+allocated resources, but to help build personal awareness on how much
+resources certain jobs require. It will generally take each person some
+time to develop an intuition on how many resources each job will need;
+we always recommend piloting code locally on your own machine to start
+getting a sense for this. Additionally, as you use the server more and
+the tools below, you will further develop this intuition.
+
+Available tools:
+
+-   [Zabbix
+    dashboard](https://zabbix.grit.ucsb.edu/zabbix.php?action=dashboard.view&dashboardid=175&from=now-24h&to=now):
+    GRIT manages a dashboard for us which provides a high-level
+    system-level view of how many resources are being used on each of
+    our servers. This is a good place to start to get a sense of overall
+    resource usage across the whole team. It is also a good place to
+    check before starting a new job to see how busy the servers are. It
+    is also a place that will show the current status of each server and
+    whether or not there are currently any problems.
+
+-   Job Resource Utilization Analyzer: If using sequoia via OOD, you can
+    navigate to the [OOD dashboard](https://hpc.grit.ucsb.edu), click
+    "Apps", then click "Job Resource Utilization Analyzer". For each job
+    that is currently running on a GRIT server, this will show you how
+    many cores and how much RAM was requested, as well as the actual
+    peak core and RAM usage. It further provides some information on
+    whether or not you over-requested core and/or RAM resources, and
+    provides some recommendations if any adjustments should be made in
+    the future. This is a nice way to monitor live usage.
+
+-   Post-job email: If using sequoia via OOD, at the end of each job you
+    will receive an email summary of your job resource usage. This email
+    provides similar information to the Job Resource Utilization
+    Analyzer, but is sent to you automatically at the end of each job.
+    It also provides information on whether or not you over-requested
+    core and/or RAM resources, and provides some recommendations if any
+    adjustments should be made in the future. This is a nice way to
+    monitor your resource usage after the fact. GRIT provides some
+    helpful rules of thumb:
+
+    -   "If Max RSS is much lower than requested memory, you may be
+        over-requesting RAM."
+    -   "If the job failed with OUT_OF_MEMORY and Max RSS is close to
+        the request, you likely need to request more memory."
+    -   "If Total CPU \<\< (Elapsed time \* AllocCPUS), your job may be
+        I/O bound or under-utilizing its cores."
+
+-   [htop](https://htop.dev/): This terminal tool is installed on each
+    server and provides a real-time view of resource usage on each
+    server. It is a great tool to use during an interactive session to
+    see how many cores and how much RAM your job is using, and also how
+    many cores and how much RAM are currently being used by others. You
+    can customize the htop display to make things easier to see. For
+    example:
+
+    -   After entering htop, press F2 to enter setup. You can also click
+        directly on setup to enter it.
+    -   Once you enter setup, if you have trouble seeing the setup
+        options, you can try reducing your browser’s text size
+        temporarily in order to see the setup options.
+    -   Sequoia has 192 cores so the default view with 4 columns means a
+        pretty large display. In the Meters setup, you can change the
+        left column to be “CPUs (1-4/8) \[Bar\]” and the right column to
+        be “CPUs (5-8/8) \[Bar\]”. This will condense the output and
+        force 8 columns. 
+    -   I also like to add disc IO to the left column below memory. 
+    -   In the “Display options” setup you can select some that will
+        clean up the process information below the resources monitor. I
+        like to make sure to select 
+        -   Tree view
+        -   Tree view sorted by PID
+        -   Shadow other users’ process (makes it easier to see your
+            own)
+        -   Count CPUs from 1
+        -   Enable the mouse
+        -   Press F10 when done
+
+## Using quebracho
 
 1.  On your local machine, connect to the UCSB Campus VPN. You can do so
     by downloading a VPN client for your operating system, such as
@@ -147,12 +337,11 @@ GRIT](https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.htm
     connect to the campus VPN.
 
 2.  Once you’ve connected to the VPN, you are ready to access the
-    server. To access R Studio Server, you can simply navigate to one of
-    these links. Once there, you will be prompted to enter your GRIT
-    user ID and password. Once you’ve done this, you are ready to use R
-    Studio Server!
-
-    -   Sequoia: <https://sequoia.grit.ucsb.edu/rstudio/>
+    server. You can access quebracho via SSH if you wish to use
+    something like VS Code. To access R Studio Server, you can simply
+    navigate to the following link. Once there, you will be prompted to
+    enter your GRIT user ID and password. Once you’ve done this, you are
+    ready to use R Studio Server!
 
     -   Quebracho: <https://quebracho.geog.ucsb.edu/rstudio/>
 
@@ -174,7 +363,6 @@ section](https://emlab-ucsb.github.io/SOP/2.3-accessing-emlab-data-in-r.html)
 of the emLab SOP for a code snippet that can be used to directly access
 data on the server in R.
 
-\
 In addition to having access to our emLab GRIT data storage space, which
 is shared across all members of our team, all individual users also have
 a private user-specific storage space. All GRIT users get a free 50GB
@@ -313,74 +501,3 @@ easier. The first approach, using an SSH key, is recommended
     4.  This is not a good long term solution because you will need to
         re-enter your credentials anytime the server restarts or when
         your cache timeout ends
-
-## Using htop to monitor shared resources
-
-Always run [htop](https://htop.dev/) in the terminal to see how the many
-cores and how much RAM are currently being used by others. You can
-customize the htop display to make things easier to see. For example:
-
--   After entering htop, press F2 to enter setup. You can also click
-    directly on setup to enter it.
-
--   Once you enter setup, if you have trouble seeing the setup options,
-    you can try reducing your browser’s text size temporarily in order
-    to see the setup options.
-
--   Sequoia has 128 cores so the default view with 4 columns means a
-    pretty large display. In the Meters setup, you can change the left
-    column to be “CPUs (1-4/8) [Bar]” and the right column to be “CPUs
-    (5-8/8) [Bar]”. This will condense the output and force 8 columns. 
-
--   I also like to add disc IO to the left column below memory. 
-
--   In the “Display options” setup you can select some that will clean
-    up the process information below the resources monitor. I like to
-    make sure to select 
-
-    -   Tree view
-
-    -   Tree view sorted by PID
-
-    -   Shadow other users’ process (makes it easier to see your own)
-
-    -   Count CPUs from 1
-
-    -   Enable the mouse
-
--   Press F10 when done
-
-## Best practices for sharing our computational resources
-
-Here we outline our best practices for using shared computational
-resources. These are meant to be living guidelines that will be adapted
-by our team as needed:
-
--   In order to keep some of our computational resources easy to use
-    interactively without queues or SLURM, we will need to coordinate
-    and share. Sharing is caring! Common courtesy can go a long way.
-    Hopefully we can largely self-manage this. If not, we will need to
-    move computational resources onto queues and SLURM, which could
-    introduce barriers to analysis and rapid prototyping.
-
--   Always run [htop](https://htop.dev/) in the terminal to see how the
-    many cores and how much RAM are currently being used by others
-
--   In general on sequoia, feel free to run analyses that use up to 20
-    cores and 150GB of RAM. We will likely adaptively manage these
-    specific numbers once we start using sequoia and getting a better
-    understanding of how many resources we are using.
-
--   For larger analyses that require more cores or RAM, coordinate with
-    others over the server slack channel (`#hpc-core-dination`) to
-    ensure that workflows are not disrupted and that everyone has
-    reasonable access to computational resources
-
--   Generally, we recommend piloting your code using a small subset of
-    your data and/or just a single core, either on your local computer
-    or on one of our HPC servers. Then once you know it works and have a
-    sense of how much memory it will use and how long it will take to
-    execute, you can go ahead and run the full analysis on the server.
-    And if it looks like the full analysis will require resources beyond
-    the standard recommend 20 cores and 150GB, coordinate with the team
-    on `#hpc-core-dination`.

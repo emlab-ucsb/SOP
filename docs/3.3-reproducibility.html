@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.3 Reproducibility | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.3 Reproducibility | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Environmental Markets Lab (emLab)" />
 
 
-<meta name="date" content="2024-09-18" />
+<meta name="date" content="2025-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -129,11 +133,12 @@
 <li class="chapter" data-level="4.2" data-path="4.2-available-software.html"><a href="4.2-available-software.html"><i class="fa fa-check"></i><b>4.2</b> Available software</a></li>
 <li class="chapter" data-level="4.3" data-path="4.3-installing-packages.html"><a href="4.3-installing-packages.html"><i class="fa fa-check"></i><b>4.3</b> Installing packages</a></li>
 <li class="chapter" data-level="4.4" data-path="4.4-setting-up-a-grit-account.html"><a href="4.4-setting-up-a-grit-account.html"><i class="fa fa-check"></i><b>4.4</b> Setting up a GRIT account</a></li>
-<li class="chapter" data-level="4.5" data-path="4.5-logging-in.html"><a href="4.5-logging-in.html"><i class="fa fa-check"></i><b>4.5</b> Logging in</a></li>
-<li class="chapter" data-level="4.6" data-path="4.6-accessing-data.html"><a href="4.6-accessing-data.html"><i class="fa fa-check"></i><b>4.6</b> Accessing data</a></li>
-<li class="chapter" data-level="4.7" data-path="4.7-accessing-code.html"><a href="4.7-accessing-code.html"><i class="fa fa-check"></i><b>4.7</b> Accessing code</a></li>
-<li class="chapter" data-level="4.8" data-path="4.8-using-htop-to-monitor-shared-resources.html"><a href="4.8-using-htop-to-monitor-shared-resources.html"><i class="fa fa-check"></i><b>4.8</b> Using htop to monitor shared resources</a></li>
-<li class="chapter" data-level="4.9" data-path="4.9-best-practices-for-sharing-our-computational-resources.html"><a href="4.9-best-practices-for-sharing-our-computational-resources.html"><i class="fa fa-check"></i><b>4.9</b> Best practices for sharing our computational resources</a></li>
+<li class="chapter" data-level="4.5" data-path="4.5-using-sequoia.html"><a href="4.5-using-sequoia.html"><i class="fa fa-check"></i><b>4.5</b> Using sequoia</a></li>
+<li class="chapter" data-level="4.6" data-path="4.6-best-practices-for-sharing-our-computational-resources.html"><a href="4.6-best-practices-for-sharing-our-computational-resources.html"><i class="fa fa-check"></i><b>4.6</b> Best practices for sharing our computational resources</a></li>
+<li class="chapter" data-level="4.7" data-path="4.7-specifying-and-monitoring-resource-allocation.html"><a href="4.7-specifying-and-monitoring-resource-allocation.html"><i class="fa fa-check"></i><b>4.7</b> Specifying and monitoring resource allocation</a></li>
+<li class="chapter" data-level="4.8" data-path="4.8-using-quebracho.html"><a href="4.8-using-quebracho.html"><i class="fa fa-check"></i><b>4.8</b> Using quebracho</a></li>
+<li class="chapter" data-level="4.9" data-path="4.9-accessing-data.html"><a href="4.9-accessing-data.html"><i class="fa fa-check"></i><b>4.9</b> Accessing data</a></li>
+<li class="chapter" data-level="4.10" data-path="4.10-accessing-code.html"><a href="4.10-accessing-code.html"><i class="fa fa-check"></i><b>4.10</b> Accessing code</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-reports-and-publications.html"><a href="5-reports-and-publications.html"><i class="fa fa-check"></i><b>5</b> Reports and Publications</a>
 <ul>
@@ -246,40 +251,54 @@ data/clean_data.csv: scripts/clean_data.R data/raw_data.csv
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": null,
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-},
-"toolbar": {
-"position": "static"
-}
+  "sharing": null,
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  },
+  "toolbar": {
+    "position": "static"
+  }
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

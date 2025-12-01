@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Google Shared Drive | emLab Standard Operating Procedures</title>
+  <title>4.7 Specifying and monitoring resource allocation | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.7 Specifying and monitoring resource allocation | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Google Shared Drive | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.7 Specifying and monitoring resource allocation | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="1.1-folder-naming.html"/>
-<link rel="next" href="1.3-grit-data-storage-space.html"/>
+<link rel="prev" href="4.6-best-practices-for-sharing-our-computational-resources.html"/>
+<link rel="next" href="4.8-using-quebracho.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,74 +170,96 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="google-shared-drive" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Google Shared Drive<a href="1.2-google-shared-drive.html#google-shared-drive" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Google Shared Drive and GRIT storage space share a very similar
-folder structure. The main difference is that the Google Shared Drive
-does not have any <code>data</code> folders, since all data is stored at GRIT. And
-of course, all files on Google Shared Drive are only collaborative
-Google Docs/Sheets/Slides. Everything else is stored at GRIT.</p>
-<div id="general-structure" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> General Structure<a href="1.2-google-shared-drive.html#general-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ My Drive
-  |   |__ ... whatever files you have on your personal Google Drive ...
-  |__ Shared drives
-      |__ emLab
-          |__ central-emlab-resources
-          |__ communications
-          |__ projects</code></pre>
-<p>The emLab Google Shared Drive is organized into three main folders:</p>
+<div id="specifying-and-monitoring-resource-allocation" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Specifying and monitoring resource allocation<a href="4.7-specifying-and-monitoring-resource-allocation.html#specifying-and-monitoring-resource-allocation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is up to each researcher to: 1) decide how much computational
+resources they need prior to starting each job (i.e., how many cores and
+how much RAM will your job need); and 2) monitor their resource usage
+during each job to not only ensure they are not exceeding their
+allocated resources, but to help build personal awareness on how much
+resources certain jobs require. It will generally take each person some
+time to develop an intuition on how many resources each job will need;
+we always recommend piloting code locally on your own machine to start
+getting a sense for this. Additionally, as you use the server more and
+the tools below, you will further develop this intuition.</p>
+<p>Available tools:</p>
 <ul>
-<li><p><code>central-emlab-resources</code>: includes meeting and event information,
-project management guidelines, onboarding materials, information
-about travel reimbursements, strategy, computing, and the team
-roster</p></li>
-<li><p><code>communications</code>: includes the blog schedule, publication and media
-tracking, and any Google Docs/Sheets/Slides relating to
-communications</p></li>
-<li><p><code>projects</code>: includes information on past (archive) and current
-projects</p></li>
-</ul>
-</div>
-<div id="project-folder-structure" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Project Folder Structure<a href="1.2-google-shared-drive.html#project-folder-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>Google Drive
-  |__ Shared drives
-      |__ emLab
-          |__ projects
-              |__ archived-projects
-              |__ current-project
-              |   |__ example-project
-              |   |   |__ deliverables
-              |   |   |__ grant-eporting
-              |   |   |__ meetings-and-events
-              |   |   |__ presentations
-              |   |   |__ project-materials</code></pre>
-<p>Each project folder must contain at least the following 5 folders:</p>
+<li><p><a href="https://zabbix.grit.ucsb.edu/zabbix.php?action=dashboard.view&amp;dashboardid=175&amp;from=now-24h&amp;to=now">Zabbix
+dashboard</a>:
+GRIT manages a dashboard for us which provides a high-level
+system-level view of how many resources are being used on each of
+our servers. This is a good place to start to get a sense of overall
+resource usage across the whole team. It is also a good place to
+check before starting a new job to see how busy the servers are. It
+is also a place that will show the current status of each server and
+whether or not there are currently any problems.</p></li>
+<li><p>Job Resource Utilization Analyzer: If using sequoia via OOD, you can
+navigate to the <a href="https://hpc.grit.ucsb.edu">OOD dashboard</a>, click
+“Apps”, then click “Job Resource Utilization Analyzer”. For each job
+that is currently running on a GRIT server, this will show you how
+many cores and how much RAM was requested, as well as the actual
+peak core and RAM usage. It further provides some information on
+whether or not you over-requested core and/or RAM resources, and
+provides some recommendations if any adjustments should be made in
+the future. This is a nice way to monitor live usage.</p></li>
+<li><p>Post-job email: If using sequoia via OOD, at the end of each job you
+will receive an email summary of your job resource usage. This email
+provides similar information to the Job Resource Utilization
+Analyzer, but is sent to you automatically at the end of each job.
+It also provides information on whether or not you over-requested
+core and/or RAM resources, and provides some recommendations if any
+adjustments should be made in the future. This is a nice way to
+monitor your resource usage after the fact. GRIT provides some
+helpful rules of thumb:</p>
 <ul>
-<li><p><code>deliverables</code>: final reports, paper manuscripts, other final
-deliverables not related to data outputs</p></li>
-<li><p><code>grant-reporting</code>: grant reports for funders</p></li>
-<li><p><code>meetings-and-events</code>: meeting notes, agendas, documentation for
-workshop/event planning</p></li>
-<li><p><code>presentations</code>: any presentations created for the project</p></li>
-<li><p><code>project-materials</code>: everything else that does not fit into one of
-these folders (i.e. drafts of methods, literature review, etc.)</p></li>
+<li>“If Max RSS is much lower than requested memory, you may be
+over-requesting RAM.”</li>
+<li>“If the job failed with OUT_OF_MEMORY and Max RSS is close to
+the request, you likely need to request more memory.”</li>
+<li>“If Total CPU &lt;&lt; (Elapsed time * AllocCPUS), your job may be
+I/O bound or under-utilizing its cores.”</li>
+</ul></li>
+<li><p><a href="https://htop.dev/">htop</a>: This terminal tool is installed on each
+server and provides a real-time view of resource usage on each
+server. It is a great tool to use during an interactive session to
+see how many cores and how much RAM your job is using, and also how
+many cores and how much RAM are currently being used by others. You
+can customize the htop display to make things easier to see. For
+example:</p>
+<ul>
+<li>After entering htop, press F2 to enter setup. You can also click
+directly on setup to enter it.</li>
+<li>Once you enter setup, if you have trouble seeing the setup
+options, you can try reducing your browser’s text size
+temporarily in order to see the setup options.</li>
+<li>Sequoia has 192 cores so the default view with 4 columns means a
+pretty large display. In the Meters setup, you can change the
+left column to be “CPUs (1-4/8) <span class="math display">\[Bar\]</span>” and the right column to
+be “CPUs (5-8/8) <span class="math display">\[Bar\]</span>”. This will condense the output and
+force 8 columns. </li>
+<li>I also like to add disc IO to the left column below memory. </li>
+<li>In the “Display options” setup you can select some that will
+clean up the process information below the resources monitor. I
+like to make sure to select 
+<ul>
+<li>Tree view</li>
+<li>Tree view sorted by PID</li>
+<li>Shadow other users’ process (makes it easier to see your
+own)</li>
+<li>Count CPUs from 1</li>
+<li>Enable the mouse</li>
+<li>Press F10 when done</li>
+</ul></li>
+</ul></li>
 </ul>
-<p>From here, each project can add additional folders or sub-folders as
-needed. Just ensure that only collaborative Google Docs/Sheets/Slides
-are stored on Google Shared Drive. All other files should be stored on
-GRIT.</p>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="1.1-folder-naming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="1.3-grit-data-storage-space.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.6-best-practices-for-sharing-our-computational-resources.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.8-using-quebracho.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
