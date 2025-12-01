@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.10 Accessing code | emLab Standard Operating Procedures</title>
+  <title>4.7 Resource allocation | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.10 Accessing code | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.7 Resource allocation | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.10 Accessing code | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.7 Resource allocation | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="4.9-accessing-data.html"/>
-<link rel="next" href="5-reports-and-publications.html"/>
+<link rel="prev" href="4.6-best-practices.html"/>
+<link rel="next" href="4.8-using-quebracho.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,135 +170,96 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="accessing-code" class="section level2 hasAnchor" number="4.10">
-<h2><span class="header-section-number">4.10</span> Accessing code<a href="4.10-accessing-code.html#accessing-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here we can talk about how to use the servers with GitHub code
-management. Essentially, you can work with projects and GitHub
-repositories on RStudio Server exactly like you can on your personal
-machine. One major difference is how to set up GitHub authentication,
-which is a little different on the servers than it would be on your
-personal machine. So we can provide explicit instructions on doing that.</p>
-<p>Please refer to <a href="https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#git-and-github">this
-section</a>
-of the emLab SOP for directions on how to set up and manage git and
-GitHub for your new server workspace. One important difference between
-your personal laptop and using a server is that file permissions may be
-such that other users can see and sometimes read or write files in your
-directories. Ideally, any confidential information such as your git
-credentials should be secured differently from your personal computer.
-Step 6 of the Git and Github section of the emLab manual is therefore
-not recommended in a multi-user server environment because your token
-may end up viewable to other users as plain text. <br />
-</p>
-<p>Instead of storing your Personal Authentication Token (PAT) as plain
-text, it is recommended to use one of the following options. Using
-either of these two approaches will also mean that credentials are
-stored between sessions, which should make the user experience a bit
-easier. The first approach, using an SSH key, is recommended</p>
-<ol style="list-style-type: decimal">
-<li><p>Use an SSH key instead of a PAT</p>
-<ol style="list-style-type: decimal">
-<li><p>Set up your SSH key on the GRIT server.</p>
-<ol style="list-style-type: decimal">
-<li><p>If you are not using R Studio Server, or prefer to use the
-terminal, follow these instructions: </p>
-<ol style="list-style-type: decimal">
-<li><p>You can generate a new SSH key with the terminal command</p>
-<ol style="list-style-type: decimal">
-<li>ssh-keygen -t ed25519 -C “email@example.com”</li>
-</ol></li>
-<li><p>You are prompted to select a location (hit enter for the
-default location)</p></li>
-<li><p>You are prompted to set a password (hit enter to not
-require one)</p></li>
-<li><p>Start your SSH agent in the background with </p>
-<ol style="list-style-type: decimal">
-<li>eval “$(ssh-agent -s)”</li>
-</ol></li>
-<li><p>Add your private key to the SSH agent with</p>
-<ol style="list-style-type: decimal">
-<li>ssh-add ~/.ssh/id_ed25519</li>
-</ol></li>
-<li><p>Copy your public key with </p>
-<ol style="list-style-type: decimal">
-<li>cat ~/.ssh/id_rsa.pub | xclip -selection clipboard</li>
-</ol></li>
-</ol></li>
-<li><p>If you are using R Studio Server and you prefer to not use
-the terminal approach, the instructions are a bit more
-streamlined. Follow the instructions in this
-<a href="https://happygitwithr.com/ssh-keys#option-1-set-up-from-rstudio">link</a>.  </p>
-<ol style="list-style-type: decimal">
-<li>If after going through these instructions you prefer to
-not use a password, you can remove it using the
-instructions provided in this
-<a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#adding-or-changing-a-passphrase">link</a>.</li>
-</ol></li>
-</ol></li>
-<li><p>Add your public key to your GitHub account</p>
-<ol style="list-style-type: decimal">
-<li><p>GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key</p></li>
-<li><p>Paste in your key (either from Step 6 in the terminal option
-above, or copied from R Studio Server in the R Studio option
-above)</p></li>
-</ol></li>
-<li><p>Now you can clone your repository onto the GRIT server. This
-means that you need to either: 1) when cloning the repository
-for the first time you need to use the SSH url rather than the
-HTTPS url; or 2) if you’ve already clone the repository, set
-your repository URL to the SSH version</p>
-<ol style="list-style-type: decimal">
-<li><p>If cloning a repo for the first time using R Studio Server,
-you can simply click “File &gt; New Project &gt; Version Control
-&gt; Git”, and then enter your repo’s SSH link</p>
-<ol style="list-style-type: decimal">
-<li><a href="mailto:git@github.com">git@github.com</a>:username/example_repo.git
-(for example, this might look like
-git@github.com:emlab-ucsb/ocean-ghg.git)</li>
-</ol></li>
-<li><p>Alternatively, in the terminal You can manually set specific
-repo URLs to SSH with: </p>
-<ol style="list-style-type: decimal">
-<li>git remote set-url origin
-<a href="mailto:git@github.com">git@github.com</a>:username/example_repo.git
-(for example, this might look like
-git@github.com:emlab-ucsb/ocean-ghg.git)</li>
-</ol></li>
-</ol></li>
-</ol></li>
-<li><p>Caching your PAT temporarily </p>
-<ol style="list-style-type: decimal">
-<li><p>Create a PAT on GitHub</p></li>
-<li><p>Add credential cache timeout instructions to your git config
-file</p>
-<ol style="list-style-type: decimal">
-<li><p>git config –global credential.helper ‘cache –timeout=3600’</p></li>
-<li><p>Adjust the timeout length (in seconds) as needed </p></li>
-</ol></li>
-<li><p>Push changes to GitHub</p>
-<ol style="list-style-type: decimal">
-<li><p>When prompted enter your username </p></li>
-<li><p>For the password enter your PAT</p>
-<ol style="list-style-type: decimal">
-<li>Future pushes will not not require you to enter
-credentials within the timeout window</li>
-</ol></li>
-</ol></li>
-<li><p>This is not a good long term solution because you will need to
-re-enter your credentials anytime the server restarts or when
-your cache timeout ends</p></li>
-</ol></li>
-</ol>
-
+<div id="resource-allocation" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Resource allocation<a href="4.7-resource-allocation.html#resource-allocation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is up to each researcher to: 1) decide how much computational
+resources they need prior to starting each job (i.e., how many cores and
+how much RAM will your job need); and 2) monitor their resource usage
+during each job to not only ensure they are not exceeding their
+allocated resources, but to help build personal awareness on how much
+resources certain jobs require. It will generally take each person some
+time to develop an intuition on how many resources each job will need;
+we always recommend piloting code locally on your own machine to start
+getting a sense for this. Additionally, as you use the server more and
+the tools below, you will further develop this intuition.</p>
+<p>Available tools:</p>
+<ul>
+<li><p><a href="https://zabbix.grit.ucsb.edu/zabbix.php?action=dashboard.view&amp;dashboardid=175&amp;from=now-24h&amp;to=now">Zabbix
+dashboard</a>:
+GRIT manages a dashboard for us which provides a high-level
+system-level view of how many resources are being used on each of
+our servers. This is a good place to start to get a sense of overall
+resource usage across the whole team. It is also a good place to
+check before starting a new job to see how busy the servers are. It
+is also a place that will show the current status of each server and
+whether or not there are currently any problems.</p></li>
+<li><p>Job Resource Utilization Analyzer: If using sequoia via OOD, you can
+navigate to the <a href="https://hpc.grit.ucsb.edu">OOD dashboard</a>, click
+“Apps”, then click “Job Resource Utilization Analyzer”. For each job
+that is currently running on a GRIT server, this will show you how
+many cores and how much RAM was requested, as well as the actual
+peak core and RAM usage. It further provides some information on
+whether or not you over-requested core and/or RAM resources, and
+provides some recommendations if any adjustments should be made in
+the future. This is a nice way to monitor live usage.</p></li>
+<li><p>Post-job email: If using sequoia via OOD, at the end of each job you
+will receive an email summary of your job resource usage. This email
+provides similar information to the Job Resource Utilization
+Analyzer, but is sent to you automatically at the end of each job.
+It also provides information on whether or not you over-requested
+core and/or RAM resources, and provides some recommendations if any
+adjustments should be made in the future. This is a nice way to
+monitor your resource usage after the fact. GRIT provides some
+helpful rules of thumb:</p>
+<ul>
+<li>“If Max RSS is much lower than requested memory, you may be
+over-requesting RAM.”</li>
+<li>“If the job failed with OUT_OF_MEMORY and Max RSS is close to
+the request, you likely need to request more memory.”</li>
+<li>“If Total CPU &lt;&lt; (Elapsed time * AllocCPUS), your job may be
+I/O bound or under-utilizing its cores.”</li>
+</ul></li>
+<li><p><a href="https://htop.dev/">htop</a>: This terminal tool is installed on each
+server and provides a real-time view of resource usage on each
+server. It is a great tool to use during an interactive session to
+see how many cores and how much RAM your job is using, and also how
+many cores and how much RAM are currently being used by others. You
+can customize the htop display to make things easier to see. For
+example:</p>
+<ul>
+<li>After entering htop, press F2 to enter setup. You can also click
+directly on setup to enter it.</li>
+<li>Once you enter setup, if you have trouble seeing the setup
+options, you can try reducing your browser’s text size
+temporarily in order to see the setup options.</li>
+<li>Sequoia has 192 cores so the default view with 4 columns means a
+pretty large display. In the Meters setup, you can change the
+left column to be <code>CPUs (1-4/8) [Bar]</code> and the right column to
+be <code>CPUs (5-8/8) [Bar]</code> This will condense the output and force
+8 columns. </li>
+<li>I also like to add disc IO to the left column below memory. </li>
+<li>In the “Display options” setup you can select some that will
+clean up the process information below the resources monitor. I
+like to make sure to select 
+<ul>
+<li>Tree view</li>
+<li>Tree view sorted by PID</li>
+<li>Shadow other users’ process (makes it easier to see your
+own)</li>
+<li>Count CPUs from 1</li>
+<li>Enable the mouse</li>
+<li>Press F10 when done</li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="4.9-accessing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5-reports-and-publications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.6-best-practices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.8-using-quebracho.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

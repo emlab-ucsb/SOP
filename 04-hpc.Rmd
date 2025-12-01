@@ -211,7 +211,7 @@ More resources for OOD are available on GRIT's bookstack:
 -   [VS Code
     Server](https://bookstack.grit.ucsb.edu/books/hpc-usage/page/vs-code-server)
 
-## Best practices for sharing our computational resources
+## Best practices
 
 Here we outline our best practices for using shared computational
 resources. These are meant to be living guidelines that will be adapted
@@ -244,7 +244,7 @@ by our team as needed:
     the standard recommend 24 cores and 256GB, coordinate with the team
     on the Slack channel `#hpc-core-dination`.
 
-## Specifying and monitoring resource allocation
+## Resource allocation
 
 It is up to each researcher to: 1) decide how much computational
 resources they need prior to starting each job (i.e., how many cores and
@@ -311,9 +311,9 @@ Available tools:
         temporarily in order to see the setup options.
     -   Sequoia has 192 cores so the default view with 4 columns means a
         pretty large display. In the Meters setup, you can change the
-        left column to be “CPUs (1-4/8) \[Bar\]” and the right column to
-        be “CPUs (5-8/8) \[Bar\]”. This will condense the output and
-        force 8 columns. 
+        left column to be `CPUs (1-4/8) [Bar]` and the right column to
+        be `CPUs (5-8/8) [Bar]` This will condense the output and force
+        8 columns. 
     -   I also like to add disc IO to the left column below memory. 
     -   In the “Display options” setup you can select some that will
         clean up the process information below the resources monitor. I

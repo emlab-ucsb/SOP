@@ -40,8 +40,8 @@ available-software
 installing-packages
 setting-up-a-grit-account
 using-sequoia
-best-practices-for-sharing-our-computational-resources
-specifying-and-monitoring-resource-allocation
+best-practices
+resource-allocation
 using-quebracho
 accessing-data
 accessing-code
