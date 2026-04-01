@@ -2,11 +2,11 @@
 
 This charter establishes the mission and scope of the emLab Code Review Team, as directed by the Leadership Team.
 
-## Mission
+### Mission
 
 The Code Review Team exists to make emLab's research code more replicable, transparent, and robust. The team will document and maintain standardized best practices for code review, guide the responsible integration of AI tools into coding workflows, and coordinate training so that all emLab coders can follow these standards effectively.
 
-## Scope
+### Scope
 
 The team's work is organized around four pillars:
 
@@ -18,8 +18,9 @@ The team's work is organized around four pillars:
 
 4. **Budget & Staffing Implications.** Work with the Leadership Team to evaluate how AI-driven changes in coding efficiency affect budgetary and staffing plans. Specific implications are still being determined.
 
-## Team Members
+### Team Members
 
+- Danielle Ferraro
 - Tracey Mangin
 - Gavin McDonald
 - Cullen Molitor
