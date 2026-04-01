@@ -1,0 +1,27 @@
+# Code Review & AI Standards Charter {-}
+
+This charter establishes the mission and scope of the emLab Code Review Team, as directed by the Leadership Team.
+
+**Mission**
+
+The Code Review Team exists to make emLab's research code more replicable, transparent, and robust. The team will document and maintain standardized best practices for code review, guide the responsible integration of AI tools into coding workflows, and coordinate training so that all emLab coders can follow these standards effectively.
+
+**Scope**
+
+The team's work is organized around four pillars:
+
+1. **Code Review Standards.** Document best practices for replicable code, including documentation standards, a self-review process, and a peer-to-peer review process. These standards will build on the existing guidance in the [Code](#code) chapter of this SOP.
+
+2. **AI Integration Policy.** Establish guidelines for the use of AI tools (e.g., code generation, refactoring assistance) in emLab research workflows. AI tools are approved for backend efficiency, but they do not replace human review. The team will define the specific points where human intervention and review are required.
+
+3. **Training.** Once standards are documented, coordinate training for all emLab coders. Training is an ongoing responsibility given the pace of change in AI tooling and coding best practices.
+
+4. **Budget & Staffing Implications.** Work with the Leadership Team to evaluate how AI-driven changes in coding efficiency affect budgetary and staffing plans. Specific implications are still being determined.
+
+**Team Members**
+
+- Danielle Ferraro
+- Tracey Mangin
+- Gavin McDonald
+- Cullen Molitor
+- Jordan Wingenroth
