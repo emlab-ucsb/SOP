@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6.1 Code Review Standards | emLab Standard Operating Procedures</title>
+  <meta name="description" content="Standard operating procedures for emLab projects" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6.1 Code Review Standards | emLab Standard Operating Procedures" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Standard operating procedures for emLab projects" />
+  <meta name="github-repo" content="emlab-ucsb/SOP" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6.1 Code Review Standards | emLab Standard Operating Procedures" />
+  
+  <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
+  
+
+<meta name="author" content="Environmental Markets Lab (emLab)" />
+
+
+<meta name="date" content="2026-04-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+<link rel="prev" href="6-code-review-ai-standards-charter.html"/>
+<link rel="next" href="6.2-ai-integration-policy.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="1" data-path="1-file-structure.html"><a href="1-file-structure.html"><i class="fa fa-check"></i><b>1</b> File Structure</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1.1-folder-naming.html"><a href="1.1-folder-naming.html"><i class="fa fa-check"></i><b>1.1</b> Folder Naming</a></li>
+<li class="chapter" data-level="1.2" data-path="1.2-google-shared-drive.html"><a href="1.2-google-shared-drive.html"><i class="fa fa-check"></i><b>1.2</b> Google Shared Drive</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="1.2-google-shared-drive.html"><a href="1.2-google-shared-drive.html#general-structure"><i class="fa fa-check"></i><b>1.2.1</b> General Structure</a></li>
+<li class="chapter" data-level="1.2.2" data-path="1.2-google-shared-drive.html"><a href="1.2-google-shared-drive.html#project-folder-structure"><i class="fa fa-check"></i><b>1.2.2</b> Project Folder Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1.3-grit-data-storage-space.html"><a href="1.3-grit-data-storage-space.html"><i class="fa fa-check"></i><b>1.3</b> GRIT data storage space</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="1.3-grit-data-storage-space.html"><a href="1.3-grit-data-storage-space.html#general-structure-1"><i class="fa fa-check"></i><b>1.3.1</b> General Structure</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1.3-grit-data-storage-space.html"><a href="1.3-grit-data-storage-space.html#project-folder-structure-1"><i class="fa fa-check"></i><b>1.3.2</b> Project Folder Structure</a></li>
+<li class="chapter" data-level="1.3.3" data-path="1.3-grit-data-storage-space.html"><a href="1.3-grit-data-storage-space.html#data-directories"><i class="fa fa-check"></i><b>1.3.3</b> Data Directories</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="1.4-github-structure.html"><a href="1.4-github-structure.html"><i class="fa fa-check"></i><b>1.4</b> GitHub Structure</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="1.4-github-structure.html"><a href="1.4-github-structure.html#project-repository-structure"><i class="fa fa-check"></i><b>1.4.1</b> Project Repository Structure</a></li>
+<li class="chapter" data-level="1.4.2" data-path="1.4-github-structure.html"><a href="1.4-github-structure.html#a-repo-inside-a-repo"><i class="fa fa-check"></i><b>1.4.2</b> A repo inside a repo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-data.html"><a href="2-data.html"><i class="fa fa-check"></i><b>2</b> Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2.1-data-file-naming.html"><a href="2.1-data-file-naming.html"><i class="fa fa-check"></i><b>2.1</b> Data File Naming</a></li>
+<li class="chapter" data-level="2.2" data-path="2.2-metadata.html"><a href="2.2-metadata.html"><i class="fa fa-check"></i><b>2.2</b> Metadata</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="2.2-metadata.html"><a href="2.2-metadata.html#metadata-standards"><i class="fa fa-check"></i><b>2.2.1</b> Metadata Standards</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2.2-metadata.html"><a href="2.2-metadata.html#emlab-data-directory"><i class="fa fa-check"></i><b>2.2.2</b> emLab common data directory</a></li>
+<li class="chapter" data-level="2.2.3" data-path="2.2-metadata.html"><a href="2.2-metadata.html#project-data-directory"><i class="fa fa-check"></i><b>2.2.3</b> Project-specific data directories</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2.3-accessing-emlab-data-in-r.html"><a href="2.3-accessing-emlab-data-in-r.html"><i class="fa fa-check"></i><b>2.3</b> Accessing emLab data in R</a></li>
+<li class="chapter" data-level="2.4" data-path="2.4-tidy-data.html"><a href="2.4-tidy-data.html"><i class="fa fa-check"></i><b>2.4</b> Tidy Data</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="2.4-tidy-data.html"><a href="2.4-tidy-data.html#recommended-resources"><i class="fa fa-check"></i><b>2.4.1</b> Recommended Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="2.5-data-formats.html"><a href="2.5-data-formats.html"><i class="fa fa-check"></i><b>2.5</b> Data Formats</a></li>
+<li class="chapter" data-level="2.6" data-path="2.6-data-use-agreements-and-confidential-data.html"><a href="2.6-data-use-agreements-and-confidential-data.html"><i class="fa fa-check"></i><b>2.6</b> Data Use Agreements and Confidential Data</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="2.6-data-use-agreements-and-confidential-data.html"><a href="2.6-data-use-agreements-and-confidential-data.html#the-process-for-establishing-a-data-use-agreement-or-non-disclosure-agreement"><i class="fa fa-check"></i><b>2.6.1</b> The process for establishing a Data Use Agreement or Non-Disclosure Agreement</a></li>
+<li class="chapter" data-level="2.6.2" data-path="2.6-data-use-agreements-and-confidential-data.html"><a href="2.6-data-use-agreements-and-confidential-data.html#data-storage-options"><i class="fa fa-check"></i><b>2.6.2</b> Data storage options</a></li>
+<li class="chapter" data-level="2.6.3" data-path="2.6-data-use-agreements-and-confidential-data.html"><a href="2.6-data-use-agreements-and-confidential-data.html#other-best-practices"><i class="fa fa-check"></i><b>2.6.3</b> Other best practices</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-code.html"><a href="3-code.html"><i class="fa fa-check"></i><b>3</b> Code</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3.1-scripts-and-version-control.html"><a href="3.1-scripts-and-version-control.html"><i class="fa fa-check"></i><b>3.1</b> Scripts and Version Control</a></li>
+<li class="chapter" data-level="3.2" data-path="3.2-style-guide.html"><a href="3.2-style-guide.html"><i class="fa fa-check"></i><b>3.2</b> Style Guide</a></li>
+<li class="chapter" data-level="3.3" data-path="3.3-reproducibility.html"><a href="3.3-reproducibility.html"><i class="fa fa-check"></i><b>3.3</b> Reproducibility</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="3.3-reproducibility.html"><a href="3.3-reproducibility.html#package-management"><i class="fa fa-check"></i><b>3.3.1</b> Package management</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3.3-reproducibility.html"><a href="3.3-reproducibility.html#coding-pipelines"><i class="fa fa-check"></i><b>3.3.2</b> Coding pipelines</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3.4-internal-code-review.html"><a href="3.4-internal-code-review.html"><i class="fa fa-check"></i><b>3.4</b> Internal code review</a></li>
+<li class="chapter" data-level="3.5" data-path="3.5-exploratory-data-analysis.html"><a href="3.5-exploratory-data-analysis.html"><i class="fa fa-check"></i><b>3.5</b> Exploratory Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-high-performance-computing.html"><a href="4-high-performance-computing.html"><i class="fa fa-check"></i><b>4</b> High Performance Computing</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="4.1-available-resources.html"><a href="4.1-available-resources.html"><i class="fa fa-check"></i><b>4.1</b> Available resources</a></li>
+<li class="chapter" data-level="4.2" data-path="4.2-available-software.html"><a href="4.2-available-software.html"><i class="fa fa-check"></i><b>4.2</b> Available software</a></li>
+<li class="chapter" data-level="4.3" data-path="4.3-installing-packages.html"><a href="4.3-installing-packages.html"><i class="fa fa-check"></i><b>4.3</b> Installing packages</a></li>
+<li class="chapter" data-level="4.4" data-path="4.4-setting-up-a-grit-account.html"><a href="4.4-setting-up-a-grit-account.html"><i class="fa fa-check"></i><b>4.4</b> Setting up a GRIT account</a></li>
+<li class="chapter" data-level="4.5" data-path="4.5-using-sequoia.html"><a href="4.5-using-sequoia.html"><i class="fa fa-check"></i><b>4.5</b> Using sequoia</a></li>
+<li class="chapter" data-level="4.6" data-path="4.6-best-practices.html"><a href="4.6-best-practices.html"><i class="fa fa-check"></i><b>4.6</b> Best practices</a></li>
+<li class="chapter" data-level="4.7" data-path="4.7-resource-allocation.html"><a href="4.7-resource-allocation.html"><i class="fa fa-check"></i><b>4.7</b> Resource allocation</a></li>
+<li class="chapter" data-level="4.8" data-path="4.8-using-quebracho.html"><a href="4.8-using-quebracho.html"><i class="fa fa-check"></i><b>4.8</b> Using quebracho</a></li>
+<li class="chapter" data-level="4.9" data-path="4.9-accessing-data.html"><a href="4.9-accessing-data.html"><i class="fa fa-check"></i><b>4.9</b> Accessing data</a></li>
+<li class="chapter" data-level="4.10" data-path="4.10-accessing-code.html"><a href="4.10-accessing-code.html"><i class="fa fa-check"></i><b>4.10</b> Accessing code</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-reports-and-publications.html"><a href="5-reports-and-publications.html"><i class="fa fa-check"></i><b>5</b> Reports and Publications</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5.1-emlab-affiliation.html"><a href="5.1-emlab-affiliation.html"><i class="fa fa-check"></i><b>5.1</b> emLab Affiliation</a></li>
+<li class="chapter" data-level="5.2" data-path="5.2-reports.html"><a href="5.2-reports.html"><i class="fa fa-check"></i><b>5.2</b> Reports</a></li>
+<li class="chapter" data-level="5.3" data-path="5.3-author-contribution.html"><a href="5.3-author-contribution.html"><i class="fa fa-check"></i><b>5.3</b> Author Contribution</a></li>
+<li class="chapter" data-level="5.4" data-path="5.4-making-your-data-publicly-available.html"><a href="5.4-making-your-data-publicly-available.html"><i class="fa fa-check"></i><b>5.4</b> Making Your Data Publicly Available</a></li>
+<li class="chapter" data-level="5.5" data-path="5.5-preparing-a-public-github-repository.html"><a href="5.5-preparing-a-public-github-repository.html"><i class="fa fa-check"></i><b>5.5</b> Preparing a Public GitHub Repository</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="5.5-preparing-a-public-github-repository.html"><a href="5.5-preparing-a-public-github-repository.html#documentation"><i class="fa fa-check"></i><b>5.5.1</b> Documentation</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5.5-preparing-a-public-github-repository.html"><a href="5.5-preparing-a-public-github-repository.html#sanitizing-the-repository"><i class="fa fa-check"></i><b>5.5.2</b> Sanitizing the repository</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="5.6-sharing-public-data-shiny-apps-and-tools-on-our-website.html"><a href="5.6-sharing-public-data-shiny-apps-and-tools-on-our-website.html"><i class="fa fa-check"></i><b>5.6</b> Sharing public data, Shiny apps, and tools on our website</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-code-review-ai-standards-charter.html"><a href="6-code-review-ai-standards-charter.html"><i class="fa fa-check"></i><b>6</b> Code Review &amp; AI Standards Charter</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6.1-code-review-standards.html"><a href="6.1-code-review-standards.html"><i class="fa fa-check"></i><b>6.1</b> Code Review Standards</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="6.1-code-review-standards.html"><a href="6.1-code-review-standards.html#documentation-standards"><i class="fa fa-check"></i><b>6.1.1</b> Documentation Standards</a></li>
+<li class="chapter" data-level="6.1.2" data-path="6.1-code-review-standards.html"><a href="6.1-code-review-standards.html#self-review-process"><i class="fa fa-check"></i><b>6.1.2</b> Self-Review Process</a></li>
+<li class="chapter" data-level="6.1.3" data-path="6.1-code-review-standards.html"><a href="6.1-code-review-standards.html#peer-review-process"><i class="fa fa-check"></i><b>6.1.3</b> Peer Review Process</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="6.2-ai-integration-policy.html"><a href="6.2-ai-integration-policy.html"><i class="fa fa-check"></i><b>6.2</b> AI Integration Policy</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="6.2-ai-integration-policy.html"><a href="6.2-ai-integration-policy.html#approved-uses"><i class="fa fa-check"></i><b>6.2.1</b> Approved Uses</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6.2-ai-integration-policy.html"><a href="6.2-ai-integration-policy.html#human-review-requirements"><i class="fa fa-check"></i><b>6.2.2</b> Human Review Requirements</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6.2-ai-integration-policy.html"><a href="6.2-ai-integration-policy.html#transparency"><i class="fa fa-check"></i><b>6.2.3</b> Transparency</a></li>
+<li class="chapter" data-level="6.2.4" data-path="6.2-ai-integration-policy.html"><a href="6.2-ai-integration-policy.html#data-privacy-and-confidentiality"><i class="fa fa-check"></i><b>6.2.4</b> Data Privacy and Confidentiality</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6.3-training-plan.html"><a href="6.3-training-plan.html"><i class="fa fa-check"></i><b>6.3</b> Training Plan</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="6.3-training-plan.html"><a href="6.3-training-plan.html#initial-training"><i class="fa fa-check"></i><b>6.3.1</b> Initial Training</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6.3-training-plan.html"><a href="6.3-training-plan.html#ongoing-training"><i class="fa fa-check"></i><b>6.3.2</b> Ongoing Training</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="6.4-budget-staffing-implications.html"><a href="6.4-budget-staffing-implications.html"><i class="fa fa-check"></i><b>6.4</b> Budget &amp; Staffing Implications</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">emLab Standard Operating Procedures</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="code-review-standards" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Code Review Standards<a href="6.1-code-review-standards.html#code-review-standards" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>emLab is committed to producing replicable, transparent, and high-quality code. The following standards build on the best practices described in the <a href="3-code.html#code">Code</a> chapter of this SOP and establish a consistent review process across all projects.</p>
+<div id="documentation-standards" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Documentation Standards<a href="6.1-code-review-standards.html#documentation-standards" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>All code should be documented well enough that a colleague unfamiliar with the project can understand what the code does, why it does it, and how to run it. At a minimum, every project repository should include:</p>
+<ul>
+<li>A <code>README.md</code> that describes the project, its file structure, and instructions for reproducing the analysis (see the <a href="3.3-reproducibility.html#coding-pipelines">Coding Pipelines</a> section for more detail).</li>
+<li>Script-level headers that describe the purpose of each script, its inputs, and its outputs (see the <a href="3.1-scripts-and-version-control.html#scripts-and-version-control">Scripts and Version Control</a> section for a template).</li>
+<li>Inline comments where the logic is not self-evident. Code should be self-documenting as much as possible — use clear variable and function names before resorting to comments.</li>
+<li>A record of package dependencies managed with a tool like <code>renv</code> (see the <a href="3.3-reproducibility.html#package-management">Package Management</a> section).</li>
+</ul>
+</div>
+<div id="self-review-process" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Self-Review Process<a href="6.1-code-review-standards.html#self-review-process" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before requesting a peer review, the original coder should conduct a self-review. A self-review is a deliberate, structured pass through your own code with fresh eyes. The goal is to catch issues early and respect your reviewer’s time. A self-review should include, at minimum:</p>
+<ul>
+<li><strong>Re-read the code.</strong> Step through the code as if you are seeing it for the first time. Check that the logic is correct and that the code does what you intend.</li>
+<li><strong>Run the full pipeline.</strong> Confirm that the code runs end-to-end without errors in a clean environment (e.g., restart your R session before running).</li>
+<li><strong>Check outputs.</strong> Verify that results, figures, and tables are reasonable and match expectations.</li>
+<li><strong>Review documentation.</strong> Ensure the <code>README</code>, script headers, and inline comments are accurate and up to date.</li>
+<li><strong>Clean up.</strong> Remove dead code, debugging artifacts, and commented-out experiments that are no longer needed.</li>
+</ul>
+</div>
+<div id="peer-review-process" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Peer Review Process<a href="6.1-code-review-standards.html#peer-review-process" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Peer review is a core practice at emLab. As described in the <a href="3.4-internal-code-review.html#internal-code-review">Internal Code Review</a> section, every project with at least two researchers should include a systematic review of major coding elements by a researcher who did not write the code.</p>
+<p>The following guidelines supplement the existing SOP guidance:</p>
+<ul>
+<li><strong>Scope the review.</strong> The original coder should clearly communicate what needs to be reviewed — whether it is the full pipeline or a specific analysis. Use the coding pipeline documentation (e.g., <code>README</code>, <code>Makefile</code>, or <code>targets</code> pipeline) to guide the reviewer to the critical code.</li>
+<li><strong>Use pull requests when possible.</strong> Pull requests on GitHub provide a structured forum for line-by-line feedback, threaded discussion, and a permanent record of the review. For projects that do not use a branching workflow, the reviewer and coder should agree on an alternative method (e.g., a shared document or email).</li>
+<li><strong>Focus on substance.</strong> Reviews should prioritize correctness, reproducibility, and clarity. Style suggestions are welcome but secondary. Refer to the <a href="https://tidyverse.github.io/code-review/">Tidyteam code review principles</a> and Google’s <a href="https://google.github.io/eng-practices/review/">Code Review Developer Guide</a> for further guidance.</li>
+<li><strong>Be respectful and collegial.</strong> Code review is a learning opportunity for both the reviewer and the author. The goal is to make all of our work better, not to criticize.</li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="6-code-review-ai-standards-charter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="6.2-ai-integration-policy.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": null,
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  },
+  "toolbar": {
+    "position": "static"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -54,3 +54,17 @@ preparing-a-public-github-repository
 documentation
 sanitizing-the-repository
 sharing-public-data-shiny-apps-and-tools-on-our-website
+code-review-ai-standards-charter
+code-review-standards
+documentation-standards
+self-review-process
+peer-review-process
+ai-integration-policy
+approved-uses
+human-review-requirements
+transparency
+data-privacy-and-confidentiality
+training-plan
+initial-training
+ongoing-training
+budget-staffing-implications
