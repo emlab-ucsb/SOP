@@ -1,0 +1,93 @@
+# Code Review & AI Standards Charter
+
+This charter formalizes emLab's standards for code review and the use of artificial intelligence (AI) tools in research workflows. It was developed by the Code Review Team and approved by the emLab Leadership Team. The charter covers four areas: code review standards, AI integration policy, training, and budget and staffing implications.
+
+## Code Review Standards
+
+emLab is committed to producing replicable, transparent, and high-quality code. The following standards build on the best practices described in the [Code](#code) chapter of this SOP and establish a consistent review process across all projects.
+
+### Documentation Standards
+
+All code should be documented well enough that a colleague unfamiliar with the project can understand what the code does, why it does it, and how to run it. At a minimum, every project repository should include:
+
+- A `README.md` that describes the project, its file structure, and instructions for reproducing the analysis (see the [Coding Pipelines](#coding-pipelines) section for more detail).
+- Script-level headers that describe the purpose of each script, its inputs, and its outputs (see the [Scripts and Version Control](#scripts-and-version-control) section for a template).
+- Inline comments where the logic is not self-evident. Code should be self-documenting as much as possible — use clear variable and function names before resorting to comments.
+- A record of package dependencies managed with a tool like `renv` (see the [Package Management](#package-management) section).
+
+### Self-Review Process
+
+Before requesting a peer review, the original coder should conduct a self-review. A self-review is a deliberate, structured pass through your own code with fresh eyes. The goal is to catch issues early and respect your reviewer's time. A self-review should include, at minimum:
+
+- **Re-read the code.** Step through the code as if you are seeing it for the first time. Check that the logic is correct and that the code does what you intend.
+- **Run the full pipeline.** Confirm that the code runs end-to-end without errors in a clean environment (e.g., restart your R session before running).
+- **Check outputs.** Verify that results, figures, and tables are reasonable and match expectations.
+- **Review documentation.** Ensure the `README`, script headers, and inline comments are accurate and up to date.
+- **Clean up.** Remove dead code, debugging artifacts, and commented-out experiments that are no longer needed.
+
+### Peer Review Process
+
+Peer review is a core practice at emLab. As described in the [Internal Code Review](#internal-code-review) section, every project with at least two researchers should include a systematic review of major coding elements by a researcher who did not write the code.
+
+The following guidelines supplement the existing SOP guidance:
+
+- **Scope the review.** The original coder should clearly communicate what needs to be reviewed — whether it is the full pipeline or a specific analysis. Use the coding pipeline documentation (e.g., `README`, `Makefile`, or `targets` pipeline) to guide the reviewer to the critical code.
+- **Use pull requests when possible.** Pull requests on GitHub provide a structured forum for line-by-line feedback, threaded discussion, and a permanent record of the review. For projects that do not use a branching workflow, the reviewer and coder should agree on an alternative method (e.g., a shared document or email).
+- **Focus on substance.** Reviews should prioritize correctness, reproducibility, and clarity. Style suggestions are welcome but secondary. Refer to the [Tidyteam code review principles](https://tidyverse.github.io/code-review/) and Google's [Code Review Developer Guide](https://google.github.io/eng-practices/review/) for further guidance.
+- **Be respectful and collegial.** Code review is a learning opportunity for both the reviewer and the author. The goal is to make all of our work better, not to criticize.
+
+## AI Integration Policy
+
+AI tools — including large language models (LLMs), code-generation assistants, and AI-powered refactoring tools — can meaningfully improve coding efficiency. emLab approves the use of AI tools for backend coding tasks, subject to the guardrails described below.
+
+### Approved Uses
+
+AI tools may be used for tasks such as:
+
+- Writing boilerplate code, helper functions, and unit tests
+- Refactoring or restructuring existing code for clarity and performance
+- Translating code between programming languages
+- Generating documentation drafts (e.g., README sections, function documentation)
+- Debugging and troubleshooting error messages
+- Exploring unfamiliar packages or APIs
+
+### Human Review Requirements
+
+AI does not replace human review. The following checkpoints require human judgment and cannot be delegated to AI alone:
+
+1. **Scientific logic and modeling decisions.** Any code that implements a model, defines assumptions, or transforms data in ways that affect scientific conclusions must be reviewed and validated by a human researcher.
+2. **Data provenance and access controls.** Researchers must verify that AI-generated code does not inadvertently expose, redistribute, or mishandle sensitive or restricted data.
+3. **Final outputs.** All figures, tables, and results that will appear in reports or publications must be reviewed by a human for correctness, appropriate presentation, and scientific integrity.
+4. **Peer review.** AI-generated or AI-assisted code is subject to the same peer review standards as human-written code. The peer reviewer must be a human.
+
+### Transparency
+
+When AI tools are used in a substantial way during a project, this should be noted in the project's documentation (e.g., in the `README` or in a methods section). There is no need to flag routine uses like autocomplete suggestions, but significant AI involvement — such as generating a major analysis script or translating a codebase — should be documented.
+
+### Data Privacy and Confidentiality
+
+Do not paste sensitive, confidential, or restricted data into AI tools unless the tool has been approved for use with that class of data. When in doubt, consult with the project lead.
+
+## Training Plan
+
+Effective code review and responsible AI use require ongoing training. The Code Review Team will coordinate the following:
+
+### Initial Training
+
+Once the standards in this charter are finalized, all emLab coders will receive training covering:
+
+- The self-review and peer review processes described above
+- How to give and receive constructive code review feedback
+- Approved uses of AI tools and the human review requirements
+
+### Ongoing Training
+
+The pace of change in AI tooling and coding best practices requires that training be an ongoing effort rather than a one-time event. The Code Review Team will:
+
+- Periodically revisit and update this charter as tools and best practices evolve
+- Coordinate workshops, tutorials, or presentations for emLab staff (e.g., at the Occasional)
+- Identify and share external training opportunities and resources
+
+## Budget & Staffing Implications
+
+AI tooling is expected to reduce the number of hours required for certain coding tasks, such as data wrangling and boilerplate development. The Leadership Team recognizes that this may have budgetary and staffing implications. Specific impacts are still being evaluated and will be addressed in future planning as more data on productivity gains becomes available.
