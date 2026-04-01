@@ -54,7 +54,3 @@ preparing-a-public-github-repository
 documentation
 sanitizing-the-repository
 sharing-public-data-shiny-apps-and-tools-on-our-website
-code-review-ai-standards-charter
-mission
-scope
-team-members
