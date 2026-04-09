@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Accessing emLab data in R | emLab Standard Operating Procedures</title>
+  <title>4.5 Using sequoia | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Accessing emLab data in R | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.5 Using sequoia | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Accessing emLab data in R | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.5 Using sequoia | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="2.2-metadata.html"/>
-<link rel="next" href="2.4-tidy-data.html"/>
+<link rel="prev" href="4.4-setting-up-a-grit-account.html"/>
+<link rel="next" href="4.6-best-practices.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,39 +170,73 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="accessing-emlab-data-in-r" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Accessing emLab data in R<a href="2.3-accessing-emlab-data-in-r.html#accessing-emlab-data-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This section will go over how to access data stored in the emLab data directories (either the common emLab data directory, or project-specific data directories) using R. We provide instructions for accessing data using R on your personal local machine, or on one of emLab’s GRIT servers.</p>
-<ol style="list-style-type: decimal">
-<li><p>Accessing GRIT data on your local machine requires you to use the Nextcloud desktop app and set it up as described in the emLab manual. If you haven’t done so already, please complete that section. The GRIT data storage space has already been linked to our emLab <code>quebracho</code> server (and will eventually be to our forthcoming <code>sequoia</code> server).</p></li>
-<li><p>Set the base data directory at the top of your code to the location directory lives. You should be able to use the following code snippet to do this, which should work on either your local machines, or on a GRIT server such as quebracho or sequoia. Note that this code will automatically generate the correct directory path if using a GRIT server or a local Mac or Windows machine. If using a local Linux machine, you will need to manually modify this to incorporate your unique user name so that it matches the directory entered in Step 9 above.</p></li>
-</ol>
-<pre><code># First determine if system is quebracho or sequoia, our GRIT servers. If so, set directory appropriately
-data_directory_base &lt;-  ifelse(Sys.info()[&quot;nodename&quot;] == &quot;quebracho&quot; | Sys.info()[&quot;nodename&quot;] == &quot;sequoia&quot;,
-                               &quot;/home/emlab&quot;,
-                               # Otherwise, set the directory for local machines based on the OS
-                               # If using Mac OS, the directory will be automatically set as follows
-                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Darwin&quot;,
-                                      &quot;/Users/Shared/nextcloud/emLab&quot;,
-                               # If using Windows, the directory will be automatically set as follows
-                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,
-                                      &quot;G:/Shared\ drives/nextcloud/emLab&quot;,
-                                      # If using Linux, will need to manually modify the following directory path based on their user name
-                                      # Replace your_username with your local machine user name
-                                      &quot;/home/your_username/Nextcloud&quot;)))</code></pre>
-<p>Now set the project-specific directory. For example:</p>
-<pre><code>data_directory_project &lt;- file.path(data_directory_base, &quot;projects/current-projects/test-project-nextcloud/data&quot;)</code></pre>
-<p>You should now be able to read and write data into the project data directory. For example:</p>
-<pre><code>penguins &lt;- read.csv(file.path(data_directory_project, &quot;raw/penguins.csv&quot;))</code></pre>
-<p>Note that you can also always navigate to the data directory in the RStudio viewer pane. To do so, simply click the 3 dots in the viewer pane, and type in the appropriate path.</p>
+<div id="using-sequoia" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Using sequoia<a href="4.5-using-sequoia.html#using-sequoia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sequoia leverages Open OnDemand (OOD), a system managed by GRIT to
+connect our HPC resources to commonly used software. OOD is accessed via
+an online dashboard in your web browser: <a href="https://hpc.grit.ucsb.edu" class="uri">https://hpc.grit.ucsb.edu</a></p>
+<p>Once at the website, you can use your GRIT user ID and password. The
+system does not require you to be on campus or use a VPN.</p>
+<p>Through OOD, you can use the following software:</p>
+<ul>
+<li>R Studio Server</li>
+<li>Jupyter Notebook</li>
+<li>VS Code Server</li>
+<li>Positron (via a Linux remote desktop server)</li>
+</ul>
+<p>To use any of these, click “Interactive Apps”, then click on your
+software of choice (to access Positron, click “Desktop”). Each time you
+launch an interactive app, you need to specify the following up-front
+before launching the job:</p>
+<ul>
+<li><p>Partition name: Type <code>emlab_nodes</code> to use emLab’s private sequoia
+resources (this should be used in most cases). Alternatively, you
+can type <code>grit_nodes</code> to use GRIT’s campus-wide shared resources</p></li>
+<li><p>Job duration (up to 168 hours): Your interactive session will run
+for this amount of time, and then shut down (you can cancel jobs
+before the ending time if you desire)</p></li>
+<li><p>Number of cores: How many CPU cores you want to use for your
+interactive session. Currently, we have this set to a maximum of 24
+cores per session. Since sequoia is a shared resource, please be
+considerate of others when requesting cores. If you are unsure of
+how many cores to use, we have another section of the SOP below to
+help you figure this out.</p></li>
+<li><p>RAM: How much RAM you want to use for your interactive session.
+Currently, we have this set to a maximum of 256GB per session. Since
+sequoia is a shared resource, please be considerate of others when
+requesting cores. If you are unsure of how much RAM to use, we have
+another section of the SOP below to help you figure this out.</p></li>
+</ul>
+<p>Please do not enable to “Use GPU” option unless you have already
+discussed this with Kathy or Robert (it is only available on quebracho
+for land use projects at this time).</p>
+<p>Note that for convenience, your last used settings will be saved for the
+next time you launch an interactive app.</p>
+<p>Once you’ve configured your session, click “Launch”. It may take a few
+minutes for your session to start up. Once it is ready, you will see a
+link to open R Studio Server (or whichever app you selected). Click the
+link to open R Studio Server in a new browser tab.</p>
+<p>Note that you may use OOD to launch <em>multiple</em> interactive sessions at
+the same time! They are each still managed through SLURM.</p>
+<p>More resources for OOD are available on GRIT’s bookstack:</p>
+<ul>
+<li><p><a href="https://bookstack.grit.ucsb.edu/books/hpc-usage/chapter/openondemand-ood">OOD landing
+page</a></p></li>
+<li><p><a href="https://bookstack.grit.ucsb.edu/books/hpc-usage/page/r-studio">R Studio
+Server</a></p></li>
+<li><p><a href="https://bookstack.grit.ucsb.edu/books/hpc-usage/page/jupyter-notebook">Jupyter
+Notebook</a></p></li>
+<li><p><a href="https://bookstack.grit.ucsb.edu/books/hpc-usage/page/vs-code-server">VS Code
+Server</a></p></li>
+</ul>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="2.2-metadata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="2.4-tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.4-setting-up-a-grit-account.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.6-best-practices.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

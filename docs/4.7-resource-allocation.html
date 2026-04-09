@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Accessing emLab data in R | emLab Standard Operating Procedures</title>
+  <title>4.7 Resource allocation | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Accessing emLab data in R | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.7 Resource allocation | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Accessing emLab data in R | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.7 Resource allocation | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="2.2-metadata.html"/>
-<link rel="next" href="2.4-tidy-data.html"/>
+<link rel="prev" href="4.6-best-practices.html"/>
+<link rel="next" href="4.8-using-quebracho.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,39 +170,96 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="accessing-emlab-data-in-r" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Accessing emLab data in R<a href="2.3-accessing-emlab-data-in-r.html#accessing-emlab-data-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This section will go over how to access data stored in the emLab data directories (either the common emLab data directory, or project-specific data directories) using R. We provide instructions for accessing data using R on your personal local machine, or on one of emLab’s GRIT servers.</p>
-<ol style="list-style-type: decimal">
-<li><p>Accessing GRIT data on your local machine requires you to use the Nextcloud desktop app and set it up as described in the emLab manual. If you haven’t done so already, please complete that section. The GRIT data storage space has already been linked to our emLab <code>quebracho</code> server (and will eventually be to our forthcoming <code>sequoia</code> server).</p></li>
-<li><p>Set the base data directory at the top of your code to the location directory lives. You should be able to use the following code snippet to do this, which should work on either your local machines, or on a GRIT server such as quebracho or sequoia. Note that this code will automatically generate the correct directory path if using a GRIT server or a local Mac or Windows machine. If using a local Linux machine, you will need to manually modify this to incorporate your unique user name so that it matches the directory entered in Step 9 above.</p></li>
-</ol>
-<pre><code># First determine if system is quebracho or sequoia, our GRIT servers. If so, set directory appropriately
-data_directory_base &lt;-  ifelse(Sys.info()[&quot;nodename&quot;] == &quot;quebracho&quot; | Sys.info()[&quot;nodename&quot;] == &quot;sequoia&quot;,
-                               &quot;/home/emlab&quot;,
-                               # Otherwise, set the directory for local machines based on the OS
-                               # If using Mac OS, the directory will be automatically set as follows
-                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Darwin&quot;,
-                                      &quot;/Users/Shared/nextcloud/emLab&quot;,
-                               # If using Windows, the directory will be automatically set as follows
-                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,
-                                      &quot;G:/Shared\ drives/nextcloud/emLab&quot;,
-                                      # If using Linux, will need to manually modify the following directory path based on their user name
-                                      # Replace your_username with your local machine user name
-                                      &quot;/home/your_username/Nextcloud&quot;)))</code></pre>
-<p>Now set the project-specific directory. For example:</p>
-<pre><code>data_directory_project &lt;- file.path(data_directory_base, &quot;projects/current-projects/test-project-nextcloud/data&quot;)</code></pre>
-<p>You should now be able to read and write data into the project data directory. For example:</p>
-<pre><code>penguins &lt;- read.csv(file.path(data_directory_project, &quot;raw/penguins.csv&quot;))</code></pre>
-<p>Note that you can also always navigate to the data directory in the RStudio viewer pane. To do so, simply click the 3 dots in the viewer pane, and type in the appropriate path.</p>
+<div id="resource-allocation" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Resource allocation<a href="4.7-resource-allocation.html#resource-allocation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is up to each researcher to: 1) decide how much computational
+resources they need prior to starting each job (i.e., how many cores and
+how much RAM will your job need); and 2) monitor their resource usage
+during each job to not only ensure they are not exceeding their
+allocated resources, but to help build personal awareness on how much
+resources certain jobs require. It will generally take each person some
+time to develop an intuition on how many resources each job will need;
+we always recommend piloting code locally on your own machine to start
+getting a sense for this. Additionally, as you use the server more and
+the tools below, you will further develop this intuition.</p>
+<p>Available tools:</p>
+<ul>
+<li><p><a href="https://zabbix.grit.ucsb.edu/zabbix.php?action=dashboard.view&amp;dashboardid=175&amp;from=now-24h&amp;to=now">Zabbix
+dashboard</a>:
+GRIT manages a dashboard for us which provides a high-level
+system-level view of how many resources are being used on each of
+our servers. This is a good place to start to get a sense of overall
+resource usage across the whole team. It is also a good place to
+check before starting a new job to see how busy the servers are. It
+is also a place that will show the current status of each server and
+whether or not there are currently any problems.</p></li>
+<li><p>Job Resource Utilization Analyzer: If using sequoia via OOD, you can
+navigate to the <a href="https://hpc.grit.ucsb.edu">OOD dashboard</a>, click
+“Apps”, then click “Job Resource Utilization Analyzer”. For each job
+that is currently running on a GRIT server, this will show you how
+many cores and how much RAM was requested, as well as the actual
+peak core and RAM usage. It further provides some information on
+whether or not you over-requested core and/or RAM resources, and
+provides some recommendations if any adjustments should be made in
+the future. This is a nice way to monitor live usage.</p></li>
+<li><p>Post-job email: If using sequoia via OOD, at the end of each job you
+will receive an email summary of your job resource usage. This email
+provides similar information to the Job Resource Utilization
+Analyzer, but is sent to you automatically at the end of each job.
+It also provides information on whether or not you over-requested
+core and/or RAM resources, and provides some recommendations if any
+adjustments should be made in the future. This is a nice way to
+monitor your resource usage after the fact. GRIT provides some
+helpful rules of thumb:</p>
+<ul>
+<li>“If Max RSS is much lower than requested memory, you may be
+over-requesting RAM.”</li>
+<li>“If the job failed with OUT_OF_MEMORY and Max RSS is close to
+the request, you likely need to request more memory.”</li>
+<li>“If Total CPU &lt;&lt; (Elapsed time * AllocCPUS), your job may be
+I/O bound or under-utilizing its cores.”</li>
+</ul></li>
+<li><p><a href="https://htop.dev/">htop</a>: This terminal tool is installed on each
+server and provides a real-time view of resource usage on each
+server. It is a great tool to use during an interactive session to
+see how many cores and how much RAM your job is using, and also how
+many cores and how much RAM are currently being used by others. You
+can customize the htop display to make things easier to see. For
+example:</p>
+<ul>
+<li>After entering htop, press F2 to enter setup. You can also click
+directly on setup to enter it.</li>
+<li>Once you enter setup, if you have trouble seeing the setup
+options, you can try reducing your browser’s text size
+temporarily in order to see the setup options.</li>
+<li>Sequoia has 192 cores so the default view with 4 columns means a
+pretty large display. In the Meters setup, you can change the
+left column to be <code>CPUs (1-4/8) [Bar]</code> and the right column to
+be <code>CPUs (5-8/8) [Bar]</code> This will condense the output and force
+8 columns. </li>
+<li>I also like to add disc IO to the left column below memory. </li>
+<li>In the “Display options” setup you can select some that will
+clean up the process information below the resources monitor. I
+like to make sure to select 
+<ul>
+<li>Tree view</li>
+<li>Tree view sorted by PID</li>
+<li>Shadow other users’ process (makes it easier to see your
+own)</li>
+<li>Count CPUs from 1</li>
+<li>Enable the mouse</li>
+<li>Press F10 when done</li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="2.2-metadata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="2.4-tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.6-best-practices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.8-using-quebracho.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>

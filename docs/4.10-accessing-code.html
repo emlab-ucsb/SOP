@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.3 Accessing emLab data in R | emLab Standard Operating Procedures</title>
+  <title>4.10 Accessing code | emLab Standard Operating Procedures</title>
   <meta name="description" content="Standard operating procedures for emLab projects" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.3 Accessing emLab data in R | emLab Standard Operating Procedures" />
+  <meta property="og:title" content="4.10 Accessing code | emLab Standard Operating Procedures" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Standard operating procedures for emLab projects" />
   <meta name="github-repo" content="emlab-ucsb/SOP" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.3 Accessing emLab data in R | emLab Standard Operating Procedures" />
+  <meta name="twitter:title" content="4.10 Accessing code | emLab Standard Operating Procedures" />
   
   <meta name="twitter:description" content="Standard operating procedures for emLab projects" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-<link rel="prev" href="2.2-metadata.html"/>
-<link rel="next" href="2.4-tidy-data.html"/>
+<link rel="prev" href="4.9-accessing-data.html"/>
+<link rel="next" href="5-reports-and-publications.html"/>
 <script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,39 +170,135 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="accessing-emlab-data-in-r" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Accessing emLab data in R<a href="2.3-accessing-emlab-data-in-r.html#accessing-emlab-data-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This section will go over how to access data stored in the emLab data directories (either the common emLab data directory, or project-specific data directories) using R. We provide instructions for accessing data using R on your personal local machine, or on one of emLab’s GRIT servers.</p>
+<div id="accessing-code" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Accessing code<a href="4.10-accessing-code.html#accessing-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here we can talk about how to use the servers with GitHub code
+management. Essentially, you can work with projects and GitHub
+repositories on RStudio Server exactly like you can on your personal
+machine. One major difference is how to set up GitHub authentication,
+which is a little different on the servers than it would be on your
+personal machine. So we can provide explicit instructions on doing that.</p>
+<p>Please refer to <a href="https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#git-and-github">this
+section</a>
+of the emLab SOP for directions on how to set up and manage git and
+GitHub for your new server workspace. One important difference between
+your personal laptop and using a server is that file permissions may be
+such that other users can see and sometimes read or write files in your
+directories. Ideally, any confidential information such as your git
+credentials should be secured differently from your personal computer.
+Step 6 of the Git and Github section of the emLab manual is therefore
+not recommended in a multi-user server environment because your token
+may end up viewable to other users as plain text. <br />
+</p>
+<p>Instead of storing your Personal Authentication Token (PAT) as plain
+text, it is recommended to use one of the following options. Using
+either of these two approaches will also mean that credentials are
+stored between sessions, which should make the user experience a bit
+easier. The first approach, using an SSH key, is recommended</p>
 <ol style="list-style-type: decimal">
-<li><p>Accessing GRIT data on your local machine requires you to use the Nextcloud desktop app and set it up as described in the emLab manual. If you haven’t done so already, please complete that section. The GRIT data storage space has already been linked to our emLab <code>quebracho</code> server (and will eventually be to our forthcoming <code>sequoia</code> server).</p></li>
-<li><p>Set the base data directory at the top of your code to the location directory lives. You should be able to use the following code snippet to do this, which should work on either your local machines, or on a GRIT server such as quebracho or sequoia. Note that this code will automatically generate the correct directory path if using a GRIT server or a local Mac or Windows machine. If using a local Linux machine, you will need to manually modify this to incorporate your unique user name so that it matches the directory entered in Step 9 above.</p></li>
+<li><p>Use an SSH key instead of a PAT</p>
+<ol style="list-style-type: decimal">
+<li><p>Set up your SSH key on the GRIT server.</p>
+<ol style="list-style-type: decimal">
+<li><p>If you are not using R Studio Server, or prefer to use the
+terminal, follow these instructions: </p>
+<ol style="list-style-type: decimal">
+<li><p>You can generate a new SSH key with the terminal command</p>
+<ol style="list-style-type: decimal">
+<li>ssh-keygen -t ed25519 -C “email@example.com”</li>
+</ol></li>
+<li><p>You are prompted to select a location (hit enter for the
+default location)</p></li>
+<li><p>You are prompted to set a password (hit enter to not
+require one)</p></li>
+<li><p>Start your SSH agent in the background with </p>
+<ol style="list-style-type: decimal">
+<li>eval “$(ssh-agent -s)”</li>
+</ol></li>
+<li><p>Add your private key to the SSH agent with</p>
+<ol style="list-style-type: decimal">
+<li>ssh-add ~/.ssh/id_ed25519</li>
+</ol></li>
+<li><p>Copy your public key with </p>
+<ol style="list-style-type: decimal">
+<li>cat ~/.ssh/id_rsa.pub | xclip -selection clipboard</li>
+</ol></li>
+</ol></li>
+<li><p>If you are using R Studio Server and you prefer to not use
+the terminal approach, the instructions are a bit more
+streamlined. Follow the instructions in this
+<a href="https://happygitwithr.com/ssh-keys#option-1-set-up-from-rstudio">link</a>.  </p>
+<ol style="list-style-type: decimal">
+<li>If after going through these instructions you prefer to
+not use a password, you can remove it using the
+instructions provided in this
+<a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#adding-or-changing-a-passphrase">link</a>.</li>
+</ol></li>
+</ol></li>
+<li><p>Add your public key to your GitHub account</p>
+<ol style="list-style-type: decimal">
+<li><p>GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key</p></li>
+<li><p>Paste in your key (either from Step 6 in the terminal option
+above, or copied from R Studio Server in the R Studio option
+above)</p></li>
+</ol></li>
+<li><p>Now you can clone your repository onto the GRIT server. This
+means that you need to either: 1) when cloning the repository
+for the first time you need to use the SSH url rather than the
+HTTPS url; or 2) if you’ve already clone the repository, set
+your repository URL to the SSH version</p>
+<ol style="list-style-type: decimal">
+<li><p>If cloning a repo for the first time using R Studio Server,
+you can simply click “File &gt; New Project &gt; Version Control
+&gt; Git”, and then enter your repo’s SSH link</p>
+<ol style="list-style-type: decimal">
+<li><a href="mailto:git@github.com">git@github.com</a>:username/example_repo.git
+(for example, this might look like
+git@github.com:emlab-ucsb/ocean-ghg.git)</li>
+</ol></li>
+<li><p>Alternatively, in the terminal You can manually set specific
+repo URLs to SSH with: </p>
+<ol style="list-style-type: decimal">
+<li>git remote set-url origin
+<a href="mailto:git@github.com">git@github.com</a>:username/example_repo.git
+(for example, this might look like
+git@github.com:emlab-ucsb/ocean-ghg.git)</li>
+</ol></li>
+</ol></li>
+</ol></li>
+<li><p>Caching your PAT temporarily </p>
+<ol style="list-style-type: decimal">
+<li><p>Create a PAT on GitHub</p></li>
+<li><p>Add credential cache timeout instructions to your git config
+file</p>
+<ol style="list-style-type: decimal">
+<li><p>git config –global credential.helper ‘cache –timeout=3600’</p></li>
+<li><p>Adjust the timeout length (in seconds) as needed </p></li>
+</ol></li>
+<li><p>Push changes to GitHub</p>
+<ol style="list-style-type: decimal">
+<li><p>When prompted enter your username </p></li>
+<li><p>For the password enter your PAT</p>
+<ol style="list-style-type: decimal">
+<li>Future pushes will not not require you to enter
+credentials within the timeout window</li>
+</ol></li>
+</ol></li>
+<li><p>This is not a good long term solution because you will need to
+re-enter your credentials anytime the server restarts or when
+your cache timeout ends</p></li>
+</ol></li>
 </ol>
-<pre><code># First determine if system is quebracho or sequoia, our GRIT servers. If so, set directory appropriately
-data_directory_base &lt;-  ifelse(Sys.info()[&quot;nodename&quot;] == &quot;quebracho&quot; | Sys.info()[&quot;nodename&quot;] == &quot;sequoia&quot;,
-                               &quot;/home/emlab&quot;,
-                               # Otherwise, set the directory for local machines based on the OS
-                               # If using Mac OS, the directory will be automatically set as follows
-                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Darwin&quot;,
-                                      &quot;/Users/Shared/nextcloud/emLab&quot;,
-                               # If using Windows, the directory will be automatically set as follows
-                               ifelse(Sys.info()[&quot;sysname&quot;]==&quot;Windows&quot;,
-                                      &quot;G:/Shared\ drives/nextcloud/emLab&quot;,
-                                      # If using Linux, will need to manually modify the following directory path based on their user name
-                                      # Replace your_username with your local machine user name
-                                      &quot;/home/your_username/Nextcloud&quot;)))</code></pre>
-<p>Now set the project-specific directory. For example:</p>
-<pre><code>data_directory_project &lt;- file.path(data_directory_base, &quot;projects/current-projects/test-project-nextcloud/data&quot;)</code></pre>
-<p>You should now be able to read and write data into the project data directory. For example:</p>
-<pre><code>penguins &lt;- read.csv(file.path(data_directory_project, &quot;raw/penguins.csv&quot;))</code></pre>
-<p>Note that you can also always navigate to the data directory in the RStudio viewer pane. To do so, simply click the 3 dots in the viewer pane, and type in the appropriate path.</p>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="2.2-metadata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="2.4-tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.9-accessing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="5-reports-and-publications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="assets/gitbook-2.6.7/js/app.min.js"></script>
