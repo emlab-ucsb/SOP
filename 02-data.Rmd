@@ -100,13 +100,14 @@ This section will go over how to access data stored in the emLab data directorie
 # Setting the base data directory in R.
 # First determine if system is one of our GRIT servers (quebracho or sequoia). 
 # Otherwise, set the directory for local machines based on the OS (Darwin, Windows, or Linux).
-# Finally, if no conditions are met, set the directory to the default home directory.
+# Finally, if no conditions are met, set the directory to directly within the default home 
+# directory.
 
 data_directory_base <- dplyr::case_when(
   Sys.info()["nodename"] %in% c("quebracho", "sequoia") ~ "/home/emlab",   # GRIT servers
   Sys.info()["sysname"] == "Darwin" ~ "/Users/Shared/nextcloud/emLab",     # Mac OS
   Sys.info()["sysname"] == "Windows" ~ "G:/Shared drives/nextcloud/emLab", # Windows OS
-  Sys.info()["sysname"] == "Linux" ~ "/home/your_username/Nextcloud",      # Linux OS
+  Sys.info()["sysname"] == "Linux" ~ "/home/your_username/Nextcloud",      # Linux OS (use your username)
   TRUE ~ "~/Nextcloud"                                                     # Anything else
 )
 ```
