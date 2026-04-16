@@ -1,4 +1,4 @@
-# Code Review & AI Standards Charter {-}
+# Code Review & AI Standards Charter {.unnumbered}
 
 This charter establishes the mission and scope of the emLab Code Review Team, as directed by the Leadership Team.
 

@@ -1,0 +1,25 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "emLab Standard Operating Procedures"
+  author: "Environmental Markets Lab (emLab)"
+  date: today
+  description: "Standard operating procedures for emLab projects"
+  url: "https://emlab-ucsb.github.io/SOP/"
+  repo-url: "https://github.com/emlab-ucsb/SOP"
+  favicon: "favicon.png"
+  chapters:
+    - index.qmd
+    - 01-files.qmd
+    - 02-data.qmd
+    - 03-code.qmd
+    - 04-hpc.qmd
+    - 05-publications.qmd
+    - 06-charter.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true

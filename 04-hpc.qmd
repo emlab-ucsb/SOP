@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # High Performance Computing
 
 Certain analysis use cases require high performance computing resources:
@@ -22,7 +16,7 @@ the data should be stored and analyzed in a secure manner.
 
 In these cases, you should use the high performance computing resources
 available to emLab. emLab currently has two high performance computing
-servers that are managed by UCSB’s General Research IT (GRIT). These
+servers that are managed by UCSB's General Research IT (GRIT). These
 servers are named sequoia and quebracho. This section of the manual
 describes how to use these two servers for high performance computing.
 
@@ -99,9 +93,9 @@ article](https://vinurad13.medium.com/setting-up-miniconda-and-run-jupyter-noteb
 is a good place for further installation guidance. Finally, it is
 recommended to create custom python
 [environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-for each project. All ssh sessions go into the slurm queue.
+for each project. All ssh sessions go into the slurm queue.
 
-For users that need Stata, it is already available on both UCSB’s Knot
+For users that need Stata, it is already available on both UCSB's Knot
 cluster. More details for using Stata on Knot can be found
 [here](https://static1.squarespace.com/static/573f69a2cf80a1adb090ba64/t/5b2c1f1288251b7405a4cb7a/1529618194751/UCSB_server_tutorial.pdf).
 We will not be installing Stata on quebracho or sequoia.
@@ -121,7 +115,7 @@ reproducibility](https://emlab-ucsb.github.io/SOP/3.3-reproducibility.html#packa
 for more information on renv.
 
 Additionally, GRIT installs and updates many commonly used R packages on
-the servers, which are accessible in a “site-library” for each server.
+the servers, which are accessible in a "site-library" for each server.
 They update these once or twice a year. To add the GRIT R package
 library to your library paths, you can run this line of code:
 `.libPaths(c("/usr/local/lib/R/site-library/", .libPaths()))`
@@ -136,7 +130,7 @@ directly with GRIT: [help\@grit.ucsb.edu](mailto:help@grit.ucsb.edu) .
 
 ## Setting up a GRIT account
 
-To use emLab’s HPC servers, you must have a GRIT account. Please refer
+To use emLab's HPC servers, you must have a GRIT account. Please refer
 to the [emLab Manual section on setting up and managing an account with
 GRIT](https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#signing-up-for-an-account-with-grit).
 
@@ -307,20 +301,20 @@ Available tools:
     -   After entering htop, press F2 to enter setup. You can also click
         directly on setup to enter it.
     -   Once you enter setup, if you have trouble seeing the setup
-        options, you can try reducing your browser’s text size
+        options, you can try reducing your browser's text size
         temporarily in order to see the setup options.
     -   Sequoia has 192 cores so the default view with 4 columns means a
         pretty large display. In the Meters setup, you can change the
         left column to be `CPUs (1-4/8) [Bar]` and the right column to
         be `CPUs (5-8/8) [Bar]` This will condense the output and force
-        8 columns. 
-    -   I also like to add disc IO to the left column below memory. 
-    -   In the “Display options” setup you can select some that will
+        8 columns.
+    -   I also like to add disc IO to the left column below memory.
+    -   In the "Display options" setup you can select some that will
         clean up the process information below the resources monitor. I
-        like to make sure to select 
+        like to make sure to select
         -   Tree view
         -   Tree view sorted by PID
-        -   Shadow other users’ process (makes it easier to see your
+        -   Shadow other users' process (makes it easier to see your
             own)
         -   Count CPUs from 1
         -   Enable the mouse
@@ -336,11 +330,11 @@ Available tools:
     Note: Even if you are on the UCSB campus you will still need to
     connect to the campus VPN.
 
-2.  Once you’ve connected to the VPN, you are ready to access the
+2.  Once you've connected to the VPN, you are ready to access the
     server. You can access quebracho via SSH if you wish to use
     something like VS Code. To access R Studio Server, you can simply
     navigate to the following link. Once there, you will be prompted to
-    enter your GRIT user ID and password. Once you’ve done this, you are
+    enter your GRIT user ID and password. Once you've done this, you are
     ready to use R Studio Server!
 
     -   Quebracho: <https://quebracho.geog.ucsb.edu/rstudio/>
@@ -401,7 +395,7 @@ directories. Ideally, any confidential information such as your git
 credentials should be secured differently from your personal computer.
 Step 6 of the Git and Github section of the emLab manual is therefore
 not recommended in a multi-user server environment because your token
-may end up viewable to other users as plain text. \
+may end up viewable to other users as plain text. \
 
 Instead of storing your Personal Authentication Token (PAT) as plain
 text, it is recommended to use one of the following options. Using
@@ -414,7 +408,7 @@ easier. The first approach, using an SSH key, is recommended
     1.  Set up your SSH key on the GRIT server.
 
         1.  If you are not using R Studio Server, or prefer to use the
-            terminal, follow these instructions: 
+            terminal, follow these instructions:
 
             1.  You can generate a new SSH key with the terminal command
 
@@ -426,7 +420,7 @@ easier. The first approach, using an SSH key, is recommended
             3.  You are prompted to set a password (hit enter to not
                 require one)
 
-            4.  Start your SSH agent in the background with 
+            4.  Start your SSH agent in the background with
 
                 1.  eval "\$(ssh-agent -s)"
 
@@ -434,14 +428,14 @@ easier. The first approach, using an SSH key, is recommended
 
                 1.  ssh-add \~/.ssh/id_ed25519
 
-            6.  Copy your public key with 
+            6.  Copy your public key with
 
                 1.  cat \~/.ssh/id_rsa.pub \| xclip -selection clipboard
 
         2.  If you are using R Studio Server and you prefer to not use
             the terminal approach, the instructions are a bit more
             streamlined. Follow the instructions in this
-            [link](https://happygitwithr.com/ssh-keys#option-1-set-up-from-rstudio).  
+            [link](https://happygitwithr.com/ssh-keys#option-1-set-up-from-rstudio).
 
             1.  If after going through these instructions you prefer to
                 not use a password, you can remove it using the
@@ -459,26 +453,26 @@ easier. The first approach, using an SSH key, is recommended
     3.  Now you can clone your repository onto the GRIT server. This
         means that you need to either: 1) when cloning the repository
         for the first time you need to use the SSH url rather than the
-        HTTPS url; or 2) if you’ve already clone the repository, set
+        HTTPS url; or 2) if you've already clone the repository, set
         your repository URL to the SSH version
 
         1.  If cloning a repo for the first time using R Studio Server,
-            you can simply click “File \> New Project \> Version Control
-            \> Git”, and then enter your repo’s SSH link
+            you can simply click "File \> New Project \> Version Control
+            \> Git", and then enter your repo's SSH link
 
             1.  [git\@github.com](mailto:git@github.com):username/example_repo.git
                 (for example, this might look like
                 git\@github.com:emlab-ucsb/ocean-ghg.git)
 
         2.  Alternatively, in the terminal You can manually set specific
-            repo URLs to SSH with: 
+            repo URLs to SSH with:
 
             1.  git remote set-url origin
                 [git\@github.com](mailto:git@github.com):username/example_repo.git
                 (for example, this might look like
                 git\@github.com:emlab-ucsb/ocean-ghg.git)
 
-2.  Caching your PAT temporarily 
+2.  Caching your PAT temporarily
 
     1.  Create a PAT on GitHub
 
@@ -487,11 +481,11 @@ easier. The first approach, using an SSH key, is recommended
 
         1.  git config --global credential.helper 'cache --timeout=3600'
 
-        2.  Adjust the timeout length (in seconds) as needed 
+        2.  Adjust the timeout length (in seconds) as needed
 
     3.  Push changes to GitHub
 
-        1.  When prompted enter your username 
+        1.  When prompted enter your username
 
         2.  For the password enter your PAT
 
