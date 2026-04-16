@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Standard operating procedures for emLab projects">
+
+<title>4&nbsp; High Performance Computing – emLab Standard Operating Procedures</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05-publications.html" rel="next">
+<link href="./03-code.html" rel="prev">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-hpc.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">High Performance Computing</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">emLab Standard Operating Procedures</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emlab-ucsb/SOP" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">File Structure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-hpc.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">High Performance Computing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-publications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#available-resources" id="toc-available-resources" class="nav-link active" data-scroll-target="#available-resources"><span class="header-section-number">4.1</span> Available resources</a></li>
+  <li><a href="#available-software" id="toc-available-software" class="nav-link" data-scroll-target="#available-software"><span class="header-section-number">4.2</span> Available software</a></li>
+  <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages"><span class="header-section-number">4.3</span> Installing packages</a></li>
+  <li><a href="#setting-up-a-grit-account" id="toc-setting-up-a-grit-account" class="nav-link" data-scroll-target="#setting-up-a-grit-account"><span class="header-section-number">4.4</span> Setting up a GRIT account</a></li>
+  <li><a href="#using-sequoia" id="toc-using-sequoia" class="nav-link" data-scroll-target="#using-sequoia"><span class="header-section-number">4.5</span> Using sequoia</a></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices"><span class="header-section-number">4.6</span> Best practices</a></li>
+  <li><a href="#resource-allocation" id="toc-resource-allocation" class="nav-link" data-scroll-target="#resource-allocation"><span class="header-section-number">4.7</span> Resource allocation</a></li>
+  <li><a href="#using-quebracho" id="toc-using-quebracho" class="nav-link" data-scroll-target="#using-quebracho"><span class="header-section-number">4.8</span> Using quebracho</a></li>
+  <li><a href="#accessing-data" id="toc-accessing-data" class="nav-link" data-scroll-target="#accessing-data"><span class="header-section-number">4.9</span> Accessing data</a></li>
+  <li><a href="#accessing-code" id="toc-accessing-code" class="nav-link" data-scroll-target="#accessing-code"><span class="header-section-number">4.10</span> Accessing code</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">High Performance Computing</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Certain analysis use cases require high performance computing resources:</p>
+<ul>
+<li>big data</li>
+<li>parallel computing</li>
+<li>lengthy computation times</li>
+<li>restricted-use data</li>
+</ul>
+<p>For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.</p>
+<p>In these cases, you should use the high performance computing resources available to emLab. emLab currently has two high performance computing servers that are managed by UCSB’s General Research IT (GRIT). These servers are named sequoia and quebracho. This section of the manual describes how to use these two servers for high performance computing.</p>
+<p>For now, please use sequoia for general emLab computing for most projects. Quebracho is currently restricted to land use projects (e.g., <code>land-based-solutions</code> and projects starting with <code>cel</code>), so please only use quebracho if you have already been doing so and have already discussed this with Kathy or Robert. If you have any doubts about which server to use, please use sequoia. Note that sequoia does not have a GPU, but quebracho does. If you need access to a GPU and are not already using quebracho, please contact Robert and Kathy to talk about using quebracho.</p>
+<section id="available-resources" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="available-resources"><span class="header-section-number">4.1</span> Available resources</h2>
+<table class="caption-top table">
+<caption>HPC resources available to emLab researchers</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th>Cores</th>
+<th>RAM</th>
+<th>GPU</th>
+<th>USE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quebracho</td>
+<td>64</td>
+<td>1TB</td>
+<td>Yes</td>
+<td>Only land-use projects (please check before using)</td>
+</tr>
+<tr class="even">
+<td>sequoia</td>
+<td>192</td>
+<td>1.5TB</td>
+<td>No</td>
+<td>All other emLab research</td>
+</tr>
+<tr class="odd">
+<td><a href="https://csc.cnsi.ucsb.edu/clusters/knot">Knot</a></td>
+<td>1,500</td>
+<td>48 GB - 1TB</td>
+<td>Yes</td>
+<td>UCSB shared resource</td>
+</tr>
+<tr class="even">
+<td><a href="https://csc.cnsi.ucsb.edu/clusters/pod">Pod</a></td>
+<td>~2,600</td>
+<td>190 GB - 1.5 TB</td>
+<td>Yes</td>
+<td>UCSB shared resource</td>
+</tr>
+<tr class="odd">
+<td><a href="https://csc.cnsi.ucsb.edu/clusters/braid2">Braid2</a></td>
+<td>~2,200</td>
+<td>192 - 368 GB</td>
+<td>Yes</td>
+<td>UCSB condo cluster (PI must buy node)</td>
+</tr>
+</tbody>
+</table>
+<p>The emLab SOP will focus on using quebracho and sequoia. For further information on using other UCSB campus resources, you can refer to our <a href="https://emlab-ucsb.github.io/cluster-guide/index.html">specific guide</a> on that. However please note that this guide is several years out-of-date, and you may find better and more current information directly on a UCSB website. Additionally, now that we have our own HPC servers, we no longer recommend using Google Compute Engine, which is a pay-as-you-go cloud computing server. It can be quite expensive, and has setup challenges as compared to our own servers. However, if you need to use GCE for whatever reason, emLab alumni Grant McDermott wrote a very helpful tutorial on using <a href="https://grantmcdermott.com/rstudio-server-compute-engine/">R Studio Server on GCE</a>.</p>
+</section>
+<section id="available-software" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="available-software"><span class="header-section-number">4.2</span> Available software</h2>
+<p>Both quebracho and sequoia currently have R Studio Server, Jupyter Notebook, and VSCode installed. Positron is available on sequoia through a remote desktop Linux server. GRIT manages these installations for us. They will also manage updates for these.</p>
+<p>Both quebracho and sequoia also leverage <a href="https://slurm.schedmd.com/overview.html">SLURM queueing systems</a>. All computational activity is forced to go through SLURM, even interactive R Studio and Jupyter Notebook sessions (see section on Open OnDemand below). Scrontab can be used to manage SLURM crontab files.</p>
+<p>If we wish to install additional software, we will need to decide on these as a group and have GRIT install them for us. When considering new software to install, we should consider whether or not it is already available on other campus servers; what it will cost; and how many people in emLab would use it. Generally speaking, if a specific piece of software is expensive (e.g., Stata or Matlab), will not be used by too many emLab folks, and is already available on other campus servers, we should rely on these other campus servers and not install it on our own servers. Users interested in MatLab should first try Pod which has the necessary licenses and is available for free.</p>
+<p>If users wish to use python it is recommended that they install Visual Studio Code (VS Code) available for free from Microsoft. With VS Code installed, users can add the Remote SSH extension and access sequoia via SSH tunnel. Further instructions can be found in the <a href="https://csc.cnsi.ucsb.edu/clusters/pod">VS Code Documentation</a>. After accessing sequoia via SSH tunnel, users may install their preferred python distribution. <a href="https://docs.anaconda.com/free/miniconda/miniconda-install/">Miniconda</a> is a good starting point, though other options are available. This <a href="https://vinurad13.medium.com/setting-up-miniconda-and-run-jupyter-notebooks-remotely-on-ubuntu-20-04-server-8d98a6cf4642">Medium article</a> is a good place for further installation guidance. Finally, it is recommended to create custom python <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">environments</a> for each project. All ssh sessions go into the slurm queue.</p>
+<p>For users that need Stata, it is already available on both UCSB’s Knot cluster. More details for using Stata on Knot can be found <a href="https://static1.squarespace.com/static/573f69a2cf80a1adb090ba64/t/5b2c1f1288251b7405a4cb7a/1529618194751/UCSB_server_tutorial.pdf">here</a>. We will not be installing Stata on quebracho or sequoia.</p>
+<p>For users of Matlab, it is already available on all campus clusters. More details can be found he<a href="https://csc.cnsi.ucsb.edu/docs/using-matlab" class="uri">https://csc.cnsi.ucsb.edu/docs/using-matlab</a>re. We will not be installing Matlab on quebracho or sequoia.</p>
+</section>
+<section id="installing-packages" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="installing-packages"><span class="header-section-number">4.3</span> Installing packages</h2>
+<p>You can install regular user-level R packages just like you would normally using R Studio on your local machine. We recommend using the renv R package to manage package dependencies for each project (i.e., GitHub repo) you work in. Please refer to the <a href="https://emlab-ucsb.github.io/SOP/3.3-reproducibility.html#package-dependencies">emLab SOP section on reproducibility</a> for more information on renv.</p>
+<p>Additionally, GRIT installs and updates many commonly used R packages on the servers, which are accessible in a “site-library” for each server. They update these once or twice a year. To add the GRIT R package library to your library paths, you can run this line of code: <code>.libPaths(c("/usr/local/lib/R/site-library/", .libPaths()))</code></p>
+<p>For system-level packages that you would normally need to install through the terminal on your local machine (e.g., packages like <code>gdal</code> or <code>libproj</code>), we will need to have GRIT install and manage these for us. We have already had GRIT install many commonly-needed system-level packages, which they will update once or twice a year. If you need a particular package that is not yet installed, please start a help ticket directly with GRIT: <a href="mailto:help@grit.ucsb.edu">help@grit.ucsb.edu</a> .</p>
+</section>
+<section id="setting-up-a-grit-account" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="setting-up-a-grit-account"><span class="header-section-number">4.4</span> Setting up a GRIT account</h2>
+<p>To use emLab’s HPC servers, you must have a GRIT account. Please refer to the <a href="https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#signing-up-for-an-account-with-grit">emLab Manual section on setting up and managing an account with GRIT</a>.</p>
+</section>
+<section id="using-sequoia" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="using-sequoia"><span class="header-section-number">4.5</span> Using sequoia</h2>
+<p>Sequoia leverages Open OnDemand (OOD), a system managed by GRIT to connect our HPC resources to commonly used software. OOD is accessed via an online dashboard in your web browser: <a href="https://hpc.grit.ucsb.edu" class="uri">https://hpc.grit.ucsb.edu</a></p>
+<p>Once at the website, you can use your GRIT user ID and password. The system does not require you to be on campus or use a VPN.</p>
+<p>Through OOD, you can use the following software:</p>
+<ul>
+<li>R Studio Server</li>
+<li>Jupyter Notebook</li>
+<li>VS Code Server</li>
+<li>Positron (via a Linux remote desktop server)</li>
+</ul>
+<p>To use any of these, click “Interactive Apps”, then click on your software of choice (to access Positron, click “Desktop”). Each time you launch an interactive app, you need to specify the following up-front before launching the job:</p>
+<ul>
+<li><p>Partition name: Type <code>emlab_nodes</code> to use emLab’s private sequoia resources (this should be used in most cases). Alternatively, you can type <code>grit_nodes</code> to use GRIT’s campus-wide shared resources</p></li>
+<li><p>Job duration (up to 168 hours): Your interactive session will run for this amount of time, and then shut down (you can cancel jobs before the ending time if you desire)</p></li>
+<li><p>Number of cores: How many CPU cores you want to use for your interactive session. Currently, we have this set to a maximum of 24 cores per session. Since sequoia is a shared resource, please be considerate of others when requesting cores. If you are unsure of how many cores to use, we have another section of the SOP below to help you figure this out.</p></li>
+<li><p>RAM: How much RAM you want to use for your interactive session. Currently, we have this set to a maximum of 256GB per session. Since sequoia is a shared resource, please be considerate of others when requesting cores. If you are unsure of how much RAM to use, we have another section of the SOP below to help you figure this out.</p></li>
+</ul>
+<p>Please do not enable to “Use GPU” option unless you have already discussed this with Kathy or Robert (it is only available on quebracho for land use projects at this time).</p>
+<p>Note that for convenience, your last used settings will be saved for the next time you launch an interactive app.</p>
+<p>Once you’ve configured your session, click “Launch”. It may take a few minutes for your session to start up. Once it is ready, you will see a link to open R Studio Server (or whichever app you selected). Click the link to open R Studio Server in a new browser tab.</p>
+<p>Note that you may use OOD to launch <em>multiple</em> interactive sessions at the same time! They are each still managed through SLURM.</p>
+<p>More resources for OOD are available on GRIT’s bookstack:</p>
+<ul>
+<li><p><a href="https://bookstack.grit.ucsb.edu/books/hpc-usage/chapter/openondemand-ood">OOD landing page</a></p></li>
+<li><p><a href="https://bookstack.grit.ucsb.edu/books/hpc-usage/page/r-studio">R Studio Server</a></p></li>
+<li><p><a href="https://bookstack.grit.ucsb.edu/books/hpc-usage/page/jupyter-notebook">Jupyter Notebook</a></p></li>
+<li><p><a href="https://bookstack.grit.ucsb.edu/books/hpc-usage/page/vs-code-server">VS Code Server</a></p></li>
+</ul>
+</section>
+<section id="best-practices" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="best-practices"><span class="header-section-number">4.6</span> Best practices</h2>
+<p>Here we outline our best practices for using shared computational resources. These are meant to be living guidelines that will be adapted by our team as needed:</p>
+<ul>
+<li><p>Sharing is caring! Common courtesy can go a long way. As much as possible, try to use only the resources you need.</p></li>
+<li><p>Leverage the tools below to monitor how many cores and how much RAM you and others are currently using</p></li>
+<li><p>In general on sequoia, feel free to run analyses that use up to 24 cores and 256GB of RAM. We will likely adaptively manage these specific numbers once we start using sequoia and getting a better understanding of how many resources we are using. And if you don’t need that much, please request less so that others can use the resources they need.</p></li>
+<li><p>For larger analyses that require lots of cores or RAM, coordinate with others over the server slack channel (<code>#hpc-core-dination</code>) to ensure that workflows are not disrupted and that everyone has reasonable access to computational resources</p></li>
+<li><p>Generally, we recommend piloting your code using a small subset of your data and/or just a single core, either on your local computer or on one of our HPC servers. Then once you know it works and have a sense of how much memory it will use and how long it will take to execute, you can go ahead and run the full analysis on the server. And if it looks like the full analysis will require resources beyond the standard recommend 24 cores and 256GB, coordinate with the team on the Slack channel <code>#hpc-core-dination</code>.</p></li>
+</ul>
+</section>
+<section id="resource-allocation" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="resource-allocation"><span class="header-section-number">4.7</span> Resource allocation</h2>
+<p>It is up to each researcher to: 1) decide how much computational resources they need prior to starting each job (i.e., how many cores and how much RAM will your job need); and 2) monitor their resource usage during each job to not only ensure they are not exceeding their allocated resources, but to help build personal awareness on how much resources certain jobs require. It will generally take each person some time to develop an intuition on how many resources each job will need; we always recommend piloting code locally on your own machine to start getting a sense for this. Additionally, as you use the server more and the tools below, you will further develop this intuition.</p>
+<p>Available tools:</p>
+<ul>
+<li><p><a href="https://zabbix.grit.ucsb.edu/zabbix.php?action=dashboard.view&amp;dashboardid=175&amp;from=now-24h&amp;to=now">Zabbix dashboard</a>: GRIT manages a dashboard for us which provides a high-level system-level view of how many resources are being used on each of our servers. This is a good place to start to get a sense of overall resource usage across the whole team. It is also a good place to check before starting a new job to see how busy the servers are. It is also a place that will show the current status of each server and whether or not there are currently any problems.</p></li>
+<li><p>Job Resource Utilization Analyzer: If using sequoia via OOD, you can navigate to the <a href="https://hpc.grit.ucsb.edu">OOD dashboard</a>, click “Apps”, then click “Job Resource Utilization Analyzer”. For each job that is currently running on a GRIT server, this will show you how many cores and how much RAM was requested, as well as the actual peak core and RAM usage. It further provides some information on whether or not you over-requested core and/or RAM resources, and provides some recommendations if any adjustments should be made in the future. This is a nice way to monitor live usage.</p></li>
+<li><p>Post-job email: If using sequoia via OOD, at the end of each job you will receive an email summary of your job resource usage. This email provides similar information to the Job Resource Utilization Analyzer, but is sent to you automatically at the end of each job. It also provides information on whether or not you over-requested core and/or RAM resources, and provides some recommendations if any adjustments should be made in the future. This is a nice way to monitor your resource usage after the fact. GRIT provides some helpful rules of thumb:</p>
+<ul>
+<li>“If Max RSS is much lower than requested memory, you may be over-requesting RAM.”</li>
+<li>“If the job failed with OUT_OF_MEMORY and Max RSS is close to the request, you likely need to request more memory.”</li>
+<li>“If Total CPU &lt;&lt; (Elapsed time * AllocCPUS), your job may be I/O bound or under-utilizing its cores.”</li>
+</ul></li>
+<li><p><a href="https://htop.dev/">htop</a>: This terminal tool is installed on each server and provides a real-time view of resource usage on each server. It is a great tool to use during an interactive session to see how many cores and how much RAM your job is using, and also how many cores and how much RAM are currently being used by others. You can customize the htop display to make things easier to see. For example:</p>
+<ul>
+<li>After entering htop, press F2 to enter setup. You can also click directly on setup to enter it.</li>
+<li>Once you enter setup, if you have trouble seeing the setup options, you can try reducing your browser’s text size temporarily in order to see the setup options.</li>
+<li>Sequoia has 192 cores so the default view with 4 columns means a pretty large display. In the Meters setup, you can change the left column to be <code>CPUs (1-4/8) [Bar]</code> and the right column to be <code>CPUs (5-8/8) [Bar]</code> This will condense the output and force 8 columns.</li>
+<li>I also like to add disc IO to the left column below memory.</li>
+<li>In the “Display options” setup you can select some that will clean up the process information below the resources monitor. I like to make sure to select
+<ul>
+<li>Tree view</li>
+<li>Tree view sorted by PID</li>
+<li>Shadow other users’ process (makes it easier to see your own)</li>
+<li>Count CPUs from 1</li>
+<li>Enable the mouse</li>
+<li>Press F10 when done</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="using-quebracho" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="using-quebracho"><span class="header-section-number">4.8</span> Using quebracho</h2>
+<ol type="1">
+<li><p>On your local machine, connect to the UCSB Campus VPN. You can do so by downloading a VPN client for your operating system, such as Ivanti Pulse Secure. More details for connecting to the UCSB VPN and installation instructions are provided <a href="https://www.it.ucsb.edu/network-infrastructure-services/ivanti-connect-secure-campus-vpn">here</a>. Note: Even if you are on the UCSB campus you will still need to connect to the campus VPN.</p></li>
+<li><p>Once you’ve connected to the VPN, you are ready to access the server. You can access quebracho via SSH if you wish to use something like VS Code. To access R Studio Server, you can simply navigate to the following link. Once there, you will be prompted to enter your GRIT user ID and password. Once you’ve done this, you are ready to use R Studio Server!</p>
+<ul>
+<li>Quebracho: <a href="https://quebracho.geog.ucsb.edu/rstudio/" class="uri">https://quebracho.geog.ucsb.edu/rstudio/</a></li>
+</ul></li>
+</ol>
+</section>
+<section id="accessing-data" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="accessing-data"><span class="header-section-number">4.9</span> Accessing data</h2>
+<p>Please refer to <a href="https://emlab-ucsb.github.io/SOP/1.3-grit-data-storage-space.html#grit-data-storage-space">this section</a> of the emLab SOP for a description of the data directory structure for our emLab GRIT data storage space.</p>
+<p>All data in the emLab GRIT data storage space can be directly accessed on each of the servers (sequoia and quebracho) without any changes to the directory paths. All data in the <code>emlab/data</code> and <code>emlab/projects/current-projects</code> directory physically lives on high-speed hard drives attached to sequoia, so if you need to work on data in these directories, you will have the best computing performance when using sequoia. Please refer to <a href="https://emlab-ucsb.github.io/SOP/2.3-accessing-emlab-data-in-r.html">this section</a> of the emLab SOP for a code snippet that can be used to directly access data on the server in R.</p>
+<p>In addition to having access to our emLab GRIT data storage space, which is shared across all members of our team, all individual users also have a private user-specific storage space. All GRIT users get a free 50GB personal storage space by default. As a general best practice, we recommend storing all data on the emLab data storage space, and only storing cloned GitHub repos and user-specific R packages and settings in your personal user space. For example, you should store all project-specific data in the appropriate directory under the emLab data storage space, but you should store all of your cloned GitHub repos s in your personal storage space. By default, when you clone repos from GitHub they are stored in your personal storage space, along with any of your user-specific R packages and configurations. If for whatever reason your personal storage space exceeds 50GB, it will stop working, so you should ensure you always have a safe buffer. However, we envision that if users only keep cloned GitHub repos and R packages in their personal user space, they should not need to worry about hitting the 50GB limit. You can check your current personal storage by typing df -h in the terminal and then looking for your username.</p>
+</section>
+<section id="accessing-code" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="accessing-code"><span class="header-section-number">4.10</span> Accessing code</h2>
+<p>Here we can talk about how to use the servers with GitHub code management. Essentially, you can work with projects and GitHub repositories on RStudio Server exactly like you can on your personal machine. One major difference is how to set up GitHub authentication, which is a little different on the servers than it would be on your personal machine. So we can provide explicit instructions on doing that.</p>
+<p>Please refer to <a href="https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#git-and-github">this section</a> of the emLab SOP for directions on how to set up and manage git and GitHub for your new server workspace. One important difference between your personal laptop and using a server is that file permissions may be such that other users can see and sometimes read or write files in your directories. Ideally, any confidential information such as your git credentials should be secured differently from your personal computer. Step 6 of the Git and Github section of the emLab manual is therefore not recommended in a multi-user server environment because your token may end up viewable to other users as plain text.<br>
+</p>
+<p>Instead of storing your Personal Authentication Token (PAT) as plain text, it is recommended to use one of the following options. Using either of these two approaches will also mean that credentials are stored between sessions, which should make the user experience a bit easier. The first approach, using an SSH key, is recommended</p>
+<ol type="1">
+<li><p>Use an SSH key instead of a PAT</p>
+<ol type="1">
+<li><p>Set up your SSH key on the GRIT server.</p>
+<ol type="1">
+<li><p>If you are not using R Studio Server, or prefer to use the terminal, follow these instructions:</p>
+<ol type="1">
+<li><p>You can generate a new SSH key with the terminal command</p>
+<ol type="1">
+<li>ssh-keygen -t ed25519 -C “email@example.com”</li>
+</ol></li>
+<li><p>You are prompted to select a location (hit enter for the default location)</p></li>
+<li><p>You are prompted to set a password (hit enter to not require one)</p></li>
+<li><p>Start your SSH agent in the background with</p>
+<ol type="1">
+<li>eval “$(ssh-agent -s)”</li>
+</ol></li>
+<li><p>Add your private key to the SSH agent with</p>
+<ol type="1">
+<li>ssh-add ~/.ssh/id_ed25519</li>
+</ol></li>
+<li><p>Copy your public key with</p>
+<ol type="1">
+<li>cat ~/.ssh/id_rsa.pub | xclip -selection clipboard</li>
+</ol></li>
+</ol></li>
+<li><p>If you are using R Studio Server and you prefer to not use the terminal approach, the instructions are a bit more streamlined. Follow the instructions in this <a href="https://happygitwithr.com/ssh-keys#option-1-set-up-from-rstudio">link</a>.</p>
+<ol type="1">
+<li>If after going through these instructions you prefer to not use a password, you can remove it using the instructions provided in this <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#adding-or-changing-a-passphrase">link</a>.</li>
+</ol></li>
+</ol></li>
+<li><p>Add your public key to your GitHub account</p>
+<ol type="1">
+<li><p>GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key</p></li>
+<li><p>Paste in your key (either from Step 6 in the terminal option above, or copied from R Studio Server in the R Studio option above)</p></li>
+</ol></li>
+<li><p>Now you can clone your repository onto the GRIT server. This means that you need to either: 1) when cloning the repository for the first time you need to use the SSH url rather than the HTTPS url; or 2) if you’ve already clone the repository, set your repository URL to the SSH version</p>
+<ol type="1">
+<li><p>If cloning a repo for the first time using R Studio Server, you can simply click “File &gt; New Project &gt; Version Control &gt; Git”, and then enter your repo’s SSH link</p>
+<ol type="1">
+<li><a href="mailto:git@github.com">git@github.com</a>:username/example_repo.git (for example, this might look like git@github.com:emlab-ucsb/ocean-ghg.git)</li>
+</ol></li>
+<li><p>Alternatively, in the terminal You can manually set specific repo URLs to SSH with:</p>
+<ol type="1">
+<li>git remote set-url origin <a href="mailto:git@github.com">git@github.com</a>:username/example_repo.git (for example, this might look like git@github.com:emlab-ucsb/ocean-ghg.git)</li>
+</ol></li>
+</ol></li>
+</ol></li>
+<li><p>Caching your PAT temporarily</p>
+<ol type="1">
+<li><p>Create a PAT on GitHub</p></li>
+<li><p>Add credential cache timeout instructions to your git config file</p>
+<ol type="1">
+<li><p>git config –global credential.helper ‘cache –timeout=3600’</p></li>
+<li><p>Adjust the timeout length (in seconds) as needed</p></li>
+</ol></li>
+<li><p>Push changes to GitHub</p>
+<ol type="1">
+<li><p>When prompted enter your username</p></li>
+<li><p>For the password enter your PAT</p>
+<ol type="1">
+<li>Future pushes will not not require you to enter credentials within the timeout window</li>
+</ol></li>
+</ol></li>
+<li><p>This is not a good long term solution because you will need to re-enter your credentials anytime the server restarts or when your cache timeout ends</p></li>
+</ol></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03-code.html" class="pagination-link" aria-label="Code">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./05-publications.html" class="pagination-link" aria-label="Reports and Publications">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

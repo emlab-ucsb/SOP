@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Standard operating procedures for emLab projects">
+
+<title>3&nbsp; Code – emLab Standard Operating Procedures</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-hpc.html" rel="next">
+<link href="./02-data.html" rel="prev">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-code.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">emLab Standard Operating Procedures</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emlab-ucsb/SOP" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">File Structure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-code.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-hpc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">High Performance Computing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-publications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#scripts-and-version-control" id="toc-scripts-and-version-control" class="nav-link active" data-scroll-target="#scripts-and-version-control"><span class="header-section-number">3.1</span> Scripts and Version Control</a></li>
+  <li><a href="#style-guide" id="toc-style-guide" class="nav-link" data-scroll-target="#style-guide"><span class="header-section-number">3.2</span> Style Guide</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">3.3</span> Reproducibility</a>
+  <ul class="collapse">
+  <li><a href="#package-management" id="toc-package-management" class="nav-link" data-scroll-target="#package-management"><span class="header-section-number">3.3.1</span> Package management</a></li>
+  <li><a href="#coding-pipelines" id="toc-coding-pipelines" class="nav-link" data-scroll-target="#coding-pipelines"><span class="header-section-number">3.3.2</span> Coding pipelines</a></li>
+  </ul></li>
+  <li><a href="#internal-code-review" id="toc-internal-code-review" class="nav-link" data-scroll-target="#internal-code-review"><span class="header-section-number">3.4</span> Internal code review</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">3.5</span> Exploratory Data Analysis</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>All data processing and analysis should be performed with code (i.e., avoid spreadsheets), and all code should be packaged in scripts that are version controlled and follow a style guide. Using code and scripts allows for better organization, documentation, and reproducibility of analysis workflows. <strong>All emLab code should be stored in the emLab GitHub account.</strong></p>
+<p><strong>Recommended readings:</strong></p>
+<ul>
+<li><p>Bryan, Jennifer. 2018. “Excuse Me, Do You Have a Moment to Talk About Version Control?” <em>The American Statistician</em> 72 (1): 20–27. <a href="https://doi.org/10.1080/00031305.2017.1399928" class="uri">https://doi.org/10.1080/00031305.2017.1399928</a>.</p></li>
+<li><p>Stodden, Victoria, and Sheila Miguez. 2014. “Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research.” <em>Journal of Open Research Software</em> 2 (1): e21. <a href="https://doi.org/10.5334/jors.ay" class="uri">https://doi.org/10.5334/jors.ay</a>.</p></li>
+<li><p>Wilson, Greg, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, et al.&nbsp;2014. “Best Practices for Scientific Computing.” <em>PLOS Biology</em> 12 (1): e1001745. <a href="https://doi.org/10.1371/journal.pbio.1001745" class="uri">https://doi.org/10.1371/journal.pbio.1001745</a>.</p></li>
+<li><p>Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. “Good Enough Practices in Scientific Computing.” <em>PLOS Computational Biology</em> 13 (6): e1005510. <a href="https://doi.org/10.1371/journal.pcbi.1005510" class="uri">https://doi.org/10.1371/journal.pcbi.1005510</a>.</p></li>
+</ul>
+<section id="scripts-and-version-control" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="scripts-and-version-control"><span class="header-section-number">3.1</span> Scripts and Version Control</h2>
+<p>Code should be crafted according to the following guidelines:</p>
+<ul>
+<li>Use scripts</li>
+<li>Document scripts, but not too much</li>
+<li>Organize scripts consistently (see format below)</li>
+<li>Use Git to version control scripts</li>
+<li>Make atomic Git commits (see description below)</li>
+</ul>
+<p>Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.</p>
+<p>Here is an example template for R scripts:</p>
+<pre><code># =============================================================================
+# Name:           script.R
+# Description:    Visualizes data
+#
+# Inputs:         data.csv
+# Outputs:        graph.png
+#
+# Notes:          - Use a diverging color palette for best results
+#                 - Output format can be changed as needed
+# =============================================================================
+
+
+# Set up environment ----------------------------------------------------------
+
+library(tidyverse)
+
+# Set path for Google Drive filestream based on OS type
+# Note - this will work for Windows and Mac machines.
+# If you use Linux, you will need to set your own path to where Google Drive filestream lives.
+
+team_path &lt;- ifelse(Sys.info()["sysname"]=="Windows","G:/","/Volumes/GoogleDrive/")
+
+# Next, set the path for data directory based on whether project is current or archived.
+# Note that if you use a different Shared Drive file structure than the one recommended in the "File Structure" section, you will need to manually define your data path.
+# You should always double-check the automatically generated paths in order to ensure they point to the correct directory.
+
+# First, set the name of your project
+
+project_name &lt;- "my-project"
+
+# This will automatically determine if the project exists in the "current-projects" or "archived-projects" Shared Drive folder, and set the appropriate data path accordingly.
+data_path &lt;- ifelse(dir.exists(paste0(team_path,"Shared drives/emlab/projects/current-projects/",project_name)),
+                       paste0(team_path,"Shared drives/emlab/projects/current-projects/",project_name,"/data/"),
+                       (paste0(team_path,"Shared drives/emlab/projects/archived-projects/",project_name,"/data/")))
+
+
+# Import data -----------------------------------------------------------------
+
+# Load data from Shared Drive using appropriate data path
+my_raw_data &lt;- read_csv(paste0(data_path,"raw/my_raw_data.csv"))
+
+# Process data ----------------------------------------------------------------
+
+
+# Analyze data ----------------------------------------------------------------
+
+
+# Visualize results -----------------------------------------------------------
+
+
+# Save results ----------------------------------------------------------------
+
+</code></pre>
+<p><a href="https://git-scm.com/">Git</a> tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found <a href="https://chris.beams.io/posts/git-commit/">here</a>. There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.</p>
+<p>More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.</p>
+</section>
+<section id="style-guide" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="style-guide"><span class="header-section-number">3.2</span> Style Guide</h2>
+<p>At emLab, we recommend using a consistent code style for each of the different programming languages we use. Recommended coding styles for a particular language are collated in what is known as a “style guide”. Style guides typically include standardized ways of naming script files, defining functions and variables, commenting code, etc. While emLab does not mandate the use of style guides, having a consistent code style allows all emLab staff to easily understand each other’s code, collaborate on projects, and jump in on new projects. We consider this an important aspect of collaboration, reproducibility, and transparency.</p>
+<p>Rather than re-invent the wheel, we leverage existing code style guidelines for each of the languages we use. Below is a summary of the code style guidelines we recommend for various languages:</p>
+<ul>
+<li><em>R</em> - <a href="https://style.tidyverse.org">Tidyverse Style Guide</a>, by Hadley Wickham</li>
+<li><em>Python</em> - <a href="https://github.com/google/styleguide/blob/gh-pages/pyguide.md">Google’s Python Style Guide</a></li>
+<li><em>Stata</em> - <a href="https://www.stata-journal.com/sjpdf.html?articlenum=pr0018">Suggestions on Stata programming style</a>, by Nicolas J. Cox</li>
+<li><em>Other languages</em> - <a href="https://github.com/google/styleguide">Google style guides for other languages</a></li>
+</ul>
+</section>
+<section id="reproducibility" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">3.3</span> Reproducibility</h2>
+<p>Prioritizing reproducibility when writing code code not only fosters collaboration with others during a project, but also makes it easier for users in the future (including yourself!) to make changes and rerun analyses as new data become available. Some useful tools and practices include:</p>
+<ul>
+<li><strong>Commenting code:</strong> Adding brief but detailed comments to your scripts that document what your code does and how it works will help others understand and use your scripts. At the top of your scripts, describe the purpose of the code as well as its necessary inputs, required packages, and outputs.</li>
+<li><strong>File paths:</strong> Avoid writing file paths that only work on your computer. Where possible, use relative file paths instead of absolute files paths so your code can be run by different users or operating systems. For R users, using <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">R Projects</a> and/or the <a href="https://github.com/jennybc/here_here">here</a> package are great ways to help implement this practice.</li>
+<li><strong>Functions:</strong> If you find yourself copying and pasting similar blocks of code over and over to repeat tasks, turn it into a function!</li>
+<li><strong>R Markdown:</strong> R users can take advantage of <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown</a> for a coding format that seamlessly integrates sections of text alongside code chunks. R Markdown also enables you to transform your code and text into report-friendly formats such as PDFs or Word documents.</li>
+<li><strong>Git and GitHub:</strong> <a href="#scripts-and-version-control">As described above,</a> Git tracks changes to files line-by-line in commits that are attributable to each team member working on the project. GitHub then compiles the history of any Git-tracked file online, and synchronizes the work of all collaborators in a central repository. Using Git and GitHub allow multiple people to code collaboratively, examine changes as they occur, and restore prior versions of files if necessary.</li>
+</ul>
+<p>We also recommend managing package dependencies and creating a reproducible coding pipeline. These two aspects are discussed in more detail below.</p>
+<section id="package-management" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="package-management"><span class="header-section-number">3.3.1</span> Package management</h3>
+<p>A key aspect of reproducibility is package dependency management. For example, your code may run perfectly when using an old version of a particular package, but might fail when using the latest version of that package. In this case, even if someone has the exact code you used, it would fail to run on their machine if they are using the latest version of that package. It is therefore important that along with providing the code you use, you should also somehow provide the packages and package versions you use.</p>
+<p>If using R, we recommend using <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> package for managing package dependencies. <code>renv</code> was developed by the R Studio (now Posit) team. It is used at the project-level, and can thus be included as part of your GitHub respotitory. To set up your project to use <code>renv</code>, first initialize it by running <code>renv::init()</code>. You will then be able “snapshot” the packages and package version you are using in a project (by running <code>renv::snapshot</code>), and save that snapshot so that yourself or others can “restore” to that snapshot and use the exact same packages and package versions (by running <code>renv::restore</code>). This will ensure that your code will run on other machines, even if new versions of packages come out that are not backwards compatible.</p>
+<p>We also recommend you set up R Studio to use the Posit Public Package Manager instead of the default option of CRAN. The Posit Public Pckage Manager hosts binaries of all of the latest and older historic package versions, which means that <code>renv</code> will always be able to find the correct package version, and should be able to install it more quickly than needing to install it from source which may be required by CRAN. See <a href="https://packagemanager.posit.co/client/#/repos/cran/setup">this link</a> for instructions, and <a href="https://www.pipinghotdata.com/posts/2024-09-16-ease-renvrestore-by-updating-your-repositories-to-p3m/">this link</a> for why this is important.</p>
+</section>
+<section id="coding-pipelines" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="coding-pipelines"><span class="header-section-number">3.3.2</span> Coding pipelines</h3>
+<p>Often, a project contains multiple script files that are each run separately, but which produce or use interconnected inputs and outputs through a coding pipeline. They must therefore be run in the correct order, and any time a change is made to an upstream script or file, all downstream scripts may need to be run for their outputs to stay up-to-date. This presents a challenge to reproducibility, and also a challenge to anyone trying to work with or review complicated coding pipelines. Additionally, not knowing which files and scripts are up-to-date could mean that long-running operations are re-run unnecessarily.</p>
+<p>Consider the following example, from Juan Carlos Villaseñor-Derbez’s excellent tutorial: <a href="https://github.com/jcvdav/make_tutorial">Make: End-to-end reproducibility</a>.</p>
+<p>Consider you have the following project file structure in a GitHub repository, where <code>clean_data.R</code> is run first and processes the raw data file <code>raw_data.csv</code>. When this is run, <code>clean_data.R</code> produces the cleaned data file <code>clean_data.csv</code>. <code>plot_data.R</code> is run next, which uses <code>clean_data.csv</code> and produces the final output <code>figure1.png</code>.</p>
+<pre><code>data
+    |_raw_data.csv
+    |_clean_data.csv
+scripts
+    |_clean_data.R
+    |_plot_data.R
+results
+    |_figure1.png
+    |_raw_data.csv
+    |_clean_data.csv</code></pre>
+<p>These scripts must be run in the correct order, and any time changes are made to upstream data or scripts, downstream scripts must be run to update downstream data and results. To ensure reproducibility of your code, we recommend everyone employ one of the three following options when using a coding pipeline, with the four options in ascending order of recommendation from “minimum required” to “best practice.” We provide a best practice for non-R code, as well as a best practice for R code.</p>
+<ul>
+<li><strong>Option 1 (minimum required):</strong> Provide clear documentation in the repo’s <code>README.md</code> file. This documentation should provide the complete file structure, including both scripts and data files, and should provide a narrative description of the order in which the scripts should be run, as well as which files each script uses and produces.</li>
+<li><strong>Option 2 (better practice):</strong> Create a <code>run_all.R</code> script that runs all scripts in the correct order, and can be run to fully reproduce the entire project repo’s outputs. This <code>run_all.R</code> script should be described in <code>README.md</code>. Using the example above, this script could contain the following:</li>
+</ul>
+<pre><code># Run all scripts
+# This script runs all the code in my project, from scratch
+source("scripts/clean_data.R")      # To clean the data
+source("scripts/plot_data.R")       # To plot the data</code></pre>
+<ul>
+<li><strong>Option 3 (best practice for non-R code):</strong> For non-R code, we recommend using the <a href="https://www.gnu.org/software/make/">make package</a>. This uses a <code>Makefile</code> to fully describe the coding pipeline through a standardized syntax of targets (output files that need to be created), prerequisites (file dependencies), and commands (how to go from prerequisites to targets). The advantage of this approach is that it automatically runs scripts in the correct order, keeps track of when changes are made to scripts or data files, and it only runs the necessary scripts to ensure that all outputs are up-to-date. If using <code>make</code>, you should describe how to use it in the repo’s <code>README.md</code>.</li>
+</ul>
+<p>The <code>Makefile</code> uses the following syntax:</p>
+<pre><code>target: prerequisites
+  command</code></pre>
+<p>Therefore, in our example, the <code>Makefile</code> would simply be the following, and the single command <code>make</code> would execute this:</p>
+<pre><code>results/figure1.png: scripts/plot_data.R data/clean_data.csv
+  Rscript scripts/plot_data.R
+data/clean_data.csv: scripts/clean_data.R data/raw_data.csv
+  Rscript scripts/clean_data.R</code></pre>
+<p>Please refer to Juan Carlos Villaseñor-Derbez’s very helpful tutorial for more information: <a href="https://github.com/jcvdav/make_tutorial">Make: End-to-end reproducibility</a>.</p>
+<ul>
+<li><strong>Option 4 (best practice for R code):</strong> For R code, we recommend using the <a href="https://github.com/ropensci/targets">targets</a> package. Targets is a Make-like pipeline tool that has been specifically developed for R. Using targets means that anytime an upstream change is made to the data or models, all downstream components of the data processing and analysis will be re-run automatically when the <code>targets::tar_make()</code> command is run. It also means that once components of the analysis have already been run and are up-to-date, they will not need to be re-run. All interim objects are cached in a <code>_targets</code> directory. This directory can either be within in the project directory when the objects are small (e.g., within the GitHub repo), or can be set to another directory when objects are larger (e.g., on Google Shared Drive or Google Cloud Storage). Targets also has a built-in parallel processing option, which can allow long-running components of the analysis to be run in parallel. It also plays nicely with <code>renv</code> for package management.</li>
+</ul>
+<p>For further information, the <a href="https://github.com/ropensci/targets">targets package documentation</a> is a great place to start. We also recommend the <a href="https://docs.google.com/presentation/d/1PSysoO479d8FrIIs1iXxBJZnW1KBwD24bNE4ewA19Ic/edit#slide=id.p">presentation</a> (and associated <a href="https://github.com/traceybit/rladies-sb-targets">GitHub repository</a>) developed by Tracey Mangin for <a href="https://www.meetup.com/rladies-santa-barbara/">R-Ladies Santa Barbara</a> as another great primer.</p>
+</section>
+</section>
+<section id="internal-code-review" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="internal-code-review"><span class="header-section-number">3.4</span> Internal code review</h2>
+<p>Peer-review of each other’s code is a great method for mutual learning through exposure to different coding styles and packages, ensuring reproducibility, catching any bugs, and uncovering opportunities for doing things better. We recognize that this takes time, but we believe that the time commitment is worth it for us to all become better coders and write better code. As a best practice, we recommend that for any project that has at least two researchers, there should be a systematic review of any major coding elements by the researcher who did not initially write the code. By following the best practices outlined in the <code>Coding Pipeline</code> section of this SOP, the original coder can ensure that the reviewing coder knows exactly which pieces of code are critical for their review.</p>
+<p>Code reviews should be respectful and collegial in manner. The goal is to make all of our work better and make all us better coders, not to criticize or single anyone out.</p>
+<p>The original coder and reviewing coder should coordinate on the best method for feedback, whether that is through direct pull requests to the code, an email outlining suggestions, or a Google doc outlining suggestions.</p>
+<p>For further guidance on effective code reviewing techniques and guiding principles, we recommend using the <a href="https://tidyverse.github.io/code-review/">Tidyteam code review principles</a>. These were developed by the <code>tidyteam</code> for maintaining packages such as those found in the <code>tidyverse</code> and <code>tidymodels</code>. These guidelines are based on Google’s <a href="https://google.github.io/eng-practices/review/">Code Review Developer Guide</a>, another helpful resource.</p>
+</section>
+<section id="exploratory-data-analysis" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">3.5</span> Exploratory Data Analysis</h2>
+<p>Much of the work emLab does is Exploratory Data Analysis (EDA), especially during the beginning stages of a project when we are familiarizing ourselves we new datasets and rapidly prototyping data wrangling and modeling approaches. The following quote from <a href="https://r4ds.had.co.nz/exploratory-data-analysis.html">Hadley Wickham’s R for Data Science</a> describes EDA as:</p>
+<blockquote class="blockquote">
+<p>EDA is an iterative cycle. You: 1) Generate questions about your data; 2) Search for answers by visualising, transforming, and modelling your data; 3 Use what you learn to refine your questions and/or generate new questions.</p>
+</blockquote>
+<p>EDA is a creative and exploratory process without defined rules. Hadley Wickham’s chapter on <a href="https://r4ds.had.co.nz/exploratory-data-analysis.html">EDA</a> is an excellent place to start for ideas, but we encourage creativity and exploration during this phase of a project.</p>
+<p>However, we recommend as a best practice that all EDA should include an “Interpretations, questions, and new ideas” section. The researcher doing EDA is poised in an excellent position for providing initial interpretations of the data, raising outstanding questions about the data, and generating novel insights and potential research questions. This section should contain the following information:</p>
+<ul>
+<li>Interpretations about what you found. Does it match our intuition? Is there anything surprising?</li>
+<li>Questions about the data. Are there any questions about how to use or interpret the data? Are there any potential problems with the data or analysis?</li>
+<li>New insights and research questions. Have you uncovered any new insights about the data or research? Have you discovered any new research questions that might be worth pursuing?</li>
+</ul>
+<p>By including a section in each EDA analysis that discusses these aspects, we can build insight generation into our workflows. This information should be in an easy to find location on the Team Drive, such as in a <code>markdown-reports</code> directory that contains EDA PDFs generated by R Markdown. This way, other members of the project team can read it, digest it, and respond with further ideas.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-data.html" class="pagination-link" aria-label="Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-hpc.html" class="pagination-link" aria-label="High Performance Computing">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">High Performance Computing</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
