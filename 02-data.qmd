@@ -64,12 +64,7 @@ All commonly used emLab data is stored in subfolders of the Data folder on the e
 
 In the case of placeholder metadata (as described in the *Metadata* section), only the following columns should be filled out: folder, filename, contact, and summary. This (mostly blank) row serves two purposes: 1) it retains some of the searchability function for that dataset and 2) it serves as a visual reminder that those datasets are in need of more robust metadata development.
 
-```{r}
-#| label: render-meta-metadata-table
-#| results: asis
-#| echo: false
-#| message: false
-#| warning: false
+```r
 require(tidyverse)
 require(knitr)
 
