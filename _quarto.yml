@@ -17,7 +17,6 @@ book:
     - 03-code.qmd
     - 04-hpc.qmd
     - 05-publications.qmd
-    - 06-charter.qmd
 
 format:
   html:
