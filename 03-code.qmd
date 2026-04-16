@@ -1,0 +1,202 @@
+# Code
+
+All data processing and analysis should be performed with code (i.e., avoid spreadsheets), and all code should be packaged in scripts that are version controlled and follow a style guide. Using code and scripts allows for better organization, documentation, and reproducibility of analysis workflows. **All emLab code should be stored in the emLab GitHub account.**
+
+**Recommended readings:**
+
+* Bryan, Jennifer. 2018. "Excuse Me, Do You Have a Moment to Talk About Version Control?" *The American Statistician* 72 (1): 20–27. <https://doi.org/10.1080/00031305.2017.1399928>.
+
+* Stodden, Victoria, and Sheila Miguez. 2014. "Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research." *Journal of Open Research Software* 2 (1): e21. <https://doi.org/10.5334/jors.ay>.
+
+* Wilson, Greg, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, et al. 2014. "Best Practices for Scientific Computing." *PLOS Biology* 12 (1): e1001745. <https://doi.org/10.1371/journal.pbio.1001745>.
+
+* Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. "Good Enough Practices in Scientific Computing." *PLOS Computational Biology* 13 (6): e1005510. <https://doi.org/10.1371/journal.pcbi.1005510>.
+
+
+## Scripts and Version Control {#scripts-and-version-control}
+
+Code should be crafted according to the following guidelines:
+
+* Use scripts
+* Document scripts, but not too much
+* Organize scripts consistently (see format below)
+* Use Git to version control scripts
+* Make atomic Git commits (see description below)
+
+Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.
+
+Here is an example template for R scripts:
+
+```
+# =============================================================================
+# Name:           script.R
+# Description:    Visualizes data
+#
+# Inputs:         data.csv
+# Outputs:        graph.png
+#
+# Notes:          - Use a diverging color palette for best results
+#                 - Output format can be changed as needed
+# =============================================================================
+
+
+# Set up environment ----------------------------------------------------------
+
+library(tidyverse)
+
+# Set path for Google Drive filestream based on OS type
+# Note - this will work for Windows and Mac machines.
+# If you use Linux, you will need to set your own path to where Google Drive filestream lives.
+
+team_path <- ifelse(Sys.info()["sysname"]=="Windows","G:/","/Volumes/GoogleDrive/")
+
+# Next, set the path for data directory based on whether project is current or archived.
+# Note that if you use a different Shared Drive file structure than the one recommended in the "File Structure" section, you will need to manually define your data path.
+# You should always double-check the automatically generated paths in order to ensure they point to the correct directory.
+
+# First, set the name of your project
+
+project_name <- "my-project"
+
+# This will automatically determine if the project exists in the "current-projects" or "archived-projects" Shared Drive folder, and set the appropriate data path accordingly.
+data_path <- ifelse(dir.exists(paste0(team_path,"Shared drives/emlab/projects/current-projects/",project_name)),
+                       paste0(team_path,"Shared drives/emlab/projects/current-projects/",project_name,"/data/"),
+                       (paste0(team_path,"Shared drives/emlab/projects/archived-projects/",project_name,"/data/")))
+
+
+# Import data -----------------------------------------------------------------
+
+# Load data from Shared Drive using appropriate data path
+my_raw_data <- read_csv(paste0(data_path,"raw/my_raw_data.csv"))
+
+# Process data ----------------------------------------------------------------
+
+
+# Analyze data ----------------------------------------------------------------
+
+
+# Visualize results -----------------------------------------------------------
+
+
+# Save results ----------------------------------------------------------------
+
+
+```
+
+[Git](https://git-scm.com/) tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found [here](https://chris.beams.io/posts/git-commit/). There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.
+
+More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.
+
+## Style Guide
+
+At emLab, we recommend using a consistent code style for each of the different programming languages we use. Recommended coding styles for a particular language are collated in what is known as a "style guide". Style guides typically include standardized ways of naming script files, defining functions and variables, commenting code, etc. While emLab does not mandate the use of style guides, having a consistent code style allows all emLab staff to easily understand each other's code, collaborate on projects, and jump in on new projects. We consider this an important aspect of collaboration, reproducibility, and transparency.
+
+Rather than re-invent the wheel, we leverage existing code style guidelines for each of the languages we use. Below is a summary of the code style guidelines we recommend for various languages:
+
+* *R* - [Tidyverse Style Guide](https://style.tidyverse.org), by Hadley Wickham
+* *Python* - [Google's Python Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
+* *Stata* - [Suggestions on Stata programming style](https://www.stata-journal.com/sjpdf.html?articlenum=pr0018), by Nicolas J. Cox
+* *Other languages* - [Google style guides for other languages](https://github.com/google/styleguide)
+
+## Reproducibility
+
+Prioritizing reproducibility when writing code code not only fosters collaboration with others during a project, but also makes it easier for users in the future (including yourself!) to make changes and rerun analyses as new data become available. Some useful tools and practices include:
+
+- **Commenting code:** Adding brief but detailed comments to your scripts that document what your code does and how it works will help others understand and use your scripts. At the top of your scripts, describe the purpose of the code as well as its necessary inputs, required packages, and outputs.
+- **File paths:** Avoid writing file paths that only work on your computer. Where possible, use relative file paths instead of absolute files paths so your code can be run by different users or operating systems. For R users, using [R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) and/or the [here](https://github.com/jennybc/here_here) package are great ways to help implement this practice.
+- **Functions:** If you find yourself copying and pasting similar blocks of code over and over to repeat tasks, turn it into a function!
+- **R Markdown:** R users can take advantage of [R  Markdown](https://rmarkdown.rstudio.com/lesson-1.html) for a coding format that seamlessly integrates sections of text alongside code chunks. R Markdown also enables you to transform your code and text into report-friendly formats such as PDFs or Word documents.
+- **Git and GitHub:** [As described above,](#scripts-and-version-control) Git tracks changes to files line-by-line in commits that are attributable to each team member working on the project. GitHub then compiles the history of any Git-tracked file online, and synchronizes the work of all collaborators in a central repository. Using Git and GitHub allow multiple people to code collaboratively, examine changes as they occur, and restore prior versions of files if necessary.
+
+We also recommend managing package dependencies and creating a reproducible coding pipeline. These two aspects are discussed in more detail below.
+
+### Package management
+
+A key aspect of reproducibility is package dependency management. For example, your code may run perfectly when using an old version of a particular package, but might fail when using the latest version of that package. In this case, even if someone has the exact code you used, it would fail to run on their machine if they are using the latest version of that package. It is therefore important that along with providing the code you use, you should also somehow provide the packages and package versions you use.
+
+If using R, we recommend using [renv](https://rstudio.github.io/renv/articles/renv.html) package for managing package dependencies. `renv` was developed by the R Studio (now Posit) team. It is used at the project-level, and can thus be included as part of your GitHub respotitory. To set up your project to use `renv`, first initialize it by running `renv::init()`. You will then be able "snapshot" the packages and package version you are using in a project (by running `renv::snapshot`), and save that snapshot so that yourself or others can "restore" to that snapshot and use the exact same packages and package versions (by running `renv::restore`). This will ensure that your code will run on other machines, even if new versions of packages come out that are not backwards compatible.
+
+We also recommend you set up R Studio to use the Posit Public Package Manager instead of the default option of CRAN. The Posit Public Pckage Manager hosts binaries of all of the latest and older historic package versions, which means that `renv` will always be able to find the correct package version, and should be able to install it more quickly than needing to install it from source which may be required by CRAN. See [this link](https://packagemanager.posit.co/client/#/repos/cran/setup) for instructions, and [this link](https://www.pipinghotdata.com/posts/2024-09-16-ease-renvrestore-by-updating-your-repositories-to-p3m/) for why this is important.
+
+### Coding pipelines
+
+Often, a project contains multiple script files that are each run separately, but which produce or use interconnected inputs and outputs through a coding pipeline. They must therefore be run in the correct order, and any time a change is made to an upstream script or file, all downstream scripts may need to be run for their outputs to stay up-to-date. This presents a challenge to reproducibility, and also a challenge to anyone trying to work with or review complicated coding pipelines. Additionally, not knowing which files and scripts are up-to-date could mean that long-running operations are re-run unnecessarily.
+
+Consider the following example, from Juan Carlos Villaseñor-Derbez's excellent tutorial: [Make: End-to-end reproducibility](https://github.com/jcvdav/make_tutorial).
+
+Consider you have the following project file structure in a GitHub repository, where `clean_data.R` is run first and processes the raw data file `raw_data.csv`. When this is run, `clean_data.R` produces the cleaned data file `clean_data.csv`. `plot_data.R` is run next, which uses `clean_data.csv` and produces the final output `figure1.png`.
+
+```
+data
+    |_raw_data.csv
+    |_clean_data.csv
+scripts
+    |_clean_data.R
+    |_plot_data.R
+results
+    |_figure1.png
+    |_raw_data.csv
+    |_clean_data.csv
+```
+
+These scripts must be run in the correct order, and any time changes are made to upstream data or scripts, downstream scripts must be run to update downstream data and results. To ensure reproducibility of your code, we recommend everyone employ one of the three following options when using a coding pipeline, with the four options in ascending order of recommendation from "minimum required" to "best practice." We provide a best practice for non-R code, as well as a best practice for R code.
+
+* **Option 1 (minimum required):**  Provide clear documentation in the repo's `README.md` file. This documentation should provide the complete file structure, including both scripts and data files, and should provide a narrative description of the order in which the scripts should be run, as well as which files each script uses and produces.
+* **Option 2 (better practice):** Create a `run_all.R` script that runs all scripts in the correct order, and can be run to fully reproduce the entire project repo's outputs. This `run_all.R` script should be described in `README.md`. Using the example above, this script could contain the following:
+
+```
+# Run all scripts
+# This script runs all the code in my project, from scratch
+source("scripts/clean_data.R")      # To clean the data
+source("scripts/plot_data.R")       # To plot the data
+```
+
+* **Option 3 (best practice for non-R code):** For non-R code, we recommend using the [make package](https://www.gnu.org/software/make/). This uses a `Makefile` to fully describe the coding pipeline through a standardized syntax of targets (output files that need to be created), prerequisites (file dependencies), and commands (how to go from prerequisites to targets). The advantage of this approach is that it automatically runs scripts in the correct order, keeps track of when changes are made to scripts or data files, and it only runs the necessary scripts to ensure that all outputs are up-to-date. If using `make`, you should describe how to use it in the repo's `README.md`.
+
+The `Makefile` uses the following syntax:
+
+```
+target: prerequisites
+  command
+```
+
+Therefore, in our example, the `Makefile` would simply be the following, and the single command `make` would execute this:
+
+```
+results/figure1.png: scripts/plot_data.R data/clean_data.csv
+  Rscript scripts/plot_data.R
+data/clean_data.csv: scripts/clean_data.R data/raw_data.csv
+  Rscript scripts/clean_data.R
+```
+
+Please refer to Juan Carlos Villaseñor-Derbez's very helpful tutorial for more information: [Make: End-to-end reproducibility](https://github.com/jcvdav/make_tutorial).
+
+* **Option 4 (best practice for R code):** For R code, we recommend using the [targets](https://github.com/ropensci/targets) package. Targets is a Make-like pipeline tool that has been specifically developed for R. Using targets means that anytime an upstream change is made to the data or models, all downstream components of the data processing and analysis will be re-run automatically when the `targets::tar_make()` command is run. It also means that once components of the analysis have already been run and are up-to-date, they will not need to be re-run. All interim objects are cached in a `_targets` directory. This directory can either be within in the project directory when the objects are small (e.g., within the GitHub repo), or can be set to another directory when objects are larger (e.g., on Google Shared Drive or Google Cloud Storage). Targets also has a built-in parallel processing option, which can allow long-running components of the analysis to be run in parallel. It also plays nicely with `renv` for package management.
+
+For further information, the [targets package documentation](https://github.com/ropensci/targets) is a great place to start. We also recommend the [presentation](https://docs.google.com/presentation/d/1PSysoO479d8FrIIs1iXxBJZnW1KBwD24bNE4ewA19Ic/edit#slide=id.p) (and associated [GitHub repository](https://github.com/traceybit/rladies-sb-targets)) developed by Tracey Mangin for [R-Ladies Santa Barbara](https://www.meetup.com/rladies-santa-barbara/) as another great primer.
+
+## Internal code review
+
+Peer-review of each other's code is a great method for mutual learning through exposure to different coding styles and packages, ensuring reproducibility, catching any bugs, and uncovering opportunities for doing things better. We recognize that this takes time, but we believe that the time commitment is worth it for us to all become better coders and write better code. As a best practice, we recommend that for any project that has at least two researchers, there should be a systematic review of any major coding elements by the researcher who did not initially write the code. By following the best practices outlined in the `Coding Pipeline` section of this SOP, the original coder can ensure that the reviewing coder knows exactly which pieces of code are critical for their review.
+
+Code reviews should be respectful and collegial in manner. The goal is to make all of our work better and make all us better coders, not to criticize or single anyone out.
+
+The original coder and reviewing coder should coordinate on the best method for feedback, whether that is through direct pull requests to the code, an email outlining suggestions, or a Google doc outlining suggestions.
+
+For further guidance on effective code reviewing techniques and guiding principles, we recommend using the [Tidyteam code review principles](https://tidyverse.github.io/code-review/). These were developed by the `tidyteam` for maintaining packages such as those found in the `tidyverse` and `tidymodels`. These guidelines are based on Google's [Code Review Developer Guide](https://google.github.io/eng-practices/review/), another helpful resource.
+
+## Exploratory Data Analysis
+
+Much of the work emLab does is Exploratory Data Analysis (EDA), especially during the beginning stages of a project when we are familiarizing ourselves we new datasets and rapidly prototyping data wrangling and modeling approaches. The following quote from [Hadley Wickham's R for Data Science](https://r4ds.had.co.nz/exploratory-data-analysis.html) describes EDA as:
+
+> EDA is an iterative cycle. You: 1) Generate questions about your data; 2) Search for answers by visualising, transforming, and modelling your data; 3 Use what you learn to refine your questions and/or generate new questions.
+
+EDA is a creative and exploratory process without defined rules. Hadley Wickham's chapter on [EDA](https://r4ds.had.co.nz/exploratory-data-analysis.html) is an excellent place to start for ideas, but we encourage creativity and exploration during this phase of a project.
+
+However, we recommend as a best practice that all EDA should include an "Interpretations, questions, and new ideas" section. The researcher doing EDA is poised in an excellent position for providing initial interpretations of the data, raising outstanding questions about the data, and generating novel insights and potential research questions. This section should contain the following information:
+
+* Interpretations about what you found. Does it match our intuition? Is there anything surprising?
+* Questions about the data. Are there any questions about how to use or interpret the data? Are there any potential problems with the data or analysis?
+* New insights and research questions. Have you uncovered any new insights about the data or research? Have you discovered any new research questions that might be worth pursuing?
+
+By including a section in each EDA analysis that discusses these aspects, we can build insight generation into our workflows. This information should be in an easy to find location on the Team Drive, such as in a `markdown-reports` directory that contains EDA PDFs generated by R Markdown. This way, other members of the project team can read it, digest it, and respond with further ideas.
