@@ -38,8 +38,11 @@ Standard operating procedures for emLab projects:
 
 ## Contributing
 
-The website is built using the `bookdown` package for R. After pulling the latest updates and adding or revising content, use the following command to render the website:
+The website is built using [Quarto](https://quarto.org/). To contribute:
 
-`bookdown::render_book(input = "index.Rmd")`
-
-To produce a clean build of the website, simply delete the 'docs' folder before rendering, which is where generated files are stored. Once rendered, then commit the changes and push to the repo. The GitHub website will automatically update with the new changes.
+1. Pull the latest updates from `main`.
+2. Create a new branch.
+3. Make your edits.
+4. Open a pull request against `main`.
+5. Tag a reviewer and address their feedback.
+6. Once approved and merged, a GitHub Actions workflow will automatically render and publish the site to GitHub Pages.
