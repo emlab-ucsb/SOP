@@ -87,16 +87,102 @@ my_raw_data <- read_csv(paste0(data_path,"raw/my_raw_data.csv"))
 
 More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.
 
-## Style Guide
+## Code Styling
 
-At emLab, we recommend using a consistent code style for each of the different programming languages we use. Recommended coding styles for a particular language are collated in what is known as a "style guide". Style guides typically include standardized ways of naming script files, defining functions and variables, commenting code, etc. While emLab does not mandate the use of style guides, having a consistent code style allows all emLab staff to easily understand each other's code, collaborate on projects, and jump in on new projects. We consider this an important aspect of collaboration, reproducibility, and transparency.
+### The Philosophy of Style
 
-Rather than re-invent the wheel, we leverage existing code style guidelines for each of the languages we use. Below is a summary of the code style guidelines we recommend for various languages:
+At emLab, we view code not just as a set of instructions for a computer, but as a medium of communication between researchers. In a collaborative environment where projects span years and multiple contributors, **style is a form of documentation.**  
+The primary goals of our code style guide are:
 
-* *R* - [Tidyverse Style Guide](https://style.tidyverse.org), by Hadley Wickham
-* *Python* - [Google's Python Style Guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
-* *Stata* - [Suggestions on Stata programming style](https://www.stata-journal.com/sjpdf.html?articlenum=pr0018), by Nicolas J. Cox
-* *Other languages* - [Google style guides for other languages](https://github.com/google/styleguide)
+1. **Reduced Cognitive Load:** When every script follows the same conventions, your brain doesn't have to "re-parse" the structure of a file every time you switch projects.  
+2. **Meaningful Diffs:** Standardized formatting ensures that GitHub "diffs" reflect actual logic changes rather than trivial changes in whitespace or indentation.  
+3. **Error Prevention:** Many style rules (like those enforced by linters) catch common bugs—such as unused variables or misplaced parentheses—before the code is even run.  
+4. **Inclusivity:** Clean, well-spaced code is more accessible to junior researchers and external collaborators.
+
+### Style Guides by Language
+
+We maintain specific style preferences for each language used at the lab. While these guides provide the rules, the [Code Formatters](#bookmark=id.rq10khlw8of2) section below explains how to automate them.
+
+#### R and the Tidyverse
+
+Our R code follows the [Tidyverse Style Guide](https://style.tidyverse.org/). While you should read the full guide, here are the non-negotiables for emLab projects:
+
+* **Object names:** Use snake\_case for variables and functions (e.g., `sea\_surface\_temp`, not `SeaSurfaceTemp` or `sst`).  
+* **Spacing:** Always put a space after a comma, and around most binary operators (`==`, `\+`, `\-`, `\<-`, etc.).  
+* **Pipes:** Use the native pipe `|\>` (R 4.1+) or the magrittr pipe `%\>%`. Always put a space before the pipe and a new line after it.  
+* **Indentation:** Use 2 spaces for indentation. Never use tabs.  
+* **Long lines:** Limit code to 80 characters per line. This ensures scripts are readable on smaller laptop screens and in side-by-side GitHub views.
+
+#### Other Languages
+
+For other languages, we defer to established industry standards:
+
+* **Python:** We follow [PEP 8](https://peps.python.org/pep-0008/), which is the de facto standard for Python code.  
+* **Stata:** We follow the principles outlined in the [Stata Guide](https://www.stata.com/manuals/g.pdf) and common research best practices.  
+* **General (C++, Java, etc.):** For languages not explicitly covered, we follow the [Google Style Guides](https://google.github.io/styleguide/).  
+* **SQL:** Use uppercase for keywords (e.g., SELECT, FROM, WHERE) and snake\_case for table and column names.
+
+### Code Formatters
+
+A **code formatter** is a tool that automatically adjusts your code's layout—spacing, indentation, line breaks, and alignment—to match a specific style guide. Instead of manually fixing every comma or bracket, the formatter does it for you instantly.  
+At emLab, we use a new generation of "Rust-based" tools. They are significantly faster than older tools and can be configured to run automatically every time you save a file.  
+**Note:** To maintain consistency across the lab, the use of these formatters is **required** for all new code development.
+
+#### R Formatting: Air (Required for R users)
+
+**Air** is the required high-performance R formatter for emLab projects. It is developed by the Posit team and ensures strict adherence to Tidyverse standards.
+
+##### Install the Extension
+
+* In Positron or VS Code, open the Extensions Marketplace (`Cmd+Shift+X`).  
+* Search for and install **"Air"** (published by Posit).
+
+##### Enable "Format on Save"
+
+To make formatting automatic, open your settings.json (`Cmd+Shift+P` \-\> search for "Open User Settings (JSON)") and paste the following:  
+
+```r
+{  
+  "\[r\]": {  
+    "editor.defaultFormatter": "posit.air",  
+    "editor.formatOnSave": true  
+  }  
+}
+```
+
+#### Python Formatting: Ruff (Required for Python users)
+
+**Ruff** is the required formatter and linter for all Python development at emLab. It is extremely fast and replaces several older tools with a single extension.
+
+##### Install the Extension
+
+* In Positron or VS Code, open the Extensions Marketplace (`Cmd+Shift+X`).  
+* Search for and install **"Ruff"** (published by Astral Software).
+
+##### Enable "Format on Save"
+
+Open your settings.json and paste the following:  
+
+```r
+{  
+  "\[python\]": {  
+    "editor.defaultFormatter": "charliermarsh.ruff",  
+    "editor.formatOnSave": true,  
+    "editor.codeActionsOnSave": {  
+      "source.fixAll.ruff": "explicit",  
+      "source.organizeImports.ruff": "explicit"  
+    }  
+  }  
+}
+```
+
+### RStudio Code Formatting
+
+If you are using RStudio (where Air is not yet natively supported), you are still required to maintain styling using the `styler` package:
+
+1. Install the package: install.packages("styler").  
+2. Use the **Addins** menu in the top toolbar to select "Style active file" before every commit.  
+3. Navigate to **Tools \-\> Global Options \-\> Code \-\> Saving** and check **"Ensure that source files end with a newline"**.
 
 ## Reproducibility
 
