@@ -15,8 +15,9 @@ book:
     - 01-files.qmd
     - 02-data.qmd
     - 03-code.qmd
-    - 04-hpc.qmd
-    - 05-publications.qmd
+    - 04-quarto.qmd
+    - 05-hpc.qmd
+    - 06-publications.qmd
 
 format:
   html:

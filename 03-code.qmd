@@ -180,6 +180,15 @@ Claude Code is our preferred tool for high-level project documentation, architec
 ### Best Practices for AI Documentation
 * **Verify Logic:** AI can "hallucinate" the intent of a function or describe a parameter incorrectly. Always read through AI-generated text to ensure it
 
+## Documenting your analysis using Quarto notebooks
+
+While code comments explain the "how," Quarto documents (`.qmd`) are used to explain the "so what." At emLab, Quarto is our primary tool for integrating code with scientific narrative, ensuring that our logic and results are inseparable.
+
+* **Analytical Notebooks:** Use Quarto to interleave code chunks with visualizations and scientific interpretation. This format is required for internal peer reviews and sharing preliminary results with the lab.
+* **Version Control:** Always commit both the `.qmd` source and the resulting `.md` or `.html` output (where appropriate) to GitHub to ensure collaborators can view rendered results without needing to re-run heavy computations.
+* **Reproducible Reports:** Utilize Quarto’s ability to handle LaTeX for equations and BibTeX for citations to maintain academic rigor within our technical documentation.
+
+
 ## Package and Language Version Management
 
 Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This "future-proofing" approach prevents the common frustration where code breaks because a package was updated or a system dependency changed.

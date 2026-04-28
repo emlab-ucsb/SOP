@@ -1,0 +1,235 @@
+---
+title: "Quarto"
+format:
+  html:
+    code-copy: true
+    code-fold: false
+    code-tools: false
+execute:
+  eval: false
+  echo: fenced
+---
+
+## Why Quarto?
+
+At emLab, we believe that data and code are only as valuable as the narrative that connects them. While code comments explain the "how," Quarto documents (.qmd) are used to explain the "so what."
+We use Quarto as our primary tool for integrating code with scientific narrative to ensure that our logic, data, and results are inseparable. This "literate programming" approach transforms opaque scripts into transparent, reproducible research products. By rendering these documents to HTML and hosting them via GitHub Pages, we ensure that our internal documentation is as professional and accessible as our public-facing work.
+A prime example of this workflow is our [ocean-ghg repository](https://github.com/emlab-ucsb/ocean-ghg), where the entire analytical pipeline is documented and served as a live technical website.
+
+Every major analysis step should be documented in a .qmd file. This format allows us to interleave code chunks with visualizations and scientific interpretation. This is required for internal peer reviews and sharing results with the lab.
+
+## Chunk Best Practices
+
+To keep documents clean and professional, we follow a standardized approach to code chunks.
+
+### The Hash-Pipe Syntax
+
+Use the `#|` (hash-pipe) syntax at the top of your code blocks to set options. This keeps the configuration clearly separated from the executable code.
+
+```{r}
+#| label: fig-yield-analysis
+#| fig-cap: "Annual crop yield trends by region (2000-2023)."
+#| warning: false
+#| message: false
+library(tidyverse)
+# Analysis code here...
+```
+
+### Global Execution Options
+
+For consistency across a document, you can set default chunk options in the YAML header. This avoids repetitive code in every block and ensures a uniform "look" for the report.
+
+```yaml
+---
+title: "Project Analysis"
+execute:
+  echo: false
+  warning: false
+  message: false
+  cache: true
+---
+```
+
+## Chunk Labeling
+
+Always label your chunks using kebab-case (e.g., process-spatial-data). Labels are essential for debugging, navigation, and cross-referencing.
+
+## Figures, Tables, and Cross-References
+
+To maintain professional and navigable documents, all key results must be appropriately labeled and referenced within the text.
+
+### Figures
+
+For a chunk to be treated as a cross-referenceable figure, its label **must** start with the fig- prefix. You must also provide a fig-cap.
+
+```{r}
+#| label: fig-map
+#| fig-cap: "Spatial distribution of marine protected areas."
+#| eval: true
+mtcars |>
+  dplyr::mutate(cyl = factor(cyl)) |>
+  ggplot2::ggplot(ggplot2::aes(x = wt, y = mpg, color = cyl)) +
+  ggplot2::geom_point(size = 2.5, alpha = 0.8) +
+  ggplot2::labs(
+    title = "Fuel economy decreases as car weight increases",
+    x = "Weight (1000 lbs)",
+    y = "Miles per gallon",
+    color = "Cylinders"
+  )
+```
+
+### Tables
+
+Table labels **must** start with the tbl- prefix. At emLab, we primarily use three packages for table generation, depending on the complexity required:
+
+#### knitr::kable
+
+Best for simple, clean tables with minimal formatting needs. It is lightweight and works perfectly with Quarto’s internal styling.
+
+#### kableExtra
+
+Use this when you need complex formatting, such as grouping rows, adding footnotes, or specific cell styling for PDF/HTML.
+
+#### gt (Grammar of Tables)
+
+The preferred modern choice for highly customized HTML tables. It provides a "ggplot-like" syntax for building tables piece-by-piece.
+
+### Exporting Tables to LaTeX (.tex)
+
+If you are collaborating on a paper in Overleaf or a standalone LaTeX document, you should export your tables to .tex files.
+
+**Using kableExtra:**
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Summary statistics of model performance."
+knitr::kable(summary_df, format = "latex", booktabs = TRUE) |>
+  save_kable("tables/summary_table.tex")
+```
+
+**Using gt:**
+
+```{r}
+gt_table |>
+  gtsave("tables/summary_table.tex")
+```
+
+### Referencing in Text
+
+Reference these elements in your narrative using the @ symbol followed by the label.
+
+- "As shown in the figure labeled `fig-map` (@fig-map), the distribution is skewed..."
+- "The results in the table labeled `tbl-summary` (@tbl-summary) indicate a significant trend..."
+
+## Citations and Bibliography
+
+At emLab, we use BibTeX to manage academic references and ensure our technical reports are properly cited.
+
+### Starting a Bibliography File
+
+1. Create a plain text file in your project directory named references.bib.
+2. Link this file in your Quarto YAML header: bibliography: references.bib.
+
+### Populating the .bib File
+
+The easiest way to populate your bibliography is by using **Google Scholar**:
+
+1. Search for the paper on [Google Scholar](https://scholar.google.com/).
+2. Click the "Cite" button (quotation marks icon) and select **BibTeX**.
+3. Copy the code block and paste it into your references.bib file.
+
+### Citing Resources in Text
+
+- **Parenthetical:** [@costello2016] renders as (Costello et al., 2016).
+- **Narrative:** @costello2016 renders as Costello et al. (2016).
+
+## Quarto Books for Large Projects
+
+When a project grows beyond a single analysis (e.g., multi-year grants), use **Quarto Books**.
+
+- **Structure:** Requires a _quarto.yml and an index.qmd.
+- **Benefit:** Unified sidebar navigation, cross-chapter referencing, and a shared bibliography.
+
+## Caching Strategy
+
+Caching stores the results of code chunks so they don't have to be re-run every time you render the document.
+
+### When to Use Caching
+
+- **Heavy Computation:** Chunks taking >5 seconds (e.g., raster processing, MCMC).
+- **Stable Data Sources:** Large datasets that change infrequently.
+
+### Disabling Caching for Specific Chunks
+
+Explicitly set `#| cache: false` for:
+
+- **Stochasticity:** Simulations or bootstraps without a fixed `set.seed()`.
+- **Data Export:** Chunks using `write_csv()`, `ggsave()`, or `saveRDS()`.
+
+### Common Pitfalls
+
+- **Hidden Dependencies:** Use `#| dependson: "chunk-A"` if B relies on A.
+- **External Data:** Use `#| cache-extra: !expr file.mtime("data.csv")`.
+
+## Integrating with the targets Pipeline
+
+For projects using the targets package, the Quarto document should be the final node.
+
+```{r}
+tar_quarto(report, "analysis/final_report.qmd")
+```
+
+Inside your .qmd file, use `tar_read(target_name)` to pull results from the pipeline.
+
+## Automated Documentation via GitHub Actions
+
+We use **GitHub Actions** to automatically render Quarto documents into HTML websites hosted via **GitHub Pages**.
+
+### Setting Up GitHub Pages
+
+1. **Settings:** In your GitHub repo, go to Settings > Pages. Set the source to GitHub Actions.
+2. **Workflow:** Create .github/workflows/publish.yml.
+
+💡 **Privacy Note:** To enable GitHub Pages on standard accounts, the repository must initially be **public**. However, once the initial page has been successfully rendered and published, you can switch the repository back to **private**. This allows the source code to remain hidden while the rendered HTML link remains public and shareable for partners.
+
+### Example Workflow
+
+```yaml
+name: Render and Publish Quarto
+on:
+  push:
+    branches: [ main ]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: true
+      - name: Install Dependencies
+        run: |
+          Rscript -e 'install.packages(c("tidyverse", "tarchetypes", "targets", "gt", "kableExtra"))'
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### Making the Documentation Discoverable
+
+Once your document is rendered to GitHub Pages, you must make it easy for collaborators and the public to find:
+
+1. **Repo Description:** On the main page of your GitHub repository, click the "About" gear icon (top right). Paste the GitHub Pages URL into the **Website** field.
+2. **Project README:** At the very top of your README.md, add a prominent link to the rendered documentation: 🚀 **View the full technical documentation and analysis results [here](https://emlab-ucsb.github.io/your-repo-name/).**
