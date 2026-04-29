@@ -233,3 +233,146 @@ Once your document is rendered to GitHub Pages, you must make it easy for collab
 
 1. **Repo Description:** On the main page of your GitHub repository, click the "About" gear icon (top right). Paste the GitHub Pages URL into the **Website** field.
 2. **Project README:** At the very top of your README.md, add a prominent link to the rendered documentation: 🚀 **View the full technical documentation and analysis results [here](https://emlab-ucsb.github.io/your-repo-name/).**
+
+## Exploratory Data Analysis (EDA) in Quarto
+
+EDA is the most critical stage for identifying data quality issues and refining hypotheses. While EDA can be "messy," at emLab we treat it as a formal part of the research record. Using Quarto for EDA allows us to document not just what we found, but what we looked for and why certain paths were abandoned.
+
+### The "Notebook" Philosophy
+
+Use .qmd files as an interactive laboratory notebook. Unlike a final report, an EDA document should include:
+
+* **Data Sanity Checks:** Summaries of missing values, range checks, and distribution plots.  
+* **Dead Ends:** If an approach didn't work, keep the code but explain why in the text. This prevents future collaborators (or your future self) from repeating the same mistake.  
+* **Narrative over Snippets:** Every plot should be followed by a short sentence describing the takeaway (e.g., *"The outlier in 2014 appears to be a recording error in the raw sensor data"*).
+
+### Leveraging Code Folding
+
+EDA often requires long blocks of code to generate diagnostic plots. To keep the document readable while remaining transparent, use code-fold at the chunk level.  
+
+```{r}
+#| label: eda-missing-data  
+#| code-fold: true  
+#| code-summary: "Show code for missingness analysis"  
+# Complex visualization code here...
+```
+
+### Interactive Exploration Tools
+
+Static tables are often insufficient for exploring large datasets. We recommend using interactive widgets within your Quarto EDA documents (rendered to HTML) to allow for deeper inspection.
+
+#### Interactive Tables with DT
+
+Use the DT package to create searchable, sortable tables. This is invaluable for spotting specific outliers or checking metadata.  
+```{r}
+#| label: eda-inspect-data  
+library(DT)
+mtcars |>
+  datatable(options = list(pageLength = 10, autoWidth = TRUE))
+```
+
+#### Quick Summaries with `skimr`
+
+Instead of standard `summary()`, use `skimr::skim()` to get a high-level overview of distributions and missingness directly in your Quarto output.  
+
+```{r}
+#| label: eda-skim  
+mtcars |>
+  skimr::skim()
+```
+
+### Organizing EDA Documents
+
+For large projects, do not crowd a single file with all exploratory work. Instead:
+
+1. **Create a dedicated eda/ folder** in your repository.  
+2. **Use a naming convention** like eda-01-initial-cleaning.qmd, eda-02-spatial-joins.qmd, etc.  
+3. **If using a Quarto Book**, include these under a "Research Notebook" or "Appendices" section to keep the main narrative focused.
+
+### Best Practices for EDA
+
+* **eval: true / echo: true**: Ensure code is visible and executed so others can reproduce your exploratory steps.  
+* **Avoid View()**: Never leave View(df) in a code chunk, as it will break the rendering process. Use head() or DT::datatable() instead.  
+* **Self-Correction**: If you find an error in the data during EDA, document the fix in the text and move the correction logic to your data cleaning script/pipeline node.
+
+## Presentations in Quarto
+
+For lab meetings, conferences, and stakeholder briefings, we use Quarto to generate presentations. This ensures that the plots shown in slides are identical to the ones in our analysis, with no "copy-paste" errors.
+
+### **The emLab Presentation Template**
+
+We are actively developing a standardized emLab Quarto presentation template to ensure a consistent, professional visual identity across our projects.  
+You can find the current working version of the template here: [presentation-ocean-ghg-ttt](https://github.com/emlab-ucsb/presentation-ocean-ghg-ttt).  
+
+**How to use it:**
+
+1. This repository is configured as a **GitHub Template**.  
+2. Click the "Use this template" button on GitHub to create a new repository for your project.  
+3. This will provide you with the necessary SCSS styling, logo assets, and YAML configurations pre-set for emLab.
+
+**We need your help!** This is a living resource. If you improve the styling, fix a bug, or add a cool new slide component, please contribute back to the template repo so the whole lab can benefit.
+
+### Format: Revealjs
+
+At emLab, we primarily use revealjs for HTML-based slides. They are mobile-friendly, searchable, and can be hosted alongside our documentation on GitHub Pages.  
+
+```yml
+---
+title: "emLab Project presentation"
+subtitle: "Subtitle goes here"
+author: "Author" 
+title-slide-attributes:
+  data-background-image: emlab_logo_horizontal.png
+  data-background-size: 30%
+  data-background-position: 50% 85%
+  data-footer: ""
+format:
+  revealjs:
+    theme: emlab.scss
+    slide-number: true
+    transition: slide
+    background-transition: fade
+    incremental: false
+    footer: "<img src='emlab_logo_horizontal_w.png' class='slide-footer-logo'>"
+    fig-cap: false
+project:
+  output-dir: docs
+---
+```
+
+### **Slide Structure**
+
+* **New Slide:** Use `##` to start a new slide.  
+* **Pauses:** Use . . . on its own line to create a "fragment" (pause) that reveals the next part of the slide upon a click.  
+* **Columns:** Use the "div" syntax to create side-by-side layouts for comparing text and figures.
+
+```{r}
+## Motivation
+- Point 1...
+- Point 2...
+- Point 3...
+
+## Results Overview
+
+::: {.columns}  
+::: {.column width="40%"}  
+- Yield increased by 15%  
+- Significance at $p \< 0.05$  
+- Region A led the growth  
+:::
+
+::: {.column width="60%"}  
+#| label: fig-results  
+#| echo: false  
+plot(results)  
+:::  
+:::
+```
+
+### **Best Practices for Slides**
+
+1. **echo: false by default:** Unless you are giving a coding tutorial, keep code hidden in slides to focus on results.  
+2. **Speaker Notes:** Use `::: {.notes}` to add reminders that only you can see during the presentation (press 'S' in the browser).  
+3. **Direct Linking:** Always include a final slide with a link to the full Quarto documentation/website where the audience can find the underlying code and data.  
+4. **Multiplex:** For remote presentations, consider enabling multiplex: true in your YAML, which allows the audience to follow along on their own devices as you advance the slides.
+5. **GitHub Pages:** Host your presentation on GitHub Pages for easy sharing and to ensure the slides are always in sync with the latest analysis.
