@@ -1,0 +1,69 @@
+# Code Documentation
+
+## Philosophy: Documentation as a Research Asset
+At emLab, we view code documentation not as an afterthought, but as a core component of our research's reproducibility and longevity. High-quality documentation ensures that our "future selves" and external collaborators can understand the *intent* behind the analysis, not just the mechanics of the code.
+
+*Core Principles:*
+
+* **Code is for humans:** Write code that is easy for a human to read, using documentation to bridge the gap between "what" the code does and "why" it does it.
+* **Self-documenting code first:** Strive for expressive variable and function names (e.g., `calculate_fishing_mortality()` rather than `f_mort_calc()`). Documentation should supplement, not fix, obscure code.
+* **Documentation is near the code:** Keep documentation in the source files (via Roxygen2 or comments) to ensure it stays updated as the code changes.
+
+## Specific Practices & Tools
+
+## Roxygen2 for Function Documentation
+For all custom functions in R, endeavor to use the `roxygen2` framework. This is the gold standard used by the tidyverse team. It allows us to generate formal documentation while keeping the descriptions immediately above the function definition.
+
+**Key tags to use:**
+* `@title`: A brief, one-line summary.
+* `@description`: A more detailed explanation of what the function does.
+* `@param`: Define each input argument (type, default value, and purpose).
+* `@return`: Describe the output object.
+* `@example`: Provide a minimal working example of the function in use.
+
+```r
+#' Calculate Shannon Diversity Index
+#'
+#' @description This function computes the Shannon-Wiener diversity index 
+#' for a given vector of species counts.
+#'
+#' @param counts A numeric vector of species abundances.
+#' @return A single numeric value representing the diversity index.
+#' @export
+#'
+#' @examples
+#' calc_shannon(c(10, 20, 5, 2))
+calc_shannon <- function(counts) {
+  p <- counts / sum(counts)
+  return(-sum(p * log(p), na.rm = TRUE))
+}
+```
+
+## In-line Comments
+In-line comments should be used strategically to explain the logic that isn't immediately obvious from the code itself. We follow the [Tidyverse Style Guide](https://style.tidyverse.org/documentation.html) to keep our scripts clean and professional.
+
+* **Focus on "Why," not "What":** Avoid redundant comments that simply restate the code (e.g., avoid `# filter for year 2020` followed by `filter(year == 2020)`). Instead, explain the reasoning: `# Excluding 2020 due to incomplete survey coverage in the Indo-Pacific`.
+* **Formatting:** Always start a comment with `#` followed by a single space.
+* **Section Breaks:** For long scripts, use four dashes after a comment to create foldable sections in RStudio and Positron to improve navigability: `# Data Cleaning ----`.
+* **Pipe Documentation:** When using long `magrittr` or base R pipes (`%>%` or `|>`), place comments above the specific line of the pipe that performs a complex or non-intuitive transformation.
+* **Todo Tags:** Use `# TODO:` to flag unfinished tasks or areas that require further optimization. This makes it easy for collaborators to search the codebase for pending items.
+
+## AI-Assisted Documentation
+We encourage the use of AI tools to accelerate the documentation process and improve the clarity of our codebase. However, AI is a co-pilot, not an autopilot; the researcher is ultimately responsible for the accuracy and technical integrity of all documentation.
+
+### GitHub Copilot
+GitHub Copilot is integrated into our IDEs (RStudio, Positron, and VS Code) to provide real-time suggestions.
+
+* **Auto-completion:** As you begin writing a Roxygen2 block (`#' `), Copilot will often suggest `@param` descriptions and `@return` types based on the logic within the function body.
+* **Inline Chat:** Use the shortcut `Cmd + I` (macOS) or `Ctrl + I` (Windows) to open the Copilot chat directly above a code block. You can use the `/doc` command to have Copilot generate a comprehensive documentation header for the highlighted code.
+* **Unit Tests:** Use Copilot to generate the `@examples` section of your Roxygen2 headers, ensuring that the function's usage is well-documented and tested.
+
+### Claude Code
+Claude Code is our preferred tool for high-level project documentation, architectural overviews, and refactoring legacy scripts.
+
+* **Project Summarization:** Claude is exceptionally skilled at reading entire directories. Use it to generate a comprehensive `README.md` for a new repository or to summarize the workflow of a complex analysis for a Quarto report.
+* **Refactoring for Readability:** You can prompt Claude to audit your scripts: *"Refactor this R script to improve readability and add Tidyverse-style comments to any non-obvious data transformations."*
+* **Style Conversion:** Use Claude to modernize documentation, such as converting unstructured Stata comments or old R scripts into standardized Roxygen2 format.
+
+### Best Practices for AI Documentation
+* **Verify Logic:** AI can "hallucinate" the intent of a function or describe a parameter incorrectly. Always read through AI-generated text to ensure it
