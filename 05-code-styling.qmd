@@ -12,7 +12,7 @@ The primary goals of our code style guide are:
 
 ## Style Guides by Language
 
-We maintain specific style preferences for each language used at the lab. While these guides provide the rules, the [Code Formatters](#bookmark=id.rq10khlw8of2) section below explains how to automate them.
+We maintain specific style preferences for each language used at the lab. While these guides provide the rules, the [Code Formatters](#code-formatters) section below explains how to automate them.
 
 ### R and the Tidyverse
 
@@ -52,9 +52,9 @@ At emLab, we use a new generation of "Rust-based" tools. They are significantly 
 
 To make formatting automatic, open your settings.json (`Cmd+Shift+P` \-\> search for "Open User Settings (JSON)") and paste the following:  
 
-```r
+```json
 {  
-  "\[r\]": {  
+  "[r]": {  
     "editor.defaultFormatter": "posit.air",  
     "editor.formatOnSave": true  
   }  
@@ -74,9 +74,9 @@ To make formatting automatic, open your settings.json (`Cmd+Shift+P` \-\> search
 
 Open your settings.json and paste the following:  
 
-```r
+```json
 {  
-  "\[python\]": {  
+  "[python]": {  
     "editor.defaultFormatter": "charliermarsh.ruff",  
     "editor.formatOnSave": true,  
     "editor.codeActionsOnSave": {  

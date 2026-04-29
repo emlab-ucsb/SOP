@@ -1,7 +1,5 @@
 # Coding at emLab
 
-**Placeholder for new section on Guiding principles for how to write and review code. Below is old text taken from current SOP**
-
 All data processing and analysis should be performed with code (i.e., avoid spreadsheets), and all code should be packaged in scripts that are version controlled and follow a style guide. Using code and scripts allows for better organization, documentation, and reproducibility of analysis workflows. **All emLab code should be stored in the emLab GitHub account.**
 
 **Recommended readings:**

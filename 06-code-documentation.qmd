@@ -66,4 +66,4 @@ Claude Code is our preferred tool for high-level project documentation, architec
 * **Style Conversion:** Use Claude to modernize documentation, such as converting unstructured Stata comments or old R scripts into standardized Roxygen2 format.
 
 ### Best Practices for AI Documentation
-* **Verify Logic:** AI can "hallucinate" the intent of a function or describe a parameter incorrectly. Always read through AI-generated text to ensure it
+* **Verify Logic:** AI can "hallucinate" the intent of a function or describe a parameter incorrectly. Always read through AI-generated text to ensure it accurately reflects the code's behavior and intent.

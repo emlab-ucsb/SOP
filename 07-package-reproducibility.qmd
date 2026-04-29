@@ -50,7 +50,7 @@ usethis::edit_r_profile()
 Paste the following line and save:
 
 ```r
-options(repos = c(PPM = "[https://packagemanager.posit.co/cran/__linux__/jammy/latest](https://packagemanager.posit.co/cran/__linux__/jammy/latest)"))
+options(repos = c(PPM = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
 ```
 
 IDE-specific options

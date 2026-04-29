@@ -97,7 +97,7 @@ tar_config_set(
 )
 ```
 
-**Crucially:** When using a shared store, only one person should run `tar_make()` at a time to avoid write conflicts in the metadata. Targets will not allow simeltaneous runs.
+**Crucially:** When using a shared store, only one person should run `tar_make()` at a time to avoid write conflicts in the metadata. Targets will not allow simultaneous runs.
 
 ### Multiple Pipelines in One Repo
 
@@ -108,15 +108,14 @@ Complex emLab projects often require split pipelines. For example:
 
 To manage this, create two separate target files (e.g., `_targets_data.R` and `_targets_analysis.R`) and a `_targets.yaml` file in the root directory to define them:  
 
-```{r}
-#| eval: false
+```yaml
 # _targets.yaml
-data\_pipeline:  
-  script: \_targets\_data.R  
-  store: \_targets\_data\_store  
-analysis\_pipeline:  
-  script: \_targets\_analysis.R  
-  store: \_targets\_analysis\_store
+data_pipeline:  
+  script: _targets_data.R  
+  store: _targets_data_store  
+analysis_pipeline:  
+  script: _targets_analysis.R  
+  store: _targets_analysis_store
 ```
 
 You can then run them specifically from the console:  

@@ -346,7 +346,7 @@ project:
 * **Pauses:** Use . . . on its own line to create a "fragment" (pause) that reveals the next part of the slide upon a click.  
 * **Columns:** Use the "div" syntax to create side-by-side layouts for comparing text and figures.
 
-```{r}
+````markdown
 ## Motivation
 - Point 1...
 - Point 2...
@@ -357,17 +357,19 @@ project:
 ::: {.columns}  
 ::: {.column width="40%"}  
 - Yield increased by 15%  
-- Significance at $p \< 0.05$  
+- Significance at $p < 0.05$  
 - Region A led the growth  
 :::
 
 ::: {.column width="60%"}  
-#| label: fig-results  
-#| echo: false  
-plot(results)  
+```{r}
+#| label: fig-results
+#| echo: false
+plot(results)
+```
 :::  
 :::
-```
+````
 
 ### **Best Practices for Slides**
 
