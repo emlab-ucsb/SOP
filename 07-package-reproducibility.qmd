@@ -143,7 +143,7 @@ Python environment management is notoriously "leaky." Even with virtual environm
 | **Lockfile** | `renv.lock` | `requirements.txt` or `yml` | Record exact versions for 100% reproducibility. |
 | **Binary Source** | Posit Package Manager | PyPI or Conda-Forge | Ensure fast, reliable installation of libraries. |
 
-### External Resources & Further Reading
+## External Resources & Further Reading
 
 For a deeper dive into the tools and philosophies discussed in this SOP, we recommend the following resources:
 
