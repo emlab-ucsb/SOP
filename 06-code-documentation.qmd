@@ -58,7 +58,7 @@ GitHub Copilot is integrated into our IDEs (RStudio, Positron, and VS Code) to p
 * **Inline Chat:** Use the shortcut `Cmd + I` (macOS) or `Ctrl + I` (Windows) to open the Copilot chat directly above a code block. You can use the `/doc` command to have Copilot generate a comprehensive documentation header for the highlighted code.
 * **Unit Tests:** Use Copilot to generate the `@examples` section of your Roxygen2 headers, ensuring that the function's usage is well-documented and tested.
 
-### Claude Code
+#### Claude Code
 Claude Code is our preferred tool for high-level project documentation, architectural overviews, and refactoring legacy scripts.
 
 * **Project Summarization:** Claude is exceptionally skilled at reading entire directories. Use it to generate a comprehensive `README.md` for a new repository or to summarize the workflow of a complex analysis for a Quarto report.
