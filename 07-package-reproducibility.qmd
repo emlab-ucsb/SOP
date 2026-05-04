@@ -103,7 +103,7 @@ To replicate a Python environment, we use `requirements.txt` for standard pip-ba
 * **Exporting:** Use `pip freeze > requirements.txt` to capture every sub-dependency and its exact version.
 * **Installing:** When joining a project, run `pip install -r requirements.txt` to recreate the environment instantly.
 
-### 3. Conda and Mamba
+### Conda and Mamba
 
 For projects with complex non-Python dependencies—specifically spatial libraries like GDAL, GEOS, or PROJ—standard pip often fails. In these cases, we recommend [**Mamba**](https://mamba.readthedocs.io/en/latest/).
 
