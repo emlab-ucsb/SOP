@@ -1,6 +1,6 @@
 # Pipeline Reproducibility {#sec-pipeline-reproducibility}
 
-Modern research workflows often involve complex, interconnected scripts where the output of one file is the input for the next. Traditional "numbered script" approaches (e.g., `01\_clean.R`, `02\_model.R`) are prone to error: if you change a parameter in `01\_clean.R`, you must remember to manually re-run everything downstream.  
+Modern research workflows often involve complex, interconnected scripts where the output of one file is the input for the next. Traditional "numbered script" approaches (e.g., `01_clean.R`, `02_model.R`) are prone to error: if you change a parameter in `01_clean.R`, you must remember to manually re-run everything downstream.  
 To ensure end-to-end reproducibility and efficiency, **emLab projects should use automated pipeline tools.** These tools track dependencies, skip tasks that are already up-to-date, and provide a clear map of the research workflow.
 
 ## The Philosophy of Pipeline Management
@@ -37,7 +37,7 @@ Instead of long scripts, write small, modular functions in the `R/` directory. E
 ### Define the Pipeline (`_targets.R`)
 
 This file defines the relationship between data, code, and outputs.  
-\# \_targets.R  
+\# _targets.R  
 ```{r}
 #| eval: false
 library(targets)
@@ -184,7 +184,7 @@ If a project does not yet use an automated tool like targets or Make, it is **ma
 
 ## Best Practices for All Pipelines
 
-1. **Documentation is Mandatory:** No matter what pipeline or tool is used, the repository README.md must clearly document how to execute the analysis. A new collaborator should be able to clone the repo and know exactly which command to run (e.g., "Run tar\_make() in the R console" or "Type make in the terminal").  
+1. **Documentation is Mandatory:** No matter what pipeline or tool is used, the repository README.md must clearly document how to execute the analysis. A new collaborator should be able to clone the repo and know exactly which command to run (e.g., "Run tar_make() in the R console" or "Type make in the terminal").  
 2. **Atomic Steps:** Each step in the pipeline should be small enough to be easily understood but large enough to justify being its own "target."  
 3. **File Tracking:** Always include the script itself as a prerequisite/dependency. If you change the code, the output should be considered "outdated."  
 4. **No Manual Interventions:** A pipeline is only reproducible if it can be run from start to finish on a new machine without a human clicking "save," "export," or manually moving files in the middle.
