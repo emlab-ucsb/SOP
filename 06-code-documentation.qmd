@@ -11,7 +11,7 @@ At emLab, we view code documentation not as an afterthought, but as a core compo
 
 ## Specific Practices & Tools
 
-## Roxygen2 for Function Documentation
+### Roxygen2 for Function Documentation
 For all custom functions in R, endeavor to use the `roxygen2` framework. This is the gold standard used by the tidyverse team. It allows us to generate formal documentation while keeping the descriptions immediately above the function definition.
 
 **Key tags to use:**
