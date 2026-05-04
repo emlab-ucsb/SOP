@@ -48,7 +48,7 @@ In-line comments should be used strategically to explain the logic that isn't im
 * **Pipe Documentation:** When using long `magrittr` or base R pipes (`%>%` or `|>`), place comments above the specific line of the pipe that performs a complex or non-intuitive transformation.
 * **Todo Tags:** Use `# TODO:` to flag unfinished tasks or areas that require further optimization. This makes it easy for collaborators to search the codebase for pending items.
 
-## AI-Assisted Documentation
+### AI-Assisted Documentation
 We encourage the use of AI tools to accelerate the documentation process and improve the clarity of our codebase. However, AI is a co-pilot, not an autopilot; the researcher is ultimately responsible for the accuracy and technical integrity of all documentation.
 
 ### GitHub Copilot
