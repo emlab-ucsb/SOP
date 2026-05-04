@@ -44,11 +44,13 @@ For consistency across a document, you can set default chunk options in the YAML
 title: "Project Analysis"
 execute:
   echo: false
-  warning: false
+  : false
   message: false
   cache: true
 ---
 ```
+
+For repos with multiple `.qmd` files (e.g., when making a quarto book), default universal execuition options can be stored in a separate `_quarto.yml` file, which applies to all rendered `.qmd` files in the project directory.
 
 ## Chunk Labeling
 
@@ -147,7 +149,7 @@ The easiest way to populate your bibliography is by using **Google Scholar**:
 
 When a project grows beyond a single analysis (e.g., multi-year grants), use **Quarto Books**.
 
-- **Structure:** Requires a _quarto.yml and an index.qmd.
+- **Structure:** Requires a `_quarto.yml` and an `index.qmd`. `_quarto.yml` contains default universal execuition options that apply to all rendered `.qmd` files book.
 - **Benefit:** Unified sidebar navigation, cross-chapter referencing, and a shared bibliography.
 
 ## Caching Strategy
