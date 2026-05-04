@@ -39,7 +39,7 @@ To ensure that `renv::restore()` always finds the exact same package versions an
 
 * **Configuration:** You can configure your IDE (RStudio or Positron) to use PPM by default for all new work so you don't have to manually call the options every time.
 
-The Universal R Profile (Recommended)
+#### The Universal R Profile (Recommended)
 
 In your R console, run the following to edit your `.Rprofile`: 
 
@@ -53,7 +53,7 @@ Paste the following line and save:
 options(repos = c(PPM = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
 ```
 
-IDE-specific options
+#### IDE-specific options
 
 - *RStudio*: Go to Tools > Global Options... > Packages and paste the PPM URL into the "Primary CRAN repository" field.
 
