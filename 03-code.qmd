@@ -98,7 +98,7 @@ Prioritizing reproducibility when writing code code not only fosters collaborati
 - **R Markdown:** R users can take advantage of [R  Markdown](https://rmarkdown.rstudio.com/lesson-1.html) for a coding format that seamlessly integrates sections of text alongside code chunks. R Markdown also enables you to transform your code and text into report-friendly formats such as PDFs or Word documents.
 - **Git and GitHub:** [As described above,](#scripts-and-version-control) Git tracks changes to files line-by-line in commits that are attributable to each team member working on the project. GitHub then compiles the history of any Git-tracked file online, and synchronizes the work of all collaborators in a central repository. Using Git and GitHub allow multiple people to code collaboratively, examine changes as they occur, and restore prior versions of files if necessary.
 
-We also recommend managing package dependencies and creating a reproducible coding pipeline. These two aspects are discussed in more detail below.
+We also recommend managing package dependencies and creating a reproducible coding pipeline. These two aspects are discussed in more detail in @sec-package-reproducibility and @sec-pipeline-reproducibility.
 
 
 ## Internal code review

@@ -1,4 +1,4 @@
-# Package and Language Version Management
+# Package and Language Version Management {#sec-package-reproducibility}
 
 Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This "future-proofing" approach prevents the common frustration where code breaks because a package was updated or a system dependency changed.
 
