@@ -90,7 +90,7 @@ More advanced workflows for using Git and GitHub, such as using pull requests or
 
 ## Reproducibility
 
-Prioritizing reproducibility when writing code code not only fosters collaboration with others during a project, but also makes it easier for users in the future (including yourself!) to make changes and rerun analyses as new data become available. Some useful tools and practices include:
+Prioritizing reproducibility when writing code not only fosters collaboration with others during a project, but also makes it easier for users in the future (including yourself!) to make changes and rerun analyses as new data become available. Some useful tools and practices include:
 
 - **Commenting code:** Adding brief but detailed comments to your scripts that document what your code does and how it works will help others understand and use your scripts. At the top of your scripts, describe the purpose of the code as well as its necessary inputs, required packages, and outputs.
 - **File paths:** Avoid writing file paths that only work on your computer. Where possible, use relative file paths instead of absolute files paths so your code can be run by different users or operating systems. For R users, using [R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) and/or the [here](https://github.com/jennybc/here_here) package are great ways to help implement this practice.
