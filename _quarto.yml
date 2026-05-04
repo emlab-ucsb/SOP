@@ -15,8 +15,14 @@ book:
     - 01-files.qmd
     - 02-data.qmd
     - 03-code.qmd
-    - 04-hpc.qmd
-    - 05-publications.qmd
+    - 04-gh.qmd
+    - 05-code-styling.qmd
+    - 06-code-documentation.qmd
+    - 07-package-reproducibility.qmd
+    - 08-pipeline-reproducibility.qmd
+    - 09-quarto.qmd
+    - 10-hpc.qmd
+    - 11-publications.qmd
 
 format:
   html:

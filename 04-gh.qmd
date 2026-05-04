@@ -1,0 +1,3 @@
+# GitHub
+
+GitHub is more than a place to store code: it is a collaboration platform for reviewing changes, tracking work, discussing design decisions, and automating routine project tasks. Effective use of GitHub helps teams keep a clear project history, coordinate contributions, and maintain software quality through issues, pull requests, and continuous integration.

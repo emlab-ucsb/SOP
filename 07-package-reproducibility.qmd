@@ -1,0 +1,159 @@
+# Package and Language Version Management {#sec-package-reproducibility}
+
+Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This "future-proofing" approach prevents the common frustration where code breaks because a package was updated or a system dependency changed.
+
+## R
+
+For R projects, we manage three distinct layers of the environment: the R version itself, the project-specific library of R packages, and the source of the packages. By managing each of these layers, we ensure that an update to your global R installation doesn't inadvertently break a legacy project.
+
+### R Version Management with `rig`
+
+Before managing packages, we must manage R itself. Different versions of R can introduce breaking changes in the underlying C++ code or require different package binaries. Using the "latest" version of R is often fine for new work, but reproducing an analysis from three years ago often requires the exact R version used at that time.
+
+We use [**rig** (The R Installation Manager)](https://github.com/r-lib/rig) to handle multiple R versions on a single machine seamlessly.
+
+* **Why use rig?** It allows you to quickly switch between R versions without manual uninstalls. Crucially, it installs R in a way that doesn't require `sudo` privileges for library paths, preventing permissions issues that often plague multi-user servers. This ensures that `renv` is always drawing from the correct, isolated R binary.
+* **Workflow:**
+  * **Installation:** Install the version specified in the project documentation (e.g., `rig add 4.3.2`).
+  * **Context Switching:** Use `rig default 4.3.2` to set the system-wide default, or use `rig run <version>` to start a specific session.
+  * **Documentation:** Always document the R version used in the project's `README.md` and ensure it matches the `R` field in the `renv.lock` file.
+
+### Package Version Management with `renv`
+
+Every emLab project should be "hermetic"—meaning its packages are isolated from the rest of your system. We use [**renv**](https://rstudio.github.io/renv/articles/renv.html) to create a private library of packages for each project.
+
+* **Initialization:** Run `renv::init()` at the start of a project. This creates a local `.Rprofile` that tells R to use a project-specific library instead of your global one.
+* **Daily Workflow:**
+  * `renv::snapshot()`: Save the state of your library to the `renv.lock` file. This JSON file contains the exact version and source (CRAN, GitHub, Bioconductor) of every package. **Commit this file to GitHub.**
+  * `renv::status()`: Frequently check if your local library is in sync with your lockfile.
+  * `renv::restore()`: When pulling changes from GitHub, run this to sync your local library with the project's lockfile. This is the "magic button" that rebuilds the environment on a colleague's computer.
+* **Efficiency:** `renv` uses a global cache. This means that if ten different projects use `ggplot2` version 3.4.0, it is only stored on your hard drive once, but linked into each project's library.
+* **Collaboration:** Never include the `renv/library` folder in your git commits (it should be in `.gitignore`). Only commit the `renv.lock`, `.Rprofile`, and `renv/activate.R` files.
+
+### Posit Package Manager (PPM)
+
+To ensure that `renv::restore()` always finds the exact same package versions and to speed up installation via pre-compiled binaries, we use [Posit Package Manager](https://packagemanager.posit.co/).
+
+* **Fixed Snapshots:** Instead of pointing to the "latest" CRAN, which changes daily, we point to a specific "frozen" date. This eliminates the risk of "dependency hell" where Package A updates and is no longer compatible with Package B.
+* **Binary Advantages:** PPM provides binaries for specific Linux distributions (like Ubuntu Jammy). This means that instead of waiting 20 minutes to compile a complex spatial package like `sf` or `terra` from source, you can download a pre-built version in seconds.
+
+* **Configuration:** You can configure your IDE (RStudio or Positron) to use PPM by default for all new work so you don't have to manually call the options every time.
+
+#### The Universal R Profile (Recommended)
+
+In your R console, run the following to edit your `.Rprofile`: 
+
+```r 
+usethis::edit_r_profile()
+```
+
+Paste the following line and save:
+
+```r
+options(repos = c(PPM = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
+```
+
+#### IDE-specific options
+
+- *RStudio*: Go to Tools > Global Options... > Packages and paste the PPM URL into the "Primary CRAN repository" field.
+
+- *Positron*: Open Settings (Cmd + ,), search for r.defaultRepositories, and add the CRAN/PPM URL to your `settings.json.`
+
+**IMPORTANT**
+Global vs. Project Settings: Global defaults are for your convenience. However, you must still include the specific repository URL in each project's `.Rprofile` to ensure reproducibility for your collaborators.
+
+### Common Pitfalls & Troubleshooting (R)
+
+Using `rig` and `renv` together is robust, but keep an eye out for these common issues that can stall a project:
+
+* **The R Version Mismatch:** You might open a project and find `renv` complaining that it was initialized with R 4.2.0 while you are currently running 4.4.1. 
+    * **The Consequence:** R may try to install packages meant for a newer version into an older environment, causing "binary not found" errors.
+    * **The Fix:** Use `rig run 4.2.0` (or set it as default) before opening the project. Always check your current R version with `version` or `R.version.string` if things feel "off."
+* **Stale Lockfiles:** If you install a new package via `install.packages()` but forget to run `renv::snapshot()`, your `renv.lock` file won't reflect the change. 
+    * **The Consequence:** When a collaborator tries to `renv::restore()`, they won't get the new package, and their code will break with "package not found."
+    * **The Fix:** Make `renv::status()` a habit before you commit and push to GitHub. It will tell you if your lockfile and library are out of sync.
+* **Missing System Dependencies:** `renv` manages R packages, but it does **not** manage system-level software like GDAL, GEOS, or PROJ (essential for emLab spatial work).
+    * **The Consequence:** Package installation fails during the "compilation" phase with cryptic errors about missing headers or `.so` files.
+    * **The Fix:** You must install the system library on your OS (e.g., via `brew install gdal` on Mac or `sudo apt install libgdal-dev` on Linux) before `renv` can successfully build the R package.
+* **Committing the Library:** Occasionally, users accidentally add the `renv/library` folder to Git. 
+    * **The Consequence:** This bloats the repository size by hundreds of megabytes and causes errors for others because those binaries are specific to your operating system and R version.
+    * **The Fix:** Ensure your `.gitignore` includes `renv/library/`. If you've already committed it, you'll need to use `git rm -r --cached renv/library` to remove it from tracking.
+
+## Python
+
+For Python, we follow a similar isolation philosophy as we do with R to avoid "dependency drift."
+
+### Virtual Environments (`venv`)
+
+Avoid installing packages to your "Global" Python, as this can break system-level tools. Always create a virtual environment within your project directory to keep dependencies contained.
+
+* **Convention:** We use the name `.venv` for our environment folders.
+* **Creation:** `python -m venv .venv`
+* **Activation:**
+  * Windows: `.venv\Scripts\activate`
+  * Mac/Linux: `source .venv/bin/activate`
+  * Once activated, your terminal prompt will usually change to show `(.venv)`, indicating that any `pip install` commands will only affect this project.
+* **Git:** Ensure `.venv/` is added to your `.gitignore` to prevent committing thousands of small library files.
+
+### Dependency Tracking
+
+To replicate a Python environment, we use `requirements.txt` for standard pip-based projects or `environment.yml` for more complex stacks.
+
+* **The Importance of Pinning:** Simply listing `pandas` in a file is not enough; we should list `pandas==2.1.0`. This prevents "silent failures" where code runs but produces different numerical results due to underlying algorithm changes in newer package versions.
+* **Exporting:** Use `pip freeze > requirements.txt` to capture every sub-dependency and its exact version.
+* **Installing:** When joining a project, run `pip install -r requirements.txt` to recreate the environment instantly.
+
+### Conda and Mamba
+
+For projects with complex non-Python dependencies—specifically spatial libraries like GDAL, GEOS, or PROJ—standard pip often fails. In these cases, we recommend [**Mamba**](https://mamba.readthedocs.io/en/latest/).
+
+* **Why Mamba?** Standard Conda can take hours to "solve" a complex environment (finding a set of versions that all work together). Mamba is a C++ implementation that does this in seconds.
+* **Environment Files:** Use an `environment.yml` file to define both the Python version and the required packages from the `conda-forge` channel.
+* **Documentation:** Document the creation command clearly:
+  `mamba env create -f environment.yml`
+
+### Common Pitfalls & Troubleshooting (Python)
+
+Python environment management is notoriously "leaky." Even with virtual environments, it is easy to accidentally run code in the wrong context. Watch out for these common emLab hurdles:
+
+* **The "Shadow" Global Install:** You run `pip install` without realizing your virtual environment isn't active.
+    * **The Consequence:** The package is installed to your system's global Python. Your code runs fine on your machine, but when you share the `requirements.txt` or `environment.yml` file, the package is missing, and your collaborator's code fails.
+    * **The Fix:** Always check your terminal prompt for the `(.venv)` prefix. When in doubt, run `which python` (Mac/Linux) or `where python` (Windows) to ensure it points to your project folder, not `/usr/bin/python`.
+* **Mixing Pip and Conda:** You use `pip install` inside a Mamba/Conda environment for a package that has complex C-dependencies.
+    * **The Consequence:** This is the leading cause of "Environment Inconsistency" errors. Pip and Conda do not communicate well; Pip might overwrite a library that Conda relies on, leading to a broken environment that won't update.
+    * **The Fix:** If you are using Mamba, **always** try `mamba install package_name` first. Only use `pip install` if the package is unavailable on `conda-forge`.
+* **The GDAL/Spatial Nightmare:** Trying to install spatial libraries like `geopandas`, `fiona`, or `rasterio` via `pip`.
+    * **The Consequence:** These packages require specific versions of system libraries (GDAL, PROJ, GEOS). Pip tries to compile these from source, which almost always fails on standard laptops without a massive headache.
+    * **The Fix:** Use **Mamba** and an `environment.yml` file for any project involving spatial data. Mamba handles the system-level binaries so you don't have to.
+* **Stale Requirements Files:** You've been working for weeks, installing new packages, but haven't updated your tracking file.
+    * **The Consequence:** The `requirements.txt` file in your GitHub repo is months out of date. New lab members spend hours trying to debug "ModuleNotFoundError."
+    * **The Fix:** Regularly run `pip freeze > requirements.txt` (for venv) or `mamba env export > environment.yml` (for Mamba) before every major push to GitHub.
+* **Python Version Drift:** Your code uses f-strings or new syntax from Python 3.12, but your collaborator is on 3.9.
+    * **The Consequence:** Syntax errors that look like code bugs but are actually version issues.
+    * **The Fix:** Specifically define the Python version at the top of your `environment.yml` or in your `README.md`.
+
+---
+
+## Summary Table
+
+| **Feature** | **R Strategy** | **Python Strategy** | **Primary Goal** |
+| :--- | :--- | :--- | :--- |
+| **Language Version** | `rig` | `pyenv` or `conda` | Isolate the interpreter from OS updates. |
+| **Project Isolation** | `renv` | `venv` or `conda/mamba` | Prevent projects from conflicting with each other. |
+| **Lockfile** | `renv.lock` | `requirements.txt` or `yml` | Record exact versions for 100% reproducibility. |
+| **Binary Source** | Posit Package Manager | PyPI or Conda-Forge | Ensure fast, reliable installation of libraries. |
+
+## External Resources & Further Reading
+
+For a deeper dive into the tools and philosophies discussed in this SOP, we recommend the following resources:
+
+### R & Package Management
+* [**rig: The R Installation Manager**](https://github.com/r-lib/rig): The official repository for `rig`. Includes detailed installation guides for macOS, Windows, and Linux, and advanced commands for managing Rtools.
+* [**renv: Introduction to Project Environments**](https://rstudio.github.io/renv/articles/renv.html): The official "Get Started" guide for `renv`. It provides a clear overview of the package's philosophy and a comprehensive list of commands.
+* [**Using Posit Package Manager (PPM)**](https://p3m.dev/): The public instance of PPM. Use the "Setup" button here to generate the exact repository URL for a specific date or operating system.
+* [**CRAN Task View: Reproducible Research**](https://cran.r-project.org/view=ReproducibleResearch): A curated list of R packages and tools dedicated to making research more reproducible, from literate programming (Quarto/Knitr) to specialized environment managers.
+
+### Python & Environment Management
+* [**Real Python: Virtual Environments Guide**](https://realpython.com/python-virtual-environments-a-primer/): An excellent, beginner-friendly primer on why virtual environments are necessary and how to use the built-in `venv` module.
+* [**Mamba Documentation**](https://mamba.readthedocs.io/en/latest/): The user guide for Mamba. Essential reading if you are transitioning from standard Conda and want to understand why Mamba's "solver" is so much faster.
+* [**Conda-Forge: The Community Repository**](https://conda-forge.org/docs/user/introduction.html): Since emLab relies on `conda-forge` for spatial libraries, this guide explains how the community maintains these packages and how to troubleshoot version conflicts.

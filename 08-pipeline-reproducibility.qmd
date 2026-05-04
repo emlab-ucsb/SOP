@@ -1,0 +1,190 @@
+# Pipeline Reproducibility {#sec-pipeline-reproducibility}
+
+Modern research workflows often involve complex, interconnected scripts where the output of one file is the input for the next. Traditional "numbered script" approaches (e.g., `01_clean.R`, `02_model.R`) are prone to error: if you change a parameter in `01_clean.R`, you must remember to manually re-run everything downstream.  
+To ensure end-to-end reproducibility and efficiency, **emLab projects should use automated pipeline tools.** These tools track dependencies, skip tasks that are already up-to-date, and provide a clear map of the research workflow.
+
+## The Philosophy of Pipeline Management
+
+Adopting a pipeline tool is not just about learning a new package; it is a shift in research philosophy. We use these tools for several critical reasons:
+
+* **Resilience to Change:** In research, data is rarely static. If a raw dataset is updated or a cleaning parameter is tweaked, manual workflows require the researcher to remember every downstream script affected. Automated pipelines handle this bookkeeping for you, ensuring the "state" of your results always matches the "state" of your code.  
+* **Efficiency and "Lazy" Computing:** Many emLab analyses involve long-running operations (e.g., processing GFW data or training complex models). Pipeline tools are "lazy"—they only execute a task if its inputs or the code itself has changed. This saves hours of unnecessary computation and allows for rapid iteration on specific parts of the analysis.  
+* **Trust and Transparency:** A pipeline tool serves as a "living" README. Instead of trusting a narrative description of how the analysis was run, a collaborator can look at a dependency graph and see exactly how every figure and table was derived.  
+* **Collaborative Scalability:** In a team setting, pipelines reduce the "cognitive load" for new members. A new researcher can clone a repository and run a single command to see the entire project in action, rather than guessing which scripts are current and which are experimental leftovers.
+
+## R Pipelines: The targets Package
+
+For projects primarily using R, we highly recommend the [targets](https://books.ropensci.org/targets/) package. targets maintains a persistent cache and only re-runs the specific parts of your analysis that have changed.
+
+### Targets repo Structure
+
+A targets project typically follows this directory structure:  
+
+```
+project/  
+├── _targets.R          # The "instruction manual" for the pipeline  
+├── R/                  # Folder containing modular functions  
+│   ├── functions.R       
+├── data/               # Raw data  
+├── _targets/           # (Automatic) Local cache/metadata  
+└── report.qmd          # Final output (e.g., paper figures and statistics)
+```
+
+### Functionalize Your Code
+
+Instead of long scripts, write small, modular functions in the `R/` directory. Each function should do one thing (e.g., "clean the sea surface temperature data").
+
+### Define the Pipeline (`_targets.R`)
+
+This file defines the relationship between data, code, and outputs.  
+# _targets.R  
+```{r}
+#| eval: false
+library(targets)
+source("R/functions.R")
+tar_option_set(packages = c("tidyverse", "sf"))
+
+list(
+  # Track a raw data file
+  tar_target(raw_data_file, "data/raw_samples.csv", format = "file"),
+
+  # Clean data using a custom function from R/functions.R
+  tar_target(data_cleaned, clean_my_data(raw_data_file)),
+
+  # Run a model
+  tar_target(model_results, run_analysis(data_cleaned)),
+
+  # Render a Quarto report
+  tar_quarto(final_report, "report.qmd")
+)
+```
+
+### Sharing the Data Store across Users
+
+By default, targets stores its data in a local `_targets/` folder. Where you store this folder depends on the size of your objects:
+
+* **Small Objects (<50MB per file):** You can keep the `_targets/` folder in your GitHub repository. However, you must ensure you aren't committing large binary files that will bloat the repo history.  
+* **Large Research Data:** For most emLab projects, analysis objects are too large for GitHub. In these cases, you should move the data store to emLab's shared infrastructure (Nextcloud GRIT storage).
+
+#### Automating Path Detection
+
+To ensure your pipeline works seamlessly across different team members' machines and our GRIT servers (quebracho or sequoia), use the following boilerplate at the top of your `_targets.R` file:  
+```{r}
+#| eval: false
+# Determine base directory based on system/nodename  
+data_directory_base <- ifelse(  
+  Sys.info()["nodename"] %in% c("quebracho", "sequoia"),  
+  "/home/emlab",  
+  ifelse(  
+    Sys.info()["sysname"] == "Darwin",  
+    "/Users/Shared/nextcloud/emLab",  
+    ifelse(  
+      Sys.info()["sysname"] == "Windows",  
+      "G:/Shared drives/nextcloud/emLab",  
+      "/home/your_username/Nextcloud" # Fallback for Linux users  
+    )
+  )  
+)
+
+# Define project-specific directory  
+project_directory <- glue::glue("{data_directory_base}/projects/current-projects/your-project-name")
+
+# Set targets store to appropriate GRIT/Nextcloud directory  
+tar_config_set(  
+  project = "your_project_pipeline",  
+  script = "_targets.R",  
+  store = glue::glue("{project_directory}/data/_targets")  
+)
+```
+
+**Crucially:** When using a shared store, only one person should run `tar_make()` at a time to avoid write conflicts in the metadata. Targets will not allow simultaneous runs.
+
+### Multiple Pipelines in One Repo
+
+Complex emLab projects often require split pipelines. For example:
+
+1. **Pipeline A (Data Ingestion):** Pulls heavy data from BigQuery/GFW. Requires specific credentials and often runs on the emLab server/GRIT.  
+2. **Pipeline B (Analysis):** Uses the pulled data for modeling. Accessible to all team members for local iteration.
+
+To manage this, create two separate target files (e.g., `_targets_data.R` and `_targets_analysis.R`) and a `_targets.yaml` file in the root directory to define them:  
+
+```yaml
+# _targets.yaml
+data_pipeline:  
+  script: _targets_data.R  
+  store: _targets_data_store  
+analysis_pipeline:  
+  script: _targets_analysis.R  
+  store: _targets_analysis_store
+```
+
+You can then run them specifically from the console:  
+`tar_make(script = "_targets_data.R", store = "_targets_data_store")`
+
+### Rendering Quarto Books
+
+If your final output is a Quarto Book rather than a single document, use the `tar_quarto_book()` function from the tarchetypes package. This should be the final target in your list.  
+
+```{r}
+#| eval: false
+# _targets.R
+library(targets)
+library(tarchetypes)
+
+list(
+  # ... previous targets ...
+  tar_quarto_book(website, path = ".")
+)
+```
+
+## Non-R Pipelines: GNU Make
+
+For projects using Python, Stata, or a mix of languages, we recommend [GNU Make](https://www.gnu.org/software/make/). Make uses a Makefile to define "rules" for creating files.
+
+### The Makefile Syntax
+
+A rule consists of a **target** (the file you want to create), **prerequisites** (files it depends on), and a **recipe** (the command to run).  
+target: prerequisites  
+	recipe
+
+### Example Workflow (Python/Stata)
+
+```{bash}
+#| eval: false
+# Makefile
+
+# Run everything
+all: results/paper.pdf
+
+# Clean raw data (Python)
+data/processed.csv: scripts/clean_data.py data/raw.csv
+	python scripts/clean_data.py
+
+# Run analysis (Stata)
+results/model_output.log: scripts/analysis.do data/processed.csv
+	stata -batch do scripts/analysis.do
+
+# Render report (Quarto)
+results/paper.pdf: paper.qmd results/model_output.log
+	quarto render paper.qmd --to pdf
+```
+
+### How to use Make
+
+* **Run the pipeline:** Simply type make in your terminal. Make will check the timestamps of all files and only run the steps where the prerequisites are newer than the target.  
+* **Dry run:** Type make -n to see what commands *would* be run without actually executing them.
+
+## Minimum Requirement: README Documentation
+
+If a project does not yet use an automated tool like targets or Make, it is **mandatory** to provide a detailed "How to Run" section in the repository's README.md. At a absolute minimum, this must include:
+
+1. **Script Execution Order:** A numbered list of scripts in the exact order they must be run.  
+2. **Dependencies:** Which data files are required for each script and which outputs they produce.  
+3. **Environment Setup:** Instructions on how to set up the necessary libraries or software versions (e.g., using renv or conda).
+
+## Best Practices for All Pipelines
+
+1. **Documentation is Mandatory:** No matter what pipeline or tool is used, the repository README.md must clearly document how to execute the analysis. A new collaborator should be able to clone the repo and know exactly which command to run (e.g., "Run tar_make() in the R console" or "Type make in the terminal").  
+2. **Atomic Steps:** Each step in the pipeline should be small enough to be easily understood but large enough to justify being its own "target."  
+3. **File Tracking:** Always include the script itself as a prerequisite/dependency. If you change the code, the output should be considered "outdated."  
+4. **No Manual Interventions:** A pipeline is only reproducible if it can be run from start to finish on a new machine without a human clicking "save," "export," or manually moving files in the middle.
