@@ -39,7 +39,7 @@ calc_shannon <- function(counts) {
 }
 ```
 
-## In-line Comments
+### In-line Comments
 In-line comments should be used strategically to explain the logic that isn't immediately obvious from the code itself. We follow the [Tidyverse Style Guide](https://style.tidyverse.org/documentation.html) to keep our scripts clean and professional.
 
 * **Focus on "Why," not "What":** Avoid redundant comments that simply restate the code (e.g., avoid `# filter for year 2020` followed by `filter(year == 2020)`). Instead, explain the reasoning: `# Excluding 2020 due to incomplete survey coverage in the Indo-Pacific`.
