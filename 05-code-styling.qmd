@@ -19,8 +19,8 @@ We maintain specific style preferences for each language used at the lab. While 
 Our R code follows the [Tidyverse Style Guide](https://style.tidyverse.org/). While you should read the full guide, here are the non-negotiables for emLab projects:
 
 * **Object names:** Use `snake_case` for variables and functions (e.g., `sea_surface_temp`, not `SeaSurfaceTemp` or `sst`).  
-* **Spacing:** Always put a space after a comma, and around most binary operators (`==`, `\+`, `\-`, `\<-`, etc.).  
-* **Pipes:** Use the native pipe `|\>` (R 4.1+) or the magrittr pipe `%\>%`. Always put a space before the pipe and a new line after it.  
+* **Spacing:** Always put a space after a comma, and around most binary operators (`==`, `+`, `-`, `<-`, etc.).  
+* **Pipes:** Use the native pipe `|>` (R 4.1+) or the magrittr pipe `%>%`. Always put a space before the pipe and a new line after it.  
 * **Indentation:** Use 2 spaces for indentation. Never use tabs.  
 * **Long lines:** Limit code to 80 characters per line. This ensures scripts are readable on smaller laptop screens and in side-by-side GitHub views.
 
@@ -50,7 +50,7 @@ At emLab, we use a new generation of "Rust-based" tools. They are significantly 
 
 #### Enable "Format on Save"
 
-To make formatting automatic, open your settings.json (`Cmd+Shift+P` \-\> search for "Open User Settings (JSON)") and paste the following:  
+To make formatting automatic, open your settings.json (`Cmd+Shift+P` -> search for "Open User Settings (JSON)") and paste the following:  
 
 ```json
 {  
@@ -93,4 +93,4 @@ If you are using RStudio (where Air is not yet natively supported), you are stil
 
 1. Install the package: install.packages("styler").  
 2. Use the **Addins** menu in the top toolbar to select "Style active file" before every commit.  
-3. Navigate to **Tools \-\> Global Options \-\> Code \-\> Saving** and check **"Ensure that source files end with a newline"**.
+3. Navigate to **Tools -> Global Options -> Code -> Saving** and check **"Ensure that source files end with a newline"**.
