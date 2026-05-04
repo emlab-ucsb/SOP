@@ -24,7 +24,6 @@ book:
     - 10-hpc.qmd
     - 11-publications.qmd
 
-
 format:
   html:
     theme: cosmo
