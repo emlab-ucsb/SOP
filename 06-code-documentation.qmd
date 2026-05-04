@@ -51,7 +51,7 @@ In-line comments should be used strategically to explain the logic that isn't im
 ### AI-Assisted Documentation
 We encourage the use of AI tools to accelerate the documentation process and improve the clarity of our codebase. However, AI is a co-pilot, not an autopilot; the researcher is ultimately responsible for the accuracy and technical integrity of all documentation.
 
-### GitHub Copilot
+#### GitHub Copilot
 GitHub Copilot is integrated into our IDEs (RStudio, Positron, and VS Code) to provide real-time suggestions.
 
 * **Auto-completion:** As you begin writing a Roxygen2 block (`#' `), Copilot will often suggest `@param` descriptions and `@return` types based on the logic within the function body.
