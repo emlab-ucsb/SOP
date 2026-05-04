@@ -22,12 +22,12 @@ A targets project typically follows this directory structure:
 
 ```
 project/  
-├── _targets.R          \# The "instruction manual" for the pipeline  
-├── R/                  \# Folder containing modular functions  
+├── _targets.R          # The "instruction manual" for the pipeline  
+├── R/                  # Folder containing modular functions  
 │   ├── functions.R       
-├── data/               \# Raw data  
-├── _targets/           \# (Automatic) Local cache/metadata  
-└── report.qmd          \# Final output (e.g., paper figures and statistics)
+├── data/               # Raw data  
+├── _targets/           # (Automatic) Local cache/metadata  
+└── report.qmd          # Final output (e.g., paper figures and statistics)
 ```
 
 ### Functionalize Your Code
@@ -37,7 +37,7 @@ Instead of long scripts, write small, modular functions in the `R/` directory. E
 ### Define the Pipeline (`_targets.R`)
 
 This file defines the relationship between data, code, and outputs.  
-\# _targets.R  
+# _targets.R  
 ```{r}
 #| eval: false
 library(targets)
@@ -63,7 +63,7 @@ list(
 
 By default, targets stores its data in a local `_targets/` folder. Where you store this folder depends on the size of your objects:
 
-* **Small Objects (\<50MB per file):** You can keep the `_targets/` folder in your GitHub repository. However, you must ensure you aren't committing large binary files that will bloat the repo history.  
+* **Small Objects (<50MB per file):** You can keep the `_targets/` folder in your GitHub repository. However, you must ensure you aren't committing large binary files that will bloat the repo history.  
 * **Large Research Data:** For most emLab projects, analysis objects are too large for GitHub. In these cases, you should move the data store to emLab's shared infrastructure (Nextcloud GRIT storage).
 
 #### Automating Path Detection
@@ -81,8 +81,8 @@ data_directory_base <- ifelse(
     ifelse(  
       Sys.info()["sysname"] == "Windows",  
       "G:/Shared drives/nextcloud/emLab",  
-      "/home/your_username/Nextcloud" \# Fallback for Linux users  
-    )  
+      "/home/your_username/Nextcloud" # Fallback for Linux users  
+    )
   )  
 )
 
@@ -172,7 +172,7 @@ results/paper.pdf: paper.qmd results/model_output.log
 ### How to use Make
 
 * **Run the pipeline:** Simply type make in your terminal. Make will check the timestamps of all files and only run the steps where the prerequisites are newer than the target.  
-* **Dry run:** Type make \-n to see what commands *would* be run without actually executing them.
+* **Dry run:** Type make -n to see what commands *would* be run without actually executing them.
 
 ## Minimum Requirement: README Documentation
 
