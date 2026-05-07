@@ -102,7 +102,7 @@ We will not be installing Stata on quebracho or sequoia.
 
 For users of Matlab, it is already available on all campus clusters.
 More details can be found
-he<https://csc.cnsi.ucsb.edu/docs/using-matlab>re. We will not be
+[here](https://csc.cnsi.ucsb.edu/docs/using-matlab). We will not be
 installing Matlab on quebracho or sequoia.
 
 ## Installing packages
