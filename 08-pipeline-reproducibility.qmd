@@ -34,10 +34,8 @@ project/
 
 Instead of long scripts, write small, modular functions in the `R/` directory. Each function should do one thing (e.g., "clean the sea surface temperature data").
 
-### Define the Pipeline (`_targets.R`)
+The `_targets.R` file defines the relationship between data, code, and outputs.  
 
-This file defines the relationship between data, code, and outputs.  
-# _targets.R  
 ```{r}
 #| eval: false
 library(targets)
