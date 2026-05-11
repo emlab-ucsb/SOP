@@ -16,7 +16,7 @@ We maintain specific style preferences for each language used at the lab. While 
 
 ### R and the Tidyverse
 
-Our R code follows the [Tidyverse Style Guide](https://style.tidyverse.org/). While you should read the full guide, here are the non-negotiables for emLab projects:
+Our R code follows the [Tidyverse Style Guide](https://style.tidyverse.org/). While you should read the full guide, here are the universal requirements that should be used across all emLab projects:
 
 * **Object names:** Use `snake_case` for variables and functions (e.g., `sea_surface_temp`, not `SeaSurfaceTemp` or `sst`).  
 * **Spacing:** Always put a space after a comma, and around most binary operators (`==`, `+`, `-`, `<-`, etc.).  
@@ -37,7 +37,8 @@ For other languages, we defer to established industry standards:
 
 A **code formatter** is a tool that automatically adjusts your code's layout—spacing, indentation, line breaks, and alignment—to match a specific style guide. Instead of manually fixing every comma or bracket, the formatter does it for you instantly.  
 At emLab, we use a new generation of "Rust-based" tools. They are significantly faster than older tools and can be configured to run automatically every time you save a file.  
-**Note:** To maintain consistency across the lab, the use of these formatters is **required** for all new code development.
+
+**Note:** To maintain consistency across emLab, the use of these formatters is **required** for all new code development.
 
 ### R Formatting: Air (Required for R users)
 
