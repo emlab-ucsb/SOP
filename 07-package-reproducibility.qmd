@@ -6,17 +6,26 @@ Reproducible research requires not just the same code, but the same computationa
 
 For R projects, we manage three distinct layers of the environment: the R version itself, the project-specific library of R packages, and the source of the packages. By managing each of these layers, we ensure that an update to your global R installation doesn't inadvertently break a legacy project.
 
-### R Version Management with `rig`
+### R Version Management
 
 Before managing packages, we must manage R itself. Different versions of R can introduce breaking changes in the underlying C++ code or require different package binaries. Using the "latest" version of R is often fine for new work, but reproducing an analysis from three years ago often requires the exact R version used at that time.
 
-We use [**rig** (The R Installation Manager)](https://github.com/r-lib/rig) to handle multiple R versions on a single machine seamlessly.
+#### Using Positron (Recommended)
+
+If you use [Positron](https://positron.posit.co/), managing multiple R versions is built in. Positron detects all R installations on your machine and lets you switch between them per-session from the interpreter selector in the top-right corner of the IDE — no command-line tools required. To install a new R version, download and install it from [CRAN](https://cran.r-project.org/) and Positron will pick it up automatically.
+
+#### Using `rig` (Non-Positron Users)
+
+If you are not using Positron, we recommend [**rig** (The R Installation Manager)](https://github.com/r-lib/rig) to handle multiple R versions on a single machine seamlessly.
 
 * **Why use rig?** It allows you to quickly switch between R versions without manual uninstalls. Crucially, it installs R in a way that doesn't require `sudo` privileges for library paths, preventing permissions issues that often plague multi-user servers. This ensures that `renv` is always drawing from the correct, isolated R binary.
 * **Workflow:**
   * **Installation:** Install the version specified in the project documentation (e.g., `rig add 4.3.2`).
   * **Context Switching:** Use `rig default 4.3.2` to set the system-wide default, or use `rig run <version>` to start a specific session.
-  * **Documentation:** Always document the R version used in the project's `README.md` and ensure it matches the `R` field in the `renv.lock` file.
+
+#### Documentation
+
+Regardless of how you manage R versions, always document the R version used in the project's `README.md` and ensure it matches the `R` field in the `renv.lock` file.
 
 ### Package Version Management with `renv`
 
@@ -83,6 +92,27 @@ Using `rig` and `renv` together is robust, but keep an eye out for these common 
 
 For Python, we follow a similar isolation philosophy as we do with R to avoid "dependency drift."
 
+### Python Version Management
+
+Specifying the Python version your project uses is just as important as pinning package versions. New Python releases can introduce breaking syntax changes, and your collaborators may have different versions installed.
+
+#### Using Positron (Recommended)
+
+If you use [Positron](https://positron.posit.co/), it automatically detects all Python interpreters on your machine — including those managed by `pyenv`, Conda, or system installs — and lets you select the interpreter per-project from the interpreter selector in the top-right corner of the IDE. This means you can switch Python versions without touching the command line.
+
+#### Using `pyenv` (Non-Positron Users)
+
+If you are not using Positron, [**pyenv**](https://github.com/pyenv/pyenv) is the standard tool for managing multiple Python versions on a single machine.
+
+* **Installation:** Follow the [pyenv installer](https://github.com/pyenv/pyenv-installer) instructions for your OS.
+* **Install a version:** `pyenv install 3.11.9`
+* **Set a project version:** Run `pyenv local 3.11.9` in your project directory. This creates a `.python-version` file that pyenv reads automatically whenever you enter that directory. Commit this file to GitHub so collaborators use the same version.
+* **Set a global default:** `pyenv global 3.11.9`
+
+#### Documentation
+
+Regardless of how you manage Python versions, document the required version in the project `README.md` and specify it explicitly in your `environment.yml` (for Conda/Mamba projects) or `.python-version` file.
+
 ### Virtual Environments (`venv`)
 
 Avoid installing packages to your "Global" Python, as this can break system-level tools. Always create a virtual environment within your project directory to keep dependencies contained.
@@ -138,7 +168,7 @@ Python environment management is notoriously "leaky." Even with virtual environm
 
 | **Feature** | **R Strategy** | **Python Strategy** | **Primary Goal** |
 | :--- | :--- | :--- | :--- |
-| **Language Version** | `rig` | `pyenv` or `conda` | Isolate the interpreter from OS updates. |
+| **Language Version** | Positron or `rig` | Positron or `pyenv` | Isolate the interpreter from OS updates. |
 | **Project Isolation** | `renv` | `venv` or `conda/mamba` | Prevent projects from conflicting with each other. |
 | **Lockfile** | `renv.lock` | `requirements.txt` or `yml` | Record exact versions for 100% reproducibility. |
 | **Binary Source** | Posit Package Manager | PyPI or Conda-Forge | Ensure fast, reliable installation of libraries. |
