@@ -1,0 +1,61 @@
+
+# Exploratory Data Analysis (EDA) in Quarto
+
+EDA is the most critical stage for identifying data quality issues and refining hypotheses. While EDA can be "messy," at emLab we treat it as a formal part of the research record. Using Quarto for EDA allows us to document not just what we found, but what we looked for and why certain paths were abandoned.
+
+## The "Notebook" Philosophy
+
+Use .qmd files as an interactive laboratory notebook. Unlike a final report, an EDA document should include:
+
+* **Data Sanity Checks:** Summaries of missing values, range checks, and distribution plots.  
+* **Dead Ends:** If an approach didn't work, keep the code but explain why in the text. This prevents future collaborators (or your future self) from repeating the same mistake.  
+* **Narrative over Snippets:** Every plot should be followed by a short sentence describing the takeaway (e.g., *"The outlier in 2014 appears to be a recording error in the raw sensor data"*).
+
+## Leveraging Code Folding
+
+EDA often requires long blocks of code to generate diagnostic plots. To keep the document readable while remaining transparent, use code-fold at the chunk level.  
+
+```{r}
+#| label: eda-missing-data  
+#| code-fold: true  
+#| code-summary: "Show code for missingness analysis"  
+# Complex visualization code here...
+```
+
+## Interactive Exploration Tools
+
+Static tables are often insufficient for exploring large datasets. We recommend using interactive widgets within your Quarto EDA documents (rendered to HTML) to allow for deeper inspection.
+
+### Interactive Tables with DT
+
+Use the DT package to create searchable, sortable tables. This is invaluable for spotting specific outliers or checking metadata.  
+```{r}
+#| label: eda-inspect-data  
+library(DT)
+mtcars |>
+  datatable(options = list(pageLength = 10, autoWidth = TRUE))
+```
+
+### Quick Summaries with `skimr`
+
+Instead of standard `summary()`, use `skimr::skim()` to get a high-level overview of distributions and missingness directly in your Quarto output.  
+
+```{r}
+#| label: eda-skim  
+mtcars |>
+  skimr::skim()
+```
+
+## Organizing EDA Documents
+
+For large projects, do not crowd a single file with all exploratory work. Instead:
+
+1. **Create a dedicated eda/ folder** in your repository.  
+2. **Use a naming convention** like eda-01-initial-cleaning.qmd, eda-02-spatial-joins.qmd, etc.  
+3. **If using a Quarto Book**, include these under a "Research Notebook" or "Appendices" section to keep the main narrative focused.
+
+## Best Practices for EDA
+
+* **eval: true / echo: true**: Ensure code is visible and executed so others can reproduce your exploratory steps.  
+* **Avoid View()**: Never leave View(df) in a code chunk, as it will break the rendering process. Use head() or DT::datatable() instead.  
+* **Self-Correction**: If you find an error in the data during EDA, document the fix in the text and move the correction logic to your data cleaning script/pipeline node.
