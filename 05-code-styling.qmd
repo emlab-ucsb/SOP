@@ -89,8 +89,12 @@ Open your settings.json and paste the following:
 
 ## R Studio Code Formatting
 
-If you are using RStudio (where Air is not yet natively supported), you are still required to maintain styling using the `styler` package:
+If you are using RStudio (where Air is not as tightly integrated), you are still required to maintain styling. 
+
+You can use the `styler` package:
 
 1. Install the package: install.packages("styler").  
 2. Use the **Addins** menu in the top toolbar to select "Style active file" before every commit.  
 3. Navigate to **Tools -> Global Options -> Code -> Saving** and check **"Ensure that source files end with a newline"**.
+
+It is still possible to use Air in RStudio by first downloading the command line tool and setting Air as an external formatter, following the [instructions](https://posit-dev.github.io/air/editor-rstudio.html) from Posit. Note that there is currently no way to use Air on quarto documents in RStudio.
