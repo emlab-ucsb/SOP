@@ -1,5 +1,4 @@
-
-# Exploratory Data Analysis (EDA) in Quarto
+# Exploratory Data Analysis (EDA)
 
 EDA is the most critical stage for identifying data quality issues and refining hypotheses. While EDA can be "messy," at emLab we treat it as a formal part of the research record. Using Quarto for EDA allows us to document not just what we found, but what we looked for and why certain paths were abandoned.
 
@@ -42,6 +41,7 @@ Instead of standard `summary()`, use `skimr::skim()` to get a high-level overvie
 
 ```{r}
 #| label: eda-skim  
+#| eval: false
 mtcars |>
   skimr::skim()
 ```
