@@ -61,7 +61,7 @@ GitHub Copilot is integrated into our IDEs (RStudio, Positron, and VS Code) to p
 #### Claude Code
 Claude Code is our preferred tool for high-level project documentation, architectural overviews, and refactoring legacy scripts.
 
-* **Project Summarization:** Claude is exceptionally skilled at reading entire directories. Use it to generate a comprehensive `README.md` for a new repository or to summarize the workflow of a complex analysis for a Quarto report.
+* **Project Summarization:** Claude can quickly read entire project directories. Use it to generate a comprehensive `README.md` for a new repository or to summarize the workflow of a complex analysis for a Quarto report.
 * **Refactoring for Readability:** You can prompt Claude to audit your scripts: *"Refactor this R script to improve readability and add Tidyverse-style comments to any non-obvious data transformations."*
 * **Style Conversion:** Use Claude to modernize documentation, such as converting unstructured Stata comments or old R scripts into standardized Roxygen2 format.
 
