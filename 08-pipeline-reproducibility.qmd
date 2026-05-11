@@ -1,6 +1,7 @@
 # Pipeline Reproducibility {#sec-pipeline-reproducibility}
 
-Modern research workflows often involve complex, interconnected scripts where the output of one file is the input for the next. Traditional "numbered script" approaches (e.g., `01_clean.R`, `02_model.R`) are prone to error: if you change a parameter in `01_clean.R`, you must remember to manually re-run everything downstream.  
+Modern research workflows often involve complex, interconnected scripts where the output of one file is the input for the next. Traditional sequential approaches (e.g., first running `01_clean.R`, then running `02_model.R`) are prone to error: if you change a parameter in `01_clean.R`, you must remember to manually re-run everything downstream.  
+
 To ensure end-to-end reproducibility and efficiency, **emLab projects should use automated pipeline tools.** These tools track dependencies, skip tasks that are already up-to-date, and provide a clear map of the research workflow.
 
 ## The Philosophy of Pipeline Management
