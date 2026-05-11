@@ -21,8 +21,9 @@ book:
     - 07-package-reproducibility.qmd
     - 08-pipeline-reproducibility.qmd
     - 09-quarto.qmd
-    - 10-hpc.qmd
-    - 11-publications.qmd
+    - 10-eda.qmd
+    - 11-hpc.qmd
+    - 12-publications.qmd
 
 format:
   html:
