@@ -13,10 +13,8 @@ execute:
 ## Why Quarto?
 
 At emLab, we believe that data and code are only as valuable as the narrative that connects them. While code comments explain the "how," Quarto documents (.qmd) are used to explain the "so what."
-We use Quarto as our primary tool for integrating code with scientific narrative to ensure that our logic, data, and results are inseparable. This "literate programming" approach transforms opaque scripts into transparent, reproducible research products. By rendering these documents to HTML and hosting them via GitHub Pages, we ensure that our internal documentation is as professional and accessible as our public-facing work.
+We use Quarto as one of our primary tools for integrating code with scientific narrative to ensure that our logic, data, and results are inseparable. This "literate programming" approach transforms opaque scripts into transparent, reproducible research products. This format allows us to interleave code chunks with visualizations and scientific interpretation. By then rendering these documents to HTML and hosting them via GitHub Pages, we can ensure that our internal documentation is as accessible and robust as our public-facing work.
 A prime example of this workflow is our [ocean-ghg repository](https://github.com/emlab-ucsb/ocean-ghg), where the entire analytical pipeline is documented and served as a live technical website.
-
-Every major analysis step should be documented in a .qmd file. This format allows us to interleave code chunks with visualizations and scientific interpretation. This is required for internal peer reviews and sharing results with the lab.
 
 ## Chunk Best Practices
 
@@ -235,67 +233,6 @@ Once your document is rendered to GitHub Pages, you must make it easy for collab
 
 1. **Repo Description:** On the main page of your GitHub repository, click the "About" gear icon (top right). Paste the GitHub Pages URL into the **Website** field.
 2. **Project README:** At the very top of your README.md, add a prominent link to the rendered documentation: 🚀 **View the full technical documentation and analysis results [here](https://emlab-ucsb.github.io/your-repo-name/).**
-
-## Exploratory Data Analysis (EDA) in Quarto
-
-EDA is the most critical stage for identifying data quality issues and refining hypotheses. While EDA can be "messy," at emLab we treat it as a formal part of the research record. Using Quarto for EDA allows us to document not just what we found, but what we looked for and why certain paths were abandoned.
-
-### The "Notebook" Philosophy
-
-Use .qmd files as an interactive laboratory notebook. Unlike a final report, an EDA document should include:
-
-* **Data Sanity Checks:** Summaries of missing values, range checks, and distribution plots.  
-* **Dead Ends:** If an approach didn't work, keep the code but explain why in the text. This prevents future collaborators (or your future self) from repeating the same mistake.  
-* **Narrative over Snippets:** Every plot should be followed by a short sentence describing the takeaway (e.g., *"The outlier in 2014 appears to be a recording error in the raw sensor data"*).
-
-### Leveraging Code Folding
-
-EDA often requires long blocks of code to generate diagnostic plots. To keep the document readable while remaining transparent, use code-fold at the chunk level.  
-
-```{r}
-#| label: eda-missing-data  
-#| code-fold: true  
-#| code-summary: "Show code for missingness analysis"  
-# Complex visualization code here...
-```
-
-### Interactive Exploration Tools
-
-Static tables are often insufficient for exploring large datasets. We recommend using interactive widgets within your Quarto EDA documents (rendered to HTML) to allow for deeper inspection.
-
-#### Interactive Tables with DT
-
-Use the DT package to create searchable, sortable tables. This is invaluable for spotting specific outliers or checking metadata.  
-```{r}
-#| label: eda-inspect-data  
-library(DT)
-mtcars |>
-  datatable(options = list(pageLength = 10, autoWidth = TRUE))
-```
-
-#### Quick Summaries with `skimr`
-
-Instead of standard `summary()`, use `skimr::skim()` to get a high-level overview of distributions and missingness directly in your Quarto output.  
-
-```{r}
-#| label: eda-skim  
-mtcars |>
-  skimr::skim()
-```
-
-### Organizing EDA Documents
-
-For large projects, do not crowd a single file with all exploratory work. Instead:
-
-1. **Create a dedicated eda/ folder** in your repository.  
-2. **Use a naming convention** like eda-01-initial-cleaning.qmd, eda-02-spatial-joins.qmd, etc.  
-3. **If using a Quarto Book**, include these under a "Research Notebook" or "Appendices" section to keep the main narrative focused.
-
-### Best Practices for EDA
-
-* **eval: true / echo: true**: Ensure code is visible and executed so others can reproduce your exploratory steps.  
-* **Avoid View()**: Never leave View(df) in a code chunk, as it will break the rendering process. Use head() or DT::datatable() instead.  
-* **Self-Correction**: If you find an error in the data during EDA, document the fix in the text and move the correction logic to your data cleaning script/pipeline node.
 
 ## Presentations in Quarto
 
