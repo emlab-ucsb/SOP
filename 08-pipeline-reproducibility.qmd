@@ -55,7 +55,7 @@ list(
   tar_target(model_results, run_analysis(data_cleaned)),
 
   # Render a Quarto report
-  tar_quarto(final_report, "report.qmd")
+  tarchetypes::tar_quarto(final_report, "report.qmd")
 )
 ```
 
@@ -71,29 +71,31 @@ By default, targets stores its data in a local `_targets/` folder. Where you sto
 To ensure your pipeline works seamlessly across different team members' machines and our GRIT servers (quebracho or sequoia), use the following boilerplate at the top of your `_targets.R` file:  
 ```{r}
 #| eval: false
-# Determine base directory based on system/nodename  
-data_directory_base <- ifelse(  
-  Sys.info()["nodename"] %in% c("quebracho", "sequoia"),  
-  "/home/emlab",  
-  ifelse(  
-    Sys.info()["sysname"] == "Darwin",  
-    "/Users/Shared/nextcloud/emLab",  
-    ifelse(  
-      Sys.info()["sysname"] == "Windows",  
-      "G:/Shared drives/nextcloud/emLab",  
-      "/home/your_username/Nextcloud" # Fallback for Linux users  
+# Determine base directory based on system/nodename
+data_directory_base <- ifelse(
+  Sys.info()["nodename"] %in% c("quebracho", "sequoia"),
+  "/home/emlab",
+  ifelse(
+    Sys.info()["sysname"] == "Darwin",
+    "/Users/Shared/nextcloud/emLab",
+    ifelse(
+      Sys.info()["sysname"] == "Windows",
+      "G:/Shared drives/nextcloud/emLab",
+      "/home/your_username/Nextcloud" # Fallback for Linux users
     )
-  )  
+  )
 )
 
-# Define project-specific directory  
-project_directory <- glue::glue("{data_directory_base}/projects/current-projects/your-project-name")
+# Define project-specific directory
+project_directory <- glue::glue(
+  "{data_directory_base}/projects/current-projects/your-project-name"
+)
 
-# Set targets store to appropriate GRIT/Nextcloud directory  
-tar_config_set(  
-  project = "your_project_pipeline",  
-  script = "_targets.R",  
-  store = glue::glue("{project_directory}/data/_targets")  
+# Set targets store to appropriate GRIT/Nextcloud directory
+tar_config_set(
+  project = "your_project_pipeline",
+  script = "_targets.R",
+  store = glue::glue("{project_directory}/data/_targets")
 )
 ```
 
@@ -121,21 +123,39 @@ analysis_pipeline:
 You can then run them specifically from the console:  
 `tar_make(script = "_targets_data.R", store = "_targets_data_store")`
 
-### Rendering Quarto Books
+## Rendering Quarto Documents in a `targets` Pipeline
 
-If your final output is a Quarto Book rather than a single document, use the `tar_quarto_book()` function from the tarchetypes package. This should be the final target in your list.  
+When your `targets` pipeline produces a Quarto document, the render step should be the last target in your pipeline — and how you define it matters. The right tool for this is `tarchetypes::tar_quarto()`.
+
+### Why not just use `targets::tar_target()`?
+
+It might seem natural to call the Quarto render function inside a regular target:
 
 ```{r}
 #| eval: false
-# _targets.R
-library(targets)
-library(tarchetypes)
+# Not recommended
+targets::tar_target(report, quarto::quarto_render("analysis/final_report.qmd"))
+```
 
-list(
-  # ... previous targets ...
-  tar_quarto_book(website, path = ".")
+The issue is that `targets` sees this as an opaque function call with no connection to the rest of your pipeline - it does not know which targets are refereced inside the quarto doc. It has no way of knowing which upstream targets the document reads, so it cannot tell when the document is out-of-date. In practice, this means you either re-render unnecessarily on every `tar_make()` run, or — worse — end up with a stale report that `targets` believes is current.
+
+### Use `tarchetypes::tar_quarto()` instead
+
+`tarchetypes::tar_quarto()` fixes this by scanning your `.qmd` file for `targets::tar_read()` and `targets::tar_load()`, so that it can recognize any target objects that are called as explicit upstream dependencies. The document is then re-rendered only when one of those dependencies has actually changed.
+
+```{r}
+#| eval: false
+# Recommended
+tarchetypes::tar_quarto(
+  name = quarto_notebook,
+  path = "qmd/quarto_notebook.qmd",
+  quiet = FALSE
 )
 ```
+
+Inside your `.qmd` file, use `targets::tar_read(target_name)` or `targets::tar_load(target_name)` to access pipeline results. These are the calls that `tarchetypes::tar_quarto()` scans to build the dependency graph, so make sure all pipeline inputs are accessed this way rather than loaded through other means.
+
+Using `targets::tar_target()` directly is technically possible, but you would need to manually declare all dependencies yourself to get correct invalidation behavior. We therefore strongly recommend `tarchetypes::tar_quarto()` for most use cases.
 
 ## Non-R Pipelines: GNU Make
 
