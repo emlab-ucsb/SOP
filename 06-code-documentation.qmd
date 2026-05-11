@@ -1,13 +1,13 @@
 # Code Documentation
 
 ## Philosophy: Documentation as a Research Asset
-At emLab, we view code documentation not as an afterthought, but as a core component of our research's reproducibility and longevity. High-quality documentation ensures that our "future selves" and external collaborators can understand the *intent* behind the analysis, not just the mechanics of the code.
+At emLab, we view code documentation as a core component of our research's reproducibility and longevity. High-quality documentation ensures that our future selves and external collaborators can understand the *intent* behind the analysis, not just the mechanics of the code.
 
 *Core Principles:*
 
-* **Code is for humans:** Write code that is easy for a human to read, using documentation to bridge the gap between "what" the code does and "why" it does it.
-* **Self-documenting code first:** Strive for expressive variable and function names (e.g., `calculate_fishing_mortality()` rather than `f_mort_calc()`). Documentation should supplement, not fix, obscure code.
-* **Documentation is near the code:** Keep documentation in the source files (via Roxygen2 or comments) to ensure it stays updated as the code changes.
+* **Use comments to explain intent.** Comments are most useful when they explain why something is being done, document assumptions, or clarify non-obvious decisions, not when they restate what the code does.
+* **Prioritize readability:** Write code with the expectation that someone else will need to read and modify it, using documentation to bridge the gap between "what" the code does and "why" it does it. Use clear, descriptive function names (e.g., `calculate_fishing_mortality()` rather than `f_mort_calc()`). Documentation should supplement, not fix, obscure code.
+* **Keep documentation close to the code:** Function documentation, comments, and examples should live alongside the source code (via Roxygen2 or comments) whenever possible so they are easier to maintain as the code evolves.
 
 ## Specific Practices & Tools
 
