@@ -232,7 +232,7 @@ jobs:
 Once your document is rendered to GitHub Pages, you must make it easy for collaborators and the public to find:
 
 1. **Repo Description:** On the main page of your GitHub repository, click the "About" gear icon (top right). Paste the GitHub Pages URL into the **Website** field.
-2. **Project README:** At the very top of your README.md, add a prominent link to the rendered documentation: 🚀 **View the full technical documentation and analysis results [here](https://emlab-ucsb.github.io/your-repo-name/).**
+2. **Project README:** At the very top of your README.md, add a prominent link to the rendered documentation.
 
 ## Presentations in Quarto
 
