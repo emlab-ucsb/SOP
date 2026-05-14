@@ -57,9 +57,8 @@ GCE](https://grantmcdermott.com/rstudio-server-compute-engine/).
 
 ## Available software
 
-Both quebracho and sequoia currently have R Studio Server, Jupyter
-Notebook, and VSCode installed. Positron is available on sequoia through
-a remote desktop Linux server. GRIT manages these installations for us.
+Both quebracho and sequoia currently have R Studio Server, Positron Server, Jupyter
+Notebook, and VSCode installed. GRIT manages these installations for us.
 They will also manage updates for these.
 
 Both quebracho and sequoia also leverage [SLURM queueing
@@ -102,7 +101,7 @@ We will not be installing Stata on quebracho or sequoia.
 
 For users of Matlab, it is already available on all campus clusters.
 More details can be found
-he<https://csc.cnsi.ucsb.edu/docs/using-matlab>re. We will not be
+[here](https://csc.cnsi.ucsb.edu/docs/using-matlab). We will not be
 installing Matlab on quebracho or sequoia.
 
 ## Installing packages
@@ -146,18 +145,22 @@ system does not require you to be on campus or use a VPN.
 Through OOD, you can use the following software:
 
 -   R Studio Server
+-   Positron Server
 -   Jupyter Notebook
 -   VS Code Server
--   Positron (via a Linux remote desktop server)
 
 To use any of these, click "Interactive Apps", then click on your
-software of choice (to access Positron, click "Desktop"). Each time you
-launch an interactive app, you need to specify the following up-front
+software of choice. Note that Positron Server is technically accessed *through* Jupyter Notebooks; 
+so to start a Positron Server session, click "Jupyter Notebook". 
+
+Each time you launch an interactive app, you need to specify the following up-front
 before launching the job:
 
 -   Partition name: Type `emlab_nodes` to use emLab's private sequoia
     resources (this should be used in most cases). Alternatively, you
     can type `grit_nodes` to use GRIT's campus-wide shared resources
+    (note however that Positron Server is only available when using `emlab_nodes`,
+    since we have a special license from Posit)
 
 -   Job duration (up to 168 hours): Your interactive session will run
     for this amount of time, and then shut down (you can cancel jobs
@@ -185,8 +188,14 @@ next time you launch an interactive app.
 
 Once you've configured your session, click "Launch". It may take a few
 minutes for your session to start up. Once it is ready, you will see a
-link to open R Studio Server (or whichever app you selected). Click the
-link to open R Studio Server in a new browser tab.
+link to open whichever interactive app you selected. Click the
+link to open the app in a new browser tab. 
+
+ If you wish to use Positron Server,
+click the link for your Jupyter Notebook session; once this starts, you will see a link
+in the upper-right corner of the session for Positron under `Notebook`. Click this to launch Positron Server.
+
+![](images/positron_in_juptyer.png)
 
 Note that you may use OOD to launch *multiple* interactive sessions at
 the same time! They are each still managed through SLURM.
