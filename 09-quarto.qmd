@@ -224,10 +224,13 @@ We use **GitHub Actions** to automatically render Quarto documents into HTML web
 1. **Settings:** In your GitHub repo, go to Settings > Pages. Set the source to GitHub Actions.
 2. **Workflow:** Create .github/workflows/publish.yml.
 
-💡 **Privacy Note:** Pages availability depends on your GitHub plan:
+::: {.callout-warning collapse="true"}
+## Privacy note: Pages availability depends on your GitHub plan
 
 - **GitHub Free (personal accounts):** Pages is only available on **public** repositories.
-- **GitHub Pro, Team, and Free for organizations** (which covers the `emlab-ucsb` org): Pages can publish directly from either public or **private** repos. For a private repo, the source code stays hidden while the rendered site is publicly accessible at its `*.github.io` URL.
+- **GitHub Pro, Team, and Free for organizations** (which covers the emLab GitHub org): Pages can publish directly from either public or **private** repos. For a private repo, the source code stays hidden while the rendered site is publicly accessible at its "______.github.io" URL.
+
+:::
 
 
 ::: {.callout-tip collapse="true"}
@@ -250,7 +253,7 @@ Once your document is rendered to GitHub Pages, you must make it easy for collab
 
 For lab meetings, conferences, and stakeholder briefings, we use Quarto to generate presentations. This ensures that the plots shown in slides are identical to the ones in our analysis, with no "copy-paste" errors.
 
-### **The emLab Presentation Template**
+### The emLab Presentation Template
 
 We are actively developing a standardized emLab Quarto presentation template to ensure a consistent, professional visual identity across our projects.  
 You can find the current working version of the template here: [presentation-ocean-ghg-ttt](https://github.com/emlab-ucsb/presentation-ocean-ghg-ttt).  
@@ -291,7 +294,7 @@ project:
 ---
 ```
 
-### **Slide Structure**
+### Slide Structure
 
 * **New Slide:** Use `##` to start a new slide.  
 * **Pauses:** Use . . . on its own line to create a "fragment" (pause) that reveals the next part of the slide upon a click.  
@@ -322,7 +325,7 @@ plot(results)
 :::
 ````
 
-### **Best Practices for Slides**
+### Best Practices for Slides
 
 1. **echo: false by default:** Unless you are giving a coding tutorial, keep code hidden in slides to focus on results.  
 2. **Speaker Notes:** Use `::: {.notes}` to add reminders that only you can see during the presentation (press 'S' in the browser).  
