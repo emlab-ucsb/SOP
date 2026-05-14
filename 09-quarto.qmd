@@ -219,45 +219,21 @@ We use **GitHub Actions** to automatically render Quarto documents into HTML web
 
 ### Setting Up GitHub Pages
 
+[The Quarto documentation](https://quarto.org/docs/publishing/github-pages.html) has an excellent explanation of how to set up GitHub Pages, which we suggest using as a guide. Here are the CliffsNotes:
+
 1. **Settings:** In your GitHub repo, go to Settings > Pages. Set the source to GitHub Actions.
 2. **Workflow:** Create .github/workflows/publish.yml.
 
 💡 **Privacy Note:** To enable GitHub Pages on standard accounts, the repository must initially be **public**. However, once the initial page has been successfully rendered and published, you can switch the repository back to **private**. This allows the source code to remain hidden while the rendered HTML link remains public and shareable for partners.
 
-### Example Workflow
+::: {.callout-tip collapse="true"}
+## In case you are curious, here is the workflow used to publish the SOP
 
-```yaml
-name: Render and Publish Quarto
-on:
-  push:
-    branches: [ main ]
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-      - name: Install R
-        uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: 'release'
-          use-public-rspm: true
-      - name: Install Dependencies
-        run: |
-          Rscript -e 'install.packages(c("tidyverse", "tarchetypes", "targets", "gt", "kableExtra"))'
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```{.yaml filename=".github/workflows/publish.yml"}
+{{< include .github/workflows/publish.yml >}}
 ```
+
+:::
 
 ### Making the Documentation Discoverable
 
