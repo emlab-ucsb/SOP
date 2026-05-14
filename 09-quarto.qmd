@@ -224,7 +224,11 @@ We use **GitHub Actions** to automatically render Quarto documents into HTML web
 1. **Settings:** In your GitHub repo, go to Settings > Pages. Set the source to GitHub Actions.
 2. **Workflow:** Create .github/workflows/publish.yml.
 
-💡 **Privacy Note:** To enable GitHub Pages on standard accounts, the repository must initially be **public**. However, once the initial page has been successfully rendered and published, you can switch the repository back to **private**. This allows the source code to remain hidden while the rendered HTML link remains public and shareable for partners.
+💡 **Privacy Note:** Pages availability depends on your GitHub plan:
+
+- **GitHub Free (personal accounts):** Pages is only available on **public** repositories.
+- **GitHub Pro, Team, and Free for organizations** (which covers the `emlab-ucsb` org): Pages can publish directly from either public or **private** repos. For a private repo, the source code stays hidden while the rendered site is publicly accessible at its `*.github.io` URL.
+
 
 ::: {.callout-tip collapse="true"}
 ## In case you are curious, here is the workflow used to publish the SOP
