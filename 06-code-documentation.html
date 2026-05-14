@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Environmental Markets Lab (emLab)">
-<meta name="dcterms.date" content="2026-05-14">
 <meta name="description" content="Standard operating procedures for emLab projects">
 
-<title>emLab Standard Operating Procedures</title>
+<title>6&nbsp; Code Documentation – emLab Standard Operating Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,7 +69,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-files.html" rel="next">
+<link href="./07-package-reproducibility.html" rel="next">
+<link href="./05-code-styling.html" rel="prev">
 <link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -88,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-code-documentation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -118,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
@@ -154,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-code-documentation.html" class="sidebar-item-text sidebar-link">
+  <a href="./06-code-documentation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></span></a>
   </div>
 </li>
@@ -204,7 +238,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#philosophy-documentation-as-a-research-asset" id="toc-philosophy-documentation-as-a-research-asset" class="nav-link active" data-scroll-target="#philosophy-documentation-as-a-research-asset"><span class="header-section-number">6.1</span> Philosophy: Documentation as a Research Asset</a></li>
+  <li><a href="#specific-practices-tools" id="toc-specific-practices-tools" class="nav-link" data-scroll-target="#specific-practices-tools"><span class="header-section-number">6.2</span> Specific Practices &amp; Tools</a>
+  <ul class="collapse">
+  <li><a href="#roxygen2-for-function-documentation" id="toc-roxygen2-for-function-documentation" class="nav-link" data-scroll-target="#roxygen2-for-function-documentation"><span class="header-section-number">6.2.1</span> Roxygen2 for Function Documentation</a></li>
+  <li><a href="#in-line-comments" id="toc-in-line-comments" class="nav-link" data-scroll-target="#in-line-comments"><span class="header-section-number">6.2.2</span> In-line Comments</a></li>
+  <li><a href="#ai-assisted-documentation" id="toc-ai-assisted-documentation" class="nav-link" data-scroll-target="#ai-assisted-documentation"><span class="header-section-number">6.2.3</span> AI-Assisted Documentation</a></li>
+  <li><a href="#best-practices-for-ai-documentation" id="toc-best-practices-for-ai-documentation" class="nav-link" data-scroll-target="#best-practices-for-ai-documentation"><span class="header-section-number">6.2.4</span> Best Practices for AI Documentation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -213,31 +254,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">emLab Standard Operating Procedures</h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></h1>
 </div>
 
-<div>
-  <div class="description">
-    Standard operating procedures for emLab projects
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Environmental Markets Lab (emLab) </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 14, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -247,11 +271,79 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level1 unnumbered">
-<h1 class="unnumbered">Overview</h1>
-<p>This reference guide describes standard operating procedures (SOP) for emLab projects. This SOP is organized into 5 different sections: (1) File Structure, (2) Data, (3) Code, (4) High Performance Computing, and (5) Reports and Publications. Section 1 covers file structure and storage; Section 2 describes file naming and metadata standards, as well as what the emLab data directory is composed of; Section 3 highlights best practices for coding; Section 4 covers high performance computing; and Section 5 outlines aspects of the publication process from emLab affiliations to preparing a public GitHub repository.</p>
+<section id="philosophy-documentation-as-a-research-asset" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="philosophy-documentation-as-a-research-asset"><span class="header-section-number">6.1</span> Philosophy: Documentation as a Research Asset</h2>
+<p>At emLab, we view code documentation as a core component of our research’s reproducibility and longevity. High-quality documentation ensures that our future selves and external collaborators can understand the <em>intent</em> behind the analysis, not just the mechanics of the code.</p>
+<p><em>Core Principles:</em></p>
+<ul>
+<li><strong>Use comments to explain intent.</strong> Comments are most useful when they explain why something is being done, document assumptions, or clarify non-obvious decisions, not when they restate what the code does.</li>
+<li><strong>Prioritize readability:</strong> Write code with the expectation that someone else will need to read and modify it, using documentation to bridge the gap between “what” the code does and “why” it does it. Use clear, descriptive function names (e.g., <code>calculate_fishing_mortality()</code> rather than <code>f_mort_calc()</code>). Documentation should supplement, not fix, obscure code.</li>
+<li><strong>Keep documentation close to the code:</strong> Function documentation, comments, and examples should live alongside the source code (via Roxygen2 or comments) whenever possible so they are easier to maintain as the code evolves.</li>
+</ul>
+</section>
+<section id="specific-practices-tools" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="specific-practices-tools"><span class="header-section-number">6.2</span> Specific Practices &amp; Tools</h2>
+<section id="roxygen2-for-function-documentation" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="roxygen2-for-function-documentation"><span class="header-section-number">6.2.1</span> Roxygen2 for Function Documentation</h3>
+<p>For all custom functions in R, endeavor to use the <code>roxygen2</code> framework. This is the gold standard used by the tidyverse team. It allows us to generate formal documentation while keeping the descriptions immediately above the function definition.</p>
+<p><strong>Key tags to use:</strong> * <code>@title</code>: A brief, one-line summary. * <code>@description</code>: A more detailed explanation of what the function does. * <code>@param</code>: Define each input argument (type, default value, and purpose). * <code>@return</code>: Describe the output object. * <code>@example</code>: Provide a minimal working example of the function in use.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Calculate Shannon Diversity Index</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @description This function computes the Shannon-Wiener diversity index </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' for a given vector of species counts.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param counts A numeric vector of species abundances.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return A single numeric value representing the diversity index.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#' @examples</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#' calc_shannon(c(10, 20, 5, 2))</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>calc_shannon <span class="ot">&lt;-</span> <span class="cf">function</span>(counts) {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> counts <span class="sc">/</span> <span class="fu">sum</span>(counts)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log</span>(p), <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="in-line-comments" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="in-line-comments"><span class="header-section-number">6.2.2</span> In-line Comments</h3>
+<p>In-line comments should be used strategically to explain the logic that isn’t immediately obvious from the code itself. We follow the <a href="https://style.tidyverse.org/documentation.html">Tidyverse Style Guide</a> to keep our scripts clean and professional.</p>
+<ul>
+<li><strong>Focus on “Why,” not “What”:</strong> Avoid redundant comments that simply restate the code (e.g., avoid <code># filter for year 2020</code> followed by <code>filter(year == 2020)</code>). Instead, explain the reasoning: <code># Excluding 2020 due to incomplete survey coverage in the Indo-Pacific</code>.</li>
+<li><strong>Formatting:</strong> Always start a comment with <code>#</code> followed by a single space.</li>
+<li><strong>Section Breaks:</strong> For long scripts, use four dashes after a comment to create foldable sections in RStudio and Positron to improve navigability: <code># Data Cleaning ----</code>.</li>
+<li><strong>Pipe Documentation:</strong> When using long <code>magrittr</code> or base R pipes (<code>%&gt;%</code> or <code>|&gt;</code>), place comments above the specific line of the pipe that performs a complex or non-intuitive transformation.</li>
+<li><strong>Todo Tags:</strong> Use <code># TODO:</code> to flag unfinished tasks or areas that require further optimization. This makes it easy for collaborators to search the codebase for pending items.</li>
+</ul>
+</section>
+<section id="ai-assisted-documentation" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="ai-assisted-documentation"><span class="header-section-number">6.2.3</span> AI-Assisted Documentation</h3>
+<p>We encourage the use of AI tools to accelerate the documentation process and improve the clarity of our codebase. However, AI is a co-pilot, not an autopilot; the researcher is ultimately responsible for the accuracy and technical integrity of all documentation.</p>
+<section id="github-copilot" class="level4" data-number="6.2.3.1">
+<h4 data-number="6.2.3.1" class="anchored" data-anchor-id="github-copilot"><span class="header-section-number">6.2.3.1</span> GitHub Copilot</h4>
+<p>GitHub Copilot is integrated into our IDEs (RStudio, Positron, and VS Code) to provide real-time suggestions.</p>
+<ul>
+<li><strong>Auto-completion:</strong> As you begin writing a Roxygen2 block (<code>#'</code>), Copilot will often suggest <code>@param</code> descriptions and <code>@return</code> types based on the logic within the function body.</li>
+<li><strong>Inline Chat:</strong> Use the shortcut <code>Cmd + I</code> (macOS) or <code>Ctrl + I</code> (Windows) to open the Copilot chat directly above a code block. You can use the <code>/doc</code> command to have Copilot generate a comprehensive documentation header for the highlighted code.</li>
+<li><strong>Unit Tests:</strong> Use Copilot to generate the <code>@examples</code> section of your Roxygen2 headers, ensuring that the function’s usage is well-documented and tested.</li>
+</ul>
+</section>
+<section id="claude-code" class="level4" data-number="6.2.3.2">
+<h4 data-number="6.2.3.2" class="anchored" data-anchor-id="claude-code"><span class="header-section-number">6.2.3.2</span> Claude Code</h4>
+<p>Claude Code is our preferred tool for high-level project documentation, architectural overviews, and refactoring legacy scripts.</p>
+<ul>
+<li><strong>Project Summarization:</strong> Claude can quickly read entire project directories. Use it to generate a comprehensive <code>README.md</code> for a new repository or to summarize the workflow of a complex analysis for a Quarto report.</li>
+<li><strong>Refactoring for Readability:</strong> You can prompt Claude to audit your scripts: <em>“Refactor this R script to improve readability and add Tidyverse-style comments to any non-obvious data transformations.”</em></li>
+<li><strong>Style Conversion:</strong> Use Claude to modernize documentation, such as converting unstructured Stata comments or old R scripts into standardized Roxygen2 format.</li>
+</ul>
+</section>
+</section>
+<section id="best-practices-for-ai-documentation" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="best-practices-for-ai-documentation"><span class="header-section-number">6.2.4</span> Best Practices for AI Documentation</h3>
+<ul>
+<li><strong>Verify Logic:</strong> AI can “hallucinate” the intent of a function or describe a parameter incorrectly. Always read through AI-generated text to ensure it accurately reflects the code’s behavior and intent.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -657,10 +749,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./05-code-styling.html" class="pagination-link" aria-label="Code Styling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Code Styling</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-files.html" class="pagination-link" aria-label="File Structure">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">File Structure</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-package-reproducibility.html" class="pagination-link" aria-label="Package and Language Version Management">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

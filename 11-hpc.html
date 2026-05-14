@@ -8,7 +8,7 @@
 
 <meta name="description" content="Standard operating procedures for emLab projects">
 
-<title>4&nbsp; High Performance Computing – emLab Standard Operating Procedures</title>
+<title>11&nbsp; High Performance Computing – emLab Standard Operating Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -34,8 +34,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05-publications.html" rel="next">
-<link href="./03-code.html" rel="prev">
+<link href="./12-publications.html" rel="next">
+<link href="./10-eda.html" rel="prev">
 <link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-87b7f55de2e0c9887283481eb31a794c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-hpc.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">High Performance Computing</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-hpc.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High Performance Computing</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -136,19 +136,61 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Coding at emLab</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-hpc.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">High Performance Computing</span></span></a>
+  <a href="./04-gh.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">GitHub</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-publications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span></a>
+  <a href="./05-code-styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Code Styling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-code-documentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-package-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pipeline Reproducibility</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis (EDA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-hpc.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High Performance Computing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-publications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span></a>
   </div>
 </li>
     </ul>
@@ -161,16 +203,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#available-resources" id="toc-available-resources" class="nav-link active" data-scroll-target="#available-resources"><span class="header-section-number">4.1</span> Available resources</a></li>
-  <li><a href="#available-software" id="toc-available-software" class="nav-link" data-scroll-target="#available-software"><span class="header-section-number">4.2</span> Available software</a></li>
-  <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages"><span class="header-section-number">4.3</span> Installing packages</a></li>
-  <li><a href="#setting-up-a-grit-account" id="toc-setting-up-a-grit-account" class="nav-link" data-scroll-target="#setting-up-a-grit-account"><span class="header-section-number">4.4</span> Setting up a GRIT account</a></li>
-  <li><a href="#using-sequoia" id="toc-using-sequoia" class="nav-link" data-scroll-target="#using-sequoia"><span class="header-section-number">4.5</span> Using sequoia</a></li>
-  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices"><span class="header-section-number">4.6</span> Best practices</a></li>
-  <li><a href="#resource-allocation" id="toc-resource-allocation" class="nav-link" data-scroll-target="#resource-allocation"><span class="header-section-number">4.7</span> Resource allocation</a></li>
-  <li><a href="#using-quebracho" id="toc-using-quebracho" class="nav-link" data-scroll-target="#using-quebracho"><span class="header-section-number">4.8</span> Using quebracho</a></li>
-  <li><a href="#accessing-data" id="toc-accessing-data" class="nav-link" data-scroll-target="#accessing-data"><span class="header-section-number">4.9</span> Accessing data</a></li>
-  <li><a href="#accessing-code" id="toc-accessing-code" class="nav-link" data-scroll-target="#accessing-code"><span class="header-section-number">4.10</span> Accessing code</a></li>
+  <li><a href="#available-resources" id="toc-available-resources" class="nav-link active" data-scroll-target="#available-resources"><span class="header-section-number">11.1</span> Available resources</a></li>
+  <li><a href="#available-software" id="toc-available-software" class="nav-link" data-scroll-target="#available-software"><span class="header-section-number">11.2</span> Available software</a></li>
+  <li><a href="#installing-packages" id="toc-installing-packages" class="nav-link" data-scroll-target="#installing-packages"><span class="header-section-number">11.3</span> Installing packages</a></li>
+  <li><a href="#setting-up-a-grit-account" id="toc-setting-up-a-grit-account" class="nav-link" data-scroll-target="#setting-up-a-grit-account"><span class="header-section-number">11.4</span> Setting up a GRIT account</a></li>
+  <li><a href="#using-sequoia" id="toc-using-sequoia" class="nav-link" data-scroll-target="#using-sequoia"><span class="header-section-number">11.5</span> Using sequoia</a></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices"><span class="header-section-number">11.6</span> Best practices</a></li>
+  <li><a href="#resource-allocation" id="toc-resource-allocation" class="nav-link" data-scroll-target="#resource-allocation"><span class="header-section-number">11.7</span> Resource allocation</a></li>
+  <li><a href="#using-quebracho" id="toc-using-quebracho" class="nav-link" data-scroll-target="#using-quebracho"><span class="header-section-number">11.8</span> Using quebracho</a></li>
+  <li><a href="#accessing-data" id="toc-accessing-data" class="nav-link" data-scroll-target="#accessing-data"><span class="header-section-number">11.9</span> Accessing data</a></li>
+  <li><a href="#accessing-code" id="toc-accessing-code" class="nav-link" data-scroll-target="#accessing-code"><span class="header-section-number">11.10</span> Accessing code</a></li>
   </ul>
 </nav>
     </div>
@@ -179,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">High Performance Computing</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High Performance Computing</span></h1>
 </div>
 
 
@@ -206,8 +248,8 @@ ul.task-list li input[type="checkbox"] {
 <p>For analyses involving big data or models that take a long time to estimate, a single laptop or desktop computer is often not powerful enough or becomes inconvenient to use. Additionally, for analyses involving restricted-use data, such as datasets containing personally identifiable information, data use agreements typically stipulate that the data should be stored and analyzed in a secure manner.</p>
 <p>In these cases, you should use the high performance computing resources available to emLab. emLab currently has two high performance computing servers that are managed by UCSB’s General Research IT (GRIT). These servers are named sequoia and quebracho. This section of the manual describes how to use these two servers for high performance computing.</p>
 <p>For now, please use sequoia for general emLab computing for most projects. Quebracho is currently restricted to land use projects (e.g., <code>land-based-solutions</code> and projects starting with <code>cel</code>), so please only use quebracho if you have already been doing so and have already discussed this with Kathy or Robert. If you have any doubts about which server to use, please use sequoia. Note that sequoia does not have a GPU, but quebracho does. If you need access to a GPU and are not already using quebracho, please contact Robert and Kathy to talk about using quebracho.</p>
-<section id="available-resources" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="available-resources"><span class="header-section-number">4.1</span> Available resources</h2>
+<section id="available-resources" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="available-resources"><span class="header-section-number">11.1</span> Available resources</h2>
 <table class="caption-top table">
 <caption>HPC resources available to emLab researchers</caption>
 <thead>
@@ -259,46 +301,49 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p>The emLab SOP will focus on using quebracho and sequoia. For further information on using other UCSB campus resources, you can refer to our <a href="https://emlab-ucsb.github.io/cluster-guide/index.html">specific guide</a> on that. However please note that this guide is several years out-of-date, and you may find better and more current information directly on a UCSB website. Additionally, now that we have our own HPC servers, we no longer recommend using Google Compute Engine, which is a pay-as-you-go cloud computing server. It can be quite expensive, and has setup challenges as compared to our own servers. However, if you need to use GCE for whatever reason, emLab alumni Grant McDermott wrote a very helpful tutorial on using <a href="https://grantmcdermott.com/rstudio-server-compute-engine/">R Studio Server on GCE</a>.</p>
 </section>
-<section id="available-software" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="available-software"><span class="header-section-number">4.2</span> Available software</h2>
-<p>Both quebracho and sequoia currently have R Studio Server, Jupyter Notebook, and VSCode installed. Positron is available on sequoia through a remote desktop Linux server. GRIT manages these installations for us. They will also manage updates for these.</p>
+<section id="available-software" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="available-software"><span class="header-section-number">11.2</span> Available software</h2>
+<p>Both quebracho and sequoia currently have R Studio Server, Positron Server, Jupyter Notebook, and VSCode installed. GRIT manages these installations for us. They will also manage updates for these.</p>
 <p>Both quebracho and sequoia also leverage <a href="https://slurm.schedmd.com/overview.html">SLURM queueing systems</a>. All computational activity is forced to go through SLURM, even interactive R Studio and Jupyter Notebook sessions (see section on Open OnDemand below). Scrontab can be used to manage SLURM crontab files.</p>
 <p>If we wish to install additional software, we will need to decide on these as a group and have GRIT install them for us. When considering new software to install, we should consider whether or not it is already available on other campus servers; what it will cost; and how many people in emLab would use it. Generally speaking, if a specific piece of software is expensive (e.g., Stata or Matlab), will not be used by too many emLab folks, and is already available on other campus servers, we should rely on these other campus servers and not install it on our own servers. Users interested in MatLab should first try Pod which has the necessary licenses and is available for free.</p>
 <p>If users wish to use python it is recommended that they install Visual Studio Code (VS Code) available for free from Microsoft. With VS Code installed, users can add the Remote SSH extension and access sequoia via SSH tunnel. Further instructions can be found in the <a href="https://csc.cnsi.ucsb.edu/clusters/pod">VS Code Documentation</a>. After accessing sequoia via SSH tunnel, users may install their preferred python distribution. <a href="https://docs.anaconda.com/free/miniconda/miniconda-install/">Miniconda</a> is a good starting point, though other options are available. This <a href="https://vinurad13.medium.com/setting-up-miniconda-and-run-jupyter-notebooks-remotely-on-ubuntu-20-04-server-8d98a6cf4642">Medium article</a> is a good place for further installation guidance. Finally, it is recommended to create custom python <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">environments</a> for each project. All ssh sessions go into the slurm queue.</p>
 <p>For users that need Stata, it is already available on both UCSB’s Knot cluster. More details for using Stata on Knot can be found <a href="https://static1.squarespace.com/static/573f69a2cf80a1adb090ba64/t/5b2c1f1288251b7405a4cb7a/1529618194751/UCSB_server_tutorial.pdf">here</a>. We will not be installing Stata on quebracho or sequoia.</p>
-<p>For users of Matlab, it is already available on all campus clusters. More details can be found he<a href="https://csc.cnsi.ucsb.edu/docs/using-matlab" class="uri">https://csc.cnsi.ucsb.edu/docs/using-matlab</a>re. We will not be installing Matlab on quebracho or sequoia.</p>
+<p>For users of Matlab, it is already available on all campus clusters. More details can be found <a href="https://csc.cnsi.ucsb.edu/docs/using-matlab">here</a>. We will not be installing Matlab on quebracho or sequoia.</p>
 </section>
-<section id="installing-packages" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="installing-packages"><span class="header-section-number">4.3</span> Installing packages</h2>
+<section id="installing-packages" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="installing-packages"><span class="header-section-number">11.3</span> Installing packages</h2>
 <p>You can install regular user-level R packages just like you would normally using R Studio on your local machine. We recommend using the renv R package to manage package dependencies for each project (i.e., GitHub repo) you work in. Please refer to the <a href="https://emlab-ucsb.github.io/SOP/3.3-reproducibility.html#package-dependencies">emLab SOP section on reproducibility</a> for more information on renv.</p>
 <p>Additionally, GRIT installs and updates many commonly used R packages on the servers, which are accessible in a “site-library” for each server. They update these once or twice a year. To add the GRIT R package library to your library paths, you can run this line of code: <code>.libPaths(c("/usr/local/lib/R/site-library/", .libPaths()))</code></p>
 <p>For system-level packages that you would normally need to install through the terminal on your local machine (e.g., packages like <code>gdal</code> or <code>libproj</code>), we will need to have GRIT install and manage these for us. We have already had GRIT install many commonly-needed system-level packages, which they will update once or twice a year. If you need a particular package that is not yet installed, please start a help ticket directly with GRIT: <a href="mailto:help@grit.ucsb.edu">help@grit.ucsb.edu</a> .</p>
 </section>
-<section id="setting-up-a-grit-account" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="setting-up-a-grit-account"><span class="header-section-number">4.4</span> Setting up a GRIT account</h2>
+<section id="setting-up-a-grit-account" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="setting-up-a-grit-account"><span class="header-section-number">11.4</span> Setting up a GRIT account</h2>
 <p>To use emLab’s HPC servers, you must have a GRIT account. Please refer to the <a href="https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#signing-up-for-an-account-with-grit">emLab Manual section on setting up and managing an account with GRIT</a>.</p>
 </section>
-<section id="using-sequoia" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="using-sequoia"><span class="header-section-number">4.5</span> Using sequoia</h2>
+<section id="using-sequoia" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="using-sequoia"><span class="header-section-number">11.5</span> Using sequoia</h2>
 <p>Sequoia leverages Open OnDemand (OOD), a system managed by GRIT to connect our HPC resources to commonly used software. OOD is accessed via an online dashboard in your web browser: <a href="https://hpc.grit.ucsb.edu" class="uri">https://hpc.grit.ucsb.edu</a></p>
 <p>Once at the website, you can use your GRIT user ID and password. The system does not require you to be on campus or use a VPN.</p>
 <p>Through OOD, you can use the following software:</p>
 <ul>
 <li>R Studio Server</li>
+<li>Positron Server</li>
 <li>Jupyter Notebook</li>
 <li>VS Code Server</li>
-<li>Positron (via a Linux remote desktop server)</li>
 </ul>
-<p>To use any of these, click “Interactive Apps”, then click on your software of choice (to access Positron, click “Desktop”). Each time you launch an interactive app, you need to specify the following up-front before launching the job:</p>
+<p>To use any of these, click “Interactive Apps”, then click on your software of choice. Note that Positron Server is technically accessed <em>through</em> Jupyter Notebooks; so to start a Positron Server session, click “Jupyter Notebook”.</p>
+<p>Each time you launch an interactive app, you need to specify the following up-front before launching the job:</p>
 <ul>
-<li><p>Partition name: Type <code>emlab_nodes</code> to use emLab’s private sequoia resources (this should be used in most cases). Alternatively, you can type <code>grit_nodes</code> to use GRIT’s campus-wide shared resources</p></li>
+<li><p>Partition name: Type <code>emlab_nodes</code> to use emLab’s private sequoia resources (this should be used in most cases). Alternatively, you can type <code>grit_nodes</code> to use GRIT’s campus-wide shared resources (note however that Positron Server is only available when using <code>emlab_nodes</code>, since we have a special license from Posit)</p></li>
 <li><p>Job duration (up to 168 hours): Your interactive session will run for this amount of time, and then shut down (you can cancel jobs before the ending time if you desire)</p></li>
 <li><p>Number of cores: How many CPU cores you want to use for your interactive session. Currently, we have this set to a maximum of 24 cores per session. Since sequoia is a shared resource, please be considerate of others when requesting cores. If you are unsure of how many cores to use, we have another section of the SOP below to help you figure this out.</p></li>
 <li><p>RAM: How much RAM you want to use for your interactive session. Currently, we have this set to a maximum of 256GB per session. Since sequoia is a shared resource, please be considerate of others when requesting cores. If you are unsure of how much RAM to use, we have another section of the SOP below to help you figure this out.</p></li>
 </ul>
 <p>Please do not enable to “Use GPU” option unless you have already discussed this with Kathy or Robert (it is only available on quebracho for land use projects at this time).</p>
 <p>Note that for convenience, your last used settings will be saved for the next time you launch an interactive app.</p>
-<p>Once you’ve configured your session, click “Launch”. It may take a few minutes for your session to start up. Once it is ready, you will see a link to open R Studio Server (or whichever app you selected). Click the link to open R Studio Server in a new browser tab.</p>
+<p>Once you’ve configured your session, click “Launch”. It may take a few minutes for your session to start up. Once it is ready, you will see a link to open whichever interactive app you selected. Click the link to open the app in a new browser tab.</p>
+<p>If you wish to use Positron Server, click the link for your Jupyter Notebook session; once this starts, you will see a link in the upper-right corner of the session for Positron under <code>Notebook</code>. Click this to launch Positron Server.</p>
+<p><img src="images/positron_in_juptyer.png" class="img-fluid"></p>
 <p>Note that you may use OOD to launch <em>multiple</em> interactive sessions at the same time! They are each still managed through SLURM.</p>
 <p>More resources for OOD are available on GRIT’s bookstack:</p>
 <ul>
@@ -308,8 +353,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p><a href="https://bookstack.grit.ucsb.edu/books/hpc-usage/page/vs-code-server">VS Code Server</a></p></li>
 </ul>
 </section>
-<section id="best-practices" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="best-practices"><span class="header-section-number">4.6</span> Best practices</h2>
+<section id="best-practices" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="best-practices"><span class="header-section-number">11.6</span> Best practices</h2>
 <p>Here we outline our best practices for using shared computational resources. These are meant to be living guidelines that will be adapted by our team as needed:</p>
 <ul>
 <li><p>Sharing is caring! Common courtesy can go a long way. As much as possible, try to use only the resources you need.</p></li>
@@ -319,8 +364,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Generally, we recommend piloting your code using a small subset of your data and/or just a single core, either on your local computer or on one of our HPC servers. Then once you know it works and have a sense of how much memory it will use and how long it will take to execute, you can go ahead and run the full analysis on the server. And if it looks like the full analysis will require resources beyond the standard recommend 24 cores and 256GB, coordinate with the team on the Slack channel <code>#hpc-core-dination</code>.</p></li>
 </ul>
 </section>
-<section id="resource-allocation" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="resource-allocation"><span class="header-section-number">4.7</span> Resource allocation</h2>
+<section id="resource-allocation" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="resource-allocation"><span class="header-section-number">11.7</span> Resource allocation</h2>
 <p>It is up to each researcher to: 1) decide how much computational resources they need prior to starting each job (i.e., how many cores and how much RAM will your job need); and 2) monitor their resource usage during each job to not only ensure they are not exceeding their allocated resources, but to help build personal awareness on how much resources certain jobs require. It will generally take each person some time to develop an intuition on how many resources each job will need; we always recommend piloting code locally on your own machine to start getting a sense for this. Additionally, as you use the server more and the tools below, you will further develop this intuition.</p>
 <p>Available tools:</p>
 <ul>
@@ -350,8 +395,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="using-quebracho" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="using-quebracho"><span class="header-section-number">4.8</span> Using quebracho</h2>
+<section id="using-quebracho" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="using-quebracho"><span class="header-section-number">11.8</span> Using quebracho</h2>
 <ol type="1">
 <li><p>On your local machine, connect to the UCSB Campus VPN. You can do so by downloading a VPN client for your operating system, such as Ivanti Pulse Secure. More details for connecting to the UCSB VPN and installation instructions are provided <a href="https://www.it.ucsb.edu/network-infrastructure-services/ivanti-connect-secure-campus-vpn">here</a>. Note: Even if you are on the UCSB campus you will still need to connect to the campus VPN.</p></li>
 <li><p>Once you’ve connected to the VPN, you are ready to access the server. You can access quebracho via SSH if you wish to use something like VS Code. To access R Studio Server, you can simply navigate to the following link. Once there, you will be prompted to enter your GRIT user ID and password. Once you’ve done this, you are ready to use R Studio Server!</p>
@@ -360,14 +405,14 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 </section>
-<section id="accessing-data" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="accessing-data"><span class="header-section-number">4.9</span> Accessing data</h2>
+<section id="accessing-data" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="accessing-data"><span class="header-section-number">11.9</span> Accessing data</h2>
 <p>Please refer to <a href="https://emlab-ucsb.github.io/SOP/1.3-grit-data-storage-space.html#grit-data-storage-space">this section</a> of the emLab SOP for a description of the data directory structure for our emLab GRIT data storage space.</p>
 <p>All data in the emLab GRIT data storage space can be directly accessed on each of the servers (sequoia and quebracho) without any changes to the directory paths. All data in the <code>emlab/data</code> and <code>emlab/projects/current-projects</code> directory physically lives on high-speed hard drives attached to sequoia, so if you need to work on data in these directories, you will have the best computing performance when using sequoia. Please refer to <a href="https://emlab-ucsb.github.io/SOP/2.3-accessing-emlab-data-in-r.html">this section</a> of the emLab SOP for a code snippet that can be used to directly access data on the server in R.</p>
 <p>In addition to having access to our emLab GRIT data storage space, which is shared across all members of our team, all individual users also have a private user-specific storage space. All GRIT users get a free 50GB personal storage space by default. As a general best practice, we recommend storing all data on the emLab data storage space, and only storing cloned GitHub repos and user-specific R packages and settings in your personal user space. For example, you should store all project-specific data in the appropriate directory under the emLab data storage space, but you should store all of your cloned GitHub repos s in your personal storage space. By default, when you clone repos from GitHub they are stored in your personal storage space, along with any of your user-specific R packages and configurations. If for whatever reason your personal storage space exceeds 50GB, it will stop working, so you should ensure you always have a safe buffer. However, we envision that if users only keep cloned GitHub repos and R packages in their personal user space, they should not need to worry about hitting the 50GB limit. You can check your current personal storage by typing df -h in the terminal and then looking for your username.</p>
 </section>
-<section id="accessing-code" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="accessing-code"><span class="header-section-number">4.10</span> Accessing code</h2>
+<section id="accessing-code" class="level2" data-number="11.10">
+<h2 data-number="11.10" class="anchored" data-anchor-id="accessing-code"><span class="header-section-number">11.10</span> Accessing code</h2>
 <p>Here we can talk about how to use the servers with GitHub code management. Essentially, you can work with projects and GitHub repositories on RStudio Server exactly like you can on your personal machine. One major difference is how to set up GitHub authentication, which is a little different on the servers than it would be on your personal machine. So we can provide explicit instructions on doing that.</p>
 <p>Please refer to <a href="https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#git-and-github">this section</a> of the emLab SOP for directions on how to set up and manage git and GitHub for your new server workspace. One important difference between your personal laptop and using a server is that file permissions may be such that other users can see and sometimes read or write files in your directories. Ideally, any confidential information such as your git credentials should be secured differently from your personal computer. Step 6 of the Git and Github section of the emLab manual is therefore not recommended in a multi-user server environment because your token may end up viewable to other users as plain text.<br>
 </p>
@@ -846,13 +891,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-code.html" class="pagination-link" aria-label="Code">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Code</span></span>
+      <a href="./10-eda.html" class="pagination-link" aria-label="Exploratory Data Analysis (EDA)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis (EDA)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-publications.html" class="pagination-link" aria-label="Reports and Publications">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./12-publications.html" class="pagination-link" aria-label="Reports and Publications">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

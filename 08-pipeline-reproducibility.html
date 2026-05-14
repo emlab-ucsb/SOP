@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Standard operating procedures for emLab projects">
+
+<title>8&nbsp; Pipeline Reproducibility – emLab Standard Operating Procedures</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./09-quarto.html" rel="next">
+<link href="./07-package-reproducibility.html" rel="prev">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-87b7f55de2e0c9887283481eb31a794c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-pipeline-reproducibility.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pipeline Reproducibility</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">emLab Standard Operating Procedures</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emlab-ucsb/SOP" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">File Structure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Coding at emLab</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-gh.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">GitHub</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-code-styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Code Styling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-code-documentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-package-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-pipeline-reproducibility.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pipeline Reproducibility</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis (EDA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-hpc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High Performance Computing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-publications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-philosophy-of-pipeline-management" id="toc-the-philosophy-of-pipeline-management" class="nav-link active" data-scroll-target="#the-philosophy-of-pipeline-management"><span class="header-section-number">8.1</span> The Philosophy of Pipeline Management</a></li>
+  <li><a href="#r-pipelines-the-targets-package" id="toc-r-pipelines-the-targets-package" class="nav-link" data-scroll-target="#r-pipelines-the-targets-package"><span class="header-section-number">8.2</span> R Pipelines: The targets Package</a>
+  <ul class="collapse">
+  <li><a href="#targets-repo-structure" id="toc-targets-repo-structure" class="nav-link" data-scroll-target="#targets-repo-structure"><span class="header-section-number">8.2.1</span> Targets repo Structure</a></li>
+  <li><a href="#functionalize-your-code" id="toc-functionalize-your-code" class="nav-link" data-scroll-target="#functionalize-your-code"><span class="header-section-number">8.2.2</span> Functionalize Your Code</a></li>
+  <li><a href="#sharing-the-data-store-across-users" id="toc-sharing-the-data-store-across-users" class="nav-link" data-scroll-target="#sharing-the-data-store-across-users"><span class="header-section-number">8.2.3</span> Sharing the Data Store across Users</a></li>
+  <li><a href="#multiple-pipelines-in-one-repo" id="toc-multiple-pipelines-in-one-repo" class="nav-link" data-scroll-target="#multiple-pipelines-in-one-repo"><span class="header-section-number">8.2.4</span> Multiple Pipelines in One Repo</a></li>
+  </ul></li>
+  <li><a href="#rendering-quarto-documents-in-a-targets-pipeline" id="toc-rendering-quarto-documents-in-a-targets-pipeline" class="nav-link" data-scroll-target="#rendering-quarto-documents-in-a-targets-pipeline"><span class="header-section-number">8.3</span> Rendering Quarto Documents in a <code>targets</code> Pipeline</a>
+  <ul class="collapse">
+  <li><a href="#why-not-just-use-targetstar_target" id="toc-why-not-just-use-targetstar_target" class="nav-link" data-scroll-target="#why-not-just-use-targetstar_target"><span class="header-section-number">8.3.1</span> Why not just use <code>targets::tar_target()</code>?</a></li>
+  <li><a href="#use-tarchetypestar_quarto-instead" id="toc-use-tarchetypestar_quarto-instead" class="nav-link" data-scroll-target="#use-tarchetypestar_quarto-instead"><span class="header-section-number">8.3.2</span> Use <code>tarchetypes::tar_quarto()</code> instead</a></li>
+  </ul></li>
+  <li><a href="#non-r-pipelines-gnu-make" id="toc-non-r-pipelines-gnu-make" class="nav-link" data-scroll-target="#non-r-pipelines-gnu-make"><span class="header-section-number">8.4</span> Non-R Pipelines: GNU Make</a>
+  <ul class="collapse">
+  <li><a href="#the-makefile-syntax" id="toc-the-makefile-syntax" class="nav-link" data-scroll-target="#the-makefile-syntax"><span class="header-section-number">8.4.1</span> The Makefile Syntax</a></li>
+  <li><a href="#example-workflow-pythonstata" id="toc-example-workflow-pythonstata" class="nav-link" data-scroll-target="#example-workflow-pythonstata"><span class="header-section-number">8.4.2</span> Example Workflow (Python/Stata)</a></li>
+  <li><a href="#how-to-use-make" id="toc-how-to-use-make" class="nav-link" data-scroll-target="#how-to-use-make"><span class="header-section-number">8.4.3</span> How to use Make</a></li>
+  </ul></li>
+  <li><a href="#minimum-requirement-readme-documentation" id="toc-minimum-requirement-readme-documentation" class="nav-link" data-scroll-target="#minimum-requirement-readme-documentation"><span class="header-section-number">8.5</span> Minimum Requirement: README Documentation</a></li>
+  <li><a href="#best-practices-for-all-pipelines" id="toc-best-practices-for-all-pipelines" class="nav-link" data-scroll-target="#best-practices-for-all-pipelines"><span class="header-section-number">8.6</span> Best Practices for All Pipelines</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-pipeline-reproducibility" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pipeline Reproducibility</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Modern research workflows often involve complex, interconnected scripts where the output of one file is the input for the next. Traditional sequential approaches (e.g., first running <code>01_clean.R</code>, then running <code>02_model.R</code>) are prone to error: if you change a parameter in <code>01_clean.R</code>, you must remember to manually re-run everything downstream.</p>
+<p>To ensure end-to-end reproducibility and efficiency, <strong>emLab projects should use automated pipeline tools.</strong> These tools track dependencies, skip tasks that are already up-to-date, and provide a clear map of the research workflow.</p>
+<section id="the-philosophy-of-pipeline-management" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="the-philosophy-of-pipeline-management"><span class="header-section-number">8.1</span> The Philosophy of Pipeline Management</h2>
+<p>Adopting a pipeline tool is not just about learning a new package; it is a shift in research philosophy. We use these tools for several critical reasons:</p>
+<ul>
+<li><strong>Resilience to Change:</strong> In research, data is rarely static. If a raw dataset is updated or a cleaning parameter is tweaked, manual workflows require the researcher to remember every downstream script affected. Automated pipelines handle this bookkeeping for you, ensuring the “state” of your results always matches the “state” of your code.<br>
+</li>
+<li><strong>Efficiency and “Lazy” Computing:</strong> Many emLab analyses involve long-running operations (e.g., processing GFW data or training complex models). Pipeline tools are “lazy”—they only execute a task if its inputs or the code itself has changed. This saves hours of unnecessary computation and allows for rapid iteration on specific parts of the analysis.<br>
+</li>
+<li><strong>Trust and Transparency:</strong> A pipeline tool serves as a “living” README. Instead of trusting a narrative description of how the analysis was run, a collaborator can look at a dependency graph and see exactly how every figure and table was derived.<br>
+</li>
+<li><strong>Collaborative Scalability:</strong> In a team setting, pipelines reduce the “cognitive load” for new members. A new researcher can clone a repository and run a single command to see the entire project in action, rather than guessing which scripts are current and which are experimental leftovers.</li>
+</ul>
+</section>
+<section id="r-pipelines-the-targets-package" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="r-pipelines-the-targets-package"><span class="header-section-number">8.2</span> R Pipelines: The targets Package</h2>
+<p>For projects primarily using R, we highly recommend the <a href="https://books.ropensci.org/targets/">targets</a> package. targets maintains a persistent cache and only re-runs the specific parts of your analysis that have changed.</p>
+<section id="targets-repo-structure" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="targets-repo-structure"><span class="header-section-number">8.2.1</span> Targets repo Structure</h3>
+<p>A targets project typically follows this directory structure:</p>
+<pre><code>project/  
+├── _targets.R          # The "instruction manual" for the pipeline  
+├── R/                  # Folder containing modular functions  
+│   ├── functions.R       
+├── data/               # Raw data  
+├── _targets/           # (Automatic) Local cache/metadata  
+└── report.qmd          # Final output (e.g., paper figures and statistics)</code></pre>
+</section>
+<section id="functionalize-your-code" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="functionalize-your-code"><span class="header-section-number">8.2.2</span> Functionalize Your Code</h3>
+<p>Instead of long scripts, write small, modular functions in the <code>R/</code> directory. Each function should do one thing (e.g., “clean the sea surface temperature data”).</p>
+<p>The <code>_targets.R</code> file defines the relationship between data, code, and outputs.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/functions.R"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_option_set</span>(<span class="at">packages =</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"sf"</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Track a raw data file</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(raw_data_file, <span class="st">"data/raw_samples.csv"</span>, <span class="at">format =</span> <span class="st">"file"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clean data using a custom function from R/functions.R</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(data_cleaned, <span class="fu">clean_my_data</span>(raw_data_file)),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Run a model</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(model_results, <span class="fu">run_analysis</span>(data_cleaned)),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Render a Quarto report</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  tarchetypes<span class="sc">::</span><span class="fu">tar_quarto</span>(final_report, <span class="st">"report.qmd"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="sharing-the-data-store-across-users" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="sharing-the-data-store-across-users"><span class="header-section-number">8.2.3</span> Sharing the Data Store across Users</h3>
+<p>By default, targets stores its data in a local <code>_targets/</code> folder. Where you store this folder depends on the size of your objects:</p>
+<ul>
+<li><strong>Small Objects (&lt;50MB per file):</strong> You can keep the <code>_targets/</code> folder in your GitHub repository. However, you must ensure you aren’t committing large binary files that will bloat the repo history.<br>
+</li>
+<li><strong>Large Research Data:</strong> For most emLab projects, analysis objects are too large for GitHub. In these cases, you should move the data store to emLab’s shared infrastructure (Nextcloud GRIT storage).</li>
+</ul>
+<section id="automating-path-detection" class="level4" data-number="8.2.3.1">
+<h4 data-number="8.2.3.1" class="anchored" data-anchor-id="automating-path-detection"><span class="header-section-number">8.2.3.1</span> Automating Path Detection</h4>
+<p>To ensure your pipeline works seamlessly across different team members’ machines and our GRIT servers (quebracho or sequoia), use the following boilerplate at the top of your <code>_targets.R</code> file:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine base directory based on system/nodename</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data_directory_base <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.info</span>()[<span class="st">"nodename"</span>] <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"quebracho"</span>, <span class="st">"sequoia"</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"/home/emlab"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Sys.info</span>()[<span class="st">"sysname"</span>] <span class="sc">==</span> <span class="st">"Darwin"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"/Users/Shared/nextcloud/emLab"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ifelse</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">Sys.info</span>()[<span class="st">"sysname"</span>] <span class="sc">==</span> <span class="st">"Windows"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"G:/Shared drives/nextcloud/emLab"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">"/home/your_username/Nextcloud"</span> <span class="co"># Fallback for Linux users</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Define project-specific directory</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>project_directory <span class="ot">&lt;-</span> glue<span class="sc">::</span><span class="fu">glue</span>(</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"{data_directory_base}/projects/current-projects/your-project-name"</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Set targets store to appropriate GRIT/Nextcloud directory</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_config_set</span>(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">project =</span> <span class="st">"your_project_pipeline"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">script =</span> <span class="st">"_targets.R"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">store =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{project_directory}/data/_targets"</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Crucially:</strong> When using a shared store, only one person should run <code>tar_make()</code> at a time to avoid write conflicts in the metadata. Targets will not allow simultaneous runs.</p>
+</section>
+</section>
+<section id="multiple-pipelines-in-one-repo" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="multiple-pipelines-in-one-repo"><span class="header-section-number">8.2.4</span> Multiple Pipelines in One Repo</h3>
+<p>Complex emLab projects often require split pipelines. For example:</p>
+<ol type="1">
+<li><strong>Pipeline A (Data Ingestion):</strong> Pulls heavy data from BigQuery/GFW. Requires specific credentials and often runs on the emLab server/GRIT.<br>
+</li>
+<li><strong>Pipeline B (Analysis):</strong> Uses the pulled data for modeling. Accessible to all team members for local iteration.</li>
+</ol>
+<p>To manage this, create two separate target files (e.g., <code>_targets_data.R</code> and <code>_targets_analysis.R</code>) and a <code>_targets.yaml</code> file in the root directory to define them:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># _targets.yaml</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data_pipeline</span><span class="kw">:</span><span class="at">  </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span><span class="at"> _targets_data.R  </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">store</span><span class="kw">:</span><span class="at"> _targets_data_store  </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">analysis_pipeline</span><span class="kw">:</span><span class="at">  </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span><span class="at"> _targets_analysis.R  </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">store</span><span class="kw">:</span><span class="at"> _targets_analysis_store</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can then run them specifically from the console:<br>
+<code>tar_make(script = "_targets_data.R", store = "_targets_data_store")</code></p>
+</section>
+</section>
+<section id="rendering-quarto-documents-in-a-targets-pipeline" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="rendering-quarto-documents-in-a-targets-pipeline"><span class="header-section-number">8.3</span> Rendering Quarto Documents in a <code>targets</code> Pipeline</h2>
+<p>When your <code>targets</code> pipeline produces a Quarto document, the render step should be the last target in your pipeline — and how you define it matters. The right tool for this is <code>tarchetypes::tar_quarto()</code>.</p>
+<section id="why-not-just-use-targetstar_target" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="why-not-just-use-targetstar_target"><span class="header-section-number">8.3.1</span> Why not just use <code>targets::tar_target()</code>?</h3>
+<p>It might seem natural to call the Quarto render function inside a regular target:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Not recommended</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_target</span>(report, quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"analysis/final_report.qmd"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The issue is that <code>targets</code> sees this as an opaque function call with no connection to the rest of your pipeline - it does not know which targets are refereced inside the quarto doc. It has no way of knowing which upstream targets the document reads, so it cannot tell when the document is out-of-date. In practice, this means you either re-render unnecessarily on every <code>tar_make()</code> run, or — worse — end up with a stale report that <code>targets</code> believes is current.</p>
+</section>
+<section id="use-tarchetypestar_quarto-instead" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="use-tarchetypestar_quarto-instead"><span class="header-section-number">8.3.2</span> Use <code>tarchetypes::tar_quarto()</code> instead</h3>
+<p><code>tarchetypes::tar_quarto()</code> fixes this by scanning your <code>.qmd</code> file for <code>targets::tar_read()</code> and <code>targets::tar_load()</code>, so that it can recognize any target objects that are called as explicit upstream dependencies. The document is then re-rendered only when one of those dependencies has actually changed.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recommended</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tarchetypes<span class="sc">::</span><span class="fu">tar_quarto</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> quarto_notebook,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">"qmd/quarto_notebook.qmd"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">quiet =</span> <span class="cn">FALSE</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Inside your <code>.qmd</code> file, use <code>targets::tar_read(target_name)</code> or <code>targets::tar_load(target_name)</code> to access pipeline results. These are the calls that <code>tarchetypes::tar_quarto()</code> scans to build the dependency graph, so make sure all pipeline inputs are accessed this way rather than loaded through other means.</p>
+<p>Using <code>targets::tar_target()</code> directly is technically possible, but you would need to manually declare all dependencies yourself to get correct invalidation behavior. We therefore strongly recommend <code>tarchetypes::tar_quarto()</code> for most use cases.</p>
+</section>
+</section>
+<section id="non-r-pipelines-gnu-make" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="non-r-pipelines-gnu-make"><span class="header-section-number">8.4</span> Non-R Pipelines: GNU Make</h2>
+<p>For projects using Python, Stata, or a mix of languages, we recommend <a href="https://www.gnu.org/software/make/">GNU Make</a>. Make uses a Makefile to define “rules” for creating files.</p>
+<section id="the-makefile-syntax" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="the-makefile-syntax"><span class="header-section-number">8.4.1</span> The Makefile Syntax</h3>
+<p>A rule consists of a <strong>target</strong> (the file you want to create), <strong>prerequisites</strong> (files it depends on), and a <strong>recipe</strong> (the command to run).<br>
+target: prerequisites<br>
+recipe</p>
+</section>
+<section id="example-workflow-pythonstata" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="example-workflow-pythonstata"><span class="header-section-number">8.4.2</span> Example Workflow (Python/Stata)</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Makefile</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run everything</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">all:</span> results/paper.pdf</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean raw data (Python)</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">data/processed.csv:</span> scripts/clean_data.py data/raw.csv</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">python</span> scripts/clean_data.py</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run analysis (Stata)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ex">results/model_output.log:</span> scripts/analysis.do data/processed.csv</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">stata</span> <span class="at">-batch</span> do scripts/analysis.do</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Render report (Quarto)</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="ex">results/paper.pdf:</span> paper.qmd results/model_output.log</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">quarto</span> render paper.qmd <span class="at">--to</span> pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="how-to-use-make" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="how-to-use-make"><span class="header-section-number">8.4.3</span> How to use Make</h3>
+<ul>
+<li><strong>Run the pipeline:</strong> Simply type make in your terminal. Make will check the timestamps of all files and only run the steps where the prerequisites are newer than the target.<br>
+</li>
+<li><strong>Dry run:</strong> Type make -n to see what commands <em>would</em> be run without actually executing them.</li>
+</ul>
+</section>
+</section>
+<section id="minimum-requirement-readme-documentation" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="minimum-requirement-readme-documentation"><span class="header-section-number">8.5</span> Minimum Requirement: README Documentation</h2>
+<p>If a project does not yet use an automated tool like targets or Make, it is <strong>mandatory</strong> to provide a detailed “How to Run” section in the repository’s README.md. At a absolute minimum, this must include:</p>
+<ol type="1">
+<li><strong>Script Execution Order:</strong> A numbered list of scripts in the exact order they must be run.<br>
+</li>
+<li><strong>Dependencies:</strong> Which data files are required for each script and which outputs they produce.<br>
+</li>
+<li><strong>Environment Setup:</strong> Instructions on how to set up the necessary libraries or software versions (e.g., using renv or conda).</li>
+</ol>
+</section>
+<section id="best-practices-for-all-pipelines" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="best-practices-for-all-pipelines"><span class="header-section-number">8.6</span> Best Practices for All Pipelines</h2>
+<ol type="1">
+<li><strong>Documentation is Mandatory:</strong> No matter what pipeline or tool is used, the repository README.md must clearly document how to execute the analysis. A new collaborator should be able to clone the repo and know exactly which command to run (e.g., “Run tar_make() in the R console” or “Type make in the terminal”).<br>
+</li>
+<li><strong>Atomic Steps:</strong> Each step in the pipeline should be small enough to be easily understood but large enough to justify being its own “target.”<br>
+</li>
+<li><strong>File Tracking:</strong> Always include the script itself as a prerequisite/dependency. If you change the code, the output should be considered “outdated.”<br>
+</li>
+<li><strong>No Manual Interventions:</strong> A pipeline is only reproducible if it can be run from start to finish on a new machine without a human clicking “save,” “export,” or manually moving files in the middle.</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./07-package-reproducibility.html" class="pagination-link" aria-label="Package and Language Version Management">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./09-quarto.html" class="pagination-link" aria-label="Quarto">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

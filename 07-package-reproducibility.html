@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Standard operating procedures for emLab projects">
+
+<title>7&nbsp; Package and Language Version Management – emLab Standard Operating Procedures</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./08-pipeline-reproducibility.html" rel="next">
+<link href="./06-code-documentation.html" rel="prev">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-87b7f55de2e0c9887283481eb31a794c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-package-reproducibility.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">emLab Standard Operating Procedures</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/emlab-ucsb/SOP" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">File Structure</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Coding at emLab</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-gh.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">GitHub</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-code-styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Code Styling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-code-documentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-package-reproducibility.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pipeline Reproducibility</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis (EDA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-hpc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High Performance Computing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-publications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#r" id="toc-r" class="nav-link active" data-scroll-target="#r"><span class="header-section-number">7.1</span> R</a>
+  <ul class="collapse">
+  <li><a href="#r-version-management" id="toc-r-version-management" class="nav-link" data-scroll-target="#r-version-management"><span class="header-section-number">7.1.1</span> R Version Management</a></li>
+  <li><a href="#package-version-management-with-renv" id="toc-package-version-management-with-renv" class="nav-link" data-scroll-target="#package-version-management-with-renv"><span class="header-section-number">7.1.2</span> Package Version Management with <code>renv</code></a></li>
+  <li><a href="#posit-package-manager-ppm" id="toc-posit-package-manager-ppm" class="nav-link" data-scroll-target="#posit-package-manager-ppm"><span class="header-section-number">7.1.3</span> Posit Package Manager (PPM)</a></li>
+  <li><a href="#common-pitfalls-troubleshooting-r" id="toc-common-pitfalls-troubleshooting-r" class="nav-link" data-scroll-target="#common-pitfalls-troubleshooting-r"><span class="header-section-number">7.1.4</span> Common Pitfalls &amp; Troubleshooting (R)</a></li>
+  </ul></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">7.2</span> Python</a>
+  <ul class="collapse">
+  <li><a href="#python-version-management" id="toc-python-version-management" class="nav-link" data-scroll-target="#python-version-management"><span class="header-section-number">7.2.1</span> Python Version Management</a></li>
+  <li><a href="#virtual-environments-venv" id="toc-virtual-environments-venv" class="nav-link" data-scroll-target="#virtual-environments-venv"><span class="header-section-number">7.2.2</span> Virtual Environments (<code>venv</code>)</a></li>
+  <li><a href="#dependency-tracking" id="toc-dependency-tracking" class="nav-link" data-scroll-target="#dependency-tracking"><span class="header-section-number">7.2.3</span> Dependency Tracking</a></li>
+  <li><a href="#conda-and-mamba" id="toc-conda-and-mamba" class="nav-link" data-scroll-target="#conda-and-mamba"><span class="header-section-number">7.2.4</span> Conda and Mamba</a></li>
+  <li><a href="#common-pitfalls-troubleshooting-python" id="toc-common-pitfalls-troubleshooting-python" class="nav-link" data-scroll-target="#common-pitfalls-troubleshooting-python"><span class="header-section-number">7.2.5</span> Common Pitfalls &amp; Troubleshooting (Python)</a></li>
+  </ul></li>
+  <li><a href="#summary-table" id="toc-summary-table" class="nav-link" data-scroll-target="#summary-table"><span class="header-section-number">7.3</span> Summary Table</a></li>
+  <li><a href="#external-resources-further-reading" id="toc-external-resources-further-reading" class="nav-link" data-scroll-target="#external-resources-further-reading"><span class="header-section-number">7.4</span> External Resources &amp; Further Reading</a>
+  <ul class="collapse">
+  <li><a href="#r-package-management" id="toc-r-package-management" class="nav-link" data-scroll-target="#r-package-management"><span class="header-section-number">7.4.1</span> R &amp; Package Management</a></li>
+  <li><a href="#python-environment-management" id="toc-python-environment-management" class="nav-link" data-scroll-target="#python-environment-management"><span class="header-section-number">7.4.2</span> Python &amp; Environment Management</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-package-reproducibility" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This “future-proofing” approach prevents the common frustration where code breaks because a package was updated or a system dependency changed.</p>
+<section id="r" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="r"><span class="header-section-number">7.1</span> R</h2>
+<p>For R projects, we manage three distinct layers of the environment: the R version itself, the project-specific library of R packages, and the source of the packages. By managing each of these layers, we ensure that an update to your global R installation doesn’t inadvertently break a legacy project.</p>
+<section id="r-version-management" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="r-version-management"><span class="header-section-number">7.1.1</span> R Version Management</h3>
+<p>Before managing packages, we must manage R itself. Different versions of R can introduce breaking changes in the underlying C++ code or require different package binaries. Using the “latest” version of R is often fine for new work, but reproducing an analysis from three years ago often requires the exact R version used at that time.</p>
+<section id="using-positron-recommended" class="level4" data-number="7.1.1.1">
+<h4 data-number="7.1.1.1" class="anchored" data-anchor-id="using-positron-recommended"><span class="header-section-number">7.1.1.1</span> Using Positron (Recommended)</h4>
+<p>If you use <a href="https://positron.posit.co/">Positron</a>, managing multiple R versions is built in. Positron detects all R installations on your machine and lets you switch between them per-session from the interpreter selector in the top-right corner of the IDE — no command-line tools required. To install a new R version, download and install it from <a href="https://cran.r-project.org/">CRAN</a> and Positron will pick it up automatically.</p>
+</section>
+<section id="using-rig-non-positron-users" class="level4" data-number="7.1.1.2">
+<h4 data-number="7.1.1.2" class="anchored" data-anchor-id="using-rig-non-positron-users"><span class="header-section-number">7.1.1.2</span> Using <code>rig</code> (Non-Positron Users)</h4>
+<p>If you are not using Positron, we recommend <a href="https://github.com/r-lib/rig"><strong>rig</strong> (The R Installation Manager)</a> to handle multiple R versions on a single machine seamlessly.</p>
+<ul>
+<li><strong>Why use rig?</strong> It allows you to quickly switch between R versions without manual uninstalls. Crucially, it installs R in a way that doesn’t require <code>sudo</code> privileges for library paths, preventing permissions issues that often plague multi-user servers. This ensures that <code>renv</code> is always drawing from the correct, isolated R binary.</li>
+<li><strong>Workflow:</strong>
+<ul>
+<li><strong>Installation:</strong> Install the version specified in the project documentation (e.g., <code>rig add 4.3.2</code>).</li>
+<li><strong>Context Switching:</strong> Use <code>rig default 4.3.2</code> to set the system-wide default, or use <code>rig run &lt;version&gt;</code> to start a specific session.</li>
+</ul></li>
+</ul>
+</section>
+<section id="documentation" class="level4" data-number="7.1.1.3">
+<h4 data-number="7.1.1.3" class="anchored" data-anchor-id="documentation"><span class="header-section-number">7.1.1.3</span> Documentation</h4>
+<p>Regardless of how you manage R versions, always document the R version used in the project’s <code>README.md</code> and ensure it matches the <code>R</code> field in the <code>renv.lock</code> file.</p>
+</section>
+</section>
+<section id="package-version-management-with-renv" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="package-version-management-with-renv"><span class="header-section-number">7.1.2</span> Package Version Management with <code>renv</code></h3>
+<p>Every emLab project should be “hermetic”—meaning its packages are isolated from the rest of your system. We use <a href="https://rstudio.github.io/renv/articles/renv.html"><strong>renv</strong></a> to create a private library of packages for each project.</p>
+<ul>
+<li><strong>Initialization:</strong> Run <code>renv::init()</code> at the start of a project. This creates a local <code>.Rprofile</code> that tells R to use a project-specific library instead of your global one.</li>
+<li><strong>Daily Workflow:</strong>
+<ul>
+<li><code>renv::snapshot()</code>: Save the state of your library to the <code>renv.lock</code> file. This JSON file contains the exact version and source (CRAN, GitHub, Bioconductor) of every package. <strong>Commit this file to GitHub.</strong></li>
+<li><code>renv::status()</code>: Frequently check if your local library is in sync with your lockfile.</li>
+<li><code>renv::restore()</code>: When pulling changes from GitHub, run this to sync your local library with the project’s lockfile. This is the “magic button” that rebuilds the environment on a colleague’s computer.</li>
+</ul></li>
+<li><strong>Efficiency:</strong> <code>renv</code> uses a global cache. This means that if ten different projects use <code>ggplot2</code> version 3.4.0, it is only stored on your hard drive once, but linked into each project’s library.</li>
+<li><strong>Collaboration:</strong> Never include the <code>renv/library</code> folder in your git commits (it should be in <code>.gitignore</code>). Only commit the <code>renv.lock</code>, <code>.Rprofile</code>, and <code>renv/activate.R</code> files.</li>
+</ul>
+</section>
+<section id="posit-package-manager-ppm" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="posit-package-manager-ppm"><span class="header-section-number">7.1.3</span> Posit Package Manager (PPM)</h3>
+<p>To ensure that <code>renv::restore()</code> always finds the exact same package versions and to speed up installation via pre-compiled binaries, we use <a href="https://packagemanager.posit.co/">Posit Package Manager</a>.</p>
+<ul>
+<li><p><strong>Fixed Snapshots:</strong> Instead of pointing to the “latest” CRAN, which changes daily, we point to a specific “frozen” date. This eliminates the risk of “dependency hell” where Package A updates and is no longer compatible with Package B.</p></li>
+<li><p><strong>Binary Advantages:</strong> PPM provides binaries for specific Linux distributions (like Ubuntu Jammy). This means that instead of waiting 20 minutes to compile a complex spatial package like <code>sf</code> or <code>terra</code> from source, you can download a pre-built version in seconds.</p></li>
+<li><p><strong>Configuration:</strong> You can configure your IDE (RStudio or Positron) to use PPM by default for all new work so you don’t have to manually call the options every time.</p></li>
+</ul>
+<section id="the-universal-r-profile-recommended" class="level4" data-number="7.1.3.1">
+<h4 data-number="7.1.3.1" class="anchored" data-anchor-id="the-universal-r-profile-recommended"><span class="header-section-number">7.1.3.1</span> The Universal R Profile (Recommended)</h4>
+<p>In your R console, run the following to edit your <code>.Rprofile</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Paste the following line and save:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">PPM =</span> <span class="st">"https://packagemanager.posit.co/cran/__linux__/jammy/latest"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="ide-specific-options" class="level4" data-number="7.1.3.2">
+<h4 data-number="7.1.3.2" class="anchored" data-anchor-id="ide-specific-options"><span class="header-section-number">7.1.3.2</span> IDE-specific options</h4>
+<ul>
+<li><p><em>RStudio</em>: Go to Tools &gt; Global Options… &gt; Packages and paste the PPM URL into the “Primary CRAN repository” field.</p></li>
+<li><p><em>Positron</em>: Open Settings (Cmd + ,), search for r.defaultRepositories, and add the CRAN/PPM URL to your <code>settings.json.</code></p></li>
+</ul>
+<p><strong>IMPORTANT</strong> Global vs.&nbsp;Project Settings: Global defaults are for your convenience. However, you must still include the specific repository URL in each project’s <code>.Rprofile</code> to ensure reproducibility for your collaborators.</p>
+</section>
+</section>
+<section id="common-pitfalls-troubleshooting-r" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="common-pitfalls-troubleshooting-r"><span class="header-section-number">7.1.4</span> Common Pitfalls &amp; Troubleshooting (R)</h3>
+<p>Using <code>rig</code> and <code>renv</code> together is robust, but keep an eye out for these common issues that can stall a project:</p>
+<ul>
+<li><strong>The R Version Mismatch:</strong> You might open a project and find <code>renv</code> complaining that it was initialized with R 4.2.0 while you are currently running 4.4.1.
+<ul>
+<li><strong>The Consequence:</strong> R may try to install packages meant for a newer version into an older environment, causing “binary not found” errors.</li>
+<li><strong>The Fix:</strong> Use <code>rig run 4.2.0</code> (or set it as default) before opening the project. Always check your current R version with <code>version</code> or <code>R.version.string</code> if things feel “off.”</li>
+</ul></li>
+<li><strong>Stale Lockfiles:</strong> If you install a new package via <code>install.packages()</code> but forget to run <code>renv::snapshot()</code>, your <code>renv.lock</code> file won’t reflect the change.
+<ul>
+<li><strong>The Consequence:</strong> When a collaborator tries to <code>renv::restore()</code>, they won’t get the new package, and their code will break with “package not found.”</li>
+<li><strong>The Fix:</strong> Make <code>renv::status()</code> a habit before you commit and push to GitHub. It will tell you if your lockfile and library are out of sync.</li>
+</ul></li>
+<li><strong>Missing System Dependencies:</strong> <code>renv</code> manages R packages, but it does <strong>not</strong> manage system-level software like GDAL, GEOS, or PROJ (essential for emLab spatial work).
+<ul>
+<li><strong>The Consequence:</strong> Package installation fails during the “compilation” phase with cryptic errors about missing headers or <code>.so</code> files.</li>
+<li><strong>The Fix:</strong> You must install the system library on your OS (e.g., via <code>brew install gdal</code> on Mac or <code>sudo apt install libgdal-dev</code> on Linux) before <code>renv</code> can successfully build the R package.</li>
+</ul></li>
+<li><strong>Committing the Library:</strong> Occasionally, users accidentally add the <code>renv/library</code> folder to Git.
+<ul>
+<li><strong>The Consequence:</strong> This bloats the repository size by hundreds of megabytes and causes errors for others because those binaries are specific to your operating system and R version.</li>
+<li><strong>The Fix:</strong> Ensure your <code>.gitignore</code> includes <code>renv/library/</code>. If you’ve already committed it, you’ll need to use <code>git rm -r --cached renv/library</code> to remove it from tracking.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="python" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="python"><span class="header-section-number">7.2</span> Python</h2>
+<p>For Python, we follow a similar isolation philosophy as we do with R to avoid “dependency drift.”</p>
+<section id="python-version-management" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="python-version-management"><span class="header-section-number">7.2.1</span> Python Version Management</h3>
+<p>Specifying the Python version your project uses is just as important as pinning package versions. New Python releases can introduce breaking syntax changes, and your collaborators may have different versions installed.</p>
+<section id="using-positron-recommended-1" class="level4" data-number="7.2.1.1">
+<h4 data-number="7.2.1.1" class="anchored" data-anchor-id="using-positron-recommended-1"><span class="header-section-number">7.2.1.1</span> Using Positron (Recommended)</h4>
+<p>If you use <a href="https://positron.posit.co/">Positron</a>, it automatically detects all Python interpreters on your machine — including those managed by <code>pyenv</code>, Conda, or system installs — and lets you select the interpreter per-project from the interpreter selector in the top-right corner of the IDE. This means you can switch Python versions without touching the command line.</p>
+</section>
+<section id="using-pyenv-non-positron-users" class="level4" data-number="7.2.1.2">
+<h4 data-number="7.2.1.2" class="anchored" data-anchor-id="using-pyenv-non-positron-users"><span class="header-section-number">7.2.1.2</span> Using <code>pyenv</code> (Non-Positron Users)</h4>
+<p>If you are not using Positron, <a href="https://github.com/pyenv/pyenv"><strong>pyenv</strong></a> is the standard tool for managing multiple Python versions on a single machine.</p>
+<ul>
+<li><strong>Installation:</strong> Follow the <a href="https://github.com/pyenv/pyenv-installer">pyenv installer</a> instructions for your OS.</li>
+<li><strong>Install a version:</strong> <code>pyenv install 3.11.9</code></li>
+<li><strong>Set a project version:</strong> Run <code>pyenv local 3.11.9</code> in your project directory. This creates a <code>.python-version</code> file that pyenv reads automatically whenever you enter that directory. Commit this file to GitHub so collaborators use the same version.</li>
+<li><strong>Set a global default:</strong> <code>pyenv global 3.11.9</code></li>
+</ul>
+</section>
+<section id="documentation-1" class="level4" data-number="7.2.1.3">
+<h4 data-number="7.2.1.3" class="anchored" data-anchor-id="documentation-1"><span class="header-section-number">7.2.1.3</span> Documentation</h4>
+<p>Regardless of how you manage Python versions, document the required version in the project <code>README.md</code> and specify it explicitly in your <code>environment.yml</code> (for Conda/Mamba projects) or <code>.python-version</code> file.</p>
+</section>
+</section>
+<section id="virtual-environments-venv" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="virtual-environments-venv"><span class="header-section-number">7.2.2</span> Virtual Environments (<code>venv</code>)</h3>
+<p>Avoid installing packages to your “Global” Python, as this can break system-level tools. Always create a virtual environment within your project directory to keep dependencies contained.</p>
+<ul>
+<li><strong>Convention:</strong> We use the name <code>.venv</code> for our environment folders.</li>
+<li><strong>Creation:</strong> <code>python -m venv .venv</code></li>
+<li><strong>Activation:</strong>
+<ul>
+<li>Windows: <code>.venv\Scripts\activate</code></li>
+<li>Mac/Linux: <code>source .venv/bin/activate</code></li>
+<li>Once activated, your terminal prompt will usually change to show <code>(.venv)</code>, indicating that any <code>pip install</code> commands will only affect this project.</li>
+</ul></li>
+<li><strong>Git:</strong> Ensure <code>.venv/</code> is added to your <code>.gitignore</code> to prevent committing thousands of small library files.</li>
+</ul>
+</section>
+<section id="dependency-tracking" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="dependency-tracking"><span class="header-section-number">7.2.3</span> Dependency Tracking</h3>
+<p>To replicate a Python environment, we use <code>requirements.txt</code> for standard pip-based projects or <code>environment.yml</code> for more complex stacks.</p>
+<ul>
+<li><strong>The Importance of Pinning:</strong> Simply listing <code>pandas</code> in a file is not enough; we should list <code>pandas==2.1.0</code>. This prevents “silent failures” where code runs but produces different numerical results due to underlying algorithm changes in newer package versions.</li>
+<li><strong>Exporting:</strong> Use <code>pip freeze &gt; requirements.txt</code> to capture every sub-dependency and its exact version.</li>
+<li><strong>Installing:</strong> When joining a project, run <code>pip install -r requirements.txt</code> to recreate the environment instantly.</li>
+</ul>
+</section>
+<section id="conda-and-mamba" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="conda-and-mamba"><span class="header-section-number">7.2.4</span> Conda and Mamba</h3>
+<p>For projects with complex non-Python dependencies—specifically spatial libraries like GDAL, GEOS, or PROJ—standard pip often fails. In these cases, we recommend <a href="https://mamba.readthedocs.io/en/latest/"><strong>Mamba</strong></a>.</p>
+<ul>
+<li><strong>Why Mamba?</strong> Standard Conda can take hours to “solve” a complex environment (finding a set of versions that all work together). Mamba is a C++ implementation that does this in seconds.</li>
+<li><strong>Environment Files:</strong> Use an <code>environment.yml</code> file to define both the Python version and the required packages from the <code>conda-forge</code> channel.</li>
+<li><strong>Documentation:</strong> Document the creation command clearly: <code>mamba env create -f environment.yml</code></li>
+</ul>
+</section>
+<section id="common-pitfalls-troubleshooting-python" class="level3" data-number="7.2.5">
+<h3 data-number="7.2.5" class="anchored" data-anchor-id="common-pitfalls-troubleshooting-python"><span class="header-section-number">7.2.5</span> Common Pitfalls &amp; Troubleshooting (Python)</h3>
+<p>Python environment management is notoriously “leaky.” Even with virtual environments, it is easy to accidentally run code in the wrong context. Watch out for these common emLab hurdles:</p>
+<ul>
+<li><strong>The “Shadow” Global Install:</strong> You run <code>pip install</code> without realizing your virtual environment isn’t active.
+<ul>
+<li><strong>The Consequence:</strong> The package is installed to your system’s global Python. Your code runs fine on your machine, but when you share the <code>requirements.txt</code> or <code>environment.yml</code> file, the package is missing, and your collaborator’s code fails.</li>
+<li><strong>The Fix:</strong> Always check your terminal prompt for the <code>(.venv)</code> prefix. When in doubt, run <code>which python</code> (Mac/Linux) or <code>where python</code> (Windows) to ensure it points to your project folder, not <code>/usr/bin/python</code>.</li>
+</ul></li>
+<li><strong>Mixing Pip and Conda:</strong> You use <code>pip install</code> inside a Mamba/Conda environment for a package that has complex C-dependencies.
+<ul>
+<li><strong>The Consequence:</strong> This is the leading cause of “Environment Inconsistency” errors. Pip and Conda do not communicate well; Pip might overwrite a library that Conda relies on, leading to a broken environment that won’t update.</li>
+<li><strong>The Fix:</strong> If you are using Mamba, <strong>always</strong> try <code>mamba install package_name</code> first. Only use <code>pip install</code> if the package is unavailable on <code>conda-forge</code>.</li>
+</ul></li>
+<li><strong>The GDAL/Spatial Nightmare:</strong> Trying to install spatial libraries like <code>geopandas</code>, <code>fiona</code>, or <code>rasterio</code> via <code>pip</code>.
+<ul>
+<li><strong>The Consequence:</strong> These packages require specific versions of system libraries (GDAL, PROJ, GEOS). Pip tries to compile these from source, which almost always fails on standard laptops without a massive headache.</li>
+<li><strong>The Fix:</strong> Use <strong>Mamba</strong> and an <code>environment.yml</code> file for any project involving spatial data. Mamba handles the system-level binaries so you don’t have to.</li>
+</ul></li>
+<li><strong>Stale Requirements Files:</strong> You’ve been working for weeks, installing new packages, but haven’t updated your tracking file.
+<ul>
+<li><strong>The Consequence:</strong> The <code>requirements.txt</code> file in your GitHub repo is months out of date. New lab members spend hours trying to debug “ModuleNotFoundError.”</li>
+<li><strong>The Fix:</strong> Regularly run <code>pip freeze &gt; requirements.txt</code> (for venv) or <code>mamba env export &gt; environment.yml</code> (for Mamba) before every major push to GitHub.</li>
+</ul></li>
+<li><strong>Python Version Drift:</strong> Your code uses f-strings or new syntax from Python 3.12, but your collaborator is on 3.9.
+<ul>
+<li><strong>The Consequence:</strong> Syntax errors that look like code bugs but are actually version issues.</li>
+<li><strong>The Fix:</strong> Specifically define the Python version at the top of your <code>environment.yml</code> or in your <code>README.md</code>.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="summary-table" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="summary-table"><span class="header-section-number">7.3</span> Summary Table</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Feature</strong></th>
+<th style="text-align: left;"><strong>R Strategy</strong></th>
+<th style="text-align: left;"><strong>Python Strategy</strong></th>
+<th style="text-align: left;"><strong>Primary Goal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Language Version</strong></td>
+<td style="text-align: left;">Positron or <code>rig</code></td>
+<td style="text-align: left;">Positron or <code>pyenv</code></td>
+<td style="text-align: left;">Isolate the interpreter from OS updates.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Project Isolation</strong></td>
+<td style="text-align: left;"><code>renv</code></td>
+<td style="text-align: left;"><code>venv</code> or <code>conda/mamba</code></td>
+<td style="text-align: left;">Prevent projects from conflicting with each other.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Lockfile</strong></td>
+<td style="text-align: left;"><code>renv.lock</code></td>
+<td style="text-align: left;"><code>requirements.txt</code> or <code>yml</code></td>
+<td style="text-align: left;">Record exact versions for 100% reproducibility.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Binary Source</strong></td>
+<td style="text-align: left;">Posit Package Manager</td>
+<td style="text-align: left;">PyPI or Conda-Forge</td>
+<td style="text-align: left;">Ensure fast, reliable installation of libraries.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="external-resources-further-reading" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="external-resources-further-reading"><span class="header-section-number">7.4</span> External Resources &amp; Further Reading</h2>
+<p>For a deeper dive into the tools and philosophies discussed in this SOP, we recommend the following resources:</p>
+<section id="r-package-management" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="r-package-management"><span class="header-section-number">7.4.1</span> R &amp; Package Management</h3>
+<ul>
+<li><a href="https://github.com/r-lib/rig"><strong>rig: The R Installation Manager</strong></a>: The official repository for <code>rig</code>. Includes detailed installation guides for macOS, Windows, and Linux, and advanced commands for managing Rtools.</li>
+<li><a href="https://rstudio.github.io/renv/articles/renv.html"><strong>renv: Introduction to Project Environments</strong></a>: The official “Get Started” guide for <code>renv</code>. It provides a clear overview of the package’s philosophy and a comprehensive list of commands.</li>
+<li><a href="https://p3m.dev/"><strong>Using Posit Package Manager (PPM)</strong></a>: The public instance of PPM. Use the “Setup” button here to generate the exact repository URL for a specific date or operating system.</li>
+<li><a href="https://cran.r-project.org/view=ReproducibleResearch"><strong>CRAN Task View: Reproducible Research</strong></a>: A curated list of R packages and tools dedicated to making research more reproducible, from literate programming (Quarto/Knitr) to specialized environment managers.</li>
+</ul>
+</section>
+<section id="python-environment-management" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="python-environment-management"><span class="header-section-number">7.4.2</span> Python &amp; Environment Management</h3>
+<ul>
+<li><a href="https://realpython.com/python-virtual-environments-a-primer/"><strong>Real Python: Virtual Environments Guide</strong></a>: An excellent, beginner-friendly primer on why virtual environments are necessary and how to use the built-in <code>venv</code> module.</li>
+<li><a href="https://mamba.readthedocs.io/en/latest/"><strong>Mamba Documentation</strong></a>: The user guide for Mamba. Essential reading if you are transitioning from standard Conda and want to understand why Mamba’s “solver” is so much faster.</li>
+<li><a href="https://conda-forge.org/docs/user/introduction.html"><strong>Conda-Forge: The Community Repository</strong></a>: Since emLab relies on <code>conda-forge</code> for spatial libraries, this guide explains how the community maintains these packages and how to troubleshoot version conflicts.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06-code-documentation.html" class="pagination-link" aria-label="Code Documentation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./08-pipeline-reproducibility.html" class="pagination-link" aria-label="Pipeline Reproducibility">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pipeline Reproducibility</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Environmental Markets Lab (emLab)">
-<meta name="dcterms.date" content="2026-05-14">
 <meta name="description" content="Standard operating procedures for emLab projects">
 
-<title>emLab Standard Operating Procedures</title>
+<title>5&nbsp; Code Styling – emLab Standard Operating Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,7 +69,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-files.html" rel="next">
+<link href="./06-code-documentation.html" rel="next">
+<link href="./04-gh.html" rel="prev">
 <link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -88,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-code-styling.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Code Styling</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -118,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
@@ -148,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-code-styling.html" class="sidebar-item-text sidebar-link">
+  <a href="./05-code-styling.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Code Styling</span></span></a>
   </div>
 </li>
@@ -204,7 +238,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#the-philosophy-of-style" id="toc-the-philosophy-of-style" class="nav-link active" data-scroll-target="#the-philosophy-of-style"><span class="header-section-number">5.1</span> The Philosophy of Style</a></li>
+  <li><a href="#style-guides-by-language" id="toc-style-guides-by-language" class="nav-link" data-scroll-target="#style-guides-by-language"><span class="header-section-number">5.2</span> Style Guides by Language</a>
+  <ul class="collapse">
+  <li><a href="#r-and-the-tidyverse" id="toc-r-and-the-tidyverse" class="nav-link" data-scroll-target="#r-and-the-tidyverse"><span class="header-section-number">5.2.1</span> R and the Tidyverse</a></li>
+  <li><a href="#other-languages" id="toc-other-languages" class="nav-link" data-scroll-target="#other-languages"><span class="header-section-number">5.2.2</span> Other Languages</a></li>
+  </ul></li>
+  <li><a href="#code-formatters" id="toc-code-formatters" class="nav-link" data-scroll-target="#code-formatters"><span class="header-section-number">5.3</span> Code Formatters</a>
+  <ul class="collapse">
+  <li><a href="#r-formatting-air-required-for-r-users" id="toc-r-formatting-air-required-for-r-users" class="nav-link" data-scroll-target="#r-formatting-air-required-for-r-users"><span class="header-section-number">5.3.1</span> R Formatting: Air (Required for R users)</a></li>
+  <li><a href="#python-formatting-ruff-required-for-python-users" id="toc-python-formatting-ruff-required-for-python-users" class="nav-link" data-scroll-target="#python-formatting-ruff-required-for-python-users"><span class="header-section-number">5.3.2</span> Python Formatting: Ruff (Required for Python users)</a></li>
+  </ul></li>
+  <li><a href="#r-studio-code-formatting" id="toc-r-studio-code-formatting" class="nav-link" data-scroll-target="#r-studio-code-formatting"><span class="header-section-number">5.4</span> R Studio Code Formatting</a></li>
   </ul>
 </nav>
     </div>
@@ -213,31 +258,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">emLab Standard Operating Procedures</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Code Styling</span></h1>
 </div>
 
-<div>
-  <div class="description">
-    Standard operating procedures for emLab projects
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Environmental Markets Lab (emLab) </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 14, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -247,9 +275,118 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level1 unnumbered">
-<h1 class="unnumbered">Overview</h1>
-<p>This reference guide describes standard operating procedures (SOP) for emLab projects. This SOP is organized into 5 different sections: (1) File Structure, (2) Data, (3) Code, (4) High Performance Computing, and (5) Reports and Publications. Section 1 covers file structure and storage; Section 2 describes file naming and metadata standards, as well as what the emLab data directory is composed of; Section 3 highlights best practices for coding; Section 4 covers high performance computing; and Section 5 outlines aspects of the publication process from emLab affiliations to preparing a public GitHub repository.</p>
+<section id="the-philosophy-of-style" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="the-philosophy-of-style"><span class="header-section-number">5.1</span> The Philosophy of Style</h2>
+<p>At emLab, we view code not just as a set of instructions for a computer, but as a medium of communication between researchers. In a collaborative environment where projects span years and multiple contributors, <strong>style is a form of documentation.</strong><br>
+The primary goals of our code style guide are:</p>
+<ol type="1">
+<li><strong>Reduced Cognitive Load:</strong> When every script follows the same conventions, your brain doesn’t have to “re-parse” the structure of a file every time you switch projects.<br>
+</li>
+<li><strong>Meaningful Diffs:</strong> Standardized formatting ensures that GitHub “diffs” reflect actual logic changes rather than trivial changes in whitespace or indentation.<br>
+</li>
+<li><strong>Error Prevention:</strong> Many style rules (like those enforced by linters) catch common bugs—such as unused variables or misplaced parentheses—before the code is even run.<br>
+</li>
+<li><strong>Inclusivity:</strong> Clean, well-spaced code is more accessible to junior researchers and external collaborators.</li>
+</ol>
+</section>
+<section id="style-guides-by-language" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="style-guides-by-language"><span class="header-section-number">5.2</span> Style Guides by Language</h2>
+<p>We maintain specific style preferences for each language used at the lab. While these guides provide the rules, the <a href="#code-formatters">Code Formatters</a> section below explains how to automate them.</p>
+<section id="r-and-the-tidyverse" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="r-and-the-tidyverse"><span class="header-section-number">5.2.1</span> R and the Tidyverse</h3>
+<p>Our R code follows the <a href="https://style.tidyverse.org/">Tidyverse Style Guide</a>. While you should read the full guide, here are the universal requirements that should be used across all emLab projects:</p>
+<ul>
+<li><strong>Object names:</strong> Use <code>snake_case</code> for variables and functions (e.g., <code>sea_surface_temp</code>, not <code>SeaSurfaceTemp</code> or <code>sst</code>).<br>
+</li>
+<li><strong>Spacing:</strong> Always put a space after a comma, and around most binary operators (<code>==</code>, <code>+</code>, <code>-</code>, <code>&lt;-</code>, etc.).<br>
+</li>
+<li><strong>Pipes:</strong> Use the native pipe <code>|&gt;</code> (R 4.1+) or the magrittr pipe <code>%&gt;%</code>. Always put a space before the pipe and a new line after it.<br>
+</li>
+<li><strong>Indentation:</strong> Use 2 spaces for indentation. Never use tabs.<br>
+</li>
+<li><strong>Long lines:</strong> Limit code to 80 characters per line. This ensures scripts are readable on smaller laptop screens and in side-by-side GitHub views.</li>
+</ul>
+</section>
+<section id="other-languages" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="other-languages"><span class="header-section-number">5.2.2</span> Other Languages</h3>
+<p>For other languages, we defer to established industry standards:</p>
+<ul>
+<li><strong>Python:</strong> We follow <a href="https://peps.python.org/pep-0008/">PEP 8</a>, which is the de facto standard for Python code.<br>
+</li>
+<li><strong>Stata:</strong> We follow the principles outlined in the <a href="https://www.stata.com/manuals/g.pdf">Stata Guide</a> and common research best practices.<br>
+</li>
+<li><strong>General (C++, Java, etc.):</strong> For languages not explicitly covered, we follow the <a href="https://google.github.io/styleguide/">Google Style Guides</a>.<br>
+</li>
+<li><strong>SQL:</strong> Use uppercase for keywords (e.g., SELECT, FROM, WHERE) and <code>snake_case</code> for table and column names.</li>
+</ul>
+</section>
+</section>
+<section id="code-formatters" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="code-formatters"><span class="header-section-number">5.3</span> Code Formatters</h2>
+<p>A <strong>code formatter</strong> is a tool that automatically adjusts your code’s layout—spacing, indentation, line breaks, and alignment—to match a specific style guide. Instead of manually fixing every comma or bracket, the formatter does it for you instantly.<br>
+At emLab, we use a new generation of “Rust-based” tools. They are significantly faster than older tools and can be configured to run automatically every time you save a file.</p>
+<p><strong>Note:</strong> To maintain consistency across emLab, the use of these formatters is <strong>required</strong> for all new code development.</p>
+<section id="r-formatting-air-required-for-r-users" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="r-formatting-air-required-for-r-users"><span class="header-section-number">5.3.1</span> R Formatting: Air (Required for R users)</h3>
+<p><strong>Air</strong> is the required high-performance R formatter for emLab projects. It is developed by the Posit team and ensures strict adherence to Tidyverse standards.</p>
+<section id="install-the-extension" class="level4" data-number="5.3.1.1">
+<h4 data-number="5.3.1.1" class="anchored" data-anchor-id="install-the-extension"><span class="header-section-number">5.3.1.1</span> Install the Extension</h4>
+<ul>
+<li>In Positron or VS Code, open the Extensions Marketplace (<code>Cmd+Shift+X</code>).<br>
+</li>
+<li>Search for and install <strong>“Air”</strong> (published by Posit).</li>
+</ul>
+</section>
+<section id="enable-format-on-save" class="level4" data-number="5.3.1.2">
+<h4 data-number="5.3.1.2" class="anchored" data-anchor-id="enable-format-on-save"><span class="header-section-number">5.3.1.2</span> Enable “Format on Save”</h4>
+<p>To make formatting automatic, open your settings.json (<code>Cmd+Shift+P</code> -&gt; search for “Open User Settings (JSON)”) and paste the following:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span>  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"[r]"</span><span class="fu">:</span> <span class="fu">{</span>  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.defaultFormatter"</span><span class="fu">:</span> <span class="st">"posit.air"</span><span class="fu">,</span>  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.formatOnSave"</span><span class="fu">:</span> <span class="kw">true</span>  </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span>  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="python-formatting-ruff-required-for-python-users" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="python-formatting-ruff-required-for-python-users"><span class="header-section-number">5.3.2</span> Python Formatting: Ruff (Required for Python users)</h3>
+<p><strong>Ruff</strong> is the required formatter and linter for all Python development at emLab. It is extremely fast and replaces several older tools with a single extension.</p>
+<section id="install-the-extension-1" class="level4" data-number="5.3.2.1">
+<h4 data-number="5.3.2.1" class="anchored" data-anchor-id="install-the-extension-1"><span class="header-section-number">5.3.2.1</span> Install the Extension</h4>
+<ul>
+<li>In Positron or VS Code, open the Extensions Marketplace (<code>Cmd+Shift+X</code>).<br>
+</li>
+<li>Search for and install <strong>“Ruff”</strong> (published by Astral Software).</li>
+</ul>
+</section>
+<section id="enable-format-on-save-1" class="level4" data-number="5.3.2.2">
+<h4 data-number="5.3.2.2" class="anchored" data-anchor-id="enable-format-on-save-1"><span class="header-section-number">5.3.2.2</span> Enable “Format on Save”</h4>
+<p>Open your settings.json and paste the following:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span>  </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"[python]"</span><span class="fu">:</span> <span class="fu">{</span>  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.defaultFormatter"</span><span class="fu">:</span> <span class="st">"charliermarsh.ruff"</span><span class="fu">,</span>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.formatOnSave"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span>  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"editor.codeActionsOnSave"</span><span class="fu">:</span> <span class="fu">{</span>  </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"source.fixAll.ruff"</span><span class="fu">:</span> <span class="st">"explicit"</span><span class="fu">,</span>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"source.organizeImports.ruff"</span><span class="fu">:</span> <span class="st">"explicit"</span>  </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span>  </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span>  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+</section>
+<section id="r-studio-code-formatting" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="r-studio-code-formatting"><span class="header-section-number">5.4</span> R Studio Code Formatting</h2>
+<p>If you are using RStudio (where Air is not as tightly integrated), you are still required to maintain styling.</p>
+<p>You can use the <code>styler</code> package:</p>
+<ol type="1">
+<li>Install the package: install.packages(“styler”).<br>
+</li>
+<li>Use the <strong>Addins</strong> menu in the top toolbar to select “Style active file” before every commit.<br>
+</li>
+<li>Navigate to <strong>Tools -&gt; Global Options -&gt; Code -&gt; Saving</strong> and check <strong>“Ensure that source files end with a newline”</strong>.</li>
+</ol>
+<p>It is still possible to use Air in RStudio by first downloading the command line tool and setting Air as an external formatter, following the <a href="https://posit-dev.github.io/air/editor-rstudio.html">instructions</a> from Posit. Note that there is currently no way to use Air on quarto documents in RStudio.</p>
 
 
 </section>
@@ -657,10 +794,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./04-gh.html" class="pagination-link" aria-label="GitHub">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">GitHub</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-files.html" class="pagination-link" aria-label="File Structure">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">File Structure</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-code-documentation.html" class="pagination-link" aria-label="Code Documentation">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
