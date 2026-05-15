@@ -38,43 +38,43 @@ Style, documentation, and reproducibility.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Quarto](05-quarto/index.qmd)
+### [Quarto](04-quarto/index.qmd)
 
 Authoring reproducible documents and websites.
 
-- [Chunk Best Practices](05-quarto/chunk-best-practices.qmd)
-- [Figures, Tables, and References](05-quarto/figures-tables-references.qmd)
-- [Citations and Bibliography](05-quarto/citations-and-bibliography.qmd)
-- [Caching](05-quarto/caching.qmd)
-- [Using R targets](05-quarto/targets-integration.qmd)
-- [Publishing](05-quarto/publishing.qmd)
-- [Presentations](05-quarto/presentations.qmd)
+- [Chunk Best Practices](04-quarto/chunk-best-practices.qmd)
+- [Figures, Tables, and References](04-quarto/figures-tables-references.qmd)
+- [Citations and Bibliography](04-quarto/citations-and-bibliography.qmd)
+- [Caching](04-quarto/caching.qmd)
+- [Using R targets](04-quarto/targets-integration.qmd)
+- [Publishing](04-quarto/publishing.qmd)
+- [Presentations](04-quarto/presentations.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Servers](11-hpc/index.qmd)
+### [Servers](05-hpc/index.qmd)
 
 Running jobs on Sequoia and Quebracho.
 
-- [Resources and Software](11-hpc/resources-and-software.qmd)
-- [Getting Set Up](11-hpc/getting-set-up.qmd)
-- [Using Sequoia](11-hpc/using-sequoia.qmd)
-- [Using Quebracho](11-hpc/using-quebracho.qmd)
-- [Best Practices](11-hpc/best-practices-and-resource-allocation.qmd)
-- [Accessing Data](11-hpc/accessing-data.qmd)
-- [Accessing Code](11-hpc/accessing-code.qmd)
+- [Resources and Software](05-hpc/resources-and-software.qmd)
+- [Getting Set Up](05-hpc/getting-set-up.qmd)
+- [Using Sequoia](05-hpc/using-sequoia.qmd)
+- [Using Quebracho](05-hpc/using-quebracho.qmd)
+- [Best Practices](05-hpc/best-practices-and-resource-allocation.qmd)
+- [Accessing Data](05-hpc/accessing-data.qmd)
+- [Accessing Code](05-hpc/accessing-code.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Publications](12-publications/index.qmd)
+### [Publications](06-publications/index.qmd)
 
 Authorship, reports, and sharing outputs.
 
-- [Affiliation and Authorship](12-publications/affiliation-and-authorship.qmd)
-- [Reports](12-publications/reports.qmd)
-- [Publishing Data](12-publications/publishing-data.qmd)
-- [Public GitHub Repository](12-publications/public-github-repository.qmd)
-- [Sharing on Website](12-publications/sharing-on-website.qmd)
+- [Affiliation and Authorship](06-publications/affiliation-and-authorship.qmd)
+- [Reports](06-publications/reports.qmd)
+- [Publishing Data](06-publications/publishing-data.qmd)
+- [Public GitHub Repository](06-publications/public-github-repository.qmd)
+- [Sharing on Website](06-publications/sharing-on-website.qmd)
 :::
 
 ::::

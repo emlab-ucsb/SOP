@@ -41,34 +41,34 @@ website:
           - 03-code/code-review.qmd
           - 03-code/eda.qmd
       - section: "Quarto"
-        href: 05-quarto/index.qmd
+        href: 04-quarto/index.qmd
         contents:
-          - 05-quarto/chunk-best-practices.qmd
-          - 05-quarto/figures-tables-references.qmd
-          - 05-quarto/citations-and-bibliography.qmd
-          - 05-quarto/caching.qmd
-          - 05-quarto/targets-integration.qmd
-          - 05-quarto/publishing.qmd
-          - 05-quarto/presentations.qmd
+          - 04-quarto/chunk-best-practices.qmd
+          - 04-quarto/figures-tables-references.qmd
+          - 04-quarto/citations-and-bibliography.qmd
+          - 04-quarto/caching.qmd
+          - 04-quarto/targets-integration.qmd
+          - 04-quarto/publishing.qmd
+          - 04-quarto/presentations.qmd
       - section: "Servers"
-        href: 11-hpc/index.qmd
+        href: 05-hpc/index.qmd
         contents:
-          - 11-hpc/resources-and-software.qmd
-          - 11-hpc/getting-set-up.qmd
-          - 11-hpc/using-sequoia.qmd
-          - 11-hpc/using-quebracho.qmd
-          - 11-hpc/best-practices-and-resource-allocation.qmd
-          - 11-hpc/accessing-data.qmd
-          - 11-hpc/accessing-code.qmd
+          - 05-hpc/resources-and-software.qmd
+          - 05-hpc/getting-set-up.qmd
+          - 05-hpc/using-sequoia.qmd
+          - 05-hpc/using-quebracho.qmd
+          - 05-hpc/best-practices-and-resource-allocation.qmd
+          - 05-hpc/accessing-data.qmd
+          - 05-hpc/accessing-code.qmd
       - section: "Publications"
-        href: 12-publications/index.qmd
+        href: 06-publications/index.qmd
         contents:
-          - 12-publications/affiliation-and-authorship.qmd
-          - 12-publications/reports.qmd
-          - 12-publications/publishing-data.qmd
-          - 12-publications/public-github-repository.qmd
-          - 12-publications/sharing-on-website.qmd
-      - 04-gh/index.qmd
+          - 06-publications/affiliation-and-authorship.qmd
+          - 06-publications/reports.qmd
+          - 06-publications/publishing-data.qmd
+          - 06-publications/public-github-repository.qmd
+          - 06-publications/sharing-on-website.qmd
+      - 07-gh/index.qmd
 
 format:
   html:
