@@ -121,7 +121,8 @@ format:
             }
             .fab:hover { background: #fff; }
             .fab svg { width: 1.5rem; height: 1.5rem; fill: currentColor; }
-            .github-fab { bottom: 1rem; }
+            .github-fab { bottom: 1rem; color: #181717; }
+            .quarto-dark .github-fab { color: #181717; }
             .search-fab { bottom: 4rem; }
             #quarto-search, .sidebar-search, .quarto-search-button { display: none !important; }
             .quarto-color-scheme-toggle { display: none !important; }
