@@ -1,0 +1,41 @@
+# High Performance Computing
+
+Certain analysis use cases require high performance computing resources:
+
+-   big data
+-   parallel computing
+-   lengthy computation times
+-   restricted-use data
+
+For analyses involving big data or models that take a long time to
+estimate, a single laptop or desktop computer is often not powerful
+enough or becomes inconvenient to use. Additionally, for analyses
+involving restricted-use data, such as datasets containing personally
+identifiable information, data use agreements typically stipulate that
+the data should be stored and analyzed in a secure manner.
+
+In these cases, you should use the high performance computing resources
+available to emLab. emLab currently has two high performance computing
+servers that are managed by UCSB's General Research IT (GRIT). These
+servers are named sequoia and quebracho. This section of the manual
+describes how to use these two servers for high performance computing.
+
+For now, please use sequoia for general emLab computing for most
+projects. Quebracho is currently restricted to land use projects (e.g.,
+`land-based-solutions` and projects starting with `cel`), so please only
+use quebracho if you have already been doing so and have already
+discussed this with Kathy or Robert. If you have any doubts about which
+server to use, please use sequoia. Note that sequoia does not have a
+GPU, but quebracho does. If you need access to a GPU and are not already
+using quebracho, please contact Robert and Kathy to talk about using
+quebracho.
+
+The pages below cover what's available, how to get set up, and how to use the servers day-to-day:
+
+- **[Available resources and software](resources-and-software.qmd)** — hardware specs for sequoia, quebracho, and UCSB shared clusters, and which software is installed.
+- **[Getting set up](getting-set-up.qmd)** — creating a GRIT account and installing R packages on the servers.
+- **[Using sequoia](using-sequoia.qmd)** — launching interactive sessions through Open OnDemand.
+- **[Using quebracho](using-quebracho.qmd)** — connecting via the campus VPN for land-use projects.
+- **[Best practices and resource allocation](best-practices-and-resource-allocation.qmd)** — sharing the servers responsibly and figuring out how many cores and how much RAM to request.
+- **[Accessing data](accessing-data.qmd)** — the emLab GRIT data storage space and personal storage.
+- **[Accessing code](accessing-code.qmd)** — cloning GitHub repos and setting up authentication on the servers.

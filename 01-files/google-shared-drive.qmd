@@ -1,0 +1,64 @@
+# Google Drive {#sec-google-drive}
+
+The shared emLab Google Drive is intended to store only collaborative
+Google Docs/Sheets/Slides. Data should be stored on [GRIT](grit-data-storage-space.qmd), and code should be stored on [GitHub](github-structure.qmd).
+
+## General structure
+
+```
+Google Drive
+├── My Drive
+│   └── ... whatever files you have on your personal Google Drive ...
+└── Shared drives
+    └── emLab/
+        ├── central-emlab-resources/
+        ├── communications/
+        └── projects/
+```
+
+The emLab Google Shared Drive is organized into three main folders:
+
+-   `central-emlab-resources`: includes meeting and event information,
+    project management guidelines, onboarding materials, information
+    about travel reimbursements, strategy, computing, and the team
+    roster
+
+-   `communications`: includes the blog schedule, publication and media
+    tracking, and any Google Docs/Sheets/Slides relating to
+    communications
+
+-   `projects`: includes information on past (archive) and current
+    projects
+
+The Google Shared Drive and GRIT storage space share a very similar folder structure. The main difference is that the Google Shared Drive does not have `data` folders, because data belong on GRIT.
+
+## Project folder structure
+
+```
+emLab/projects/
+├── archived-projects/
+└── current-projects/
+    └── ~example-project~/
+        ├── deliverables
+        ├── grant-eporting
+        ├── meetings-and-events
+        ├── presentations
+        └── project-materials
+```
+
+Each project folder must contain at least the following 5 folders:
+
+-   `deliverables`: final reports, paper manuscripts, other final
+    deliverables not related to data outputs
+
+-   `grant-reporting`: grant reports for funders
+
+-   `meetings-and-events`: meeting notes, agendas, documentation for
+    workshop/event planning
+
+-   `presentations`: any presentations created for the project
+
+-   `project-materials`: everything else that does not fit into one of
+    these folders (i.e. drafts of methods, literature review, etc.)
+
+Within those, each project can add folders and subfolders as needed.

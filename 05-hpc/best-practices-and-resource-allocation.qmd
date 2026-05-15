@@ -1,0 +1,116 @@
+# Best practices and resource allocation
+
+## Best practices
+
+Here we outline our best practices for using shared computational
+resources. These are meant to be living guidelines that will be adapted
+by our team as needed:
+
+-   Sharing is caring! Common courtesy can go a long way. As much as
+    possible, try to use only the resources you need.
+
+-   Leverage the tools below to monitor how many cores and how much RAM
+    you and others are currently using
+
+-   In general on sequoia, feel free to run analyses that use up to 24
+    cores and 256GB of RAM. We will likely adaptively manage these
+    specific numbers once we start using sequoia and getting a better
+    understanding of how many resources we are using. And if you don't
+    need that much, please request less so that others can use the
+    resources they need.
+
+-   For larger analyses that require lots of cores or RAM, coordinate
+    with others over the server slack channel (`#hpc-core-dination`) to
+    ensure that workflows are not disrupted and that everyone has
+    reasonable access to computational resources
+
+-   Generally, we recommend piloting your code using a small subset of
+    your data and/or just a single core, either on your local computer
+    or on one of our HPC servers. Then once you know it works and have a
+    sense of how much memory it will use and how long it will take to
+    execute, you can go ahead and run the full analysis on the server.
+    And if it looks like the full analysis will require resources beyond
+    the standard recommend 24 cores and 256GB, coordinate with the team
+    on the Slack channel `#hpc-core-dination`.
+
+## Resource allocation
+
+It is up to each researcher to: 1) decide how much computational
+resources they need prior to starting each job (i.e., how many cores and
+how much RAM will your job need); and 2) monitor their resource usage
+during each job to not only ensure they are not exceeding their
+allocated resources, but to help build personal awareness on how much
+resources certain jobs require. It will generally take each person some
+time to develop an intuition on how many resources each job will need;
+we always recommend piloting code locally on your own machine to start
+getting a sense for this. Additionally, as you use the server more and
+the tools below, you will further develop this intuition.
+
+Available tools:
+
+-   [Zabbix
+    dashboard](https://zabbix.grit.ucsb.edu/zabbix.php?action=dashboard.view&dashboardid=175&from=now-24h&to=now):
+    GRIT manages a dashboard for us which provides a high-level
+    system-level view of how many resources are being used on each of
+    our servers. This is a good place to start to get a sense of overall
+    resource usage across the whole team. It is also a good place to
+    check before starting a new job to see how busy the servers are. It
+    is also a place that will show the current status of each server and
+    whether or not there are currently any problems.
+
+-   Job Resource Utilization Analyzer: If using sequoia via OOD, you can
+    navigate to the [OOD dashboard](https://hpc.grit.ucsb.edu), click
+    "Apps", then click "Job Resource Utilization Analyzer". For each job
+    that is currently running on a GRIT server, this will show you how
+    many cores and how much RAM was requested, as well as the actual
+    peak core and RAM usage. It further provides some information on
+    whether or not you over-requested core and/or RAM resources, and
+    provides some recommendations if any adjustments should be made in
+    the future. This is a nice way to monitor live usage.
+
+-   Post-job email: If using sequoia via OOD, at the end of each job you
+    will receive an email summary of your job resource usage. This email
+    provides similar information to the Job Resource Utilization
+    Analyzer, but is sent to you automatically at the end of each job.
+    It also provides information on whether or not you over-requested
+    core and/or RAM resources, and provides some recommendations if any
+    adjustments should be made in the future. This is a nice way to
+    monitor your resource usage after the fact. GRIT provides some
+    helpful rules of thumb:
+
+    -   "If Max RSS is much lower than requested memory, you may be
+        over-requesting RAM."
+    -   "If the job failed with OUT_OF_MEMORY and Max RSS is close to
+        the request, you likely need to request more memory."
+    -   "If Total CPU \<\< (Elapsed time \* AllocCPUS), your job may be
+        I/O bound or under-utilizing its cores."
+
+-   [htop](https://htop.dev/): This terminal tool is installed on each
+    server and provides a real-time view of resource usage on each
+    server. It is a great tool to use during an interactive session to
+    see how many cores and how much RAM your job is using, and also how
+    many cores and how much RAM are currently being used by others. You
+    can customize the htop display to make things easier to see. For
+    example:
+
+    -   After entering htop, press F2 to enter setup. You can also click
+        directly on setup to enter it.
+    -   Once you enter setup, if you have trouble seeing the setup
+        options, you can try reducing your browser's text size
+        temporarily in order to see the setup options.
+    -   Sequoia has 192 cores so the default view with 4 columns means a
+        pretty large display. In the Meters setup, you can change the
+        left column to be `CPUs (1-4/8) [Bar]` and the right column to
+        be `CPUs (5-8/8) [Bar]` This will condense the output and force
+        8 columns.
+    -   I also like to add disc IO to the left column below memory.
+    -   In the "Display options" setup you can select some that will
+        clean up the process information below the resources monitor. I
+        like to make sure to select
+        -   Tree view
+        -   Tree view sorted by PID
+        -   Shadow other users' process (makes it easier to see your
+            own)
+        -   Count CPUs from 1
+        -   Enable the mouse
+        -   Press F10 when done

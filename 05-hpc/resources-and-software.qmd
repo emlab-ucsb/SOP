@@ -1,0 +1,75 @@
+# Available resources and software
+
+## Available resources
+
+|   | Cores | RAM | GPU | USE |
+|---------------|---------------|---------------|---------------|---------------|
+| quebracho | 64 | 1TB | Yes | Only land-use projects (please check before using) |
+| sequoia | 192 | 1.5TB | No | All other emLab research |
+| [Knot](https://csc.cnsi.ucsb.edu/clusters/knot) | 1,500 | 48 GB - 1TB | Yes | UCSB shared resource |
+| [Pod](https://csc.cnsi.ucsb.edu/clusters/pod) | \~2,600 | 190 GB - 1.5 TB | Yes | UCSB shared resource |
+| [Braid2](https://csc.cnsi.ucsb.edu/clusters/braid2) | \~2,200 | 192 - 368 GB | Yes | UCSB condo cluster (PI must buy node) |
+
+: HPC resources available to emLab researchers
+
+The emLab SOP will focus on using quebracho and sequoia. For further
+information on using other UCSB campus resources, you can refer to our
+[specific guide](https://emlab-ucsb.github.io/cluster-guide/index.html)
+on that. However please note that this guide is several years
+out-of-date, and you may find better and more current information
+directly on a UCSB website. Additionally, now that we have our own HPC
+servers, we no longer recommend using Google Compute Engine, which is a
+pay-as-you-go cloud computing server. It can be quite expensive, and has
+setup challenges as compared to our own servers. However, if you need to
+use GCE for whatever reason, emLab alumni Grant McDermott wrote a very
+helpful tutorial on using [R Studio Server on
+GCE](https://grantmcdermott.com/rstudio-server-compute-engine/).
+
+## Available software
+
+Both quebracho and sequoia currently have R Studio Server, Positron Server, Jupyter
+Notebook, and VSCode installed. GRIT manages these installations for us.
+They will also manage updates for these.
+
+Both quebracho and sequoia also leverage [SLURM queueing
+systems](https://slurm.schedmd.com/overview.html). All computational
+activity is forced to go through SLURM, even interactive R Studio and
+Jupyter Notebook sessions (see section on Open OnDemand below). Scrontab
+can be used to manage SLURM crontab files.
+
+If we wish to install additional software, we will need to decide on
+these as a group and have GRIT install them for us. When considering new
+software to install, we should consider whether or not it is already
+available on other campus servers; what it will cost; and how many
+people in emLab would use it. Generally speaking, if a specific piece of
+software is expensive (e.g., Stata or Matlab), will not be used by too
+many emLab folks, and is already available on other campus servers, we
+should rely on these other campus servers and not install it on our own
+servers. Users interested in MatLab should first try Pod which has the
+necessary licenses and is available for free.
+
+If users wish to use python it is recommended that they install Visual
+Studio Code (VS Code) available for free from Microsoft. With VS Code
+installed, users can add the Remote SSH extension and access sequoia via
+SSH tunnel. Further instructions can be found in the [VS Code
+Documentation](https://csc.cnsi.ucsb.edu/clusters/pod). After accessing
+sequoia via SSH tunnel, users may install their preferred python
+distribution.
+[Miniconda](https://docs.anaconda.com/free/miniconda/miniconda-install/)
+is a good starting point, though other options are available. This
+[Medium
+article](https://vinurad13.medium.com/setting-up-miniconda-and-run-jupyter-notebooks-remotely-on-ubuntu-20-04-server-8d98a6cf4642)
+is a good place for further installation guidance. Finally, it is
+recommended to create custom python
+[environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+for each project. All ssh sessions go into the slurm queue.
+
+For users that need Stata, it is already available on both UCSB's Knot
+cluster. More details for using Stata on Knot can be found
+[here](https://static1.squarespace.com/static/573f69a2cf80a1adb090ba64/t/5b2c1f1288251b7405a4cb7a/1529618194751/UCSB_server_tutorial.pdf).
+We will not be installing Stata on quebracho or sequoia.
+
+For users of Matlab, it is already available on all campus clusters.
+More details can be found
+[here](https://csc.cnsi.ucsb.edu/docs/using-matlab). We will not be
+installing Matlab on quebracho or sequoia.
