@@ -24,13 +24,6 @@ jobs:
 
       - name: Install R packages
         uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: |
-            any::ggplot2
-            any::dplyr
-            any::DT
-            any::knitr
-            any::rmarkdown
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
