@@ -31,10 +31,10 @@ Style, documentation, and reproducibility.
 
 - [Code Styling](03-code/code-styling.qmd)
 - [Code Documentation](03-code/code-documentation.qmd)
+- [Exploratory Data Analysis](03-code/eda.qmd)
 - [Package Reproducibility](03-code/package-reproducibility.qmd)
 - [Pipeline Reproducibility](03-code/pipeline-reproducibility.qmd)
 - [Code Review](03-code/code-review.qmd)
-- [Exploratory Data Analysis](03-code/eda.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4}

@@ -36,10 +36,10 @@ website:
         contents:
           - 03-code/code-styling.qmd
           - 03-code/code-documentation.qmd
+          - 03-code/eda.qmd
           - 03-code/package-reproducibility.qmd
           - 03-code/pipeline-reproducibility.qmd
           - 03-code/code-review.qmd
-          - 03-code/eda.qmd
       - section: "Quarto"
         href: 04-quarto/index.qmd
         contents:
