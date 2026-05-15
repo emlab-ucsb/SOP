@@ -16,6 +16,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Install jq
+        run: apt-get update && apt-get install -y jq
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
