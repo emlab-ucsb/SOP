@@ -940,9 +940,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "emLab <br> Standard <br> Operating <br> Procedures",
+    "title": "emLab SOP",
     "section": "",
-    "text": "Files\nWhere things live and how they’re organized.\n\nGoogle Shared Drive\nGRIT Data Storage Space\nGitHub Structure\n\n\n\nData\nNaming, formats, metadata, and confidentiality.\n\nData File Naming\nMetadata\nAccessing emLab Data in R\nTidy Data\nData Formats\nData Use Agreements and Confidential Data\n\n\n\nCode\nStyle, documentation, and reproducibility.\n\nCode Styling\nCode Documentation\nExploratory Data Analysis\nPackage Reproducibility\nPipeline Reproducibility\nCode Review\n\n\n\nQuarto\nAuthoring reproducible documents and websites.\n\nChunk Best Practices\nFigures, Tables, and References\nCitations and Bibliography\nCaching\nUsing R targets\nPublishing\nPresentations\n\n\n\nServers\nRunning jobs on Sequoia and Quebracho.\n\nResources and Software\nGetting Set Up\nUsing Sequoia\nUsing Quebracho\nBest Practices\nAccessing Data\nAccessing Code\n\n\n\nPublications\nAuthorship, reports, and sharing outputs.\n\nAffiliation and Authorship\nReports\nPublishing Data\nPublic GitHub Repository\nSharing on Website"
+    "text": "emLab SOP\n\n\n\nFiles\nWhere things live and how they’re organized.\n\nGoogle Shared Drive\nGRIT Data Storage Space\nGitHub Structure\n\n\n\nData\nNaming, formats, metadata, and confidentiality.\n\nData File Naming\nMetadata\nAccessing emLab Data in R\nTidy Data\nData Formats\nData Use Agreements and Confidential Data\n\n\n\nCode\nStyle, documentation, and reproducibility.\n\nCode Styling\nCode Documentation\nExploratory Data Analysis\nPackage Reproducibility\nPipeline Reproducibility\nCode Review\n\n\n\nQuarto\nAuthoring reproducible documents and websites.\n\nChunk Best Practices\nFigures, Tables, and References\nCitations and Bibliography\nCaching\nUsing R targets\nPublishing\nPresentations\n\n\n\nServers\nRunning jobs on Sequoia and Quebracho.\n\nResources and Software\nGetting Set Up\nUsing Sequoia\nUsing Quebracho\nBest Practices\nAccessing Data\nAccessing Code\n\n\n\nPublications\nAuthorship, reports, and sharing outputs.\n\nAffiliation and Authorship\nReports\nPublishing Data\nPublic GitHub Repository\nSharing on Website"
   },
   {
     "objectID": "04-quarto/chunk-best-practices.html",
