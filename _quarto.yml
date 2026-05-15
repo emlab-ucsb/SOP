@@ -8,12 +8,33 @@ book:
   date: today
   description: "Standard operating procedures for emLab projects"
   url: "https://emlab-ucsb.github.io/SOP/"
-  repo-url: "https://github.com/emlab-ucsb/SOP"
   favicon: "favicon.png"
+  bread-crumbs: true
+  search:
+    location: sidebar
+    type: textbox
+  sidebar:
+    style: floating
+    collapse-level: 1
+    tools: []
   chapters:
     - index.qmd
-    - 01-files.qmd
-    - 02-data.qmd
+    - part: "File Structure"
+      chapters:
+        - 01-files/index.qmd
+        - 01-files/folder-naming.qmd
+        - 01-files/google-shared-drive.qmd
+        - 01-files/grit-data-storage-space.qmd
+        - 01-files/github-structure.qmd
+    - part: "Data"
+      chapters:
+        - 02-data/index.qmd
+        - 02-data/data-file-naming.qmd
+        - 02-data/metadata.qmd
+        - 02-data/accessing-emlab-data-in-r.qmd
+        - 02-data/tidy-data.qmd
+        - 02-data/data-formats.qmd
+        - 02-data/data-use-agreements-and-confidential-data.qmd
     - 03-code.qmd
     - 04-gh.qmd
     - 05-code-styling.qmd
@@ -27,5 +48,59 @@ book:
 
 format:
   html:
+    respect-user-color-scheme: true
+    toc: false
+    number-sections: false
     theme: cosmo
-    toc: true
+    code-copy: true
+    code-overflow: scroll
+    include-in-header:
+      - text: |
+          <style>
+            .bi-github::before, .bi-search::before { content: ""; }
+            .bi-search {
+              display: inline-block;
+              width: 1em;
+              height: 1em;
+              vertical-align: -0.125em;
+              background-color: currentColor;
+              -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat center / contain;
+                      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat center / contain;
+            }
+            .bi-github {
+              display: inline-block;
+              width: 1em;
+              height: 1em;
+              vertical-align: -0.125em;
+              background-color: currentColor;
+              -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>') no-repeat center / contain;
+                      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>') no-repeat center / contain;
+            }
+            .github-fab {
+              position: fixed;
+              right: 1rem;
+              bottom: 1rem;
+              z-index: 1000;
+              width: 2.5rem;
+              height: 2.5rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              background: rgba(255,255,255,0.85);
+              box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+              color: #181717;
+            }
+            .github-fab:hover { background: #fff; }
+            .github-fab svg { width: 1.5rem; height: 1.5rem; fill: currentColor; }
+          </style>
+    include-after-body:
+      - text: |
+          <a class="github-fab" href="https://github.com/emlab-ucsb/SOP" aria-label="Source Code" title="Source Code">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px
