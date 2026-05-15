@@ -16,7 +16,6 @@ website:
     collapse-level: 1
     tools: []
     contents:
-      - index.qmd
       - section: "Files"
         href: 01-files/index.qmd
         contents:
@@ -41,8 +40,17 @@ website:
           - 03-code/pipeline-reproducibility.qmd
           - 03-code/code-review.qmd
           - 03-code/eda.qmd
-      - 04-gh.qmd
-      - 09-quarto.qmd
+      - 04-gh/index.qmd
+      - section: "Quarto"
+        href: 05-quarto/index.qmd
+        contents:
+          - 05-quarto/chunk-best-practices.qmd
+          - 05-quarto/figures-tables-references.qmd
+          - 05-quarto/citations-and-bibliography.qmd
+          - 05-quarto/caching.qmd
+          - 05-quarto/targets-integration.qmd
+          - 05-quarto/publishing.qmd
+          - 05-quarto/presentations.qmd
       - 11-hpc.qmd
       - 12-publications.qmd
 

@@ -1,0 +1,77 @@
+---
+format:
+  html:
+    code-copy: true
+    code-fold: false
+    code-tools: false
+execute:
+  eval: false
+  echo: fenced
+---
+
+# Figures, tables, and cross-references
+
+To maintain professional and navigable documents, all key results must be appropriately labeled and referenced within the text.
+
+## Figures
+
+For a chunk to be treated as a cross-referenceable figure, its label **must** start with the fig- prefix. You must also provide a fig-cap.
+
+```{r}
+#| label: fig-map
+#| fig-cap: "Spatial distribution of marine protected areas."
+#| eval: true
+mtcars |>
+  dplyr::mutate(cyl = factor(cyl)) |>
+  ggplot2::ggplot(ggplot2::aes(x = wt, y = mpg, color = cyl)) +
+  ggplot2::geom_point(size = 2.5, alpha = 0.8) +
+  ggplot2::labs(
+    title = "Fuel economy decreases as car weight increases",
+    x = "Weight (1000 lbs)",
+    y = "Miles per gallon",
+    color = "Cylinders"
+  )
+```
+
+## Tables
+
+Table labels **must** start with the tbl- prefix. At emLab, we primarily use three packages for table generation, depending on the complexity required:
+
+### knitr::kable
+
+Best for simple, clean tables with minimal formatting needs. It is lightweight and works perfectly with Quarto’s internal styling.
+
+### kableExtra
+
+Use this when you need complex formatting, such as grouping rows, adding footnotes, or specific cell styling for PDF/HTML.
+
+### gt (Grammar of Tables)
+
+The preferred modern choice for highly customized HTML tables. It provides a "ggplot-like" syntax for building tables piece-by-piece.
+
+## Exporting tables to LaTeX (.tex)
+
+If you are collaborating on a paper in Overleaf or a standalone LaTeX document, you should export your tables to .tex files.
+
+**Using kableExtra:**
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Summary statistics of model performance."
+knitr::kable(summary_df, format = "latex", booktabs = TRUE) |>
+  save_kable("tables/summary_table.tex")
+```
+
+**Using gt:**
+
+```{r}
+gt_table |>
+  gtsave("tables/summary_table.tex")
+```
+
+## Referencing in text
+
+Reference these elements in your narrative using the @ symbol followed by the label.
+
+- "As shown in the figure labeled `fig-map` (@fig-map), the distribution is skewed..."
+- "The results in the table labeled `tbl-summary` (@tbl-summary) indicate a significant trend..."

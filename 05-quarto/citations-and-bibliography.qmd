@@ -1,0 +1,33 @@
+# Citations and bibliography
+
+At emLab, we typically use BibTeX to manage academic references and ensure our technical reports are properly cited. There are two recommended options for creating and maintaining a bibliography file (`.bib`):
+
+## Option 1: export from Zotero
+
+If you already manage your references in [Zotero](https://www.zotero.org/), you can export a `.bib` file directly from your library:
+
+1. In Zotero, select the collection or items you want to export.
+2. Go to **File > Export Library** (or right-click a collection and select **Export Collection**).
+3. Choose **BibTeX** as the format and click **OK**.
+4. Save the file as `references.bib` in your project directory.
+5. Link this file in your Quarto YAML header: `bibliography: references.bib`.
+
+To keep your `.bib` file in sync as you add references, consider using the [Better BibTeX](https://retorque.re/zotero-better-bibtex/) Zotero plugin, which can auto-export the file whenever your library changes.
+
+## Option 2: build a bibliography file manually
+
+If you are not using Zotero, you can create and populate a `.bib` file by hand:
+
+1. Create a plain text file in your project directory named `references.bib`.
+2. Link this file in your Quarto YAML header: `bibliography: references.bib`.
+
+The easiest way to populate your bibliography is by using **Google Scholar**:
+
+1. Search for the paper on [Google Scholar](https://scholar.google.com/).
+2. Click the "Cite" button (quotation marks icon) and select **BibTeX**.
+3. Copy the code block and paste it into your `references.bib` file.
+
+## Citing resources in text
+
+- **Parenthetical:** [@costello2016] renders as (Costello et al., 2016).
+- **Narrative:** @costello2016 renders as Costello et al. (2016).

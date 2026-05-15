@@ -1,0 +1,40 @@
+---
+format:
+  html:
+    code-copy: true
+    code-fold: false
+    code-tools: false
+execute:
+  eval: false
+  echo: fenced
+---
+
+# Integrating with a targets pipeline
+
+For projects using the `targets` package, rendering the Quarto document should be the final step in the pipeline. We recommend using `tarchetypes::tar_quarto()` for this rather than wrapping a render call in a plain `targets::tar_target()`.
+
+## Why `tarchetypes::tar_quarto()` instead of `targets::tar_target()`?
+
+You could imagine that one approach to render a quarto document in a targets pipeline would be to define a target like this:
+
+```{r}
+# Not recommended
+targets::tar_target(report, quarto::quarto_render("analysis/final_report.qmd"))
+```
+
+However, the problem is that `targets` has no visibility into what the `.qmd` file actually depends on. It treats the render as a black box, so it cannot detect when the document's upstream targets have changed and the report needs to be re-rendered. You end up either re-rendering on every `targets::tar_make()` call or, worse, serving a stale report without realizing it.
+
+`tarchetypes::tar_quarto()` solves this by analyzing your `.qmd` file for `targets::tar_read()` and `targets::tar_load()` calls and automatically registering those targets as dependencies. This means `targets` actually re-render the report when something the quarto document actually reads from the pipeline has changed — no manual dependency tracking required.
+
+```{r}
+# Recommended
+tarchetypes::tar_quarto(
+  name = quarto_notebook,
+  path = "qmd/quarto_notebook.qmd",
+  quiet = FALSE
+)
+```
+
+Inside your `.qmd` file, use `targets::tar_read(target_name)` or `targets::tar_load(target_name)`to pull results from the pipeline. These calls are what `tar_quarto()` scans to build the dependency graph.
+
+If you have a strong reason to use `targets::tar_target()` directly (e.g., a non-standard render workflow), it is still possible, but you will need to manually declare dependencies using inside the target expression to ensure correct invalidation behavior. We strongly recommend simply using `tarchetypes::tar_quarto` instead.
