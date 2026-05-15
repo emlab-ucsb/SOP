@@ -1,4 +1,8 @@
 
+::: {.d-block .d-lg-none}
+# emLab SOP
+:::
+
 :::: {.grid}
 
 ::: {.g-col-12 .g-col-md-4}
