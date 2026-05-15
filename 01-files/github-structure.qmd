@@ -1,6 +1,6 @@
-# GitHub Structure
+# GitHub
 
-## Project Repository Structure
+## Project repository structure
 
 The structure of each emlab repository on GitHub will likely vary
 depending on the needs of the project, but the following structure is

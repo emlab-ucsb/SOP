@@ -3,7 +3,7 @@
 Generally, the GRIT data storage space has a very similar structure to
 the [Google Shared Drive](google-shared-drive.qmd), except it also has folders for `data`.
 
-## General Structure
+## General structure
 
 ```
 emLab
@@ -31,7 +31,7 @@ The emLab GRIT data directory is organized into five main folders:
 -   `projects`: includes data and files on past (archive) and current
     projects
 
-## Project Folder Structure
+## Project folder structure
 
 ```
 emLab
@@ -70,7 +70,7 @@ Each project folder on GRIT must contain the following 6 folders:
 From here, each project can add additional folders or sub-folders as
 needed.
 
-## Data Directories
+## Data directories
 
 As stated above, there are two locations in which data can be stored.
 The two locations are both on GRIT, and are either: 1) project-specific

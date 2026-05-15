@@ -16,11 +16,11 @@ At emLab, we believe that data and code are only as valuable as the narrative th
 We use Quarto as one of our primary tools for integrating code with scientific narrative to ensure that our logic, data, and results are inseparable. This "literate programming" approach transforms opaque scripts into transparent, reproducible research products. This format allows us to interleave code chunks with visualizations and scientific interpretation. By then rendering these documents to HTML and hosting them via GitHub Pages, we can ensure that our internal documentation is as accessible and robust as our public-facing work.
 A prime example of this workflow is our [ocean-ghg repository](https://github.com/emlab-ucsb/ocean-ghg), where the entire analytical pipeline is documented and served as a live technical website.
 
-## Chunk Best Practices
+## Chunk best practices
 
 To keep documents clean and professional, we follow a standardized approach to code chunks.
 
-### The Hash-Pipe Syntax
+### The hash-pipe syntax
 
 Use the `#|` (hash-pipe) syntax at the top of your code blocks to set options. This keeps the configuration clearly separated from the executable code.
 
@@ -33,7 +33,7 @@ library(tidyverse)
 # Analysis code here...
 ```
 
-### Global Execution Options
+### Global execution options
 
 For consistency across a document, you can set default chunk options in the YAML header. This avoids repetitive code in every block and ensures a uniform "look" for the report.
 
@@ -50,11 +50,11 @@ execute:
 
 For repos with multiple `.qmd` files (e.g., when making a quarto book), default universal execuition options can be stored in a separate `_quarto.yml` file, which applies to all rendered `.qmd` files in the project directory.
 
-## Chunk Labeling
+### Chunk labeling
 
 Always label your chunks using kebab-case (e.g., process-spatial-data). Labels are essential for debugging, navigation, and cross-referencing.
 
-## Figures, Tables, and Cross-References
+## Figures, tables, and cross-references
 
 To maintain professional and navigable documents, all key results must be appropriately labeled and referenced within the text.
 
@@ -94,7 +94,7 @@ Use this when you need complex formatting, such as grouping rows, adding footnot
 
 The preferred modern choice for highly customized HTML tables. It provides a "ggplot-like" syntax for building tables piece-by-piece.
 
-### Exporting Tables to LaTeX (.tex)
+### Exporting tables to LaTeX (.tex)
 
 If you are collaborating on a paper in Overleaf or a standalone LaTeX document, you should export your tables to .tex files.
 
@@ -114,18 +114,18 @@ gt_table |>
   gtsave("tables/summary_table.tex")
 ```
 
-### Referencing in Text
+### Referencing in text
 
 Reference these elements in your narrative using the @ symbol followed by the label.
 
 - "As shown in the figure labeled `fig-map` (@fig-map), the distribution is skewed..."
 - "The results in the table labeled `tbl-summary` (@tbl-summary) indicate a significant trend..."
 
-## Citations and Bibliography
+## Citations and bibliography
 
 At emLab, we typically use BibTeX to manage academic references and ensure our technical reports are properly cited. There are two recommended options for creating and maintaining a bibliography file (`.bib`):
 
-### Option 1: Export from Zotero
+### Option 1: export from Zotero
 
 If you already manage your references in [Zotero](https://www.zotero.org/), you can export a `.bib` file directly from your library:
 
@@ -137,7 +137,7 @@ If you already manage your references in [Zotero](https://www.zotero.org/), you 
 
 To keep your `.bib` file in sync as you add references, consider using the [Better BibTeX](https://retorque.re/zotero-better-bibtex/) Zotero plugin, which can auto-export the file whenever your library changes.
 
-### Option 2: Build a Bibliography File Manually
+### Option 2: build a bibliography file manually
 
 If you are not using Zotero, you can create and populate a `.bib` file by hand:
 
@@ -150,40 +150,40 @@ The easiest way to populate your bibliography is by using **Google Scholar**:
 2. Click the "Cite" button (quotation marks icon) and select **BibTeX**.
 3. Copy the code block and paste it into your `references.bib` file.
 
-### Citing Resources in Text
+### Citing resources in text
 
 - **Parenthetical:** [@costello2016] renders as (Costello et al., 2016).
 - **Narrative:** @costello2016 renders as Costello et al. (2016).
 
-## Quarto Books for Large Projects
+## Quarto books for large projects
 
 When a project grows beyond a single analysis (e.g., multi-year grants), use **Quarto Books**.
 
 - **Structure:** Requires a `_quarto.yml` and an `index.qmd`. `_quarto.yml` contains default universal execuition options that apply to all rendered `.qmd` files book.
 - **Benefit:** Unified sidebar navigation, cross-chapter referencing, and a shared bibliography.
 
-## Caching Strategy
+## Caching strategy
 
 Caching stores the results of code chunks so they don't have to be re-run every time you render the document.
 
-### When to Use Caching
+### When to use caching
 
 - **Heavy Computation:** Chunks taking >5 seconds (e.g., raster processing, MCMC).
 - **Stable Data Sources:** Large datasets that change infrequently.
 
-### Disabling Caching for Specific Chunks
+### Disabling caching for specific chunks
 
 Explicitly set `#| cache: false` for:
 
 - **Stochasticity:** Simulations or bootstraps without a fixed `set.seed()`.
 - **Data Export:** Chunks using `write_csv()`, `ggsave()`, or `saveRDS()`.
 
-### Common Pitfalls
+### Common pitfalls
 
 - **Hidden Dependencies:** Use `#| dependson: "chunk-A"` if B relies on A.
 - **External Data:** Use `#| cache-extra: !expr file.mtime("data.csv")`.
 
-## Integrating with a targets Pipeline
+## Integrating with a targets pipeline
 
 For projects using the `targets` package, rendering the Quarto document should be the final step in the pipeline. We recommend using `tarchetypes::tar_quarto()` for this rather than wrapping a render call in a plain `targets::tar_target()`.
 
@@ -213,11 +213,11 @@ Inside your `.qmd` file, use `targets::tar_read(target_name)` or `targets::tar_l
 
 If you have a strong reason to use `targets::tar_target()` directly (e.g., a non-standard render workflow), it is still possible, but you will need to manually declare dependencies using inside the target expression to ensure correct invalidation behavior. We strongly recommend simply using `tarchetypes::tar_quarto` instead.
 
-## Automated Documentation via GitHub Actions
+## Automated documentation via GitHub Actions
 
 We use **GitHub Actions** to automatically render Quarto documents into HTML websites hosted via **GitHub Pages**.
 
-### Setting Up GitHub Pages
+### Setting up GitHub Pages
 
 [The Quarto documentation](https://quarto.org/docs/publishing/github-pages.html) has an excellent explanation of how to set up GitHub Pages, which we suggest using as a guide. Here are the CliffsNotes:
 
@@ -242,7 +242,7 @@ We use **GitHub Actions** to automatically render Quarto documents into HTML web
 
 :::
 
-### Making the Documentation Discoverable
+### Making the documentation discoverable
 
 Once your document is rendered to GitHub Pages, you must make it easy for collaborators and the public to find:
 
@@ -253,7 +253,7 @@ Once your document is rendered to GitHub Pages, you must make it easy for collab
 
 For lab meetings, conferences, and stakeholder briefings, we use Quarto to generate presentations. This ensures that the plots shown in slides are identical to the ones in our analysis, with no "copy-paste" errors.
 
-### The emLab Presentation Template
+### The emLab presentation template
 
 We are actively developing a standardized emLab Quarto presentation template to ensure a consistent, professional visual identity across our projects.  
 You can find the current working version of the template here: [presentation-ocean-ghg-ttt](https://github.com/emlab-ucsb/presentation-ocean-ghg-ttt).  
@@ -294,7 +294,7 @@ project:
 ---
 ```
 
-### Slide Structure
+### Slide structure
 
 * **New Slide:** Use `##` to start a new slide.  
 * **Pauses:** Use . . . on its own line to create a "fragment" (pause) that reveals the next part of the slide upon a click.  
@@ -325,7 +325,7 @@ plot(results)
 :::
 ````
 
-### Best Practices for Slides
+### Best practices for slides
 
 1. **echo: false by default:** Unless you are giving a coding tutorial, keep code hidden in slides to focus on results.  
 2. **Speaker Notes:** Use `::: {.notes}` to add reminders that only you can see during the presentation (press 'S' in the browser).  

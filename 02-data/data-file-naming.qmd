@@ -1,4 +1,4 @@
-# Data File Naming
+# Data file naming
 
 "Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread" - Hadley Wickham
 

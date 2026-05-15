@@ -1,10 +1,10 @@
-# Pipeline Reproducibility {#sec-pipeline-reproducibility}
+# Pipeline reproducibility {#sec-pipeline-reproducibility}
 
 Modern research workflows often involve complex, interconnected scripts where the output of one file is the input for the next. Traditional sequential approaches (e.g., first running `01_clean.R`, then running `02_model.R`) are prone to error: if you change a parameter in `01_clean.R`, you must remember to manually re-run everything downstream.  
 
 To ensure end-to-end reproducibility and efficiency, **emLab projects should use automated pipeline tools.** These tools track dependencies, skip tasks that are already up-to-date, and provide a clear map of the research workflow.
 
-## The Philosophy of Pipeline Management
+## The philosophy of pipeline management
 
 Adopting a pipeline tool is not just about learning a new package; it is a shift in research philosophy. We use these tools for several critical reasons:
 
@@ -13,11 +13,11 @@ Adopting a pipeline tool is not just about learning a new package; it is a shift
 * **Trust and Transparency:** A pipeline tool serves as a "living" README. Instead of trusting a narrative description of how the analysis was run, a collaborator can look at a dependency graph and see exactly how every figure and table was derived.  
 * **Collaborative Scalability:** In a team setting, pipelines reduce the "cognitive load" for new members. A new researcher can clone a repository and run a single command to see the entire project in action, rather than guessing which scripts are current and which are experimental leftovers.
 
-## R Pipelines: The targets Package
+## R pipelines: the targets package
 
 For projects primarily using R, we highly recommend the [targets](https://books.ropensci.org/targets/) package. targets maintains a persistent cache and only re-runs the specific parts of your analysis that have changed.
 
-### Targets repo Structure
+### Targets repo structure
 
 A targets project typically follows this directory structure:  
 
@@ -31,7 +31,7 @@ project/
 └── report.qmd          # Final output (e.g., paper figures and statistics)
 ```
 
-### Functionalize Your Code
+### Functionalize your code
 
 Instead of long scripts, write small, modular functions in the `R/` directory. Each function should do one thing (e.g., "clean the sea surface temperature data").
 
@@ -58,14 +58,14 @@ list(
 )
 ```
 
-### Sharing the Data Store across Users
+### Sharing the data store across users
 
 By default, targets stores its data in a local `_targets/` folder. Where you store this folder depends on the size of your objects:
 
 * **Small Objects (<50MB per file):** You can keep the `_targets/` folder in your GitHub repository. However, you must ensure you aren't committing large binary files that will bloat the repo history.  
 * **Large Research Data:** For most emLab projects, analysis objects are too large for GitHub. In these cases, you should move the data store to emLab's shared infrastructure (Nextcloud GRIT storage).
 
-#### Automating Path Detection
+#### Automating path detection
 
 To ensure your pipeline works seamlessly across different team members' machines and our GRIT servers (quebracho or sequoia), use the following boilerplate at the top of your `_targets.R` file:  
 ```{r}
@@ -100,7 +100,7 @@ tar_config_set(
 
 **Crucially:** When using a shared store, only one person should run `tar_make()` at a time to avoid write conflicts in the metadata. Targets will not allow simultaneous runs.
 
-### Multiple Pipelines in One Repo
+### Multiple pipelines in one repo
 
 Complex emLab projects often require split pipelines. For example:
 
@@ -122,7 +122,7 @@ analysis_pipeline:
 You can then run them specifically from the console:  
 `tar_make(script = "_targets_data.R", store = "_targets_data_store")`
 
-## Rendering Quarto Documents in a `targets` Pipeline
+## Rendering Quarto documents in a `targets` pipeline
 
 When your `targets` pipeline produces a Quarto document, the render step should be the last target in your pipeline — and how you define it matters. The right tool for this is `tarchetypes::tar_quarto()`.
 
@@ -156,17 +156,17 @@ Inside your `.qmd` file, use `targets::tar_read(target_name)` or `targets::tar_l
 
 Using `targets::tar_target()` directly is technically possible, but you would need to manually declare all dependencies yourself to get correct invalidation behavior. We therefore strongly recommend `tarchetypes::tar_quarto()` for most use cases.
 
-## Non-R Pipelines: GNU Make
+## Non-R pipelines: GNU Make
 
 For projects using Python, Stata, or a mix of languages, we recommend [GNU Make](https://www.gnu.org/software/make/). Make uses a Makefile to define "rules" for creating files.
 
-### The Makefile Syntax
+### The Makefile syntax
 
 A rule consists of a **target** (the file you want to create), **prerequisites** (files it depends on), and a **recipe** (the command to run).  
 target: prerequisites  
 	recipe
 
-### Example Workflow (Python/Stata)
+### Example workflow (Python/Stata)
 
 ```{bash}
 #| eval: false
@@ -193,7 +193,7 @@ results/paper.pdf: paper.qmd results/model_output.log
 * **Run the pipeline:** Simply type make in your terminal. Make will check the timestamps of all files and only run the steps where the prerequisites are newer than the target.  
 * **Dry run:** Type make -n to see what commands *would* be run without actually executing them.
 
-## Minimum Requirement: README Documentation
+## Minimum requirement: README documentation
 
 If a project does not yet use an automated tool like targets or Make, it is **mandatory** to provide a detailed "How to Run" section in the repository's README.md. At a absolute minimum, this must include:
 
@@ -201,7 +201,7 @@ If a project does not yet use an automated tool like targets or Make, it is **ma
 2. **Dependencies:** Which data files are required for each script and which outputs they produce.  
 3. **Environment Setup:** Instructions on how to set up the necessary libraries or software versions (e.g., using renv or conda).
 
-## Best Practices for All Pipelines
+## Best practices for all pipelines
 
 1. **Documentation is Mandatory:** No matter what pipeline or tool is used, the repository README.md must clearly document how to execute the analysis. A new collaborator should be able to clone the repo and know exactly which command to run (e.g., "Run tar_make() in the R console" or "Type make in the terminal").  
 2. **Atomic Steps:** Each step in the pipeline should be small enough to be easily understood but large enough to justify being its own "target."  
