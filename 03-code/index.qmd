@@ -122,17 +122,6 @@ Prioritizing reproducibility when writing code not only fosters collaboration wi
 
 We also recommend managing package dependencies and creating a reproducible coding pipeline. These two aspects are discussed in more detail in @sec-package-reproducibility and @sec-pipeline-reproducibility.
 
-
-## Internal code review
-
-Peer-review of each other's code is a great method for mutual learning through exposure to different coding styles and packages, ensuring reproducibility, catching any bugs, and uncovering opportunities for doing things better. We recognize that this takes time, but we believe that the time commitment is worth it for us to all become better coders and write better code. As a best practice, we recommend that for any project that has at least two researchers, there should be a systematic review of any major coding elements by the researcher who did not initially write the code. By following the best practices outlined in the `Coding Pipeline` section of this SOP, the original coder can ensure that the reviewing coder knows exactly which pieces of code are critical for their review.
-
-Code reviews should be respectful and collegial in manner. The goal is to make all of our work better and make all us better coders, not to criticize or single anyone out.
-
-The original coder and reviewing coder should coordinate on the best method for feedback, whether that is through direct pull requests to the code, an email outlining suggestions, or a Google doc outlining suggestions.
-
-For further guidance on effective code reviewing techniques and guiding principles, we recommend using the [Tidyteam code review principles](https://tidyverse.github.io/code-review/). These were developed by the `tidyteam` for maintaining packages such as those found in the `tidyverse` and `tidymodels`. These guidelines are based on Google's [Code Review Developer Guide](https://google.github.io/eng-practices/review/), another helpful resource.
-
 # Recommended readings
 
 * Roth, Johannes, Yunyan Duan, Florian P. Mahner, Philipp Kaniuth, Thomas SA Wallis, and Martin N. Hebart. 2025. "Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience." *Communications Psychology* 3 (1). <https://doi.org/10.1038/s44271-025-00236-3>
