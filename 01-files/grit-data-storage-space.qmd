@@ -6,11 +6,11 @@ the [Google Shared Drive](google-shared-drive.qmd), except it also has folders f
 ## General Structure
 
 ```
-|__ emLab
-  |__ central-emlab-resources
-  |__ communications
-  |__ data
-  |__ projects
+emLab
+├── central-emlab-resources
+├── communications
+├── data
+└── projects
 ```
 
 The emLab GRIT data directory is organized into five main folders:
@@ -34,17 +34,17 @@ The emLab GRIT data directory is organized into five main folders:
 ## Project Folder Structure
 
 ```
-|__ emLab
-  |__ projects
-    |__ archived-projects
-    |__ current-project
-    |   |__ example-project
-    |   |   |__ data
-    |   |   |__ deliverables
-    |   |   |__ grant-eporting
-    |   |   |__ meetings-and-events
-    |   |   |__ presentations
-    |   |   |__ project-materials
+emLab
+└── projects
+    ├── archived-projects
+    └── current-project
+        └── example-project
+            ├── data
+            ├── deliverables
+            ├── grant-eporting
+            ├── meetings-and-events
+            ├── presentations
+            └── project-materials
 ```
 
 Each project folder on GRIT must contain the following 6 folders:
@@ -128,17 +128,17 @@ contain the stock assessment results that might be relevant to other
 projects.
 
 ```
-|__ emLab
-  |__ projects
-    |__ current-rojects
-      |__ montserrat-project
-      |   |__ Data
-      |   |__ raw
-      |   |   |__ lobster_landings_nov_2012.xslx
-      |   |__ clean
-      |   |   |__ lobster_landings_nov_2012.csv
-      |   |__ output
-      |       |__ lobster_stock_assessment.csv
+emLab
+└── projects
+    └── current-rojects
+        └── montserrat-project
+            ├── Data
+            ├── raw
+            │   └── lobster_landings_nov_2012.xslx
+            ├── clean
+            │   └── lobster_landings_nov_2012.csv
+            └── output
+                └── lobster_stock_assessment.csv
 ```
 
 As stated above, since the `output` folder could contain information
@@ -173,18 +173,18 @@ folders that include at minimum the data and metadata files.** For
 example, a file structure for the two datasets mentioned above might be:
 
 ```
-|__ emLab
-  |__ data
-    |__ upsides
-    |   |__ _readme_upsides.txt   [the metadata]
-    |   |__ upsides.csv           [the data]
-    |__ ram
-    |   |__ _readme_RAM.txt       [the metadata]
-    |   |__ RAM v4.10             [the data]
-    |   |__ RAM v4.15             [the data]
-    |   |__ RAM v4.25             [the data]
-    |   |__ RAM v4.40             [the data]
-    |__ ... other data sets ...
+emLab
+└── data
+    ├── upsides
+    │   ├── _readme_upsides.txt   [the metadata]
+    │   └── upsides.csv           [the data]
+    ├── ram
+    │   ├── _readme_RAM.txt       [the metadata]
+    │   ├── RAM v4.10             [the data]
+    │   ├── RAM v4.15             [the data]
+    │   ├── RAM v4.25             [the data]
+    │   └── RAM v4.40             [the data]
+    └── ... other data sets ...
 ```
 
 In the above example, the folder containing the upsides database is

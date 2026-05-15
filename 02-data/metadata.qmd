@@ -1,6 +1,6 @@
 # Metadata
 
-Metadata is data about your data. It includes information about your data's content, structure, authors, and permissions to make your data interpretable and usable by your future self and others. **EVERY** data file should be accompanied by a metadata file.
+Metadata is data about your data. It includes information about your data's content, structure, authors, and permissions to make your data interpretable and usable by your future self and others. **Every data file should be accompanied by a metadata file.**
 
 This includes files that people tend to overlook or think are not useful for the broader team. For example, if you're using Google Sheets to keep track of literature or data reviews for a specific project, these documents should also have some form of accompanying metadata.
 
