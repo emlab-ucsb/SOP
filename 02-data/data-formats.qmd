@@ -1,0 +1,11 @@
+# Data formats
+
+Data should preferably be stored and/or archived in open formats. Open formats maximize accessibility because they have freely available specifications and generally do not require proprietary software to open them. The exact format will vary depending on the file type, but some common examples are comma separated value (.csv) as opposed to closed format Excel spreadsheets (.xls) for tabular data, and .pdf or .odt (Open document format for office applications) as opposed to Word documents for final versions of reports.
+
+When saving final geospatial products, we recommend [geopackage](http://www.geopackage.org/) (.gpkg) which has several advantages over the commonly used shapefile format (more [here](http://switchfromshapefile.org/)):
+
+- Single file
+- Open format (shapefile is ESRI-dependent)
+- Fewer limitations: e.g. no limits on attribute file names (shapefile has max. 254 characters), max file size 140 TB! (shapefile max. 4GB).
+
+Geopackage files can be written and read in R, QGIS, and ArcGIS.

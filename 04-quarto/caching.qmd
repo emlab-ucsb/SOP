@@ -1,0 +1,20 @@
+# Caching strategy
+
+Caching stores the results of code chunks so they don't have to be re-run every time you render the document.
+
+## When to use caching
+
+- **Heavy Computation:** Chunks taking >5 seconds (e.g., raster processing, MCMC).
+- **Stable Data Sources:** Large datasets that change infrequently.
+
+## Disabling caching for specific chunks
+
+Explicitly set `#| cache: false` for:
+
+- **Stochasticity:** Simulations or bootstraps without a fixed `set.seed()`.
+- **Data Export:** Chunks using `write_csv()`, `ggsave()`, or `saveRDS()`.
+
+## Common pitfalls
+
+- **Hidden Dependencies:** Use `#| dependson: "chunk-A"` if B relies on A.
+- **External Data:** Use `#| cache-extra: !expr file.mtime("data.csv")`.

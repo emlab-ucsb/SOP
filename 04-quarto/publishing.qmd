@@ -1,0 +1,44 @@
+# Publishing with Quarto books and GitHub Pages
+
+## Quarto books for large projects
+
+When a project grows beyond a single analysis (e.g., multi-year grants), use **Quarto Books**.
+
+- **Structure:** Requires a `_quarto.yml` and an `index.qmd`. `_quarto.yml` contains default universal execuition options that apply to all rendered `.qmd` files book.
+- **Benefit:** Unified sidebar navigation, cross-chapter referencing, and a shared bibliography.
+
+## Automated documentation via GitHub Actions
+
+We use **GitHub Actions** to automatically render Quarto documents into HTML websites hosted via **GitHub Pages**.
+
+### Setting up GitHub Pages
+
+[The Quarto documentation](https://quarto.org/docs/publishing/github-pages.html) has an excellent explanation of how to set up GitHub Pages, which we suggest using as a guide. Here are the CliffsNotes:
+
+1. **Settings:** In your GitHub repo, go to Settings > Pages. Set the source to GitHub Actions.
+2. **Workflow:** Create .github/workflows/publish.yml.
+
+::: {.callout-warning collapse="true"}
+## Privacy note: Pages availability depends on your GitHub plan
+
+- **GitHub Free (personal accounts):** Pages is only available on **public** repositories.
+- **GitHub Pro, Team, and Free for organizations** (which covers the emLab GitHub org): Pages can publish directly from either public or **private** repos. For a private repo, the source code stays hidden while the rendered site is publicly accessible at its "______.github.io" URL.
+
+:::
+
+
+::: {.callout-tip collapse="true"}
+## In case you are curious, here is the workflow used to publish the SOP
+
+```{.yaml filename=".github/workflows/publish.yml"}
+{{< include ../.github/workflows/publish.yml >}}
+```
+
+:::
+
+### Making the documentation discoverable
+
+Once your document is rendered to GitHub Pages, you must make it easy for collaborators and the public to find:
+
+1. **Repo Description:** On the main page of your GitHub repository, click the "About" gear icon (top right). Paste the GitHub Pages URL into the **Website** field.
+2. **Project README:** At the very top of your README.md, add a prominent link to the rendered documentation.

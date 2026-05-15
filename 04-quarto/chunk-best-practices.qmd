@@ -1,0 +1,48 @@
+---
+format:
+  html:
+    code-copy: true
+    code-fold: false
+    code-tools: false
+execute:
+  eval: false
+  echo: fenced
+---
+
+# Chunk best practices
+
+To keep documents clean and professional, we follow a standardized approach to code chunks.
+
+## The hash-pipe syntax
+
+Use the `#|` (hash-pipe) syntax at the top of your code blocks to set options. This keeps the configuration clearly separated from the executable code.
+
+```{r}
+#| label: fig-yield-analysis
+#| fig-cap: "Annual crop yield trends by region (2000-2023)."
+#| warning: false
+#| message: false
+library(tidyverse)
+# Analysis code here...
+```
+
+## Global execution options
+
+For consistency across a document, you can set default chunk options in the YAML header. This avoids repetitive code in every block and ensures a uniform "look" for the report.
+
+```yaml
+---
+title: "Project Analysis"
+execute:
+  echo: false
+  : false
+  message: false
+  cache: true
+---
+```
+
+For repos with multiple `.qmd` files (e.g., when making a quarto book), default universal execuition options can be stored in a separate `_quarto.yml` file, which applies to all rendered `.qmd` files in the project directory.
+
+## Chunk labeling
+
+Always label your chunks using kebab-case (e.g., process-spatial-data). Labels are essential for debugging, navigation, and cross-referencing.

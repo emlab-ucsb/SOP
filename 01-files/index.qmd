@@ -1,0 +1,25 @@
+# Where to store your files
+
+emLab files live in one of three places, depending on what they are:
+
+- **[Google Shared Drive](google-shared-drive.qmd)** — collaborative Google Docs, Sheets, and Slides.
+- **[GRIT](grit-data-storage-space.qmd)** (emLab's data storage space) — everything else that's stored as a file: data, media, PDFs, Microsoft Office documents, and so on.
+- **[GitHub](github-structure.qmd)** — source code and other version-controlled text.
+
+The Google Shared Drive and GRIT use a similar folder layout, but each file belongs to exactly one of them based on its type — never duplicate files between them. The pages linked above describe the conventions for each location.
+
+# How to name your folders
+
+There are some general style conventions that should be used when naming
+folders. For any new folder, be descriptive but concise, avoid spaces,
+avoid uppercase (or camel-case), and avoid special characters other than
+`-`, such as `= \ / : * ? " ' < > |`. Words
+should be separated with `-`, so an example folder name could be
+`blue-paradox-paper`.
+
+When possible, avoid unnecessary deep file nesting (i.e., a folder
+within a folder within a folder within a folder...etc) to keep file
+paths relatively short and easy to navigate.
+
+This folder naming convention should be used for any folder added to the
+Google Shared Drive, GRIT, or GitHub.

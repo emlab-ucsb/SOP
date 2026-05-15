@@ -1,0 +1,37 @@
+# Accessing emLab data in R
+
+This section will go over how to access data stored in the emLab data directories (either the common emLab data directory, or project-specific data directories) using R. We provide instructions for accessing data using R on your personal local machine, or on one of emLab's GRIT servers.
+
+1. Accessing GRIT data on your local machine requires you to use the Nextcloud desktop app and set it up as described in the emLab manual. If you haven't done so already, please complete that section. The GRIT data storage space has already been linked to our emLab `quebracho` server (and will eventually be to our forthcoming `sequoia` server).
+
+2. Set the base data directory at the top of your code to the location directory lives. You should be able to use the following code snippet to do this, which should work on either your local machines, or on a GRIT server such as quebracho or sequoia. Note that this code will automatically generate the correct directory path if using a GRIT server or a local Mac or Windows machine. If using a local Linux machine, you will need to manually modify this to incorporate your unique user name so that it matches the directory entered in Step 9 above.
+
+```r
+# Setting the base data directory in R.
+# First determine if system is one of our GRIT servers (quebracho or sequoia).
+# Otherwise, set the directory for local machines based on the OS (Darwin, Windows, or Linux).
+# Finally, if no conditions are met, set the directory to directly within the default home
+# directory.
+
+data_directory_base <- dplyr::case_when(
+  Sys.info()["nodename"] %in% c("quebracho", "sequoia") ~ "/home/emlab",   # GRIT servers
+  Sys.info()["sysname"] == "Darwin" ~ "/Users/Shared/nextcloud/emLab",     # Mac OS
+  Sys.info()["sysname"] == "Windows" ~ "G:/Shared drives/nextcloud/emLab", # Windows OS
+  Sys.info()["sysname"] == "Linux" ~ "/home/your_username/Nextcloud",      # Linux OS (use your username)
+  TRUE ~ "~/Nextcloud"                                                     # Anything else
+)
+```
+
+
+Now set the project-specific directory. For example:
+
+```
+data_directory_project <- file.path(data_directory_base, "projects/current-projects/test-project-nextcloud/data")
+```
+You should now be able to read and write data into the project data directory. For example:
+
+```
+penguins <- read.csv(file.path(data_directory_project, "raw/penguins.csv"))
+```
+
+Note that you can also always navigate to the data directory in the RStudio viewer pane. To do so, simply click the 3 dots in the viewer pane, and type in the appropriate path.

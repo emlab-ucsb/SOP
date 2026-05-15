@@ -1,0 +1,15 @@
+# Quarto
+
+At emLab, we believe that data and code are only as valuable as the narrative that connects them. While code comments explain the "how," Quarto documents (.qmd) are used to explain the "so what."
+We use Quarto as one of our primary tools for integrating code with scientific narrative to ensure that our logic, data, and results are inseparable. This "literate programming" approach transforms opaque scripts into transparent, reproducible research products. This format allows us to interleave code chunks with visualizations and scientific interpretation. By then rendering these documents to HTML and hosting them via GitHub Pages, we can ensure that our internal documentation is as accessible and robust as our public-facing work.
+A prime example of this workflow is our [ocean-ghg repository](https://github.com/emlab-ucsb/ocean-ghg), where the entire analytical pipeline is documented and served as a live technical website.
+
+The pages below cover the conventions and tools we use when writing Quarto documents:
+
+- **[Chunk best practices](chunk-best-practices.qmd)** — hash-pipe options, global execution settings, and chunk labeling.
+- **[Figures, tables, and cross-references](figures-tables-references.qmd)** — labeling figures and tables, choosing a table package, and referencing them in text.
+- **[Citations and bibliography](citations-and-bibliography.qmd)** — managing a `.bib` file with Zotero or by hand, and citing in text.
+- **[Caching strategy](caching.qmd)** — when to cache, when to disable it, and common pitfalls.
+- **[Integrating with a targets pipeline](targets-integration.qmd)** — using `tarchetypes::tar_quarto()` so dependency tracking actually works.
+- **[Publishing with Quarto books and GitHub Pages](publishing.qmd)** — structuring multi-document projects and auto-rendering them to a public site.
+- **[Presentations in Quarto](presentations.qmd)** — Revealjs slides, the emLab template, and slide-writing best practices.

@@ -1,32 +1,168 @@
 project:
-  type: book
+  type: website
   output-dir: _book
 
-book:
-  title: "emLab Standard Operating Procedures"
-  author: "Environmental Markets Lab (emLab)"
-  date: today
+website:
+  title: "emLab <br> Standard <br> Operating <br> Procedures"
   description: "Standard operating procedures for emLab projects"
-  url: "https://emlab-ucsb.github.io/SOP/"
-  repo-url: "https://github.com/emlab-ucsb/SOP"
+  site-url: "https://emlab-ucsb.github.io/SOP/"
   favicon: "favicon.png"
-  chapters:
-    - index.qmd
-    - 01-files.qmd
-    - 02-data.qmd
-    - 03-code.qmd
-    - 04-gh.qmd
-    - 05-code-styling.qmd
-    - 06-code-documentation.qmd
-    - 06.5-code-review.qmd
-    - 07-package-reproducibility.qmd
-    - 08-pipeline-reproducibility.qmd
-    - 09-quarto.qmd
-    - 10-eda.qmd
-    - 11-hpc.qmd
-    - 12-publications.qmd
+  bread-crumbs: false
+  search:
+    location: sidebar
+    type: overlay
+  sidebar:
+    style: floating
+    collapse-level: 1
+    tools: []
+    contents:
+      - section: "Files"
+        href: 01-files/index.qmd
+        contents:
+          - 01-files/google-shared-drive.qmd
+          - 01-files/grit-data-storage-space.qmd
+          - 01-files/github-structure.qmd
+      - section: "Data"
+        href: 02-data/index.qmd
+        contents:
+          - 02-data/data-file-naming.qmd
+          - 02-data/metadata.qmd
+          - 02-data/accessing-emlab-data-in-r.qmd
+          - 02-data/tidy-data.qmd
+          - 02-data/data-formats.qmd
+          - 02-data/data-use-agreements-and-confidential-data.qmd
+      - section: "Code"
+        href: 03-code/index.qmd
+        contents:
+          - 03-code/code-styling.qmd
+          - 03-code/code-documentation.qmd
+          - 03-code/eda.qmd
+          - 03-code/package-reproducibility.qmd
+          - 03-code/pipeline-reproducibility.qmd
+          - 03-code/code-review.qmd
+      - section: "Quarto"
+        href: 04-quarto/index.qmd
+        contents:
+          - 04-quarto/chunk-best-practices.qmd
+          - 04-quarto/figures-tables-references.qmd
+          - 04-quarto/citations-and-bibliography.qmd
+          - 04-quarto/caching.qmd
+          - 04-quarto/targets-integration.qmd
+          - 04-quarto/publishing.qmd
+          - 04-quarto/presentations.qmd
+      - section: "Servers"
+        href: 05-hpc/index.qmd
+        contents:
+          - 05-hpc/resources-and-software.qmd
+          - 05-hpc/getting-set-up.qmd
+          - 05-hpc/using-sequoia.qmd
+          - 05-hpc/using-quebracho.qmd
+          - 05-hpc/best-practices-and-resource-allocation.qmd
+          - 05-hpc/accessing-data.qmd
+          - 05-hpc/accessing-code.qmd
+      - section: "Publications"
+        href: 06-publications/index.qmd
+        contents:
+          - 06-publications/affiliation-and-authorship.qmd
+          - 06-publications/reports.qmd
+          - 06-publications/publishing-data.qmd
+          - 06-publications/public-github-repository.qmd
+          - 06-publications/sharing-on-website.qmd
+      - 03-code.qmd
+      - 06.5-code-review.qmd
+      - 07-gh/index.qmd
 
 format:
   html:
-    theme: cosmo
-    toc: true
+    respect-user-color-scheme: true
+    toc: false
+    number-sections: false
+    theme:
+      light: flatly
+      dark: darkly
+    code-copy: true
+    code-overflow: scroll
+    include-in-header:
+      - text: |
+          <style>
+            .bi-github::before, .bi-search::before { content: ""; }
+            .bi-search {
+              display: inline-block;
+              width: 1em;
+              height: 1em;
+              vertical-align: -0.125em;
+              background-color: currentColor;
+              -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat center / contain;
+                      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat center / contain;
+            }
+            .bi-github {
+              display: inline-block;
+              width: 1em;
+              height: 1em;
+              vertical-align: -0.125em;
+              background-color: currentColor;
+              -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>') no-repeat center / contain;
+                      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>') no-repeat center / contain;
+            }
+            .fab {
+              position: fixed;
+              right: 1rem;
+              z-index: 1000;
+              width: 2.5rem;
+              height: 2.5rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              background: rgba(255,255,255,0.85);
+              box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+              color: #181717;
+              border: 0;
+              padding: 0;
+              cursor: pointer;
+            }
+            .fab:hover { background: #fff; }
+            .fab svg { width: 1.5rem; height: 1.5rem; fill: currentColor; }
+            .github-fab { bottom: 1rem; color: #181717; }
+            .quarto-dark .github-fab { color: #181717; }
+            .search-fab { bottom: 4rem; }
+            #quarto-search, .sidebar-search, .quarto-search-button { display: none !important; }
+            .quarto-color-scheme-toggle { display: none !important; }
+            .theme-fab { bottom: 7rem; }
+            .theme-fab .theme-icon-dark { display: none; }
+            .quarto-dark .theme-fab .theme-icon-light { display: none; }
+            .quarto-dark .theme-fab .theme-icon-dark { display: inline; }
+            .sidebar-item .collapse, .sidebar-item .collapsing,
+            .sidebar-item-toggle, .sidebar-item-toggle * {
+              transition: none !important;
+              animation: none !important;
+            }
+            a, a:visited { color: #2aa198; }
+            a:hover, a:focus { color: #1f7f78; }
+            .quarto-dark a, .quarto-dark a:visited { color: #5ec8c0; }
+            .quarto-dark a:hover, .quarto-dark a:focus { color: #8fdcd5; }
+            .sidebar-title, .sidebar-title a, .sidebar-title a:visited,
+            .sidebar-title a:hover, .sidebar-title a:focus { color: inherit; }
+            .quarto-dark :not(pre) > code {
+              color: #e83e8c !important;
+              background-color: #2b2b2b !important;
+              border: none !important;
+            }
+          </style>
+    include-after-body:
+      - text: |
+          <button type="button" class="fab search-fab" aria-label="Search" title="Search" onclick="window.quartoOpenSearch && window.quartoOpenSearch();">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+          </button>
+          <button type="button" class="fab theme-fab" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(document.querySelector('.quarto-color-scheme-toggle')||{click:()=>{}}).click();">
+            <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/></svg>
+            <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>
+          </button>
+          <a class="fab github-fab" href="https://github.com/emlab-ucsb/SOP" target="_blank" rel="noopener noreferrer" aria-label="Source Code" title="Source Code">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px

@@ -1,0 +1,180 @@
+# Code review (NOTE: This page should be updated from `06.5-code-review.qmd` before merge)
+
+Code review is the process of systematically examining code written by yourself or a
+collaborator to check for errors, assess clarity, and verify that the analysis does what it is intended to do. It is one of the highest-leverage things we can do to protect the quality of our research. Despite this, code review is noticeably absent from standard practice in environmental and natural resource economics, and research science broadly (Ivimey-Cook et al., 2023; Petre & Wilson, 2014). When code review is not planned, and is instead reactive (e.g., triggered by a journal requirement  or a discovered error), the review has the potential to be rushed, incomplete, or painful.
+
+In addition, code review provides an excellent opportunity to learn from others. Reviewing a colleague's code exposes you to different approaches, packages, and 
+problem-solving strategies you might not encounter in your own work, and having 
+your own code reviewed often surfaces habits or assumptions worth revisiting. Over 
+time, this exchange builds collective expertise across the lab. This section describes what effective code review looks like at emLab — both how to plan for code review from the beginning of a project, and the practices that should govern how we review code. 
+
+---
+
+## Code Review Plan for projects
+
+Code review should be planned at the start of a project. A code review plan answers four questions: *what* gets reviewed, *when*, *by whom*, and *to what standard*. The answers will differ across projects, but the plan should exist and should be documented. Code review should be considered when developing each Scope of Work, which should reflect the time, personnel, and thus budget needed to support adequate code review. Ideally, team compositions would include more than one researcher to accommodate for external code review. When that is not possible, it is important to consider who will provide external code review (e.g., PI, emLab researcher not on project team).
+
+Not every project warrants the same level of review, and the plan above should be adapted accordingly. A small internal analysis with no external audience may need only self review and basic version control. A multi-year project culminating in a journal submission should have continuous peer review built into every phase of the work.
+
+The key is to make a conscious decision about the level of review appropriate for the project and to make that decision at the start, when timelines and budgets can still accommodate it. The cost of catching an error during review is almost always lower than the cost of catching it after submission, after a partner has acted on it, or not catching it at all.
+
+A plan for code review should be explicitly discussed and agreed upon during [project kickoff meetings](https://emlab-ucsb.github.io/emlab-manual/project-management.html#kickoff-meetings). The following template is a tool that teams can use during project kickoffs and revisited at key milestones (mid-project, pre-deliverable, pre-publication). The code review plan could live in the project's GitHub repository, either in the README or a dedicated `CODE_REVIEW.md` file.
+
+### On the culture of code review
+
+Code review works best when it is normalized and non-adversarial. The goal is not to
+scrutinize or judge — it is to catch errors before they are embedded in results, and to build shared understanding of a project across the team.
+
+Reviewing someone's code is a contribution to the project and should be recognized as
+such. On projects where a reviewer makes substantial contributions through code review, this warrants acknowledgment (and potentially co-authorship, depending on the scope of involvement).
+
+For PIs and project managers: building a culture of code review requires that time for it is explicitly planned and protected. Researchers who are told that code review matters but given no time to do it will be unlikely to prioritize it. 
+
+---
+
+### Code Review Plan template
+
+**Project name:**\
+**Date:**\
+**Researchers:**\
+
+---
+
+**1. What outputs does this project produce?**
+
+*List the primary deliverables: e.g., internal report, partner-facing report, journal submission, public dataset.*
+
+[ ] Internal report / working analysis only\
+[ ] Partner-facing deliverable\
+[ ] Publication (peer-reviewed journal)\
+[ ] Public-facing repository / reproducible analysis package\
+[ ] Public dataset
+
+---
+
+**2. What type(s) of code review are required?**
+
+Based on the outputs above, determine the minimum required review type(s). See also
+the emLab code review standards table.
+
+| Review type | Description | When required |
+|---|---|---|
+| **Self review** | Author reviews their own code before sharing | Always |
+| **Accuracy review** | Reviewer checks logic, calculations, and correctness | Partner-facing and publication outputs |
+| **Reproducibility review** | Reviewer independently re-runs the analysis | Publication outputs; strongly recommended for partner-facing |
+
+*Notes on scope (e.g., which scripts, which analysis steps):*
+
+---
+
+**3. Who will conduct the review?**
+
+For each review type above, identify the reviewer(s). Note any constraints (e.g., reviewer needs domain expertise to evaluate model specification; reviewer should be someone not involved in daily analysis decisions to provide fresh eyes).
+
+| Review type | Reviewer | Notes |
+|---|---|---|
+| Self review | [Author name(s)] | |
+| Accuracy review | | |
+| Reproducibility review | | |
+
+*If a peer reviewer outside the project team is needed or desirable, note that here and identify who will coordinate.*
+
+---
+
+**4. When will code review occur?**
+
+Code review is most effective — and least disruptive — when it happens incrementally.
+Mark all that apply and add target dates where relevant.
+
+[ ] **Continuously**, via pull requests during active development (preferred for multi-researcher projects)\
+[ ] **At key analysis milestones** (e.g., after data cleaning, after model estimation)\
+[ ] **Before sharing with partners or external collaborators**\
+[ ] **Before submission for publication**\
+[ ] **Other:** _______________\
+
+*Timeline notes (e.g., planned submission date, partner review deadlines):*
+
+---
+
+**5. How much time is budgeted for code review?**
+
+Code review takes real time for both the reviewer and for the author to revise and
+respond. As a rough guide, plan for **10–20% of total coding time** for meaningful
+ongoing review. This should be reflected in project timelines and in grant budgets.
+
+| Activity | Estimated time | Who |
+|---|---|---|
+| Writing code for reviewability (documentation, organization) | | Author |
+| Conducting accuracy or reproducibility review | | Reviewer |
+| Responding to and implementing review feedback | | Author |
+
+*If the timeline or budget does not accommodate meaningful code review, flag this.*
+
+---
+
+**6. What is the expected standard for the final codebase?**
+
+Check the expected standard at project completion:
+
+[ ] **Minimum:** Code is version-controlled on GitHub; self review completed; key decisions documented in commits and/or comments.\
+[ ] **Standard:** All of the above, plus peer accuracy review of core analysis scripts via pull requests.\
+[ ] **Gold standard (required for publications):** All of the above, plus reproducibility review: a reviewer has independently re-run the full analysis from the repository and confirmed outputs match.\
+
+---
+
+**7. Milestone check-ins**
+
+Use this section to record code review status at key project milestones.
+
+| Milestone | Date | Review completed? | Notes |
+|---|---|---|---|
+| Analysis kickoff / repo setup | | | |
+| Core data processing complete | | | |
+| Core analysis / modeling complete | | | |
+| Pre-deliverable / pre-submission | | | |
+| Final reproducibility check | | | |
+
+---
+
+## Code review best practices
+
+The following principles are adapted from the [tidyteam code review guidelines]
+(code-review.tidyverse.org) and Roth et al. (2025), with modifications for our research context.
+
+### For the person developing code for review
+
+**Make reviews easy to do.** The single most effective thing you can do to get useful code review is to make it easy for the reviewer. This means:
+
+- **Keep pull requests small and focused.** A PR that touches hundreds of lines across
+  many files is difficult to review thoroughly. Where possible, break work into logical units — one analysis step, one new function, one script — and submit those for review incrementally. Aim for PRs that a reviewer can meaningfully engage with in a focused sitting.
+- **Write a clear PR description.** Explain what the code does, why it was written this way, and what the reviewer should focus on. If there are aspects you are uncertain about, say so. A reviewer who understands the intent is more useful than one who has to reverse-engineer it.
+- **Make sure the code runs before requesting review.** Only ask a colleague to review code that you have already run yourself end-to-end. This is a basic courtesy and prevents wasted time.
+- **Respond to review comments constructively.** If you disagree with a suggestion,
+  explain why — do not just dismiss it. If you accept a suggestion, make the change and note it. Keep the conversation in the PR so there is a record.
+- **Write code that is ready to be reviewed.** Code that is well-organized, clearly commented, and logically structured is far easier to review than code that is not. Investing in code quality before requesting review reduces the burden on your reviewer and produces better feedback. Sections **XX** (commenting), **YY** (pipeline reproducibility), and **ZZ** (code styling) are directly relevant here.
+
+### For the person reviewing code
+
+- **Understand what kind of review is being requested.** Code review can target different things — accuracy (is the logic correct?), reproducibility (can I re-run this and get the same result?), or clarity (is this understandable?). Know what you are being asked to check before you start. If it is not clear, ask.
+
+- **Be specific and constructive.** Vague feedback ("this is confusing") is less useful than specific feedback ("this variable name doesn't tell me what the units are — consider `sst_celsius` instead of `sst`"). When you identify a problem, try to suggest a solution or at least describe the issue precisely enough that the author can address it.
+
+- **Distinguish between required changes and suggestions.** Not all reviewer comments
+carry the same weight. Be explicit about which issues must be addressed before the code is merged and which are matters of preference or style. One useful convention is to prefix comments: "Required:" vs. "Suggestion:" or "Nit:".
+
+- **Prioritize correctness over style.** Logic errors, incorrect calculations, mishandled edge cases, and broken reproducibility chains are more important than stylistic disagreements. Address style if it genuinely impairs readability, but do not let it crowd out substantive review.
+
+- **Actually run the code.** For accuracy or reproducibility review, running the code yourself is often the only way to catch certain classes of errors. If the repo is set up correctly (see **XX**), this should be straightforward.
+
+- **Be timely.** A PR that sits unreviewed can disrupt the author's workflow and creates merge conflicts. If you cannot complete a review within a reasonable timeframe
+(generally within a few business days for active projects), communicate that and, if
+possible, suggest an alternative reviewer.
+
+---
+
+# References
+
+- *Ivimey-Cook et al. (2023). Implementing code review in the scientific workflow: Insights from ecology and evolutionary biology.*\
+- *Petre, M. & Wilson, G. (2014). Code review for and by scientists.*\
+- *Roth, J. et al. (2025). Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience. Communications Psychology, 3, 62.*\
+- *tidyteam code review guide: https://code-review.tidyverse.org/*
