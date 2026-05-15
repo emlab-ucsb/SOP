@@ -1,8 +1,43 @@
 # Coding at emLab
 
-All data processing and analysis should be performed with code (i.e., avoid spreadsheets), and all code should be packaged in scripts that are version controlled and follow a style guide. Using code and scripts allows for better organization, documentation, and reproducibility of analysis workflows. **All emLab code should be stored in the emLab GitHub account.**
+Writing code is one of the most consequential tasks that we do at emLab. Our analyses inform real policy and resource management decisions, which means a coding error is not just a technical inconvenience, it can undermine the credibility of our science and erode trust with partners. At the same time, the broader scientific community has increasingly shifted towards Open Science, a movement that calls for transparent, accessible, and reproducible research (Roth et al. 2025). Many journals now require public code repositories as a condition of publication, and peer reviewers are increasingly expected to evaluate not just the methods as described, but the implementation itself. Understandable, accurate, and reproducible code is thus essential to rigorous research. Code that can be understood and re-run by others enables collaboration, continuity with changing team compositions, and a smooth publication process.
+
+This and following chapters are about establishing a shared foundation for coding at emLab. The following guiding principles are intended to orient our coding decisions, regardless of project type, team size, or programming language. The other chapters provide instructions and guidance for actualizing this shared vision. 
+
+Some practices are fundamental enough to effective collaboration that we designate them as **universal requirements** — expectations that all team members engaged in coding should follow, regardless of project. These requirements establish a shared baseline that reduces friction in collaboration and code review, and makes it possible for anyone on the team to engage with, build on, or evaluate another person's work. Beyond these requirements, we also identify **best practices** that represent what we aspire to as a team. We recognize that projects vary considerably in scope, team composition, available personnel, and external collaborator expectations, and that not every best practice will be achievable on every project. The goal is to strive toward them where possible, and to make deliberate decisions when circumstances require a different approach.
+
+## Guiding principles and universal requirements
+
+Everything we write should serve two goals: *accuracy* (the code does what we think it does) and *reproducibility* (someone else — or our future selves — can run it and get the same result).
+
+**1. Code for accuracy.**
+Accuracy means the logic is correct (e.g., the right observations are being filtered, the model is specified as intended, and the units are consistent). Accuracy errors are often invisible: the code may run and produce plausible-looking output, obscuring that a mistake was made. Such errors may go unnoticed for a long time, or entirely. These errors come at costs: errors discovered late in a project can require  extensive revision, delay or derail publication, and undermine trust with partners. Accuracy is best protected through continuous, incremental review, which requires adequate time for developing clean code and personnel available to provide review.
+
+**2. Code for reproducibility.**
+Reproducibility means that a person with access to your code, data, and documentation can independently re-run the analysis and arrive at the same outputs. This is increasingly a necessity: public code repositories are now required by many journals and the broader scientific community's trust in computational research depends on it. Reproducibility is protected through good code organization, documentation, package management, and using platforms (like GitHub) that track the full history of a project.
+
+The following universal requirements reflect our shared commitment to a research 
+environment that supports excellent, collaborative code development at emLab. These are described in detail in the following chapters.
+
+**GitHub as the Platform for All Coding Work**
+GitHub is emLab's required platform for all coding projects. Using GitHub means that:
+
+* **All code is maintained in a GitHub repository.** GitHub repos include a
+README, document dependencies, and follow a logical file structure — is the foundation of a reproducible analysis. 
+
+* **Code is clear and commented.** All code is formatted using the appropriate code formatter for the language (e.g., Air for R, Ruff for Python). Code is sufficiently described documented using comments.
+
+* **Every change is tracked.** All code changes are tracked using Git version control, with clear and descriptive commit messages.
+
+* **Collaboration has structure.** Branches, pull requests, and issues give teams a
+shared vocabulary and workflow for dividing work, reviewing code, and documenting
+decisions. The main branch is protected. Code development decisions and discussions are documented using GitHub Issues.
+
+* **Code review completed through pull requests.** Meaningful peer review of code requires a shared platform. GitHub's pull request workflow is the mechanism through which we conduct structured code review at emLab.
 
 **Recommended readings:**
+
+* Roth, Johannes, Yunyan Duan, Florian P. Mahner, Philipp Kaniuth, Thomas SA Wallis, and Martin N. Hebart. 2025. "Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience." *Communications Psychology* 3 (1). <https://doi.org/10.1038/s44271-025-00236-3>
 
 * Bryan, Jennifer. 2018. "Excuse Me, Do You Have a Moment to Talk About Version Control?" *The American Statistician* 72 (1): 20–27. <https://doi.org/10.1080/00031305.2017.1399928>.
 

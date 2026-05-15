@@ -18,6 +18,7 @@ book:
     - 04-gh.qmd
     - 05-code-styling.qmd
     - 06-code-documentation.qmd
+    - 06.5-code-review.qmd
     - 07-package-reproducibility.qmd
     - 08-pipeline-reproducibility.qmd
     - 09-quarto.qmd
