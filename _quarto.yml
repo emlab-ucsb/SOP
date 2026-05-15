@@ -24,8 +24,8 @@ website:
           - 01-files/grit-data-storage-space.qmd
           - 01-files/github-structure.qmd
       - section: "Data"
+        href: 02-data/index.qmd
         contents:
-          - 02-data/index.qmd
           - 02-data/data-file-naming.qmd
           - 02-data/metadata.qmd
           - 02-data/accessing-emlab-data-in-r.qmd
