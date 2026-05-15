@@ -8,32 +8,46 @@ Standard operating procedures for emLab projects:
 ## Table of Contents
 
 1. File Structure
-    - Folder Naming
-    - Shared Drive Files
+    - Google Shared Drive
+    - GRIT Data Storage Space
     - GitHub Structure
 2. Data
     - Data File Naming
     - Metadata
-    - Data Directory
+    - Accessing emLab Data in R
     - Tidy Data
     - Data Formats
+    - Data Use Agreements and Confidential Data
 3. Code
-    - Scripts and Version Control
-    - Style Guide
-    - Reproducibility
-    - Coding pipelines
-    - Internal code review
+    - Code Styling
+    - Code Documentation
+    - Package Reproducibility
+    - Pipeline Reproducibility
+    - Code Review
     - Exploratory Data Analysis
-4. High Performance Computing
-    - Google Cloud Platform
-    - UCSB Server Clusters
-5. Reports and Publications
-    - emLab Affiliation
+4. Quarto
+    - Chunk Best Practices
+    - Figures, Tables, and References
+    - Citations and Bibliography
+    - Caching
+    - Targets Integration
+    - Publishing
+    - Presentations
+5. High Performance Computing
+    - Resources and Software
+    - Getting Set Up
+    - Using Sequoia
+    - Using Quebracho
+    - Best Practices and Resource Allocation
+    - Accessing Data
+    - Accessing Code
+6. Reports and Publications
+    - Affiliation and Authorship
     - Reports
-    - Author Contribution
-    - Making Your Data Publicly Available
-    - Preparing a Public GitHub Repository
-    - Sharing public data, Shiny apps, and tools on our website  
+    - Publishing Data
+    - Public GitHub Repository
+    - Sharing on Website
+7. GitHub Repository
 
 
 ## Contributing
