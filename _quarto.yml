@@ -17,7 +17,7 @@ website:
     tools: []
     contents:
       - index.qmd
-      - section: "File Structure"
+      - section: "Files"
         href: 01-files/index.qmd
         contents:
           - 01-files/google-shared-drive.qmd
@@ -32,7 +32,7 @@ website:
           - 02-data/tidy-data.qmd
           - 02-data/data-formats.qmd
           - 02-data/data-use-agreements-and-confidential-data.qmd
-      - section: "Coding at emLab"
+      - section: "Code"
         href: 03-code/index.qmd
         contents:
           - 03-code/code-styling.qmd
