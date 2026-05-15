@@ -33,15 +33,15 @@ website:
           - 02-data/data-formats.qmd
           - 02-data/data-use-agreements-and-confidential-data.qmd
       - section: "Coding at emLab"
-        href: 03-code.qmd
+        href: 03-code/index.qmd
         contents:
-          - 05-code-styling.qmd
-          - 06-code-documentation.qmd
-          - 07-package-reproducibility.qmd
-          - 08-pipeline-reproducibility.qmd
+          - 03-code/code-styling.qmd
+          - 03-code/code-documentation.qmd
+          - 03-code/package-reproducibility.qmd
+          - 03-code/pipeline-reproducibility.qmd
+          - 03-code/eda.qmd
       - 04-gh.qmd
       - 09-quarto.qmd
-      - 10-eda.qmd
       - 11-hpc.qmd
       - 12-publications.qmd
 
