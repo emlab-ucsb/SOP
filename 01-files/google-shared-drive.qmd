@@ -1,4 +1,4 @@
-# Google Shared Drive
+# Google Shared Drive {#sec-google-drive}
 
 The Google Shared Drive and GRIT storage space share a very similar
 folder structure. The main difference is that the Google Shared Drive
