@@ -51,8 +51,24 @@ website:
           - 05-quarto/targets-integration.qmd
           - 05-quarto/publishing.qmd
           - 05-quarto/presentations.qmd
-      - 11-hpc.qmd
-      - 12-publications.qmd
+      - section: "High Performance Computing"
+        href: 11-hpc/index.qmd
+        contents:
+          - 11-hpc/resources-and-software.qmd
+          - 11-hpc/getting-set-up.qmd
+          - 11-hpc/using-sequoia.qmd
+          - 11-hpc/using-quebracho.qmd
+          - 11-hpc/best-practices-and-resource-allocation.qmd
+          - 11-hpc/accessing-data.qmd
+          - 11-hpc/accessing-code.qmd
+      - section: "Reports and Publications"
+        href: 12-publications/index.qmd
+        contents:
+          - 12-publications/affiliation-and-authorship.qmd
+          - 12-publications/reports.qmd
+          - 12-publications/publishing-data.qmd
+          - 12-publications/public-github-repository.qmd
+          - 12-publications/sharing-on-website.qmd
 
 format:
   html:

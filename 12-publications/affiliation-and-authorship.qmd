@@ -1,0 +1,15 @@
+# emLab affiliation and author contribution
+
+## emLab affiliation
+
+Since emLab is joint between MSI and Bren and also its own research entity, we recommend emLab staff use the following affiliations for any emLab publication:
+
+1. Marine Science Institute, University of California, Santa Barbara, Santa Barbara, CA, USA
+2. Bren School of Environmental Science & Management, University of California, Santa Barbara, Santa Barbara, CA, USA
+3. Environmental Markets Lab, University of California, Santa Barbara, Santa Barbara, CA, USA
+
+Note that journals may list affiliation addresses slightly different than what is listed above.
+
+## Author contribution
+
+Transparency in authors' contribution is a critical component of open science. Determining authorship is ultimately the responsibility of the project leads (i.e. principal investigator and/or first author), but because author contribution is not always straightforward, we follow [McNutt et al. (2018)](https://www.pnas.org/content/115/11/2557) and others in recommending the [Contributor Roles Taxonomy (CRediT)](https://www.cell.com/pb/assets/raw/shared/guidelines/CRediT-taxonomy.pdf) system. For a simplified version of this most relevant to our project infrastructure, feel free to use and modify our [Author Contribution Template](https://docs.google.com/spreadsheets/d/1qWJea1Bo8lpbYqEJjojZ_WpSS500uaYjCJzyiy3s3bc/edit#gid=0), which allows individuals to identify their contributions or to opt-out of participation in a paper. We recommend discussing authorship expectations early in a project to avoid future complications.

@@ -1,0 +1,3 @@
+# Sharing public data, Shiny apps, and tools on our website
+
+Any time emLab develops publicly available datasets, Shiny apps, or tools, we would love to share these on the emLab website. Any time you release a publicly available dataset, Shiny app, or other tool, please Slack or email Erin O'Reilly (eoreilly@ucsb.edu) the following information: name of the dataset app or tool, link, date published, and the emLab project it is associated with.

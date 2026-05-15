@@ -1,0 +1,18 @@
+# Using quebracho
+
+1.  On your local machine, connect to the UCSB Campus VPN. You can do so
+    by downloading a VPN client for your operating system, such as
+    Ivanti Pulse Secure. More details for connecting to the UCSB VPN and
+    installation instructions are provided
+    [here](https://www.it.ucsb.edu/network-infrastructure-services/ivanti-connect-secure-campus-vpn).
+    Note: Even if you are on the UCSB campus you will still need to
+    connect to the campus VPN.
+
+2.  Once you've connected to the VPN, you are ready to access the
+    server. You can access quebracho via SSH if you wish to use
+    something like VS Code. To access R Studio Server, you can simply
+    navigate to the following link. Once there, you will be prompted to
+    enter your GRIT user ID and password. Once you've done this, you are
+    ready to use R Studio Server!
+
+    -   Quebracho: <https://quebracho.geog.ucsb.edu/rstudio/>

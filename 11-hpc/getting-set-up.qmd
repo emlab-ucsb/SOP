@@ -1,0 +1,30 @@
+# Getting set up
+
+## Setting up a GRIT account
+
+To use emLab's HPC servers, you must have a GRIT account. Please refer
+to the [emLab Manual section on setting up and managing an account with
+GRIT](https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.html#signing-up-for-an-account-with-grit).
+
+## Installing packages
+
+You can install regular user-level R packages just like you would
+normally using R Studio on your local machine. We recommend using the
+renv R package to manage package dependencies for each project (i.e.,
+GitHub repo) you work in. Please refer to the [emLab SOP section on
+reproducibility](https://emlab-ucsb.github.io/SOP/3.3-reproducibility.html#package-dependencies)
+for more information on renv.
+
+Additionally, GRIT installs and updates many commonly used R packages on
+the servers, which are accessible in a "site-library" for each server.
+They update these once or twice a year. To add the GRIT R package
+library to your library paths, you can run this line of code:
+`.libPaths(c("/usr/local/lib/R/site-library/", .libPaths()))`
+
+For system-level packages that you would normally need to install
+through the terminal on your local machine (e.g., packages like `gdal`
+or `libproj`), we will need to have GRIT install and manage these for
+us. We have already had GRIT install many commonly-needed system-level
+packages, which they will update once or twice a year. If you need a
+particular package that is not yet installed, please start a help ticket
+directly with GRIT: [help\@grit.ucsb.edu](mailto:help@grit.ucsb.edu) .
