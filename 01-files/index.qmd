@@ -1,13 +1,9 @@
-# File Structure
+# Choosing a location
 
-This section details emLab's organizational stucture for Google
-Docs/Sheets/Slides stored on Google Shared Drive, data and other file
-types stored emLab's GRIT data storage space (which we will simply refer
-to as "GRIT"), and code stored on GitHub.
+emLab files live in one of three places, depending on what they are:
 
-**An important note**: while the file structures of our Google Shared
-Drive and GRIT storage spaces are similar, they contain fundamentally
-different types of files. For the Google Shared Drive, we should store
-*only* collaborate Google Docs/Sheets/Slides. For the GRIT data storage
-space, we should store everything else (e.g., data, media, Micorosft
-Office files, PDFs, etc)
+- **[Google Shared Drive](google-shared-drive.qmd)** — collaborative Google Docs, Sheets, and Slides.
+- **[GRIT](grit-data-storage-space.qmd)** (emLab's data storage space) — everything else that's stored as a file: data, media, PDFs, Microsoft Office documents, and so on.
+- **[GitHub](github-structure.qmd)** — source code and other version-controlled text.
+
+The Google Shared Drive and GRIT use a similar folder layout, but each file belongs to exactly one of them based on its type — never duplicate files between them. The pages linked above describe the conventions for each location.

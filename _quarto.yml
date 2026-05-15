@@ -1,13 +1,11 @@
 project:
-  type: book
+  type: website
   output-dir: _book
 
-book:
+website:
   title: "emLab Standard Operating Procedures"
-  author: "Environmental Markets Lab (emLab)"
-  date: today
   description: "Standard operating procedures for emLab projects"
-  url: "https://emlab-ucsb.github.io/SOP/"
+  site-url: "https://emlab-ucsb.github.io/SOP/"
   favicon: "favicon.png"
   bread-crumbs: false
   search:
@@ -17,34 +15,36 @@ book:
     style: floating
     collapse-level: 1
     tools: []
-  chapters:
-    - index.qmd
-    - part: "File Structure"
-      chapters:
-        - 01-files/index.qmd
-        - 01-files/folder-naming.qmd
-        - 01-files/google-shared-drive.qmd
-        - 01-files/grit-data-storage-space.qmd
-        - 01-files/github-structure.qmd
-    - part: "Data"
-      chapters:
-        - 02-data/index.qmd
-        - 02-data/data-file-naming.qmd
-        - 02-data/metadata.qmd
-        - 02-data/accessing-emlab-data-in-r.qmd
-        - 02-data/tidy-data.qmd
-        - 02-data/data-formats.qmd
-        - 02-data/data-use-agreements-and-confidential-data.qmd
-    - 03-code.qmd
-    - 04-gh.qmd
-    - 05-code-styling.qmd
-    - 06-code-documentation.qmd
-    - 07-package-reproducibility.qmd
-    - 08-pipeline-reproducibility.qmd
-    - 09-quarto.qmd
-    - 10-eda.qmd
-    - 11-hpc.qmd
-    - 12-publications.qmd
+    contents:
+      - index.qmd
+      - section: "File Structure"
+        contents:
+          - section: "Where to store files?"
+            href: 01-files/index.qmd
+            contents:
+              - 01-files/google-shared-drive.qmd
+              - 01-files/grit-data-storage-space.qmd
+              - 01-files/github-structure.qmd
+          - 01-files/folder-naming.qmd
+      - section: "Data"
+        contents:
+          - 02-data/index.qmd
+          - 02-data/data-file-naming.qmd
+          - 02-data/metadata.qmd
+          - 02-data/accessing-emlab-data-in-r.qmd
+          - 02-data/tidy-data.qmd
+          - 02-data/data-formats.qmd
+          - 02-data/data-use-agreements-and-confidential-data.qmd
+      - 03-code.qmd
+      - 04-gh.qmd
+      - 05-code-styling.qmd
+      - 06-code-documentation.qmd
+      - 07-package-reproducibility.qmd
+      - 08-pipeline-reproducibility.qmd
+      - 09-quarto.qmd
+      - 10-eda.qmd
+      - 11-hpc.qmd
+      - 12-publications.qmd
 
 format:
   html:
@@ -98,6 +98,11 @@ format:
             .github-fab { bottom: 1rem; }
             .search-fab { bottom: 4rem; }
             #quarto-search, .sidebar-search, .quarto-search-button { display: none !important; }
+            .sidebar-item .collapse, .sidebar-item .collapsing,
+            .sidebar-item-toggle, .sidebar-item-toggle * {
+              transition: none !important;
+              animation: none !important;
+            }
           </style>
     include-after-body:
       - text: |
