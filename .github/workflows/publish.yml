@@ -9,7 +9,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     container:
-      image: rocker/verse:latest
+      image: rocker/verse:4.5.2
     permissions:
       contents: write
     steps:
