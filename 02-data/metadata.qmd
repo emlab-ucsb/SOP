@@ -4,7 +4,7 @@ Metadata is data about your data. It includes information about your data's cont
 
 This includes files that people tend to overlook or think are not useful for the broader team. For example, if you're using Google Sheets to keep track of literature or data reviews for a specific project, these documents should also have some form of accompanying metadata.
 
-## Metadata Standards
+## Metadata standards
 
 We use "readme" style metadata, named `_readme_datafilename`, and stored in the same folder as the data file.
 
