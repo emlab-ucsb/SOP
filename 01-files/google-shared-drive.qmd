@@ -1,10 +1,7 @@
 # Google Shared Drive {#sec-google-drive}
 
-The Google Shared Drive and GRIT storage space share a very similar
-folder structure. The main difference is that the Google Shared Drive
-does not have any `data` folders, since all data is stored on GRIT. And
-of course, all files on Google Shared Drive are only collaborative
-Google Docs/Sheets/Slides. Everything else is stored on GRIT.
+The Google Shared Drive is intended to store only collaborative
+Google Docs/Sheets/Slides. Data should be stored on [GRIT](grit-data-storage-space.qmd), and code should be stored on [GitHub](github-structure.qmd).
 
 ## General Structure
 
@@ -33,9 +30,7 @@ The emLab Google Shared Drive is organized into three main folders:
 -   `projects`: includes information on past (archive) and current
     projects
 
-The Google Shared Drive and [GRIT](grit-data-storage-space.qmd) storage space share a very similar
-folder structure. The main difference is that the Google Shared Drive
-does not have any `data` folders, since all data is stored on GRIT.
+The Google Shared Drive and GRIT storage space share a very similar folder structure. The main difference is that the Google Shared Drive does not have `data` folders, because data belong on GRIT.
 
 ## Project Folder Structure
 
@@ -66,5 +61,4 @@ Each project folder must contain at least the following 5 folders:
 -   `project-materials`: everything else that does not fit into one of
     these folders (i.e. drafts of methods, literature review, etc.)
 
-From here, each project can add additional folders or sub-folders as
-needed. Just remember that the Google Shared Drive is intended to store only collaborative Google Docs/Sheets/Slides.
+Within those, each project can add folders and subfolders as needed.
