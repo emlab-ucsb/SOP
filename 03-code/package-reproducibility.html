@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Standard operating procedures for emLab projects">
 
-<title>7&nbsp; Package and Language Version Management – emLab Standard Operating Procedures</title>
+<title>package-reproducibility – emLab &lt;br&gt; Standard &lt;br&gt; Operating &lt;br&gt; Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -62,39 +61,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./08-pipeline-reproducibility.html" rel="next">
-<link href="./06-code-documentation.html" rel="prev">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-87b7f55de2e0c9887283481eb31a794c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f56eadfa5a7d8b3b9d1440e1caea4ab8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f16f0af974542fa1146862373de07119.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f56eadfa5a7d8b3b9d1440e1caea4ab8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
-  "type": "textbox",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,11 +109,247 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>
+  .bi-github::before, .bi-search::before { content: ""; }
+  .bi-search {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    background-color: currentColor;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat center / contain;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat center / contain;
+  }
+  .bi-github {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    background-color: currentColor;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>') no-repeat center / contain;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>') no-repeat center / contain;
+  }
+  .fab {
+    position: fixed;
+    right: 1rem;
+    z-index: 1000;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    color: #181717;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  .fab:hover { background: #fff; }
+  .fab svg { width: 1.5rem; height: 1.5rem; fill: currentColor; }
+  .github-fab { bottom: 1rem; color: #181717; }
+  .quarto-dark .github-fab { color: #181717; }
+  .search-fab { bottom: 4rem; }
+  #quarto-search, .sidebar-search, .quarto-search-button { display: none !important; }
+  .quarto-color-scheme-toggle { display: none !important; }
+  .theme-fab { bottom: 7rem; }
+  .theme-fab .theme-icon-dark { display: none; }
+  .quarto-dark .theme-fab .theme-icon-light { display: none; }
+  .quarto-dark .theme-fab .theme-icon-dark { display: inline; }
+  .sidebar-item .collapse, .sidebar-item .collapsing,
+  .sidebar-item-toggle, .sidebar-item-toggle * {
+    transition: none !important;
+    animation: none !important;
+  }
+  a, a:visited { color: #2aa198; }
+  a:hover, a:focus { color: #1f7f78; }
+  .quarto-dark a, .quarto-dark a:visited { color: #5ec8c0; }
+  .quarto-dark a:hover, .quarto-dark a:focus { color: #8fdcd5; }
+  .sidebar-title, .sidebar-title a, .sidebar-title a:visited,
+  .sidebar-title a:hover, .sidebar-title a:focus { color: inherit; }
+  .quarto-dark :not(pre) > code {
+    color: #e83e8c !important;
+    background-color: #2b2b2b !important;
+    border: none !important;
+  }
+</style>
 
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -122,9 +358,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-package-reproducibility.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title"></h1>
+        </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -137,95 +373,289 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">emLab Standard Operating Procedures</a> 
+      <a href="../">emLab <br> Standard <br> Operating <br> Procedures</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/emlab-ucsb/SOP" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
 </div>
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../01-files/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Files</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
+  <a href="../01-files/google-shared-drive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Google Drive</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">File Structure</span></span></a>
+  <a href="../01-files/grit-data-storage-space.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GRIT data storage space</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  <a href="../01-files/github-structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../02-data/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Coding at emLab</span></span></a>
+  <a href="../02-data/data-file-naming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data file naming</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">GitHub</span></span></a>
+  <a href="../02-data/metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metadata</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-code-styling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Code Styling</span></span></a>
+  <a href="../02-data/accessing-emlab-data-in-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing emLab data in R</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-code-documentation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></span></a>
+  <a href="../02-data/tidy-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tidy data</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-package-reproducibility.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></span></a>
+  <a href="../02-data/data-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data formats</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pipeline Reproducibility</span></span></a>
+  <a href="../02-data/data-use-agreements-and-confidential-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Use Agreements and confidential data</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../03-code/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  <a href="../03-code/code-styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Code styling</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-eda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exploratory Data Analysis (EDA)</span></span></a>
+  <a href="../03-code/code-documentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Code documentation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-hpc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High Performance Computing</span></span></a>
+  <a href="../03-code/eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory data analysis</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-code/package-reproducibility.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Package and language version management</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-code/pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pipeline reproducibility</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-code/code-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Code review</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../04-quarto/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-quarto/chunk-best-practices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chunk best practices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-quarto/figures-tables-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Figures, tables, and cross-references</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-quarto/citations-and-bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Citations and bibliography</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-quarto/caching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Caching strategy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-quarto/targets-integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integrating with a targets pipeline</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-quarto/publishing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Publishing with Quarto books and GitHub Pages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-quarto/presentations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentations in Quarto</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../05-hpc/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Servers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-hpc/resources-and-software.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Available resources and software</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-hpc/getting-set-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting set up</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-hpc/using-sequoia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using sequoia</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-hpc/using-quebracho.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using quebracho</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-hpc/best-practices-and-resource-allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Best practices and resource allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-hpc/accessing-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-hpc/accessing-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Accessing code</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../06-publications/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Publications</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-publications/affiliation-and-authorship.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">emLab affiliation and author contribution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-publications/reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reports</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-publications/publishing-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Making your data publicly available</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-publications/public-github-repository.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preparing a public GitHub repository</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-publications/sharing-on-website.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sharing public data, Shiny apps, and tools on our website</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-publications.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reports and Publications</span></span></a>
+  <a href="../07-gh/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitHub</span></a>
   </div>
 </li>
     </ul>
@@ -233,70 +663,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#r" id="toc-r" class="nav-link active" data-scroll-target="#r"><span class="header-section-number">7.1</span> R</a>
-  <ul class="collapse">
-  <li><a href="#r-version-management" id="toc-r-version-management" class="nav-link" data-scroll-target="#r-version-management"><span class="header-section-number">7.1.1</span> R Version Management</a></li>
-  <li><a href="#package-version-management-with-renv" id="toc-package-version-management-with-renv" class="nav-link" data-scroll-target="#package-version-management-with-renv"><span class="header-section-number">7.1.2</span> Package Version Management with <code>renv</code></a></li>
-  <li><a href="#posit-package-manager-ppm" id="toc-posit-package-manager-ppm" class="nav-link" data-scroll-target="#posit-package-manager-ppm"><span class="header-section-number">7.1.3</span> Posit Package Manager (PPM)</a></li>
-  <li><a href="#common-pitfalls-troubleshooting-r" id="toc-common-pitfalls-troubleshooting-r" class="nav-link" data-scroll-target="#common-pitfalls-troubleshooting-r"><span class="header-section-number">7.1.4</span> Common Pitfalls &amp; Troubleshooting (R)</a></li>
-  </ul></li>
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">7.2</span> Python</a>
-  <ul class="collapse">
-  <li><a href="#python-version-management" id="toc-python-version-management" class="nav-link" data-scroll-target="#python-version-management"><span class="header-section-number">7.2.1</span> Python Version Management</a></li>
-  <li><a href="#virtual-environments-venv" id="toc-virtual-environments-venv" class="nav-link" data-scroll-target="#virtual-environments-venv"><span class="header-section-number">7.2.2</span> Virtual Environments (<code>venv</code>)</a></li>
-  <li><a href="#dependency-tracking" id="toc-dependency-tracking" class="nav-link" data-scroll-target="#dependency-tracking"><span class="header-section-number">7.2.3</span> Dependency Tracking</a></li>
-  <li><a href="#conda-and-mamba" id="toc-conda-and-mamba" class="nav-link" data-scroll-target="#conda-and-mamba"><span class="header-section-number">7.2.4</span> Conda and Mamba</a></li>
-  <li><a href="#common-pitfalls-troubleshooting-python" id="toc-common-pitfalls-troubleshooting-python" class="nav-link" data-scroll-target="#common-pitfalls-troubleshooting-python"><span class="header-section-number">7.2.5</span> Common Pitfalls &amp; Troubleshooting (Python)</a></li>
-  </ul></li>
-  <li><a href="#summary-table" id="toc-summary-table" class="nav-link" data-scroll-target="#summary-table"><span class="header-section-number">7.3</span> Summary Table</a></li>
-  <li><a href="#external-resources-further-reading" id="toc-external-resources-further-reading" class="nav-link" data-scroll-target="#external-resources-further-reading"><span class="header-section-number">7.4</span> External Resources &amp; Further Reading</a>
-  <ul class="collapse">
-  <li><a href="#r-package-management" id="toc-r-package-management" class="nav-link" data-scroll-target="#r-package-management"><span class="header-section-number">7.4.1</span> R &amp; Package Management</a></li>
-  <li><a href="#python-environment-management" id="toc-python-environment-management" class="nav-link" data-scroll-target="#python-environment-management"><span class="header-section-number">7.4.2</span> Python &amp; Environment Management</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-package-reproducibility" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Package and Language Version Management</span></span></h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
+<section id="sec-package-reproducibility" class="level1">
+<h1>Package and language version management</h1>
 <p>Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This “future-proofing” approach prevents the common frustration where code breaks because a package was updated or a system dependency changed.</p>
-<section id="r" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="r"><span class="header-section-number">7.1</span> R</h2>
+<section id="r" class="level2">
+<h2 class="anchored" data-anchor-id="r">R</h2>
 <p>For R projects, we manage three distinct layers of the environment: the R version itself, the project-specific library of R packages, and the source of the packages. By managing each of these layers, we ensure that an update to your global R installation doesn’t inadvertently break a legacy project.</p>
-<section id="r-version-management" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="r-version-management"><span class="header-section-number">7.1.1</span> R Version Management</h3>
+<section id="r-version-management" class="level3">
+<h3 class="anchored" data-anchor-id="r-version-management">R version management</h3>
 <p>Before managing packages, we must manage R itself. Different versions of R can introduce breaking changes in the underlying C++ code or require different package binaries. Using the “latest” version of R is often fine for new work, but reproducing an analysis from three years ago often requires the exact R version used at that time.</p>
-<section id="using-positron-recommended" class="level4" data-number="7.1.1.1">
-<h4 data-number="7.1.1.1" class="anchored" data-anchor-id="using-positron-recommended"><span class="header-section-number">7.1.1.1</span> Using Positron (Recommended)</h4>
+<section id="using-positron-recommended" class="level4">
+<h4 class="anchored" data-anchor-id="using-positron-recommended">Using Positron (recommended)</h4>
 <p>If you use <a href="https://positron.posit.co/">Positron</a>, managing multiple R versions is built in. Positron detects all R installations on your machine and lets you switch between them per-session from the interpreter selector in the top-right corner of the IDE — no command-line tools required. To install a new R version, download and install it from <a href="https://cran.r-project.org/">CRAN</a> and Positron will pick it up automatically.</p>
 </section>
-<section id="using-rig-non-positron-users" class="level4" data-number="7.1.1.2">
-<h4 data-number="7.1.1.2" class="anchored" data-anchor-id="using-rig-non-positron-users"><span class="header-section-number">7.1.1.2</span> Using <code>rig</code> (Non-Positron Users)</h4>
+<section id="using-rig-non-positron-users" class="level4">
+<h4 class="anchored" data-anchor-id="using-rig-non-positron-users">Using <code>rig</code> (non-Positron users)</h4>
 <p>If you are not using Positron, we recommend <a href="https://github.com/r-lib/rig"><strong>rig</strong> (The R Installation Manager)</a> to handle multiple R versions on a single machine seamlessly.</p>
 <ul>
 <li><strong>Why use rig?</strong> It allows you to quickly switch between R versions without manual uninstalls. Crucially, it installs R in a way that doesn’t require <code>sudo</code> privileges for library paths, preventing permissions issues that often plague multi-user servers. This ensures that <code>renv</code> is always drawing from the correct, isolated R binary.</li>
@@ -307,13 +696,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="documentation" class="level4" data-number="7.1.1.3">
-<h4 data-number="7.1.1.3" class="anchored" data-anchor-id="documentation"><span class="header-section-number">7.1.1.3</span> Documentation</h4>
+<section id="documentation" class="level4">
+<h4 class="anchored" data-anchor-id="documentation">Documentation</h4>
 <p>Regardless of how you manage R versions, always document the R version used in the project’s <code>README.md</code> and ensure it matches the <code>R</code> field in the <code>renv.lock</code> file.</p>
 </section>
 </section>
-<section id="package-version-management-with-renv" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="package-version-management-with-renv"><span class="header-section-number">7.1.2</span> Package Version Management with <code>renv</code></h3>
+<section id="package-version-management-with-renv" class="level3">
+<h3 class="anchored" data-anchor-id="package-version-management-with-renv">Package version management with <code>renv</code></h3>
 <p>Every emLab project should be “hermetic”—meaning its packages are isolated from the rest of your system. We use <a href="https://rstudio.github.io/renv/articles/renv.html"><strong>renv</strong></a> to create a private library of packages for each project.</p>
 <ul>
 <li><strong>Initialization:</strong> Run <code>renv::init()</code> at the start of a project. This creates a local <code>.Rprofile</code> that tells R to use a project-specific library instead of your global one.</li>
@@ -327,23 +716,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Collaboration:</strong> Never include the <code>renv/library</code> folder in your git commits (it should be in <code>.gitignore</code>). Only commit the <code>renv.lock</code>, <code>.Rprofile</code>, and <code>renv/activate.R</code> files.</li>
 </ul>
 </section>
-<section id="posit-package-manager-ppm" class="level3" data-number="7.1.3">
-<h3 data-number="7.1.3" class="anchored" data-anchor-id="posit-package-manager-ppm"><span class="header-section-number">7.1.3</span> Posit Package Manager (PPM)</h3>
+<section id="posit-package-manager-ppm" class="level3">
+<h3 class="anchored" data-anchor-id="posit-package-manager-ppm">Posit Package Manager (PPM)</h3>
 <p>To ensure that <code>renv::restore()</code> always finds the exact same package versions and to speed up installation via pre-compiled binaries, we use <a href="https://packagemanager.posit.co/">Posit Package Manager</a>.</p>
 <ul>
 <li><p><strong>Fixed Snapshots:</strong> Instead of pointing to the “latest” CRAN, which changes daily, we point to a specific “frozen” date. This eliminates the risk of “dependency hell” where Package A updates and is no longer compatible with Package B.</p></li>
 <li><p><strong>Binary Advantages:</strong> PPM provides binaries for specific Linux distributions (like Ubuntu Jammy). This means that instead of waiting 20 minutes to compile a complex spatial package like <code>sf</code> or <code>terra</code> from source, you can download a pre-built version in seconds.</p></li>
 <li><p><strong>Configuration:</strong> You can configure your IDE (RStudio or Positron) to use PPM by default for all new work so you don’t have to manually call the options every time.</p></li>
 </ul>
-<section id="the-universal-r-profile-recommended" class="level4" data-number="7.1.3.1">
-<h4 data-number="7.1.3.1" class="anchored" data-anchor-id="the-universal-r-profile-recommended"><span class="header-section-number">7.1.3.1</span> The Universal R Profile (Recommended)</h4>
+<section id="the-universal-r-profile-recommended" class="level4">
+<h4 class="anchored" data-anchor-id="the-universal-r-profile-recommended">The universal R profile (recommended)</h4>
 <p>In your R console, run the following to edit your <code>.Rprofile</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Paste the following line and save:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">PPM =</span> <span class="st">"https://packagemanager.posit.co/cran/__linux__/jammy/latest"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="ide-specific-options" class="level4" data-number="7.1.3.2">
-<h4 data-number="7.1.3.2" class="anchored" data-anchor-id="ide-specific-options"><span class="header-section-number">7.1.3.2</span> IDE-specific options</h4>
+<section id="ide-specific-options" class="level4">
+<h4 class="anchored" data-anchor-id="ide-specific-options">IDE-specific options</h4>
 <ul>
 <li><p><em>RStudio</em>: Go to Tools &gt; Global Options… &gt; Packages and paste the PPM URL into the “Primary CRAN repository” field.</p></li>
 <li><p><em>Positron</em>: Open Settings (Cmd + ,), search for r.defaultRepositories, and add the CRAN/PPM URL to your <code>settings.json.</code></p></li>
@@ -351,8 +740,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>IMPORTANT</strong> Global vs.&nbsp;Project Settings: Global defaults are for your convenience. However, you must still include the specific repository URL in each project’s <code>.Rprofile</code> to ensure reproducibility for your collaborators.</p>
 </section>
 </section>
-<section id="common-pitfalls-troubleshooting-r" class="level3" data-number="7.1.4">
-<h3 data-number="7.1.4" class="anchored" data-anchor-id="common-pitfalls-troubleshooting-r"><span class="header-section-number">7.1.4</span> Common Pitfalls &amp; Troubleshooting (R)</h3>
+<section id="common-pitfalls-troubleshooting-r" class="level3">
+<h3 class="anchored" data-anchor-id="common-pitfalls-troubleshooting-r">Common pitfalls &amp; troubleshooting (R)</h3>
 <p>Using <code>rig</code> and <code>renv</code> together is robust, but keep an eye out for these common issues that can stall a project:</p>
 <ul>
 <li><strong>The R Version Mismatch:</strong> You might open a project and find <code>renv</code> complaining that it was initialized with R 4.2.0 while you are currently running 4.4.1.
@@ -378,18 +767,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="python" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="python"><span class="header-section-number">7.2</span> Python</h2>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python</h2>
 <p>For Python, we follow a similar isolation philosophy as we do with R to avoid “dependency drift.”</p>
-<section id="python-version-management" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="python-version-management"><span class="header-section-number">7.2.1</span> Python Version Management</h3>
+<section id="python-version-management" class="level3">
+<h3 class="anchored" data-anchor-id="python-version-management">Python version management</h3>
 <p>Specifying the Python version your project uses is just as important as pinning package versions. New Python releases can introduce breaking syntax changes, and your collaborators may have different versions installed.</p>
-<section id="using-positron-recommended-1" class="level4" data-number="7.2.1.1">
-<h4 data-number="7.2.1.1" class="anchored" data-anchor-id="using-positron-recommended-1"><span class="header-section-number">7.2.1.1</span> Using Positron (Recommended)</h4>
+<section id="using-positron-recommended-1" class="level4">
+<h4 class="anchored" data-anchor-id="using-positron-recommended-1">Using Positron (recommended)</h4>
 <p>If you use <a href="https://positron.posit.co/">Positron</a>, it automatically detects all Python interpreters on your machine — including those managed by <code>pyenv</code>, Conda, or system installs — and lets you select the interpreter per-project from the interpreter selector in the top-right corner of the IDE. This means you can switch Python versions without touching the command line.</p>
 </section>
-<section id="using-pyenv-non-positron-users" class="level4" data-number="7.2.1.2">
-<h4 data-number="7.2.1.2" class="anchored" data-anchor-id="using-pyenv-non-positron-users"><span class="header-section-number">7.2.1.2</span> Using <code>pyenv</code> (Non-Positron Users)</h4>
+<section id="using-pyenv-non-positron-users" class="level4">
+<h4 class="anchored" data-anchor-id="using-pyenv-non-positron-users">Using <code>pyenv</code> (non-Positron users)</h4>
 <p>If you are not using Positron, <a href="https://github.com/pyenv/pyenv"><strong>pyenv</strong></a> is the standard tool for managing multiple Python versions on a single machine.</p>
 <ul>
 <li><strong>Installation:</strong> Follow the <a href="https://github.com/pyenv/pyenv-installer">pyenv installer</a> instructions for your OS.</li>
@@ -398,13 +787,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Set a global default:</strong> <code>pyenv global 3.11.9</code></li>
 </ul>
 </section>
-<section id="documentation-1" class="level4" data-number="7.2.1.3">
-<h4 data-number="7.2.1.3" class="anchored" data-anchor-id="documentation-1"><span class="header-section-number">7.2.1.3</span> Documentation</h4>
+<section id="documentation-1" class="level4">
+<h4 class="anchored" data-anchor-id="documentation-1">Documentation</h4>
 <p>Regardless of how you manage Python versions, document the required version in the project <code>README.md</code> and specify it explicitly in your <code>environment.yml</code> (for Conda/Mamba projects) or <code>.python-version</code> file.</p>
 </section>
 </section>
-<section id="virtual-environments-venv" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="virtual-environments-venv"><span class="header-section-number">7.2.2</span> Virtual Environments (<code>venv</code>)</h3>
+<section id="virtual-environments-venv" class="level3">
+<h3 class="anchored" data-anchor-id="virtual-environments-venv">Virtual environments (<code>venv</code>)</h3>
 <p>Avoid installing packages to your “Global” Python, as this can break system-level tools. Always create a virtual environment within your project directory to keep dependencies contained.</p>
 <ul>
 <li><strong>Convention:</strong> We use the name <code>.venv</code> for our environment folders.</li>
@@ -418,8 +807,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Git:</strong> Ensure <code>.venv/</code> is added to your <code>.gitignore</code> to prevent committing thousands of small library files.</li>
 </ul>
 </section>
-<section id="dependency-tracking" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="dependency-tracking"><span class="header-section-number">7.2.3</span> Dependency Tracking</h3>
+<section id="dependency-tracking" class="level3">
+<h3 class="anchored" data-anchor-id="dependency-tracking">Dependency tracking</h3>
 <p>To replicate a Python environment, we use <code>requirements.txt</code> for standard pip-based projects or <code>environment.yml</code> for more complex stacks.</p>
 <ul>
 <li><strong>The Importance of Pinning:</strong> Simply listing <code>pandas</code> in a file is not enough; we should list <code>pandas==2.1.0</code>. This prevents “silent failures” where code runs but produces different numerical results due to underlying algorithm changes in newer package versions.</li>
@@ -427,8 +816,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Installing:</strong> When joining a project, run <code>pip install -r requirements.txt</code> to recreate the environment instantly.</li>
 </ul>
 </section>
-<section id="conda-and-mamba" class="level3" data-number="7.2.4">
-<h3 data-number="7.2.4" class="anchored" data-anchor-id="conda-and-mamba"><span class="header-section-number">7.2.4</span> Conda and Mamba</h3>
+<section id="conda-and-mamba" class="level3">
+<h3 class="anchored" data-anchor-id="conda-and-mamba">Conda and Mamba</h3>
 <p>For projects with complex non-Python dependencies—specifically spatial libraries like GDAL, GEOS, or PROJ—standard pip often fails. In these cases, we recommend <a href="https://mamba.readthedocs.io/en/latest/"><strong>Mamba</strong></a>.</p>
 <ul>
 <li><strong>Why Mamba?</strong> Standard Conda can take hours to “solve” a complex environment (finding a set of versions that all work together). Mamba is a C++ implementation that does this in seconds.</li>
@@ -436,8 +825,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Documentation:</strong> Document the creation command clearly: <code>mamba env create -f environment.yml</code></li>
 </ul>
 </section>
-<section id="common-pitfalls-troubleshooting-python" class="level3" data-number="7.2.5">
-<h3 data-number="7.2.5" class="anchored" data-anchor-id="common-pitfalls-troubleshooting-python"><span class="header-section-number">7.2.5</span> Common Pitfalls &amp; Troubleshooting (Python)</h3>
+<section id="common-pitfalls-troubleshooting-python" class="level3">
+<h3 class="anchored" data-anchor-id="common-pitfalls-troubleshooting-python">Common pitfalls &amp; troubleshooting (Python)</h3>
 <p>Python environment management is notoriously “leaky.” Even with virtual environments, it is easy to accidentally run code in the wrong context. Watch out for these common emLab hurdles:</p>
 <ul>
 <li><strong>The “Shadow” Global Install:</strong> You run <code>pip install</code> without realizing your virtual environment isn’t active.
@@ -469,8 +858,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="summary-table" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="summary-table"><span class="header-section-number">7.3</span> Summary Table</h2>
+<section id="summary-table" class="level2">
+<h2 class="anchored" data-anchor-id="summary-table">Summary table</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -514,11 +903,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="external-resources-further-reading" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="external-resources-further-reading"><span class="header-section-number">7.4</span> External Resources &amp; Further Reading</h2>
+<section id="external-resources-further-reading" class="level2">
+<h2 class="anchored" data-anchor-id="external-resources-further-reading">External resources &amp; further reading</h2>
 <p>For a deeper dive into the tools and philosophies discussed in this SOP, we recommend the following resources:</p>
-<section id="r-package-management" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="r-package-management"><span class="header-section-number">7.4.1</span> R &amp; Package Management</h3>
+<section id="r-package-management" class="level3">
+<h3 class="anchored" data-anchor-id="r-package-management">R &amp; package management</h3>
 <ul>
 <li><a href="https://github.com/r-lib/rig"><strong>rig: The R Installation Manager</strong></a>: The official repository for <code>rig</code>. Includes detailed installation guides for macOS, Windows, and Linux, and advanced commands for managing Rtools.</li>
 <li><a href="https://rstudio.github.io/renv/articles/renv.html"><strong>renv: Introduction to Project Environments</strong></a>: The official “Get Started” guide for <code>renv</code>. It provides a clear overview of the package’s philosophy and a comprehensive list of commands.</li>
@@ -526,8 +915,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://cran.r-project.org/view=ReproducibleResearch"><strong>CRAN Task View: Reproducible Research</strong></a>: A curated list of R packages and tools dedicated to making research more reproducible, from literate programming (Quarto/Knitr) to specialized environment managers.</li>
 </ul>
 </section>
-<section id="python-environment-management" class="level3" data-number="7.4.2">
-<h3 data-number="7.4.2" class="anchored" data-anchor-id="python-environment-management"><span class="header-section-number">7.4.2</span> Python &amp; Environment Management</h3>
+<section id="python-environment-management" class="level3">
+<h3 class="anchored" data-anchor-id="python-environment-management">Python &amp; environment management</h3>
 <ul>
 <li><a href="https://realpython.com/python-virtual-environments-a-primer/"><strong>Real Python: Virtual Environments Guide</strong></a>: An excellent, beginner-friendly primer on why virtual environments are necessary and how to use the built-in <code>venv</code> module.</li>
 <li><a href="https://mamba.readthedocs.io/en/latest/"><strong>Mamba Documentation</strong></a>: The user guide for Mamba. Essential reading if you are transitioning from standard Conda and want to understand why Mamba’s “solver” is so much faster.</li>
@@ -537,10 +926,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </section>
 </section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -612,7 +1015,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/emlab-ucsb\.github\.io\/SOP\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -939,19 +1342,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./06-code-documentation.html" class="pagination-link" aria-label="Code Documentation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Documentation</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./08-pipeline-reproducibility.html" class="pagination-link" aria-label="Pipeline Reproducibility">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Pipeline Reproducibility</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
+<button type="button" class="fab search-fab" aria-label="Search" title="Search" onclick="window.quartoOpenSearch &amp;&amp; window.quartoOpenSearch();">
+  <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>
+</button>
+<button type="button" class="fab theme-fab" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(document.querySelector('.quarto-color-scheme-toggle')||{click:()=>{}}).click();">
+  <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"></path></svg>
+  <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"></path></svg>
+</button>
+<a class="fab github-fab" href="https://github.com/emlab-ucsb/SOP" target="_blank" rel="noopener noreferrer" aria-label="Source Code" title="Source Code">
+  <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+</a>
 
 
 
