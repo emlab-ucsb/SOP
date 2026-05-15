@@ -18,14 +18,11 @@ website:
     contents:
       - index.qmd
       - section: "File Structure"
+        href: 01-files/index.qmd
         contents:
-          - section: "Where to store files?"
-            href: 01-files/index.qmd
-            contents:
-              - 01-files/google-shared-drive.qmd
-              - 01-files/grit-data-storage-space.qmd
-              - 01-files/github-structure.qmd
-          - 01-files/folder-naming.qmd
+          - 01-files/google-shared-drive.qmd
+          - 01-files/grit-data-storage-space.qmd
+          - 01-files/github-structure.qmd
       - section: "Data"
         contents:
           - 02-data/index.qmd
