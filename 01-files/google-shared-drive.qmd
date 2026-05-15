@@ -2,21 +2,21 @@
 
 The Google Shared Drive and GRIT storage space share a very similar
 folder structure. The main difference is that the Google Shared Drive
-does not have any `data` folders, since all data is stored at GRIT. And
+does not have any `data` folders, since all data is stored on GRIT. And
 of course, all files on Google Shared Drive are only collaborative
-Google Docs/Sheets/Slides. Everything else is stored at GRIT.
+Google Docs/Sheets/Slides. Everything else is stored on GRIT.
 
 ## General Structure
 
 ```
 Google Drive
-  |__ My Drive
-  |   |__ ... whatever files you have on your personal Google Drive ...
-  |__ Shared drives
-      |__ emLab
-          |__ central-emlab-resources
-          |__ communications
-          |__ projects
+├── My Drive
+│   └── ... whatever files you have on your personal Google Drive ...
+└── Shared drives
+    └── emLab/
+        ├── central-emlab-resources/
+        ├── communications/
+        └── projects/
 ```
 
 The emLab Google Shared Drive is organized into three main folders:
@@ -33,21 +33,22 @@ The emLab Google Shared Drive is organized into three main folders:
 -   `projects`: includes information on past (archive) and current
     projects
 
+The Google Shared Drive and [GRIT](grit-data-storage-space.qmd) storage space share a very similar
+folder structure. The main difference is that the Google Shared Drive
+does not have any `data` folders, since all data is stored on GRIT.
+
 ## Project Folder Structure
 
 ```
-Google Drive
-  |__ Shared drives
-      |__ emLab
-          |__ projects
-              |__ archived-projects
-              |__ current-project
-              |   |__ example-project
-              |   |   |__ deliverables
-              |   |   |__ grant-eporting
-              |   |   |__ meetings-and-events
-              |   |   |__ presentations
-              |   |   |__ project-materials
+emLab/projects/
+├── archived-projects/
+└── current-projects/
+    └── ~example-project~/
+        ├── deliverables
+        ├── grant-eporting
+        ├── meetings-and-events
+        ├── presentations
+        └── project-materials
 ```
 
 Each project folder must contain at least the following 5 folders:
@@ -66,6 +67,4 @@ Each project folder must contain at least the following 5 folders:
     these folders (i.e. drafts of methods, literature review, etc.)
 
 From here, each project can add additional folders or sub-folders as
-needed. Just ensure that only collaborative Google Docs/Sheets/Slides
-are stored on Google Shared Drive. All other files should be stored on
-GRIT.
+needed. Just remember that the Google Shared Drive is intended to store only collaborative Google Docs/Sheets/Slides.
