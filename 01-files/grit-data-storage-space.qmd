@@ -1,7 +1,7 @@
 # GRIT data storage space
 
 Generally, the GRIT data storage space has a very similar structure to
-the Google Shared Drive, except it also has folders for `data`.
+the [Google Shared Drive](google-shared-drive.qmd), except it also has folders for `data`.
 
 ## General Structure
 
@@ -25,9 +25,8 @@ The emLab GRIT data directory is organized into five main folders:
     and media tracking
 
 -   `data`: includes the centralized emLab data directory of the
-    commonly used datasets we work with across projects (see Sections
-    @sec-emlab-data-directory-overview and @sec-emlab-data-directory
-    for more on this)
+    commonly used datasets we work with across projects (see
+    [`emlab/data`](#sec-emlab-data-directory-overview) for more on this)
 
 -   `projects`: includes data and files on past (archive) and current
     projects
@@ -52,7 +51,7 @@ Each project folder on GRIT must contain the following 6 folders:
 
 -   `data`: This data folder will contain a `data_overview` spreadsheet
     and all of the intermediate datasets as well as output datasets
-    associated with the project (see @sec-project-data-directory for more on this). Be sure to also add
+    associated with the project (see [Project-specific data directories](../02-data/metadata.qmd#sec-project-data-directory) for more on this). Be sure to also add
     a copy of your final datasets to the `emlab/data`data directory.
 
 -   `deliverables`: final reports, paper manuscripts, other final
@@ -92,7 +91,7 @@ multiple projects. More detail is provided in the subsequent sections.
 **All** data used in a project should live in this project-specific
 repository. To help keep track of project data, we highly recommend
 creating and maintaining a `data_overview` Google sheet on the Google
-Shared Drive (see @sec-project-data-directory for more
+Shared Drive (see [Project-specific data directories](../02-data/metadata.qmd#sec-project-data-directory) for more
 information). This overview spreadsheet will provide a centralized
 summary of the data inputs and outputs for a project, and also allow
 teams to keep track of the status of adding the data to the `emlab/data`
@@ -155,7 +154,7 @@ by emLab projects. The idea is to make it easier for people to find data
 that has been used in previous projects, as well as to use previous
 results as inputs for new projects. In other words, it is the place to
 store data that could be used commonly across multiple projects. Please
-see @sec-emlab-data-directory for an overview of metadata
+see [emLab common data directory](../02-data/metadata.qmd#sec-emlab-data-directory) for an overview of metadata
 that should be included with each dataset.
 
 To illustrate types of data that should be in the `emlab/data` folder,
