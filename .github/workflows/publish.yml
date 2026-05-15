@@ -25,6 +25,9 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Install required R packages
+        run: Rscript -e 'install.packages(c("rmarkdown", "DT", "dplyr", "ggplot2"))'
+
       - name: Install R packages
         uses: r-lib/actions/setup-renv@v2
 
