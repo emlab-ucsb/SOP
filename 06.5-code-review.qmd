@@ -100,7 +100,7 @@ Mark all that apply and add target dates where relevant.
 
 Code review takes real time for both the reviewer and for the author to revise and
 respond. As a rough guide, plan for **10–20% of total coding time** for meaningful
-ongoing review. This should be reflected in project timelines and in grant budgets.
+ongoing review. This should be reflected in project timelines, staffing allocation, and in grant budgets.
 
 | Activity | Estimated time | Who |
 |---|---|---|
