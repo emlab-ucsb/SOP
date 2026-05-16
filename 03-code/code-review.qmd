@@ -1,4 +1,4 @@
-# Code Review
+# Code review
 
 Code review is the process of systematically examining code written by yourself or a
 collaborator to check for errors, assess clarity, and verify that the analysis does what it is intended to do. It is one of the highest-leverage things we can do to protect the quality of our research. Although it is standard practice in software development, code review is noticeably absent from standard practice in environmental and natural resource economics, and research science broadly (Ivimey-Cook et al., 2023; Petre & Wilson, 2014). When code review is not planned, and is instead reactive (e.g., triggered by a journal requirement  or a discovered error), the review has the potential to be rushed, incomplete, or painful.
@@ -10,7 +10,7 @@ time, this exchange builds collective expertise across the lab. This section des
 
 ---
 
-## Code Review Plan for Projects
+## Code review plan for projects
 
 Code review should be planned at the start of a project. A code review plan answers four questions: *what* gets reviewed, *when*, *by whom*, and *to what standard*. The answers will differ across projects, but the plan should exist and should be documented. Code review should be considered when developing each Scope of Work, which should reflect the time, personnel, and thus budget needed to support adequate code review. Ideally, team compositions would include more than one researcher so that the review of one researcher's code can be done by another researcher already familiar with the project and with the necessary domain expertise. When that is not possible, it is important to consider who will provide external code review (e.g., PI, emLab researcher not on project team).
 
@@ -32,7 +32,7 @@ For PIs and project managers: building a culture of code review requires that ti
 
 ---
 
-### Code Review Plan Template
+### Code review plan template
 
 **Project name:**\
 **Date:**\
@@ -136,7 +136,7 @@ Use this section to record code review status at key project milestones.
 
 ---
 
-## Code Review Best Practices
+## Code review best practices
 
 The following principles are adapted from the [tidyteam code review guidelines]
 (code-review.tidyverse.org) and Roth et al. (2025), with modifications for our research context.
@@ -174,8 +174,12 @@ possible, suggest an alternative reviewer.
 
 ---
 
-*References:*
-- *Ivimey-Cook et al. (2023). Implementing code review in the scientific workflow: Insights from ecology and evolutionary biology.*\
-- *Petre, M. & Wilson, G. (2014). Code review for and by scientists.*\
-- *Roth, J. et al. (2025). Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience. Communications Psychology, 3, 62.*\
-- *tidyteam code review guide: https://code-review.tidyverse.org/*
+# References
+
+* Ivimey-Cook, Edward R., Joel L. Pick, Kevin R. Bairos-Novak, Antica Culina, Elliot Gould, Matthew Grainger, Benjamin M. Marshall, et al. 2023. "Implementing code review in the scientific workflow: Insights from ecology and evolutionary biology." *Journal of Evolutionary Biology* 36 (10): 1347–56.
+
+* Petre, Marian, and Greg Wilson. 2014. "Code review for and by scientists." arXiv. <https://doi.org/10.48550/arXiv.1407.5648>.
+
+* Roth, Johannes, Yunyan Duan, Florian P. Mahner, Philipp Kaniuth, Thomas SA Wallis, and Martin N. Hebart. 2025. "Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience." *Communications Psychology* 3 (1). <https://doi.org/10.1038/s44271-025-00236-3>.
+
+* tidyteam. "Code review guide." <https://code-review.tidyverse.org/>.
