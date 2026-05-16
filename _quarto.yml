@@ -141,6 +141,7 @@ format:
             .quarto-dark a:hover, .quarto-dark a:focus { color: #8fdcd5; }
             .sidebar-title, .sidebar-title a, .sidebar-title a:visited,
             .sidebar-title a:hover, .sidebar-title a:focus { color: inherit; }
+            .sidebar-title { word-spacing: 100vw; }
             .quarto-dark :not(pre) > code {
               color: #e83e8c !important;
               background-color: #2b2b2b !important;
