@@ -122,7 +122,7 @@ Prioritizing reproducibility when writing code not only fosters collaboration wi
 
 We also recommend managing package dependencies and creating a reproducible coding pipeline. These two aspects are discussed in more detail in @sec-package-reproducibility and @sec-pipeline-reproducibility.
 
-# References
+Recommended readings
 
 * Roth, Johannes, Yunyan Duan, Florian P. Mahner, Philipp Kaniuth, Thomas SA Wallis, and Martin N. Hebart. 2025. "Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience." *Communications Psychology* 3 (1). <https://doi.org/10.1038/s44271-025-00236-3>
 
