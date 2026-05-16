@@ -60,7 +60,7 @@ the emLab code review standards table.
 | Review type | Description | When required |
 |---|---|---|
 | **Self review** | Author reviews their own code before sharing | Always / on-going |
-| **Accuracy review** | Reviewer checks logic, calculations, and correctness | Partner-facing and publication outputs |
+| **Accuracy review** | Reviewer checks logic, calculations, and correctness |  Always / on-going; Partner-facing and publication outputs |
 | **Reproducibility review** | Reviewer independently re-runs the analysis | Publication outputs; strongly recommended for partner-facing |
 
 *Notes on scope (e.g., which scripts, which analysis steps):*
