@@ -3,7 +3,7 @@ project:
   output-dir: _book
 
 website:
-  title: "emLab <br> Standard <br> Operating <br> Procedures"
+  title: "emLab Standard Operating Procedures"
   description: "Standard operating procedures for emLab projects"
   site-url: "https://emlab-ucsb.github.io/SOP/"
   favicon: "favicon.png"
@@ -139,8 +139,12 @@ format:
             a:hover, a:focus { color: #1f7f78; }
             .quarto-dark a, .quarto-dark a:visited { color: #5ec8c0; }
             .quarto-dark a:hover, .quarto-dark a:focus { color: #8fdcd5; }
+            .sidebar a, .sidebar a:visited { color: inherit; }
+            .sidebar a.active, .sidebar a.active:visited { color: #2aa198; }
+            .quarto-dark .sidebar a.active, .quarto-dark .sidebar a.active:visited { color: #5ec8c0; }
             .sidebar-title, .sidebar-title a, .sidebar-title a:visited,
             .sidebar-title a:hover, .sidebar-title a:focus { color: inherit; }
+            .sidebar-title { word-spacing: 100vw; }
             .quarto-dark :not(pre) > code {
               color: #e83e8c !important;
               background-color: #2b2b2b !important;
