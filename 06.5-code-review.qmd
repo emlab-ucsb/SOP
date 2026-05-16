@@ -69,7 +69,7 @@ the emLab code review standards table.
 
 **3. Who will conduct the review?**
 
-For each review type above, identify the reviewer(s). Note any constraints (e.g., reviewer needs domain expertise to evaluate model specification; reviewer should be someone not involved in daily analysis decisions to provide fresh eyes).
+For each review type above, identify the reviewer(s). Note any constraints (e.g., reviewer needs domain expertise to evaluate model specification; reviewer needs special permissions to access the data; reviewer should be someone not involved in daily analysis decisions to provide fresh eyes; etc).
 
 | Review type | Reviewer | Notes |
 |---|---|---|
