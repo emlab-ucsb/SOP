@@ -1,7 +1,7 @@
 # Code Review
 
 Code review is the process of systematically examining code written by yourself or a
-collaborator to check for errors, assess clarity, and verify that the analysis does what it is intended to do. It is one of the highest-leverage things we can do to protect the quality of our research. Despite this, code review is noticeably absent from standard practice in environmental and natural resource economics, and research science broadly (Ivimey-Cook et al., 2023; Petre & Wilson, 2014). When code review is not planned, and is instead reactive (e.g., triggered by a journal requirement  or a discovered error), the review has the potential to be rushed, incomplete, or painful.
+collaborator to check for errors, assess clarity, and verify that the analysis does what it is intended to do. It is one of the highest-leverage things we can do to protect the quality of our research. Although it is standard practice in software development, code review is noticeably absent from standard practice in environmental and natural resource economics, and research science broadly (Ivimey-Cook et al., 2023; Petre & Wilson, 2014). When code review is not planned, and is instead reactive (e.g., triggered by a journal requirement  or a discovered error), the review has the potential to be rushed, incomplete, or painful.
 
 In addition, code review provides an excellent opportunity to learn from others. Reviewing a colleague's code exposes you to different approaches, packages, and 
 problem-solving strategies you might not encounter in your own work, and having 
