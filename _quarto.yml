@@ -3,7 +3,7 @@ project:
   output-dir: _book
 
 website:
-  title: "emLab <br> Standard <br> Operating <br> Procedures"
+  title: "emLab Standard Operating Procedures"
   description: "Standard operating procedures for emLab projects"
   site-url: "https://emlab-ucsb.github.io/SOP/"
   favicon: "favicon.png"
