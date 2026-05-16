@@ -172,6 +172,8 @@ possible, suggest an alternative reviewer.
 
 **After your review, Approve it (usually).** After you have finished your review and provided your feedback, you will have multiple options for finalizing your review: `Comment`, `Approve`, and `Request changes`. If you feel that the author should be able to address your feedback on their own without another round of your review, we usually recommend using the `Approve` option. That way, once the author has addressed your feedback, they can merge the PR themselves. If your review includes substantial changes, and/or you would like to be able to review the PR again after the author has implemented your suggestions, you can use the `Request changes` option. This will requre you to review it again before the author can merge it.
 
+**After your review, Approve it (usually).** After you have finished your review and provided your feedback, you will have multiple options for finalizing your review: `Comment`, `Approve`, and `Request changes`. If you feel that the author should be able to address your feedback on their own without another round of your review, we usually recommend using the `Approve` option. That way, once the author has addressed your feedback, they can merge the PR themselves. If your review includes substantial changes, and/or you would like to be able to review the PR again after the author has implemented your suggestions, you can use the `Request changes` option. This will requre you to review it again before the author can merge it.
+
 ---
 
 *References:*
