@@ -155,22 +155,22 @@ The following principles are adapted from the [tidyteam code review guidelines]
 
 ### For the person reviewing code
 
-**Understand what kind of review is being requested.** Code review can target different things — accuracy (is the logic correct?), reproducibility (can I re-run this and get the same result?), or clarity (is this understandable?). Know what you are being asked to check before you start. If it is not clear, ask.
+- **Understand what kind of review is being requested.** Code review can target different things — accuracy (is the logic correct?), reproducibility (can I re-run this and get the same result?), or clarity (is this understandable?). Know what you are being asked to check before you start. If it is not clear, ask.
 
-**Be specific and constructive.** Vague feedback ("this is confusing") is less useful than specific feedback ("this variable name doesn't tell me what the units are — consider `sst_celsius` instead of `sst`"). When you identify a problem, try to suggest a solution or at least describe the issue precisely enough that the author can address it.
+- **Be specific and constructive.** Vague feedback ("this is confusing") is less useful than specific feedback ("this variable name doesn't tell me what the units are — consider `sst_celsius` instead of `sst`"). When you identify a problem, try to suggest a solution or at least describe the issue precisely enough that the author can address it.
 
-**Distinguish between required changes and suggestions.** Not all reviewer comments
+- **Distinguish between required changes and suggestions.** Not all reviewer comments
 carry the same weight. Be explicit about which issues must be addressed before the code is merged and which are matters of preference or style. One useful convention is to prefix comments: "Required:" vs. "Suggestion:" or "Nit:".
 
-**Prioritize correctness over style.** Logic errors, incorrect calculations, mishandled edge cases, and broken reproducibility chains are more important than stylistic disagreements. Address style if it genuinely impairs readability, but do not let it crowd out substantive review.
+- **Prioritize correctness over style.** Logic errors, incorrect calculations, mishandled edge cases, and broken reproducibility chains are more important than stylistic disagreements. Address style if it genuinely impairs readability, but do not let it crowd out substantive review.
 
-**Actually run the code.** For accuracy or reproducibility review, running the code yourself is often the only way to catch certain classes of errors. If the repo is set up correctly (see **XX**), this should be straightforward.
+- **Actually run the code.** For accuracy or reproducibility review, running the code yourself is often the only way to catch certain classes of errors. If the repo is set up correctly (see **XX**), this should be straightforward.
 
-**Be timely.** A PR that sits unreviewed can disrupt the author's workflow and creates merge conflicts. If you cannot complete a review within a reasonable timeframe
+- **Be timely.** A PR that sits unreviewed can disrupt the author's workflow and creates merge conflicts. If you cannot complete a review within a reasonable timeframe
 (generally within a few business days for active projects), communicate that and, if
 possible, suggest an alternative reviewer.
 
-**After your review, approve it (usually).** After you have finished your review and provided your feedback, you will have multiple options for finalizing your review: `Comment`, `Approve`, and `Request changes`. If you feel that the author should be able to address your feedback on their own without another round of your review, we usually recommend using the `Approve` option. That way, once the author has addressed your feedback, they can merge the PR themselves. If your review includes substantial changes, and/or you would like to be able to review the PR again after the author has implemented your suggestions, you can use the `Request changes` option. This will require you to review it again before the author can merge it.
+- **After your review, approve it (usually).** After you have finished your review and provided your feedback, you will have multiple options for finalizing your review: `Comment`, `Approve`, and `Request changes`. If you feel that the author should be able to address your feedback on their own without another round of your review, we usually recommend using the `Approve` option. That way, once the author has addressed your feedback, they can merge the PR themselves. If your review includes substantial changes, and/or you would like to be able to review the PR again after the author has implemented your suggestions, you can use the `Request changes` option. This will require you to review it again before the author can merge it.
 
 ---
 
