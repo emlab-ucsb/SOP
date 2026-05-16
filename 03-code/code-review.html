@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>code-review – emLab &lt;br&gt; Standard &lt;br&gt; Operating &lt;br&gt; Procedures</title>
+<title>code-review – emLab Standard Operating Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -131,8 +131,12 @@ ul.task-list li input[type="checkbox"] {
   a:hover, a:focus { color: #1f7f78; }
   .quarto-dark a, .quarto-dark a:visited { color: #5ec8c0; }
   .quarto-dark a:hover, .quarto-dark a:focus { color: #8fdcd5; }
+  .sidebar a, .sidebar a:visited { color: inherit; }
+  .sidebar a.active, .sidebar a.active:visited { color: #2aa198; }
+  .quarto-dark .sidebar a.active, .quarto-dark .sidebar a.active:visited { color: #5ec8c0; }
   .sidebar-title, .sidebar-title a, .sidebar-title a:visited,
   .sidebar-title a:hover, .sidebar-title a:focus { color: inherit; }
+  .sidebar-title { word-spacing: 100vw; }
   .quarto-dark :not(pre) > code {
     color: #e83e8c !important;
     background-color: #2b2b2b !important;
@@ -338,7 +342,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">emLab <br> Standard <br> Operating <br> Procedures</a> 
+      <a href="../">emLab Standard Operating Procedures</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
     <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
@@ -638,14 +642,14 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="code-review" class="level1">
 <h1>Code review</h1>
-<p>Code review is the process of systematically examining code written by yourself or a collaborator to check for errors, assess clarity, and verify that the analysis does what it is intended to do. It is one of the highest-leverage things we can do to protect the quality of our research. Despite this, code review is noticeably absent from standard practice in environmental and natural resource economics, and research science broadly (Ivimey-Cook et al., 2023; Petre &amp; Wilson, 2014). When code review is not planned, and is instead reactive (e.g., triggered by a journal requirement or a discovered error), the review has the potential to be rushed, incomplete, or painful.</p>
+<p>Code review is the process of systematically examining code written by yourself or a collaborator to check for errors, assess clarity, and verify that the analysis does what it is intended to do. It is one of the highest-leverage things we can do to protect the quality of our research. Although it is standard practice in software development, code review is noticeably absent from standard practice in environmental and natural resource economics, and research science broadly (Ivimey-Cook et al., 2023; Petre &amp; Wilson, 2014). When code review is not planned, and is instead reactive (e.g., triggered by a journal requirement or a discovered error), the review has the potential to be rushed, incomplete, or painful.</p>
 <p>In addition, code review provides an excellent opportunity to learn from others. Reviewing a colleague’s code exposes you to different approaches, packages, and problem-solving strategies you might not encounter in your own work, and having your own code reviewed often surfaces habits or assumptions worth revisiting. Over time, this exchange builds collective expertise across the lab. This section describes what effective code review looks like at emLab — both how to plan for code review from the beginning of a project, and the practices that should govern how we review code.</p>
 <hr>
-<section id="code-review-plan-for-projects" class="level2">
-<h2 class="anchored" data-anchor-id="code-review-plan-for-projects">Code Review Plan for projects</h2>
-<p>Code review should be planned at the start of a project. A code review plan answers four questions: <em>what</em> gets reviewed, <em>when</em>, <em>by whom</em>, and <em>to what standard</em>. The answers will differ across projects, but the plan should exist and should be documented. Code review should be considered when developing each Scope of Work, which should reflect the time, personnel, and thus budget needed to support adequate code review. Ideally, team compositions would include more than one researcher to accommodate for external code review. When that is not possible, it is important to consider who will provide external code review (e.g., PI, emLab researcher not on project team).</p>
-<p>Not every project warrants the same level of review, and the plan above should be adapted accordingly. A small internal analysis with no external audience may need only self review and basic version control. A multi-year project culminating in a journal submission should have continuous peer review built into every phase of the work.</p>
-<p>The key is to make a conscious decision about the level of review appropriate for the project and to make that decision at the start, when timelines and budgets can still accommodate it. The cost of catching an error during review is almost always lower than the cost of catching it after submission, after a partner has acted on it, or not catching it at all.</p>
+<section id="planning-code-review-for-projects" class="level2">
+<h2 class="anchored" data-anchor-id="planning-code-review-for-projects">Planning code review for projects</h2>
+<p>Code review should be planned at the start of a project. A code review plan answers four questions: <em>what</em> gets reviewed, <em>when</em>, <em>by whom</em>, and <em>to what standard</em>. The answers will differ across projects, but the plan should exist and should be documented. Code review should be considered when developing each Scope of Work, which should reflect the time, personnel, and thus budget needed to support adequate code review. Ideally, team compositions would include more than one researcher so that the review of one researcher’s code can be done by another researcher already familiar with the project and with the necessary domain expertise. When that is not possible, it is important to consider who will provide external code review (e.g., PI, emLab researcher not on project team).</p>
+<p>Not every project warrants the same level of review, and the plan above should be adapted accordingly. A small internal analysis with no external audience may need only self review and basic version control. A multi-year project culminating in a journal submission should have continuous peer review built into every phase of the work. Any project that results in a code repo that is meant for the public should have a reproducibility check done before that repo is released; and this should ideally by someone who has not been actively working on the project in order to make sure that it is truly reproducible by someone who has not tried running any of the code before.</p>
+<p>The key is to make a conscious decision about the level of review appropriate for the project and to make that decision at the start, when timelines and budgets can still accommodate it. The cost of catching an error during ongoing code review is almost always lower than the cost of catching it after manuscript submission, after a partner has acted on it, or not catching it at all.</p>
 <p>A plan for code review should be explicitly discussed and agreed upon during <a href="https://emlab-ucsb.github.io/emlab-manual/project-management.html#kickoff-meetings">project kickoff meetings</a>. The following template is a tool that teams can use during project kickoffs and revisited at key milestones (mid-project, pre-deliverable, pre-publication). The code review plan could live in the project’s GitHub repository, either in the README or a dedicated <code>CODE_REVIEW.md</code> file.</p>
 <section id="on-the-culture-of-code-review" class="level3">
 <h3 class="anchored" data-anchor-id="on-the-culture-of-code-review">On the culture of code review</h3>
@@ -688,12 +692,12 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td><strong>Self review</strong></td>
 <td>Author reviews their own code before sharing</td>
-<td>Always</td>
+<td>Always / on-going</td>
 </tr>
 <tr class="even">
 <td><strong>Accuracy review</strong></td>
 <td>Reviewer checks logic, calculations, and correctness</td>
-<td>Partner-facing and publication outputs</td>
+<td>Always / on-going; Partner-facing and publication outputs</td>
 </tr>
 <tr class="odd">
 <td><strong>Reproducibility review</strong></td>
@@ -705,7 +709,7 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Notes on scope (e.g., which scripts, which analysis steps):</em></p>
 <hr>
 <p><strong>3. Who will conduct the review?</strong></p>
-<p>For each review type above, identify the reviewer(s). Note any constraints (e.g., reviewer needs domain expertise to evaluate model specification; reviewer should be someone not involved in daily analysis decisions to provide fresh eyes).</p>
+<p>For each review type above, identify the reviewer(s). Note any constraints (e.g., reviewer needs domain expertise to evaluate model specification; reviewer needs special permissions to access the data; reviewer should be someone not involved in daily analysis decisions to provide fresh eyes; etc).</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -745,7 +749,7 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Timeline notes (e.g., planned submission date, partner review deadlines):</em></p>
 <hr>
 <p><strong>5. How much time is budgeted for code review?</strong></p>
-<p>Code review takes real time for both the reviewer and for the author to revise and respond. As a rough guide, plan for <strong>10–20% of total coding time</strong> for meaningful ongoing review. This should be reflected in project timelines and in grant budgets.</p>
+<p>Code review takes real time for both the reviewer and for the author to revise and respond. As a rough guide, plan for <strong>10–20% of total coding time</strong> for meaningful ongoing review. This should be reflected in project timelines, staffing allocation, and in grant budgets.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -777,7 +781,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p><em>If the timeline or budget does not accommodate meaningful code review, flag this.</em></p>
+<p><em>If the timeline or budget does not accommodate meaningful code review, flag this with your PI and PM.</em></p>
 <hr>
 <p><strong>6. What is the expected standard for the final codebase?</strong></p>
 <p>Check the expected standard at project completion:</p>
@@ -844,7 +848,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Write a clear PR description.</strong> Explain what the code does, why it was written this way, and what the reviewer should focus on. If there are aspects you are uncertain about, say so. A reviewer who understands the intent is more useful than one who has to reverse-engineer it.</li>
 <li><strong>Make sure the code runs before requesting review.</strong> Only ask a colleague to review code that you have already run yourself end-to-end. This is a basic courtesy and prevents wasted time.</li>
 <li><strong>Respond to review comments constructively.</strong> If you disagree with a suggestion, explain why — do not just dismiss it. If you accept a suggestion, make the change and note it. Keep the conversation in the PR so there is a record.</li>
-<li><strong>Write code that is ready to be reviewed.</strong> Code that is well-organized, clearly commented, and logically structured is far easier to review than code that is not. Investing in code quality before requesting review reduces the burden on your reviewer and produces better feedback. Sections <strong>XX</strong> (commenting), <strong>YY</strong> (pipeline reproducibility), and <strong>ZZ</strong> (code styling) are directly relevant here.</li>
+<li><strong>Write code that is ready to be reviewed.</strong> Code that is well-organized, clearly commented, formatted with a formatter like Air or Ruff, and logically structured is far easier to review than code that is not. Investing in code quality before requesting review reduces the burden on your reviewer and produces better feedback. The emLab SOP sections on <a href="https://emlab-ucsb.github.io/SOP/05-code-styling.html">Code Styling</a>, Code Documentation(https://emlab-ucsb.github.io/SOP/06-code-documentation.html), and <a href="https://emlab-ucsb.github.io/SOP/08-pipeline-reproducibility.html">Pipeline Reproducibility</a> are directly relevant here.</li>
 </ul>
 </section>
 <section id="for-the-person-reviewing-code" class="level3">
@@ -856,21 +860,19 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Prioritize correctness over style.</strong> Logic errors, incorrect calculations, mishandled edge cases, and broken reproducibility chains are more important than stylistic disagreements. Address style if it genuinely impairs readability, but do not let it crowd out substantive review.</p></li>
 <li><p><strong>Actually run the code.</strong> For accuracy or reproducibility review, running the code yourself is often the only way to catch certain classes of errors. If the repo is set up correctly (see <strong>XX</strong>), this should be straightforward.</p></li>
 <li><p><strong>Be timely.</strong> A PR that sits unreviewed can disrupt the author’s workflow and creates merge conflicts. If you cannot complete a review within a reasonable timeframe (generally within a few business days for active projects), communicate that and, if possible, suggest an alternative reviewer.</p></li>
+<li><p><strong>After your review, approve it (usually).</strong> After you have finished your review and provided your feedback, you will have multiple options for finalizing your review: <code>Comment</code>, <code>Approve</code>, and <code>Request changes</code>. If you feel that the author should be able to address your feedback on their own without another round of your review, we usually recommend using the <code>Approve</code> option. That way, once the author has addressed your feedback, they can merge the PR themselves. If your review includes substantial changes, and/or you would like to be able to review the PR again after the author has implemented your suggestions, you can use the <code>Request changes</code> option. This will require you to review it again before the author can merge it.</p></li>
 </ul>
 <hr>
 </section>
 </section>
 </section>
-<section id="references" class="level1">
-<h1>References</h1>
+<section id="recommended-readings" class="level1">
+<h1>Recommended readings</h1>
 <ul>
-<li><em>Ivimey-Cook et al.&nbsp;(2023). Implementing code review in the scientific workflow: Insights from ecology and evolutionary biology.</em><br>
-</li>
-<li><em>Petre, M. &amp; Wilson, G. (2014). Code review for and by scientists.</em><br>
-</li>
-<li><em>Roth, J. et al.&nbsp;(2025). Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience. Communications Psychology, 3, 62.</em><br>
-</li>
-<li><em>tidyteam code review guide: https://code-review.tidyverse.org/</em></li>
+<li><p>Ivimey-Cook, Edward R., Joel L. Pick, Kevin R. Bairos-Novak, Antica Culina, Elliot Gould, Matthew Grainger, Benjamin M. Marshall, et al.&nbsp;2023. “Implementing code review in the scientific workflow: Insights from ecology and evolutionary biology.” <em>Journal of Evolutionary Biology</em> 36 (10): 1347–56.</p></li>
+<li><p>Petre, Marian, and Greg Wilson. 2014. “Code review for and by scientists.” arXiv. <a href="https://doi.org/10.48550/arXiv.1407.5648" class="uri">https://doi.org/10.48550/arXiv.1407.5648</a>.</p></li>
+<li><p>Roth, Johannes, Yunyan Duan, Florian P. Mahner, Philipp Kaniuth, Thomas SA Wallis, and Martin N. Hebart. 2025. “Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience.” <em>Communications Psychology</em> 3 (1). <a href="https://doi.org/10.1038/s44271-025-00236-3" class="uri">https://doi.org/10.1038/s44271-025-00236-3</a>.</p></li>
+<li><p>tidyteam. “Code review guide.” <a href="https://code-review.tidyverse.org/" class="uri">https://code-review.tidyverse.org/</a>.</p></li>
 </ul>
 
 
