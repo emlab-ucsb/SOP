@@ -108,7 +108,7 @@ ongoing review. This should be reflected in project timelines, staffing allocati
 | Conducting accuracy or reproducibility review | | Reviewer |
 | Responding to and implementing review feedback | | Author |
 
-*If the timeline or budget does not accommodate meaningful code review, flag this.*
+*If the timeline or budget does not accommodate meaningful code review, flag this with your PI and PM.*
 
 ---
 
