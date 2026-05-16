@@ -10,7 +10,7 @@ time, this exchange builds collective expertise across the lab. This section des
 
 ---
 
-## Code Review Plan for projects
+## Planning code review for projects
 
 Code review should be planned at the start of a project. A code review plan answers four questions: *what* gets reviewed, *when*, *by whom*, and *to what standard*. The answers will differ across projects, but the plan should exist and should be documented. Code review should be considered when developing each Scope of Work, which should reflect the time, personnel, and thus budget needed to support adequate code review. Ideally, team compositions would include more than one researcher so that the review of one researcher's code can be done by another researcher already familiar with the project and with the necessary domain expertise. When that is not possible, it is important to consider who will provide external code review (e.g., PI, emLab researcher not on project team).
 
