@@ -68,8 +68,6 @@ website:
           - 06-publications/publishing-data.qmd
           - 06-publications/public-github-repository.qmd
           - 06-publications/sharing-on-website.qmd
-      - 03-code.qmd
-      - 06.5-code-review.qmd
       - 07-gh/index.qmd
 
 format:
