@@ -174,7 +174,7 @@ possible, suggest an alternative reviewer.
 
 ---
 
-Recommended readings
+# Recommended readings
 
 * Ivimey-Cook, Edward R., Joel L. Pick, Kevin R. Bairos-Novak, Antica Culina, Elliot Gould, Matthew Grainger, Benjamin M. Marshall, et al. 2023. "Implementing code review in the scientific workflow: Insights from ecology and evolutionary biology." *Journal of Evolutionary Biology* 36 (10): 1347–56.
 
