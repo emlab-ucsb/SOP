@@ -1,0 +1,274 @@
+# Functional programming {#sec-functional-programming}
+
+Functional programming (FP) is a style of writing code that emphasizes
+**applying functions to data** rather than mutating variables step by step. It
+is not a separate language or package — it is a way of structuring R code that
+makes analyses easier to read, test, and reproduce.
+
+This chapter is a hands-on tutorial. Every R code block below is executed when
+the SOP website is rendered in our GitHub Actions pipeline, so the output you
+see is generated live from the code shown.
+
+## Why functional programming?
+
+Most emLab analyses involve doing the *same thing* to *many things*: cleaning
+each of a dozen data files, fitting a model for each region, or summarizing
+every species in a dataset. Functional programming gives us a vocabulary for
+these patterns that is:
+
+* **Readable** — `map(files, read_csv)` states intent more clearly than a
+  `for` loop that grows a list.
+* **Reliable** — small, pure functions can be tested in isolation, which
+  supports our [guiding principle of accuracy](index.qmd).
+* **Reproducible** — code without hidden state behaves the same on every
+  machine and every run.
+
+We rely on base R's functional tools and on
+[**purrr**](https://purrr.tidyverse.org/), the tidyverse iteration package.
+
+```{r}
+#| label: fp-setup
+#| message: false
+library(purrr)
+library(dplyr)
+```
+
+## Functions are values
+
+The foundational idea of FP is that **functions are ordinary values**. You can
+store a function in a variable, put it in a list, or pass it as an argument to
+another function — exactly as you would a number or a data frame.
+
+```{r}
+#| label: fp-functions-as-values
+# Assign a function to a variable
+celsius_to_f <- function(temp_c) {
+  temp_c * 9 / 5 + 32
+}
+
+# Store several functions in a list
+converters <- list(
+  to_fahrenheit = celsius_to_f,
+  to_kelvin = function(temp_c) temp_c + 273.15
+)
+
+converters$to_kelvin(20)
+```
+
+A function that takes another function as an argument (or returns one) is
+called a **higher-order function**. `map()`, which we meet below, is the
+higher-order function you will use most.
+
+## Write small, pure functions
+
+A **pure function** depends only on its inputs and produces only a return
+value — it reads no global variables and causes no side effects (no writing
+files, no modifying objects elsewhere, no printing). Pure functions are the
+building blocks of reliable analysis code because their behavior is fully
+determined by their arguments.
+
+```{r}
+#| label: fp-pure-function
+# Pure: output depends only on the arguments
+standardize <- function(x) {
+  (x - mean(x)) / sd(x)
+}
+
+round(standardize(c(10, 12, 14, 16, 18)), 2)
+```
+
+Compare that to an **impure** version that reaches outside itself for data:
+
+```{r}
+#| label: fp-impure-function
+#| eval: false
+# Impure: silently depends on a global `reference_mean`.
+# Avoid this — the result changes if `reference_mean` changes elsewhere.
+center_bad <- function(x) {
+  x - reference_mean
+}
+```
+
+::: {.callout-tip}
+## Guideline
+If a function needs a value, pass it in as an argument. Functions that pull
+from the global environment are the source of bugs that are invisible until
+the script is run in a different order or on someone else's machine.
+:::
+
+## Iterate with `map()` instead of loops
+
+The `map()` family replaces most `for` loops. `map(.x, .f)` applies the
+function `.f` to every element of `.x` and **always returns a list** of the
+same length.
+
+```{r}
+#| label: fp-map-basic
+numbers <- list(1, 2, 3, 4)
+
+map(numbers, \(x) x^2)
+```
+
+Note the `\(x) x^2` syntax: this is R's **anonymous function** shorthand
+(R 4.1+), equivalent to `function(x) x^2`. purrr also accepts a formula
+shorthand, `~ .x^2`, where `.x` stands for the current element.
+
+### Type-stable variants
+
+Returning a list is safe but often you want a plain vector. The typed
+variants — `map_dbl()`, `map_int()`, `map_chr()`, `map_lgl()` — return an
+atomic vector and **error if the function returns the wrong type**. That
+strictness catches mistakes early.
+
+```{r}
+#| label: fp-map-typed
+# Average mpg by number of cylinders, returned as a named numeric vector
+cyl_groups <- split(mtcars, mtcars$cyl)
+
+map_dbl(cyl_groups, \(df) mean(df$mpg))
+```
+
+```{r}
+#| label: fp-map-chr
+# Build a character summary for each group
+map_chr(cyl_groups, \(df) paste0(nrow(df), " cars"))
+```
+
+### Iterating over two or more inputs
+
+`map2()` walks two vectors in parallel; `pmap()` handles any number of inputs
+supplied as a list (or the columns of a data frame).
+
+```{r}
+#| label: fp-map2
+weights <- c(0.2, 0.3, 0.5)
+values <- c(100, 200, 300)
+
+map2_dbl(weights, values, \(w, v) w * v)
+```
+
+```{r}
+#| label: fp-pmap
+params <- tibble::tibble(
+  base = c(2, 3, 4),
+  exponent = c(3, 2, 1)
+)
+
+pmap_dbl(params, \(base, exponent) base^exponent)
+```
+
+### When you only want side effects
+
+If you are iterating purely for a side effect — printing, saving plots,
+writing files — use `walk()`. It runs the function for each element and
+returns the input invisibly, signalling "this is for the side effect, not the
+value."
+
+```{r}
+#| label: fp-walk
+walk(c("Cleaning step 1", "Cleaning step 2"), \(msg) cat(msg, "\n"))
+```
+
+## Combining results with `reduce()`
+
+`reduce()` collapses a vector or list into a single value by applying a
+two-argument function cumulatively. It is the functional way to express
+"combine all of these."
+
+```{r}
+#| label: fp-reduce
+# Sum a list of numbers
+reduce(list(1, 2, 3, 4, 5), `+`)
+```
+
+A common emLab use is joining several data frames into one:
+
+```{r}
+#| label: fp-reduce-join
+band_tables <- list(
+  dplyr::band_members,
+  dplyr::band_instruments
+)
+
+reduce(band_tables, dplyr::full_join, by = "name")
+```
+
+`accumulate()` is the same idea but keeps every intermediate result, which is
+useful for inspecting a running total or a cumulative process.
+
+```{r}
+#| label: fp-accumulate
+accumulate(1:5, `+`)
+```
+
+## Functional programming inside the tidyverse
+
+These tools shine in routine data work. A frequent pattern is reading and
+row-binding many files with `map()` — here simulated with in-memory data so the
+chunk runs without external files:
+
+```{r}
+#| label: fp-map-dfr
+# Pretend each element is a file path; the function returns one data frame
+fake_files <- c("site_a", "site_b", "site_c")
+
+read_one <- function(site) {
+  tibble::tibble(site = site, reading = nchar(site) * 10)
+}
+
+map(fake_files, read_one) |>
+  list_rbind()
+```
+
+`map()` also pairs naturally with `dplyr` for column-wise operations. Inside
+`across()`, you supply a function just as you would to `map()`:
+
+```{r}
+#| label: fp-across
+mtcars |>
+  group_by(cyl) |>
+  summarise(across(c(mpg, hp, wt), \(x) round(mean(x), 1)))
+```
+
+## Predicate functions: `keep()`, `discard()`, `detect()`
+
+A **predicate** is a function that returns a single `TRUE` or `FALSE`. purrr
+provides higher-order functions that take a predicate to filter or search.
+
+```{r}
+#| label: fp-predicates
+nums <- list(4, 7, 10, 3, 12, 1)
+
+keep(nums, \(x) x > 5)      # elements passing the predicate
+discard(nums, \(x) x > 5)   # elements failing the predicate
+detect(nums, \(x) x > 5)    # first element passing the predicate
+```
+
+## Best practices
+
+* **Prefer `map()` over `for` loops** when building a result. Reach for a loop
+  only when each iteration genuinely depends on the previous one and
+  `reduce()`/`accumulate()` do not fit.
+* **Use the typed `map_*()` variants** (`map_dbl()`, `map_chr()`, …) whenever
+  you expect a vector — the type check is free error-catching.
+* **Keep functions small and pure.** One function, one job, no hidden inputs.
+* **Name your functions for what they return**, in `snake_case`, following our
+  [code styling guide](code-styling.qmd).
+* **Don't over-abstract.** If a piece of logic appears once, a plain
+  expression is clearer than a function. Refactor to a function on the second
+  or third repetition.
+* **Test pure functions in isolation.** Because their output depends only on
+  their inputs, a handful of `stopifnot()` checks or testthat tests fully
+  pin down their behavior.
+
+## Recommended readings
+
+* Wickham, Hadley. 2019. *Advanced R*, 2nd ed. Chapman & Hall/CRC. Chapters on
+  "Functionals" and "Function factories." <https://adv-r.hadley.nz/>
+
+* Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.
+  *R for Data Science*, 2nd ed. O'Reilly. Chapter 26, "Iteration."
+  <https://r4ds.hadley.nz/iteration>
+
+* purrr package documentation and cheatsheet.
+  <https://purrr.tidyverse.org/>
