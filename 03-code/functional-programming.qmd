@@ -1,13 +1,74 @@
 # Functional programming {#sec-functional-programming}
 
-Functional programming (FP) is a style of writing code that emphasizes
-**applying functions to data** rather than mutating variables step by step. It
-is not a separate language or package — it is a way of structuring R code that
-makes analyses easier to read, test, and reproduce.
+Functional programming is a style of writing code that helps make emLab models and software that are easy to 
+**understand,
+improve,
+combine,
+and debug.**
 
-This chapter is a hands-on tutorial. Every R code block below is executed when
-the SOP website is rendered in our GitHub Actions pipeline, so the output you
-see is generated live from the code shown.
+
+It is not a separate language or package — it is a way of structuring code that
+It is based on **applying functions to data**. One of the most rudimentary examples is^[This section uses R code in [Quarto](../04-quarto/index.qmd) chunks, hence the `[1]` syntax.]
+
+```{r}
+#| label: sum-fun
+#| message: false
+sum(1,1) # <1>
+```
+
+## Fostering a functional programming mindset
+
+A functional programming mindset emphasizes building *functions* involving several or many lines of code, which may then be used in various contexts throughout the project. It can be thought of as describing a **method**. It contrasts with *imperative* programming, which involves *scripts*, where each line gives a computer a **command**. For comparison:
+
+::: {.panel-tabset}
+## Functional
+
+```{r}
+say_its <- function(sun) {
+  if (sun == "up") return("Good morning")
+  if (sun == "down") return("Good night")
+}
+
+say_its("up")
+say_its("down")
+```
+
+```{r}
+```
+
+The same task written imperatively gives the commands directly, with no
+reusable function:
+
+```{r}
+sun <- "up"
+if (sun == "up") print("Good morning")
+if (sun == "down") print("Good night")
+```
+
+```{r}
+sun <- "down"
+if (sun == "up") print("Good morning")
+if (sun == "down") print("Good night")
+```
+
+## Imperative
+
+```{r}
+print("Hello World")
+```
+:::
+
+
+It is a workflow well adapted to building a big model out of many individual components, which is involved in most if not all emLab data science projects.
+
+This chapter uses [Quarto](../04-quarto/index.qmd) functionality for running R code: 
+
+```{r}
+#| label: hello-world
+#| message: false
+print("Hello world")
+```
+
 
 ## Why functional programming?
 
