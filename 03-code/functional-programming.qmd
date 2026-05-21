@@ -1,14 +1,14 @@
 # Functional programming {#sec-functional-programming}
 
-Functional programming is a style of writing code that helps make emLab models and software that are easy to 
+Functional programming is a style of writing code that helps make emLab models and software easy to 
 **understand,
-improve,
 combine,
+improve,
 and debug.**
 
 
 It is not a separate language or package — it is a way of structuring code that
-It is based on **applying functions to data**. One of the most rudimentary examples is^[This section uses R code in [Quarto](../04-quarto/index.qmd) chunks, hence the `[1]` syntax.]
+It is based on **applying functions to data**. A rudimentary example of a function in the programming sense is^[This section uses R code in [Quarto](../04-quarto/index.qmd) chunks, hence the `[1]` prefix.]
 
 ```{r}
 #| label: sum-fun
@@ -16,9 +16,7 @@ It is based on **applying functions to data**. One of the most rudimentary examp
 sum(1,1) # <1>
 ```
 
-## Fostering a functional programming mindset
-
-A functional programming mindset emphasizes building *functions* involving several or many lines of code, which may then be used in various contexts throughout the project. It can be thought of as describing a **method**. It contrasts with *imperative* programming, which involves *scripts*, where each line gives a computer a **command**. For comparison:
+A functional programming approach focuses on building *functions* involving several or many lines of code, which may then be used in various contexts throughout a given project. It can be thought of as describing a **method**. It contrasts with *imperative* programming, which involves *scripts*, where each line gives a computer a **command**. For comparison:
 
 ::: {.panel-tabset}
 ## Functional
@@ -33,30 +31,145 @@ say_its("up")
 say_its("down")
 ```
 
-```{r}
-```
-
-The same task written imperatively gives the commands directly, with no
-reusable function:
+## Imperative
 
 ```{r}
 sun <- "up"
 if (sun == "up") print("Good morning")
 if (sun == "down") print("Good night")
-```
 
-```{r}
 sun <- "down"
 if (sun == "up") print("Good morning")
 if (sun == "down") print("Good night")
 ```
+:::
 
-## Imperative
+## Combining functions
+
+R is a multi-paradigm language, meaning it can work with either style of programming. However, emLab data scientists rely on R's many thousands of *packages*. When you add an R package to your library, you can then build your code using functions written by others.
 
 ```{r}
-print("Hello World")
+#| label: tibble
+library(tibble)
+
+tibble(
+  small = letters[1:3], 
+  big = LETTERS[1:3]
+)
 ```
-:::
+
+The functional programming approach would be to build their functions into your own, likely incorporating other functions^[base R includes lots of functions geared towards math and statistics even before you add anything to its library, such as `sqrt()` and `matrix()`] too:
+
+```{r}
+#| label: combine
+#| message: false
+#| warning: false
+library(stringr)
+
+sentence_square <- function(sentence) {
+  words = str_split_1(sentence, pattern = " ") # from `stringr`
+  dimension = ceiling(sqrt(length(words)))
+  square = matrix(words, nrow = dimension)
+  return(as_tibble(square))
+}
+
+sentence_square("Wherefore art thou Romeo")
+```
+
+This is an example of nesting, where calling `sentence_square()` indirectly calls the other functions used in its recipe.
+
+## Exceptions
+
+emLab strives for a functional programming mindset, but here are examples of cases where scripting is conventionally used.
+
+### Repetitive functions
+
+R supports recursive functions, which call themselves:
+
+```{r}
+#| label: fp-recursion
+factorial <- function(n) {
+  if (n <= 1) return(1)    # base case: stop here
+  n * factorial(n - 1)   # recursive case: shrink toward the base case
+}
+
+factorial(4)
+```
+
+However, emLab code prioritizes readability, and recursion is a case where many find the imperative equivalent more intuitive:
+
+```{r}
+#| label: for loop
+n = 4
+factorial = 1
+
+while (n > 1) {
+  factorial = factorial * n
+  n = n - 1
+}
+
+factorial
+```
+
+However, one strong argument for the functional programming paradigm is that someone else probably already made a function that does what you want to do. If you have a good sense of the tooling available and its applicability to your use case, you may sometimes have to write hardly any code at all. 
+
+Using the `prod()` function from base R:
+
+```{r}
+values = 1:4 # shorthand for the vector c(1,2,3,4)
+factorial = prod(values) # product of vector, i.e., 1×2×3×4
+factorial
+```
+
+### Pipes
+
+When composing functions, e.g., `f(g(x))`, there are sometimes cases with many intermediate states. The two ways to address this while sticking strictly to a functional programming paradigm are nesting functions:
+
+```{r}
+chef_it_up <- function(eggs) {
+  omelette <- plate(fold(fry(crack(eggs))))
+  return(omelette)
+}
+```
+
+or using intermediate **local** variables^[which aren't retrievable outside of the function]:
+
+```{r}
+chef_it_up <- function(eggs) {
+  goop <- crack(eggs)
+  circle <- fry(goop)
+  burrito <- fold(circle)
+  omelette <- plate(burrito)
+  return(omelette)
+}
+```
+
+Using pipes `|>` to link up functions changes the state of an invisible variable multiple times, meaning it draws from the imperative programming paradigm. However, it makes code more readable than either purely functional approach, while also using computer memory efficiently by overwriting each step's input with its output.
+
+```{r}
+chef_it_up <- function(eggs) {
+  omelette <- eggs |>
+    crack() |>
+    fry() |>
+    fold() |>
+    plate()
+  return(omelette)
+}
+```
+
+It is worth mentioning that pipes pass each step's results as the first argument of the next function. This tends to work because most functions are defined with the most important variable first.
+
+Until grokking functional programming, If you have a function you want to apply to multiple objects,
+Sometimes a function might have bugs
+
+```{r}
+#| label: combine2
+#| message: false
+
+sentence_square("Bug#1 Bug#2 Bug#3 Bug#4 Bug#5")
+```
+
+which consist of functions^[Packages can include datasets too, but ]. Packages can include datasetsIf you want or need to publish your model code, perhaps alongside a publication, emLab would love for you to create a package like !
 
 
 It is a workflow well adapted to building a big model out of many individual components, which is involved in most if not all emLab data science projects.
