@@ -58,7 +58,7 @@ tibble(
 )
 ```
 
-The functional programming approach would be to build their functions into your own, likely incorporating other functions^[base R includes lots of functions geared towards math and statistics even before you add anything to its library, such as `sqrt()` and `matrix()`] too:
+The functional programming approach would be to build their functions into your own, likely incorporating other functions^[Base (a.k.a. vanilla) R includes lots of functions geared towards math and statistics even before you add anything to its library, such as `sqrt()` and `matrix()`] too:
 
 ```{r}
 #| label: combine
@@ -76,7 +76,37 @@ sentence_square <- function(sentence) {
 sentence_square("Wherefore art thou Romeo")
 ```
 
-This is an example of nesting, where calling `sentence_square()` indirectly calls the other functions used in its recipe.
+This is an example of nesting, where calling `sentence_square()` indirectly calls the other functions used in its recipe. Part of what makes functional programming such a useful approach is that the arguments^[comma-separated list inside the parentheses] of a function are accessible to functions nested within it: 
+
+```{r}
+#| label: fp-nesting-2
+pluralize <- function(word) {
+  paste0(word, "s")
+}
+
+pluralize("apple")
+
+group <- function(item, count) {
+  paste(count, pluralize(item))
+}
+
+group("orange", 5)
+```
+
+Here, `pluralize()` takes its `word` argument from the `item` argument of `group()`. A variable defined within a function is said to be **local**, and a function's arguments are among its local variables. Variables that are local to a function are not accessible in a broader scope:
+
+```{r}
+#| label: error
+#| error: true
+kitchen <- function(light = "on") {
+  stove = "gas"  
+  return(mget(ls())) # describe local variables
+}
+
+light
+stove
+kitchen()
+```
 
 ## Exceptions
 
@@ -111,7 +141,7 @@ while (n > 1) {
 factorial
 ```
 
-However, one strong argument for the functional programming paradigm is that someone else probably already made a function that does what you want to do. If you have a good sense of the tooling available and its applicability to your use case, you may sometimes have to write hardly any code at all. 
+Notably, one strong argument for the functional programming paradigm is that someone else probably already made a function that does what you want to do. If you have a good sense of the tooling available and its applicability to your use case, you may sometimes have to write hardly any code at all. 
 
 Using the `prod()` function from base R:
 
@@ -157,7 +187,23 @@ chef_it_up <- function(eggs) {
 }
 ```
 
-It is worth mentioning that pipes pass each step's results as the first argument of the next function. This tends to work because most functions are defined with the most important variable first.
+It is worth mentioning that pipes pass each step's results as the first argument of the next function. This tends to work out alright when functions are designed according to the best practice of putting the main variable first. It is also possible to use a placeholder `_` so a pipe goes to a different argument:
+
+```{r}
+hit <- function(pitcher = "Who", batter = "What") {
+  if (batter == "Babe Ruth") return("Home run!")
+  if (pitcher == "Babe Ruth") return("Strikeout!")
+}
+
+first_up = "Babe Ruth"
+
+first_up |>
+  hit() # Babe Ruth as pitcher
+
+first_up |>
+  hit(batter = _) # Babe Ruth as batter
+
+```
 
 Until grokking functional programming, If you have a function you want to apply to multiple objects,
 Sometimes a function might have bugs
