@@ -3,6 +3,10 @@
 # emLab SOP
 :::
 
+::: {.lead}
+The emLab Standard Operating Procedures explain the shared conventions that keep our research reproducible, well organized, and easy to collaborate on.
+:::
+
 :::: {.grid}
 
 ::: {.g-col-12 .g-col-md-4}
@@ -35,6 +39,7 @@ Style, documentation, and reproducibility.
 
 - [Code Styling](03-code/code-styling.qmd)
 - [Code Documentation](03-code/code-documentation.qmd)
+- [Functional Programming](03-code/functional-programming.qmd)
 - [Exploratory Data Analysis](03-code/eda.qmd)
 - [Package Reproducibility](03-code/package-reproducibility.qmd)
 - [Pipeline Reproducibility](03-code/pipeline-reproducibility.qmd)
