@@ -77,7 +77,7 @@ sentence_square <- function(sentence) {
 sentence_square("Wherefore art thou Romeo")
 ```
 
-This is an example of nesting, where calling `sentence_square()` indirectly calls the other functions used in its recipe. Part of what makes functional programming such a useful approach is that the arguments^[comma-separated list inside the parentheses] of a function are accessible to functions nested within it: 
+This is an example of nesting, where calling `sentence_square()` indirectly calls the other functions used in its recipe. Part of what makes functional programming such a useful approach is that the arguments^[comma-separated items inside the parentheses] of a function are accessible to functions nested within it: 
 
 ```{r}
 #| label: fp-nesting-2
@@ -217,11 +217,11 @@ factorial
 
 Notably, one strong argument for the functional programming paradigm is that someone else probably already made a function that does what you want to do. If you have a good sense of the tooling available and its applicability to your use case, you may sometimes have to write hardly any code at all. 
 
-Using the `prod()` function from base R:
+Using the product `prod()` function from base R:
 
 ```{r}
-values = 1:4 # shorthand for the vector c(1,2,3,4)
-factorial = prod(values) # product of vector, i.e., 1×2×3×4
+n = 4 
+factorial = prod(1:n) # R parses `a:b` as the integers between a and b
 factorial
 ```
 
