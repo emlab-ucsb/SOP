@@ -173,7 +173,7 @@ target: prerequisites
 
 * **target** — the file the rule produces (e.g. `data/processed.csv`).
 * **prerequisites** — files the target depends on. If any prerequisite is newer than the target, the recipe runs.
-* **recipe** — the shell command(s) Make runs to build the target. The indentation must be a literal **tab character**, not spaces. Silent space-for-tab substitution by editors is the single most common Makefile bug; configure your editor to preserve tabs in `Makefile`s.
+* **recipe** — the shell command(s) Make runs to build the target. The indentation must be a literal **tab character**, not spaces. Silent space-for-tab substitution by editors is the single most common Makefile bug; configure your editor to preserve tabs in your `Makefile`.
 
 ### Example workflow (Python/Stata)
 
