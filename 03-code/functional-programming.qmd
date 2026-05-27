@@ -1,15 +1,22 @@
 # Functional programming {#sec-functional-programming}
 
-Functional programming is a style of writing code that helps make emLab models and software easy to 
+Functional programming is a style of writing code that helps make emLab models and software easy to
 **understand,
 combine,
 improve,
 and debug.**
 
-A central motivation is to avoid repeating yourself. When the same logic is copied across several scripts, every fix or improvement has to be made in every copy — and any copy that gets missed becomes a silent bug. Writing that logic once, as a function, leaves a single place to change it.
+## Don't Repeat Yourself
 
-It is not a separate language or package — it is a way of structuring code that
-It is based on **applying functions to data**. A rudimentary example of a function in the programming sense is^[This section uses R code in [Quarto](../04-quarto/index.qmd) chunks, hence the `[1]` prefix.]
+The guiding instinct of functional programming is the **DRY principle** — *Don't Repeat Yourself*. When the same logic is copied across several scripts, every fix or improvement has to be made in every copy, and any copy that gets missed becomes a silent bug. Writing that logic once, as a function, leaves a single place to change it.
+
+A useful rule of thumb comes from Hadley Wickham in [*R for Data Science*](https://r4ds.hadley.nz/functions):
+
+> You should consider writing a function whenever you've copied and pasted a block of code more than twice (i.e. you now have three copies of the same code).
+
+DRY is also why functional programming is a prerequisite for the pipeline tools described in [Pipeline reproducibility](pipeline-reproducibility.qmd): both [`targets`](pipeline-reproducibility.qmd#r-pipelines-the-targets-package) and [GNU Make](pipeline-reproducibility.qmd#non-r-pipelines-gnu-make) chain together small, well-named functions or scripts as the nodes of the dependency graph. The cleaner your functions, the cleaner the pipeline.
+
+Functional programming is not a separate language or package — it is a way of structuring code, based on **applying functions to data**. A rudimentary example of a function in the programming sense is^[This section uses R code in [Quarto](../04-quarto/index.qmd) chunks, hence the `[1]` prefix.]
 
 ```{r}
 #| label: sum-fun
@@ -203,7 +210,7 @@ factorial(4)
 However, emLab code prioritizes readability, and recursion is a case where many find the imperative equivalent more intuitive:
 
 ```{r}
-#| label: for loop
+#| label: while-loop
 n = 4
 factorial = 1
 
@@ -214,6 +221,29 @@ while (n > 1) {
 
 factorial
 ```
+
+::: {.callout-tip}
+## Prefer `apply`/`map` over `for` loops when iterating over a collection
+
+When the repetition you need is "do this same thing to every element of a vector or list," reach for the **apply/map family** before a `for` loop. In base R that means `lapply()`, `sapply()`, or `vapply()`; in the tidyverse, `purrr::map()` and its typed variants (`map_dbl()`, `map_chr()`, `map_lgl()`, ...).
+
+```{r}
+#| label: apply-vs-for
+words <- c("apple", "banana", "cherry")
+
+# Imperative: a for loop that mutates an output vector
+lengths_loop <- integer(length(words))
+for (i in seq_along(words)) {
+  lengths_loop[i] <- nchar(words[i])
+}
+lengths_loop
+
+# Functional: applying nchar() across the vector
+sapply(words, nchar)
+```
+
+The functional form is a single expression that takes a collection in and gives a collection out, with no loose counter variables to manage. That fits the rest of this section's recommendations and makes the intent obvious at a glance.
+:::
 
 Notably, one strong argument for the functional programming paradigm is that someone else probably already made a function that does what you want to do. If you have a good sense of the tooling available and its applicability to your use case, you may sometimes have to write hardly any code at all. 
 
