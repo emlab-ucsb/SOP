@@ -11,8 +11,8 @@ GRIT](https://emlab-ucsb.github.io/emlab-manual/emlab-workflow-and-platforms.htm
 You can install regular user-level R packages just like you would
 normally using R Studio on your local machine. We recommend using the
 renv R package to manage package dependencies for each project (i.e.,
-GitHub repo) you work in. Please refer to the [emLab SOP section on
-reproducibility](https://emlab-ucsb.github.io/SOP/3.3-reproducibility.html#package-dependencies)
+GitHub repo) you work in. Please refer to the [Package
+reproducibility](../03-code/package-reproducibility.qmd) section
 for more information on renv.
 
 Additionally, GRIT installs and updates many commonly used R packages on

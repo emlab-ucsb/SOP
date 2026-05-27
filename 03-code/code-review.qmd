@@ -151,7 +151,7 @@ The following principles are adapted from the [tidyteam code review guidelines]
 - **Make sure the code runs before requesting review.** Only ask a colleague to review code that you have already run yourself end-to-end. This is a basic courtesy and prevents wasted time.
 - **Respond to review comments constructively.** If you disagree with a suggestion,
   explain why — do not just dismiss it. If you accept a suggestion, make the change and note it. Keep the conversation in the PR so there is a record.
-- **Write code that is ready to be reviewed.** Code that is well-organized, clearly commented, formatted with a formatter like Air or Ruff, and logically structured is far easier to review than code that is not. Investing in code quality before requesting review reduces the burden on your reviewer and produces better feedback. The emLab SOP sections on [Code Styling](https://emlab-ucsb.github.io/SOP/05-code-styling.html), Code Documentation(https://emlab-ucsb.github.io/SOP/06-code-documentation.html), and [Pipeline Reproducibility](https://emlab-ucsb.github.io/SOP/08-pipeline-reproducibility.html) are directly relevant here.
+- **Write code that is ready to be reviewed.** Code that is well-organized, clearly commented, formatted with a formatter like Air or Ruff, and logically structured is far easier to review than code that is not. Investing in code quality before requesting review reduces the burden on your reviewer and produces better feedback. The emLab SOP sections on [Code Styling](code-styling.qmd), [Code Documentation](code-documentation.qmd), and [Pipeline Reproducibility](pipeline-reproducibility.qmd) are directly relevant here.
 
 ### For the person reviewing code
 
@@ -164,7 +164,7 @@ carry the same weight. Be explicit about which issues must be addressed before t
 
 - **Prioritize correctness over style.** Logic errors, incorrect calculations, mishandled edge cases, and broken reproducibility chains are more important than stylistic disagreements. Address style if it genuinely impairs readability, but do not let it crowd out substantive review.
 
-- **Actually run the code.** For accuracy or reproducibility review, running the code yourself is often the only way to catch certain classes of errors. If the repo is set up correctly (see **XX**), this should be straightforward.
+- **Actually run the code.** For accuracy or reproducibility review, running the code yourself is often the only way to catch certain classes of errors. If the repo is set up correctly (see [Pipeline reproducibility](pipeline-reproducibility.qmd) and [Package reproducibility](package-reproducibility.qmd)), this should be straightforward.
 
 - **Be timely.** A PR that sits unreviewed can disrupt the author's workflow and creates merge conflicts. If you cannot complete a review within a reasonable timeframe
 (generally within a few business days for active projects), communicate that and, if
