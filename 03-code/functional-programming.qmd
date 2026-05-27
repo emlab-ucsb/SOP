@@ -189,11 +189,34 @@ mean_positive(c(4, 8, -2, 10))
 
 These signals help whoever *runs* a function. Readability helps whoever *reads* it — at emLab, usually a collaborator or your future self. The logic inside a function deserves the same care as any script: descriptive names, consistent style, and comments that explain *why*. See [Code styling](code-styling.qmd) and [Code documentation](code-documentation.qmd) for the details.
 
+## Repetitive functions
+
+### Prefer `apply`/`map` over `for` loops when iterating over a collection
+
+When the repetition you need is "do this same thing to every element of a vector or list," reach for the **apply/map** family of functions before a `for` loop. In base R that means `lapply()`, `sapply()`, or `vapply()`; in the tidyverse, `purrr::map()` and its typed variants (`map_dbl()`, `map_chr()`, `map_lgl()`, ...).
+
+```{r}
+#| label: apply-vs-for
+words <- c("apple", "banana", "cherry")
+
+# Imperative: a for loop that mutates an output vector
+lengths_loop <- integer(length(words))
+for (i in seq_along(words)) {
+  lengths_loop[i] <- nchar(words[i])
+}
+lengths_loop
+
+# Functional: applying nchar() across the vector
+sapply(words, nchar)
+```
+
+The functional form is a single expression that takes a collection in and gives a collection out, without making any other changes to the environment in which it runs.
+
 ## Exceptions
 
 emLab strives for a functional programming mindset, but here are examples of cases where scripting is sometimes used.
 
-### Repetitive functions
+### Recursive functions
 
 R supports recursive functions, which call themselves:
 
@@ -221,29 +244,6 @@ while (n > 1) {
 
 factorial
 ```
-
-::: {.callout-tip}
-## Prefer `apply`/`map` over `for` loops when iterating over a collection
-
-When the repetition you need is "do this same thing to every element of a vector or list," reach for the **apply/map family** before a `for` loop. In base R that means `lapply()`, `sapply()`, or `vapply()`; in the tidyverse, `purrr::map()` and its typed variants (`map_dbl()`, `map_chr()`, `map_lgl()`, ...).
-
-```{r}
-#| label: apply-vs-for
-words <- c("apple", "banana", "cherry")
-
-# Imperative: a for loop that mutates an output vector
-lengths_loop <- integer(length(words))
-for (i in seq_along(words)) {
-  lengths_loop[i] <- nchar(words[i])
-}
-lengths_loop
-
-# Functional: applying nchar() across the vector
-sapply(words, nchar)
-```
-
-The functional form is a single expression that takes a collection in and gives a collection out, with no loose counter variables to manage. That fits the rest of this section's recommendations and makes the intent obvious at a glance.
-:::
 
 Notably, one strong argument for the functional programming paradigm is that someone else probably already made a function that does what you want to do. If you have a good sense of the tooling available and its applicability to your use case, you may sometimes have to write hardly any code at all. 
 
@@ -295,8 +295,8 @@ It is worth mentioning that pipes pass each step's results as the first argument
 
 ```{r}
 hit <- function(pitcher = "Who", batter = "What") {
-  if (batter == "Babe Ruth") return("Home run!")
   if (pitcher == "Babe Ruth") return("Strikeout!")
+  if (batter == "Babe Ruth") return("Home run!")
 }
 
 first_up = "Babe Ruth"
