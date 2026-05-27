@@ -6,16 +6,6 @@ combine,
 improve,
 and debug.**
 
-## Don't Repeat Yourself
-
-The guiding instinct of functional programming is the **DRY principle** — *Don't Repeat Yourself*. When the same logic is copied across several scripts, every fix or improvement has to be made in every copy, and any copy that gets missed becomes a silent bug. Writing that logic once, as a function, leaves a single place to change it.
-
-A useful rule of thumb comes from Hadley Wickham in [*R for Data Science*](https://r4ds.hadley.nz/functions):
-
-> You should consider writing a function whenever you've copied and pasted a block of code more than twice (i.e. you now have three copies of the same code).
-
-DRY is also why functional programming is a prerequisite for the pipeline tools described in [Pipeline reproducibility](pipeline-reproducibility.qmd): both [`targets`](pipeline-reproducibility.qmd#r-pipelines-the-targets-package) and [GNU Make](pipeline-reproducibility.qmd#non-r-pipelines-gnu-make) chain together small, well-named functions or scripts as the nodes of the dependency graph. The cleaner your functions, the cleaner the pipeline.
-
 Functional programming is not a separate language or package — it is a way of structuring code, based on **applying functions to data**. A rudimentary example of a function in the programming sense is^[This section uses R code in [Quarto](../04-quarto/index.qmd) chunks, hence the `[1]` prefix.]
 
 ```{r}
@@ -51,6 +41,16 @@ if (sun == "up") print("Good morning")
 if (sun == "down") print("Good night")
 ```
 :::
+
+## Don't Repeat Yourself
+
+The guiding instinct of functional programming is the **DRY principle** — *Don't Repeat Yourself*. When the same logic is copied across several scripts, every fix or improvement has to be made in every copy, and any copy that gets missed becomes a silent bug. Writing that logic once, as a function, leaves a single place to change it.
+
+A useful rule of thumb comes from Hadley Wickham in [*R for Data Science*](https://r4ds.hadley.nz/functions):
+
+> You should consider writing a function whenever you've copied and pasted a block of code more than twice (i.e. you now have three copies of the same code).
+
+DRY is also why functional programming is a prerequisite for the pipeline tools described in [Pipeline reproducibility](pipeline-reproducibility.qmd): both `targets` and GNU Make chain together small, well-named functions or scripts as the nodes of the dependency graph. The cleaner your functions, the cleaner the pipeline.
 
 ## Combining functions
 
