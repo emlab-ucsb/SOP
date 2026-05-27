@@ -31,6 +31,7 @@ Standard operating procedures for emLab projects:
     - Citations and Bibliography
     - Caching
     - Targets Integration
+    - Themes and Dark Mode
     - Publishing
     - Presentations
 5. High Performance Computing

@@ -11,5 +11,6 @@ The pages below cover the conventions and tools we use when writing Quarto docum
 - **[Citations and bibliography](citations-and-bibliography.qmd)** — managing a `.bib` file with Zotero or by hand, and citing in text.
 - **[Caching strategy](caching.qmd)** — when to cache, when to disable it, and common pitfalls.
 - **[Integrating with a targets pipeline](targets-integration.qmd)** — using `tarchetypes::tar_quarto()` so dependency tracking actually works.
+- **[Themes and dark mode](themes-and-cosmetics.qmd)** — picking a Bootswatch theme pair, exposing a light/dark toggle, and styling widgets like `DT` tables in both modes.
 - **[Publishing with Quarto books and GitHub Pages](publishing.qmd)** — structuring multi-document projects and auto-rendering them to a public site.
 - **[Presentations in Quarto](presentations.qmd)** — Revealjs slides, the emLab template, and slide-writing best practices.

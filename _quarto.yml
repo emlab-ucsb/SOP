@@ -49,6 +49,7 @@ website:
           - 04-quarto/citations-and-bibliography.qmd
           - 04-quarto/caching.qmd
           - 04-quarto/targets-integration.qmd
+          - 04-quarto/themes-and-cosmetics.qmd
           - 04-quarto/publishing.qmd
           - 04-quarto/presentations.qmd
       - section: "Servers"
@@ -150,6 +151,58 @@ format:
               color: #e83e8c !important;
               background-color: #2b2b2b !important;
               border: none !important;
+            }
+            /* Keep sidebar section carets visible across all viewports */
+            .sidebar-item .sidebar-item-toggle {
+              display: inline-flex !important;
+              visibility: visible !important;
+              opacity: 1 !important;
+            }
+            .sidebar-item .sidebar-item-toggle .bi-chevron-right {
+              display: inline-block !important;
+              visibility: visible !important;
+              opacity: 1 !important;
+            }
+            /* DT datatables don't auto-pick the Bootswatch dark theme */
+            .quarto-dark .dataTables_wrapper,
+            .quarto-dark table.dataTable,
+            .quarto-dark table.dataTable tbody td,
+            .quarto-dark table.dataTable tbody tr,
+            .quarto-dark table.dataTable thead th,
+            .quarto-dark table.dataTable tfoot th {
+              color: var(--bs-body-color);
+              background-color: var(--bs-body-bg);
+              border-color: var(--bs-border-color);
+            }
+            .quarto-dark table.dataTable.stripe tbody tr.odd,
+            .quarto-dark table.dataTable.display tbody tr.odd {
+              background-color: rgba(255, 255, 255, 0.04);
+            }
+            .quarto-dark table.dataTable.hover tbody tr:hover,
+            .quarto-dark table.dataTable.display tbody tr:hover {
+              background-color: rgba(94, 200, 192, 0.12);
+            }
+            .quarto-dark .dataTables_wrapper .dataTables_length,
+            .quarto-dark .dataTables_wrapper .dataTables_filter,
+            .quarto-dark .dataTables_wrapper .dataTables_info,
+            .quarto-dark .dataTables_wrapper .dataTables_processing,
+            .quarto-dark .dataTables_wrapper .dataTables_paginate {
+              color: var(--bs-body-color);
+            }
+            .quarto-dark .dataTables_wrapper .dataTables_filter input,
+            .quarto-dark .dataTables_wrapper .dataTables_length select {
+              color: var(--bs-body-color);
+              background-color: var(--bs-body-bg);
+              border: 1px solid var(--bs-border-color);
+            }
+            .quarto-dark .dataTables_wrapper .dataTables_paginate .paginate_button {
+              color: var(--bs-body-color) !important;
+            }
+            .quarto-dark .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+            .quarto-dark .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+              color: #fff !important;
+              background: #2aa198 !important;
+              border-color: #2aa198 !important;
             }
           </style>
     include-after-body:
