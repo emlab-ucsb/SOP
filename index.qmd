@@ -7,7 +7,7 @@
 The Environmental Markets Lab (emLab) Standard Operating Procedures collect the conventions that keep our research reproducible, well organized, and easy to collaborate on.
 :::
 
-emLab is a research center at the University of California, Santa Barbara working at the intersection of economics, environmental science, and policy. These pages are for everyone writing code or working with data at the lab, and they are meant to evolve with us. If you spot a gap or have a better way of doing something, [open an issue](https://github.com/emlab-ucsb/SOP/issues/new) to start the conversation, then send a pull request once we've agreed on the shape of the change.^[For day-to-day lab logistics — onboarding, meetings, GRIT account setup, and the like — see the separate [emLab Manual](https://emlab-ucsb.github.io/emlab-manual/).]
+emLab is a research center at the University of California, Santa Barbara, working at the intersection of economics, environmental science, and policy. These pages are for everyone writing code or working with data at the lab, and they are meant to evolve with us. If you spot a gap or have a better way of doing something, [open an issue](https://github.com/emlab-ucsb/SOP/issues/new) to start the conversation, then send a pull request once we've agreed on the shape of the change.^[For day-to-day lab logistics — onboarding, meetings, GRIT account setup, and the like — see the separate [emLab Manual](https://emlab-ucsb.github.io/emlab-manual/).]
 
 :::: {.grid}
 
