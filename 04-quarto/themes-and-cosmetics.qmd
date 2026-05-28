@@ -63,11 +63,3 @@ Inline `<code>` is another common stumbling block — by default the dark theme 
   border: none !important;
 }
 ```
-
-## Other cosmetic conventions
-
-A few small choices the SOP makes that you can borrow on your own sites:
-
-* **Floating action buttons** — search, theme toggle, and GitHub-source links live in a fixed-position cluster (`.fab`) in the bottom right rather than competing with the sidebar. See the `include-in-header` block in this repo's `_quarto.yml` for the markup and CSS.
-* **Hide the default search box.** Quarto's sidebar search is hidden with `#quarto-search, .sidebar-search, .quarto-search-button { display: none !important; }` so the floating-button overlay can take its place. Drop this rule if you prefer the built-in placement.
-* **Disable sidebar collapse animations.** `.sidebar-item .collapse, .sidebar-item-toggle * { transition: none !important; animation: none !important; }` removes the jitter that some viewers see when sections expand on click.
