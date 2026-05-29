@@ -1,0 +1,98 @@
+# Version Control with Commits
+
+A commit is a snapshot of your code at a particular moment, paired with a message describing what changed and why. The history of a project is the accumulation of its commits. 
+
+## What a Commit Is
+
+When you run `git commit`, git takes a snapshot of all the files you have staged and stores it permanently in the repository's history. Each commit has:
+
+- A unique identifier (a SHA hash)
+- The name and email of the author
+- A timestamp
+- A commit message
+- A reference to the previous commit, creating a chain
+
+This chain is what allows you to see the history of any file, compare versions, and restore earlier states of the project.
+
+## Staging Changes
+
+Before you commit, you stage the specific changes you want to include. This is done with `git add`:
+
+```bash
+git add scripts/01_clean.R           # Stage a single file
+git add scripts/                     # Stage all changes in a directory
+git add -p                           # Interactively stage chunks within files
+git add .                           # Stage all changes in the repository
+```
+
+Even if you have modified several files, you can group related changes into a single, focused commit rather than committing everything at once.
+
+In Positron and VS Code, the Source Control panel (the branching icon in the Activity Bar) shows all modified files and lets you stage individual files or specific lines with a click.
+
+## Atomic Commits
+
+A commit should represent one logical change. This principle is sometimes called making commits *atomic*. An atomic commit might be: adding a new function, fixing a specific bug, renaming a variable for clarity, or updating the README. A single commit should *not* include multiple unrelated changes like cleaning data, fitting a model, generating three figures, and updating the README all in one.
+
+Atomic commits have practical benefits. When something breaks, a focused commit history makes it much easier to identify which change introduced the problem. When a collaborator reviews your work, smaller and more targeted commits are easier to understand. When you need to undo a change, you can revert a specific commit without also undoing unrelated work.
+
+## Writing Good Commit Messages
+
+The commit message is addressed to a reader -- a future collaborator, a reviewer, or yourself in six months -- who is trying to understand why a change was made. The *what* is visible in the diff. The message should explain the *why*.
+
+A commit message has two parts: a subject line and an optional body.
+
+**The subject line** should be a concise summary of the change, written in the imperative mood (as though giving an instruction), and no longer than 72 characters. For example:
+
+```
+Filter observations with missing species ID before modeling
+```
+
+Rather than:
+
+```
+fixed the thing
+updated script
+more changes
+```
+
+**The body**, if needed, provides context: what motivated the change, what alternatives were considered, or what side effects to be aware of. Separate the body from the subject with a blank line.
+
+A full example:
+
+```
+Filter observations with missing species ID before modeling
+
+Previously, missing species IDs were carried through the pipeline and
+caused the model to drop rows silently. This change makes the filtering
+explicit and logs how many rows are removed at each step.
+```
+
+For the majority of commits, a one-line subject is sufficient. Reserve the body for changes that require explanation.
+
+## Commit Frequency
+
+Commit often enough that individual commits are meaningful, but not so infrequently that a single commit contains a week's worth of work. A reasonable heuristic: commit whenever you complete a coherent unit of work and the code is in a state where it runs (or at minimum, you understand why it does not).
+
+Do not wait until the end of a work session to commit. Small, frequent commits are much easier to review and debug than large, infrequent ones!
+
+## Viewing History
+
+To see the commit history for the current branch:
+
+```bash
+git log --oneline
+```
+
+To see what changed in a specific commit:
+
+```bash
+git show <commit-sha>
+```
+
+To see the history of a specific file:
+
+```bash
+git log --oneline -- scripts/01_clean.R
+```
+
+GitHub's web interface also provides a commit history view for every repository and file, which is often more convenient for browsing.

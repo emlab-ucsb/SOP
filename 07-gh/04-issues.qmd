@@ -1,0 +1,66 @@
+# Using Issues
+
+GitHub Issues are the primary mechanism for tracking work, documenting decisions, and communicating within a coding project at emLab. They serve as a persistent, searchable record of what was done, why, and by whom, and live alongside the code rather than scattered across email threads or Slack conversations.
+
+## What Issues Are For
+
+An issue is any discrete unit of work or discussion that the team wants to track and should focus on a single, well-defined topic. Common categories include:
+
+- A task to be completed (e.g., "Add confidence intervals to Figure 3")
+- A bug or error to be fixed (e.g., "Filtering step drops NAs silently before merge")
+- A question or decision to be resolved (e.g., "Which spatial resolution should we use for the SST data?")
+- A feature or enhancement to a script or pipeline
+- Notes from a meeting or conversation that should be preserved
+
+Issues are not limited to code problems. They can equally useful for preserving methodological discussions, data questions, and project logistics.
+
+## Creating an Issue
+
+From any repository on GitHub, click the **Issues** tab, then **New issue**. Give the issue a short, descriptive title. In the body, provide enough context that someone can understand the issue without needing additional information.
+
+In the issue description, it is helpful to include a brief description of the goal and any relevant context (e.g., links to the relevant script or data source).
+
+## Issue Features
+
+GitHub Issues support several features that make them more useful as project management tools beyond simple text descriptions.
+
+**Assignees** indicate who is responsible for the issue. 
+
+**Labels** categorize issues and make the list filterable. GitHub provides defaults like `bug`, `enhancement`, and `documentation`, and repository admins can create custom labels to suit the project. Consistent use of labels becomes more valuable as a project grows and the issue list gets longer.
+
+**Milestones** group issues into a named goal with an optional due date (e.g., "Manuscript submission" or "v1.0 release"). They provide a way to track progress toward a specific deliverable across many issues at once.
+
+**Checklists** can be added to an issue body using Markdown task list syntax:
+
+```markdown
+- [ ] Clean raw catch data
+- [ ] Merge with vessel registry
+- [ ] Flag records with missing gear type
+```
+
+GitHub renders these as interactive checkboxes and displays progress (e.g., "2 of 3 tasks") in the issue list view. This is useful for issues that represent a larger task with several identifiable sub-steps, without needing to create a separate issue for each one.
+
+**Comments** allow ongoing discussion directly on the issue. Team members can ask questions, share findings, or post intermediate results, keeping the conversation attached to the relevant task rather than in a separate channel.
+
+
+::: {.callout-tip}
+You can reference an issue in any commit message by including its number, e.g. `#42`. GitHub will detect the reference and post a link to that commit in the issue's comment thread. This creates a running record of the work done in response to the issue, even before a pull request is opened, and can be helpful for tracking progress.
+:::
+
+
+## Closing Issues
+
+Issues should be closed when the work is complete or the question is resolved. The most common way to close an issue is through a pull request: if a commit message or PR description includes a phrase like `Closes #42` or `Fixes #17`, GitHub will automatically close the referenced issue when the PR is merged.
+
+If an issue is resolved through discussion rather than a code change, close it manually and leave a brief comment explaining the resolution.
+
+## Issues and Project Boards
+
+For larger coding projects with many concurrent tasks, GitHub [Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) provides a customizable table, kanban-style board, or roadmap that organizes issues by status (e.g., To Do, In Progress, Done). This is optional, but can be useful for larger teams or projects that span multiple repositories.
+
+
+## From Issue to Branch
+
+Each issue ideally represents one task, which means it maps cleanly onto one branch of development. When you are ready to work on an issue, you can create a linked branch directly from GitHub: open the issue, find the **Development** section in the right sidebar, and click **Create a branch**. GitHub will suggest a branch name based on the issue title and automatically link the branch to the issue so that activity on the branch appears in the issue timeline.
+
+Working on a dedicated branch per issue keeps development organized and makes it straightforward to open a pull request that closes the issue when the work is complete. Branch-based development is covered in the next section.

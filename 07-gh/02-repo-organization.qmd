@@ -1,0 +1,60 @@
+# Repository Organization
+
+A well-organized repository should allow someone new to the project to quickly use the file structure and README to understand what the project does, what data it uses, where the analysis code lives, and how to reproduce the outputs. This section describes how to structure a repository and how to write a README that serves that purpose.
+
+## Creating a Repository
+
+All emLab projects must have a repository under the [emlab-ucsb](https://github.com/emlab-ucsb) GitHub organization. To create one, navigate to the organization page, click **New repository**, and fill in:
+
+- **Repository name:** Use `kebab-case` with a short, descriptive name (e.g., `tuna-mse`, `kelp-carbon-stock`).
+- **Visibility:** Set to **Private** unless the project is explicitly intended to be public from the start.
+- **Initialize with a README:** Check this box. It creates a default branch and gives you something to edit immediately.
+- **.gitignore:** Select the appropriate template for your primary language (R, Python, etc.). This prevents common generated files (e.g., `.Rhistory`, `__pycache__/`) from being tracked.
+
+## Repository structure
+
+There is no single correct directory structure, and the right organization depends on the nature of the project. What matters is that the structure is logical, consistent within the project, and communicated in the README.
+
+A typical emLab research project might look like the following:
+
+```
+project-name/
+├── README.md
+├── data/
+│   ├── raw/                 # Data as received; never modified
+│   └── processed/           # Cleaned and derived data products
+├── scripts/ (or R/, src/)
+│   ├── 01_clean.R
+│   ├── 02_model.R
+│   └── 03_figures.R
+├── outputs/
+│   ├── figures/
+│   └── tables/
+└── docs/                    # Reports, manuscripts, supplementary materials
+```
+
+A few principles apply across project types:
+
+**Raw data is read-only.** The `data/raw/` directory should contain data exactly as it came from its source. Scripts should never write to this directory. This makes it possible to re-run the entire pipeline from scratch and to verify that nothing was silently altered.
+
+**Number scripts in execution order.** If your analysis has a defined sequence, prefix script names with numbers (`01_`, `02_`, etc.). This makes the pipeline legible at a glance.
+
+**Large data files do not belong in git.** Git is designed for text files, not large binary or data files. If your project uses large datasets, they should live on a shared drive (e.g., emLab's Google Shared Drive or GRIT) and be referenced by path in the code, not committed to the repository. Document where the data lives in the README.
+
+An important note is that most emLab projects read and write data to our GRIT storage space and don't store data within the GitHub repository itself. Data files, particularly large ones, do not belong in git, and the repository should contain code and documentation, not the data the code operates on. Document where the data lives in the README and reference it by path in the code.
+
+The main exception is when a repository is being prepared for public release alongside a publication. In that case, including small, analysis-ready data files directly in the repository is reasonable and often desirable, so that anyone who clones the repo has everything they need to run the analysis without needing access to emLab infrastructure. See [Preparing Public Repositories for Publication](09-public-repos.qmd) for more on that process.
+
+## Writing an Effective README
+
+The README is the front page of a repository. It is often the first thing a collaborator, reviewer, or future team member reads. A README for an emLab project should cover the following:
+
+**Project description.** One or two sentences describing the project and its scientific goal. A new reader should understand what the project is trying to do before reading anything else.
+
+**Data.** The data sources used in the project and where the files live -- a GRIT path, or an external URL. Note any access restrictions. This section is especially important because the data itself may not live in the repository.
+
+**Repository structure.** A description of the top-level directory layout. It does not need to enumerate every file, but should be specific enough that a new contributor can orient themselves quickly.
+
+**Setup and reproducibility.** How to get the code running on a new machine. For R projects, this means noting the R version and key packages, and if the project uses `renv`, noting that `renv::restore()` will install the correct versions.
+
+**Notes.** Anything else a new contributor should know before diving in.

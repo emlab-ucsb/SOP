@@ -1,5 +1,29 @@
-# GitHub
+# Git and GitHub
 
-GitHub is more than a place to store code: it is a collaboration platform for reviewing changes, tracking work, discussing design decisions, and automating routine project tasks. Effective use of GitHub helps teams keep a clear project history, coordinate contributions, and maintain software quality through issues, pull requests, and continuous integration.
+Git and GitHub are universal requirements for all emLab coding projects. *Git* is a version control system that tracks changes to your code on your local computer, maintaining a complete history of every modification. When you use Git, a complete history of all the changes made to your code are stored in a folder alongside your project files, known as a *repository* (or "repo"). *GitHub* is the online platform where we host these repositories and collaborate with others using tools for code review and project management. In short: Git is the tool you use locally to track changes, while GitHub is where you store and share those repositories with your team.
 
-## This section is a 🚧 Work 🔬 in ⚙️ Progress 🏗️
+Why Git and GitHub?
+
+- **Promotes transparency and reproducibility** by preserving a complete, time-stamped history of changes and making it easy to recover earlier versions.
+- **Improves code quality** by encouraging small, reviewable changes to code.
+- **Enables collaboration** by letting multiple contributors work in parallel with branches, pull requests, and structured code review.
+- **Supports safer development** through branch protection and required code reviews before changes are merged.
+- **Strengthens project management** with Issues, milestones, labels, and project boards for planning and tracking work.
+- **Reduces risk of data loss** by backing up repositories remotely and enabling reliable rollback when mistakes happen.
+- **Creates clear documentation of decisions** through commit messages, issue threads, and pull request conversations.
+- **Speeds onboarding** because new team members can quickly understand project history and current priorities.
+- **Supports open and reproducible science** by making methods, analysis code, and revision history accessible to collaborators and reviewers.
+
+**All emLab coding work must live in a repository under the [emlab-ucsb](https://github.com/emlab-ucsb) GitHub organization. The sections below cover everything you need to know, from initial setup through advanced workflows.**
+
+- [Getting Set Up](01-setup.qmd) -- Joining the emLab GitHub organization, installing git, and authenticating with GitHub.
+- [Repository Organization](02-repo-organization.qmd) -- How to structure a repository and write an effective README.
+- [Version Control with Commits](03-commits.qmd) -- What commits are and how to write a good commit message.
+- [Using Issues](04-issues.qmd) -- How to use issues to track work, document decisions, and communicate within a project.
+- [Working with Branches](05-branches.qmd) -- What branches are and how to use them in practice.
+- [Pull Requests](06-pull-requests.qmd) -- How to open, review, and merge a pull request.
+- [Rulesets](07-rulesets.qmd) -- Protecting the main branch and enabling automated review.
+- [Effective Workflows](08-workflows.qmd) -- What git-based development looks like in practice, for solo and collaborative work.
+- [Preparing a Public Repository for Publication](09-public-repos.qmd) -- How to prepare a repository for public release alongside a publication.
+- [GitHub Extensions](10-gh-extensions.qmd) -- Using GitHub's integrations in Positron and VS Code to streamline your workflow.
+- [AI Coding Assistants](11-copilot-claude.qmd) -- Optional AI coding assistants available through GitHub and Anthropic.

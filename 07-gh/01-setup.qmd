@@ -1,0 +1,230 @@
+# Getting Set Up
+
+Before you can contribute code to an emLab project, you need three things in place: git installed on your machine, a GitHub account, and membership in the emLab GitHub organization.
+
+## Installing Git
+
+Git is the version control system that underlies everything on GitHub. It runs locally on your computer and tracks changes to files in a repository.
+
+### Do you already have git?
+
+Open a terminal and run:
+
+```bash
+git --version
+```
+
+If you see a version number, git is already installed and you can skip ahead to configuring it. macOS users who do not have git may see an immediate offer to install command line developer tools -- accept it.
+
+
+### macOS
+
+The simplest option is to install the Xcode Command Line Tools, which include git. Run either of the following in a terminal to trigger the installer:
+
+```bash
+git --version
+xcode-select --install
+```
+
+Click "Install" when prompted. Note that after a macOS upgrade you may need to repeat this step and re-agree to the Xcode license.
+
+Two alternatives worth knowing:
+
+- **Direct download:** [git-scm.com/downloads](http://git-scm.com/downloads) provides the latest macOS git installer and is a good option if you want the most current version.
+- **Homebrew:** If you use [Homebrew](https://brew.sh) as a package manager, `brew install git` works well and makes future updates easy.
+
+### Windows
+
+The recommended approach is to install [Git for Windows](https://git-for-windows.github.io/), also known as Git Bash. This installs git in a location that other programs (including RStudio and Positron) can find it, and also provides a Bash shell environment.
+
+When the installer asks about "Adjusting your PATH environment", select **"Git from the command line and also from 3rd-party software"**. Otherwise, the defaults are fine. Git is typically installed at `C:/Program Files/Git/bin/git.exe`.
+
+If you already have Git for Windows but want to update it:
+
+```bash
+git update-git-for-windows
+```
+### Linux
+
+Install via your distribution's package manager:
+
+```bash
+# Ubuntu or Debian
+sudo apt-get install git
+
+# Fedora or RedHat
+sudo yum install git
+```
+
+For other distributions, see [git-scm.com/download/linux](https://git-scm.com/download/linux).
+
+### Configuring git after installation
+
+Once git is installed, tell it your name and email address. These appear in every commit you make:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+Use the email address associated with your GitHub account.
+
+## Creating a GitHub Account
+
+If you do not already have a GitHub account, create one at [github.com](https://github.com). Use an email address you will have long-term access to, since your GitHub account can persist beyond your time at emLab.
+
+## Joining the emLab GitHub Organization
+
+All emLab repositories live under the [emlab-ucsb](https://github.com/emlab-ucsb) organization on GitHub. Send Erin O'Reilly a Slack message to request an invitation. You will receive an email from GitHub with a link to accept.
+
+### Base permissions
+
+Once you join the emlab GitHub organization, you have **read** access to all repositories in the organization by default. If you create a new repository in the organization, you will automatically have **admin** access and can grant additional permissions to specific team members on a per-repository basis. If you need write access to a repository and do not have it, ask the repository admin.
+
+Organization owners can manage team membership and repository permissions through the organization's **People** and **Teams** settings pages on GitHub.
+
+## Authenticating with GitHub
+
+To push and pull code between your local machine and GitHub, you need to authenticate. Git can communicate with GitHub over two protocols -- HTTPS and SSH -- and the credentials differ between them.
+
+**HTTPS with a personal access token (PAT) is the recommended starting point**, and is what GitHub itself recommends. It is easier to get working quickly on all platforms and has the added benefit that the same credential works for R packages that call GitHub's API (e.g., `usethis`, `gh`, `pak`). SSH is a fine alternative once you are more comfortable with the tooling, and some people prefer it. You can always switch protocols later, and even mix them across different repositories or computers.
+
+Note that GitHub no longer accepts your account password for command-line git operations. You must use a PAT (for HTTPS) or an SSH key pair.
+
+### HTTPS: Personal Access Token
+
+#### Generate a PAT
+
+The easiest way to generate a PAT is from R:
+
+```r
+usethis::create_github_token()
+```
+
+This opens a pre-filled GitHub form with recommended scopes already selected (`repo`, `user`, `gist`, `workflow`). Review the scopes, give the token a descriptive name that identifies the computer or project it is for (e.g., `"work-macbook-pro"`), and set an expiration. GitHub recommends accepting the default 30-day expiration; you will regenerate it on that schedule, which also gives you a chance to verify the scopes are still appropriate.
+
+Click "Generate token" and copy it immediately -- you will not be able to see it again after leaving the page. If you use a password manager like 1Password, store it there as well.
+
+#### Store the PAT
+
+Once you have a token, store it in your system's credential store using `gitcreds`:
+
+```r
+gitcreds::gitcreds_set()
+```
+
+Paste the token when prompted. You can verify the stored credential at any time with `gitcreds::gitcreds_get()`, and run `usethis::git_sitrep()` for a broader diagnosis of your git and GitHub setup.
+
+#### Renewing an expired PAT
+
+When a PAT expires, return to [github.com/settings/tokens](https://github.com/settings/tokens), click the token's name, and click "Regenerate token". Copy the new token, then call `gitcreds::gitcreds_set()` and paste it in.
+
+#### Linux note
+
+Linux does not have a native credential store equivalent to macOS Keychain or Windows Credential Manager. The simplest workaround is to configure git's credential cache with a long timeout:
+
+```bash
+git config --global credential.helper 'cache --timeout=10000000'
+```
+
+This keeps credentials in memory for roughly 16 weeks. As a fallback, you can store the PAT as an environment variable in `~/.Renviron`:
+
+```r
+usethis::edit_r_environ()
+# Add: GITHUB_PAT=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+Restart R after editing `.Renviron`. Take care that this file never gets pushed to GitHub or synced to cloud storage.
+
+### SSH: Key Pairs
+
+SSH authentication uses a cryptographic key pair: a private key that stays on your machine and a public key that you register with GitHub. If you already have experience with SSH or anticipate working across many repositories, SSH is worth setting up.
+
+#### Do you already have SSH keys?
+
+Check whether a key pair already exists:
+
+```bash
+ls ~/.ssh/
+```
+
+If you see files named `id_ed25519` and `id_ed25519.pub` (or `id_rsa` and `id_rsa.pub`), you already have a key pair and can skip to adding the public key to GitHub.
+
+#### Generate a key pair
+
+From the terminal, run:
+
+```bash
+ssh-keygen -t ed25519 -C "DESCRIPTIVE-COMMENT"
+```
+
+Use a comment that identifies the computer, e.g. `"jane-work-macbook"`. Accept the default save location when prompted. You may also set a passphrase -- this is best practice but adds a small amount of complexity, so it is reasonable to skip it when first getting set up.
+
+#### Add the key to your ssh-agent
+
+**macOS:**
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+```
+
+On macOS Sierra 10.12.2 and later, also create `~/.ssh/config` with the following contents so the passphrase persists in the keychain across restarts:
+
+```
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+**Windows (Git Bash):**
+
+```bash
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_ed25519
+```
+
+**Linux:**
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+#### Add the public key to GitHub
+
+Copy the public key to your clipboard:
+
+```bash
+# macOS
+pbcopy < ~/.ssh/id_ed25519.pub
+
+# Windows (Git Bash)
+clip < ~/.ssh/id_ed25519.pub
+
+# Linux
+xclip -sel clip < ~/.ssh/id_ed25519.pub
+```
+
+On GitHub, go to *Settings > SSH and GPG keys*, click "New SSH key", and paste the key. Give it a title matching the comment you used when generating it.
+
+Test the connection:
+
+```bash
+ssh -T git@github.com
+```
+
+You should see a message confirming your username.
+
+#### A note on SSH and R packages
+
+Unlike HTTPS with a PAT, SSH does not automatically authenticate R packages that call the GitHub API. If you use SSH for git operations, you will still need a PAT stored in your credential store for packages like `usethis`, `remotes`, and `pak` to work. This is one reason HTTPS is often the simpler choice.
+
+## Resources
+
+Getting comfortable with git and GitHub takes time. The following resources are recommended starting points, particularly for researchers coming to version control for the first time:
+
+- **Happy Git and GitHub for the useR** ([happygitwithr.com](https://happygitwithr.com)) -- The most practical introduction to git for R users. Covers installation, authentication, and daily workflows in detail.
+- **Pro Git** ([git-scm.com/book](https://git-scm.com/book/en/v2)) -- The comprehensive reference. Chapters 1-3 cover the fundamentals.
+- **GitHub Docs** ([docs.github.com](https://docs.github.com)) -- GitHub's own documentation, useful for organization and repository management questions.
