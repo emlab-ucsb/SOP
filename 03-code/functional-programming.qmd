@@ -187,9 +187,7 @@ mean_positive <- function(x) {
 mean_positive(c(4, 8, -2, 10))
 ```
 
-These signals help whoever *runs* a function. Readability helps whoever *reads* it — at emLab, usually a collaborator or your future self. The logic inside a function deserves the same care as any script: descriptive names, consistent style, and comments that explain *why*. See [Code styling](code-styling.qmd) and [Code documentation](code-documentation.qmd) for the details.
-
-Additionally, if you are actively trying to debug a function, adding a call for `browser()` inside the function can be an incredibly powerful temporary tool for understanding what's going on inside your function. By inserting `browser()` into a function, whenever you run the function it will pause exactly where the call is located. This will allow you to see exactly what is going on in your session, including the values stored in objects in the function's environment. In the case below, we insert a `browser()` call after calculting the mean value. When you run this function, it will drop you right into the function at that exact location. You can then inspect `mean_value` to ensure it matches your expectation.
+These signals help whoever *runs* a function. For active debugging — when something is wrong and you need to understand why — `browser()` is often the most direct tool. Inserting it into a function pauses execution at that exact line, drops you into the function's environment, and lets you inspect any intermediate value. In the example below, we insert a `browser()` call after calculating the mean so we can confirm `mean_value` looks right before it's returned.
 
 ```{r}
 #| label: fp-debug-browser
@@ -204,6 +202,8 @@ mean_positive <- function(x) {
 
 mean_positive(c(4, 8, -2, 10))
 ```
+
+Readability helps whoever *reads* a function — at emLab, usually a collaborator or your future self. The logic inside a function deserves the same care as any script: descriptive names, consistent style, and comments that explain *why*. See [Code styling](code-styling.qmd) and [Code documentation](code-documentation.qmd) for the details.
 
 ## Repetitive functions
 
@@ -222,19 +222,21 @@ for (i in seq_along(words)) {
 }
 lengths_loop
 
-# Functional: applying nchar() across the vector using purrr
-# purrr::map() returns a list, which can sometimes be helpful
-purrr::map(words, nchar)
-
-# Other purrr::map_*() functions return different types of objects if you want a different output.
-# In this case, we might want an integer vector, so we use can map_int().
-purrr::map_int(words, nchar)
-
 # Functional: applying nchar() across the vector using sapply()
 sapply(words, nchar)
 ```
 
-The functional form is a single expression that takes a collection in and gives a collection out, without making any other changes to the environment in which it runs.
+The functional form is a single expression that takes a collection in and gives a collection out, without making any other changes to the environment in which it runs. The tidyverse equivalent uses `purrr::map()`, which returns a list, or one of its typed variants when you want a specific output type:
+
+```{r}
+#| label: apply-vs-for-purrr
+#| eval: false
+# purrr::map() returns a list
+purrr::map(words, nchar)
+
+# map_int() returns an integer vector
+purrr::map_int(words, nchar)
+```
 
 ## Exceptions
 
