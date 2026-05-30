@@ -21,6 +21,7 @@ Standard operating procedures for emLab projects:
 3. Code
     - Code Styling
     - Code Documentation
+    - Functional Programming
     - Package Reproducibility
     - Pipeline Reproducibility
     - Code Review
@@ -31,6 +32,7 @@ Standard operating procedures for emLab projects:
     - Citations and Bibliography
     - Caching
     - Targets Integration
+    - Themes and Dark Mode
     - Publishing
     - Presentations
 5. High Performance Computing

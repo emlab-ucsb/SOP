@@ -41,7 +41,6 @@ Instead of standard `summary()`, use `skimr::skim()` to get a high-level overvie
 
 ```{r}
 #| label: eda-skim  
-#| eval: false
 mtcars |>
   skimr::skim()
 ```

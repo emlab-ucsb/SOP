@@ -158,21 +158,29 @@ Using `targets::tar_target()` directly is technically possible, but you would ne
 
 ## Non-R pipelines: GNU Make
 
-For projects using Python, Stata, or a mix of languages, we recommend [GNU Make](https://www.gnu.org/software/make/). Make uses a Makefile to define "rules" for creating files.
+For projects using Python, Stata, or a mix of languages, we recommend [GNU Make](https://www.gnu.org/software/make/). Make is language-agnostic, comes pre-installed on macOS and most Linux distributions (and is easy to install on Windows via WSL), and uses a single plain-text `Makefile` to describe how each output in the pipeline is built.
+
+Unlike `targets`, which tracks dependencies by hashing R objects, Make reasons in terms of **files and timestamps**: a target is considered out-of-date whenever any of its prerequisites has a newer modification time. This is a coarser signal than `targets` provides — Make cannot tell whether a file's *contents* actually changed, only that it was touched — but it is enough for most multi-language pipelines and is easy to reason about.
 
 ### The Makefile syntax
 
-A rule consists of a **target** (the file you want to create), **prerequisites** (files it depends on), and a **recipe** (the command to run).  
-target: prerequisites  
-	recipe
+A `Makefile` is a list of **rules**. Each rule has three parts:
+
+```{.makefile}
+target: prerequisites
+<TAB>recipe
+```
+
+* **target** — the file the rule produces (e.g. `data/processed.csv`).
+* **prerequisites** — files the target depends on. If any prerequisite is newer than the target, the recipe runs.
+* **recipe** — the shell command(s) Make runs to build the target. The indentation must be a literal **tab character**, not spaces. Silent space-for-tab substitution by editors is the single most common Makefile bug; configure your editor to preserve tabs in your `Makefile`.
 
 ### Example workflow (Python/Stata)
 
-```{bash}
-#| eval: false
-# Makefile
+```{.makefile filename="Makefile"}
+.PHONY: all clean
 
-# Run everything
+# Default target: build everything
 all: results/paper.pdf
 
 # Clean raw data (Python)
@@ -186,12 +194,35 @@ results/model_output.log: scripts/analysis.do data/processed.csv
 # Render report (Quarto)
 results/paper.pdf: paper.qmd results/model_output.log
 	quarto render paper.qmd --to pdf
+
+# Wipe generated outputs so the pipeline can be re-run from scratch
+clean:
+	rm -f data/processed.csv results/model_output.log results/paper.pdf
 ```
+
+A few things worth pointing out in this example:
+
+* `.PHONY: all clean` tells Make that `all` and `clean` are command names, not files. Without it, a stray file named `all` in the project root would make Make think the pipeline is already built and refuse to do anything.
+* `all` is listed first, so a bare `make` (no arguments) builds it. By convention, `all` depends on the final outputs of the pipeline.
+* Each script appears as a prerequisite *and* in its own recipe. This way, edits to `scripts/clean_data.py` invalidate `data/processed.csv` and trigger a rerun on the next `make`.
 
 ### How to use Make
 
-* **Run the pipeline:** Simply type make in your terminal. Make will check the timestamps of all files and only run the steps where the prerequisites are newer than the target.  
-* **Dry run:** Type make -n to see what commands *would* be run without actually executing them.
+| Command | Effect |
+|---|---|
+| `make` | Build the default target (the first non-phony target in the file, by convention `all`). |
+| `make <target>` | Build a specific target, e.g. `make results/paper.pdf`. |
+| `make -n` | Dry run — print the commands Make *would* execute, without running them. Useful for sanity-checking a pipeline change. |
+| `make -B` | Force-rebuild every target, ignoring timestamps. |
+| `make -j N` | Run up to `N` independent steps in parallel. |
+| `make clean` | Run the `clean` rule above (or whichever cleanup rule the project defines). |
+
+### Pitfalls and tips
+
+* **Always declare phony targets.** Any rule that does not actually produce a file with the target's name (`all`, `clean`, `lint`, `test`, ...) belongs in `.PHONY`.
+* **Include the script itself as a prerequisite.** Otherwise edits to the analysis code won't trigger a rebuild and downstream outputs will go stale silently.
+* **For scripts that don't produce a tracked file** (e.g. a Stata script that only prints to console), redirect the output to a sentinel file (`results/model_output.log` in the example above) so Make has something to time-stamp.
+* **Document the entry point in the README.** A first-time collaborator should be able to clone the repo, type `make`, and have the whole pipeline build itself.
 
 ## Minimum requirement: README documentation
 
