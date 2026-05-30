@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -75,14 +75,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f56eadfa5a7d8b3b9d1440e1caea4ab8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f16f0af974542fa1146862373de07119.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-f56eadfa5a7d8b3b9d1440e1caea4ab8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -157,6 +157,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   .theme-fab .theme-icon-dark { display: none; }
   .quarto-dark .theme-fab .theme-icon-light { display: none; }
   .quarto-dark .theme-fab .theme-icon-dark { display: inline; }
+  @keyframes theme-spin {
+    0%   { transform: rotate(-180deg) scale(0); opacity: 0; }
+    100% { transform: rotate(0deg) scale(1); opacity: 1; }
+  }
+  .theme-fab.spin svg { animation: theme-spin 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
   .sidebar-item .collapse, .sidebar-item .collapsing,
   .sidebar-item-toggle, .sidebar-item-toggle * {
     transition: none !important;
@@ -176,6 +181,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     color: #e83e8c !important;
     background-color: #2b2b2b !important;
     border: none !important;
+  }
+  /* Keep sidebar section carets visible across all viewports */
+  .sidebar-item .sidebar-item-toggle {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .sidebar-item .sidebar-item-toggle .bi-chevron-right {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  /* DT datatables don't auto-pick the Bootswatch dark theme */
+  .quarto-dark .dataTables_wrapper,
+  .quarto-dark table.dataTable,
+  .quarto-dark table.dataTable tbody td,
+  .quarto-dark table.dataTable tbody tr,
+  .quarto-dark table.dataTable thead th,
+  .quarto-dark table.dataTable tfoot th {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+  }
+  .quarto-dark table.dataTable.stripe tbody tr.odd,
+  .quarto-dark table.dataTable.display tbody tr.odd {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+  .quarto-dark table.dataTable.hover tbody tr:hover,
+  .quarto-dark table.dataTable.display tbody tr:hover {
+    background-color: rgba(94, 200, 192, 0.12);
+  }
+  .quarto-dark .dataTables_wrapper .dataTables_length,
+  .quarto-dark .dataTables_wrapper .dataTables_filter,
+  .quarto-dark .dataTables_wrapper .dataTables_info,
+  .quarto-dark .dataTables_wrapper .dataTables_processing,
+  .quarto-dark .dataTables_wrapper .dataTables_paginate {
+    color: var(--bs-body-color);
+  }
+  .quarto-dark .dataTables_wrapper .dataTables_filter input,
+  .quarto-dark .dataTables_wrapper .dataTables_length select {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+  }
+  .quarto-dark .dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: var(--bs-body-color) !important;
+  }
+  .quarto-dark .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+  .quarto-dark .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    background: #2aa198 !important;
+    border-color: #2aa198 !important;
   }
 </style>
 
@@ -485,6 +542,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../03-code/functional-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functional programming</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../03-code/eda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exploratory data analysis</span></a>
   </div>
@@ -546,6 +609,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../04-quarto/targets-integration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrating with a targets pipeline</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Themes and dark mode</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -821,40 +890,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="non-r-pipelines-gnu-make" class="level2">
 <h2 class="anchored" data-anchor-id="non-r-pipelines-gnu-make">Non-R pipelines: GNU Make</h2>
-<p>For projects using Python, Stata, or a mix of languages, we recommend <a href="https://www.gnu.org/software/make/">GNU Make</a>. Make uses a Makefile to define “rules” for creating files.</p>
+<p>For projects using Python, Stata, or a mix of languages, we recommend <a href="https://www.gnu.org/software/make/">GNU Make</a>. Make is language-agnostic, comes pre-installed on macOS and most Linux distributions (and is easy to install on Windows via WSL), and uses a single plain-text <code>Makefile</code> to describe how each output in the pipeline is built.</p>
+<p>Unlike <code>targets</code>, which tracks dependencies by hashing R objects, Make reasons in terms of <strong>files and timestamps</strong>: a target is considered out-of-date whenever any of its prerequisites has a newer modification time. This is a coarser signal than <code>targets</code> provides — Make cannot tell whether a file’s <em>contents</em> actually changed, only that it was touched — but it is enough for most multi-language pipelines and is easy to reason about.</p>
 <section id="the-makefile-syntax" class="level3">
 <h3 class="anchored" data-anchor-id="the-makefile-syntax">The Makefile syntax</h3>
-<p>A rule consists of a <strong>target</strong> (the file you want to create), <strong>prerequisites</strong> (files it depends on), and a <strong>recipe</strong> (the command to run).<br>
-target: prerequisites<br>
-recipe</p>
+<p>A <code>Makefile</code> is a list of <strong>rules</strong>. Each rule has three parts:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode makefile code-with-copy"><code class="sourceCode makefile"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">target:</span><span class="dt"> prerequisites</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>&lt;TAB&gt;recipe</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><strong>target</strong> — the file the rule produces (e.g.&nbsp;<code>data/processed.csv</code>).</li>
+<li><strong>prerequisites</strong> — files the target depends on. If any prerequisite is newer than the target, the recipe runs.</li>
+<li><strong>recipe</strong> — the shell command(s) Make runs to build the target. The indentation must be a literal <strong>tab character</strong>, not spaces. Silent space-for-tab substitution by editors is the single most common Makefile bug; configure your editor to preserve tabs in your <code>Makefile</code>.</li>
+</ul>
 </section>
 <section id="example-workflow-pythonstata" class="level3">
 <h3 class="anchored" data-anchor-id="example-workflow-pythonstata">Example workflow (Python/Stata)</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Makefile</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Run everything</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">all:</span> results/paper.pdf</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean raw data (Python)</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">data/processed.csv:</span> scripts/clean_data.py data/raw.csv</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">python</span> scripts/clean_data.py</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run analysis (Stata)</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ex">results/model_output.log:</span> scripts/analysis.do data/processed.csv</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">stata</span> <span class="at">-batch</span> do scripts/analysis.do</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Render report (Quarto)</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="ex">results/paper.pdf:</span> paper.qmd results/model_output.log</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">quarto</span> render paper.qmd <span class="at">--to</span> pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Makefile</strong></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-filename="Makefile"><pre class="sourceCode makefile code-with-copy"><code class="sourceCode makefile"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ot">.PHONY:</span><span class="dt"> all clean</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Default target: build everything</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="dv">all:</span><span class="dt"> results/paper.pdf</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean raw data (Python)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="dv">data/processed.csv:</span><span class="dt"> scripts/clean_data.py data/raw.csv</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>python scripts/clean_data.py</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run analysis (Stata)</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="dv">results/model_output.log:</span><span class="dt"> scripts/analysis.do data/processed.csv</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>stata -batch do scripts/analysis.do</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Render report (Quarto)</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="dv">results/paper.pdf:</span><span class="dt"> paper.qmd results/model_output.log</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>quarto render paper.qmd --to pdf</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Wipe generated outputs so the pipeline can be re-run from scratch</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="dv">clean:</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>rm -f data/processed.csv results/model_output.log results/paper.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A few things worth pointing out in this example:</p>
+<ul>
+<li><code>.PHONY: all clean</code> tells Make that <code>all</code> and <code>clean</code> are command names, not files. Without it, a stray file named <code>all</code> in the project root would make Make think the pipeline is already built and refuse to do anything.</li>
+<li><code>all</code> is listed first, so a bare <code>make</code> (no arguments) builds it. By convention, <code>all</code> depends on the final outputs of the pipeline.</li>
+<li>Each script appears as a prerequisite <em>and</em> in its own recipe. This way, edits to <code>scripts/clean_data.py</code> invalidate <code>data/processed.csv</code> and trigger a rerun on the next <code>make</code>.</li>
+</ul>
 </section>
 <section id="how-to-use-make" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-use-make">How to use Make</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>make</code></td>
+<td>Build the default target (the first non-phony target in the file, by convention <code>all</code>).</td>
+</tr>
+<tr class="even">
+<td><code>make &lt;target&gt;</code></td>
+<td>Build a specific target, e.g.&nbsp;<code>make results/paper.pdf</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>make -n</code></td>
+<td>Dry run — print the commands Make <em>would</em> execute, without running them. Useful for sanity-checking a pipeline change.</td>
+</tr>
+<tr class="even">
+<td><code>make -B</code></td>
+<td>Force-rebuild every target, ignoring timestamps.</td>
+</tr>
+<tr class="odd">
+<td><code>make -j N</code></td>
+<td>Run up to <code>N</code> independent steps in parallel.</td>
+</tr>
+<tr class="even">
+<td><code>make clean</code></td>
+<td>Run the <code>clean</code> rule above (or whichever cleanup rule the project defines).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pitfalls-and-tips" class="level3">
+<h3 class="anchored" data-anchor-id="pitfalls-and-tips">Pitfalls and tips</h3>
 <ul>
-<li><strong>Run the pipeline:</strong> Simply type make in your terminal. Make will check the timestamps of all files and only run the steps where the prerequisites are newer than the target.<br>
-</li>
-<li><strong>Dry run:</strong> Type make -n to see what commands <em>would</em> be run without actually executing them.</li>
+<li><strong>Always declare phony targets.</strong> Any rule that does not actually produce a file with the target’s name (<code>all</code>, <code>clean</code>, <code>lint</code>, <code>test</code>, …) belongs in <code>.PHONY</code>.</li>
+<li><strong>Include the script itself as a prerequisite.</strong> Otherwise edits to the analysis code won’t trigger a rebuild and downstream outputs will go stale silently.</li>
+<li><strong>For scripts that don’t produce a tracked file</strong> (e.g.&nbsp;a Stata script that only prints to console), redirect the output to a sentinel file (<code>results/model_output.log</code> in the example above) so Make has something to time-stamp.</li>
+<li><strong>Document the entry point in the README.</strong> A first-time collaborator should be able to clone the repo, type <code>make</code>, and have the whole pipeline build itself.</li>
 </ul>
 </section>
 </section>
@@ -1303,7 +1433,7 @@ recipe</p>
 <button type="button" class="fab search-fab" aria-label="Search" title="Search" onclick="window.quartoOpenSearch &amp;&amp; window.quartoOpenSearch();">
   <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>
 </button>
-<button type="button" class="fab theme-fab" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(document.querySelector('.quarto-color-scheme-toggle')||{click:()=>{}}).click();">
+<button type="button" class="fab theme-fab" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(btn){btn.classList.add('spin');setTimeout(()=>btn.classList.remove('spin'),450);const orig=window.scrollTo.bind(window);window.scrollTo=()=>{};if(window.quartoToggleColorScheme){window.quartoToggleColorScheme();}else{const t=document.querySelector('.quarto-color-scheme-toggle');if(t)t.click();}setTimeout(()=>{window.scrollTo=orig;},200);})(this)">
   <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"></path></svg>
   <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"></path></svg>
 </button>

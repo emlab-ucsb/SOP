@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>presentations – emLab Standard Operating Procedures</title>
+<title>themes-and-cosmetics – emLab Standard Operating Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -613,7 +613,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../04-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Themes and dark mode</span></a>
   </div>
 </li>
@@ -625,7 +625,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../04-quarto/presentations.html" class="sidebar-item-text sidebar-link active">
+  <a href="../04-quarto/presentations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentations in Quarto</span></a>
   </div>
 </li>
@@ -744,84 +744,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="presentations-in-quarto" class="level1">
-<h1>Presentations in Quarto</h1>
-<p>For lab meetings, conferences, and stakeholder briefings, we use Quarto to generate presentations. This ensures that the plots shown in slides are identical to the ones in our analysis, with no “copy-paste” errors.</p>
-<section id="the-emlab-presentation-template" class="level2">
-<h2 class="anchored" data-anchor-id="the-emlab-presentation-template">The emLab presentation template</h2>
-<p>We are actively developing a standardized emLab Quarto presentation template to ensure a consistent, professional visual identity across our projects. You can find the current working version of the template here: <a href="https://github.com/emlab-ucsb/presentation-ocean-ghg-ttt">presentation-ocean-ghg-ttt</a>.</p>
-<p><strong>How to use it:</strong></p>
-<ol type="1">
-<li>This repository is configured as a <strong>GitHub Template</strong>.</li>
-<li>Click the “Use this template” button on GitHub to create a new repository for your project.</li>
-<li>This will provide you with the necessary SCSS styling, logo assets, and YAML configurations pre-set for emLab.</li>
-</ol>
-<p><strong>We need your help!</strong> This is a living resource. If you improve the styling, fix a bug, or add a cool new slide component, please contribute back to the template repo so the whole lab can benefit.</p>
-</section>
-<section id="format-revealjs" class="level2">
-<h2 class="anchored" data-anchor-id="format-revealjs">Format: Revealjs</h2>
-<p>At emLab, we primarily use revealjs for HTML-based slides. They are mobile-friendly, searchable, and can be hosted alongside our documentation on GitHub Pages.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"emLab Project presentation"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"Subtitle goes here"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Author"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">title-slide-attributes</span><span class="kw">:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data-background-image</span><span class="kw">:</span><span class="at"> emlab_logo_horizontal.png</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data-background-size</span><span class="kw">:</span><span class="at"> 30%</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data-background-position</span><span class="kw">:</span><span class="at"> 50% 85%</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data-footer</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> emlab.scss</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">transition</span><span class="kw">:</span><span class="at"> slide</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">background-transition</span><span class="kw">:</span><span class="at"> fade</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;img src='emlab_logo_horizontal_w.png' class='slide-footer-logo'&gt;"</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-cap</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="slide-structure" class="level2">
-<h2 class="anchored" data-anchor-id="slide-structure">Slide structure</h2>
+<section id="themes-and-dark-mode" class="level1">
+<h1>Themes and dark mode</h1>
+<p>A Quarto site’s look is set in <code>_quarto.yml</code> under <code>format: html:</code>. emLab projects should default to a Bootswatch theme, expose a light/dark toggle, and honor the visitor’s system color scheme.</p>
+<section id="lightdark-theme-pair" class="level2">
+<h2 class="anchored" data-anchor-id="lightdark-theme-pair">Light/dark theme pair</h2>
+<p><a href="https://bootswatch.com/">Bootswatch</a> ships pre-built Bootstrap themes that Quarto can use out of the box. To enable both light and dark variants, supply a two-item list to <code>theme</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>_quarto.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="_quarto.yml"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">respect-user-color-scheme</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">light</span><span class="kw">:</span><span class="at"> flatly</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dark</span><span class="kw">:</span><span class="at"> darkly</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <ul>
-<li><strong>New Slide:</strong> Use <code>##</code> to start a new slide.</li>
-<li><strong>Pauses:</strong> Use . . . on its own line to create a “fragment” (pause) that reveals the next part of the slide upon a click.</li>
-<li><strong>Columns:</strong> Use the “div” syntax to create side-by-side layouts for comparing text and figures.</li>
+<li><code>light</code> / <code>dark</code> — any Bootswatch theme name. <code>flatly</code> (light) and <code>darkly</code> (dark) pair cleanly because they share the same accent palette; we use them on this SOP.</li>
+<li><code>respect-user-color-scheme: true</code> — at first load, pick the variant that matches the visitor’s OS preference (the <code>prefers-color-scheme</code> media query). Without it, Quarto always starts in the light theme regardless of the visitor’s setting.</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Motivation</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Point 1...</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Point 2...</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Point 3...</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Results Overview</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>::: {.columns}</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>::: {.column width="40%"}</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Yield increased by 15%</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Significance at $p &lt; 0.05$</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Region A led the growth</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>::: {.column width="60%"}</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>::: {.cell}</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When both light and dark themes are configured, Quarto automatically injects a small toggle button in the navbar that visitors can use to override their default.</p>
 </section>
-<section id="best-practices-for-slides" class="level2">
-<h2 class="anchored" data-anchor-id="best-practices-for-slides">Best practices for slides</h2>
-<ol type="1">
-<li><strong>echo: false by default:</strong> Unless you are giving a coding tutorial, keep code hidden in slides to focus on results.</li>
-<li><strong>Speaker Notes:</strong> Use <code>::: {.notes}</code> to add reminders that only you can see during the presentation (press ‘S’ in the browser).</li>
-<li><strong>Direct Linking:</strong> Always include a final slide with a link to the full Quarto documentation/website where the audience can find the underlying code and data.</li>
-<li><strong>Multiplex:</strong> For remote presentations, consider enabling multiplex: true in your YAML, which allows the audience to follow along on their own devices as you advance the slides.</li>
-<li><strong>GitHub Pages:</strong> Host your presentation on GitHub Pages for easy sharing and to ensure the slides are always in sync with the latest analysis.</li>
-</ol>
+<section id="customizing-the-accent-color" class="level2">
+<h2 class="anchored" data-anchor-id="customizing-the-accent-color">Customizing the accent color</h2>
+<p>If the default Bootswatch palette is close to what you want but not quite, the lightest-touch option is to override Bootstrap’s CSS variables in an <code>include-in-header</code> block. Targeting <code>.quarto-dark</code> lets you supply a separate value for dark mode:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>_quarto.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-filename="_quarto.yml"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">include-in-header</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">      - </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="ch">|</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>          &lt;style&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            a, a:visited { color: #2aa198; }</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            a:hover, a:focus { color: #1f7f78; }</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            .quarto-dark a, .quarto-dark a:visited { color: #5ec8c0; }</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            .quarto-dark a:hover, .quarto-dark a:focus { color: #8fdcd5; }</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>          &lt;/style&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For more invasive changes, ship a <code>custom.scss</code> file alongside the theme list (<code>theme: [flatly, custom.scss]</code>) and override Bootstrap’s Sass variables directly. This is the path to take if you need to tweak typography, spacing, or shadows beyond what CSS variables expose.</p>
+</section>
+<section id="tables-and-other-widgets-in-dark-mode" class="level2">
+<h2 class="anchored" data-anchor-id="tables-and-other-widgets-in-dark-mode">Tables and other widgets in dark mode</h2>
+<p>Most Bootswatch themes restyle Bootstrap tables for dark mode automatically. Widgets rendered by R packages (e.g.&nbsp;<code>DT::datatable()</code>, <code>plotly</code>, <code>gt</code>) draw their own chrome and will <em>not</em> pick up the dark theme on their own. If you use one of those widgets in a document, add a <code>.quarto-dark</code>-scoped CSS rule that recolors the wrapper. For <code>DT</code>, that looks like:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.quarto-dark</span> <span class="fu">.dataTables_wrapper</span><span class="op">,</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.quarto-dark</span> table<span class="fu">.dataTable</span><span class="op">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">.quarto-dark</span> table<span class="fu">.dataTable</span> tbody td<span class="op">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">.quarto-dark</span> table<span class="fu">.dataTable</span> thead th {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--bs-body-color</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--bs-body-bg</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--bs-border-color</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Inline <code>&lt;code&gt;</code> is another common stumbling block — by default the dark theme pairs pink text with a light pink background, which is unreadable. The SOP works around this in <code>_quarto.yml</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.quarto-dark</span> <span class="in">:not(</span>pre<span class="in">)</span> <span class="op">&gt;</span> code {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#e83e8c</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">#2b2b2b</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border</span><span class="ch">:</span> <span class="dv">none</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>

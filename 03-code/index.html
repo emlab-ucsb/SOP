@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -40,14 +40,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f56eadfa5a7d8b3b9d1440e1caea4ab8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f16f0af974542fa1146862373de07119.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-f56eadfa5a7d8b3b9d1440e1caea4ab8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -122,6 +122,11 @@ ul.task-list li input[type="checkbox"] {
   .theme-fab .theme-icon-dark { display: none; }
   .quarto-dark .theme-fab .theme-icon-light { display: none; }
   .quarto-dark .theme-fab .theme-icon-dark { display: inline; }
+  @keyframes theme-spin {
+    0%   { transform: rotate(-180deg) scale(0); opacity: 0; }
+    100% { transform: rotate(0deg) scale(1); opacity: 1; }
+  }
+  .theme-fab.spin svg { animation: theme-spin 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
   .sidebar-item .collapse, .sidebar-item .collapsing,
   .sidebar-item-toggle, .sidebar-item-toggle * {
     transition: none !important;
@@ -141,6 +146,58 @@ ul.task-list li input[type="checkbox"] {
     color: #e83e8c !important;
     background-color: #2b2b2b !important;
     border: none !important;
+  }
+  /* Keep sidebar section carets visible across all viewports */
+  .sidebar-item .sidebar-item-toggle {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .sidebar-item .sidebar-item-toggle .bi-chevron-right {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  /* DT datatables don't auto-pick the Bootswatch dark theme */
+  .quarto-dark .dataTables_wrapper,
+  .quarto-dark table.dataTable,
+  .quarto-dark table.dataTable tbody td,
+  .quarto-dark table.dataTable tbody tr,
+  .quarto-dark table.dataTable thead th,
+  .quarto-dark table.dataTable tfoot th {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+  }
+  .quarto-dark table.dataTable.stripe tbody tr.odd,
+  .quarto-dark table.dataTable.display tbody tr.odd {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+  .quarto-dark table.dataTable.hover tbody tr:hover,
+  .quarto-dark table.dataTable.display tbody tr:hover {
+    background-color: rgba(94, 200, 192, 0.12);
+  }
+  .quarto-dark .dataTables_wrapper .dataTables_length,
+  .quarto-dark .dataTables_wrapper .dataTables_filter,
+  .quarto-dark .dataTables_wrapper .dataTables_info,
+  .quarto-dark .dataTables_wrapper .dataTables_processing,
+  .quarto-dark .dataTables_wrapper .dataTables_paginate {
+    color: var(--bs-body-color);
+  }
+  .quarto-dark .dataTables_wrapper .dataTables_filter input,
+  .quarto-dark .dataTables_wrapper .dataTables_length select {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+  }
+  .quarto-dark .dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: var(--bs-body-color) !important;
+  }
+  .quarto-dark .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+  .quarto-dark .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff !important;
+    background: #2aa198 !important;
+    border-color: #2aa198 !important;
   }
 </style>
 
@@ -450,6 +507,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../03-code/functional-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functional programming</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../03-code/eda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exploratory data analysis</span></a>
   </div>
@@ -511,6 +574,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../04-quarto/targets-integration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrating with a targets pipeline</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Themes and dark mode</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -643,14 +712,14 @@ ul.task-list li input[type="checkbox"] {
 <section id="coding-at-emlab" class="level1">
 <h1>Coding at emLab</h1>
 <p>Writing code is one of the most consequential tasks that we do at emLab. Our analyses inform real policy and resource management decisions, which means a coding error is not just a technical inconvenience: it can undermine the credibility of our science, erode trust with partners, and have real social and environmental impacts. At the same time, the broader scientific community has increasingly shifted towards Open Science, a movement that calls for transparent, accessible, and reproducible research (Roth et al.&nbsp;2025). Many journals now require public code repositories as a condition of publication, and peer reviewers are increasingly expected to evaluate not just the methods as described, but the implementation itself. Understandable, accurate, and reproducible code is thus essential to rigorous research. Code that can be understood and re-run by others enables collaboration, continuity with changing team compositions, a smooth publication process, and a more robust and engaging scientific process.</p>
-<p>This and following chapters are about establishing a shared foundation for coding at emLab. The following guiding principles are intended to orient our coding decisions, regardless of project type, team size, or programming language. The other chapters provide instructions and guidance for actualizing this shared vision.</p>
+<p>This and following sections are about establishing a shared foundation for coding at emLab. The following guiding principles are intended to orient our coding decisions, regardless of project type, team size, or programming language. The other sections provide instructions and guidance for actualizing this shared vision.</p>
 <p>Some practices are fundamental enough to effective collaboration that we designate them as <strong>universal requirements</strong> — expectations that all team members engaged in coding should follow, regardless of project. These requirements establish a shared baseline that reduces friction in collaboration and code review, and makes it possible for anyone on the team to engage with, build on, or evaluate another person’s work. Beyond these requirements, we also identify <strong>best practices</strong> that represent what we aspire to as a team. We recognize that projects vary considerably in scope, team composition, available personnel, and external collaborator expectations, and that not every best practice will be achievable on every project. The goal is to strive toward them where possible, and to make deliberate decisions when circumstances require a different approach.</p>
 <section id="guiding-principles-and-universal-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="guiding-principles-and-universal-requirements">Guiding principles and universal requirements</h2>
 <p>Everything we write should serve two goals: <em>accuracy</em> (the code does what we think it does) and <em>reproducibility</em> (someone else — or our future selves — can run it and get the same result).</p>
 <p><strong>1. Code for accuracy.</strong> Accuracy means the logic is correct (e.g., the right observations are being filtered, the model is specified as intended, and the units are consistent). Accuracy errors are often invisible and silent: the code may run and produce plausible-looking output, obscuring that a mistake was made. Such errors may go unnoticed for a long time, or entirely. These errors come at costs: errors discovered late in a project can require extensive revision, delay or derail publication, and undermine trust with partners. Accuracy is best protected through continuous, incremental review, which requires adequate time for developing clean code and personnel available to provide review.</p>
 <p><strong>2. Code for reproducibility.</strong> Reproducibility means that a person with access to your code, data, and documentation can independently re-run the analysis and arrive at the same outputs. This is increasingly a necessity: public code repositories are now required by many journals and the broader scientific community’s trust in computational research depends on it. Reproducibility is protected through good code organization, documentation, package management, and using platforms (like GitHub) that track the full history of a project.</p>
-<p>The following universal requirements reflect our shared commitment to a research environment that supports excellent, collaborative code development at emLab. These are described in detail in the following chapters.</p>
+<p>The following universal requirements reflect our shared commitment to a research environment that supports excellent, collaborative code development at emLab. These are described in detail in the following sections.</p>
 <p><strong>GitHub as the Platform for All Coding Work</strong> GitHub is emLab’s required platform for all coding projects. Using GitHub means that:</p>
 <ul>
 <li><p><strong>All code is maintained in a GitHub repository.</strong> GitHub repos include a README, document dependencies, and follow a logical file structure — is the foundation of a reproducible analysis.</p></li>
@@ -1172,7 +1241,7 @@ my_raw_data &lt;- read_csv(paste0(data_path,"raw/my_raw_data.csv"))
 <button type="button" class="fab search-fab" aria-label="Search" title="Search" onclick="window.quartoOpenSearch &amp;&amp; window.quartoOpenSearch();">
   <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>
 </button>
-<button type="button" class="fab theme-fab" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(document.querySelector('.quarto-color-scheme-toggle')||{click:()=>{}}).click();">
+<button type="button" class="fab theme-fab" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="(function(btn){btn.classList.add('spin');setTimeout(()=>btn.classList.remove('spin'),450);const orig=window.scrollTo.bind(window);window.scrollTo=()=>{};if(window.quartoToggleColorScheme){window.quartoToggleColorScheme();}else{const t=document.querySelector('.quarto-color-scheme-toggle');if(t)t.click();}setTimeout(()=>{window.scrollTo=orig;},200);})(this)">
   <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"></path></svg>
   <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"></path></svg>
 </button>

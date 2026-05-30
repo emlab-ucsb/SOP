@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>presentations – emLab Standard Operating Procedures</title>
+<title>functional-programming – emLab Standard Operating Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -523,11 +523,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../03-code/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03-code/code-styling.html" class="sidebar-item-text sidebar-link">
@@ -542,7 +542,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03-code/functional-programming.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/functional-programming.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Functional programming</span></a>
   </div>
 </li>
@@ -576,11 +576,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../04-quarto/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../04-quarto/chunk-best-practices.html" class="sidebar-item-text sidebar-link">
@@ -625,7 +625,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../04-quarto/presentations.html" class="sidebar-item-text sidebar-link active">
+  <a href="../04-quarto/presentations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentations in Quarto</span></a>
   </div>
 </li>
@@ -744,90 +744,411 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="presentations-in-quarto" class="level1">
-<h1>Presentations in Quarto</h1>
-<p>For lab meetings, conferences, and stakeholder briefings, we use Quarto to generate presentations. This ensures that the plots shown in slides are identical to the ones in our analysis, with no “copy-paste” errors.</p>
-<section id="the-emlab-presentation-template" class="level2">
-<h2 class="anchored" data-anchor-id="the-emlab-presentation-template">The emLab presentation template</h2>
-<p>We are actively developing a standardized emLab Quarto presentation template to ensure a consistent, professional visual identity across our projects. You can find the current working version of the template here: <a href="https://github.com/emlab-ucsb/presentation-ocean-ghg-ttt">presentation-ocean-ghg-ttt</a>.</p>
-<p><strong>How to use it:</strong></p>
-<ol type="1">
-<li>This repository is configured as a <strong>GitHub Template</strong>.</li>
-<li>Click the “Use this template” button on GitHub to create a new repository for your project.</li>
-<li>This will provide you with the necessary SCSS styling, logo assets, and YAML configurations pre-set for emLab.</li>
-</ol>
-<p><strong>We need your help!</strong> This is a living resource. If you improve the styling, fix a bug, or add a cool new slide component, please contribute back to the template repo so the whole lab can benefit.</p>
-</section>
-<section id="format-revealjs" class="level2">
-<h2 class="anchored" data-anchor-id="format-revealjs">Format: Revealjs</h2>
-<p>At emLab, we primarily use revealjs for HTML-based slides. They are mobile-friendly, searchable, and can be hosted alongside our documentation on GitHub Pages.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"emLab Project presentation"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"Subtitle goes here"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Author"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">title-slide-attributes</span><span class="kw">:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data-background-image</span><span class="kw">:</span><span class="at"> emlab_logo_horizontal.png</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data-background-size</span><span class="kw">:</span><span class="at"> 30%</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data-background-position</span><span class="kw">:</span><span class="at"> 50% 85%</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">data-footer</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> emlab.scss</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">transition</span><span class="kw">:</span><span class="at"> slide</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">background-transition</span><span class="kw">:</span><span class="at"> fade</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;img src='emlab_logo_horizontal_w.png' class='slide-footer-logo'&gt;"</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig-cap</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="slide-structure" class="level2">
-<h2 class="anchored" data-anchor-id="slide-structure">Slide structure</h2>
-<ul>
-<li><strong>New Slide:</strong> Use <code>##</code> to start a new slide.</li>
-<li><strong>Pauses:</strong> Use . . . on its own line to create a “fragment” (pause) that reveals the next part of the slide upon a click.</li>
-<li><strong>Columns:</strong> Use the “div” syntax to create side-by-side layouts for comparing text and figures.</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Motivation</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Point 1...</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Point 2...</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Point 3...</span>
+<section id="sec-functional-programming" class="level1">
+<h1>Functional programming</h1>
+<p>Functional programming is a style of writing code that helps make emLab models and software easy to <strong>understand, combine, improve, and debug.</strong></p>
+<p>Functional programming is not a separate language or package — it is a way of structuring code, based on <strong>applying functions to data</strong>. A rudimentary example of a function in the programming sense is<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>A functional programming approach focuses on building <em>functions</em> involving several or many lines of code, which may then be used in various contexts throughout a given project. It can be thought of as describing a <strong>method</strong>. It contrasts with <em>imperative</em> programming, which involves <em>scripts</em>, where each line gives a computer a <strong>command</strong>. For comparison:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">Functional</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Imperative</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>say_its <span class="ot">&lt;-</span> <span class="cf">function</span>(sun) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (sun <span class="sc">==</span> <span class="st">"up"</span>) <span class="fu">return</span>(<span class="st">"Good morning"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (sun <span class="sc">==</span> <span class="st">"down"</span>) <span class="fu">return</span>(<span class="st">"Good night"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Results Overview</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>::: {.columns}</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>::: {.column width="40%"}</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Yield increased by 15%</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Significance at $p &lt; 0.05$</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Region A led the growth</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>::: {.column width="60%"}</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>::: {.cell}</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">say_its</span>(<span class="st">"up"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Good morning"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">say_its</span>(<span class="st">"down"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Good night"</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sun <span class="ot">&lt;-</span> <span class="st">"up"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (sun <span class="sc">==</span> <span class="st">"up"</span>) <span class="fu">print</span>(<span class="st">"Good morning"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Good morning"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (sun <span class="sc">==</span> <span class="st">"down"</span>) <span class="fu">print</span>(<span class="st">"Good night"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sun <span class="ot">&lt;-</span> <span class="st">"down"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (sun <span class="sc">==</span> <span class="st">"up"</span>) <span class="fu">print</span>(<span class="st">"Good morning"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (sun <span class="sc">==</span> <span class="st">"down"</span>) <span class="fu">print</span>(<span class="st">"Good night"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Good night"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="dont-repeat-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="dont-repeat-yourself">Don’t Repeat Yourself</h2>
+<p>The guiding instinct of functional programming is the <strong>DRY principle</strong> — <em>Don’t Repeat Yourself</em>. When the same logic is copied across several scripts, every fix or improvement has to be made in every copy, and any copy that gets missed becomes a silent bug. Writing that logic once, as a function, leaves a single place to change it.</p>
+<p>A useful rule of thumb comes from Hadley Wickham in <a href="https://r4ds.hadley.nz/functions"><em>R for Data Science</em></a>:</p>
+<blockquote class="blockquote">
+<p>You should consider writing a function whenever you’ve copied and pasted a block of code more than twice (i.e.&nbsp;you now have three copies of the same code).</p>
+</blockquote>
+<p>DRY is also why functional programming is a prerequisite for the pipeline tools described in <a href="../03-code/pipeline-reproducibility.html">Pipeline reproducibility</a>: both <code>targets</code> and GNU Make chain together small, well-named functions or scripts as the nodes of the dependency graph. The cleaner your functions, the cleaner the pipeline.</p>
 </section>
-<section id="best-practices-for-slides" class="level2">
-<h2 class="anchored" data-anchor-id="best-practices-for-slides">Best practices for slides</h2>
-<ol type="1">
-<li><strong>echo: false by default:</strong> Unless you are giving a coding tutorial, keep code hidden in slides to focus on results.</li>
-<li><strong>Speaker Notes:</strong> Use <code>::: {.notes}</code> to add reminders that only you can see during the presentation (press ‘S’ in the browser).</li>
-<li><strong>Direct Linking:</strong> Always include a final slide with a link to the full Quarto documentation/website where the audience can find the underlying code and data.</li>
-<li><strong>Multiplex:</strong> For remote presentations, consider enabling multiplex: true in your YAML, which allows the audience to follow along on their own devices as you advance the slides.</li>
-<li><strong>GitHub Pages:</strong> Host your presentation on GitHub Pages for easy sharing and to ensure the slides are always in sync with the latest analysis.</li>
+<section id="combining-functions" class="level2">
+<h2 class="anchored" data-anchor-id="combining-functions">Combining functions</h2>
+<p>R is a multi-paradigm language, meaning it can work with either style of programming. However, emLab data scientists rely on R’s many thousands of <em>packages</em>. When you add an R package to your library, you can then build your code using functions written by others.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">small =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">big =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  small big  
+  &lt;chr&gt; &lt;chr&gt;
+1 a     A    
+2 b     B    
+3 c     C    </code></pre>
+</div>
+</div>
+<p>The functional programming approach would be to build their functions into your own, likely incorporating other functions<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> too:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sentence_square <span class="ot">&lt;-</span> <span class="cf">function</span>(sentence) {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  words <span class="ot">=</span> <span class="fu">str_split_1</span>(sentence, <span class="at">pattern =</span> <span class="st">" "</span>) <span class="co"># from `stringr`</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  dimension <span class="ot">=</span> <span class="fu">ceiling</span>(<span class="fu">sqrt</span>(<span class="fu">length</span>(words)))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  square <span class="ot">=</span> <span class="fu">matrix</span>(words, <span class="at">nrow =</span> dimension)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">as_tibble</span>(square))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sentence_square</span>(<span class="st">"Wherefore art thou Romeo"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  V1        V2   
+  &lt;chr&gt;     &lt;chr&gt;
+1 Wherefore thou 
+2 art       Romeo</code></pre>
+</div>
+</div>
+<p>This is an example of nesting, where calling <code>sentence_square()</code> indirectly calls the other functions used in its recipe. Part of what makes functional programming such a useful approach is that the arguments<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> of a function are accessible to functions nested within it:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pluralize <span class="ot">&lt;-</span> <span class="cf">function</span>(word) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(word, <span class="st">"s"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pluralize</span>(<span class="st">"apple"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "apples"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="cf">function</span>(item, count) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(count, <span class="fu">pluralize</span>(item))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">group</span>(<span class="st">"orange"</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "5 oranges"</code></pre>
+</div>
+</div>
+<p>Here, <code>pluralize()</code> takes its <code>word</code> argument from the <code>item</code> argument of <code>group()</code>. A variable defined within a function is said to be <strong>local</strong>, and a function’s arguments are among its local variables. Variables that are local to a function are not accessible in a broader scope:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>kitchen <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">light =</span> <span class="st">"on"</span>) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  stove <span class="ot">=</span> <span class="st">"gas"</span>  </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">mget</span>(<span class="fu">ls</span>())) <span class="co"># describe local variables</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>light</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error:
+! object 'light' not found</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>stove</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error:
+! object 'stove' not found</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kitchen</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$light
+[1] "on"
+
+$stove
+[1] "gas"</code></pre>
+</div>
+</div>
+</section>
+<section id="improving-functions" class="level2">
+<h2 class="anchored" data-anchor-id="improving-functions">Improving functions</h2>
+<p>Combining functions lets you build new behavior; <strong>wrapping</strong> lets you adjust behavior that already exists. A wrapper is a function whose main job is to call one external function while supplying your preferred defaults or an extra step. The original package is left untouched — you have simply given your project its own, improved version.</p>
+<p>A frequent emLab use is enforcing a consistent look for figures. <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> draws plots by adding layers together, but its defaults are generic. Wrapping the styling layers once means every figure in a project matches, without copying the same code into every script:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>emlab_style <span class="ot">&lt;-</span> <span class="cf">function</span>(plot) {</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  plot <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>mpg_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#2aa198"</span>) <span class="sc">+</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Heavier cars travel fewer miles per gallon"</span>,</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Weight (1000 lbs)"</span>,</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Miles per gallon"</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="fu">emlab_style</span>(mpg_plot)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="functional-programming_files/figure-html/fp-wrap-ggplot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The real payoff is maintainability: if the lab later decides bold titles were a mistake, that change happens in <code>emlab_style()</code> alone, rather than in every script that draws a figure.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+</section>
+<section id="debugging-functions" class="level2">
+<h2 class="anchored" data-anchor-id="debugging-functions">Debugging functions</h2>
+<p>Given input it cannot handle, a function can do one of two things: fail loudly, or carry on and return something wrong. emLab’s <a href="../03-code/index.html">guiding principle of accuracy</a> warns that the most costly errors are the <em>silent</em> ones — code that runs cleanly and produces plausible output while doing the wrong thing. Functions that check their own inputs turn those silent errors into loud, immediate ones.</p>
+<p>R provides three signals for communicating from inside a function, in increasing severity:</p>
+<ul>
+<li><code>message()</code> — an informational note, such as a progress update. Execution continues.</li>
+<li><code>warning()</code> — something looks wrong but is recoverable. Execution continues, with a flag.</li>
+<li><code>stop()</code> — a fatal problem. Execution halts before bad output can spread downstream.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>greet <span class="ot">&lt;-</span> <span class="cf">function</span>(sun) {</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>sun <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"up"</span>, <span class="st">"down"</span>)) {</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">'`sun` must be "up" or "down", not "'</span>, sun, <span class="st">'".'</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (sun <span class="sc">==</span> <span class="st">"up"</span>) <span class="fu">return</span>(<span class="st">"Good morning"</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (sun <span class="sc">==</span> <span class="st">"down"</span>) <span class="fu">return</span>(<span class="st">"Good night"</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">greet</span>(<span class="st">"sideways"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `greet()`:
+! `sun` must be "up" or "down", not "sideways".</code></pre>
+</div>
+</div>
+<p>Because <code>greet()</code> validates its input, the mistake surfaces <em>right here</em>, with a message naming the problem — rather than several functions deeper, disguised as a strange result. <code>message()</code> and <code>warning()</code> handle the less severe cases:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mean_positive <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>)) <span class="fu">warning</span>(<span class="st">"Negative values dropped before averaging."</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Averaging "</span>, <span class="fu">sum</span>(x <span class="sc">&gt;=</span> <span class="dv">0</span>), <span class="st">" of "</span>, <span class="fu">length</span>(x), <span class="st">" values."</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x[x <span class="sc">&gt;=</span> <span class="dv">0</span>])</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean_positive</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in mean_positive(c(4, 8, -2, 10)): Negative values dropped before
+averaging.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Averaging 3 of 4 values.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.333333</code></pre>
+</div>
+</div>
+<p>These signals help whoever <em>runs</em> a function. For active debugging — when something is wrong and you need to understand why — <code>browser()</code> is often the most direct tool. Inserting it into a function pauses execution at that exact line, drops you into the function’s environment, and lets you inspect any intermediate value. In the example below, we insert a <code>browser()</code> call after calculating the mean so we can confirm <code>mean_value</code> looks right before it’s returned.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mean_positive <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>)) <span class="fu">warning</span>(<span class="st">"Negative values dropped before averaging."</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Averaging "</span>, <span class="fu">sum</span>(x <span class="sc">&gt;=</span> <span class="dv">0</span>), <span class="st">" of "</span>, <span class="fu">length</span>(x), <span class="st">" values."</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  mean_value <span class="ot">&lt;-</span> <span class="fu">mean</span>(x[x <span class="sc">&gt;=</span> <span class="dv">0</span>])</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">browser</span>()</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  mean_value</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mean_positive</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in mean_positive(c(4, 8, -2, 10)): Negative values dropped before
+averaging.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Averaging 3 of 4 values.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Called from: mean_positive(c(4, 8, -2, 10))
+debug: mean_value</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.333333</code></pre>
+</div>
+</div>
+<p>Readability helps whoever <em>reads</em> a function — at emLab, usually a collaborator or your future self. The logic inside a function deserves the same care as any script: descriptive names, consistent style, and comments that explain <em>why</em>. See <a href="../03-code/code-styling.html">Code styling</a> and <a href="../03-code/code-documentation.html">Code documentation</a> for the details.</p>
+</section>
+<section id="repetitive-functions" class="level2">
+<h2 class="anchored" data-anchor-id="repetitive-functions">Repetitive functions</h2>
+<section id="prefer-applymap-over-for-loops-when-iterating-over-a-collection" class="level3">
+<h3 class="anchored" data-anchor-id="prefer-applymap-over-for-loops-when-iterating-over-a-collection">Prefer <code>apply</code>/<code>map</code> over <code>for</code> loops when iterating over a collection</h3>
+<p>When the repetition you need is “do this same thing to every element of a vector or list,” reach for the <strong>apply/map</strong> family of functions before a <code>for</code> loop. In base R that means <code>lapply()</code>, <code>sapply()</code>, or <code>vapply()</code>; in the tidyverse, <code>purrr::map()</code> and its typed variants (<code>map_dbl()</code>, <code>map_chr()</code>, <code>map_lgl()</code>, …).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>words <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Imperative: a for loop that mutates an output vector</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>lengths_loop <span class="ot">&lt;-</span> <span class="fu">integer</span>(<span class="fu">length</span>(words))</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(words)) {</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  lengths_loop[i] <span class="ot">&lt;-</span> <span class="fu">nchar</span>(words[i])</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>lengths_loop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5 6 6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Functional: applying nchar() across the vector using sapply()</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(words, nchar)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> apple banana cherry 
+     5      6      6 </code></pre>
+</div>
+</div>
+<p>The functional form is a single expression that takes a collection in and gives a collection out, without making any other changes to the environment in which it runs. The tidyverse equivalent uses <code>purrr::map()</code>, which returns a list, or one of its typed variants when you want a specific output type:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># purrr::map() returns a list</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map</span>(words, nchar)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># map_int() returns an integer vector</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map_int</span>(words, nchar)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="exceptions" class="level2">
+<h2 class="anchored" data-anchor-id="exceptions">Exceptions</h2>
+<p>emLab strives for a functional programming mindset, but here are examples of cases where scripting is sometimes used.</p>
+<section id="recursive-functions" class="level3">
+<h3 class="anchored" data-anchor-id="recursive-functions">Recursive functions</h3>
+<p>R supports recursive functions, which call themselves:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>factorial <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&lt;=</span> <span class="dv">1</span>) <span class="fu">return</span>(<span class="dv">1</span>)    <span class="co"># base case: stop here</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  n <span class="sc">*</span> <span class="fu">factorial</span>(n <span class="sc">-</span> <span class="dv">1</span>)   <span class="co"># recursive case: shrink toward the base case</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24</code></pre>
+</div>
+</div>
+<p>However, emLab code prioritizes readability, and recursion is a case where many find the imperative equivalent more intuitive:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>factorial <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (n <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  factorial <span class="ot">=</span> factorial <span class="sc">*</span> n</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">=</span> n <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>factorial</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24</code></pre>
+</div>
+</div>
+<p>Notably, one strong argument for the functional programming paradigm is that someone else probably already made a function that does what you want to do. If you have a good sense of the tooling available and its applicability to your use case, you may sometimes have to write hardly any code at all.</p>
+<p>Using the product <code>prod()</code> function from base R:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">4</span> </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>factorial <span class="ot">=</span> <span class="fu">prod</span>(<span class="dv">1</span><span class="sc">:</span>n) <span class="co"># R parses `a:b` as the integers between a and b</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>factorial</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24</code></pre>
+</div>
+</div>
+</section>
+<section id="pipes" class="level3">
+<h3 class="anchored" data-anchor-id="pipes">Pipes</h3>
+<p>When composing functions, e.g., <code>f(g(x))</code>, there are sometimes cases with many intermediate states. The two ways to address this while sticking strictly to a functional programming paradigm are nesting functions:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>chef_it_up <span class="ot">&lt;-</span> <span class="cf">function</span>(eggs) {</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  omelette <span class="ot">&lt;-</span> <span class="fu">plate</span>(<span class="fu">fold</span>(<span class="fu">fry</span>(<span class="fu">crack</span>(eggs))))</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(omelette)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>or using intermediate <strong>local</strong> variables<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>chef_it_up <span class="ot">&lt;-</span> <span class="cf">function</span>(eggs) {</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  goop <span class="ot">&lt;-</span> <span class="fu">crack</span>(eggs)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  circle <span class="ot">&lt;-</span> <span class="fu">fry</span>(goop)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  burrito <span class="ot">&lt;-</span> <span class="fu">fold</span>(circle)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  omelette <span class="ot">&lt;-</span> <span class="fu">plate</span>(burrito)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(omelette)</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Using pipes <code>|&gt;</code> to link up functions changes the state of an invisible variable multiple times, meaning it draws from the imperative programming paradigm. However, it makes code more readable than either purely functional approach, while also using computer memory efficiently by overwriting each step’s input with its output.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>chef_it_up <span class="ot">&lt;-</span> <span class="cf">function</span>(eggs) {</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  omelette <span class="ot">&lt;-</span> eggs <span class="sc">|&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">crack</span>() <span class="sc">|&gt;</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fold</span>() <span class="sc">|&gt;</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plate</span>()</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(omelette)</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>It is worth mentioning that pipes pass each step’s results as the first argument of the next function. This tends to work out alright when functions are designed according to the best practice of putting the main variable first. It is also possible to use a placeholder <code>_</code> so a pipe goes to a different argument:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>hit <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">pitcher =</span> <span class="st">"Who"</span>, <span class="at">batter =</span> <span class="st">"What"</span>) {</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (pitcher <span class="sc">==</span> <span class="st">"Babe Ruth"</span>) <span class="fu">return</span>(<span class="st">"Strikeout!"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (batter <span class="sc">==</span> <span class="st">"Babe Ruth"</span>) <span class="fu">return</span>(<span class="st">"Home run!"</span>)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>first_up <span class="ot">=</span> <span class="st">"Babe Ruth"</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>first_up <span class="sc">|&gt;</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hit</span>() <span class="co"># Babe Ruth as pitcher</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Strikeout!"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>first_up <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hit</span>(<span class="at">batter =</span> _) <span class="co"># Babe Ruth as batter</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Home run!"</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="recommended-readings" class="level1">
+<h1>Recommended readings</h1>
+<ul>
+<li><p>Wickham, Hadley. 2019. <em>Advanced R</em>, 2nd ed.&nbsp;Chapman &amp; Hall/CRC. See the chapters on “Functions” and “Conditions,” and the “Functional programming” section. <a href="https://adv-r.hadley.nz/" class="uri">https://adv-r.hadley.nz/</a>.</p></li>
+<li><p>Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science</em>, 2nd ed.&nbsp;O’Reilly. See the “Functions” chapter. <a href="https://r4ds.hadley.nz/functions" class="uri">https://r4ds.hadley.nz/functions</a>.</p></li>
+<li><p>Bryan, Jenny. 2020. <em>Object of type ‘closure’ is not subsettable: Debugging in R</em>. This is an excellent talk, slides, and GitHub repo going over best practices for debugging in R. <a href="https://github.com/jennybc/debugging" class="uri">https://github.com/jennybc/debugging</a>.</p></li>
+</ul>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This section uses R code in <a href="../04-quarto/index.html">Quarto</a> chunks, hence the <code>[1]</code> prefix.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Base (a.k.a. vanilla) R includes lots of functions geared towards math and statistics even before you add anything to its library, such as <code>sqrt()</code> and <code>matrix()</code><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>comma-separated items inside the parentheses<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>As custom functions accumulate, consider bundling them into an R package of their own — emLab encourages sharing project tooling this way, especially alongside a publication.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>which aren’t retrievable outside of the function<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-
-
-</section>
-</section>
-
-</main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
