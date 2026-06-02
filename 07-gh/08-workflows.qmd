@@ -1,0 +1,114 @@
+# Effective Workflows
+
+The previous sections cover the individual mechanics of git and GitHub in isolation: how to make a commit, how to open a pull request, how to use branches. This section shows how those pieces fit together in practice, for two common situations: a single researcher developing code on their own, and a team collaborating on shared code.
+
+All of the git operations described here can be run from the terminal or through the graphical git interfaces built into Positron, VS Code, and RStudio. In Positron and VS Code, the Source Control panel (the branching icon in the Activity Bar) handles staging, committing, pushing, pulling, and branch switching. RStudio's Git pane covers the basics as well, but is more limited -- it works well for routine operations like staging, committing, and pushing, but falls short for anything more complex. For most day-to-day work the editor interfaces are convenient, but familiarity with the terminal commands is worth developing, since some situations (merge conflicts, rebasing, stashing) are easier or only possible to handle there.
+
+## Individual Code Development
+
+When you are the only person actively writing code on a project, the workflow is relatively simple. The main goal is to maintain a clean `main` branch, commit changes regularly and with useful messages, and keep the repository in a state where someone else (or your future self) could pick it up and understand it.
+
+A typical session might look like this:
+
+1. **Start from an up-to-date main.** Before beginning any new work, make sure your local `main` reflects what is on GitHub. Switch to `main` and pull using the branch picker and sync button in your editor, or from the terminal:
+
+```bash
+git switch main
+git pull
+```
+
+2. **Create a branch for the work you are about to do.** Even when working alone, creating a branch for each discrete task keeps `main` clean and gives you a natural PR to review before merging. In Positron and VS Code, click the branch name in the bottom-left corner and select **Create new branch**. In RStudio, use the branch dropdown in the Git pane. From the terminal:
+
+```bash
+git switch -c add-spatial-aggregation
+```
+
+3. **Do the work, committing as you go.** Commit each logical unit of change -- do not wait until the work is finished to make your first commit. In the Source Control or Git panel, stage files with a click, write your message, and commit. From the terminal:
+
+```bash
+git add scripts/02_process.R
+git commit -m "Add spatial aggregation step using 0.25 degree grid"
+```
+
+4. **Push the branch to GitHub.** Pushing regularly means your work is backed up and visible to collaborators. Use the push or sync button in your editor, or from the terminal:
+
+```bash
+git push -u origin add-spatial-aggregation
+```
+
+5. **Open a pull request, review it yourself, and merge.** Even for solo work, the PR step is not just process overhead -- looking at your own diff before merging is a practical moment to catch mistakes or reconsider approach. On a solo project, a brief self-review is fine. Merge using **Squash and merge** to keep the `main` history tidy, then delete the branch.
+
+6. **Repeat.** Pull the latest `main`, start the next branch.
+
+The rhythm of this workflow produces a `main` branch whose history reads like a sequence of coherent contributions, with each PR representing one unit of work. This makes it far easier to locate when and why a specific change was made, months or years later.
+
+## Collaborative Code Development
+
+When multiple people are contributing to the same repository, the same basic mechanics apply, but coordination becomes more important. 
+
+### Setting up
+
+At the start of a project, the lead researcher or data manager should:
+
+- Create the repository under the `emlab-ucsb` organization with the appropriate `.gitignore` and README.
+- Configure the `main` branch ruleset (see [Rulesets](07-rulesets.qmd)).
+- Grant team members **Write** or **Admin** access to the repository.
+- Briefly document the intended workflow in the README or a contributing guide.
+
+### Day-to-day collaboration
+
+Each team member works on their own branch, scoped to a specific task or analysis component. Branches are independent, so two people can be developing simultaneously without interfering with each other.
+
+A typical collaborative session:
+
+1. Open or claim a GitHub Issue for the task you are about to work on. This signals to your team that the work is in progress and prevents duplication.
+
+2. Pull the latest `main` and create a branch. Do this from your editor's branch picker and sync button, or from the terminal:
+
+```bash
+git switch main && git pull
+git switch -c fix-species-filter
+```
+
+3. Work on the branch, committing regularly using your editor's Source Control or Git panel, or the terminal. Push to GitHub periodically so your progress is visible and backed up.
+
+4. When the work is complete, open a pull request. Link it to the relevant Issue in the PR description. Assign a reviewer.
+
+5. Address any review comments, then merge the PR when approved. Close the associated issue.
+
+6. The reviewer (or another team member) begins their next task from an updated `main`.
+
+### Handling conflicts
+
+Merge conflicts arise when two branches have changed the same part of the same file in incompatible ways and git cannot automatically reconcile the differences. For example, merge conflicts can arise if the same line of a file was changed in both branches, or if a file was deleted in one branch and modified in the other. But don't panic! Merge conflicts are normal and can be resolved.
+
+When a merge produces a conflict, git pauses and marks the affected regions directly inside the file using a set of symbols. A conflicted section looks like this:
+
+```
+<<<<<<< HEAD
+result <- model_a(data) # This is your version, from your current branch
+=======
+result <- model_b(data) # This is the incoming version, from the branch you are merging in (main)
+>>>>>>> main
+```
+
+Reading this from top to bottom: the `<<<<<<< HEAD` line marks the start of the conflict. Everything between that line and the `=======` divider is the version from your current branch -- what you wrote. Everything between `=======` and `>>>>>>> main` is the incoming version from `main` -- what your collaborator wrote. The two versions are in conflict because git cannot determine which one should win.
+
+To resolve the conflict, you edit the file to contain exactly what the final version should look like, then remove all of the marker lines (`<<<<<<<`, `=======`, `>>>>>>>`). You might keep your version, keep the incoming version, or write something that combines both -- whatever is correct for the analysis. When you are done, the file should look as if the conflict never existed, with no marker lines remaining.
+
+In **Positron and VS Code**, the conflict markers are highlighted in color and the editor displays buttons above each conflict ("Accept Current Change", "Accept Incoming Change", "Accept Both Changes") that let you resolve common cases with a single click, without editing the markers by hand. This is the most convenient way to work through conflicts.
+
+In **RStudio**, conflicted files open in the normal source editor with the raw markers visible. There is no dedicated conflict UI, so you resolve them by editing the file directly, removing the markers manually.
+
+Once all conflicts in all affected files are resolved, stage the files and complete the merge:
+
+```bash
+git add scripts/03_model.R
+git commit
+```
+
+The best way to minimize conflicts is to keep branches short-lived and to merge `main` into your branch frequently. The longer a branch diverges from `main`, the more likely it is to accumulate conflicts.
+
+### Communication and documentation
+
+A branch-and-PR workflow, paired with GitHub Issues, creates an important record of work. Use Issues for discussion, questions, and decisions that need an ongoing thread. Use pull requests to document the implementation of that decision, including any significant methodological choices made in the code. In practice, the Issue is the place where the decision is made; the PR is the place where the resulting change is explained and reviewed. That combination is often useful later, especially when preparing a publication.
