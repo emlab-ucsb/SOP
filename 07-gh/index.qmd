@@ -16,14 +16,14 @@ Why Git and GitHub?
 
 **All emLab coding work must live in a repository under the [emlab-ucsb](https://github.com/emlab-ucsb) GitHub organization. The sections below cover everything you need to know, from initial setup through advanced workflows.**
 
-- [Getting Set Up](01-setup.qmd) -- Joining the emLab GitHub organization, installing git, and authenticating with GitHub.
-- [Repository Organization](02-repo-organization.qmd) -- How to structure a repository and write an effective README.
-- [Version Control with Commits](03-commits.qmd) -- What commits are and how to write a good commit message.
+- [Getting set up](01-setup.qmd) -- Joining the emLab GitHub organization, installing git, and authenticating with GitHub.
+- [Repository organization](02-repo-organization.qmd) -- How to structure a repository and write an effective README.
+- [Version control with commits](03-commits.qmd) -- What commits are and how to write a good commit message.
 - [Using Issues](04-issues.qmd) -- How to use issues to track work, document decisions, and communicate within a project.
-- [Working with Branches](05-branches.qmd) -- What branches are and how to use them in practice.
+- [Working with branches](05-branches.qmd) -- What branches are and how to use them in practice.
 - [Pull Requests](06-pull-requests.qmd) -- How to open, review, and merge a pull request.
 - [Rulesets](07-rulesets.qmd) -- Protecting the main branch and enabling automated review.
-- [Effective Workflows](08-workflows.qmd) -- What git-based development looks like in practice, for solo and collaborative work.
-- [Preparing a Public Repository for Publication](09-public-repos.qmd) -- How to prepare a repository for public release alongside a publication.
+- [Effective workflows](08-workflows.qmd) -- What git-based development looks like in practice, for solo and collaborative work.
+- [Public repositories for publications](09-public-repos.qmd) -- How to prepare a repository for public release alongside a publication.
 - [GitHub Extensions](10-gh-extensions.qmd) -- Using GitHub's integrations in Positron and VS Code to streamline your workflow.
-- [AI Coding Assistants](11-copilot-claude.qmd) -- Optional AI coding assistants available through GitHub and Anthropic.
+- [AI coding assistants](11-copilot-claude.qmd) -- Optional AI coding assistants available through GitHub and Anthropic.

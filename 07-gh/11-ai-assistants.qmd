@@ -1,4 +1,4 @@
-# AI Coding Assistants
+# AI coding assistants
 
 AI coding assistants are optional tools for day-to-day code development. They are not a replacement for understanding what your code does, but they can meaningfully reduce the friction of routine tasks: writing boilerplate, explaining unfamiliar functions, suggesting fixes for common errors, and generating first drafts of code that you then review and revise. This section describes the two main options available to emLab researchers.
 
