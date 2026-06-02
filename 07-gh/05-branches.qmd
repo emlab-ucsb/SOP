@@ -1,0 +1,165 @@
+# Working with Branches
+
+Branch-based development is a universal requirement for all emLab coding projects. **All code development happens on a separate branch, so that we don't commit directly to `main`.**
+
+Why? Working on a branch means your changes are isolated from the stable project until they are ready. If something goes wrong mid-development, like an approach that turns out not to work, or a bug that creeps into your code, it stays on your branch and never touches `main`. You can abandon the branch, start over, or take your time fixing things without disrupting anyone else or corrupting the project record. This isolation is what makes branch-based development a safer way to write code.
+
+Branches are also what make code review possible. When development happens on a branch, it can be proposed for merging through a **pull request**, the mechanism for code review at emLab. We'll discuss pull requests in the next section. Now, we'll cover what branches are, why we use them, and how to work with them in practice. 
+
+All of the git operations described here can be performed either from the terminal or through the graphical git integrations built into Positron, VS Code, and RStudio -- we will note both where relevant.
+
+## What a Branch Is
+
+Imagine your repository's commit history as a sequence of snapshots, each one building on the one before it:
+
+```
+A --- B --- C --- D   (main)
+```
+
+A branch is simply a named pointer to one of those snapshots. When you create a branch, you are creating a new line of development that starts where you are now but moves forward independently as you make new commits:
+
+```
+A --- B --- C --- D           (main)
+                  \
+                   E --- F    (my-branch)
+```
+
+`main` and `my-branch` now have independent histories. Changes you make on `my-branch` do not affect `main` until you explicitly merge them in.
+
+## Why We Don't Commit Directly to Main
+
+`main` is the stable, reviewed record of the project that should always be in a runnable, working state. When code goes directly to `main` without review, mistakes can indavertently become part of that permanent record immediately. Branch-based development creates a checkpoint for reviewing the code. You do the work on a branch, open a pull request, get a review, and then merge. Nothing lands on `main` without passing through that step. 
+
+This applies even when you are working alone. Solo projects benefit from the habit too: you can look at your own changes (in a **diff**) before merging and catch mistakes you might otherwise miss. Practicing the workflow on solo projects also means it is not unfamiliar when you join a collaborative one.
+
+At emLab, `main` is protected by a ruleset that prevents direct pushes. If you try to push to `main`, you will see an error. That is expected -- create a branch instead.
+
+## The Basic Workflow
+
+Here is what branch-based development looks like in practice, from start to finish.
+
+### Step 1: Start from an up-to-date main
+
+Before creating a branch, make sure your local `main` is current. In the terminal:
+
+```bash
+git switch main
+git pull
+```
+
+In Positron, VS Code, or RStudio, you can do this by switching to the `main` branch using the branch picker in the bottom-left corner of the window, then clicking the sync/pull button in the Source Control panel.
+
+::: {.callout-tip}
+## Is your default branch called "master"?
+
+Older versions of git named the default branch `master` rather than `main`. Newer versions (2.28+) default to `main`, and GitHub uses `main` for all new repositories. If your local default branch is still called `master`, you can update the global default for all future repositories with:
+
+```bash
+git config --global init.defaultBranch main
+```
+
+This does not rename the branch in any existing repositories -- only new ones initialized after this point. For an existing repo where the default branch is still named `master`, you can rename it locally with `git branch -m master main`, then update the remote tracking with `git push -u origin main`. If you are unsure what your default is, run `git branch` to see the current branch names.
+:::
+
+### Step 2: Create a branch
+
+In the terminal:
+
+```bash
+git switch -c my-branch-name
+```
+
+This creates a new branch starting at the latest commit on `main` and switches to it immediately. In Positron and VS Code, you can also create a branch by clicking the branch name in the bottom-left corner and selecting **Create new branch**. In RStudio, use the branch dropdown in the Git pane.
+
+Branch names should be short, lowercase, and descriptive. Use hyphens to separate words. A name like `add-spatial-aggregation` or `fix-missing-species-filter` is much more useful than `new-branch` or `working`. If the branch corresponds to a GitHub Issue, you can create it directly from the issue page (see [Using Issues](04-issues.qmd)), which will name it automatically and link it to the issue.
+
+### Step 3: Do your work and commit
+
+Make your changes, stage them, and commit as you go. There is no need to finish all the work before making your first commit -- commit each logical unit of change as you complete it.
+
+In the terminal:
+
+```bash
+git add scripts/02_process.R
+git commit -m "Add spatial aggregation step using 0.25 degree grid"
+```
+
+In Positron, VS Code, and RStudio, the Source Control or Git panel shows all modified files. You can stage individual files with a click, type your commit message in the text box, and commit with the button -- no terminal required. The current branch name is always visible in the bottom-left corner of Positron and VS Code, and in the Git pane header in RStudio.
+
+### Step 4: Push your branch to GitHub
+
+Push your branch so your work is backed up and visible to collaborators. In the terminal:
+
+```bash
+git push -u origin my-branch-name
+```
+
+The `-u` flag sets the upstream tracking relationship so that future pushes from this branch can be just `git push`. In Positron, VS Code, and RStudio, you can push using the sync or push button in the Source Control or Git panel.
+
+If you created the branch directly from a GitHub Issue (as described in [Using Issues](04-issues.qmd)), the remote branch already exists on GitHub. To get it locally, run `git fetch` to update your local git's knowledge of remote branches, then switch to it:
+
+```bash
+git fetch
+git switch my-branch-name
+```
+
+You can push subsequent commits with just `git push` -- no `-u` flag needed.
+
+### Step 5: Open a pull request and merge
+
+When the work is ready, open a pull request on GitHub to merge your branch into `main`. This is covered in detail in the next section, [Pull Requests](06-pull-requests.qmd).
+
+### Step 6: Delete the branch
+
+After the pull request is merged, the branch can be deleted. GitHub offers to do this automatically right after a merge. To delete it locally from the terminal:
+
+```bash
+git branch -d my-branch-name
+```
+
+## Switching Between Branches
+
+You can switch to any branch at any time from the terminal:
+
+```bash
+git switch main           # Switch to main
+git switch my-branch      # Switch to an existing branch
+```
+
+In Positron, VS Code, and RStudio, click the branch name in the bottom-left corner or in the Git pane to see a list of branches and switch between them.
+
+If you have uncommitted changes when you want to switch, git will either carry them over (if there is no conflict) or stop you from switching. In that case, you can temporarily shelve your changes with `git stash`:
+
+```bash
+git stash            # Set uncommitted changes aside
+git switch main
+git stash pop        # Restore the changes when you come back
+```
+
+## Keeping Your Branch Up to Date
+
+If `main` receives new commits while you are working on your branch -- because a collaborator merged their work, for example -- you should pull those changes into your branch periodically:
+
+```bash
+git switch my-branch
+git merge main
+```
+
+Doing this regularly, rather than waiting until you are ready to merge, keeps conflicts small and manageable. The longer a branch diverges from `main`, the harder the eventual merge tends to be.
+
+## Branch Scope 
+
+Branches work best when they are focused and short-lived. A branch that represents one task -- one issue, one analysis step, one bug fix -- is easy to review and straightforward to merge. A branch that has accumulated two months of wide-ranging changes is difficult to review well and likely to have conflicts.
+
+If a task is genuinely large, break it into smaller branches that build on each other and can be merged sequentially. This keeps the review load reasonable and keeps `main` moving forward in understandable increments.
+
+## Git Command Summary
+
+| Action | Command |
+|---|---|
+| Create and switch to a new branch | `git switch -c branch-name` |
+| Switch to an existing branch | `git switch branch-name` |
+| See all local branches | `git branch` |
+| Push branch to GitHub | `git push -u origin branch-name` |
+| Merge `main` into your branch | `git merge main` |
+| Delete a local branch | `git branch -d branch-name` |
