@@ -1,0 +1,23 @@
+# GitHub Extensions in Positron and VS Code
+
+Both Positron and VS Code have built-in git support and a GitHub extension that bring a significant portion of the GitHub workflow directly into the editor. For most people who already spend the majority of their time in one of these editors, this integration eliminates the need to constantly switch between the editor and the browser.
+
+We recommend installing the [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension, which adds GitHub-specific functionality to Positron and VS Code. It is available in the Extensions Marketplace (`Cmd+Shift+X`) under the publisher name "GitHub".
+
+Once installed and authenticated (the extension will prompt you to sign in with your GitHub account), it provides:
+
+**Pull request management from the editor.** A new panel in the Activity Bar lists open pull requests for the current repository. You can view PR details, read and respond to review comments, and check out a PR's branch locally for testing.
+
+**Inline review comments.** When you check out a PR branch and open a file, review comments appear directly in the editor margin alongside the code they reference. This makes it much easier to understand the context of feedback without switching to the browser.
+
+**Create PRs from the editor.** After pushing a branch, you can open a new pull request directly from the Source Control panel or the GitHub Pull Requests panel, without navigating to GitHub in the browser.
+
+**Issue management from the editor.** The extension also surfaces GitHub Issues directly in the editor. You can browse open issues, create new ones, and interact with existing ones without leaving Positron or VS Code. When writing commit messages or PR descriptions, typing `#` triggers an autocomplete list of open issues, making it easy to link your work to the relevant issue.
+
+
+::: {.callout-note}
+
+The GitHub Pull Requests extension may still have rough edges, particularly in Positron, where support is newer. For example, at least one emLabber found that responding to code review comments in a pull request worked better on github.com than through the extension. We recommend giving it a try and seeing how it fits into your process. You can always use the browser for any interactions that feel clunky in the extension.
+
+:::
+
