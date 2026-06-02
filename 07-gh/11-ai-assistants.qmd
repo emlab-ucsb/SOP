@@ -1,0 +1,63 @@
+# AI Coding Assistants
+
+AI coding assistants are optional tools for day-to-day code development. They are not a replacement for understanding what your code does, but they can meaningfully reduce the friction of routine tasks: writing boilerplate, explaining unfamiliar functions, suggesting fixes for common errors, and generating first drafts of code that you then review and revise. This section describes the two main options available to emLab researchers.
+
+
+## Posit Assistant
+
+[Posit Assistant](https://posit-dev.github.io/assistant/) is a data analysis assistant built for Positron and RStudio. It connects directly to your live R or Python session, which means it can see your loaded data and packages, run code in your environment, and generate suggestions that are specific to what you are actually working on -- not a generic approximation of it. This makes it meaningfully more useful for data analysis tasks than browser-based chat tools, which require copy-pasting code back and forth and have no awareness of your session state.
+
+Posit Assistant is available in the Assistant panel in Positron's Activity Bar. In RStudio, it appears as a chat panel after installation (see [RStudio setup](https://posit-dev.github.io/assistant/docs/downloads/rstudio/)).
+
+### What Posit Assistant can help with
+
+Posit Assistant is well-suited for the kinds of tasks that come up regularly in emLab research:
+
+- **Exploratory data analysis** -- summarizing datasets, checking data quality, visualizing relationships, and suggesting next steps
+- **Writing and editing code** -- generating functions, refactoring scripts, writing Shiny apps, editing code in Quarto documents
+- **Debugging** -- identifying and explaining errors in code
+- **Understanding unfamiliar code** -- explaining how a script or package works
+- **Creating reports** -- generating Quarto documents from a conversation using the `/report` command
+- **Talking through approaches** -- discussing analytical strategy, getting suggestions for alternatives, or working through unexpected results
+
+### Slash commands
+
+Posit Assistant supports slash commands that trigger specific actions. Type `/` in the chat input to see the full list. Particularly useful ones include:
+
+| Command | What it does |
+|---|---|
+| `/report` | Generates a Quarto document from the current conversation |
+| `/plan` | Enters a read-only planning mode to design an approach before making changes |
+| `/savememory` | Creates or updates an `AGENTS.md` project memory file so the assistant retains context across sessions |
+| `/compact` | Summarizes the conversation to reduce token usage when a session gets long |
+
+### Model provider and access
+
+Posit Assistant requires a model provider. The recommended option is **[Posit AI](https://posit.ai/)**, a managed service from Posit that provides access to frontier language models (currently Claude from Anthropic and Gemma from Google) through a single account, with no API keys to manage.
+
+In Positron, Posit AI is configured through **Configure Language Model Providers** in the Command Palette. Posit Assistant in Positron also supports direct API access to other providers including Anthropic, OpenAI, and Amazon Bedrock, if you prefer to use your own keys.
+
+**Pricing:** Posit AI offers a free trial, after which continued use requires a paid subscription ($20/month for the Pro plan, which includes a monthly credit allotment). Credit consumption varies by task complexity, response length, and model selection -- heavier agentic tasks or large codebases consume credits faster. See the [Posit AI FAQ](https://docs.posit.co/posit-ai/user/faq/) for a detailed breakdown of pricing and usage patterns. Check with emLab leadership or the data manager to see whether emLab has an organizational subscription.
+
+**Privacy:** Posit has a Zero Data Retention agreement with Anthropic, meaning prompts and outputs are not stored after the API response is returned. At account creation, users can opt in or out of data collection for service improvement purposes. See the [Posit AI FAQ](https://docs.posit.co/posit-ai/user/faq/#privacy-data-storage) for details.
+
+## GitHub Copilot
+
+[GitHub Copilot](https://github.com/features/copilot) is an AI coding assistant developed by GitHub and OpenAI. It is available as an extension in Positron and VS Code and integrates directly into the editing environment.
+
+**What Copilot does:**
+
+- **Autocomplete and inline suggestions.** As you type, Copilot suggests completions for the current line or block of code. These suggestions are based on the code in your current file and open files, as well as the broader context of the repository.
+- **Copilot Chat.** An in-editor chat interface where you can ask questions about your code, request explanations, ask for a function to be rewritten, or get help with errors. Chat can reference your current file, selected code, or the entire workspace.
+- **PR and commit assistance.** Copilot can suggest commit messages and PR descriptions based on the diff of your changes.
+- **Automated code review.** When enabled on a repository (see [Rulesets](07-rulesets.qmd)), Copilot will automatically review pull requests.
+
+**Access:** GitHub Copilot requires a subscription or an organization-level license. emLab members can apply for free access through the [GitHub Education](https://education.github.com) program. 
+
+**Getting started:** Install the **GitHub Copilot** and **GitHub Copilot Chat** extensions from the Extensions Marketplace. After installation, you will be prompted to sign in with your GitHub account. If your account does not have an active Copilot subscription, the extension will let you know.
+
+## Appropriate Use
+
+AI assistants can generate plausible-looking code that is wrong. This is particularly consequential in research settings, where a subtle analytical error can be hard to detect. The appropriate posture is to treat AI-generated code as a draft: review it carefully, test it, and do not commit it without understanding it. For anything involving statistical modeling, filtering and joins, or domain-specific logic, check the output against your own judgment.
+
+Posit has written practical guidance on working with AI assistants in data analysis contexts that is worth reading if you are new to using these tools: [AI Coding Assistants in Data Science](https://positron.posit.co/assistant.html).
