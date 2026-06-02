@@ -1,0 +1,5 @@
+# Public Repositories for Publications
+
+When an emLab project is published, a well-prepared public GitHub repository is often required by journals and expected by the scientific community. Preparing a public repository is its own process, distinct from maintaining the working project repository.
+
+See the [Preparing a Public GitHub Repository](../06-publications/public-github-repository.html) section of the Publications chapter for detailed guidance on what to include, how to organize it, and how to prepare your repository for public release alongside a manuscript.
