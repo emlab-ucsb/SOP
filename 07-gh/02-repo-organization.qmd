@@ -33,7 +33,11 @@ project-name/
 └── docs/                    # Reports, manuscripts, supplementary materials
 ```
 
-A few principles apply across project types:
+An R project that uses `targets` for pipeline management might have a slightly different structure, with an R/ directory for functions and a _targets.R file at the root that defines the workflow. 
+
+We are developing a repository template with a defined directory structure that you can use as a starting point for new emLab projects. To use the template, click **Use this template** on the **INSERT LINK** repository.
+
+A few principles apply for any project, regardless of the specific structure:
 
 **Raw data is read-only.** The `data/raw/` directory should contain data exactly as it came from its source. Scripts should never write to this directory. This makes it possible to re-run the entire pipeline from scratch and to verify that nothing was silently altered.
 
