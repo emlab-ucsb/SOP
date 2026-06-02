@@ -2,13 +2,13 @@
 
 A pull request (PR) is a request to merge changes from one branch into another. It is the mechanism through which code enters the `main` branch at emLab, and it is the standard venue for code review. All changes to `main` must come through a pull request.
 
-## What a Pull Request Does
+## What a pull request Does
 
 When you open a pull request on GitHub, you are saying: "Here are the changes on my branch -- I would like to merge them into `main`." GitHub shows a comparison between the two branches, displaying exactly which lines were added, removed, or modified in each file. Collaborators can comment on specific lines, ask questions, request changes, and ultimately approve the PR before it is merged.
 
 This process creates a permanent record. Anyone looking at the repository's history can see not just *what* changed, but the discussion that preceded the change, who reviewed it, and what concerns were raised or resolved.
 
-## Opening a Pull Request
+## Opening a pull request
 
 Once you have pushed your branch to GitHub, navigate to the repository on GitHub. You will typically see a banner offering to open a pull request for your recently pushed branch. Click it, or go to the **Pull requests** tab and click **New pull request**.
 
@@ -19,7 +19,7 @@ In the PR form:
 - **Title:** A concise description of what the PR accomplishes. Write it as a summary of the change, not a status update (e.g., "Add spatial aggregation step to SST pipeline" rather than "Working on SST").
 - **Description:** Describe what the PR does, why it is needed, and anything a reviewer should pay particular attention to. Link to any relevant issues with GitHub's shorthand (e.g., "Closes #42"). If the PR is not yet ready for review, open it as a **Draft PR** to signal that work is still in progress.
 
-## Reviewing a Pull Request
+## Reviewing a pull request
 
 When you are asked to review a PR, you are being asked to evaluate both the code and the analytical approach. A good review is thorough but constructive.
 
@@ -33,13 +33,13 @@ When reviewing, use line-level comments for specific issues and the general comm
 
 For emLab's code review guidelines and approval standards, see the [Code Review](../03-code/code-review.qmd) section of the SOP.
 
-## Responding to Review
+## Responding to review
 
 When a reviewer requests changes, address each comment with either a code change or an explanation of why you disagree. Use the **Resolve conversation** button on GitHub to indicate that a specific thread has been addressed. When all requested changes have been addressed, re-request the reviewer's attention.
 
 See the [Code Review](../03-code/code-review.qmd) section of the SOP for more details on the review process.
 
-## Merging a Pull Request
+## Merging a pull request
 
 Once a PR has been approved and any required checks have passed, it can be merged. GitHub offers three merge strategies:
 
@@ -49,12 +49,12 @@ Once a PR has been approved and any required checks have passed, it can be merge
 
 After merging, delete the branch. GitHub offers this option immediately after the merge.
 
-## Keeping Pull Requests Manageable
+## Keeping pull requests manageable
 
 A PR that touches dozens of files and hundreds of lines is difficult to review well. Reviewers confronted with a large PR tend to focus on surface issues (naming, style) and miss deeper problems (logic errors, incorrect assumptions).
 
 Where possible, structure your work so that individual PRs are focused and reviewable in a sitting. If a large body of work is necessary, consider breaking it into incremental PRs that build on one another.
 
-## Draft Pull Requests
+## Draft pull requests
 
 If you want feedback on work in progress -- or just want to make your branch visible to collaborators before it is ready to merge -- open it as a **Draft PR**. Draft PRs appear on the pull request list but cannot be merged until they are marked as ready for review. They are useful for early-stage discussion and for signaling that a branch is actively being worked on.

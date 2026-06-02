@@ -1,8 +1,8 @@
-# Getting Set Up
+# Getting set up
 
 Before you can contribute code to an emLab project, you need three things in place: git installed on your machine, a GitHub account, and membership in the emLab GitHub organization.
 
-## Installing Git
+## Installing git
 
 Git is the version control system that underlies everything on GitHub. It runs locally on your computer and tracks changes to files in a repository.
 
@@ -69,11 +69,11 @@ git config --global user.email "you@example.com"
 
 Use the email address associated with your GitHub account.
 
-## Creating a GitHub Account
+## Creating a GitHub account
 
 If you do not already have a GitHub account, create one at [github.com](https://github.com). Use an email address you will have long-term access to, since your GitHub account can persist beyond your time at emLab.
 
-## Joining the emLab GitHub Organization
+## Joining the emLab GitHub organization
 
 All emLab repositories live under the [emlab-ucsb](https://github.com/emlab-ucsb) organization on GitHub. Send Erin O'Reilly a Slack message to request an invitation. You will receive an email from GitHub with a link to accept.
 
@@ -91,7 +91,7 @@ To push and pull code between your local machine and GitHub, you need to authent
 
 Note that GitHub no longer accepts your account password for command-line git operations. You must use a PAT (for HTTPS) or an SSH key pair.
 
-### HTTPS: Personal Access Token
+### HTTPS: personal access token
 
 #### Generate a PAT
 
@@ -136,7 +136,7 @@ usethis::edit_r_environ()
 
 Restart R after editing `.Renviron`. Take care that this file never gets pushed to GitHub or synced to cloud storage.
 
-### SSH: Key Pairs
+### SSH: key pairs
 
 SSH authentication uses a cryptographic key pair: a private key that stays on your machine and a public key that you register with GitHub. If you already have experience with SSH or anticipate working across many repositories, SSH is worth setting up.
 

@@ -1,10 +1,10 @@
-# Effective Workflows
+# Effective workflows
 
 The previous sections cover the individual mechanics of git and GitHub in isolation: how to make a commit, how to open a pull request, how to use branches. This section shows how those pieces fit together in practice, for two common situations: a single researcher developing code on their own, and a team collaborating on shared code.
 
 All of the git operations described here can be run from the terminal or through the graphical git interfaces built into Positron, VS Code, and RStudio. In Positron and VS Code, the Source Control panel (the branching icon in the Activity Bar) handles staging, committing, pushing, pulling, and branch switching. RStudio's Git pane covers the basics as well, but is more limited -- it works well for routine operations like staging, committing, and pushing, but falls short for anything more complex. For most day-to-day work the editor interfaces are convenient, but familiarity with the terminal commands is worth developing, since some situations (merge conflicts, rebasing, stashing) are easier or only possible to handle there.
 
-## Individual Code Development
+## Individual code development
 
 When you are the only person actively writing code on a project, the workflow is relatively simple. The main goal is to maintain a clean `main` branch, commit changes regularly and with useful messages, and keep the repository in a state where someone else (or your future self) could pick it up and understand it.
 
@@ -42,7 +42,7 @@ git push -u origin add-spatial-aggregation
 
 The rhythm of this workflow produces a `main` branch whose history reads like a sequence of coherent contributions, with each PR representing one unit of work. This makes it far easier to locate when and why a specific change was made, months or years later.
 
-## Collaborative Code Development
+## Collaborative code development
 
 When multiple people are contributing to the same repository, the same basic mechanics apply, but coordination becomes more important. 
 

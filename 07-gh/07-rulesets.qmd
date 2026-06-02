@@ -2,11 +2,11 @@
 
 [GitHub Rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) allow you to enforce specific rules on branches and tags at the repository level. At emLab, we use rulesets primarily to protect the `main` branch: preventing direct pushes, requiring pull request reviews, and optionally enabling automated code review.
 
-## Why Protect Main
+## Why protect the `main` branch?
 
 The `main` branch is the primary record of the project. It should always be in a working state, and ideally, every change to it should have passed through some form of deliberate review. Without branch protection, it is easy to accidentally push directly to `main`, bypass review, or merge changes that have not been inspected.
 
-## Setting Up a Ruleset
+## Setting up a ruleset
 
 To add a ruleset to a repository, navigate to **Settings > Rules > Rulesets** and click **New ruleset > New branch ruleset**.
 
@@ -24,7 +24,7 @@ At a minimum, enable all three of the above. These settings ensure that nothing 
 
 **Bypass list:** You can optionally add organization owners or repository admins to a bypass list, allowing them to push directly to `main` in exceptional circumstances. Use this sparingly.
 
-## Automatic Copilot Code Review
+## Automatic Copilot code review
 
 GitHub Copilot includes an automated code review feature that can be enabled on pull requests. When enabled, Copilot will automatically review new PRs and leave comments on potential issues, stylistic concerns, and code quality problems.
 
@@ -32,7 +32,7 @@ To enable it, navigate to **Settings > Copilot** in the repository and turn on *
 
 Copilot's automated reviews are a useful first pass, but they do not replace human review. They tend to catch surface-level issues, but will miss analytical errors, conceptual mistakes, or context-specific problems that require domain knowledge. 
 
-## Checking Your Ruleset Configuration
+## Checking Your ruleset configuration
 
 After creating a ruleset, test it by attempting to push directly to `main` from a local clone. You should receive an error like:
 

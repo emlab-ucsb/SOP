@@ -1,4 +1,4 @@
-# Working with Branches
+# Working with branches
 
 Branch-based development is a universal requirement for all emLab coding projects. **All code development happens on a separate branch, so that we don't commit directly to `main`.**
 
@@ -8,7 +8,7 @@ Branches are also what make code review possible. When development happens on a 
 
 All of the git operations described here can be performed either from the terminal or through the graphical git integrations built into Positron, VS Code, and RStudio -- we will note both where relevant.
 
-## What a Branch Is
+## What a branch is
 
 Imagine your repository's commit history as a sequence of snapshots, each one building on the one before it:
 
@@ -26,7 +26,7 @@ A --- B --- C --- D           (main)
 
 `main` and `my-branch` now have independent histories. Changes you make on `my-branch` do not affect `main` until you explicitly merge them in.
 
-## Why We Don't Commit Directly to Main
+## Why we don't commit directly to main
 
 `main` is the stable, reviewed record of the project that should always be in a runnable, working state. When code goes directly to `main` without review, mistakes can indavertently become part of that permanent record immediately. Branch-based development creates a checkpoint for reviewing the code. You do the work on a branch, open a pull request, get a review, and then merge. Nothing lands on `main` without passing through that step. 
 
@@ -34,7 +34,7 @@ This applies even when you are working alone. Solo projects benefit from the hab
 
 At emLab, `main` is protected by a ruleset that prevents direct pushes. If you try to push to `main`, you will see an error. That is expected -- create a branch instead.
 
-## The Basic Workflow
+## The basic workflow
 
 Here is what branch-based development looks like in practice, from start to finish.
 
@@ -117,7 +117,7 @@ After the pull request is merged, the branch can be deleted. GitHub offers to do
 git branch -d my-branch-name
 ```
 
-## Switching Between Branches
+## Switching between branches
 
 You can switch to any branch at any time from the terminal:
 
@@ -136,7 +136,7 @@ git switch main
 git stash pop        # Restore the changes when you come back
 ```
 
-## Keeping Your Branch Up to Date
+## Keeping your branch up to date
 
 If `main` receives new commits while you are working on your branch -- because a collaborator merged their work, for example -- you should pull those changes into your branch periodically:
 
@@ -147,13 +147,13 @@ git merge main
 
 Doing this regularly, rather than waiting until you are ready to merge, keeps conflicts small and manageable. The longer a branch diverges from `main`, the harder the eventual merge tends to be.
 
-## Branch Scope 
+## Branch scope 
 
 Branches work best when they are focused and short-lived. A branch that represents one task -- one issue, one analysis step, one bug fix -- is easy to review and straightforward to merge. A branch that has accumulated two months of wide-ranging changes is difficult to review well and likely to have conflicts.
 
 If a task is genuinely large, break it into smaller branches that build on each other and can be merged sequentially. This keeps the review load reasonable and keeps `main` moving forward in understandable increments.
 
-## Git Command Summary
+## Git command summary
 
 | Action | Command |
 |---|---|
