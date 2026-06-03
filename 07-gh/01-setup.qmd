@@ -221,6 +221,58 @@ You should see a message confirming your username.
 
 Unlike HTTPS with a PAT, SSH does not automatically authenticate R packages that call the GitHub API. If you use SSH for git operations, you will still need a PAT stored in your credential store for packages like `usethis`, `remotes`, and `pak` to work. This is one reason HTTPS is often the simpler choice.
 
+## Starting a new git-tracked repository
+
+When starting a project from scratch, you can initialize git tracking directly from your IDE.
+
+### In Positron
+
+1. Open Positron and create a new directory for your project: `File > Open Folder...` (or choose an empty folder you've already created).
+2. Open the Source Control view in the left Activity Bar (or use the shortcut `Ctrl+Shift+G` on Windows/Linux or `Ctrl+Shift+G` on macOS).
+3. Click the `Initialize Repository` button. This runs git init behind the scenes.
+4. Create an initial file (like a `README.md` or `.gitignore`), stage it, and make your first commit in the Source Control panel.
+
+### In RStudio
+
+1. Go to `File > New Project...`
+2. Choose `New Directory`, then `New Project`.
+3. Choose a directory name and subdirectory.
+4. Check the box for `Create a git repository`.
+5. Click `Create Project`. RStudio will initialize the repo and restart itself within the new project.
+
+## Cloning an existing repository
+
+To work on an existing emLab project, you will need to "clone" it, which downloads a local copy of the repository to your machine and links it to the remote version on GitHub.
+
+### Step 1: Copy the repository URL from GitHub
+
+1. Navigate to the repository on GitHub (e.g., under the `emlab-ucsb` organization).
+2. Click the green `Code` button in the upper right.
+3. Select the `SSH` tab (if you set up SSH keys) or the `HTTPS` tab (if you set up a PAT).
+4. Click the `Copy` icon next to the URL.
+
+  - An SSH URL will look like: `git@github.com:emlab-ucsb/repo-name.git`
+
+  - An HTTPS URL will look like: `https://github.com/emlab-ucsb/repo-name.git`
+
+### Step 2: Clone the repository into your IDE
+
+#### In Positron
+
+1. Go to `File > New Folder from Git...` (or click the New dropdown menu and select New Folder from Git...).
+2. In the `New Folder from Git` dialog box, paste the repository URL you copied from GitHub.
+3. Choose the local destination where you want to store the project folder. We recommend using a dedicate github directory, e.g. `/Users/yourname/github/` on a Mac, to keep all your repositories organized in one place. Avoid saving repositories inside cloud-synced folders (like Google Drive, iCloud, or Dropbox) to prevent sync conflicts with Git.
+4. Click `OK` to clone the repository and let Positron open the folder.
+
+#### In RStudio
+
+1. Go to `File > New Project...`
+2. Select `Version Control`.
+3. Select `Git`.
+4. In the ``Repository URL` field, paste the URL you copied from GitHub.
+5. The Project directory name will auto-populate. Choose where you want to store the project on your local machine in the Create project as subdirectory of field. We recommend using a dedicate github directory, e.g. `/Users/yourname/github/` on a Mac, to keep all your repositories organized in one place. Avoid saving repositories inside cloud-synced folders (like Google Drive, iCloud, or Dropbox) to prevent sync conflicts with Git.
+6. Click `Create Project`.
+
 ## Resources
 
 Getting comfortable with git and GitHub takes time. The following resources are recommended starting points, particularly for researchers coming to version control for the first time:
