@@ -69,6 +69,10 @@ explicit and logs how many rows are removed at each step.
 
 For the majority of commits, a one-line subject is sufficient. Reserve the body for changes that require explanation.
 
+If your project uses GitHub Issues, you can reference the relevant issue in the commit message with `#issue-number` (e.g., `Add initial data visualization for mapping fishing effort (#42)`). This creates a link between the commit and the issue. You can even use your commit message to close an issue by adding `Closes` (e.g.,  `Add initial data visualization for mapping fishing effort (Closes #42)`). This will automatically close the issue when the commit is merged into `main`.
+
+If you use Positron or VS Code and have GitHub Co-Pilot enabled, you can get suggestions for commit messages based on the staged changes. This can be a helpful starting point, but always review and edit the suggested message to ensure it accurately reflects the change and provides useful context. To see a Co-Pilot suggestion, stage your changes and then click the "Generate commit message" button in the Source Control pane which looks like a small Sparkle icon.
+
 ## Commit frequency
 
 Commit often enough that individual commits are meaningful, but not so infrequently that a single commit contains a week's worth of work. A reasonable heuristic: commit whenever you complete a coherent unit of work and the code is in a state where it runs (or at minimum, you understand why it does not).
