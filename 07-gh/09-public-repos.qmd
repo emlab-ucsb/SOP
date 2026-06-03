@@ -2,4 +2,128 @@
 
 When an emLab project is published, a well-prepared public GitHub repository is often required by journals and expected by the scientific community. Preparing a public repository is its own process, distinct from maintaining the working project repository.
 
-See the [Preparing a Public GitHub Repository](../06-publications/public-github-repository.html) section of the Publications chapter for detailed guidance on what to include, how to organize it, and how to prepare your repository for public release alongside a manuscript.
+## Sanitizing the repository
+
+When tracking a project, we'll usually end up with many small, meaningless commit messages such as "fixed typo", "fixed bug", or "actually fixed bug". While these small incremental changes allow us to revert back during the production process, in the end, we may not want to have the full list of bug fixes and meaningless commit messages visible. Thankfully, Git allows us to clean things up a bit using `git rebase`. Here's an example of what your code might look like:
+
+```
+871adf OK, plot actually done       --- newer commit
+0c3317 Whoops, not yet...
+87871a Plot finalized
+afb581 Fix this and that
+4e9baa Fixed typo on x-axis
+d94e78 Plot model output
+6394dc Fixing model                 --- older commit
+```
+
+The top 6 commit messages are all related to each other. And, had you been making this plot at 9 am and not 3 pm, it would all have been a single push. Instead, we might want this to look like this:
+
+```
+871adf OK, plot actually done       --- newer commit -┐
+0c3317 Whoops, not yet...                             |
+87871a Plot finalized                                 |
+afb581 Fix this and that                              | ---- Join all this into one
+4e9baa Fixed typo on x-axis                           |
+d94e78 Plot model output           -------------------┘
+6394dc Fixing model                 --- older commit
+```
+
+In this case, we want to merge the last 6 commits into one. We want it to look like this in the end:
+
+```
+84d1f8 Plot model output                          --- newer commit (result of rebase, combining 6 messages)
+6394dc Fixing model                               --- older commit
+```
+
+We can do so by running the following line:
+
+```bash
+git rebase --interactive HEAD~6
+```
+
+Notice that I've specified the value `6` after the argument `HEAD~`. If you don't want to count the number of commits, you can simply reference the last commit (by its hash) that you want to leave out. For example, we wanted to leave out the `Fixing model` commit, with hash (`6394dc`). Therefore, we can also run:
+
+```bash
+git rebase --interactive 6394dc
+```
+
+Whichever way you go, your predetermined text editor will open. You'll see a list of commits, containing the ones you want. (Head's up, the older one will be on top). At the bottom of the page, you'll see the following list of possible instructions:
+
+```
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+# .       create a merge commit using the original merge commit's
+# .       message (or the oneline, if no original merge commit was
+# .       specified). Use -c <commit> to reword the commit message.
+```
+
+You'll need to preface the hash with whichever command (or shortcut) you want to use. You might want to reword a commit (i.e. remove all those "F%@#!!"), so you'll use `r`. You might want to pick the head of the commit, so you'll use `p`. You might want to squash multiple commits into one, so you'll use `s`. In the example above, you'll have to edit the first word of each hash to make it look like this:
+
+```
+pick d94e78 Plot model output            --- older commit
+s 4e9baa Fixed typo on x-axis
+s afb581 Fix this and that
+s 87871a Plot finalized
+s 0c3317 Whoops, not yet...
+s 871adf OK, plot actually done          --- newer commit
+```
+
+Now, simply save and close the file; you'll be prompted back to your command line. The next thing to do is to give the new commit a name. Your editor will pop up. You can use the default message, or replace it with something like "Plot model output". Save the file, close it, and push your changes. You can read much more about this on Git's help page for [Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) (sounds cool, right?).
+
+
+## Archiving a repository with Zenodo
+
+Many journals now require a persistent, citable archive of the code and data accompanying a paper. [Zenodo](https://zenodo.org) is a free, open-access repository hosted by CERN that integrates directly with GitHub and issues a DOI for each release.
+
+### Linking your GitHub repository to Zenodo
+
+Zenodo provides [official documentation on GitHub integration](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content) for citable releases. The steps below summarize the process:
+
+1. Go to [zenodo.org](https://zenodo.org) and log in with your GitHub account.
+2. Navigate to your account settings and select **GitHub** under the "Linked accounts" section.
+3. Find your repository in the list and toggle it **on**. Zenodo will now watch for new releases.
+
+### Creating a release to trigger archiving
+
+Once the repository is linked, every GitHub release you create will be automatically archived in Zenodo and assigned a DOI.
+
+1. On GitHub, navigate to your repository and click **Releases → Draft a new release**.
+2. Choose a tag (e.g., `v1.0.0`) and write a brief description of what the release represents (e.g., "Code and data for manuscript submission").
+3. Click **Publish release**. Zenodo will automatically archive a snapshot of the repository at that point in time.
+4. Visit your [Zenodo uploads](https://zenodo.org/me/uploads) page to confirm the archive was created and to find the DOI.
+
+### Adding the DOI badge to your README
+
+Copy the DOI badge snippet from Zenodo and add it to the top of your `README.md`:
+
+```markdown
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+```
+
+Replace `XXXXXXX` with your actual Zenodo record ID.
+
+### Tips
+
+- **Archive early.** Create the first Zenodo release when you submit the paper, not after acceptance, so reviewers can access the archived code. After manuscript acceptance, you can create a final release with any final changes. This final release can then be linked and cited in your paper.
+- **Check your `.gitignore`.** Large data files excluded from the repository will not be included in the Zenodo archive. If those files are needed for reproducibility, consider uploading them directly to Zenodo as additional files in the record.
+- Zenodo versions releases separately, so if you need to correct something after publication, you can push a new release and get a new DOI while the original record remains intact.
+
+## Example public repositories
+
+When in doubt, look to these emLab papers for examples of publically-released Zenodo reproducibility repositories:
+
+- **[Protecting marine mammals, turtles, and birds by rebuilding global fisheries](https://www.science.org/doi/10.1126/science.aao4248)** (Burgess et al. 2018) — [GitHub](https://github.com/grantmcdermott/bycatch) | [Zenodo](https://doi.org/10.5281/zenodo.1188538)
+
+- **[Global expansion of marine protected areas and the redistribution of fishing effort](https://www.pnas.org/doi/10.1073/pnas.2400592121)** (McDonald et al. 2024) — [GitHub](https://github.com/emlab-ucsb/mpa-fishing-effort-redistribution) | [Zenodo](https://zenodo.org/records/11625791)
+
+- **[Little-to-no industrial fishing occurs in fully and highly protected marine areas](https://www.science.org/doi/10.1126/science.adt9009)** (Raynor et al. 2025) — [GitHub](https://github.com/emlab-ucsb/dark-targets-mpa-analysis) | [Zenodo](https://doi.org/10.5281/zenodo.15866359)
