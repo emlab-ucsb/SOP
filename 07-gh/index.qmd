@@ -25,5 +25,5 @@ Why Git and GitHub?
 - [Rulesets](07-rulesets.qmd) -- Protecting the main branch and enabling automated review.
 - [Effective workflows](08-workflows.qmd) -- What git-based development looks like in practice, for solo and collaborative work.
 - [Public repositories for publications](09-public-repos.qmd) -- How to prepare a repository for public release alongside a publication.
-- [GitHub Extensions](10-gh-extensions.qmd) -- Using GitHub's integrations in Positron and VS Code to streamline your workflow.
-- [AI coding assistants](11-copilot-claude.qmd) -- Optional AI coding assistants available through GitHub and Anthropic.
+- [GitHub Extensions in Positron and VS Code](10-gh-extensions.qmd) -- Using GitHub's integrations in Positron and VS Code to streamline your workflow.
+- [GitHub Copilot](11-github-ai-assistants.qmd) -- Optional AI coding assistants available through GitHub and Anthropic.

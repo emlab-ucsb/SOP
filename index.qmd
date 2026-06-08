@@ -42,6 +42,24 @@ Style, documentation, and reproducibility.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
+### [Git and GitHub](07-gh/index.qmd)
+
+Version control and collaboration from setup to workflows.
+
+- [Getting Set Up](07-gh/01-setup.qmd)
+- [Repository Organization](07-gh/02-repo-organization.qmd)
+- [Version Control with Commits](07-gh/03-commits.qmd)
+- [Using Issues](07-gh/04-issues.qmd)
+- [Working with Branches](07-gh/05-branches.qmd)
+- [Pull Requests](07-gh/06-pull-requests.qmd)
+- [Rulesets](07-gh/07-rulesets.qmd)
+- [Effective Workflows](07-gh/08-workflows.qmd)
+- [Public Repositories for Publications](07-gh/09-public-repos.qmd)
+- [GitHub Extensions in Positron and VS Code](07-gh/10-gh-extensions.qmd)
+- [GitHub Copilot](07-gh/11-github-ai-assistants.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-4}
 ### [Quarto](04-quarto/index.qmd)
 
 Authoring reproducible documents and websites.

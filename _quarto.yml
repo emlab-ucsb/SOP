@@ -40,6 +40,20 @@ website:
           - 03-code/package-reproducibility.qmd
           - 03-code/pipeline-reproducibility.qmd
           - 03-code/code-review.qmd
+      - section: "Git and GitHub"
+        href: 07-gh/index.qmd
+        contents:
+          - 07-gh/01-setup.qmd
+          - 07-gh/02-repo-organization.qmd
+          - 07-gh/03-commits.qmd
+          - 07-gh/04-issues.qmd
+          - 07-gh/05-branches.qmd
+          - 07-gh/06-pull-requests.qmd
+          - 07-gh/07-rulesets.qmd
+          - 07-gh/08-workflows.qmd
+          - 07-gh/09-public-repos.qmd
+          - 07-gh/10-gh-extensions.qmd
+          - 07-gh/11-github-ai-assistants.qmd
       - section: "Quarto"
         href: 04-quarto/index.qmd
         contents:
@@ -68,7 +82,6 @@ website:
           - 06-publications/publishing-data.qmd
           - 06-publications/public-github-repository.qmd
           - 06-publications/sharing-on-website.qmd
-      - 07-gh/index.qmd
 
 format:
   html:
