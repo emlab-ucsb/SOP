@@ -9,10 +9,10 @@ Why Git and GitHub?
 - **Enables collaboration** by letting multiple contributors work in parallel with branches, pull requests, and structured code review.
 - **Supports safer development** through branch protection and required code reviews before changes are merged.
 - **Strengthens project management** with Issues, milestones, labels, and project boards for planning and tracking work.
-- **Reduces risk of data loss** by backing up repositories remotely and enabling reliable rollback when mistakes happen.
+- **Reduces risk of data and code loss** by backing up repositories remotely and enabling reliable rollback when mistakes happen.
 - **Creates clear documentation of decisions** through commit messages, issue threads, and pull request conversations.
 - **Speeds onboarding** because new team members can quickly understand project history and current priorities.
-- **Supports open and reproducible science** by making methods, analysis code, and revision history accessible to collaborators and reviewers.
+- **Supports open and reproducible science** by making methods, analysis code, and revision history accessible to collaborators, reviewers, future researchers, and the public.
 
 **All emLab coding work must live in a repository under the [emlab-ucsb](https://github.com/emlab-ucsb) GitHub organization. The sections below cover everything you need to know, from initial setup through advanced workflows.**
 

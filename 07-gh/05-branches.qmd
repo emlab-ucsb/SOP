@@ -4,7 +4,7 @@ Branch-based development is a universal requirement for all emLab coding project
 
 Why? Working on a branch means your changes are isolated from the stable project until they are ready. If something goes wrong mid-development, like an approach that turns out not to work, or a bug that creeps into your code, it stays on your branch and never touches `main`. You can abandon the branch, start over, or take your time fixing things without disrupting anyone else or corrupting the project record. This isolation is what makes branch-based development a safer way to write code.
 
-Branches are also what make code review possible. When development happens on a branch, it can be proposed for merging through a **pull request**, the mechanism for code review at emLab. We'll discuss pull requests in the next section. Now, we'll cover what branches are, why we use them, and how to work with them in practice. 
+Branches are also what make code review possible. When development happens on a branch, it can be proposed for merging through a **pull request (PR)**, the mechanism for code review at emLab. We'll discuss pull requests in the next section. Now, we'll cover what branches are, why we use them, and how to work with them in practice. 
 
 All of the git operations described here can be performed either from the terminal or through the graphical git integrations built into Positron, VS Code, and RStudio -- we will note both where relevant.
 

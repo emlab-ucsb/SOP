@@ -1,6 +1,6 @@
 # Pull Requests
 
-A pull request (PR) is a request to merge changes from one branch into another. It is the mechanism through which code enters the `main` branch at emLab, and it is the standard venue for code review. All changes to `main` must come through a pull request.
+A pull request (PR) is a request to merge changes from one branch into another. It is the mechanism through which code enters the `main` branch of the project repository, and it is the standard venue for code review. All changes to `main` repositories in the emLab organization must come through a pull request.
 
 ## What a pull request Does
 
