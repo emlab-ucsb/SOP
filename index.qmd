@@ -42,61 +42,60 @@ Style, documentation, and reproducibility.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Git and GitHub](07-gh/index.qmd)
+### [Git and GitHub](04-gh/index.qmd)
 
 Version control and collaboration from setup to workflows.
 
-- [Getting Set Up](07-gh/01-setup.qmd)
-- [Repository Organization](07-gh/02-repo-organization.qmd)
-- [Version Control with Commits](07-gh/03-commits.qmd)
-- [Using Issues](07-gh/04-issues.qmd)
-- [Working with Branches](07-gh/05-branches.qmd)
-- [Pull Requests](07-gh/06-pull-requests.qmd)
-- [Rulesets](07-gh/07-rulesets.qmd)
-- [Effective Workflows](07-gh/08-workflows.qmd)
-- [Public Repositories for Publications](07-gh/09-public-repos.qmd)
-- [GitHub Extensions in Positron and VS Code](07-gh/10-gh-extensions.qmd)
-- [GitHub Copilot](07-gh/11-github-ai-assistants.qmd)
+- [Getting Set Up](04-gh/01-setup.qmd)
+- [Repository Organization](04-gh/02-repo-organization.qmd)
+- [Version Control with Commits](04-gh/03-commits.qmd)
+- [Using Issues](04-gh/04-issues.qmd)
+- [Working with Branches](04-gh/05-branches.qmd)
+- [Pull Requests](04-gh/06-pull-requests.qmd)
+- [Rulesets](04-gh/07-rulesets.qmd)
+- [Effective Workflows](04-gh/08-workflows.qmd)
+- [Public Repositories for Publications](04-gh/09-public-repos.qmd)
+- [GitHub Extensions in Positron and VS Code](04-gh/10-gh-extensions.qmd)
+- [GitHub Copilot](04-gh/11-github-ai-assistants.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Quarto](04-quarto/index.qmd)
+### [Quarto](05-quarto/index.qmd)
 
 Authoring reproducible documents and websites.
 
-- [Chunk Best Practices](04-quarto/chunk-best-practices.qmd)
-- [Figures, Tables, and References](04-quarto/figures-tables-references.qmd)
-- [Citations and Bibliography](04-quarto/citations-and-bibliography.qmd)
-- [Caching](04-quarto/caching.qmd)
-- [Using R targets](04-quarto/targets-integration.qmd)
-- [Publishing](04-quarto/publishing.qmd)
-- [Presentations](04-quarto/presentations.qmd)
+- [Chunk Best Practices](05-quarto/chunk-best-practices.qmd)
+- [Figures, Tables, and References](05-quarto/figures-tables-references.qmd)
+- [Citations and Bibliography](05-quarto/citations-and-bibliography.qmd)
+- [Caching](05-quarto/caching.qmd)
+- [Using R targets](05-quarto/targets-integration.qmd)
+- [Publishing](05-quarto/publishing.qmd)
+- [Presentations](05-quarto/presentations.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Servers](05-hpc/index.qmd)
+### [Servers](06-hpc/index.qmd)
 
 Running jobs on Sequoia and Quebracho.
 
-- [Resources and Software](05-hpc/resources-and-software.qmd)
-- [Getting Set Up](05-hpc/getting-set-up.qmd)
-- [Using Sequoia](05-hpc/using-sequoia.qmd)
-- [Using Quebracho](05-hpc/using-quebracho.qmd)
-- [Best Practices](05-hpc/best-practices-and-resource-allocation.qmd)
-- [Accessing Data](05-hpc/accessing-data.qmd)
-- [Accessing Code](05-hpc/accessing-code.qmd)
+- [Resources and Software](06-hpc/resources-and-software.qmd)
+- [Getting Set Up](06-hpc/getting-set-up.qmd)
+- [Using Sequoia](06-hpc/using-sequoia.qmd)
+- [Using Quebracho](06-hpc/using-quebracho.qmd)
+- [Best Practices](06-hpc/best-practices-and-resource-allocation.qmd)
+- [Accessing Data](06-hpc/accessing-data.qmd)
+- [Accessing Code](06-hpc/accessing-code.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### [Publications](06-publications/index.qmd)
+### [Publications](07-publications/index.qmd)
 
 Authorship, reports, and sharing outputs.
 
-- [Affiliation and Authorship](06-publications/affiliation-and-authorship.qmd)
-- [Reports](06-publications/reports.qmd)
-- [Publishing Data](06-publications/publishing-data.qmd)
-- [Public GitHub Repository](06-publications/public-github-repository.qmd)
-- [Sharing on Website](06-publications/sharing-on-website.qmd)
+- [Affiliation and Authorship](07-publications/affiliation-and-authorship.qmd)
+- [Reports](07-publications/reports.qmd)
+- [Publishing Data](07-publications/publishing-data.qmd)
+- [Sharing on Website](07-publications/sharing-on-website.qmd)
 :::
 
 ::::

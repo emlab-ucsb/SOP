@@ -57,7 +57,6 @@ Standard operating procedures for emLab projects:
     - Affiliation and Authorship
     - Reports
     - Publishing Data
-    - Public GitHub Repository
     - Sharing on Website
 
 

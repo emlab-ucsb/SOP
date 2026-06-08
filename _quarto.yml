@@ -41,47 +41,46 @@ website:
           - 03-code/pipeline-reproducibility.qmd
           - 03-code/code-review.qmd
       - section: "Git and GitHub"
-        href: 07-gh/index.qmd
+        href: 04-gh/index.qmd
         contents:
-          - 07-gh/01-setup.qmd
-          - 07-gh/02-repo-organization.qmd
-          - 07-gh/03-commits.qmd
-          - 07-gh/04-issues.qmd
-          - 07-gh/05-branches.qmd
-          - 07-gh/06-pull-requests.qmd
-          - 07-gh/07-rulesets.qmd
-          - 07-gh/08-workflows.qmd
-          - 07-gh/09-public-repos.qmd
-          - 07-gh/10-gh-extensions.qmd
-          - 07-gh/11-github-ai-assistants.qmd
+          - 04-gh/01-setup.qmd
+          - 04-gh/02-repo-organization.qmd
+          - 04-gh/03-commits.qmd
+          - 04-gh/04-issues.qmd
+          - 04-gh/05-branches.qmd
+          - 04-gh/06-pull-requests.qmd
+          - 04-gh/07-rulesets.qmd
+          - 04-gh/08-workflows.qmd
+          - 04-gh/09-public-repos.qmd
+          - 04-gh/10-gh-extensions.qmd
+          - 04-gh/11-github-ai-assistants.qmd
       - section: "Quarto"
-        href: 04-quarto/index.qmd
+        href: 05-quarto/index.qmd
         contents:
-          - 04-quarto/chunk-best-practices.qmd
-          - 04-quarto/figures-tables-references.qmd
-          - 04-quarto/citations-and-bibliography.qmd
-          - 04-quarto/caching.qmd
-          - 04-quarto/targets-integration.qmd
-          - 04-quarto/publishing.qmd
-          - 04-quarto/presentations.qmd
+          - 05-quarto/chunk-best-practices.qmd
+          - 05-quarto/figures-tables-references.qmd
+          - 05-quarto/citations-and-bibliography.qmd
+          - 05-quarto/caching.qmd
+          - 05-quarto/targets-integration.qmd
+          - 05-quarto/publishing.qmd
+          - 05-quarto/presentations.qmd
       - section: "Servers"
-        href: 05-hpc/index.qmd
+        href: 06-hpc/index.qmd
         contents:
-          - 05-hpc/resources-and-software.qmd
-          - 05-hpc/getting-set-up.qmd
-          - 05-hpc/using-sequoia.qmd
-          - 05-hpc/using-quebracho.qmd
-          - 05-hpc/best-practices-and-resource-allocation.qmd
-          - 05-hpc/accessing-data.qmd
-          - 05-hpc/accessing-code.qmd
+          - 06-hpc/resources-and-software.qmd
+          - 06-hpc/getting-set-up.qmd
+          - 06-hpc/using-sequoia.qmd
+          - 06-hpc/using-quebracho.qmd
+          - 06-hpc/best-practices-and-resource-allocation.qmd
+          - 06-hpc/accessing-data.qmd
+          - 06-hpc/accessing-code.qmd
       - section: "Publications"
-        href: 06-publications/index.qmd
+        href: 07-publications/index.qmd
         contents:
-          - 06-publications/affiliation-and-authorship.qmd
-          - 06-publications/reports.qmd
-          - 06-publications/publishing-data.qmd
-          - 06-publications/public-github-repository.qmd
-          - 06-publications/sharing-on-website.qmd
+          - 07-publications/affiliation-and-authorship.qmd
+          - 07-publications/reports.qmd
+          - 07-publications/publishing-data.qmd
+          - 07-publications/sharing-on-website.qmd
 
 format:
   html:
