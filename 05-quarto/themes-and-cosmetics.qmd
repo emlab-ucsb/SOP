@@ -1,0 +1,65 @@
+# Themes and dark mode
+
+A Quarto site's look is set in `_quarto.yml` under `format: html:`. emLab projects should default to a Bootswatch theme, expose a light/dark toggle, and honor the visitor's system color scheme.
+
+## Light/dark theme pair
+
+[Bootswatch](https://bootswatch.com/) ships pre-built Bootstrap themes that Quarto can use out of the box. To enable both light and dark variants, supply a two-item list to `theme`:
+
+```{.yaml filename="_quarto.yml"}
+format:
+  html:
+    respect-user-color-scheme: true
+    theme:
+      light: flatly
+      dark: darkly
+```
+
+* `light` / `dark` — any Bootswatch theme name. `flatly` (light) and `darkly` (dark) pair cleanly because they share the same accent palette; we use them on this SOP.
+* `respect-user-color-scheme: true` — at first load, pick the variant that matches the visitor's OS preference (the `prefers-color-scheme` media query). Without it, Quarto always starts in the light theme regardless of the visitor's setting.
+
+When both light and dark themes are configured, Quarto automatically injects a small toggle button in the navbar that visitors can use to override their default.
+
+## Customizing the accent color
+
+If the default Bootswatch palette is close to what you want but not quite, the lightest-touch option is to override Bootstrap's CSS variables in an `include-in-header` block. Targeting `.quarto-dark` lets you supply a separate value for dark mode:
+
+```{.yaml filename="_quarto.yml"}
+format:
+  html:
+    include-in-header:
+      - text: |
+          <style>
+            a, a:visited { color: #2aa198; }
+            a:hover, a:focus { color: #1f7f78; }
+            .quarto-dark a, .quarto-dark a:visited { color: #5ec8c0; }
+            .quarto-dark a:hover, .quarto-dark a:focus { color: #8fdcd5; }
+          </style>
+```
+
+For more invasive changes, ship a `custom.scss` file alongside the theme list (`theme: [flatly, custom.scss]`) and override Bootstrap's Sass variables directly. This is the path to take if you need to tweak typography, spacing, or shadows beyond what CSS variables expose.
+
+## Tables and other widgets in dark mode
+
+Most Bootswatch themes restyle Bootstrap tables for dark mode automatically. Widgets rendered by R packages (e.g. `DT::datatable()`, `plotly`, `gt`) draw their own chrome and will *not* pick up the dark theme on their own. If you use one of those widgets in a document, add a `.quarto-dark`-scoped CSS rule that recolors the wrapper. For `DT`, that looks like:
+
+```{.css}
+.quarto-dark .dataTables_wrapper,
+.quarto-dark table.dataTable,
+.quarto-dark table.dataTable tbody td,
+.quarto-dark table.dataTable thead th {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: var(--bs-border-color);
+}
+```
+
+Inline `<code>` is another common stumbling block — by default the dark theme pairs pink text with a light pink background, which is unreadable. The SOP works around this in `_quarto.yml`:
+
+```{.css}
+.quarto-dark :not(pre) > code {
+  color: #e83e8c !important;
+  background-color: #2b2b2b !important;
+  border: none !important;
+}
+```

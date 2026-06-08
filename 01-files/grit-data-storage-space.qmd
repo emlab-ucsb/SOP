@@ -192,4 +192,4 @@ relatively straightforward with the metadata file and a single csv file.
 However, the folder containing the RAM database is more complicated as
 this is a dataset that is re-released every so often as a new version.
 Specific guidelines for organizing different types of data within the
-`emlab/data` folder are discussed in detail in the [Data](../02-data/index.qmd) chapter.
+`emlab/data` folder are discussed in detail in the [Data](../02-data/index.qmd) section.

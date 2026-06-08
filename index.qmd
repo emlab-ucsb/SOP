@@ -3,6 +3,12 @@
 # emLab SOP
 :::
 
+::: {.lead}
+The Environmental Markets Lab (emLab) Standard Operating Procedures collect the conventions that keep our research reproducible, well organized, and easy to collaborate on.
+:::
+
+emLab is a research center at the University of California, Santa Barbara, working at the intersection of economics, environmental science, and policy. These pages are for everyone writing code or working with data at the lab, and they are meant to evolve with us. If you spot a gap or have a better way of doing something, [open an issue](https://github.com/emlab-ucsb/SOP/issues/new) to start the conversation, then send a pull request once we've agreed on the shape of the change.^[For day-to-day lab logistics — onboarding, meetings, GRIT account setup, and the like — see the separate [emLab Manual](https://emlab-ucsb.github.io/emlab-manual/).]
+
 :::: {.grid}
 
 ::: {.g-col-12 .g-col-md-4}
@@ -35,6 +41,7 @@ Style, documentation, and reproducibility.
 
 - [Code Styling](03-code/code-styling.qmd)
 - [Code Documentation](03-code/code-documentation.qmd)
+- [Functional Programming](03-code/functional-programming.qmd)
 - [Exploratory Data Analysis](03-code/eda.qmd)
 - [Package Reproducibility](03-code/package-reproducibility.qmd)
 - [Pipeline Reproducibility](03-code/pipeline-reproducibility.qmd)
@@ -69,6 +76,7 @@ Authoring reproducible documents and websites.
 - [Citations and Bibliography](05-quarto/citations-and-bibliography.qmd)
 - [Caching](05-quarto/caching.qmd)
 - [Using R targets](05-quarto/targets-integration.qmd)
+- [Themes and Dark Mode](05-quarto/themes-and-cosmetics.qmd)
 - [Publishing](05-quarto/publishing.qmd)
 - [Presentations](05-quarto/presentations.qmd)
 :::

@@ -1,8 +1,7 @@
 # Accessing data
 
-Please refer to [this
-section](https://emlab-ucsb.github.io/SOP/1.3-grit-data-storage-space.html#grit-data-storage-space)
-of the emLab SOP for a description of the data directory structure for
+Please refer to the [GRIT Data Storage Space](../01-files/grit-data-storage-space.qmd)
+section for a description of the data directory structure for
 our emLab GRIT data storage space.
 
 All data in the emLab GRIT data storage space can be directly accessed
@@ -11,9 +10,9 @@ the directory paths. All data in the `emlab/data` and
 `emlab/projects/current-projects` directory physically lives on
 high-speed hard drives attached to sequoia, so if you need to work on
 data in these directories, you will have the best computing performance
-when using sequoia. Please refer to [this
-section](https://emlab-ucsb.github.io/SOP/2.3-accessing-emlab-data-in-r.html)
-of the emLab SOP for a code snippet that can be used to directly access
+when using sequoia. Please refer to the
+[Accessing emLab Data in R](../02-data/accessing-emlab-data-in-r.qmd)
+section for a code snippet that can be used to directly access
 data on the server in R.
 
 In addition to having access to our emLab GRIT data storage space, which
