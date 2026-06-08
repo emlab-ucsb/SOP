@@ -1,0 +1,68 @@
+# GitHub Copilot
+
+GitHub Copilot is an optional AI coding assistant that can be useful for tasks such as:
+
+* drafting commit messages,
+* reviewing staged changes before committing,
+* summarizing pull requests,
+* identifying obvious issues during code review.
+
+Copilot should be treated as a complementary tool, not as a replacement for testing or human review. All contributors remain responsible for the correctness, reproducibility, and clarity of their code. This section describes how Copilot can be used by emLab researchers in the code development and code review processes. 
+
+### Getting set up
+
+emLab faculty, researchers, and students are eligible for free access to GitHub Copilot through GitHub Education.
+
+Setup:
+
+1. Apply for [GitHub Education](https://github.com/education).
+2. Verify academic affiliation.
+3. Once approved, [activate Copilot](https://github.com/settings/copilot)
+4. Enable Copilot Chat and Copilot code review features.
+
+### Using Copilot in Positron
+
+In Positron, Copilot is accessed through [Posit Assistant](https://positron.posit.co/assistant), which is preinstalled in recent versions. In the Posit Assistant settings, select Configure Language Model Providers, select GitHub Copilot and authenticate with GitHub. For more information, see the [Posit documentation for getting started with Posit Assistant](https://posit-dev.github.io/assistant/docs/getting-started/).
+
+### Using Copilot in RStudio
+
+RStudio includes native Copilot support in recent releases. To set it up, navigate to Tools → Global Options → Assistant and select GitHub Copilot, and authorize access with GitHub. For more information, see the [Copilot section of the RStudio User Guide](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html).
+
+### Drafting commit messages
+
+After staging changes, Copilot can generate a draft commit message directly from the Git interface in your IDE. 
+To do so, click the ✨ (“sparkles”) button next to the commit message box in the Source Control panel in Positron or the Git pane in RStudio. **Generated commit messages should always be reviewed for clarity and scientific context.**
+
+### Pull Request review
+
+Copilot can review pull requests directly on GitHub.
+
+To request a Copilot review:
+
+1. Open the pull request on GitHub.
+2. Open the **Reviewers** menu in the right sidebar.
+3. Select **Copilot**.
+
+Copilot will add automated comments and suggested changes to the PR.
+
+Copilot reviews are best treated as an initial screening step, but should not be used as a replacement for human review. Copilot may catch typos, missing documentation, duplicated logic, unused code, or simple edge cases, but they often miss errors that require domain expertise. We always recommend code review from an emLab collaborator, but in cases where only self-review is possible, Copilot can be a useful complement.
+
+Repositories can also be configured so that GitHub Copilot automatically reviews *all* new pull requests. To enable automatic review, open the repository on GitHub and navigate to Settings → Copilot → Code Review.  
+Enable automatic Copilot reviews for pull requests. Once enabled, Copilot will automatically add review comments when PRs are opened or updated. However, automatic Copilot review can create unwanted clutter or noise, particularly through an overemphasis on code formatting/style and for PRs that are small, routine, or include rendered files. We do not recommend enabling automatic review without a carefully written `.github/copilot-instructions.md` file that suppresses unwanted feedback.
+
+
+### Repository-level instructions
+
+GitHub supports repository-specific Copilot instructions through a file named `.github/copilot-instructions.md`. To create this file, create a directory called `.github` in your root directory, if it doesn't already exist. Then, create a file called `copilot-instructions.md` and add clear instructions for the Copilot task.
+
+An example: 
+
+```markdown
+When reviewing pull requests:
+- Focus on correctness and reproducibility.
+- Ignore formatting already handled by linters.
+- Flag missing tests for new functionality.
+- Prefer concise, actionable comments.
+```
+
+For more information, see the [GitHub documentation on custom Copilot instructions](https://docs.github.com/en/copilot/tutorials/customization-library/custom-instructions/your-first-custom-instructions).
