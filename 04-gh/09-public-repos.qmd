@@ -98,7 +98,7 @@ Zenodo provides [official documentation on GitHub integration](https://docs.gith
 Once the repository is linked, every GitHub release you create will be automatically archived in Zenodo and assigned a DOI.
 
 1. On GitHub, navigate to your repository and click **Releases → Draft a new release**.
-2. Choose a tag (e.g., `v0.1.0`)^[While it is more commonplace among software developers than academics, we recommend using Semantic Versioning (https://semver.org)] and write a brief description of what the release represents (e.g., "Code and data for manuscript submission").
+2. Choose a tag (e.g., `v0.1.0`)^[While it is more commonplace among software developers than academics, we recommend using [Semantic Versioning](https://semver.org)] and write a brief description of what the release represents (e.g., "Code and data for manuscript submission").
 3. Click **Publish release**. Zenodo will automatically archive a snapshot of the repository at that point in time.
 4. Visit your [Zenodo uploads](https://zenodo.org/me/uploads) page to confirm the archive was created and to find the DOI.
 
