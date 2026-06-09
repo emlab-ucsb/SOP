@@ -41,10 +41,10 @@ The commit message is addressed to a reader -- a future collaborator, a reviewer
 
 A commit message has two parts: a subject line and an optional body.
 
-**The subject line** should be a concise summary of the change. It should be capitalized, written in the imperative mood (as though giving an instruction), ended without a period, and no longer than 50 characters.^[If you wish, see https://cbea.ms/git-commit/ for an explanation of the reasoning behind these rules.]  For example:
+**The subject line** should be a concise summary of the change. It should be capitalized, written in the imperative mood (as though giving an instruction), ended without a period, and no longer than 50 characters.^[If you wish, see [https://cbea.ms/git-commit/](https://cbea.ms/git-commit/) for an explanation of the reasoning behind these rules.]  For example:
 
 ```
-Filter observations with missing species ID before modeling
+Filter observations with missing species ID
 ```
 
 Rather than:
