@@ -75,7 +75,7 @@ Branch names should be short, lowercase, and descriptive. Use hyphens to separat
 
 ### Step 3: Do your work and commit
 
-Make your changes, stage them, and commit as you go. There is no need to finish all the work before making your first commit -- commit each logical unit of change as you complete it.
+Make your changes, stage them, and commit as you go. A branch should usually contain multiple commits with informative messages before you request review, because it helps your reviewers understand your thought process. Commit each logical unit of change as you complete it.
 
 In the terminal:
 

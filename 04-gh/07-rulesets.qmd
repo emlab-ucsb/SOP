@@ -32,7 +32,7 @@ To enable it, navigate to **Settings > Copilot** in the repository and turn on *
 
 Copilot's automated reviews are a useful first pass, but they do not replace human review. They tend to catch surface-level issues, but will miss analytical errors, conceptual mistakes, or context-specific problems that require domain knowledge. 
 
-## Checking Your ruleset configuration
+## Checking your ruleset configuration
 
 After creating a ruleset, test it by attempting to push directly to `main` from a local clone. You should receive an error like:
 

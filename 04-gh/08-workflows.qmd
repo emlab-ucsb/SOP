@@ -57,11 +57,11 @@ At the start of a project, the lead researcher or data manager should:
 
 ### Day-to-day collaboration
 
-Each team member works on their own branch, scoped to a specific task or analysis component. Branches are independent, so two people can be developing simultaneously without interfering with each other.
+Each team member works on their own branch, scoped to a specific task or analysis component. If multiple people are working on the same remote branch (on GitHub) from their local clones, you can end up with two divergent branch histories. Then, when you try to push your changes, you might run into "merge conflicts" even within a single branch. Keeping branches independent allows multiple teammates to develop code simultaneously without interfering with each other.
 
 A typical collaborative session:
 
-1. Open or claim a GitHub Issue for the task you are about to work on. This signals to your team that the work is in progress and prevents duplication.
+1. Open or claim (there is a link in the Issue information panel called "Assign to yourself") a GitHub Issue for the task you are about to work on. This signals to your team that the work is in progress and prevents unintentional redundancy.
 
 2. Pull the latest `main` and create a branch. Do this from your editor's branch picker and sync button, or from the terminal:
 
@@ -74,7 +74,9 @@ git switch -c fix-species-filter
 
 4. When the work is complete, open a pull request. Link it to the relevant Issue in the PR description. Assign a reviewer.
 
-5. Address any review comments, then merge the PR when approved. Close the associated issue.
+5. Address any review comments. Depending on the ruleset, you may need to re-request review to get approval before merging. 
+6. Once you have an approved version ready for deployment, merge the PR. 
+7. Check that Issues associated with the PR were closed automatically.
 
 6. The reviewer (or another team member) begins their next task from an updated `main`.
 
@@ -106,8 +108,7 @@ Once all conflicts in all affected files are resolved, stage the files and compl
 git add scripts/03_model.R
 git commit
 ```
-
-The best way to minimize conflicts is to keep branches short-lived and to merge `main` into your branch frequently. The longer a branch diverges from `main`, the more likely it is to accumulate conflicts.
+The best way to minimize conflicts is to keep branches short-lived, have different developers work on their own individual branches, and merge `main` into your branch frequently. The longer a branch diverges from `main`, the more likely it is to accumulate conflicts.
 
 ### Communication and documentation
 

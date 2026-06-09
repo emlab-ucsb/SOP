@@ -9,10 +9,10 @@ An issue is any discrete unit of work or discussion that the team wants to track
 - A task to be completed (e.g., "Add confidence intervals to Figure 3")
 - A bug or error to be fixed (e.g., "Filtering step drops NAs silently before merge")
 - A question or decision to be resolved (e.g., "Which spatial resolution should we use for the SST data?")
-- A feature or enhancement to a script or pipeline
+- A feature or enhancement for a script or pipeline
 - Notes from a meeting or conversation that should be preserved
 
-Issues are not limited to code problems. They can equally useful for preserving methodological discussions, data questions, and project logistics.
+Issues are not limited to code problems. They can be equally useful for preserving methodological discussions, data questions, and project logistics. Take note that if a private GitHub repository is made public, the issues in its history may become public also.
 
 ## Creating an issue
 
@@ -57,7 +57,6 @@ If an issue is resolved through discussion rather than a code change, close it m
 ## Issues and project boards
 
 For larger coding projects with many concurrent tasks, GitHub [Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) provides a customizable table, kanban-style board, or roadmap that organizes issues by status (e.g., To Do, In Progress, Done). This is optional, but can be useful for larger teams or projects that span multiple repositories.
-
 
 ## From issue to branch
 

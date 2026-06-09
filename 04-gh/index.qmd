@@ -5,12 +5,8 @@ Git and GitHub are universal requirements for all emLab coding projects. *Git* i
 Why Git and GitHub?
 
 - **Promotes transparency and reproducibility** by preserving a complete, time-stamped history of changes and making it easy to recover earlier versions.
-- **Improves code quality** by encouraging small, reviewable changes to code.
-- **Enables collaboration** by letting multiple contributors work in parallel with branches, pull requests, and structured code review.
-- **Supports safer development** through branch protection and required code reviews before changes are merged.
-- **Strengthens project management** with Issues, milestones, labels, and project boards for planning and tracking work.
-- **Reduces risk of data and code loss** by backing up repositories remotely and enabling reliable rollback when mistakes happen.
-- **Creates clear documentation of decisions** through commit messages, issue threads, and pull request conversations.
+- **Improves code quality** by protecting a working version as new features are developed and refined.
+- **Enables collaboration** by letting multiple contributors plan their approach and work in parallel with Issues, branches, pull requests, and structured code review.
 - **Speeds onboarding** because new team members can quickly understand project history and current priorities.
 - **Supports open and reproducible science** by making methods, analysis code, and revision history accessible to collaborators, reviewers, future researchers, and the public.
 
@@ -19,11 +15,11 @@ Why Git and GitHub?
 - [Getting set up](01-setup.qmd) -- Joining the emLab GitHub organization, installing git, and authenticating with GitHub.
 - [Repository organization](02-repo-organization.qmd) -- How to structure a repository and write an effective README.
 - [Version control with commits](03-commits.qmd) -- What commits are and how to write a good commit message.
-- [Using Issues](04-issues.qmd) -- How to use issues to track work, document decisions, and communicate within a project.
+- [Using Issues](04-issues.qmd) -- How to use GitHub Issues to track work, document decisions, and communicate within a project.
 - [Working with branches](05-branches.qmd) -- What branches are and how to use them in practice.
 - [Pull Requests](06-pull-requests.qmd) -- How to open, review, and merge a pull request.
 - [Rulesets](07-rulesets.qmd) -- Protecting the main branch and enabling automated review.
 - [Effective workflows](08-workflows.qmd) -- What git-based development looks like in practice, for solo and collaborative work.
 - [Public repositories for publications](09-public-repos.qmd) -- How to prepare a repository for public release alongside a publication.
 - [GitHub Extensions in Positron and VS Code](10-gh-extensions.qmd) -- Using GitHub's integrations in Positron and VS Code to streamline your workflow.
-- [GitHub Copilot](11-github-ai-assistants.qmd) -- Optional AI coding assistants available through GitHub and Anthropic.
+- [GitHub Copilot](11-github-ai-assistants.qmd) -- An optional AI coding assistant available through GitHub.

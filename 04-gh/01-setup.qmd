@@ -79,7 +79,7 @@ All emLab repositories live under the [emlab-ucsb](https://github.com/emlab-ucsb
 
 ### Base permissions
 
-Once you join the emlab GitHub organization, you have **read** access to all repositories in the organization by default. If you create a new repository in the organization, you will automatically have **admin** access and can grant additional permissions to specific team members on a per-repository basis. If you need write access to a repository and do not have it, ask the repository admin.
+Once you join the emlab GitHub organization, you have **read** access to all repositories in the organization by default. If you create a new repository in the organization, you will automatically have **admin** access and can grant additional permissions to specific team members or outside collaborators on a per-repository basis. If you need write access to a repository and do not have it, ask the repository admin.
 
 Organization owners can manage team membership and repository permissions through the organization's **People** and **Teams** settings pages on GitHub.
 
@@ -95,7 +95,7 @@ Note that GitHub no longer accepts your account password for command-line git op
 
 #### Generate a PAT
 
-The easiest way to generate a PAT is from R:
+The recommended way to generate a PAT is from R:^[this requires the `usethis` package, which can be installed from the R terminal with `install.packages("usethis")`
 
 ```r
 usethis::create_github_token()
@@ -104,6 +104,8 @@ usethis::create_github_token()
 This opens a pre-filled GitHub form with recommended scopes already selected (`repo`, `user`, `gist`, `workflow`). Review the scopes, give the token a descriptive name that identifies the computer or project it is for (e.g., `"work-macbook-pro"`), and set an expiration. GitHub recommends accepting the default 30-day expiration; you will regenerate it on that schedule, which also gives you a chance to verify the scopes are still appropriate.
 
 Click "Generate token" and copy it immediately -- you will not be able to see it again after leaving the page. If you use a password manager like 1Password, store it there as well.
+
+In lieu of the `usethis` package, you can create a PAT by navigating to the Developer Settings on your GitHub profile. You can review the [GitHub documentation for generating and saving a PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) and to learn more about this topic.
 
 #### Store the PAT
 
@@ -114,6 +116,8 @@ gitcreds::gitcreds_set()
 ```
 
 Paste the token when prompted. You can verify the stored credential at any time with `gitcreds::gitcreds_get()`, and run `usethis::git_sitrep()` for a broader diagnosis of your git and GitHub setup.
+
+You can also copy the token to your clipboard by clicking the copy icon.
 
 #### Renewing an expired PAT
 
@@ -261,7 +265,7 @@ To work on an existing emLab project, you will need to "clone" it, which downloa
 
 1. Go to `File > New Folder from Git...` (or click the New dropdown menu and select New Folder from Git...).
 2. In the `New Folder from Git` dialog box, paste the repository URL you copied from GitHub.
-3. Choose the local destination where you want to store the project folder. We recommend using a dedicate github directory, e.g. `/Users/yourname/github/` on a Mac, to keep all your repositories organized in one place. Avoid saving repositories inside cloud-synced folders (like Google Drive, iCloud, or Dropbox) to prevent sync conflicts with Git.
+3. Choose the local destination where you want to store the project folder. We recommend using a dedicated GitHub directory, e.g. `/Users/yourname/github/` on a Mac, to keep all your repositories organized in one place. Avoid saving repositories inside cloud-synced folders (like Google Drive, iCloud, or Dropbox) to prevent sync conflicts with Git.
 4. Click `OK` to clone the repository and let Positron open the folder.
 
 #### In RStudio
@@ -275,7 +279,7 @@ To work on an existing emLab project, you will need to "clone" it, which downloa
 
 ## Resources
 
-Getting comfortable with git and GitHub takes time. The following resources are recommended starting points, particularly for researchers coming to version control for the first time:
+Getting comfortable with Git and GitHub takes time. The following resources are recommended starting points, particularly for researchers coming to version control for the first time:
 
 - **Happy Git and GitHub for the useR** ([happygitwithr.com](https://happygitwithr.com)) -- The most practical introduction to git for R users. Covers installation, authentication, and daily workflows in detail.
 - **Pro Git** ([git-scm.com/book](https://git-scm.com/book/en/v2)) -- The comprehensive reference. Chapters 1-3 cover the fundamentals.
