@@ -6,7 +6,7 @@ combine,
 improve,
 and debug.**
 
-Functional programming is not a separate language or package — it is a way of structuring code, based on **applying functions to data**. A rudimentary example of a function in the programming sense is^[This section uses R code in [Quarto](../04-quarto/index.qmd) chunks, hence the `[1]` prefix.]
+Functional programming is not a separate language or package — it is a way of structuring code, based on **applying functions to data**. A rudimentary example of a function in the programming sense is^[This section uses R code in [Quarto](../05-quarto/index.qmd) chunks, hence the `[1]` prefix.]
 
 ```{r}
 #| label: sum-fun

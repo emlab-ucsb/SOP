@@ -26,7 +26,19 @@ Standard operating procedures for emLab projects:
     - Pipeline Reproducibility
     - Code Review
     - Exploratory Data Analysis
-4. Quarto
+4. Git and GitHub
+    - Getting Set Up
+    - Repository Organization
+    - Version Control with Commits
+    - Using Issues
+    - Working with Branches
+    - Pull Requests
+    - Rulesets
+    - Effective Workflows
+    - Public Repositories for Publications
+    - GitHub Extensions in Positron and VS Code
+    - AI Coding Assistants
+5. Quarto
     - Chunk Best Practices
     - Figures, Tables, and References
     - Citations and Bibliography
@@ -35,7 +47,7 @@ Standard operating procedures for emLab projects:
     - Themes and Dark Mode
     - Publishing
     - Presentations
-5. High Performance Computing
+6. High Performance Computing
     - Resources and Software
     - Getting Set Up
     - Using Sequoia
@@ -43,13 +55,11 @@ Standard operating procedures for emLab projects:
     - Best Practices and Resource Allocation
     - Accessing Data
     - Accessing Code
-6. Reports and Publications
+7. Reports and Publications
     - Affiliation and Authorship
     - Reports
     - Publishing Data
-    - Public GitHub Repository
     - Sharing on Website
-7. GitHub Repository
 
 
 ## Contributing

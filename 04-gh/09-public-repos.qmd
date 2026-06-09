@@ -1,20 +1,6 @@
-# Preparing a public GitHub repository
+# Public repositories for publications
 
-As with data, we strive to make all our code available. This provides a roadmap of converting input data into tangible results, which may be of interest for external people seeking to replicate our study or for internal emLabers seeking to understand what someone did a few years ago.
-
-## Documentation
-
-One of the most important things to include in the repo is a `README.md` file. This will be automatically displayed as rendered markdown on GitHub, and should provide a simple explanation of what's in the repo, how to run it, and how it was run in the past. If possible / necessary, you might want to include a file structure (Take a look at using [`startR::create_readme()`](https://github.com/jcvdav/startR) for automating this). If relevant, you might want to include the title of the paper / project, and a link to any online material (e.g. the publication itself).
-
-In paragraph or bullet-list form, make sure to specify the following:
-
-- Operative System(s) in which the project was run (e.g. `MacOSX Catalina` or `Ubuntu 18.4`)
-- The version of R /  STATA / MATLAB / Julia / Python... including major and minor (e.g. `R 3.6.2`)
-- Any special mentions of performance needed (e.g. "This analyses requires a machine with at least 32 GB RAM and 16 cores")
-- Link to any relevant data repositories
-- Any relevant contact information, should interested people have trouble running your code
-
-When in doubt, check out [the repository](https://github.com/grantmcdermott/bycatch) that Grant McDermott and Matt Burgess provided for their Science paper on [Effort reduction and bycatch](https://science.sciencemag.org/content/359/6381/1255).
+When an emLab project is published, a well-prepared public GitHub repository is often required by journals and expected by the scientific community. Preparing a public repository is its own process, distinct from maintaining the working project repository.
 
 ## Sanitizing the repository
 
@@ -93,3 +79,51 @@ s 871adf OK, plot actually done          --- newer commit
 ```
 
 Now, simply save and close the file; you'll be prompted back to your command line. The next thing to do is to give the new commit a name. Your editor will pop up. You can use the default message, or replace it with something like "Plot model output". Save the file, close it, and push your changes. You can read much more about this on Git's help page for [Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) (sounds cool, right?).
+
+
+## Archiving a repository with Zenodo
+
+Many journals now require a persistent, citable archive of the code and data accompanying a paper. [Zenodo](https://zenodo.org) is a free, open-access repository hosted by CERN that integrates directly with GitHub and issues a DOI for each release.
+
+### Linking your GitHub repository to Zenodo
+
+Zenodo provides [official documentation on GitHub integration](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content) for citable releases. The steps below summarize the process:
+
+1. Go to [zenodo.org](https://zenodo.org) and log in with your GitHub account.
+2. Navigate to your account settings and select **GitHub** under the "Linked accounts" section.
+3. Find your repository in the list and toggle it **on**. Zenodo will now watch for new releases.
+
+### Creating a release to trigger archiving
+
+Once the repository is linked, every GitHub release you create will be automatically archived in Zenodo and assigned a DOI.
+
+1. On GitHub, navigate to your repository and click **Releases → Draft a new release**.
+2. Choose a tag (e.g., `v0.1.0`)^[While it is more commonplace among software developers than academics, we recommend using Semantic Versioning (https://semver.org)] and write a brief description of what the release represents (e.g., "Code and data for manuscript submission").
+3. Click **Publish release**. Zenodo will automatically archive a snapshot of the repository at that point in time.
+4. Visit your [Zenodo uploads](https://zenodo.org/me/uploads) page to confirm the archive was created and to find the DOI.
+
+### Adding the DOI badge to your README
+
+Copy the DOI badge snippet from Zenodo and add it to the top of your `README.md`:
+
+```markdown
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+```
+
+Replace `XXXXXXX` with your actual Zenodo record ID.
+
+### Tips
+
+- **Archive early.** Create the first Zenodo release when you submit the paper, not after acceptance, so reviewers can access the archived code. After manuscript acceptance, you can create a final release with any final changes. This final release can then be linked and cited in your paper.
+- **Check your `.gitignore`.** Large data files excluded from the repository will not be included in the Zenodo archive. If those files are needed for reproducibility, consider uploading them directly to Zenodo as additional files in the record.
+- Zenodo versions releases separately, so if you need to correct something after publication, you can push a new release and get a new DOI while the original record remains intact.
+
+## Example public repositories
+
+When in doubt, look to these emLab papers for examples of publically-released Zenodo reproducibility repositories:
+
+- **[Protecting marine mammals, turtles, and birds by rebuilding global fisheries](https://www.science.org/doi/10.1126/science.aao4248)** (Burgess et al. 2018) — [GitHub](https://github.com/grantmcdermott/bycatch) | [Zenodo](https://doi.org/10.5281/zenodo.1188538)
+
+- **[Global expansion of marine protected areas and the redistribution of fishing effort](https://www.pnas.org/doi/10.1073/pnas.2400592121)** (McDonald et al. 2024) — [GitHub](https://github.com/emlab-ucsb/mpa-fishing-effort-redistribution) | [Zenodo](https://zenodo.org/records/11625791)
+
+- **[Little-to-no industrial fishing occurs in fully and highly protected marine areas](https://www.science.org/doi/10.1126/science.adt9009)** (Raynor et al. 2025) — [GitHub](https://github.com/emlab-ucsb/dark-targets-mpa-analysis) | [Zenodo](https://doi.org/10.5281/zenodo.15866359)

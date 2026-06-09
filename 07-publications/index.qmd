@@ -7,5 +7,4 @@ The pages below cover the conventions and tools we use when preparing emLab outp
 - **[emLab affiliation and author contribution](affiliation-and-authorship.qmd)** — recommended affiliation lines for emLab staff and the CRediT-based template for documenting author contributions.
 - **[Reports](reports.qmd)** — the emLab report template and uploading final reports to Zenodo.
 - **[Making your data publicly available](publishing-data.qmd)** — depositing data to Dryad alongside a publication.
-- **[Preparing a public GitHub repository](public-github-repository.qmd)** — what belongs in the README and how to clean up commit history before going public.
 - **[Sharing public data, Shiny apps, and tools on our website](sharing-on-website.qmd)** — letting Erin know so we can feature it.
