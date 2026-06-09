@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>emLab Standard Operating Procedures</title>
+<title>setup – emLab Standard Operating Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,31 +23,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -399,7 +434,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">emLab Standard Operating Procedures</a> 
+      <a href="../">emLab Standard Operating Procedures</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
     <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
@@ -410,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01-files/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../01-files/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Files</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -419,19 +454,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files/google-shared-drive.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-files/google-shared-drive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Google Drive</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files/grit-data-storage-space.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-files/grit-data-storage-space.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GRIT data storage space</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files/github-structure.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-files/github-structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub</span></a>
   </div>
 </li>
@@ -439,7 +474,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02-data/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../02-data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -448,37 +483,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/data-file-naming.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/data-file-naming.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data file naming</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/metadata.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Metadata</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/accessing-emlab-data-in-r.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/accessing-emlab-data-in-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accessing emLab data in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/tidy-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/tidy-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tidy data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/data-formats.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/data-formats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data formats</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/data-use-agreements-and-confidential-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/data-use-agreements-and-confidential-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Use Agreements and confidential data</span></a>
   </div>
 </li>
@@ -486,7 +521,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03-code/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../03-code/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -495,43 +530,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/code-styling.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/code-styling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code styling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/code-documentation.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/code-documentation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code documentation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/functional-programming.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/functional-programming.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functional programming</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/eda.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/eda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exploratory data analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/package-reproducibility.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/package-reproducibility.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Package and language version management</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pipeline reproducibility</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/code-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/code-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code review</span></a>
   </div>
 </li>
@@ -539,76 +574,76 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04-gh/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../04-gh/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/01-setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/01-setup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Getting set up</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/02-repo-organization.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/02-repo-organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Repository organization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/03-commits.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/03-commits.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Version control with commits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/04-issues.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/04-issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Issues</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/05-branches.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/05-branches.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Working with branches</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/06-pull-requests.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/06-pull-requests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pull Requests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/07-rulesets.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/07-rulesets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rulesets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/08-workflows.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/08-workflows.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Effective workflows</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/09-public-repos.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/09-public-repos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Public repositories for publications</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/10-gh-extensions.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/10-gh-extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Extensions in Positron and VS Code</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/11-github-ai-assistants.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/11-github-ai-assistants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Copilot</span></a>
   </div>
 </li>
@@ -616,7 +651,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./05-quarto/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../05-quarto/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -625,49 +660,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/chunk-best-practices.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/chunk-best-practices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chunk best practices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/figures-tables-references.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/figures-tables-references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Figures, tables, and cross-references</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/citations-and-bibliography.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/citations-and-bibliography.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Citations and bibliography</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/caching.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/caching.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Caching strategy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/targets-integration.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/targets-integration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrating with a targets pipeline</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Themes and dark mode</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/publishing.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/publishing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Publishing with Quarto books and GitHub Pages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/presentations.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/presentations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentations in Quarto</span></a>
   </div>
 </li>
@@ -675,7 +710,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./06-hpc/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../06-hpc/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Servers</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -684,43 +719,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/resources-and-software.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/resources-and-software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Available resources and software</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/getting-set-up.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/getting-set-up.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting set up</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/using-sequoia.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/using-sequoia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using sequoia</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/using-quebracho.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/using-quebracho.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using quebracho</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/best-practices-and-resource-allocation.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/best-practices-and-resource-allocation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Best practices and resource allocation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/accessing-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/accessing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accessing data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/accessing-code.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/accessing-code.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accessing code</span></a>
   </div>
 </li>
@@ -728,7 +763,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./07-publications/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../07-publications/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Publications</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -737,25 +772,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/affiliation-and-authorship.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/affiliation-and-authorship.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">emLab affiliation and author contribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/reports.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/reports.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reports</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/publishing-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/publishing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Making your data publicly available</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/sharing-on-website.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/sharing-on-website.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sharing public data, Shiny apps, and tools on our website</span></a>
   </div>
 </li>
@@ -774,113 +809,235 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="emlab-sop" class="level1 d-block d-lg-none">
-<h1>emLab SOP</h1>
+<section id="getting-set-up" class="level1">
+<h1>Getting set up</h1>
+<p>Before you can contribute code to an emLab project, you need three things in place: git installed on your machine, a GitHub account, and membership in the emLab GitHub organization.</p>
+<section id="installing-git" class="level2">
+<h2 class="anchored" data-anchor-id="installing-git">Installing git</h2>
+<p>Git is the version control system that underlies everything on GitHub. It runs locally on your computer and tracks changes to files in a repository.</p>
+<section id="do-you-already-have-git" class="level3">
+<h3 class="anchored" data-anchor-id="do-you-already-have-git">Do you already have git?</h3>
+<p>Open a terminal and run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you see a version number, git is already installed and you can skip ahead to configuring it. macOS users who do not have git may see an immediate offer to install command line developer tools – accept it.</p>
 </section>
-<div class="lead">
-<p>The Environmental Markets Lab (emLab) Standard Operating Procedures collect the conventions that keep our research reproducible, well organized, and easy to collaborate on.</p>
-</div>
-<p>emLab is a research center at the University of California, Santa Barbara, working at the intersection of economics, environmental science, and policy. These pages are for everyone writing code or working with data at the lab, and they are meant to evolve with us. If you spot a gap or have a better way of doing something, <a href="https://github.com/emlab-ucsb/SOP/issues/new">open an issue</a> to start the conversation, then send a pull request once we’ve agreed on the shape of the change.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="grid">
-<section id="files" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="files"><a href="./01-files/index.html">Files</a></h3>
-<p>Where things live and how they’re organized.</p>
+<section id="macos" class="level3">
+<h3 class="anchored" data-anchor-id="macos">macOS</h3>
+<p>The simplest option is to install the Xcode Command Line Tools, which include git. Run either of the following in a terminal to trigger the installer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Click “Install” when prompted. Note that after a macOS upgrade you may need to repeat this step and re-agree to the Xcode license.</p>
+<p>Two alternatives worth knowing:</p>
 <ul>
-<li><a href="./01-files/google-shared-drive.html">Google Shared Drive</a></li>
-<li><a href="./01-files/grit-data-storage-space.html">GRIT Data Storage Space</a></li>
-<li><a href="./01-files/github-structure.html">GitHub Structure</a></li>
+<li><strong>Direct download:</strong> <a href="http://git-scm.com/downloads">git-scm.com/downloads</a> provides the latest macOS git installer and is a good option if you want the most current version.</li>
+<li><strong>Homebrew:</strong> If you use <a href="https://brew.sh">Homebrew</a> as a package manager, <code>brew install git</code> works well and makes future updates easy.</li>
 </ul>
 </section>
-<section id="data" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="data"><a href="./02-data/index.html">Data</a></h3>
-<p>Naming, formats, metadata, and confidentiality.</p>
-<ul>
-<li><a href="./02-data/data-file-naming.html">Data File Naming</a></li>
-<li><a href="./02-data/metadata.html">Metadata</a></li>
-<li><a href="./02-data/accessing-emlab-data-in-r.html">Accessing emLab Data in R</a></li>
-<li><a href="./02-data/tidy-data.html">Tidy Data</a></li>
-<li><a href="./02-data/data-formats.html">Data Formats</a></li>
-<li><a href="./02-data/data-use-agreements-and-confidential-data.html">Data Use Agreements and Confidential Data</a></li>
-</ul>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows</h3>
+<p>The recommended approach is to install <a href="https://git-for-windows.github.io/">Git for Windows</a>, also known as Git Bash. This installs git in a location that other programs (including RStudio and Positron) can find it, and also provides a Bash shell environment.</p>
+<p>When the installer asks about “Adjusting your PATH environment”, select <strong>“Git from the command line and also from 3rd-party software”</strong>. Otherwise, the defaults are fine. Git is typically installed at <code>C:/Program Files/Git/bin/git.exe</code>.</p>
+<p>If you already have Git for Windows but want to update it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> update-git-for-windows</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="code" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="code"><a href="./03-code/index.html">Code</a></h3>
-<p>Style, documentation, and reproducibility.</p>
-<ul>
-<li><a href="./03-code/code-styling.html">Code Styling</a></li>
-<li><a href="./03-code/code-documentation.html">Code Documentation</a></li>
-<li><a href="./03-code/functional-programming.html">Functional Programming</a></li>
-<li><a href="./03-code/eda.html">Exploratory Data Analysis</a></li>
-<li><a href="./03-code/package-reproducibility.html">Package Reproducibility</a></li>
-<li><a href="./03-code/pipeline-reproducibility.html">Pipeline Reproducibility</a></li>
-<li><a href="./03-code/code-review.html">Code Review</a></li>
-</ul>
+<section id="linux" class="level3">
+<h3 class="anchored" data-anchor-id="linux">Linux</h3>
+<p>Install via your distribution’s package manager:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ubuntu or Debian</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install git</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fedora or RedHat</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> yum install git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For other distributions, see <a href="https://git-scm.com/download/linux">git-scm.com/download/linux</a>.</p>
 </section>
-<section id="git-and-github" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="git-and-github"><a href="./04-gh/index.html">Git and GitHub</a></h3>
-<p>Version control and collaboration from setup to workflows.</p>
-<ul>
-<li><a href="./04-gh/01-setup.html">Getting Set Up</a></li>
-<li><a href="./04-gh/02-repo-organization.html">Repository Organization</a></li>
-<li><a href="./04-gh/03-commits.html">Version Control with Commits</a></li>
-<li><a href="./04-gh/04-issues.html">Using Issues</a></li>
-<li><a href="./04-gh/05-branches.html">Working with Branches</a></li>
-<li><a href="./04-gh/06-pull-requests.html">Pull Requests</a></li>
-<li><a href="./04-gh/07-rulesets.html">Rulesets</a></li>
-<li><a href="./04-gh/08-workflows.html">Effective Workflows</a></li>
-<li><a href="./04-gh/09-public-repos.html">Public Repositories for Publications</a></li>
-<li><a href="./04-gh/10-gh-extensions.html">GitHub Extensions in Positron and VS Code</a></li>
-<li><a href="./04-gh/11-github-ai-assistants.html">GitHub Copilot</a></li>
-</ul>
+<section id="configuring-git-after-installation" class="level3">
+<h3 class="anchored" data-anchor-id="configuring-git-after-installation">Configuring git after installation</h3>
+<p>Once git is installed, tell it your name and email address. These appear in every commit you make:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"you@example.com"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use the email address associated with your GitHub account.</p>
 </section>
-<section id="quarto" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="quarto"><a href="./05-quarto/index.html">Quarto</a></h3>
-<p>Authoring reproducible documents and websites.</p>
-<ul>
-<li><a href="./05-quarto/chunk-best-practices.html">Chunk Best Practices</a></li>
-<li><a href="./05-quarto/figures-tables-references.html">Figures, Tables, and References</a></li>
-<li><a href="./05-quarto/citations-and-bibliography.html">Citations and Bibliography</a></li>
-<li><a href="./05-quarto/caching.html">Caching</a></li>
-<li><a href="./05-quarto/targets-integration.html">Using R targets</a></li>
-<li><a href="./05-quarto/themes-and-cosmetics.html">Themes and Dark Mode</a></li>
-<li><a href="./05-quarto/publishing.html">Publishing</a></li>
-<li><a href="./05-quarto/presentations.html">Presentations</a></li>
-</ul>
 </section>
-<section id="servers" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="servers"><a href="./06-hpc/index.html">Servers</a></h3>
-<p>Running jobs on Sequoia and Quebracho.</p>
-<ul>
-<li><a href="./06-hpc/resources-and-software.html">Resources and Software</a></li>
-<li><a href="./06-hpc/getting-set-up.html">Getting Set Up</a></li>
-<li><a href="./06-hpc/using-sequoia.html">Using Sequoia</a></li>
-<li><a href="./06-hpc/using-quebracho.html">Using Quebracho</a></li>
-<li><a href="./06-hpc/best-practices-and-resource-allocation.html">Best Practices</a></li>
-<li><a href="./06-hpc/accessing-data.html">Accessing Data</a></li>
-<li><a href="./06-hpc/accessing-code.html">Accessing Code</a></li>
-</ul>
+<section id="creating-a-github-account" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-github-account">Creating a GitHub account</h2>
+<p>If you do not already have a GitHub account, create one at <a href="https://github.com">github.com</a>. Use an email address you will have long-term access to, since your GitHub account can persist beyond your time at emLab.</p>
 </section>
-<section id="publications" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="publications"><a href="./07-publications/index.html">Publications</a></h3>
-<p>Authorship, reports, and sharing outputs.</p>
-<ul>
-<li><a href="./07-publications/affiliation-and-authorship.html">Affiliation and Authorship</a></li>
-<li><a href="./07-publications/reports.html">Reports</a></li>
-<li><a href="./07-publications/publishing-data.html">Publishing Data</a></li>
-<li><a href="./07-publications/sharing-on-website.html">Sharing on Website</a></li>
-</ul>
+<section id="joining-the-emlab-github-organization" class="level2">
+<h2 class="anchored" data-anchor-id="joining-the-emlab-github-organization">Joining the emLab GitHub organization</h2>
+<p>All emLab repositories live under the <a href="https://github.com/emlab-ucsb">emlab-ucsb</a> organization on GitHub. Send Erin O’Reilly a Slack message to request an invitation. You will receive an email from GitHub with a link to accept.</p>
+<section id="base-permissions" class="level3">
+<h3 class="anchored" data-anchor-id="base-permissions">Base permissions</h3>
+<p>Once you join the emlab GitHub organization, you have <strong>read</strong> access to all repositories in the organization by default. If you create a new repository in the organization, you will automatically have <strong>admin</strong> access and can grant additional permissions to specific team members or outside collaborators on a per-repository basis. If you need write access to a repository and do not have it, ask the repository admin.</p>
+<p>Organization owners can manage team membership and repository permissions through the organization’s <strong>People</strong> and <strong>Teams</strong> settings pages on GitHub.</p>
 </section>
-</div>
-
-
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>For day-to-day lab logistics — onboarding, meetings, GRIT account setup, and the like — see the separate <a href="https://emlab-ucsb.github.io/emlab-manual/">emLab Manual</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</section>
+<section id="authenticating-with-github" class="level2">
+<h2 class="anchored" data-anchor-id="authenticating-with-github">Authenticating with GitHub</h2>
+<p>To push and pull code between your local machine and GitHub, you need to authenticate. Git can communicate with GitHub over two protocols – HTTPS and SSH – and the credentials differ between them.</p>
+<p><strong>HTTPS with a personal access token (PAT) is the recommended starting point</strong>, and is what GitHub itself recommends. It is easier to get working quickly on all platforms and has the added benefit that the same credential works for R packages that call GitHub’s API (e.g., <code>usethis</code>, <code>gh</code>, <code>pak</code>). SSH is a fine alternative once you are more comfortable with the tooling, and some people prefer it. You can always switch protocols later, and even mix them across different repositories or computers.</p>
+<p>Note that GitHub no longer accepts your account password for command-line git operations. You must use a PAT (for HTTPS) or an SSH key pair.</p>
+<section id="https-personal-access-token" class="level3">
+<h3 class="anchored" data-anchor-id="https-personal-access-token">HTTPS: personal access token</h3>
+<section id="generate-a-pat" class="level4">
+<h4 class="anchored" data-anchor-id="generate-a-pat">Generate a PAT</h4>
+<p>The recommended way to generate a PAT is from R:^[this requires the <code>usethis</code> package, which can be installed from the R terminal with <code>install.packages("usethis")</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This opens a pre-filled GitHub form with recommended scopes already selected (<code>repo</code>, <code>user</code>, <code>gist</code>, <code>workflow</code>). Review the scopes, give the token a descriptive name that identifies the computer or project it is for (e.g., <code>"work-macbook-pro"</code>), and set an expiration. GitHub recommends accepting the default 30-day expiration; you will regenerate it on that schedule, which also gives you a chance to verify the scopes are still appropriate.</p>
+<p>Click “Generate token” and copy it immediately – you will not be able to see it again after leaving the page. If you use a password manager like 1Password, store it there as well.</p>
+<p>In lieu of the <code>usethis</code> package, you can create a PAT by navigating to the Developer Settings on your GitHub profile. You can review the <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic">GitHub documentation for generating and saving a PAT</a> and to learn more about this topic.</p>
+</section>
+<section id="store-the-pat" class="level4">
+<h4 class="anchored" data-anchor-id="store-the-pat">Store the PAT</h4>
+<p>Once you have a token, store it in your system’s credential store using <code>gitcreds</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Paste the token when prompted. You can verify the stored credential at any time with <code>gitcreds::gitcreds_get()</code>, and run <code>usethis::git_sitrep()</code> for a broader diagnosis of your git and GitHub setup.</p>
+<p>You can also copy the token to your clipboard by clicking the copy icon.</p>
+</section>
+<section id="renewing-an-expired-pat" class="level4">
+<h4 class="anchored" data-anchor-id="renewing-an-expired-pat">Renewing an expired PAT</h4>
+<p>When a PAT expires, return to <a href="https://github.com/settings/tokens">github.com/settings/tokens</a>, click the token’s name, and click “Regenerate token”. Copy the new token, then call <code>gitcreds::gitcreds_set()</code> and paste it in.</p>
+</section>
+<section id="linux-note" class="level4">
+<h4 class="anchored" data-anchor-id="linux-note">Linux note</h4>
+<p>Linux does not have a native credential store equivalent to macOS Keychain or Windows Credential Manager. The simplest workaround is to configure git’s credential cache with a long timeout:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> credential.helper <span class="st">'cache --timeout=10000000'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This keeps credentials in memory for roughly 16 weeks. As a fallback, you can store the PAT as an environment variable in <code>~/.Renviron</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Add: GITHUB_PAT=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Restart R after editing <code>.Renviron</code>. Take care that this file never gets pushed to GitHub or synced to cloud storage.</p>
+</section>
+</section>
+<section id="ssh-key-pairs" class="level3">
+<h3 class="anchored" data-anchor-id="ssh-key-pairs">SSH: key pairs</h3>
+<p>SSH authentication uses a cryptographic key pair: a private key that stays on your machine and a public key that you register with GitHub. If you already have experience with SSH or anticipate working across many repositories, SSH is worth setting up.</p>
+<section id="do-you-already-have-ssh-keys" class="level4">
+<h4 class="anchored" data-anchor-id="do-you-already-have-ssh-keys">Do you already have SSH keys?</h4>
+<p>Check whether a key pair already exists:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ~/.ssh/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you see files named <code>id_ed25519</code> and <code>id_ed25519.pub</code> (or <code>id_rsa</code> and <code>id_rsa.pub</code>), you already have a key pair and can skip to adding the public key to GitHub.</p>
+</section>
+<section id="generate-a-key-pair" class="level4">
+<h4 class="anchored" data-anchor-id="generate-a-key-pair">Generate a key pair</h4>
+<p>From the terminal, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"DESCRIPTIVE-COMMENT"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use a comment that identifies the computer, e.g.&nbsp;<code>"jane-work-macbook"</code>. Accept the default save location when prompted. You may also set a passphrase – this is best practice but adds a small amount of complexity, so it is reasonable to skip it when first getting set up.</p>
+</section>
+<section id="add-the-key-to-your-ssh-agent" class="level4">
+<h4 class="anchored" data-anchor-id="add-the-key-to-your-ssh-agent">Add the key to your ssh-agent</h4>
+<p><strong>macOS:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">"</span><span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span> <span class="at">--apple-use-keychain</span> ~/.ssh/id_ed25519</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>On macOS Sierra 10.12.2 and later, also create <code>~/.ssh/config</code> with the following contents so the passphrase persists in the keychain across restarts:</p>
+<pre><code>Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519</code></pre>
+<p><strong>Windows (Git Bash):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_ed25519</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Linux:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">"</span><span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_ed25519</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="add-the-public-key-to-github" class="level4">
+<h4 class="anchored" data-anchor-id="add-the-public-key-to-github">Add the public key to GitHub</h4>
+<p>Copy the public key to your clipboard:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/id_ed25519.pub</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows (Git Bash)</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ex">clip</span> <span class="op">&lt;</span> ~/.ssh/id_ed25519.pub</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="ex">xclip</span> <span class="at">-sel</span> clip <span class="op">&lt;</span> ~/.ssh/id_ed25519.pub</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>On GitHub, go to <em>Settings &gt; SSH and GPG keys</em>, click “New SSH key”, and paste the key. Give it a title matching the comment you used when generating it.</p>
+<p>Test the connection:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You should see a message confirming your username.</p>
+</section>
+<section id="a-note-on-ssh-and-r-packages" class="level4">
+<h4 class="anchored" data-anchor-id="a-note-on-ssh-and-r-packages">A note on SSH and R packages</h4>
+<p>Unlike HTTPS with a PAT, SSH does not automatically authenticate R packages that call the GitHub API. If you use SSH for git operations, you will still need a PAT stored in your credential store for packages like <code>usethis</code>, <code>remotes</code>, and <code>pak</code> to work. This is one reason HTTPS is often the simpler choice.</p>
+</section>
+</section>
+</section>
+<section id="starting-a-new-git-tracked-repository" class="level2">
+<h2 class="anchored" data-anchor-id="starting-a-new-git-tracked-repository">Starting a new git-tracked repository</h2>
+<p>When starting a project from scratch, you can initialize git tracking directly from your IDE.</p>
+<section id="in-positron" class="level3">
+<h3 class="anchored" data-anchor-id="in-positron">In Positron</h3>
+<ol type="1">
+<li>Open Positron and create a new directory for your project: <code>File &gt; Open Folder...</code> (or choose an empty folder you’ve already created).</li>
+<li>Open the Source Control view in the left Activity Bar (or use the shortcut <code>Ctrl+Shift+G</code> on Windows/Linux or <code>Ctrl+Shift+G</code> on macOS).</li>
+<li>Click the <code>Initialize Repository</code> button. This runs git init behind the scenes.</li>
+<li>Create an initial file (like a <code>README.md</code> or <code>.gitignore</code>), stage it, and make your first commit in the Source Control panel.</li>
 </ol>
-</section></div></main> <!-- /main -->
+</section>
+<section id="in-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="in-rstudio">In RStudio</h3>
+<ol type="1">
+<li>Go to <code>File &gt; New Project...</code></li>
+<li>Choose <code>New Directory</code>, then <code>New Project</code>.</li>
+<li>Choose a directory name and subdirectory.</li>
+<li>Check the box for <code>Create a git repository</code>.</li>
+<li>Click <code>Create Project</code>. RStudio will initialize the repo and restart itself within the new project.</li>
+</ol>
+</section>
+</section>
+<section id="cloning-an-existing-repository" class="level2">
+<h2 class="anchored" data-anchor-id="cloning-an-existing-repository">Cloning an existing repository</h2>
+<p>To work on an existing emLab project, you will need to “clone” it, which downloads a local copy of the repository to your machine and links it to the remote version on GitHub.</p>
+<section id="step-1-copy-the-repository-url-from-github" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-copy-the-repository-url-from-github">Step 1: Copy the repository URL from GitHub</h3>
+<ol type="1">
+<li>Navigate to the repository on GitHub (e.g., under the <code>emlab-ucsb</code> organization).</li>
+<li>Click the green <code>Code</code> button in the upper right.</li>
+<li>Select the <code>SSH</code> tab (if you set up SSH keys) or the <code>HTTPS</code> tab (if you set up a PAT).</li>
+<li>Click the <code>Copy</code> icon next to the URL.</li>
+</ol>
+<ul>
+<li><p>An SSH URL will look like: <code>git@github.com:emlab-ucsb/repo-name.git</code></p></li>
+<li><p>An HTTPS URL will look like: <code>https://github.com/emlab-ucsb/repo-name.git</code></p></li>
+</ul>
+</section>
+<section id="step-2-clone-the-repository-into-your-ide" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-clone-the-repository-into-your-ide">Step 2: Clone the repository into your IDE</h3>
+<section id="in-positron-1" class="level4">
+<h4 class="anchored" data-anchor-id="in-positron-1">In Positron</h4>
+<ol type="1">
+<li>Go to <code>File &gt; New Folder from Git...</code> (or click the New dropdown menu and select New Folder from Git…).</li>
+<li>In the <code>New Folder from Git</code> dialog box, paste the repository URL you copied from GitHub.</li>
+<li>Choose the local destination where you want to store the project folder. We recommend using a dedicated GitHub directory, e.g.&nbsp;<code>/Users/yourname/github/</code> on a Mac, to keep all your repositories organized in one place. Avoid saving repositories inside cloud-synced folders (like Google Drive, iCloud, or Dropbox) to prevent sync conflicts with Git.</li>
+<li>Click <code>OK</code> to clone the repository and let Positron open the folder.</li>
+</ol>
+</section>
+<section id="in-rstudio-1" class="level4">
+<h4 class="anchored" data-anchor-id="in-rstudio-1">In RStudio</h4>
+<ol type="1">
+<li>Go to <code>File &gt; New Project...</code></li>
+<li>Select <code>Version Control</code>.</li>
+<li>Select <code>Git</code>.</li>
+<li>In the `<code>Repository URL</code> field, paste the URL you copied from GitHub.</li>
+<li>The Project directory name will auto-populate. Choose where you want to store the project on your local machine in the Create project as subdirectory of field. We recommend using a dedicate github directory, e.g.&nbsp;<code>/Users/yourname/github/</code> on a Mac, to keep all your repositories organized in one place. Avoid saving repositories inside cloud-synced folders (like Google Drive, iCloud, or Dropbox) to prevent sync conflicts with Git.</li>
+<li>Click <code>Create Project</code>.</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<p>Getting comfortable with Git and GitHub takes time. The following resources are recommended starting points, particularly for researchers coming to version control for the first time:</p>
+<ul>
+<li><strong>Happy Git and GitHub for the useR</strong> (<a href="https://happygitwithr.com">happygitwithr.com</a>) – The most practical introduction to git for R users. Covers installation, authentication, and daily workflows in detail.</li>
+<li><strong>Pro Git</strong> (<a href="https://git-scm.com/book/en/v2">git-scm.com/book</a>) – The comprehensive reference. Chapters 1-3 cover the fundamentals.</li>
+<li><strong>GitHub Docs</strong> (<a href="https://docs.github.com">docs.github.com</a>) – GitHub’s own documentation, useful for organization and repository management questions.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

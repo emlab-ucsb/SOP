@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>emLab Standard Operating Procedures</title>
+<title>commits – emLab Standard Operating Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,31 +23,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -399,7 +434,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">emLab Standard Operating Procedures</a> 
+      <a href="../">emLab Standard Operating Procedures</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
     <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
@@ -410,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01-files/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../01-files/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Files</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -419,19 +454,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files/google-shared-drive.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-files/google-shared-drive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Google Drive</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files/grit-data-storage-space.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-files/grit-data-storage-space.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GRIT data storage space</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files/github-structure.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-files/github-structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub</span></a>
   </div>
 </li>
@@ -439,7 +474,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02-data/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../02-data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -448,37 +483,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/data-file-naming.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/data-file-naming.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data file naming</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/metadata.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Metadata</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/accessing-emlab-data-in-r.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/accessing-emlab-data-in-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accessing emLab data in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/tidy-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/tidy-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tidy data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/data-formats.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/data-formats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data formats</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/data-use-agreements-and-confidential-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/data-use-agreements-and-confidential-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Use Agreements and confidential data</span></a>
   </div>
 </li>
@@ -486,7 +521,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03-code/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../03-code/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -495,43 +530,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/code-styling.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/code-styling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code styling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/code-documentation.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/code-documentation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code documentation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/functional-programming.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/functional-programming.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functional programming</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/eda.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/eda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exploratory data analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/package-reproducibility.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/package-reproducibility.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Package and language version management</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pipeline reproducibility</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/code-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/code-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code review</span></a>
   </div>
 </li>
@@ -539,76 +574,76 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04-gh/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../04-gh/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/01-setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/01-setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting set up</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/02-repo-organization.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/02-repo-organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Repository organization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/03-commits.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/03-commits.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Version control with commits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/04-issues.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/04-issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Issues</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/05-branches.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/05-branches.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Working with branches</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/06-pull-requests.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/06-pull-requests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pull Requests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/07-rulesets.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/07-rulesets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rulesets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/08-workflows.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/08-workflows.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Effective workflows</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/09-public-repos.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/09-public-repos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Public repositories for publications</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/10-gh-extensions.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/10-gh-extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Extensions in Positron and VS Code</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/11-github-ai-assistants.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/11-github-ai-assistants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Copilot</span></a>
   </div>
 </li>
@@ -616,7 +651,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./05-quarto/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../05-quarto/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -625,49 +660,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/chunk-best-practices.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/chunk-best-practices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chunk best practices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/figures-tables-references.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/figures-tables-references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Figures, tables, and cross-references</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/citations-and-bibliography.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/citations-and-bibliography.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Citations and bibliography</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/caching.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/caching.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Caching strategy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/targets-integration.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/targets-integration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrating with a targets pipeline</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Themes and dark mode</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/publishing.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/publishing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Publishing with Quarto books and GitHub Pages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/presentations.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/presentations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentations in Quarto</span></a>
   </div>
 </li>
@@ -675,7 +710,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./06-hpc/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../06-hpc/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Servers</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -684,43 +719,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/resources-and-software.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/resources-and-software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Available resources and software</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/getting-set-up.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/getting-set-up.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting set up</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/using-sequoia.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/using-sequoia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using sequoia</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/using-quebracho.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/using-quebracho.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using quebracho</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/best-practices-and-resource-allocation.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/best-practices-and-resource-allocation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Best practices and resource allocation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/accessing-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/accessing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accessing data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/accessing-code.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/accessing-code.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accessing code</span></a>
   </div>
 </li>
@@ -728,7 +763,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./07-publications/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../07-publications/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Publications</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -737,25 +772,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/affiliation-and-authorship.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/affiliation-and-authorship.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">emLab affiliation and author contribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/reports.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/reports.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reports</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/publishing-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/publishing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Making your data publicly available</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/sharing-on-website.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/sharing-on-website.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sharing public data, Shiny apps, and tools on our website</span></a>
   </div>
 </li>
@@ -774,111 +809,81 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="emlab-sop" class="level1 d-block d-lg-none">
-<h1>emLab SOP</h1>
-</section>
-<div class="lead">
-<p>The Environmental Markets Lab (emLab) Standard Operating Procedures collect the conventions that keep our research reproducible, well organized, and easy to collaborate on.</p>
-</div>
-<p>emLab is a research center at the University of California, Santa Barbara, working at the intersection of economics, environmental science, and policy. These pages are for everyone writing code or working with data at the lab, and they are meant to evolve with us. If you spot a gap or have a better way of doing something, <a href="https://github.com/emlab-ucsb/SOP/issues/new">open an issue</a> to start the conversation, then send a pull request once we’ve agreed on the shape of the change.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="grid">
-<section id="files" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="files"><a href="./01-files/index.html">Files</a></h3>
-<p>Where things live and how they’re organized.</p>
+<section id="version-control-with-commits" class="level1">
+<h1>Version control with commits</h1>
+<p>A commit is a snapshot of your code at a particular moment, paired with a message describing what changed and why. The history of a project is the accumulation of its commits.</p>
+<section id="what-a-commit-is" class="level2">
+<h2 class="anchored" data-anchor-id="what-a-commit-is">What a commit is</h2>
+<p>When you run <code>git commit</code>, git takes a snapshot of all the files you have staged and stores it permanently in the repository’s history. Each commit has:</p>
 <ul>
-<li><a href="./01-files/google-shared-drive.html">Google Shared Drive</a></li>
-<li><a href="./01-files/grit-data-storage-space.html">GRIT Data Storage Space</a></li>
-<li><a href="./01-files/github-structure.html">GitHub Structure</a></li>
+<li>A unique identifier (a SHA hash)</li>
+<li>The name and email of the author</li>
+<li>A timestamp</li>
+<li>A commit message</li>
+<li>A reference to the previous commit, creating a chain</li>
 </ul>
+<p>This chain is what allows you to see the history of any file, compare versions, and restore earlier states of the project.</p>
 </section>
-<section id="data" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="data"><a href="./02-data/index.html">Data</a></h3>
-<p>Naming, formats, metadata, and confidentiality.</p>
-<ul>
-<li><a href="./02-data/data-file-naming.html">Data File Naming</a></li>
-<li><a href="./02-data/metadata.html">Metadata</a></li>
-<li><a href="./02-data/accessing-emlab-data-in-r.html">Accessing emLab Data in R</a></li>
-<li><a href="./02-data/tidy-data.html">Tidy Data</a></li>
-<li><a href="./02-data/data-formats.html">Data Formats</a></li>
-<li><a href="./02-data/data-use-agreements-and-confidential-data.html">Data Use Agreements and Confidential Data</a></li>
-</ul>
+<section id="staging-changes" class="level2">
+<h2 class="anchored" data-anchor-id="staging-changes">Staging changes</h2>
+<p>Before you commit, you stage the specific changes you want to include. This is done with <code>git add</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add scripts/01_clean.R           <span class="co"># Stage a single file</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add scripts/                     <span class="co"># Stage all changes in a directory</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-p</span>                           <span class="co"># Interactively stage chunks within files</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .                           <span class="co"># Stage all changes in the repository</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Even if you have modified several files, you can group related changes into a single, focused commit rather than committing everything at once.</p>
+<p>In Positron and VS Code, the Source Control panel (the branching icon in the Activity Bar) shows all modified files and lets you stage individual files or specific lines with a click.</p>
 </section>
-<section id="code" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="code"><a href="./03-code/index.html">Code</a></h3>
-<p>Style, documentation, and reproducibility.</p>
-<ul>
-<li><a href="./03-code/code-styling.html">Code Styling</a></li>
-<li><a href="./03-code/code-documentation.html">Code Documentation</a></li>
-<li><a href="./03-code/functional-programming.html">Functional Programming</a></li>
-<li><a href="./03-code/eda.html">Exploratory Data Analysis</a></li>
-<li><a href="./03-code/package-reproducibility.html">Package Reproducibility</a></li>
-<li><a href="./03-code/pipeline-reproducibility.html">Pipeline Reproducibility</a></li>
-<li><a href="./03-code/code-review.html">Code Review</a></li>
-</ul>
+<section id="atomic-commits" class="level2">
+<h2 class="anchored" data-anchor-id="atomic-commits">Atomic commits</h2>
+<p>A commit should represent one logical change. This principle is sometimes called making commits <em>atomic</em>. An atomic commit might be: adding a new function, fixing a specific bug, renaming a variable for clarity, or updating the README. A single commit should <em>not</em> include multiple unrelated changes like cleaning data, fitting a model, generating three figures, and updating the README all in one.</p>
+<p>Atomic commits have practical benefits. When something breaks, a focused commit history makes it much easier to identify which change introduced the problem. When a collaborator reviews your work, smaller and more targeted commits are easier to understand. When you need to undo a change, you can revert a specific commit without also undoing unrelated work.</p>
 </section>
-<section id="git-and-github" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="git-and-github"><a href="./04-gh/index.html">Git and GitHub</a></h3>
-<p>Version control and collaboration from setup to workflows.</p>
-<ul>
-<li><a href="./04-gh/01-setup.html">Getting Set Up</a></li>
-<li><a href="./04-gh/02-repo-organization.html">Repository Organization</a></li>
-<li><a href="./04-gh/03-commits.html">Version Control with Commits</a></li>
-<li><a href="./04-gh/04-issues.html">Using Issues</a></li>
-<li><a href="./04-gh/05-branches.html">Working with Branches</a></li>
-<li><a href="./04-gh/06-pull-requests.html">Pull Requests</a></li>
-<li><a href="./04-gh/07-rulesets.html">Rulesets</a></li>
-<li><a href="./04-gh/08-workflows.html">Effective Workflows</a></li>
-<li><a href="./04-gh/09-public-repos.html">Public Repositories for Publications</a></li>
-<li><a href="./04-gh/10-gh-extensions.html">GitHub Extensions in Positron and VS Code</a></li>
-<li><a href="./04-gh/11-github-ai-assistants.html">GitHub Copilot</a></li>
-</ul>
+<section id="writing-good-commit-messages" class="level2">
+<h2 class="anchored" data-anchor-id="writing-good-commit-messages">Writing good commit messages</h2>
+<p>The commit message is addressed to a reader – a future collaborator, a reviewer, or yourself in six months – who is trying to understand why a change was made. The <em>what</em> is visible in the diff. The message should explain the <em>why</em>.</p>
+<p>A commit message has two parts: a subject line and an optional body.</p>
+<p><strong>The subject line</strong> should be a concise summary of the change. It should be capitalized, written in the imperative mood (as though giving an instruction), ended without a period, and no longer than 50 characters.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> For example:</p>
+<pre><code>Filter observations with missing species ID before modeling</code></pre>
+<p>Rather than:</p>
+<pre><code>fixed the thing
+updated script
+more changes</code></pre>
+<p><strong>The body</strong>, if needed, provides context: what motivated the change, what alternatives were considered, or what side effects to be aware of. Separate the body from the subject with a blank line.</p>
+<p>A full example:</p>
+<pre><code>Filter observations with missing species ID
+
+Previously, missing species IDs were carried through the pipeline and
+caused the model to drop rows silently. This change makes the filtering
+explicit and logs how many rows are removed at each step.</code></pre>
+<p>For the majority of commits, a one-line subject is sufficient. Reserve the body for changes that require explanation.</p>
+<p>If your project uses GitHub Issues, you can reference the relevant issue in the commit message with <code>#issue-number</code> (e.g., <code>Add initial data visualization for mapping fishing effort (#42)</code>). This creates a link between the commit and the issue. You can even use your commit message to close an issue by adding <code>Closes</code> (e.g., <code>Add initial data visualization for mapping fishing effort (Closes #42)</code>). This will automatically close the issue when the commit is merged into <code>main</code>.</p>
+<p>If you use Positron or VS Code and have GitHub Co-Pilot enabled, you can get suggestions for commit messages based on the staged changes. This can be a helpful starting point, but always review and edit the suggested message to ensure it accurately reflects the change and provides useful context. To see a Co-Pilot suggestion, stage your changes and then click the “Generate commit message” button in the Source Control pane which looks like a small Sparkle icon.</p>
 </section>
-<section id="quarto" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="quarto"><a href="./05-quarto/index.html">Quarto</a></h3>
-<p>Authoring reproducible documents and websites.</p>
-<ul>
-<li><a href="./05-quarto/chunk-best-practices.html">Chunk Best Practices</a></li>
-<li><a href="./05-quarto/figures-tables-references.html">Figures, Tables, and References</a></li>
-<li><a href="./05-quarto/citations-and-bibliography.html">Citations and Bibliography</a></li>
-<li><a href="./05-quarto/caching.html">Caching</a></li>
-<li><a href="./05-quarto/targets-integration.html">Using R targets</a></li>
-<li><a href="./05-quarto/themes-and-cosmetics.html">Themes and Dark Mode</a></li>
-<li><a href="./05-quarto/publishing.html">Publishing</a></li>
-<li><a href="./05-quarto/presentations.html">Presentations</a></li>
-</ul>
+<section id="commit-frequency" class="level2">
+<h2 class="anchored" data-anchor-id="commit-frequency">Commit frequency</h2>
+<p>Commit often enough that individual commits are meaningful, but not so infrequently that a single commit contains a week’s worth of work. A reasonable heuristic: commit whenever you complete a coherent unit of work and the code is in a state where it runs (or at minimum, you understand why it does not).</p>
+<p>Do not wait until the end of a work session to commit. Small, frequent commits are much easier to review and debug than large, infrequent ones!</p>
 </section>
-<section id="servers" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="servers"><a href="./06-hpc/index.html">Servers</a></h3>
-<p>Running jobs on Sequoia and Quebracho.</p>
-<ul>
-<li><a href="./06-hpc/resources-and-software.html">Resources and Software</a></li>
-<li><a href="./06-hpc/getting-set-up.html">Getting Set Up</a></li>
-<li><a href="./06-hpc/using-sequoia.html">Using Sequoia</a></li>
-<li><a href="./06-hpc/using-quebracho.html">Using Quebracho</a></li>
-<li><a href="./06-hpc/best-practices-and-resource-allocation.html">Best Practices</a></li>
-<li><a href="./06-hpc/accessing-data.html">Accessing Data</a></li>
-<li><a href="./06-hpc/accessing-code.html">Accessing Code</a></li>
-</ul>
-</section>
-<section id="publications" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="publications"><a href="./07-publications/index.html">Publications</a></h3>
-<p>Authorship, reports, and sharing outputs.</p>
-<ul>
-<li><a href="./07-publications/affiliation-and-authorship.html">Affiliation and Authorship</a></li>
-<li><a href="./07-publications/reports.html">Reports</a></li>
-<li><a href="./07-publications/publishing-data.html">Publishing Data</a></li>
-<li><a href="./07-publications/sharing-on-website.html">Sharing on Website</a></li>
-</ul>
-</section>
-</div>
+<section id="viewing-history" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-history">Viewing history</h2>
+<p>To see the commit history for the current branch:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To see what changed in a specific commit:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> show <span class="op">&lt;</span>commit-sha<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To see the history of a specific file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span> <span class="at">--</span> scripts/01_clean.R</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>GitHub’s web interface also provides a commit history view for every repository and file, which is often more convenient for browsing.</p>
 
 
+</section>
+</section>
 
 
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>For day-to-day lab logistics — onboarding, meetings, GRIT account setup, and the like — see the separate <a href="https://emlab-ucsb.github.io/emlab-manual/">emLab Manual</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>If you wish, see https://cbea.ms/git-commit/ for an explanation of the reasoning behind these rules.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

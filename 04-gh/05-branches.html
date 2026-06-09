@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>emLab Standard Operating Procedures</title>
+<title>branches – emLab Standard Operating Procedures</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,31 +23,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -399,7 +434,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">emLab Standard Operating Procedures</a> 
+      <a href="../">emLab Standard Operating Procedures</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
     <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
@@ -410,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01-files/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../01-files/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Files</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -419,19 +454,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files/google-shared-drive.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-files/google-shared-drive.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Google Drive</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files/grit-data-storage-space.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-files/grit-data-storage-space.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GRIT data storage space</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-files/github-structure.html" class="sidebar-item-text sidebar-link">
+  <a href="../01-files/github-structure.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub</span></a>
   </div>
 </li>
@@ -439,7 +474,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02-data/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../02-data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -448,37 +483,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/data-file-naming.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/data-file-naming.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data file naming</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/metadata.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/metadata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Metadata</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/accessing-emlab-data-in-r.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/accessing-emlab-data-in-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accessing emLab data in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/tidy-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/tidy-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tidy data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/data-formats.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/data-formats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data formats</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-data/data-use-agreements-and-confidential-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../02-data/data-use-agreements-and-confidential-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Use Agreements and confidential data</span></a>
   </div>
 </li>
@@ -486,7 +521,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03-code/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../03-code/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -495,43 +530,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/code-styling.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/code-styling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code styling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/code-documentation.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/code-documentation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code documentation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/functional-programming.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/functional-programming.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Functional programming</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/eda.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/eda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exploratory data analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/package-reproducibility.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/package-reproducibility.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Package and language version management</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/pipeline-reproducibility.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pipeline reproducibility</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-code/code-review.html" class="sidebar-item-text sidebar-link">
+  <a href="../03-code/code-review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code review</span></a>
   </div>
 </li>
@@ -539,76 +574,76 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04-gh/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../04-gh/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git and GitHub</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/01-setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/01-setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting set up</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/02-repo-organization.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/02-repo-organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Repository organization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/03-commits.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/03-commits.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Version control with commits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/04-issues.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/04-issues.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using Issues</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/05-branches.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/05-branches.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Working with branches</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/06-pull-requests.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/06-pull-requests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pull Requests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/07-rulesets.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/07-rulesets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Rulesets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/08-workflows.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/08-workflows.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Effective workflows</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/09-public-repos.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/09-public-repos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Public repositories for publications</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/10-gh-extensions.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/10-gh-extensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Extensions in Positron and VS Code</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-gh/11-github-ai-assistants.html" class="sidebar-item-text sidebar-link">
+  <a href="../04-gh/11-github-ai-assistants.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GitHub Copilot</span></a>
   </div>
 </li>
@@ -616,7 +651,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./05-quarto/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../05-quarto/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -625,49 +660,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/chunk-best-practices.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/chunk-best-practices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chunk best practices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/figures-tables-references.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/figures-tables-references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Figures, tables, and cross-references</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/citations-and-bibliography.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/citations-and-bibliography.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Citations and bibliography</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/caching.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/caching.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Caching strategy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/targets-integration.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/targets-integration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrating with a targets pipeline</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/themes-and-cosmetics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Themes and dark mode</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/publishing.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/publishing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Publishing with Quarto books and GitHub Pages</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-quarto/presentations.html" class="sidebar-item-text sidebar-link">
+  <a href="../05-quarto/presentations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentations in Quarto</span></a>
   </div>
 </li>
@@ -675,7 +710,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./06-hpc/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../06-hpc/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Servers</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -684,43 +719,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/resources-and-software.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/resources-and-software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Available resources and software</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/getting-set-up.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/getting-set-up.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting set up</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/using-sequoia.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/using-sequoia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using sequoia</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/using-quebracho.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/using-quebracho.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using quebracho</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/best-practices-and-resource-allocation.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/best-practices-and-resource-allocation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Best practices and resource allocation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/accessing-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/accessing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accessing data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-hpc/accessing-code.html" class="sidebar-item-text sidebar-link">
+  <a href="../06-hpc/accessing-code.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Accessing code</span></a>
   </div>
 </li>
@@ -728,7 +763,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./07-publications/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../07-publications/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Publications</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -737,25 +772,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/affiliation-and-authorship.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/affiliation-and-authorship.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">emLab affiliation and author contribution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/reports.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/reports.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reports</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/publishing-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/publishing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Making your data publicly available</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-publications/sharing-on-website.html" class="sidebar-item-text sidebar-link">
+  <a href="../07-publications/sharing-on-website.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sharing public data, Shiny apps, and tools on our website</span></a>
   </div>
 </li>
@@ -774,113 +809,153 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="emlab-sop" class="level1 d-block d-lg-none">
-<h1>emLab SOP</h1>
+<section id="working-with-branches" class="level1">
+<h1>Working with branches</h1>
+<p>Branch-based development is a universal requirement for all emLab coding projects. <strong>All code development happens on a separate branch, so that we don’t commit directly to <code>main</code>.</strong></p>
+<p>Why? Working on a branch means your changes are isolated from the stable project until they are ready. If something goes wrong mid-development, like an approach that turns out not to work, or a bug that creeps into your code, it stays on your branch and never touches <code>main</code>. You can abandon the branch, start over, or take your time fixing things without disrupting anyone else or corrupting the project record. This isolation is what makes branch-based development a safer way to write code.</p>
+<p>Branches are also what make code review possible. When development happens on a branch, it can be proposed for merging through a <strong>pull request (PR)</strong>, the mechanism for code review at emLab. We’ll discuss pull requests in the next section. Now, we’ll cover what branches are, why we use them, and how to work with them in practice.</p>
+<p>All of the git operations described here can be performed either from the terminal or through the graphical git integrations built into Positron, VS Code, and RStudio – we will note both where relevant.</p>
+<section id="what-a-branch-is" class="level2">
+<h2 class="anchored" data-anchor-id="what-a-branch-is">What a branch is</h2>
+<p>Imagine your repository’s commit history as a sequence of snapshots, each one building on the one before it:</p>
+<pre><code>A --- B --- C --- D   (main)</code></pre>
+<p>A branch is simply a named pointer to one of those snapshots. When you create a branch, you are creating a new line of development that starts where you are now but moves forward independently as you make new commits:</p>
+<pre><code>A --- B --- C --- D           (main)
+                  \
+                   E --- F    (my-branch)</code></pre>
+<p><code>main</code> and <code>my-branch</code> now have independent histories. Changes you make on <code>my-branch</code> do not affect <code>main</code> until you explicitly merge them in.</p>
 </section>
-<div class="lead">
-<p>The Environmental Markets Lab (emLab) Standard Operating Procedures collect the conventions that keep our research reproducible, well organized, and easy to collaborate on.</p>
+<section id="why-we-dont-commit-directly-to-main" class="level2">
+<h2 class="anchored" data-anchor-id="why-we-dont-commit-directly-to-main">Why we don’t commit directly to main</h2>
+<p><code>main</code> is the stable, reviewed record of the project that should always be in a runnable, working state. When code goes directly to <code>main</code> without review, mistakes can indavertently become part of that permanent record immediately. Branch-based development creates a checkpoint for reviewing the code. You do the work on a branch, open a pull request, get a review, and then merge. Nothing lands on <code>main</code> without passing through that step.</p>
+<p>This applies even when you are working alone. Solo projects benefit from the habit too: you can look at your own changes (in a <strong>diff</strong>) before merging and catch mistakes you might otherwise miss. Practicing the workflow on solo projects also means it is not unfamiliar when you join a collaborative one.</p>
+<p>At emLab, <code>main</code> is protected by a ruleset that prevents direct pushes. If you try to push to <code>main</code>, you will see an error. That is expected – create a branch instead.</p>
+</section>
+<section id="the-basic-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="the-basic-workflow">The basic workflow</h2>
+<p>Here is what branch-based development looks like in practice, from start to finish.</p>
+<section id="step-1-start-from-an-up-to-date-main" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-start-from-an-up-to-date-main">Step 1: Start from an up-to-date main</h3>
+<p>Before creating a branch, make sure your local <code>main</code> is current. In the terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In Positron, VS Code, or RStudio, you can do this by switching to the <code>main</code> branch using the branch picker in the bottom-left corner of the window, then clicking the sync/pull button in the Source Control panel.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>emLab is a research center at the University of California, Santa Barbara, working at the intersection of economics, environmental science, and policy. These pages are for everyone writing code or working with data at the lab, and they are meant to evolve with us. If you spot a gap or have a better way of doing something, <a href="https://github.com/emlab-ucsb/SOP/issues/new">open an issue</a> to start the conversation, then send a pull request once we’ve agreed on the shape of the change.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="grid">
-<section id="files" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="files"><a href="./01-files/index.html">Files</a></h3>
-<p>Where things live and how they’re organized.</p>
-<ul>
-<li><a href="./01-files/google-shared-drive.html">Google Shared Drive</a></li>
-<li><a href="./01-files/grit-data-storage-space.html">GRIT Data Storage Space</a></li>
-<li><a href="./01-files/github-structure.html">GitHub Structure</a></li>
-</ul>
-</section>
-<section id="data" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="data"><a href="./02-data/index.html">Data</a></h3>
-<p>Naming, formats, metadata, and confidentiality.</p>
-<ul>
-<li><a href="./02-data/data-file-naming.html">Data File Naming</a></li>
-<li><a href="./02-data/metadata.html">Metadata</a></li>
-<li><a href="./02-data/accessing-emlab-data-in-r.html">Accessing emLab Data in R</a></li>
-<li><a href="./02-data/tidy-data.html">Tidy Data</a></li>
-<li><a href="./02-data/data-formats.html">Data Formats</a></li>
-<li><a href="./02-data/data-use-agreements-and-confidential-data.html">Data Use Agreements and Confidential Data</a></li>
-</ul>
-</section>
-<section id="code" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="code"><a href="./03-code/index.html">Code</a></h3>
-<p>Style, documentation, and reproducibility.</p>
-<ul>
-<li><a href="./03-code/code-styling.html">Code Styling</a></li>
-<li><a href="./03-code/code-documentation.html">Code Documentation</a></li>
-<li><a href="./03-code/functional-programming.html">Functional Programming</a></li>
-<li><a href="./03-code/eda.html">Exploratory Data Analysis</a></li>
-<li><a href="./03-code/package-reproducibility.html">Package Reproducibility</a></li>
-<li><a href="./03-code/pipeline-reproducibility.html">Pipeline Reproducibility</a></li>
-<li><a href="./03-code/code-review.html">Code Review</a></li>
-</ul>
-</section>
-<section id="git-and-github" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="git-and-github"><a href="./04-gh/index.html">Git and GitHub</a></h3>
-<p>Version control and collaboration from setup to workflows.</p>
-<ul>
-<li><a href="./04-gh/01-setup.html">Getting Set Up</a></li>
-<li><a href="./04-gh/02-repo-organization.html">Repository Organization</a></li>
-<li><a href="./04-gh/03-commits.html">Version Control with Commits</a></li>
-<li><a href="./04-gh/04-issues.html">Using Issues</a></li>
-<li><a href="./04-gh/05-branches.html">Working with Branches</a></li>
-<li><a href="./04-gh/06-pull-requests.html">Pull Requests</a></li>
-<li><a href="./04-gh/07-rulesets.html">Rulesets</a></li>
-<li><a href="./04-gh/08-workflows.html">Effective Workflows</a></li>
-<li><a href="./04-gh/09-public-repos.html">Public Repositories for Publications</a></li>
-<li><a href="./04-gh/10-gh-extensions.html">GitHub Extensions in Positron and VS Code</a></li>
-<li><a href="./04-gh/11-github-ai-assistants.html">GitHub Copilot</a></li>
-</ul>
-</section>
-<section id="quarto" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="quarto"><a href="./05-quarto/index.html">Quarto</a></h3>
-<p>Authoring reproducible documents and websites.</p>
-<ul>
-<li><a href="./05-quarto/chunk-best-practices.html">Chunk Best Practices</a></li>
-<li><a href="./05-quarto/figures-tables-references.html">Figures, Tables, and References</a></li>
-<li><a href="./05-quarto/citations-and-bibliography.html">Citations and Bibliography</a></li>
-<li><a href="./05-quarto/caching.html">Caching</a></li>
-<li><a href="./05-quarto/targets-integration.html">Using R targets</a></li>
-<li><a href="./05-quarto/themes-and-cosmetics.html">Themes and Dark Mode</a></li>
-<li><a href="./05-quarto/publishing.html">Publishing</a></li>
-<li><a href="./05-quarto/presentations.html">Presentations</a></li>
-</ul>
-</section>
-<section id="servers" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="servers"><a href="./06-hpc/index.html">Servers</a></h3>
-<p>Running jobs on Sequoia and Quebracho.</p>
-<ul>
-<li><a href="./06-hpc/resources-and-software.html">Resources and Software</a></li>
-<li><a href="./06-hpc/getting-set-up.html">Getting Set Up</a></li>
-<li><a href="./06-hpc/using-sequoia.html">Using Sequoia</a></li>
-<li><a href="./06-hpc/using-quebracho.html">Using Quebracho</a></li>
-<li><a href="./06-hpc/best-practices-and-resource-allocation.html">Best Practices</a></li>
-<li><a href="./06-hpc/accessing-data.html">Accessing Data</a></li>
-<li><a href="./06-hpc/accessing-code.html">Accessing Code</a></li>
-</ul>
-</section>
-<section id="publications" class="level3 g-col-12 g-col-md-4">
-<h3 class="anchored" data-anchor-id="publications"><a href="./07-publications/index.html">Publications</a></h3>
-<p>Authorship, reports, and sharing outputs.</p>
-<ul>
-<li><a href="./07-publications/affiliation-and-authorship.html">Affiliation and Authorship</a></li>
-<li><a href="./07-publications/reports.html">Reports</a></li>
-<li><a href="./07-publications/publishing-data.html">Publishing Data</a></li>
-<li><a href="./07-publications/sharing-on-website.html">Sharing on Website</a></li>
-</ul>
-</section>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Is your default branch called “master”?
 </div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Older versions of git named the default branch <code>master</code> rather than <code>main</code>. Newer versions (2.28+) default to <code>main</code>, and GitHub uses <code>main</code> for all new repositories. If your local default branch is still called <code>master</code>, you can update the global default for all future repositories with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This does not rename the branch in any existing repositories – only new ones initialized after this point. For an existing repo where the default branch is still named <code>master</code>, you can rename it locally with <code>git branch -m master main</code>, then update the remote tracking with <code>git push -u origin main</code>. If you are unsure what your default is, run <code>git branch</code> to see the current branch names.</p>
+</div>
+</div>
+</section>
+<section id="step-2-create-a-branch" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-a-branch">Step 2: Create a branch</h3>
+<p>In the terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> my-branch-name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This creates a new branch starting at the latest commit on <code>main</code> and switches to it immediately. In Positron and VS Code, you can also create a branch by clicking the branch name in the bottom-left corner and selecting <strong>Create new branch</strong>. In RStudio, use the branch dropdown in the Git pane.</p>
+<p>Branch names should be short, lowercase, and descriptive. Use hyphens to separate words. A name like <code>add-spatial-aggregation</code> or <code>fix-missing-species-filter</code> is much more useful than <code>new-branch</code> or <code>working</code>. If the branch corresponds to a GitHub Issue, you can create it directly from the issue page (see <a href="../04-gh/04-issues.html">Using Issues</a>), which will name it automatically and link it to the issue.</p>
+</section>
+<section id="step-3-do-your-work-and-commit" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-do-your-work-and-commit">Step 3: Do your work and commit</h3>
+<p>Make your changes, stage them, and commit as you go. A branch should usually contain multiple commits with informative messages before you request review, because it helps your reviewers understand your thought process. Commit each logical unit of change as you complete it.</p>
+<p>In the terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add scripts/02_process.R</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add spatial aggregation step using 0.25 degree grid"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In Positron, VS Code, and RStudio, the Source Control or Git panel shows all modified files. You can stage individual files with a click, type your commit message in the text box, and commit with the button – no terminal required. The current branch name is always visible in the bottom-left corner of Positron and VS Code, and in the Git pane header in RStudio.</p>
+</section>
+<section id="step-4-push-your-branch-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-push-your-branch-to-github">Step 4: Push your branch to GitHub</h3>
+<p>Push your branch so your work is backed up and visible to collaborators. In the terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin my-branch-name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>-u</code> flag sets the upstream tracking relationship so that future pushes from this branch can be just <code>git push</code>. In Positron, VS Code, and RStudio, you can push using the sync or push button in the Source Control or Git panel.</p>
+<p>If you created the branch directly from a GitHub Issue (as described in <a href="../04-gh/04-issues.html">Using Issues</a>), the remote branch already exists on GitHub. To get it locally, run <code>git fetch</code> to update your local git’s knowledge of remote branches, then switch to it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch my-branch-name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can push subsequent commits with just <code>git push</code> – no <code>-u</code> flag needed.</p>
+</section>
+<section id="step-5-open-a-pull-request-and-merge" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-open-a-pull-request-and-merge">Step 5: Open a pull request and merge</h3>
+<p>When the work is ready, open a pull request on GitHub to merge your branch into <code>main</code>. This is covered in detail in the next section, <a href="../04-gh/06-pull-requests.html">Pull Requests</a>.</p>
+</section>
+<section id="step-6-delete-the-branch" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-delete-the-branch">Step 6: Delete the branch</h3>
+<p>After the pull request is merged, the branch can be deleted. GitHub offers to do this automatically right after a merge. To delete it locally from the terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> my-branch-name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="switching-between-branches" class="level2">
+<h2 class="anchored" data-anchor-id="switching-between-branches">Switching between branches</h2>
+<p>You can switch to any branch at any time from the terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main           <span class="co"># Switch to main</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch my-branch      <span class="co"># Switch to an existing branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In Positron, VS Code, and RStudio, click the branch name in the bottom-left corner or in the Git pane to see a list of branches and switch between them.</p>
+<p>If you have uncommitted changes when you want to switch, git will either carry them over (if there is no conflict) or stop you from switching. In that case, you can temporarily shelve your changes with <code>git stash</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash            <span class="co"># Set uncommitted changes aside</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash pop        <span class="co"># Restore the changes when you come back</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="keeping-your-branch-up-to-date" class="level2">
+<h2 class="anchored" data-anchor-id="keeping-your-branch-up-to-date">Keeping your branch up to date</h2>
+<p>If <code>main</code> receives new commits while you are working on your branch – because a collaborator merged their work, for example – you should pull those changes into your branch periodically:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch my-branch</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Doing this regularly, rather than waiting until you are ready to merge, keeps conflicts small and manageable. The longer a branch diverges from <code>main</code>, the harder the eventual merge tends to be.</p>
+</section>
+<section id="branch-scope" class="level2">
+<h2 class="anchored" data-anchor-id="branch-scope">Branch scope</h2>
+<p>Branches work best when they are focused and short-lived. A branch that represents one task – one issue, one analysis step, one bug fix – is easy to review and straightforward to merge. A branch that has accumulated two months of wide-ranging changes is difficult to review well and likely to have conflicts.</p>
+<p>If a task is genuinely large, break it into smaller branches that build on each other and can be merged sequentially. This keeps the review load reasonable and keeps <code>main</code> moving forward in understandable increments.</p>
+</section>
+<section id="git-command-summary" class="level2">
+<h2 class="anchored" data-anchor-id="git-command-summary">Git command summary</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Create and switch to a new branch</td>
+<td><code>git switch -c branch-name</code></td>
+</tr>
+<tr class="even">
+<td>Switch to an existing branch</td>
+<td><code>git switch branch-name</code></td>
+</tr>
+<tr class="odd">
+<td>See all local branches</td>
+<td><code>git branch</code></td>
+</tr>
+<tr class="even">
+<td>Push branch to GitHub</td>
+<td><code>git push -u origin branch-name</code></td>
+</tr>
+<tr class="odd">
+<td>Merge <code>main</code> into your branch</td>
+<td><code>git merge main</code></td>
+</tr>
+<tr class="even">
+<td>Delete a local branch</td>
+<td><code>git branch -d branch-name</code></td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
+</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>For day-to-day lab logistics — onboarding, meetings, GRIT account setup, and the like — see the separate <a href="https://emlab-ucsb.github.io/emlab-manual/">emLab Manual</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
