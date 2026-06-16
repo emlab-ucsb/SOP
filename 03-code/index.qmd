@@ -45,7 +45,7 @@ Code should be crafted according to the following guidelines:
 * Use Git to version control scripts
 * Make atomic Git commits (see description below)
 
-Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.
+Scripts should be documented and organized for readability. Use a standardized header and section comments so the structure is clear at a glance. Code should be self-documenting where possible. Use relative filepaths for imports and exports. Keep scripts modular — one script for cleaning data, another for modeling, another for figures. A makefile or pipeline tool can then document the analysis workflow.
 
 Here is an example template for R scripts:
 
@@ -105,18 +105,18 @@ my_raw_data <- read_csv(paste0(data_path,"raw/my_raw_data.csv"))
 
 ```
 
-[Git](https://git-scm.com/) tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found [here](https://chris.beams.io/posts/git-commit/). There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.
+[Git](https://git-scm.com/) tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a consistent style, such as the guide found [here](https://chris.beams.io/posts/git-commit/).
 
 More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.
 
 
 ## Reproducibility
 
-Prioritizing reproducibility when writing code not only fosters collaboration with others during a project, but also makes it easier for users in the future (including yourself!) to make changes and rerun analyses as new data become available. Some useful tools and practices include:
+Reproducible code makes it easier for collaborators — including yourself in the future — to make changes and rerun analyses as new data become available. Some useful tools and practices include:
 
 - **Commenting code:** Adding brief but detailed comments to your scripts that document what your code does and how it works will help others understand and use your scripts. At the top of your scripts, describe the purpose of the code as well as its necessary inputs, required packages, and outputs.
-- **File paths:** Avoid writing file paths that only work on your computer. Where possible, use relative file paths instead of absolute files paths so your code can be run by different users or operating systems. For R users, using [R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) and/or the [here](https://github.com/jennybc/here_here) package are great ways to help implement this practice.
-- **Functions:** If you find yourself copying and pasting similar blocks of code over and over to repeat tasks, turn it into a function!
+- **File paths:** Avoid writing file paths that only work on your computer. Use relative file paths instead of absolute ones so your code can be run by different users or operating systems. For R users, [R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) and the [here](https://github.com/jennybc/here_here) package are good options.
+- **Functions:** If you find yourself copying and pasting the same block of code more than once, write a function instead.
 - **R Markdown:** R users can take advantage of [R  Markdown](https://rmarkdown.rstudio.com/lesson-1.html) for a coding format that seamlessly integrates sections of text alongside code chunks. R Markdown also enables you to transform your code and text into report-friendly formats such as PDFs or Word documents.
 - **Git and GitHub:** [As described above,](#scripts-and-version-control) Git tracks changes to files line-by-line in commits that are attributable to each team member working on the project. GitHub then compiles the history of any Git-tracked file online, and synchronizes the work of all collaborators in a central repository. Using Git and GitHub allow multiple people to code collaboratively, examine changes as they occur, and restore prior versions of files if necessary.
 

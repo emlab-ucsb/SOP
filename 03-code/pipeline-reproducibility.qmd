@@ -6,12 +6,12 @@ To ensure end-to-end reproducibility and efficiency, **emLab projects should use
 
 ## The philosophy of pipeline management
 
-Adopting a pipeline tool is not just about learning a new package; it is a shift in research philosophy. We use these tools for several critical reasons:
+These tools are useful for several practical reasons:
 
-* **Resilience to Change:** In research, data is rarely static. If a raw dataset is updated or a cleaning parameter is tweaked, manual workflows require the researcher to remember every downstream script affected. Automated pipelines handle this bookkeeping for you, ensuring the "state" of your results always matches the "state" of your code.  
-* **Efficiency and "Lazy" Computing:** Many emLab analyses involve long-running operations (e.g., processing GFW data or training complex models). Pipeline tools are "lazy"—they only execute a task if its inputs or the code itself has changed. This saves hours of unnecessary computation and allows for rapid iteration on specific parts of the analysis.  
-* **Trust and Transparency:** A pipeline tool serves as a "living" README. Instead of trusting a narrative description of how the analysis was run, a collaborator can look at a dependency graph and see exactly how every figure and table was derived.  
-* **Collaborative Scalability:** In a team setting, pipelines reduce the "cognitive load" for new members. A new researcher can clone a repository and run a single command to see the entire project in action, rather than guessing which scripts are current and which are experimental leftovers.
+* **Automatic dependency tracking:** In research, data is rarely static. If a raw dataset is updated or a cleaning parameter is tweaked, you would otherwise need to remember every downstream script affected. Automated pipelines track these dependencies automatically.
+* **Skipping up-to-date steps:** Many emLab analyses involve long-running operations (e.g., processing GFW data or training complex models). Pipeline tools are "lazy"—they only execute a task if its inputs or the code itself has changed. This saves significant computation time during iteration.
+* **A clear map of the analysis:** A pipeline's dependency graph shows exactly how every figure and table was derived, which is more reliable than a written description of the run order.
+* **Easier onboarding:** In a team setting, new team members can run a single command to execute the full pipeline, rather than guessing which scripts are current and which are experimental leftovers.
 
 ## R pipelines: the targets package
 

@@ -1,10 +1,10 @@
 # Package and language version management {#sec-package-reproducibility}
 
-Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This "future-proofing" approach prevents the common frustration where code breaks because a package was updated or a system dependency changed.
+Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This prevents the common problem of code breaking when a package is updated or a system dependency changes.
 
 ## R
 
-For R projects, we manage three distinct layers of the environment: the R version itself, the project-specific library of R packages, and the source of the packages. By managing each of these layers, we ensure that an update to your global R installation doesn't inadvertently break a legacy project.
+For R projects, we manage three layers: the R version itself, the project-specific library, and the package source. Managing each separately ensures that a global R installation update doesn't break a legacy project.
 
 ### R version management
 
@@ -18,10 +18,10 @@ If you use [Positron](https://positron.posit.co/), managing multiple R versions 
 
 If you are not using Positron, we recommend [**rig** (The R Installation Manager)](https://github.com/r-lib/rig) to handle multiple R versions on a single machine seamlessly.
 
-* **Why use rig?** It allows you to quickly switch between R versions without manual uninstalls. Crucially, it installs R in a way that doesn't require `sudo` privileges for library paths, preventing permissions issues that often plague multi-user servers. This ensures that `renv` is always drawing from the correct, isolated R binary.
-* **Workflow:**
-  * **Installation:** Install the version specified in the project documentation (e.g., `rig add 4.3.2`).
-  * **Context Switching:** Use `rig default 4.3.2` to set the system-wide default, or use `rig run <version>` to start a specific session.
+It lets you switch between R versions without manual uninstalls, and installs R without requiring `sudo` privileges, which avoids permissions issues on multi-user servers.
+
+* **Installation:** Install the version specified in the project documentation (e.g., `rig add 4.3.2`).
+* **Context switching:** Use `rig default 4.3.2` to set the system-wide default, or `rig run <version>` to start a specific session.
 
 #### Documentation
 
@@ -29,13 +29,13 @@ Regardless of how you manage R versions, always document the R version used in t
 
 ### Package version management with `renv`
 
-Every emLab project should be "hermetic"—meaning its packages are isolated from the rest of your system. We use [**renv**](https://rstudio.github.io/renv/articles/renv.html) to create a private library of packages for each project.
+Every emLab project should have its packages isolated from the rest of your system. We use [**renv**](https://rstudio.github.io/renv/articles/renv.html) to create a private library of packages for each project.
 
 * **Initialization:** Run `renv::init()` at the start of a project. This creates a local `.Rprofile` that tells R to use a project-specific library instead of your global one.
 * **Daily Workflow:**
   * `renv::snapshot()`: Save the state of your library to the `renv.lock` file. This JSON file contains the exact version and source (CRAN, GitHub, Bioconductor) of every package. **Commit this file to GitHub.**
   * `renv::status()`: Frequently check if your local library is in sync with your lockfile.
-  * `renv::restore()`: When pulling changes from GitHub, run this to sync your local library with the project's lockfile. This is the "magic button" that rebuilds the environment on a colleague's computer.
+  * `renv::restore()`: When pulling changes from GitHub, run this to sync your local library with the project's lockfile. This rebuilds the environment on a colleague's computer.
 * **Efficiency:** `renv` uses a global cache. This means that if ten different projects use `ggplot2` version 3.4.0, it is only stored on your hard drive once, but linked into each project's library.
 * **Collaboration:** Never include the `renv/library` folder in your git commits (it should be in `.gitignore`). Only commit the `renv.lock`, `.Rprofile`, and `renv/activate.R` files.
 
@@ -68,8 +68,7 @@ options(repos = c(PPM = "https://packagemanager.posit.co/cran/__linux__/jammy/la
 
 - *Positron*: Open Settings (Cmd + ,), search for r.defaultRepositories, and add the CRAN/PPM URL to your `settings.json.`
 
-**IMPORTANT**
-Global vs. Project Settings: Global defaults are for your convenience. However, you must still include the specific repository URL in each project's `.Rprofile` to ensure reproducibility for your collaborators.
+**Note:** Global defaults are for your own convenience. You must still include the specific repository URL in each project's `.Rprofile` to ensure reproducibility for collaborators.
 
 ### Common pitfalls & troubleshooting (R)
 
@@ -144,15 +143,15 @@ For projects with complex non-Python dependencies—specifically spatial librari
 
 ### Common pitfalls & troubleshooting (Python)
 
-Python environment management is notoriously "leaky." Even with virtual environments, it is easy to accidentally run code in the wrong context. Watch out for these common emLab hurdles:
+Python environment management has several common failure modes. Even with virtual environments, it is easy to accidentally run code in the wrong context. Watch out for these common emLab hurdles:
 
-* **The "Shadow" Global Install:** You run `pip install` without realizing your virtual environment isn't active.
+* **Accidental global install:** You run `pip install` without realizing your virtual environment isn't active.
     * **The Consequence:** The package is installed to your system's global Python. Your code runs fine on your machine, but when you share the `requirements.txt` or `environment.yml` file, the package is missing, and your collaborator's code fails.
     * **The Fix:** Always check your terminal prompt for the `(.venv)` prefix. When in doubt, run `which python` (Mac/Linux) or `where python` (Windows) to ensure it points to your project folder, not `/usr/bin/python`.
 * **Mixing Pip and Conda:** You use `pip install` inside a Mamba/Conda environment for a package that has complex C-dependencies.
-    * **The Consequence:** This is the leading cause of "Environment Inconsistency" errors. Pip and Conda do not communicate well; Pip might overwrite a library that Conda relies on, leading to a broken environment that won't update.
+    * **The Consequence:** Pip and Conda do not communicate well; Pip might overwrite a library that Conda relies on, leading to a broken environment that won't update.
     * **The Fix:** If you are using Mamba, **always** try `mamba install package_name` first. Only use `pip install` if the package is unavailable on `conda-forge`.
-* **The GDAL/Spatial Nightmare:** Trying to install spatial libraries like `geopandas`, `fiona`, or `rasterio` via `pip`.
+* **GDAL and spatial libraries:** Trying to install spatial libraries like `geopandas`, `fiona`, or `rasterio` via `pip`.
     * **The Consequence:** These packages require specific versions of system libraries (GDAL, PROJ, GEOS). Pip tries to compile these from source, which almost always fails on standard laptops without a massive headache.
     * **The Fix:** Use **Mamba** and an `environment.yml` file for any project involving spatial data. Mamba handles the system-level binaries so you don't have to.
 * **Stale Requirements Files:** You've been working for weeks, installing new packages, but haven't updated your tracking file.

@@ -1,6 +1,6 @@
 # Exploratory data analysis
 
-Exploratory data analysis (EDA) is the most critical stage for identifying data quality issues and refining hypotheses. While EDA can be "messy," at emLab we treat it as a formal part of the research record. Using Quarto for EDA allows us to document not just what we found, but what we looked for and why certain paths were abandoned.
+Exploratory data analysis (EDA) is where you identify data quality issues and refine hypotheses. While EDA can be "messy," at emLab we treat it as a formal part of the research record. Using Quarto for EDA allows us to document not just what we found, but what we looked for and why certain paths were abandoned.
 
 ## The "notebook" philosophy
 
@@ -8,7 +8,7 @@ Use .qmd files as an interactive laboratory notebook. Unlike a final report, an 
 
 * **Data Sanity Checks:** Summaries of missing values, range checks, and distribution plots.  
 * **Dead Ends:** If an approach didn't work, keep the code but explain why in the text. This prevents future collaborators (or your future self) from repeating the same mistake.  
-* **Narrative over Snippets:** Every plot should be followed by a short sentence describing the takeaway (e.g., *"The outlier in 2014 appears to be a recording error in the raw sensor data"*).
+* **Plot annotations:** Every plot should be followed by a short sentence describing the takeaway (e.g., *"The outlier in 2014 appears to be a recording error in the raw sensor data"*).
 
 ## Leveraging code folding
 

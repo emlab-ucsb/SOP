@@ -49,7 +49,7 @@ In-line comments should be used strategically to explain the logic that isn't im
 * **Todo Tags:** Use `# TODO:` to flag unfinished tasks or areas that require further optimization. This makes it easy for collaborators to search the codebase for pending items.
 
 ### AI-assisted documentation
-We encourage the use of AI tools to accelerate the documentation process and improve the clarity of our codebase. However, AI is a co-pilot, not an autopilot; the researcher is ultimately responsible for the accuracy and technical integrity of all documentation.
+We encourage the use of AI tools to accelerate the documentation process and improve the clarity of our codebase. The researcher is responsible for the accuracy and technical integrity of all documentation.
 
 #### GitHub Copilot
 GitHub Copilot is integrated into our IDEs (RStudio, Positron, and VS Code) to provide real-time suggestions.
