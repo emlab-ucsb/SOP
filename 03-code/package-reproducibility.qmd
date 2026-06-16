@@ -1,10 +1,10 @@
 # Package and language version management {#sec-package-reproducibility}
 
-Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This prevents the common problem of code breaking when a package is updated or a system dependency changes.
+Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This "future-proofing" approach prevents the common problem of code breaking when a package is updated or a system dependency changes.
 
 ## R
 
-For R projects, we manage three layers: the R version itself, the project-specific library, and the package source. Managing each separately ensures that a global R installation update doesn't break a legacy project.
+For R projects, we manage three distinct layers: the R version itself, the project-specific library, and the package source. Managing each separately ensures that a global R installation update doesn't break a legacy project.
 
 ### R version management
 
@@ -29,13 +29,13 @@ Regardless of how you manage R versions, always document the R version used in t
 
 ### Package version management with `renv`
 
-Every emLab project should have its packages isolated from the rest of your system. We use [**renv**](https://rstudio.github.io/renv/articles/renv.html) to create a private library of packages for each project.
+Every emLab project should be "hermetic"—meaning its packages are isolated from the rest of your system. We use [**renv**](https://rstudio.github.io/renv/articles/renv.html) to create a private library of packages for each project.
 
 * **Initialization:** Run `renv::init()` at the start of a project. This creates a local `.Rprofile` that tells R to use a project-specific library instead of your global one.
 * **Daily Workflow:**
   * `renv::snapshot()`: Save the state of your library to the `renv.lock` file. This JSON file contains the exact version and source (CRAN, GitHub, Bioconductor) of every package. **Commit this file to GitHub.**
   * `renv::status()`: Frequently check if your local library is in sync with your lockfile.
-  * `renv::restore()`: When pulling changes from GitHub, run this to sync your local library with the project's lockfile. This rebuilds the environment on a colleague's computer.
+  * `renv::restore()`: When pulling changes from GitHub, run this to sync your local library with the project's lockfile. This is the "magic button" that rebuilds the environment on a colleague's computer.
 * **Efficiency:** `renv` uses a global cache. This means that if ten different projects use `ggplot2` version 3.4.0, it is only stored on your hard drive once, but linked into each project's library.
 * **Collaboration:** Never include the `renv/library` folder in your git commits (it should be in `.gitignore`). Only commit the `renv.lock`, `.Rprofile`, and `renv/activate.R` files.
 
