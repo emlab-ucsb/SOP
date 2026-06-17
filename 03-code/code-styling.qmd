@@ -2,7 +2,7 @@
 
 ## The philosophy of style
 
-In a collaborative environment where projects span years and multiple contributors, code is a medium of communication and **style is a form of documentation.**
+In a collaborative environment where projects span years and multiple contributors, **style is a form of documentation.**
 
 Consistent style means GitHub diffs reflect real changes rather than whitespace, linters catch common bugs before runtime, and new contributors can read an unfamiliar script without having to decode its structure first.
 
@@ -32,9 +32,15 @@ For other languages, we defer to established industry standards:
 ## Code formatters
 
 A **code formatter** is a tool that automatically adjusts your code's layout—spacing, indentation, line breaks, and alignment—to match a specific style guide. Instead of manually fixing every comma or bracket, the formatter does it for you instantly.  
-At emLab, we have adopted cutting-edge Rust-based formatters that are significantly faster than older tools and can be configured to run automatically every time you save a file.  
+At emLab, we have adopted Rust-based formatters that are significantly faster than older tools and can be configured to run automatically every time you save a file.  
 
-**Note:** To maintain consistency across emLab, the use of these formatters is **required** for all new code development.
+
+::: {.callout-important}
+
+To maintain consistency across emLab, the use of these formatters is **required** for all new code development.
+
+:::
+
 
 ### R formatting: Air (required for R users)
 

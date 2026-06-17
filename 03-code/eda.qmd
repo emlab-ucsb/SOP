@@ -6,8 +6,8 @@ Exploratory data analysis (EDA) is important for identifying data quality issues
 
 Use .qmd files as an interactive laboratory notebook. Unlike a final report, an EDA document should include:
 
-* **Data Sanity Checks:** Summaries of missing values, range checks, and distribution plots.  
-* **Dead Ends:** If an approach didn't work, keep the code but explain why in the text. This prevents future collaborators (or your future self) from repeating the same mistake.  
+* **Data sanity checks:** Summaries of missing values, range checks, and distribution plots.  
+* **Dead ends:** If an approach didn't work, keep the code but explain why in the text. This prevents future collaborators (or your future self) from repeating the same mistake.  
 * **Interpretability:** Every plot should be followed by a short sentence describing the takeaway (e.g., *"The outlier in 2014 appears to be a recording error in the raw sensor data"*).
 
 ## Leveraging code folding
@@ -45,16 +45,18 @@ mtcars |>
   skimr::skim()
 ```
 
+If you use Positron, click on your object in the Session Pane to open the [Data Explorer](https://positron.posit.co/data-explorer.html) for that object, which provides a useful visual summary of variable distributions and missingness as well as a sortable, filterable table right in your IDE. You can also run the `View()` function in your console to open the Data Explorer. 
+
 ## Organizing EDA documents
 
 For large projects, do not crowd a single file with all exploratory work. Instead:
 
-1. **Create a dedicated eda/ folder** in your repository.  
+1. **Create a dedicated eda/ or explore/ folder** in your repository.  
 2. **Use a naming convention** like eda-01-initial-cleaning.qmd, eda-02-spatial-joins.qmd, etc.  
 3. **If using a Quarto Book**, include these under a "Research Notebook" or "Appendices" section to keep the main narrative focused.
 
 ## Best practices for EDA
 
 * **eval: true / echo: true**: Ensure code is visible and executed so others can reproduce your exploratory steps.  
-* **Avoid View()**: Never leave View(df) in a code chunk, as it will break the rendering process. Use head() or DT::datatable() instead.  
-* **Self-Correction**: If you find an error in the data during EDA, document the fix in the text and move the correction logic to your data cleaning script/pipeline node.
+* **Avoid View() in files**: Never leave View(df) in a code chunk, as it will break the rendering process. Use head() or DT::datatable() instead.  
+* **Self-correction**: If you find an error in the data during EDA, document the fix in the text and move the correction logic to your data cleaning script/pipeline node.

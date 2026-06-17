@@ -2,7 +2,7 @@
 
 Functional programming is a style of writing code that makes emLab models and software easier to understand, combine, improve, and debug.
 
-Functional programming is not a separate language or package — it is a way of structuring code, based on **applying functions to data**. A rudimentary example of a function in the programming sense is^[This section uses R code in [Quarto](../05-quarto/index.qmd) chunks, hence the `[1]` prefix beside the output.]
+Functional programming is a way of structuring code, based on **applying functions to data**. A rudimentary example of a function in the programming sense is^[This section uses R code in [Quarto](../05-quarto/index.qmd) chunks, hence the `[1]` prefix beside the output.]
 
 ```{r}
 #| label: sum-fun
