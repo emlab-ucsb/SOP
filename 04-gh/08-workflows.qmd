@@ -36,11 +36,11 @@ git commit -m "Add spatial aggregation step using 0.25 degree grid"
 git push -u origin add-spatial-aggregation
 ```
 
-5. **Open a pull request, review it yourself, and merge.** Even for solo work, the PR step is not just process overhead -- looking at your own diff before merging is a practical moment to catch mistakes or reconsider approach. On a solo project, a brief self-review is fine. Merge using **Squash and merge** to keep the `main` history tidy, then delete the branch. When working on your own, it can be particularly helpful to enable a PR review from Co-Pilot so that you at least have another set of "eyes" on your code, even if those eyes are imperfect AI.
+5. **Open a pull request, review it yourself, and merge.** Even for solo work, looking at your own diff before merging is a useful moment to catch mistakes or reconsider your approach. On a solo project, a brief self-review is fine. Merge using **Squash and merge** to keep the `main` history tidy, then delete the branch. When working alone, enabling a Copilot review can also be a useful first pass.
 
 6. **Repeat.** Pull the latest `main`, start the next branch.
 
-The rhythm of this workflow produces a `main` branch whose history reads like a sequence of coherent contributions, with each PR representing one unit of work. This makes it far easier to locate when and why a specific change was made, months or years later.
+The rhythm of this workflow yields a `main` branch whose history reads as a sequence of coherent contributions, with each PR representing one unit of work. This makes it easier to locate when and why a specific change was made, months or years later.
 
 ## Collaborative code development
 

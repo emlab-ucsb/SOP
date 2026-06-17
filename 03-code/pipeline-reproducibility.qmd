@@ -6,12 +6,12 @@ To ensure end-to-end reproducibility and efficiency, **emLab projects should use
 
 ## The philosophy of pipeline management
 
-Adopting a pipeline tool is not just about learning a new package; it is a shift in research philosophy. We use these tools for several critical reasons:
+These tools are useful for several practical reasons:
 
-* **Resilience to Change:** In research, data is rarely static. If a raw dataset is updated or a cleaning parameter is tweaked, manual workflows require the researcher to remember every downstream script affected. Automated pipelines handle this bookkeeping for you, ensuring the "state" of your results always matches the "state" of your code.  
-* **Efficiency and "Lazy" Computing:** Many emLab analyses involve long-running operations (e.g., processing GFW data or training complex models). Pipeline tools are "lazy"—they only execute a task if its inputs or the code itself has changed. This saves hours of unnecessary computation and allows for rapid iteration on specific parts of the analysis.  
-* **Trust and Transparency:** A pipeline tool serves as a "living" README. Instead of trusting a narrative description of how the analysis was run, a collaborator can look at a dependency graph and see exactly how every figure and table was derived.  
-* **Collaborative Scalability:** In a team setting, pipelines reduce the "cognitive load" for new members. A new researcher can clone a repository and run a single command to see the entire project in action, rather than guessing which scripts are current and which are experimental leftovers.
+* **Automatic dependency tracking:** In research, data is rarely static. If a raw dataset is updated or a cleaning parameter is tweaked, you would otherwise need to remember every downstream script affected. Automated pipelines track these dependencies automatically.
+* **Skipping up-to-date steps:** Many emLab analyses involve long-running operations (e.g., processing GFW data or training complex models). Pipeline tools are "lazy"—they only execute a task if its inputs or the code itself has changed. This saves significant computation time during iteration.
+* **A clear map of the analysis:** A pipeline's dependency graph shows exactly how every figure and table was derived, which is more reliable than a written description of the run order.
+* **Easier onboarding:** In a team setting, new team members can run a single command to execute the full pipeline, rather than guessing which scripts are current and which are experimental leftovers.
 
 ## R pipelines: the targets package
 
@@ -62,8 +62,8 @@ list(
 
 By default, targets stores its data in a local `_targets/` folder. Where you store this folder depends on the size of your objects:
 
-* **Small Objects (<50MB per file):** You can keep the `_targets/` folder in your GitHub repository. However, you must ensure you aren't committing large binary files that will bloat the repo history.  
-* **Large Research Data:** For most emLab projects, analysis objects are too large for GitHub. In these cases, you should move the data store to emLab's shared infrastructure (Nextcloud GRIT storage).
+* **Small objects (<50MB per file):** You can keep the `_targets/` folder in your GitHub repository. However, you must ensure you aren't committing large binary files that will bloat the repo history.  
+* **Large data:** For most emLab projects, analysis objects are too large for GitHub. In these cases, you should move the data store to emLab's shared infrastructure (Nextcloud GRIT storage).
 
 #### Automating path detection
 
@@ -98,13 +98,19 @@ tar_config_set(
 )
 ```
 
-**Crucially:** When using a shared store, only one person should run `tar_make()` at a time to avoid write conflicts in the metadata. Targets will not allow simultaneous runs.
+
+::: {.callout-important}
+
+When using a shared store, only one person should run `tar_make()` at a time to avoid write conflicts in the metadata. Targets will not allow simultaneous runs.
+
+:::
+
 
 ### Multiple pipelines in one repo
 
 Complex emLab projects often require split pipelines. For example:
 
-1. **Pipeline A (Data Ingestion):** Pulls heavy data from BigQuery/GFW. Requires specific credentials and often runs on the emLab server/GRIT.  
+1. **Pipeline A (Data ingestion):** Pulls heavy data from BigQuery/GFW. Requires specific credentials and often runs on the emLab server/GRIT.  
 2. **Pipeline B (Analysis):** Uses the pulled data for modeling. Accessible to all team members for local iteration.
 
 To manage this, create two separate target files (e.g., `_targets_data.R` and `_targets_analysis.R`) and a `_targets.yaml` file in the root directory to define them:  
@@ -228,13 +234,13 @@ A few things worth pointing out in this example:
 
 If a project does not yet use an automated tool like targets or Make, it is **mandatory** to provide a detailed "How to Run" section in the repository's README.md. At a absolute minimum, this must include:
 
-1. **Script Execution Order:** A numbered list of scripts in the exact order they must be run.  
+1. **Script execution order:** A numbered list of scripts in the exact order they must be run.  
 2. **Dependencies:** Which data files are required for each script and which outputs they produce.  
-3. **Environment Setup:** Instructions on how to set up the necessary libraries or software versions (e.g., using renv or conda).
+3. **Environment setup:** Instructions on how to set up the necessary libraries or software versions (e.g., using renv or conda).
 
 ## Best practices for all pipelines
 
-1. **Documentation is Mandatory:** No matter what pipeline or tool is used, the repository README.md must clearly document how to execute the analysis. A new collaborator should be able to clone the repo and know exactly which command to run (e.g., "Run tar_make() in the R console" or "Type make in the terminal").  
-2. **Atomic Steps:** Each step in the pipeline should be small enough to be easily understood but large enough to justify being its own "target."  
-3. **File Tracking:** Always include the script itself as a prerequisite/dependency. If you change the code, the output should be considered "outdated."  
-4. **No Manual Interventions:** A pipeline is only reproducible if it can be run from start to finish on a new machine without a human clicking "save," "export," or manually moving files in the middle.
+1. **Documentation is mandatory:** No matter what pipeline or tool is used, the repository README.md must clearly document how to execute the analysis. A new collaborator should be able to clone the repo and know exactly which command to run (e.g., "Run tar_make() in the R console" or "Type make in the terminal").  
+2. **Atomic steps:** Each step in the pipeline should be small enough to be easily understood but large enough to justify being its own "target."  
+3. **File tracking:** Always include the script itself as a prerequisite/dependency. If you change the code, the output should be considered "outdated."  
+4. **No manual interventions:** A pipeline is only reproducible if it can be run from start to finish on a new machine without a human clicking "save," "export," or manually moving files in the middle.
