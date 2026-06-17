@@ -45,9 +45,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-091eb8cf3117db699ed7f4f2db56ee2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e41e081561f2f0f0e54be4122edf2499.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-091eb8cf3117db699ed7f4f2db56ee2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -785,7 +785,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>1. Code for accuracy.</strong> Accuracy means the logic is correct (e.g., the right observations are being filtered, the model is specified as intended, and the units are consistent). Accuracy errors are often invisible and silent: the code may run and produce plausible-looking output, obscuring that a mistake was made. Such errors may go unnoticed for a long time, or entirely. These errors come at costs: errors discovered late in a project can require extensive revision, delay or derail publication, and undermine trust with partners. Accuracy is best protected through continuous, incremental review, which requires adequate time for developing clean code and personnel available to provide review.</p>
 <p><strong>2. Code for reproducibility.</strong> Reproducibility means that a person with access to your code, data, and documentation can independently re-run the analysis and arrive at the same outputs. This is increasingly a necessity: public code repositories are now required by many journals and the broader scientific community’s trust in computational research depends on it. Reproducibility is protected through good code organization, documentation, package management, and using platforms (like GitHub) that track the full history of a project.</p>
 <p>The following universal requirements reflect our shared commitment to a research environment that supports excellent, collaborative code development at emLab. These are described in detail in the following sections.</p>
-<p><strong>GitHub as the Platform for All Coding Work</strong> GitHub is emLab’s required platform for all coding projects. Using GitHub means that:</p>
+<p><strong>GitHub is the platform for all coding work</strong> GitHub is emLab’s required platform for all coding projects. Using GitHub means that:</p>
 <ul>
 <li><p><strong>All code is maintained in a GitHub repository.</strong> GitHub repos include a README, document dependencies, and follow a logical file structure — is the foundation of a reproducible analysis.</p></li>
 <li><p><strong>Code is clear and commented.</strong> All code is formatted using the appropriate code formatter for the language (e.g., Air for R, Ruff for Python). Code is sufficiently described documented using comments.</p></li>
@@ -804,7 +804,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Use Git to version control scripts</li>
 <li>Make atomic Git commits (see description below)</li>
 </ul>
-<p>Script files should be documented and organized in such a way to enhance readability and comprehension. For example, use a standardized header for general documentation and sections to make it easier to understand and find specific code of interest. Code should also be self-documenting as much as possible. Additionally, use relative filepaths for importing and exporting objects. Scripts should also be modular by focusing on one general task. For example, use one script for cleaning data, another script for visualizing data, etc. A makefile can then be used to document the analysis workflow. There is an art to this organization, so just keep in mind the general principle of making code easy to understand, for your future self and for others.</p>
+<p>Scripts should be documented and organized for readability. Use a standardized header and section comments so the structure is clear at a glance. Code should be self-documenting where possible. Use relative filepaths for imports and exports. Keep scripts modular — one script for cleaning data, another for modeling, another for figures. A makefile or pipeline tool can then document the analysis workflow.</p>
 <p>Here is an example template for R scripts:</p>
 <pre><code># =============================================================================
 # Name:           script.R
@@ -859,7 +859,7 @@ my_raw_data &lt;- read_csv(paste0(data_path,"raw/my_raw_data.csv"))
 # Save results ----------------------------------------------------------------
 
 </code></pre>
-<p><a href="https://git-scm.com/">Git</a> tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a certain style, such as the guide found <a href="https://chris.beams.io/posts/git-commit/">here</a>. There is also an art to the version control process, so just keep in mind the general principle of making atomic commits.</p>
+<p><a href="https://git-scm.com/">Git</a> tracks changes in code line-by-line with the use of commits. Commits should be atomic by documenting single, specific changes in code as opposed to multiple, unrelated changes. Atomic commits can be small or large depending on the change being made, and they enable easier code review and reversion. Git commit messages should be informative and follow a consistent style, such as the guide found <a href="https://chris.beams.io/posts/git-commit/">here</a>.</p>
 <p>More advanced workflows for using Git and GitHub, such as using pull requests or branches, will vary from project to project. It is important that the members of each project agree to and follow a specific workflow to ensure that collaboration is effective and efficient.</p>
 </section>
 <section id="reproducibility" class="level2">
@@ -867,8 +867,8 @@ my_raw_data &lt;- read_csv(paste0(data_path,"raw/my_raw_data.csv"))
 <p>Prioritizing reproducibility when writing code not only fosters collaboration with others during a project, but also makes it easier for users in the future (including yourself!) to make changes and rerun analyses as new data become available. Some useful tools and practices include:</p>
 <ul>
 <li><strong>Commenting code:</strong> Adding brief but detailed comments to your scripts that document what your code does and how it works will help others understand and use your scripts. At the top of your scripts, describe the purpose of the code as well as its necessary inputs, required packages, and outputs.</li>
-<li><strong>File paths:</strong> Avoid writing file paths that only work on your computer. Where possible, use relative file paths instead of absolute files paths so your code can be run by different users or operating systems. For R users, using <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">R Projects</a> and/or the <a href="https://github.com/jennybc/here_here">here</a> package are great ways to help implement this practice.</li>
-<li><strong>Functions:</strong> If you find yourself copying and pasting similar blocks of code over and over to repeat tasks, turn it into a function!</li>
+<li><strong>File paths:</strong> Avoid writing file paths that only work on your computer. Use relative file paths instead of absolute ones so your code can be run by different users or operating systems. For R users, the <a href="https://github.com/jennybc/here_here">here</a> package is a great way to help implement this practice.</li>
+<li><strong>Functions:</strong> If you find yourself copying and pasting similar blocks of code more than once, write a function instead.</li>
 <li><strong>R Markdown:</strong> R users can take advantage of <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown</a> for a coding format that seamlessly integrates sections of text alongside code chunks. R Markdown also enables you to transform your code and text into report-friendly formats such as PDFs or Word documents.</li>
 <li><strong>Git and GitHub:</strong> <a href="#scripts-and-version-control">As described above,</a> Git tracks changes to files line-by-line in commits that are attributable to each team member working on the project. GitHub then compiles the history of any Git-tracked file online, and synchronizes the work of all collaborators in a central repository. Using Git and GitHub allow multiple people to code collaboratively, examine changes as they occur, and restore prior versions of files if necessary.</li>
 </ul>

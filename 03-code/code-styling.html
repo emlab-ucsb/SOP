@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-091eb8cf3117db699ed7f4f2db56ee2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e41e081561f2f0f0e54be4122edf2499.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-091eb8cf3117db699ed7f4f2db56ee2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -813,17 +813,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Code styling</h1>
 <section id="the-philosophy-of-style" class="level2">
 <h2 class="anchored" data-anchor-id="the-philosophy-of-style">The philosophy of style</h2>
-<p>At emLab, we view code not just as a set of instructions for a computer, but as a medium of communication between researchers. In a collaborative environment where projects span years and multiple contributors, <strong>style is a form of documentation.</strong><br>
-The primary goals of our code style guide are:</p>
-<ol type="1">
-<li><strong>Reduced Cognitive Load:</strong> When every script follows the same conventions, your brain doesn’t have to “re-parse” the structure of a file every time you switch projects.<br>
-</li>
-<li><strong>Meaningful Diffs:</strong> Standardized formatting ensures that GitHub “diffs” reflect actual logic changes rather than trivial changes in whitespace or indentation.<br>
-</li>
-<li><strong>Error Prevention:</strong> Many style rules (like those enforced by linters) catch common bugs—such as unused variables or misplaced parentheses—before the code is even run.<br>
-</li>
-<li><strong>Inclusivity:</strong> Clean, well-spaced code is more accessible to junior researchers and external collaborators.</li>
-</ol>
+<p>In a collaborative environment where projects span years and multiple contributors, <strong>style is a form of documentation.</strong></p>
+<p>Consistent style means GitHub diffs reflect real changes rather than whitespace, linters catch common bugs before runtime, and new contributors can read an unfamiliar script without having to decode its structure first.</p>
 </section>
 <section id="style-guides-by-language" class="level2">
 <h2 class="anchored" data-anchor-id="style-guides-by-language">Style guides by language</h2>
@@ -860,8 +851,20 @@ The primary goals of our code style guide are:</p>
 <section id="code-formatters" class="level2">
 <h2 class="anchored" data-anchor-id="code-formatters">Code formatters</h2>
 <p>A <strong>code formatter</strong> is a tool that automatically adjusts your code’s layout—spacing, indentation, line breaks, and alignment—to match a specific style guide. Instead of manually fixing every comma or bracket, the formatter does it for you instantly.<br>
-At emLab, we use a new generation of “Rust-based” tools. They are significantly faster than older tools and can be configured to run automatically every time you save a file.</p>
-<p><strong>Note:</strong> To maintain consistency across emLab, the use of these formatters is <strong>required</strong> for all new code development.</p>
+At emLab, we have adopted Rust-based formatters that are significantly faster than older tools and can be configured to run automatically every time you save a file.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To maintain consistency across emLab, the use of these formatters is <strong>required</strong> for all new code development.</p>
+</div>
+</div>
 <section id="r-formatting-air-required-for-r-users" class="level3">
 <h3 class="anchored" data-anchor-id="r-formatting-air-required-for-r-users">R formatting: Air (required for R users)</h3>
 <p><strong>Air</strong> is the required high-performance R formatter for emLab projects. It is developed by the Posit team and ensures strict adherence to Tidyverse standards.</p>

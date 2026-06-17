@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-091eb8cf3117db699ed7f4f2db56ee2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e41e081561f2f0f0e54be4122edf2499.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-091eb8cf3117db699ed7f4f2db56ee2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -811,10 +811,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="sec-package-reproducibility" class="level1">
 <h1>Package and language version management</h1>
-<p>Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This “future-proofing” approach prevents the common frustration where code breaks because a package was updated or a system dependency changed.</p>
+<p>Reproducible research requires not just the same code, but the same computational environment. To ensure that our analyses can be replicated years later or shared across different machines today, emLab adheres to a tiered strategy for managing software versions. This “future-proofing” approach prevents the common problem of code breaking when a package is updated or a system dependency changes.</p>
 <section id="r" class="level2">
 <h2 class="anchored" data-anchor-id="r">R</h2>
-<p>For R projects, we manage three distinct layers of the environment: the R version itself, the project-specific library of R packages, and the source of the packages. By managing each of these layers, we ensure that an update to your global R installation doesn’t inadvertently break a legacy project.</p>
+<p>For R projects, we manage three distinct layers: the R version itself, the project-specific library, and the package source. Managing each separately ensures that a global R installation update doesn’t break a legacy project.</p>
 <section id="r-version-management" class="level3">
 <h3 class="anchored" data-anchor-id="r-version-management">R version management</h3>
 <p>Before managing packages, we must manage R itself. Different versions of R can introduce breaking changes in the underlying C++ code or require different package binaries. Using the “latest” version of R is often fine for new work, but reproducing an analysis from three years ago often requires the exact R version used at that time.</p>
@@ -825,13 +825,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="using-rig-non-positron-users" class="level4">
 <h4 class="anchored" data-anchor-id="using-rig-non-positron-users">Using <code>rig</code> (non-Positron users)</h4>
 <p>If you are not using Positron, we recommend <a href="https://github.com/r-lib/rig"><strong>rig</strong> (The R Installation Manager)</a> to handle multiple R versions on a single machine seamlessly.</p>
-<ul>
-<li><strong>Why use rig?</strong> It allows you to quickly switch between R versions without manual uninstalls. Crucially, it installs R in a way that doesn’t require <code>sudo</code> privileges for library paths, preventing permissions issues that often plague multi-user servers. This ensures that <code>renv</code> is always drawing from the correct, isolated R binary.</li>
-<li><strong>Workflow:</strong>
+<p>It lets you switch between R versions without manual uninstalls, and installs R without requiring <code>sudo</code> privileges, which avoids permissions issues on multi-user servers.</p>
 <ul>
 <li><strong>Installation:</strong> Install the version specified in the project documentation (e.g., <code>rig add 4.3.2</code>).</li>
-<li><strong>Context Switching:</strong> Use <code>rig default 4.3.2</code> to set the system-wide default, or use <code>rig run &lt;version&gt;</code> to start a specific session.</li>
-</ul></li>
+<li><strong>Context switching:</strong> Use <code>rig default 4.3.2</code> to set the system-wide default, or <code>rig run &lt;version&gt;</code> to start a specific session.</li>
 </ul>
 </section>
 <section id="documentation" class="level4">
@@ -841,10 +838,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="package-version-management-with-renv" class="level3">
 <h3 class="anchored" data-anchor-id="package-version-management-with-renv">Package version management with <code>renv</code></h3>
-<p>Every emLab project should be “hermetic”—meaning its packages are isolated from the rest of your system. We use <a href="https://rstudio.github.io/renv/articles/renv.html"><strong>renv</strong></a> to create a private library of packages for each project.</p>
+<p>Every emLab project should be “hermetic”, meaning its packages are isolated from the rest of your system. We use <a href="https://rstudio.github.io/renv/articles/renv.html"><strong>renv</strong></a> to create a private library of packages for each project.</p>
 <ul>
 <li><strong>Initialization:</strong> Run <code>renv::init()</code> at the start of a project. This creates a local <code>.Rprofile</code> that tells R to use a project-specific library instead of your global one.</li>
-<li><strong>Daily Workflow:</strong>
+<li><strong>Daily workflow:</strong>
 <ul>
 <li><code>renv::snapshot()</code>: Save the state of your library to the <code>renv.lock</code> file. This JSON file contains the exact version and source (CRAN, GitHub, Bioconductor) of every package. <strong>Commit this file to GitHub.</strong></li>
 <li><code>renv::status()</code>: Frequently check if your local library is in sync with your lockfile.</li>
@@ -858,9 +855,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="posit-package-manager-ppm">Posit Package Manager (PPM)</h3>
 <p>To ensure that <code>renv::restore()</code> always finds the exact same package versions and to speed up installation via pre-compiled binaries, we use <a href="https://packagemanager.posit.co/">Posit Package Manager</a>.</p>
 <ul>
-<li><p><strong>Fixed Snapshots:</strong> Instead of pointing to the “latest” CRAN, which changes daily, we point to a specific “frozen” date. This eliminates the risk of “dependency hell” where Package A updates and is no longer compatible with Package B.</p></li>
-<li><p><strong>Binary Advantages:</strong> PPM provides binaries for specific Linux distributions (like Ubuntu Jammy). This means that instead of waiting 20 minutes to compile a complex spatial package like <code>sf</code> or <code>terra</code> from source, you can download a pre-built version in seconds.</p></li>
-<li><p><strong>Configuration:</strong> You can configure your IDE (RStudio or Positron) to use PPM by default for all new work so you don’t have to manually call the options every time.</p></li>
+<li><strong>Fixed snapshots:</strong> Instead of pointing to the “latest” CRAN, which changes daily, we point to a specific “frozen” date. This eliminates the risk of “dependency hell” where Package A updates and is no longer compatible with Package B.</li>
+<li><strong>Binary advantages:</strong> PPM provides binaries for specific Linux distributions (like Ubuntu Jammy). This means that instead of waiting 20 minutes to compile a complex spatial package like <code>sf</code> or <code>terra</code> from source, you can download a pre-built version in seconds.</li>
+<li><strong>Configuration:</strong> You can configure your IDE (RStudio or Positron) to use PPM by default for all new work so you don’t have to manually call the options every time.</li>
 </ul>
 <section id="the-universal-r-profile-recommended" class="level4">
 <h4 class="anchored" data-anchor-id="the-universal-r-profile-recommended">The universal R profile (recommended)</h4>
@@ -875,32 +872,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><em>RStudio</em>: Go to Tools &gt; Global Options… &gt; Packages and paste the PPM URL into the “Primary CRAN repository” field.</p></li>
 <li><p><em>Positron</em>: Open Settings (Cmd + ,), search for r.defaultRepositories, and add the CRAN/PPM URL to your <code>settings.json.</code></p></li>
 </ul>
-<p><strong>IMPORTANT</strong> Global vs.&nbsp;Project Settings: Global defaults are for your convenience. However, you must still include the specific repository URL in each project’s <code>.Rprofile</code> to ensure reproducibility for your collaborators.</p>
+<p><strong>Note:</strong> Global defaults are for your own convenience. You must still include the specific repository URL in each project’s <code>.Rprofile</code> to ensure reproducibility for collaborators.</p>
 </section>
 </section>
 <section id="common-pitfalls-troubleshooting-r" class="level3">
 <h3 class="anchored" data-anchor-id="common-pitfalls-troubleshooting-r">Common pitfalls &amp; troubleshooting (R)</h3>
-<p>Using <code>rig</code> and <code>renv</code> together is robust, but keep an eye out for these common issues that can stall a project:</p>
+<p>Using <code>rig</code> and <code>renv</code> together is robust, but keep an eye out for these common issues:</p>
 <ul>
-<li><strong>The R Version Mismatch:</strong> You might open a project and find <code>renv</code> complaining that it was initialized with R 4.2.0 while you are currently running 4.4.1.
+<li><strong>Mismatched R versions:</strong> You might open a project and find <code>renv</code> complaining that it was initialized with R 4.2.0 while you are currently running 4.4.1.
 <ul>
-<li><strong>The Consequence:</strong> R may try to install packages meant for a newer version into an older environment, causing “binary not found” errors.</li>
-<li><strong>The Fix:</strong> Use <code>rig run 4.2.0</code> (or set it as default) before opening the project. Always check your current R version with <code>version</code> or <code>R.version.string</code> if things feel “off.”</li>
+<li>R may try to install packages meant for a newer version into an older environment, causing “binary not found” errors.</li>
+<li>Instead, Use <code>rig run 4.2.0</code> (or set it as default) before opening the project. Always check your current R version with <code>version</code> or <code>R.version.string</code> if things feel “off.”</li>
 </ul></li>
-<li><strong>Stale Lockfiles:</strong> If you install a new package via <code>install.packages()</code> but forget to run <code>renv::snapshot()</code>, your <code>renv.lock</code> file won’t reflect the change.
+<li><strong>Stale lockfiles:</strong> If you install a new package via <code>install.packages()</code> but forget to run <code>renv::snapshot()</code>, your <code>renv.lock</code> file won’t reflect the change.
 <ul>
-<li><strong>The Consequence:</strong> When a collaborator tries to <code>renv::restore()</code>, they won’t get the new package, and their code will break with “package not found.”</li>
-<li><strong>The Fix:</strong> Make <code>renv::status()</code> a habit before you commit and push to GitHub. It will tell you if your lockfile and library are out of sync.</li>
+<li>When a collaborator tries to <code>renv::restore()</code>, they won’t get the new package, and their code will break with “package not found.”</li>
+<li>Make <code>renv::status()</code> a habit before you commit and push to GitHub. It will tell you if your lockfile and library are out of sync.</li>
 </ul></li>
-<li><strong>Missing System Dependencies:</strong> <code>renv</code> manages R packages, but it does <strong>not</strong> manage system-level software like GDAL, GEOS, or PROJ (essential for emLab spatial work).
+<li><strong>Missing system dependencies:</strong> <code>renv</code> manages R packages, but it does <strong>not</strong> manage system-level software like GDAL, GEOS, or PROJ.
 <ul>
-<li><strong>The Consequence:</strong> Package installation fails during the “compilation” phase with cryptic errors about missing headers or <code>.so</code> files.</li>
-<li><strong>The Fix:</strong> You must install the system library on your OS (e.g., via <code>brew install gdal</code> on Mac or <code>sudo apt install libgdal-dev</code> on Linux) before <code>renv</code> can successfully build the R package.</li>
+<li>You may see package installation fails during the “compilation” phase with cryptic errors about missing headers or <code>.so</code> files.</li>
+<li>To fix this, you must install the system library on your OS (e.g., via <code>brew install gdal</code> on Mac or <code>sudo apt install libgdal-dev</code> on Linux) before <code>renv</code> can successfully build the R package.</li>
 </ul></li>
-<li><strong>Committing the Library:</strong> Occasionally, users accidentally add the <code>renv/library</code> folder to Git.
+<li><strong>Committing the library:</strong> Occasionally, users accidentally add the <code>renv/library</code> folder to Git.
 <ul>
-<li><strong>The Consequence:</strong> This bloats the repository size by hundreds of megabytes and causes errors for others because those binaries are specific to your operating system and R version.</li>
-<li><strong>The Fix:</strong> Ensure your <code>.gitignore</code> includes <code>renv/library/</code>. If you’ve already committed it, you’ll need to use <code>git rm -r --cached renv/library</code> to remove it from tracking.</li>
+<li>This bloats the repository size by hundreds of megabytes and causes errors for others because those binaries are specific to your operating system and R version.</li>
+<li>Ensure your <code>.gitignore</code> includes <code>renv/library/</code>. If you’ve already committed it, you’ll need to use <code>git rm -r --cached renv/library</code> to remove it from tracking.</li>
 </ul></li>
 </ul>
 </section>
@@ -949,48 +946,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="dependency-tracking">Dependency tracking</h3>
 <p>To replicate a Python environment, we use <code>requirements.txt</code> for standard pip-based projects or <code>environment.yml</code> for more complex stacks.</p>
 <ul>
-<li><strong>The Importance of Pinning:</strong> Simply listing <code>pandas</code> in a file is not enough; we should list <code>pandas==2.1.0</code>. This prevents “silent failures” where code runs but produces different numerical results due to underlying algorithm changes in newer package versions.</li>
-<li><strong>Exporting:</strong> Use <code>pip freeze &gt; requirements.txt</code> to capture every sub-dependency and its exact version.</li>
-<li><strong>Installing:</strong> When joining a project, run <code>pip install -r requirements.txt</code> to recreate the environment instantly.</li>
+<li>Simply listing <code>pandas</code> in a file is not enough; we should list <code>pandas==2.1.0</code>. This prevents failures where code runs but produces different numerical results due to underlying algorithm changes in newer package versions.</li>
+<li>Use <code>pip freeze &gt; requirements.txt</code> to capture every sub-dependency and its exact version.</li>
+<li>When joining a project, run <code>pip install -r requirements.txt</code> to recreate the environment instantly.</li>
 </ul>
 </section>
 <section id="conda-and-mamba" class="level3">
 <h3 class="anchored" data-anchor-id="conda-and-mamba">Conda and Mamba</h3>
 <p>For projects with complex non-Python dependencies—specifically spatial libraries like GDAL, GEOS, or PROJ—standard pip often fails. In these cases, we recommend <a href="https://mamba.readthedocs.io/en/latest/"><strong>Mamba</strong></a>.</p>
 <ul>
-<li><strong>Why Mamba?</strong> Standard Conda can take hours to “solve” a complex environment (finding a set of versions that all work together). Mamba is a C++ implementation that does this in seconds.</li>
-<li><strong>Environment Files:</strong> Use an <code>environment.yml</code> file to define both the Python version and the required packages from the <code>conda-forge</code> channel.</li>
-<li><strong>Documentation:</strong> Document the creation command clearly: <code>mamba env create -f environment.yml</code></li>
+<li>Standard Conda can take hours to “solve” a complex environment (finding a set of versions that all work together). Mamba is a C++ implementation that does this in seconds.</li>
+<li>Use an <code>environment.yml</code> file to define both the Python version and the required packages from the <code>conda-forge</code> channel.</li>
+<li>Document the creation command clearly: <code>mamba env create -f environment.yml</code></li>
 </ul>
 </section>
 <section id="common-pitfalls-troubleshooting-python" class="level3">
 <h3 class="anchored" data-anchor-id="common-pitfalls-troubleshooting-python">Common pitfalls &amp; troubleshooting (Python)</h3>
-<p>Python environment management is notoriously “leaky.” Even with virtual environments, it is easy to accidentally run code in the wrong context. Watch out for these common emLab hurdles:</p>
+<p>Python environment management has several common failure modes. Even with virtual environments, it is easy to accidentally run code in the wrong context. Watch out for these common emLab hurdles:</p>
 <ul>
-<li><strong>The “Shadow” Global Install:</strong> You run <code>pip install</code> without realizing your virtual environment isn’t active.
+<li><strong>Accidental global install:</strong> You run <code>pip install</code> without realizing your virtual environment isn’t active.
 <ul>
-<li><strong>The Consequence:</strong> The package is installed to your system’s global Python. Your code runs fine on your machine, but when you share the <code>requirements.txt</code> or <code>environment.yml</code> file, the package is missing, and your collaborator’s code fails.</li>
-<li><strong>The Fix:</strong> Always check your terminal prompt for the <code>(.venv)</code> prefix. When in doubt, run <code>which python</code> (Mac/Linux) or <code>where python</code> (Windows) to ensure it points to your project folder, not <code>/usr/bin/python</code>.</li>
+<li>The package is installed to your system’s global Python. Your code runs fine on your machine, but when you share the <code>requirements.txt</code> or <code>environment.yml</code> file, the package is missing, and your collaborator’s code fails.</li>
+<li>Always check your terminal prompt for the <code>(.venv)</code> prefix. When in doubt, run <code>which python</code> (Mac/Linux) or <code>where python</code> (Windows) to ensure it points to your project folder, not <code>/usr/bin/python</code>.</li>
 </ul></li>
 <li><strong>Mixing Pip and Conda:</strong> You use <code>pip install</code> inside a Mamba/Conda environment for a package that has complex C-dependencies.
 <ul>
-<li><strong>The Consequence:</strong> This is the leading cause of “Environment Inconsistency” errors. Pip and Conda do not communicate well; Pip might overwrite a library that Conda relies on, leading to a broken environment that won’t update.</li>
-<li><strong>The Fix:</strong> If you are using Mamba, <strong>always</strong> try <code>mamba install package_name</code> first. Only use <code>pip install</code> if the package is unavailable on <code>conda-forge</code>.</li>
+<li>Pip and Conda do not communicate well; Pip might overwrite a library that Conda relies on, leading to a broken environment that won’t update.</li>
+<li>If you are using Mamba, <strong>always</strong> try <code>mamba install package_name</code> first. Only use <code>pip install</code> if the package is unavailable on <code>conda-forge</code>.</li>
 </ul></li>
-<li><strong>The GDAL/Spatial Nightmare:</strong> Trying to install spatial libraries like <code>geopandas</code>, <code>fiona</code>, or <code>rasterio</code> via <code>pip</code>.
+<li><strong>GDAL and spatial libraries:</strong> Trying to install spatial libraries like <code>geopandas</code>, <code>fiona</code>, or <code>rasterio</code> via <code>pip</code>.
 <ul>
-<li><strong>The Consequence:</strong> These packages require specific versions of system libraries (GDAL, PROJ, GEOS). Pip tries to compile these from source, which almost always fails on standard laptops without a massive headache.</li>
-<li><strong>The Fix:</strong> Use <strong>Mamba</strong> and an <code>environment.yml</code> file for any project involving spatial data. Mamba handles the system-level binaries so you don’t have to.</li>
+<li>These packages require specific versions of system libraries (GDAL, PROJ, GEOS). Pip tries to compile these from source, which almost always fails on standard laptops without a massive headache.</li>
+<li>Use <strong>Mamba</strong> and an <code>environment.yml</code> file for any project involving spatial data. Mamba handles the system-level binaries so you don’t have to.</li>
 </ul></li>
-<li><strong>Stale Requirements Files:</strong> You’ve been working for weeks, installing new packages, but haven’t updated your tracking file.
+<li><strong>Stale requirements files:</strong> You’ve been working for weeks, installing new packages, but haven’t updated your tracking file.
 <ul>
-<li><strong>The Consequence:</strong> The <code>requirements.txt</code> file in your GitHub repo is months out of date. New lab members spend hours trying to debug “ModuleNotFoundError.”</li>
-<li><strong>The Fix:</strong> Regularly run <code>pip freeze &gt; requirements.txt</code> (for venv) or <code>mamba env export &gt; environment.yml</code> (for Mamba) before every major push to GitHub.</li>
+<li>This may result in an out-of-date <code>requirements.txt</code> file in your GitHub repo, and new project members may see “ModuleNotFoundError.”</li>
+<li>Regularly run <code>pip freeze &gt; requirements.txt</code> (for venv) or <code>mamba env export &gt; environment.yml</code> (for Mamba) before every major push to GitHub.</li>
 </ul></li>
-<li><strong>Python Version Drift:</strong> Your code uses f-strings or new syntax from Python 3.12, but your collaborator is on 3.9.
+<li><strong>Python version drift:</strong> Your code uses f-strings or new syntax from Python 3.12, but your collaborator is on 3.9.
 <ul>
-<li><strong>The Consequence:</strong> Syntax errors that look like code bugs but are actually version issues.</li>
-<li><strong>The Fix:</strong> Specifically define the Python version at the top of your <code>environment.yml</code> or in your <code>README.md</code>.</li>
+<li>Specifically define the Python version at the top of your <code>environment.yml</code> or in your <code>README.md</code>.</li>
 </ul></li>
 </ul>
 <hr>
@@ -1010,18 +1006,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th style="text-align: left;"><strong>Feature</strong></th>
 <th style="text-align: left;"><strong>R Strategy</strong></th>
 <th style="text-align: left;"><strong>Python Strategy</strong></th>
-<th style="text-align: left;"><strong>Primary Goal</strong></th>
+<th style="text-align: left;"><strong>Goal</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Language Version</strong></td>
+<td style="text-align: left;"><strong>Language version</strong></td>
 <td style="text-align: left;">Positron or <code>rig</code></td>
 <td style="text-align: left;">Positron or <code>pyenv</code></td>
 <td style="text-align: left;">Isolate the interpreter from OS updates.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Project Isolation</strong></td>
+<td style="text-align: left;"><strong>Project isolation</strong></td>
 <td style="text-align: left;"><code>renv</code></td>
 <td style="text-align: left;"><code>venv</code> or <code>conda/mamba</code></td>
 <td style="text-align: left;">Prevent projects from conflicting with each other.</td>
@@ -1033,7 +1029,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Record exact versions for 100% reproducibility.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Binary Source</strong></td>
+<td style="text-align: left;"><strong>Binary source</strong></td>
 <td style="text-align: left;">Posit Package Manager</td>
 <td style="text-align: left;">PyPI or Conda-Forge</td>
 <td style="text-align: left;">Ensure fast, reliable installation of libraries.</td>

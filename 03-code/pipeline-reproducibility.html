@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-07392178f8532e4aed2e228a506402e0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-09e36e46afef74dab4fc5d9e37c2d39a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-091eb8cf3117db699ed7f4f2db56ee2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e41e081561f2f0f0e54be4122edf2499.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-091eb8cf3117db699ed7f4f2db56ee2e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -815,15 +815,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To ensure end-to-end reproducibility and efficiency, <strong>emLab projects should use automated pipeline tools.</strong> These tools track dependencies, skip tasks that are already up-to-date, and provide a clear map of the research workflow.</p>
 <section id="the-philosophy-of-pipeline-management" class="level2">
 <h2 class="anchored" data-anchor-id="the-philosophy-of-pipeline-management">The philosophy of pipeline management</h2>
-<p>Adopting a pipeline tool is not just about learning a new package; it is a shift in research philosophy. We use these tools for several critical reasons:</p>
+<p>These tools are useful for several practical reasons:</p>
 <ul>
-<li><strong>Resilience to Change:</strong> In research, data is rarely static. If a raw dataset is updated or a cleaning parameter is tweaked, manual workflows require the researcher to remember every downstream script affected. Automated pipelines handle this bookkeeping for you, ensuring the “state” of your results always matches the “state” of your code.<br>
-</li>
-<li><strong>Efficiency and “Lazy” Computing:</strong> Many emLab analyses involve long-running operations (e.g., processing GFW data or training complex models). Pipeline tools are “lazy”—they only execute a task if its inputs or the code itself has changed. This saves hours of unnecessary computation and allows for rapid iteration on specific parts of the analysis.<br>
-</li>
-<li><strong>Trust and Transparency:</strong> A pipeline tool serves as a “living” README. Instead of trusting a narrative description of how the analysis was run, a collaborator can look at a dependency graph and see exactly how every figure and table was derived.<br>
-</li>
-<li><strong>Collaborative Scalability:</strong> In a team setting, pipelines reduce the “cognitive load” for new members. A new researcher can clone a repository and run a single command to see the entire project in action, rather than guessing which scripts are current and which are experimental leftovers.</li>
+<li><strong>Automatic dependency tracking:</strong> In research, data is rarely static. If a raw dataset is updated or a cleaning parameter is tweaked, you would otherwise need to remember every downstream script affected. Automated pipelines track these dependencies automatically.</li>
+<li><strong>Skipping up-to-date steps:</strong> Many emLab analyses involve long-running operations (e.g., processing GFW data or training complex models). Pipeline tools are “lazy”—they only execute a task if its inputs or the code itself has changed. This saves significant computation time during iteration.</li>
+<li><strong>A clear map of the analysis:</strong> A pipeline’s dependency graph shows exactly how every figure and table was derived, which is more reliable than a written description of the run order.</li>
+<li><strong>Easier onboarding:</strong> In a team setting, new team members can run a single command to execute the full pipeline, rather than guessing which scripts are current and which are experimental leftovers.</li>
 </ul>
 </section>
 <section id="r-pipelines-the-targets-package" class="level2">
@@ -868,9 +865,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="sharing-the-data-store-across-users">Sharing the data store across users</h3>
 <p>By default, targets stores its data in a local <code>_targets/</code> folder. Where you store this folder depends on the size of your objects:</p>
 <ul>
-<li><strong>Small Objects (&lt;50MB per file):</strong> You can keep the <code>_targets/</code> folder in your GitHub repository. However, you must ensure you aren’t committing large binary files that will bloat the repo history.<br>
+<li><strong>Small objects (&lt;50MB per file):</strong> You can keep the <code>_targets/</code> folder in your GitHub repository. However, you must ensure you aren’t committing large binary files that will bloat the repo history.<br>
 </li>
-<li><strong>Large Research Data:</strong> For most emLab projects, analysis objects are too large for GitHub. In these cases, you should move the data store to emLab’s shared infrastructure (Nextcloud GRIT storage).</li>
+<li><strong>Large data:</strong> For most emLab projects, analysis objects are too large for GitHub. In these cases, you should move the data store to emLab’s shared infrastructure (Nextcloud GRIT storage).</li>
 </ul>
 <section id="automating-path-detection" class="level4">
 <h4 class="anchored" data-anchor-id="automating-path-detection">Automating path detection</h4>
@@ -903,14 +900,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">store =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{project_directory}/data/_targets"</span>)</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Crucially:</strong> When using a shared store, only one person should run <code>tar_make()</code> at a time to avoid write conflicts in the metadata. Targets will not allow simultaneous runs.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When using a shared store, only one person should run <code>tar_make()</code> at a time to avoid write conflicts in the metadata. Targets will not allow simultaneous runs.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="multiple-pipelines-in-one-repo" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-pipelines-in-one-repo">Multiple pipelines in one repo</h3>
 <p>Complex emLab projects often require split pipelines. For example:</p>
 <ol type="1">
-<li><strong>Pipeline A (Data Ingestion):</strong> Pulls heavy data from BigQuery/GFW. Requires specific credentials and often runs on the emLab server/GRIT.<br>
+<li><strong>Pipeline A (Data ingestion):</strong> Pulls heavy data from BigQuery/GFW. Requires specific credentials and often runs on the emLab server/GRIT.<br>
 </li>
 <li><strong>Pipeline B (Analysis):</strong> Uses the pulled data for modeling. Accessible to all team members for local iteration.</li>
 </ol>
@@ -1057,23 +1066,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="minimum-requirement-readme-documentation">Minimum requirement: README documentation</h2>
 <p>If a project does not yet use an automated tool like targets or Make, it is <strong>mandatory</strong> to provide a detailed “How to Run” section in the repository’s README.md. At a absolute minimum, this must include:</p>
 <ol type="1">
-<li><strong>Script Execution Order:</strong> A numbered list of scripts in the exact order they must be run.<br>
+<li><strong>Script execution order:</strong> A numbered list of scripts in the exact order they must be run.<br>
 </li>
 <li><strong>Dependencies:</strong> Which data files are required for each script and which outputs they produce.<br>
 </li>
-<li><strong>Environment Setup:</strong> Instructions on how to set up the necessary libraries or software versions (e.g., using renv or conda).</li>
+<li><strong>Environment setup:</strong> Instructions on how to set up the necessary libraries or software versions (e.g., using renv or conda).</li>
 </ol>
 </section>
 <section id="best-practices-for-all-pipelines" class="level2">
 <h2 class="anchored" data-anchor-id="best-practices-for-all-pipelines">Best practices for all pipelines</h2>
 <ol type="1">
-<li><strong>Documentation is Mandatory:</strong> No matter what pipeline or tool is used, the repository README.md must clearly document how to execute the analysis. A new collaborator should be able to clone the repo and know exactly which command to run (e.g., “Run tar_make() in the R console” or “Type make in the terminal”).<br>
+<li><strong>Documentation is mandatory:</strong> No matter what pipeline or tool is used, the repository README.md must clearly document how to execute the analysis. A new collaborator should be able to clone the repo and know exactly which command to run (e.g., “Run tar_make() in the R console” or “Type make in the terminal”).<br>
 </li>
-<li><strong>Atomic Steps:</strong> Each step in the pipeline should be small enough to be easily understood but large enough to justify being its own “target.”<br>
+<li><strong>Atomic steps:</strong> Each step in the pipeline should be small enough to be easily understood but large enough to justify being its own “target.”<br>
 </li>
-<li><strong>File Tracking:</strong> Always include the script itself as a prerequisite/dependency. If you change the code, the output should be considered “outdated.”<br>
+<li><strong>File tracking:</strong> Always include the script itself as a prerequisite/dependency. If you change the code, the output should be considered “outdated.”<br>
 </li>
-<li><strong>No Manual Interventions:</strong> A pipeline is only reproducible if it can be run from start to finish on a new machine without a human clicking “save,” “export,” or manually moving files in the middle.</li>
+<li><strong>No manual interventions:</strong> A pipeline is only reproducible if it can be run from start to finish on a new machine without a human clicking “save,” “export,” or manually moving files in the middle.</li>
 </ol>
 
 
