@@ -45,13 +45,13 @@ format:
 Frame the whole talk: code at emLab informs real decisions, so errors carry real costs. Two goals drive everything else: accuracy and reproducibility.
 :::
 
-Our analyses inform real policy and resource-management decisions. A coding error isn't just a technical inconvenience — it can undermine our science and erode trust with partners.
+Our analyses inform real policy decisions. A coding error can undermine our science and erode partner trust.
 
 Everything we write serves two goals:
 
 ::: {.incremental}
 - **Accuracy** — the code does what we think it does.
-- **Reproducibility** — someone else, or our future selves, can re-run it and get the same result.
+- **Reproducibility** — others (or future you) can re-run it and get the same result.
 :::
 
 ## Requirements vs. best practices
@@ -63,46 +63,39 @@ Clarify the two tiers. Universal requirements are the shared baseline everyone f
 The SOP distinguishes two tiers:
 
 ::: {.incremental}
-- **Universal requirements** — the shared baseline *everyone* follows, on *every* project. This is what reduces friction in collaboration and review.
-- **Best practices** — what we aspire to, adapted to each project's scope, team, and partners.
+- **Universal requirements** — the baseline *everyone* follows, on *every* project.
+- **Best practices** — what we aspire to, adapted per project.
 :::
 
-This talk focuses on the requirements — especially the ones that are **new**.
+This talk focuses on the requirements — especially what's **new**.
 
 ## The universal requirements
 
 ::: {.notes}
-GitHub is the platform for all coding work. Walk through the five bullets quickly; the NEW-flagged ones get their own deep dives later.
+GitHub is the platform for all coding work. These two are the foundation; the next slide covers the three that are new.
 :::
 
-GitHub is emLab's required platform for all coding work. That means:
+GitHub is emLab's required platform for all coding work:
 
 ::: {.incremental}
-- All code lives in a repo under [emlab-ucsb](https://github.com/emlab-ucsb), with a README and a logical structure.
-- Code is **formatted with a formatter** and clearly commented. [[NEW]]{.new-badge}
-- Every change is tracked with Git and clear commit messages.
-- Collaboration is structured: Issues, **branches**, pull requests; `main` is protected. [[NEW]]{.new-badge}
-- **Code review happens through pull requests.** [[NEW]]{.new-badge}
+- All code lives in a repo under [emlab-ucsb](https://github.com/emlab-ucsb) — README + logical structure.
+- Every change tracked with Git and clear commit messages.
 :::
 
-## What's changed {auto-animate="true"}
+## [[NEW]]{.new-badge} Additions {auto-animate="true"}
 
 ::: {.notes}
 The single most important slide for an audience that knows the old SOP. Previously, "advanced" workflows varied project to project. Now three things are universal requirements.
 :::
 
-Previously, workflows like branches and pull requests "varied from project to project."
+Previously, branches and pull requests *"varied from project to project."*
 
-**Now, three things are universal requirements:**
+**Now three things are universal:**
 
 ::: {.incremental}
-1. [Code formatters]{style="color:#2aa198"} — Air (R) and Ruff (Python), running on save.
-2. [Branch-based development]{style="color:#2aa198"} — no one commits directly to `main`.
-3. [Code review via pull requests]{style="color:#2aa198"} — planned from the start of a project.
-:::
-
-::: {.fragment}
-We'll take each in turn.
+1. [Code formatters](../03-code/code-styling.qmd) — Air (R), Ruff (Python), on save.
+2. [Branch-based development](../04-gh/05-branches.qmd) — never commit to `main`.
+3. [Code review](../03-code/code-review.qmd) — via pull requests, planned up front.
 :::
 
 # 1 · Code formatters {background-color="#2aa198"}
@@ -113,14 +106,14 @@ We'll take each in turn.
 Set up the philosophy before the tooling. Consistent style means diffs reflect real changes, linters catch bugs, and new contributors can read unfamiliar code.
 :::
 
-In a lab where projects span years and many contributors, **style is a form of documentation.**
+Where projects span years and many people, **style is documentation.**
 
 Consistent style means:
 
 ::: {.incremental}
-- GitHub diffs reflect *real* changes, not whitespace.
-- Linters catch common bugs before runtime.
-- A new contributor can read an unfamiliar script without decoding its structure first.
+- diffs reflect *real* changes, not whitespace
+- linters catch common bugs before runtime
+- newcomers can read unfamiliar code without decoding it first
 :::
 
 ## Style guides — the short version
@@ -264,9 +257,9 @@ Main is the stable, reviewed record — always runnable. Branch-based dev create
 `main` is the **stable, reviewed record** — it should always run.
 
 ::: {.incremental}
-- Branching creates a checkpoint: do the work, open a PR, get review, *then* merge.
-- This applies **even when you work alone** — you review your own diff and build the habit.
-- At emLab, a **ruleset blocks direct pushes to `main`.** The error is expected — make a branch.
+- Branching is a checkpoint: work → PR → review → *then* merge.
+- Works **even solo** — review your own diff, build the habit.
+- Many repos **block direct pushes to `main`** via a ruleset; if you hit that error, make a branch.
 :::
 
 ## The workflow {auto-animate="true"}
@@ -304,9 +297,9 @@ Two practical habits: merge main in periodically to keep conflicts small; keep b
 :::
 
 ::: {.incremental}
-- **Stay current:** periodically `git merge main` into your branch. The longer it diverges, the harder the eventual merge.
-- **Stay focused:** one branch = one task (one issue, one analysis step, one fix). Short-lived branches are easy to review and merge.
-- Big task? Break it into smaller branches that build on each other.
+- **Stay current:** `git merge main` periodically — the longer a branch diverges, the harder the merge.
+- **Stay focused:** one branch = one task. Short-lived branches are easy to review.
+- Big task? Split it into smaller branches that build on each other.
 :::
 
 ::: {.aside}
@@ -321,12 +314,12 @@ Full detail: [Working with branches](../04-gh/05-branches.qmd).
 A PR is a request to merge one branch into another, and the standard venue for review. All changes to main come through a PR.
 :::
 
-A **pull request (PR)** is a request to merge one branch into another — and the standard venue for code review.
+A **pull request (PR)** proposes merging one branch into another — and is the standard venue for code review.
 
 ::: {.incremental}
-- GitHub shows exactly which lines were added, removed, or changed.
-- Collaborators comment on specific lines, ask questions, and approve.
-- It creates a **permanent record**: not just *what* changed, but *why*, and who reviewed it.
+- GitHub shows exactly which lines changed.
+- Collaborators comment, ask questions, and approve.
+- Creates a **permanent record** of *what* changed, *why*, and who reviewed it.
 :::
 
 **All changes to `main` come through a PR.**
@@ -342,8 +335,12 @@ Push your branch, then open a PR. In the form:
 ::: {.incremental}
 - **Base:** the branch you merge *into* — usually `main`.
 - **Compare:** your feature/analysis branch.
-- **Title:** summarize the change ("Add spatial aggregation to SST pipeline"), not a status.
-- **Description:** what it does, why, what to focus on. Link issues ("Closes #42"). Not ready? Open a **Draft PR**.
+- **Title:** summarize the change, not a status.
+- **Description:** what, why, what to focus on. Link issues ("Closes #42").
+:::
+
+::: {.fragment}
+Not ready for review? Open a **Draft PR**.
 :::
 
 ## Reviewing a PR {auto-animate="true"}
@@ -368,7 +365,7 @@ Use line-level comments for specifics; distinguish **blocking concerns** from **
 The biggest cultural shift. Code review is planned at project start, not reactive. Answer four questions. Budget 10-20% of coding time.
 :::
 
-The biggest shift: code review is **planned at the start of a project**, not triggered reactively by a journal requirement or a discovered error.
+The biggest shift: review is **planned at the start of a project**, not triggered by a journal requirement or a discovered error.
 
 A plan answers four questions:
 
@@ -377,7 +374,7 @@ A plan answers four questions:
 :::
 
 ::: {.fragment}
-Budget roughly **10–20% of coding time** for meaningful review. Discuss it at project [kickoff](../03-code/code-review.qmd).
+Budget **10–20% of coding time**. Discuss it at [kickoff](../03-code/code-review.qmd).
 :::
 
 ## Levels of review
@@ -417,8 +414,8 @@ Split responsibilities. Authors make review easy; reviewers are specific and pri
 ::: {.incremental .small}
 - Know what kind of review is being asked for (accuracy? reproducibility? clarity?).
 - Be **specific and constructive**; label "Required:" vs. "Nit:".
-- **Prioritize correctness over style.** For accuracy/repro review, actually run the code.
-- Be **timely** — a stale PR blocks the author and breeds conflicts.
+- **Prioritize correctness over style.** For reproducibility review, actually run the code.
+- Be **timely** — As development occurs elsewhere on the project, a stale PR will become more likely to caues merge conflicts.
 :::
 
 ## The culture matters
@@ -445,12 +442,12 @@ Full detail and the plan template: [Code review](../03-code/code-review.qmd).
 Lighter touch on the other new code material — mention and point to the chapters.
 :::
 
-The Code section has more that's new — skim these when relevant:
+More new material in the Code section — skim when relevant:
 
 ::: {.incremental}
-- **[Documentation](../03-code/code-documentation.qmd)** — comment the *why*, not the *what*; Roxygen2 for functions.
-- **[Functional programming](../03-code/functional-programming.qmd)** — don't repeat yourself; prefer `map`/`apply` over loops.
-- **Reproducibility** — manage packages with [`renv`](../03-code/package-reproducibility.qmd) and pipelines with [`targets`](../03-code/pipeline-reproducibility.qmd).
+- **[Documentation](../03-code/code-documentation.qmd)** — comment the *why*; Roxygen2 for functions.
+- **[Functional programming](../03-code/functional-programming.qmd)** — don't repeat yourself; `map`/`apply` over loops.
+- **[Reproducibility](../03-code/index.qmd#reproducibility)** — [`renv`](../03-code/package-reproducibility.qmd) for packages, [`targets`](../03-code/pipeline-reproducibility.qmd) for pipelines.
 :::
 
 ## Foundations you already know
