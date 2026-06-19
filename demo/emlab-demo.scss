@@ -1,0 +1,135 @@
+/*-- scss:defaults --*/
+
+// emLab brand palette (from the emLab logo)
+$blue:        #0193CE;  // primary emLab blue
+$blue-dark:   #044E95;  // deep emLab blue
+$orange:      #FFA509;  // emLab accent
+$green:       #63A645;  // emLab green
+$green-dark:  #3f7a23;  // darkened green for legible text on white
+$ink:         #1f2a2e;
+$muted:       #5b6b70;
+$bg:          #ffffff;
+$panel:       #eef6fb;
+
+// revealjs theme variables
+$body-bg:                       $bg;
+$body-color:                    $ink;
+$link-color:                    $blue-dark;
+$link-color-hover:              $blue;
+$selection-bg:                  rgba($blue, 0.25);
+
+$presentation-heading-color:    $blue-dark;
+$presentation-heading-font-weight: 650;
+$presentation-font-size-root:   34px;
+
+$code-block-font-size:          0.62em;
+
+/*-- scss:rules --*/
+
+.reveal h1,
+.reveal h2,
+.reveal h3 { letter-spacing: -0.01em; }
+
+.reveal h2 {
+  border-bottom: 3px solid rgba($blue, 0.28);
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.6rem;
+}
+
+// Section-divider slides (created with `#`)
+.reveal .title-slide h1,
+.reveal section.divider h1,
+.reveal section.divider h2 {
+  color: #fff;
+}
+.reveal section.divider {
+  background: linear-gradient(135deg, $blue-dark 0%, $blue 100%);
+  color: #fff;
+  border-radius: 0;
+}
+.reveal section.divider h1,
+.reveal section.divider h2 { border-bottom: none; }
+.reveal section.divider p,
+.reveal section.divider li { color: rgba(255,255,255,0.92); }
+
+// "Where / who" action bar at the top of a step slide
+.reveal .where {
+  font-size: 0.6em;
+  margin: -0.3rem 0 0.9rem 0;
+  color: $muted;
+  font-weight: 500;
+}
+
+// Role + tool badges -------------------------------------------------------
+.reveal .badge-watch,
+.reveal .badge-everyone,
+.reveal .tool-gh,
+.reveal .tool-pos,
+.reveal .tool-rs,
+.reveal .tool-vs,
+.reveal .tool-term {
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.05em 0.6em;
+  border-radius: 999px;
+  margin-right: 0.25em;
+  white-space: nowrap;
+}
+
+.reveal .badge-watch    { background: #fde9c8; color: #8a5a00; }
+.reveal .badge-everyone { background: rgba($blue, 0.16); color: $blue-dark; }
+
+.reveal .tool-gh   { background: #ecebff; color: #4b3fb0; }
+.reveal .tool-pos  { background: #efe6fb; color: #6b3fa0; }
+.reveal .tool-rs   { background: #e3eefc; color: #1f5fb0; }
+.reveal .tool-vs   { background: #e1f0fb; color: #0a6db0; }
+.reveal .tool-term { background: #e7eaea; color: #2b3a3a; }
+
+// A soft panel for callouts / "what we're building"
+.reveal .panel {
+  background: $panel;
+  border-left: 4px solid $blue;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.85em;
+}
+
+// Tighter, readable bullet lists on dense slides
+.reveal .tight li { margin-bottom: 0.25rem; }
+
+// Image caption / attribution
+.reveal .caption {
+  font-size: 0.5em;
+  color: $muted;
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+// Footer logo (small, on every slide)
+.reveal .footer { color: $muted; font-size: 0.5em; }
+.reveal .footer img.footer-logo {
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 0.4em;
+}
+
+// Roomier code blocks
+.reveal pre code { padding: 0.6em 0.8em; }
+
+// Inline code (`like this`) — green chip, legible on white slides.
+// Code *blocks* (pre > code) are untouched and keep syntax highlighting.
+.reveal :not(pre) > code {
+  color: $green-dark;
+  background: rgba($green, 0.13);
+  padding: 0.05em 0.35em;
+  border-radius: 4px;
+}
+
+// On the blue divider slides, switch inline code to a light treatment so it
+// stays legible against the blue background.
+.reveal section.divider :not(pre) > code {
+  color: #eaf7df;
+  background: rgba(255, 255, 255, 0.18);
+}
