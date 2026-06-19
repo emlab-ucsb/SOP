@@ -1,6 +1,6 @@
 ---
 title: "Git & GitHub at emLab"
-subtitle: "A hands-on team demo — branches · pull requests · code review · merge conflicts"
+subtitle: "A hands-on team demo: branches · pull requests · code review · merge conflicts"
 author: "Environmental Markets Lab (emLab)"
 date: today
 title-slide-attributes:
@@ -261,7 +261,7 @@ from it so the branch and PR are linked to the issue.
 
 Create an issue for the small task you'll do today:
 
-- **Title:** *"Add a greeting function"*
+- **Title:** *"Add [name]'s greeting function"*
 - **Body:** what & why, plus a checklist:
 
 ```markdown
@@ -318,7 +318,7 @@ Create a new file **named after you** so we don't overlap — e.g.
 ```r
 # team/tracey.R
 greet <- function(name) {
-  paste0("The best state in the nation, New Jersey, welcomes you ", name)
+  paste0("The best state in the nation, New Jersey, welcomes you, ", name)
 }
 
 greet("Danielle")
@@ -486,7 +486,7 @@ Back on **your own branch**, make the simple change your reviewer asked for:
 
 ```r
 greet <- function(name) {
-  paste0("The best state in the nation, New Jersey, welcomes you ", name, "! We can't wait for you to taste a bagel.")
+  paste0("The best state in the nation, New Jersey, welcomes you, ", name, "! We can't wait for you to taste a bagel.")
 }
 ```
 
@@ -535,13 +535,18 @@ machine). Deleting one doesn't delete the other.
 
 # Example 2 {.divider}
 
-A lighter-touch review: a **new branch (not from an issue)**, then the reviewer
+A lighter-touch review: **create a new branch (not from an issue)**, then the reviewer
 **makes a small edit themselves** and **approves and merges**.
 
 ## 2a · Create a new branch {.smaller}
 
 ::: {.where}
 [EVERYONE]{.badge-everyone} &nbsp; any tool — start from an up-to-date `main`
+:::
+
+::: {.panel}
+However you create it, a branch always starts from your current `main` — so make
+sure `main` is up to date first.
 :::
 
 ::: {.columns}
@@ -568,11 +573,6 @@ git switch main && git pull
 git switch -c yourname-add-farewell
 ```
 :::
-:::
-
-::: {.panel}
-However you create it, a branch always starts from your current `main` — so make
-sure `main` is up to date first.
 :::
 
 ## 2b · Change, then reviewer edits & merges {.smaller}
@@ -636,20 +636,27 @@ then resolve it using the IDE and github.com.
 :::
 
 A conflict needs **two people editing the same line**, so do this **with your
-partner** in your **pair's own file** — e.g. `R/pair-3.R`:
+partner** in a **shared file** — e.g. `sop-demo/partner-files/tracey-danielle.R`.
 
+1. Decide who is **Partner A** and **Partner B**. 
+2. **Partner A**: Create a new branch to make file that that you will both work on.
 ```r
-project_version <- "0.1.0"
+## tracey and danielle file
+
+activity_message <- function(activity) {
+  paste0("I went on one ", activity, ", it's summer!")
+}
+
 ```
+3. **Partner A**: Commit, push, open PR.
+4. **Partner B**: Review, approve, submit.
+5. **Partner A**: Merge, delete branch.
+6. **Partners A and B**: Update `main` and create separate branches from `main`
+7. **Partner A**: Make a change. Commit, push, open PR. 
+8. **Partner B**: Review, approve, submit, merge. Delete branch.
+9. **Partner B**: *On your branch*, modify the code. Commit, push, open PR.
 
-1. Decide who is **Partner A** and **Partner B**. Each makes their own branch
-   from `main`.
-2. **Partner A:** change the line to `"0.2.0"`, open a PR, and **merge it to
-   `main` first**.
-3. **Partner B:** on their branch, set the **same line** to a different value
-   (e.g. `"0.9.0"`), commit, push, and open a PR.
-
-Now `main` (A's `0.2.0`) and Partner B's branch (`0.9.0`) changed the **same
+Now `main` (A's code) and Partner B's branch changed the **same
 line** differently → GitHub can't auto-merge B's PR. **Partner B resolves it.**
 
 ::: {.notes}
@@ -658,24 +665,6 @@ stay contained to two people instead of the whole room fighting over one file.
 Partner A must merge before Partner B opens their PR. Then partners swap roles so
 everyone resolves one.
 :::
-
-## Pulling `main` in is not just "pull" {.smaller}
-
-::: {.where}
-Concept — important for resolving conflicts
-:::
-
-::: {.panel}
-**Clicking "Pull" / "Sync" only updates your *current* branch from its own
-remote.** It does **not** bring `main`'s new commits into your feature branch.
-To get `main`'s changes into your branch you must **merge `main` into it**.
-:::
-
-You don't have to do that in the terminal:
-
-- **Easiest (today): let the PR show the conflict on github.com** — see next slide.
-- **Positron / VS Code:** Command Palette → **Git: Merge Branch…** → pick `main`.
-- **Terminal:** `git switch your-branch` then `git merge main`.
 
 ## Resolve it on github.com {.smaller}
 
@@ -688,9 +677,9 @@ resolved."** Click **Resolve conflicts** to open the web editor:
 
 ```r
 <<<<<<< your-branch-name
-project_version <- "0.9.0"
+  paste0("I went on a ", activity, " — best summer ever!")
 =======
-project_version <- "0.2.0"
+  paste0("I went on one ", activity, ", it's summer!")
 >>>>>>> main
 ```
 
@@ -723,18 +712,29 @@ Pick the right option (or hand-edit), **save**, then **stage** the file and
 `<<<<<<<` / `>>>>>>>` markers, just with buttons.
 :::
 
-## Avoiding painful conflicts {.smaller}
+## Keep your branch up to date with `main` {.smaller}
 
-::: {.panel .tight}
-- **Bring `main` into your branch often** while you work — small, frequent merges
-  beat one giant one at the end.
-- **Keep branches short-lived and focused** — one issue, one branch.
-- **Keep PRs small** so overlapping edits are rare.
-- Coordinate when you know two people are touching the same file.
+::: {.where}
+[EVERYONE]{.badge-everyone} — do this regularly, *not* just when there's a conflict
 :::
 
-The longer a branch diverges from `main`, the harder the eventual merge — so
-merge early and often.
+The best way to avoid a painful conflict is to pull `main`'s changes into your
+branch **often** while you work. The longer a branch drifts from `main`, the
+harder the eventual merge.
+
+::: {.panel}
+**Watch out:** clicking **Pull / Sync** only updates your *current* branch from
+its own remote — it does **not** bring `main`'s new commits into your branch. For
+that you must **merge `main` into your branch**.
+:::
+
+How to merge `main` in (after switching to `main` and pulling so it's current):
+
+- **Positron / VS Code:** `Cmd+Shift+P` → **Git: Merge Branch…** → pick `main`.
+- **Terminal:** `git switch your-branch` then `git merge main`.
+
+Also: keep branches **short-lived and focused**, keep PRs **small**, and
+**coordinate** when two people touch the same file.
 
 # Recap {.divider}
 
