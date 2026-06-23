@@ -18,8 +18,10 @@ format:
     history: true
     code-copy: true
     code-overflow: wrap
-    width: 1280
-    height: 800
+    embed-resources: true
+    width: 1000
+    height: 1120
+    center: false
     footer: "<img src='images/emlab_logo_horizontal.svg' class='footer-logo'> Git & GitHub demo"
 execute:
   eval: false
@@ -28,15 +30,16 @@ execute:
 
 ## How this demo works
 
-We will move back and forth between **these slides** and **live coding**.
+We'll move between **these slides** and **live coding**.
 
 ::: {.panel}
 - The slides contain **instructions** for live-coding.
-- We will jump between **github.com**, **Positron**, **RStudio**, and the **terminal**.
-- Everyone is working in the **same shared practice repo** today.
+- Tools: **github.com**, **Positron**, **RStudio**, **terminal**.
+- Everyone using the **same shared practice repo** today.
 :::
 
-By the end you will have practiced emLab Git workflow actions:
+By the end you'll have practiced these actions:
+
 - branch
 - commit
 - open a PR
@@ -57,7 +60,7 @@ Every interactive slide tells you **who acts** and **where**.
 
 **Who:**
 
-- [WATCH]{.badge-watch} — the presenters do this live; everyone follows on screen. No interactive component.
+- [WATCH]{.badge-watch} — Presenters do this live; everyone watches.
 - [EVERYONE]{.badge-everyone} — do this now, on your own machine.
 
 **Where:**
@@ -73,14 +76,13 @@ they differ.
 ## Today's roadmap {.smaller .tight}
 
 1. Protect `main` with a ruleset  [WATCH]{.badge-watch}
-2. Clone the repo  [EVERYONE]{.badge-everyone}
+2. Clone the repo & try pushing to `main`  [EVERYONE]{.badge-everyone}
 3. Set up the **Air** formatter  [EVERYONE]{.badge-everyone}
 4. Create an **issue**, then **branch from it**  [EVERYONE]{.badge-everyone}
 5. Make a change → **commit** → **push**  [EVERYONE]{.badge-everyone}
 6. Open a **pull request** & assign a reviewer  [EVERYONE]{.badge-everyone}
-7. **Code review — Example 1:** request changes → revise → approve → merge (closes issue) → delete [EVERYONE]{.badge-everyone}
-8. **Code review — Example 2:** new branch → reviewer edits, approves & merges → delete [EVERYONE]{.badge-everyone}
-9. **Merge conflict** — create one on purpose, then resolve it [EVERYONE]{.badge-everyone}
+7. **Code review:** request changes → revise → approve → merge (closes issue) → delete [EVERYONE]{.badge-everyone}
+8. **Merge conflict** — create one on purpose, then resolve it [EVERYONE]{.badge-everyone}
 
 # 1 · Protect `main` {.divider}
 
@@ -95,12 +97,14 @@ Watch setup. You'll feel it later when a direct push to `main` is refused.
 Repo: **Settings → Rules → Rulesets → New ruleset → New branch ruleset**.
 
 - **Name ruleset:** `protect-main`
-- **Add to Bypass list (optional):** `protect-main`
+- **Bypass list (optional):** who may skip the rule 
 - **Enable status:** `Active`
 - **Target branches:** add target → `Default` (or pattern `~DEFAULT_BRANCH`)
 - **Rules — turn on:**
   - **Restrict deletions**
-  - **Require a pull request before merging** → require **1** approval
+  - **Require a pull request before merging**
+    - Require **0** approvals: You can merge your own PR
+    - Require **1** approval: Someone else must approve 
   - **Block force pushes**
 
 ::: {.panel}
@@ -113,26 +117,6 @@ Optionally show the Copilot code review toggle under Settings → Copilot, and
 mention it's a useful first pass but does not replace human review. Keep the
 bypass list empty for the demo so everyone hits the protection.
 :::
-
-## Prove it works
-
-::: {.where}
-[WATCH]{.badge-watch} &nbsp; [Positron]{.tool-pos} [Terminal]{.tool-term}
-:::
-
-Attempt to push directly to `main`.
-
-Terminal:
-```bash
-git switch main
-# make a trivial edit, commit it, then:
-git push
-```
-
-With the ruleset on, the push is **rejected**.
-
-That error is the ruleset doing its job. From here on, **everything goes
-through a branch and a PR.**
 
 # 2 · Clone the repo {.divider}
 
@@ -172,7 +156,7 @@ backup plan for people who get stuck so the group isn't blocked.
 
 ::: {.columns}
 ::: {.column width="33%"}
-**Positron**
+**Positron/VS Code**
 
 `File → New Folder from Git…`
 
@@ -201,20 +185,44 @@ Store repos in a dedicated folder like `~/github/`. **Avoid** cloud-synced
 folders (Google Drive, iCloud, Dropbox) — they cause Git sync conflicts.
 :::
 
+## Try pushing to `main` {.smaller}
+
+::: {.where}
+[EVERYONE]{.badge-everyone} &nbsp; [Positron]{.tool-pos} / [RStudio]{.tool-rs} / [Terminal]{.tool-term}
+:::
+
+Make a small change directly on `main`, commit it,
+and try to push — it should be **refused**.
+
+- **Positron/ VS Code / RStudio:** edit any file → **stage + commit** → **push / sync**.
+
+The push is **rejected**:
+
+```
+remote: error: GH013: Repository rule violations found for refs/heads/main.
+```
+
+That's the protection working. Nothing reaches `main` without a PR.
+
+::: {.panel}
+**Undo the test commit** — it's only on your machine (the push failed). Reset
+your local `main` to match GitHub:
+
+- **Terminal:** `git reset --hard origin/main`
+- **Positron / VS Code:** `Cmd+Shift+P` → **Git: Undo Last Commit**, then
+  **Discard Changes** on the file in the Source Control panel.
+:::
+
 # 3 · Set up the Air formatter {.divider}
 
 Formatting with **Air** (R) is an emLab standard. Set it up once. We'll see it
 work in Section 5.
 
-## Install Air & format on save {.smaller}
+## Install Air — Positron / VS Code {.smaller}
 
 ::: {.where}
-[EVERYONE]{.badge-everyone} &nbsp; [Positron]{.tool-pos} / [VS Code]{.tool-vs} / [RStudio]{.tool-rs}
+[EVERYONE]{.badge-everyone} &nbsp; [Positron]{.tool-pos} / [VS Code]{.tool-vs}
 :::
-
-::: {.columns}
-::: {.column width="55%"}
-**Positron / VS Code**
 
 1. Extensions (`Cmd+Shift+X`) → search **"Air"** (by Posit) → Install.
 2. Open user settings JSON (`Cmd+Shift+P` → *Open User Settings (JSON)*) and add:
@@ -227,11 +235,23 @@ work in Section 5.
   }
 }
 ```
-:::
-::: {.column width="45%"}
-**RStudio**
 
-Air isn't tightly integrated. Use the `styler` package:
+**Note:** You can enable or disable Air per-workspace, and turn formatting off later
+by setting `"editor.formatOnSave": false`.
+Useful when editing an unformatted file, to avoid a whole-file diff.
+
+::: {.panel}
+We'll watch Air reformat code on save when we make our first change in
+Section 5 — no need to test it now.
+:::
+
+## Install Air — RStudio {.smaller}
+
+::: {.where}
+[EVERYONE]{.badge-everyone} &nbsp; [RStudio]{.tool-rs}
+:::
+
+Air isn't tightly integrated with RStudio. Use the `styler` package instead:
 
 ```r
 install.packages("styler")
@@ -240,13 +260,6 @@ install.packages("styler")
 Then **Addins → Style active file** before each commit, and enable
 *Tools → Global Options → Code → Saving → Ensure source files end with a
 newline*.
-:::
-:::
-
-::: {.panel}
-We'll watch Air reformat code on save when we make our first change in
-Section 5 — no need to test it now.
-:::
 
 # 4 · Issue → branch {.divider}
 
@@ -261,16 +274,16 @@ from it so the branch and PR are linked to the issue.
 
 Create an issue for the small task you'll do today:
 
+![](images/issue.png){fig-align="center"}
+
 - **Title:** *"Add [name]'s greeting function"*
 - **Body:** what & why, plus a checklist:
-
-```markdown
-- [ ] Add greet() to team/yourname.R
-- [ ] Have it return a greeting for a given name
-```
-
-In the sidebar set: **Assignee** (yourself), **Label** (`enhancement`),
-optionally a **Milestone**.
+  ```markdown
+  - [ ] Add greet() to team/yourname.R
+  - [ ] Have it return a greeting for a given name
+  ```
+- **Sidebar:** set an **Assignee** (yourself), a **Label** (`enhancement`),
+  and optionally a **Milestone**.
 
 ::: {.notes}
 Show how the checklist renders as interactive checkboxes and shows "0 of 2" in
@@ -284,8 +297,10 @@ the issue list, and that labels make the list filterable.
 :::
 
 On your issue, in the **Development** section (right sidebar) → **Create a
-branch**. Accept the suggested name — it's auto-linked to the issue.
-
+branch**. Keep or change the suggested name — either way the branch is linked
+to the issue.
+<br>
+<br>
 Now get that branch onto your machine:
 
 - **Positron / VS Code / RStudio:** click the branch picker → **fetch/refresh**,
@@ -314,16 +329,21 @@ Make a small change on your branch, commit it, and push it to GitHub.
 
 Create a new file **named after you** so we don't overlap — e.g.
 `team/yourname.R`:
-
+<br>
+<br>
 ```r
 # team/tracey.R
 greet <- function(name) {
-  paste0("The best state in the nation, New Jersey, welcomes you, ", name)
+  paste0("The best state in the nation, 
+  New 
+  Jersey, 
+  welcomes you, ", name)
 }
 
 greet("Danielle")
 ```
-
+<br>
+<br>
 Type it messily first (no spaces, odd indents), then **save** and watch **Air**
 reformat it to Tidyverse style.
 
@@ -338,13 +358,17 @@ Working in your own file avoids accidental conflicts. We'll create a conflict
 [EVERYONE]{.badge-everyone} &nbsp; [Positron]{.tool-pos} / [RStudio]{.tool-rs} (or [Terminal]{.tool-term})
 :::
 
-::: {.columns}
-::: {.column width="56%"}
-In the **Source Control** panel (Positron/VS Code) or **Git** pane (RStudio):
+In **Source Control** panel (Positron/VS Code) or **Git** pane (RStudio):
 
 1. **Stage** `team/yourname.R` (click the **+** next to the file).
 2. Type a clear commit **message**.
 3. Click **Commit**.
+
+![](images/git_commit_2x.png){width="520" fig-align="center"}
+
+::: {.caption}
+Write messages your future self can read. Source: xkcd.com/1296
+:::
 
 Prefer the terminal?
 
@@ -352,15 +376,6 @@ Prefer the terminal?
 git add team/yourname.R
 git commit -m "Add Tracey's greeting function"
 ```
-:::
-::: {.column width="44%"}
-![](images/git_commit_2x.png){fig-align="center"}
-
-::: {.caption}
-Write messages your future self can read. Source: xkcd.com/1296
-:::
-:::
-:::
 
 ## Push your branch to GitHub {.smaller}
 
@@ -368,24 +383,38 @@ Write messages your future self can read. Source: xkcd.com/1296
 [EVERYONE]{.badge-everyone} &nbsp; [Positron]{.tool-pos} / [RStudio]{.tool-rs} (or [Terminal]{.tool-term})
 :::
 
-- **Positron / VS Code:** click **Publish Branch** (first push) or the **sync**
-  arrows in the Source Control panel.
+- **Positron / VS Code:** click the **sync** arrows in the Source Control panel.
 - **RStudio:** click the **Push** (green up-arrow) in the Git pane.
 
 Prefer the terminal?
 
 ```bash
-git push -u origin <your-branch>
+git push
 ```
 
+## Branches can be created several ways {.smaller}
+
+::: {.where}
+Good to know — but Danielle says branch from issue!!!
+:::
+
+You can create a branch from:
+
+- **github.com** — from an **issue** (links it to the issue, like today), or the
+  **Branches** page → **New branch**.
+- **Positron / VS Code** — branch picker (bottom-left) → **Create new branch…**.
+- **RStudio** — Git pane → **New Branch**.
+- **Terminal** — `git switch -c your-branch`.
+
 ::: {.panel}
-The `-u` (terminal only) sets upstream tracking. The IDE buttons handle this for
-you the first time you publish a branch.
+**The difference:** a branch made **on GitHub** already exists remotely, so you
+just **push / sync**. A branch made **locally** (IDE or terminal) needs a first
+**Publish Branch** / `git push -u` to create it on GitHub.
 :::
 
 # 6 · Open a pull request {.divider}
 
-Propose your branch for merging into `main`, link it to your issue, and ask your
+Propose your branch for merging into `main` and ask your
 partner to review it.
 
 ## Open the PR {.smaller}
@@ -404,7 +433,8 @@ After pushing, GitHub shows a **"Compare & pull request"** banner — click it
 ::: {.panel}
 Branching from the issue *links* the two, but that link alone won't close it.
 The **`Closes #N`** keyword is what actually **closes the issue when the PR
-merges** — so add it here. (Keep PRs small and focused; not ready yet? Open a
+merges** — so add it here. One PR can close several issues:
+`Closes #12, closes #15`. (Keep PRs small and focused; not ready yet? Open a
 **Draft PR**.)
 :::
 
@@ -433,7 +463,7 @@ person having their partner assigned as reviewer on an open PR.
 ## What a reviewer is actually doing {.smaller}
 
 ::: {.where}
-Concept — applies to every review below
+Concept — applies to every review
 :::
 
 GitHub gives three review outcomes:
@@ -452,12 +482,12 @@ Good review habits (from the emLab Code Review SOP):
 - Be **timely** — a stale PR blocks your partner.
 :::
 
-# Example 1 {.divider}
+# Code review {.divider}
 
 Reviewer **requests changes** → author **revises** → reviewer **approves** →
-**merge** (which **closes the issue**) → **delete branch**.
+**merge** → **delete branch**.
 
-## 1a · Reviewer requests changes {.smaller}
+## Reviewer requests changes {.smaller}
 
 ::: {.where}
 [EVERYONE]{.badge-everyone} (as reviewer) &nbsp; [github.com]{.tool-gh}
@@ -473,10 +503,29 @@ Open your **partner's** PR → **Files changed** tab.
 
 ::: {.panel}
 "Request changes" blocks the merge until you re-review — use it when you want
-another look. We'll use **Approve** in Example 2 to contrast.
+another look before it can merge.
 :::
 
-## 1b · Author makes the change {.smaller}
+## Or: the reviewer edits it themselves {.smaller}
+
+::: {.where}
+[WATCH]{.badge-watch} (reviewer's option) &nbsp; [github.com]{.tool-gh}
+:::
+
+Instead of the request-changes round-trip, for a **tiny** fix the reviewer can
+just make the change themselves, then approve:
+
+1. **Files changed** → click the **pencil ✏️** to edit the file in the browser.
+2. Tweak it → **Commit changes** to the PR's branch.
+3. **Review changes → Approve → Submit**, then author can merge pull request.
+
+::: {.panel}
+Talk with your team about expectations for when reviewers should make changes themselves. 
+For anything substantial, leave a comment so the **author** makes the change and keeps
+ownership.
+:::
+
+## Author makes the change {.smaller}
 
 ::: {.where}
 [EVERYONE]{.badge-everyone} (as author) &nbsp; [Positron]{.tool-pos} → [github.com]{.tool-gh}
@@ -486,7 +535,9 @@ Back on **your own branch**, make the simple change your reviewer asked for:
 
 ```r
 greet <- function(name) {
-  paste0("The best state in the nation, New Jersey, welcomes you, ", name, "! We can't wait for you to taste a bagel.")
+  paste0("The best state in the nation, 
+  New Jersey, welcomes you, ", name, "! 
+    We can't wait for you to taste a bagel.")
 }
 ```
 
@@ -495,7 +546,13 @@ panel — the PR updates automatically.
 
 On GitHub, **Resolve conversation** on the thread, then **re-request review**.
 
-## 1c · Reviewer approves, author merges {.smaller}
+![](images/country-nj.png){width="300" fig-align="center"}
+
+::: {.caption}
+Art: @livinggoodstudios on Instagram
+:::
+
+## Reviewer approves, author merges {.smaller}
 
 ::: {.where}
 [EVERYONE]{.badge-everyone} &nbsp; [github.com]{.tool-gh}
@@ -505,13 +562,21 @@ Reviewer: re-open the PR → **Review changes → Approve → Submit**.
 
 Author: the green **Merge pull request** is now enabled → **Confirm merge**.
 
-::: {.panel}
 Because your PR said **`Closes #N`**, merging it **auto-closes your issue** —
-check the Issues tab to confirm. Merge strategies: **Create a merge commit**
-(default today), **Squash and merge**, or **Rebase and merge**.
+check the Issues tab to confirm.
+
+::: {.panel}
+**Three merge strategies** (the dropdown on the merge button):
+
+- **Create a merge commit** *(default)* — keeps every branch commit plus a merge
+  commit; full history.
+- **Squash and merge** — combines all the branch's commits into one on `main`;
+  tidy history, handy for messy or exploratory branches.
+- **Rebase and merge** — replays the branch's commits onto `main` with no merge
+  commit; linear history.
 :::
 
-## 1d · Delete the merged branch {.smaller}
+## Delete the merged branch {.smaller}
 
 ::: {.where}
 [EVERYONE]{.badge-everyone} &nbsp; [github.com]{.tool-gh} (+ IDE)
@@ -522,7 +587,7 @@ branch **on GitHub** (the remote copy).
 
 Now clean up on your machine:
 
-1. **Switch to `main` and pull** — Positron/RStudio: pick `main` in the branch
+1. **Switch to `main` and pull** — Positron/VS Code/RStudio: pick `main` in the branch
    picker, click **pull/sync**. This brings the merged work down.
 2. **Delete your local branch** — it still exists locally until you remove it:
    - **Positron / VS Code:** `Cmd+Shift+P` → **Git: Delete Branch…** → pick it.
@@ -533,95 +598,26 @@ There are always **two copies** of a branch — remote (GitHub) and local (your
 machine). Deleting one doesn't delete the other.
 :::
 
-# Example 2 {.divider}
-
-A lighter-touch review: **create a new branch (not from an issue)**, then the reviewer
-**makes a small edit themselves** and **approves and merges**.
-
-## 2a · Create a new branch {.smaller}
+## Talk to your collaborators {.smaller}
 
 ::: {.where}
-[EVERYONE]{.badge-everyone} &nbsp; any tool — start from an up-to-date `main`
+The most important tool isn't on this list — it's **communication**
 :::
+
+Git coordinates *code* — not your team. Agree on the **conventions** up front.
+
+Worth deciding together:
+
+- **Who merges** — author after approval, or the reviewer?
+- **When a reviewer edits directly** vs. just leaving comments.
+- **How many approvals**, and **who reviews whom**.
+- **How fast** reviews happen, so PRs don't go stale.
+- **Branch/PR scope** before review.
+- **Who's touching what**, so two people don't clash on a file.
 
 ::: {.panel}
-However you create it, a branch always starts from your current `main` — so make
-sure `main` is up to date first.
-:::
-
-::: {.columns}
-::: {.column width="50%"}
-**Positron / VS Code**
-
-Click the branch name (bottom-left) → **Create new branch…** → name it
-`yourname-add-farewell`.
-
-**RStudio**
-
-Git pane → branch icon (**New Branch**) → name it → Create.
-:::
-::: {.column width="50%"}
-**github.com**
-
-Branch dropdown → type the new name → **Create branch**, then fetch/switch to it
-in your IDE.
-
-**Terminal**
-
-```bash
-git switch main && git pull
-git switch -c yourname-add-farewell
-```
-:::
-:::
-
-## 2b · Change, then reviewer edits & merges {.smaller}
-
-::: {.where}
-[EVERYONE]{.badge-everyone} &nbsp; [Positron]{.tool-pos} → [github.com]{.tool-gh}
-:::
-
-Author: add a second function, commit, push, and open a PR (assign your partner):
-
-```r
-farewell <- function(name) {
-  paste0("Goodbye, ", name, "!")
-}
-```
-
-Reviewer: a tiny fix you'd rather just make yourself?
-
-1. **Files changed** → click the **pencil ✏️** to edit the file in the browser.
-2. Tweak it → **Commit changes** to the PR's branch.
-3. **Review changes → Approve → Submit**, then **Merge pull request**.
-
-::: {.panel}
-This branch wasn't created from an issue, so there's nothing to close. If you
-*did* want a PR to close an issue, add **`Closes #<issue-number>`** to its
-description — that keyword is the reliable way to auto-close on merge, no matter
-how the branch was created. (A reviewer committing a *small* fix is fine; for
-anything substantial, comment so the author keeps ownership.)
-:::
-
-## 2c · Delete the branch — local vs. remote {.smaller}
-
-::: {.where}
-[EVERYONE]{.badge-everyone} &nbsp; [github.com]{.tool-gh} + [Positron]{.tool-pos} / [RStudio]{.tool-rs}
-:::
-
-Same as Example 1 — there are **two copies**, and you delete each separately:
-
-- **Remote (GitHub):** click **Delete branch** right after the merge.
-- **Local (your machine):** switch to `main`, **pull/sync**, then delete the
-  local branch:
-  - **Positron / VS Code:** `Cmd+Shift+P` → **Git: Delete Branch…** → pick the
-    merged branch.
-  - **RStudio / Terminal:** `git branch -d <your-branch>` *(RStudio has no
-    delete-branch button — use the Terminal tab)*.
-
-::: {.panel}
-`git branch -d` is the safe form — it refuses to delete a branch that hasn't been
-merged yet, so you can't lose unmerged work.
+No single right answer — what matters is the team **decides and writes it down**
+(README or `CONTRIBUTING.md`).
 :::
 
 # 7 · Merge conflicts {.divider}
@@ -629,41 +625,81 @@ merged yet, so you can't lose unmerged work.
 Two changes to the **same line** can't auto-merge. Let's create one on purpose,
 then resolve it using the IDE and github.com.
 
-## Set up the conflict — with your partner {.smaller}
+## Set up a conflict — with your partner {.smaller}
 
 ::: {.where}
 [EVERYONE]{.badge-everyone} (in your pairs) &nbsp; [github.com]{.tool-gh}
 :::
 
-A conflict needs **two people editing the same line**, so do this **with your
-partner** in a **shared file** — e.g. `sop-demo/partner-files/tracey-danielle.R`.
+A conflict happens when **two people change the same line**. You'll create one
+on purpose with your partner, in your pair's **shared file** (e.g. `R/danielle-tracey.R`).
 
-1. Decide who is **Partner A** and **Partner B**. 
-2. **Partner A**: Create a new branch to make file that that you will both work on.
+It takes three steps:
+
+1. Put a **shared file** on `main`.
+2. **Both branch** from the updated `main`.
+3. **Both edit the same line** — the second PR will conflict.
+
+**First, decide who is Partner A and who is Partner B.**
+
+::: {.notes}
+Partner A merges before Partner B opens their PR. Then swap roles so everyone
+resolves one.
+:::
+
+## Conflict: Step 1 — create the shared file {.smaller}
+
+::: {.where}
+[EVERYONE]{.badge-everyone} (in your pairs) &nbsp; [Positron]{.tool-pos} → [github.com]{.tool-gh}
+:::
+
+Get one shared file onto `main` so you both have it:
+
+1. **Partner A:** new branch → add the file → commit → push → open a PR.
+
 ```r
-## tracey and danielle file
-
+# R/danielle-tracey.R
 activity_message <- function(activity) {
   paste0("I went on one ", activity, ", it's summer!")
 }
-
 ```
-3. **Partner A**: Commit, push, open PR.
-4. **Partner B**: Review, approve, submit.
-5. **Partner A**: Merge, delete branch.
-6. **Partners A and B**: Update `main` and create separate branches from `main`
-7. **Partner A**: Make a change. Commit, push, open PR. 
-8. **Partner B**: Review, approve, submit, merge. Delete branch.
-9. **Partner B**: *On your branch*, modify the code. Commit, push, open PR.
 
-Now `main` (A's code) and Partner B's branch changed the **same
-line** differently → GitHub can't auto-merge B's PR. **Partner B resolves it.**
+2. **Partner B:** review → **Approve**.
+3. **Partner A:** **merge** → delete the branch.
 
-::: {.notes}
-Each pair gets its own pre-seeded file (R/pair-1.R, R/pair-2.R, …) so conflicts
-stay contained to two people instead of the whole room fighting over one file.
-Partner A must merge before Partner B opens their PR. Then partners swap roles so
-everyone resolves one.
+The file is now on `main`.
+
+## Conflict: Step 2 — both branch from `main` {.smaller}
+
+::: {.where}
+[EVERYONE]{.badge-everyone} (in your pairs) &nbsp; [Positron]{.tool-pos} / [RStudio]{.tool-rs}
+:::
+
+**Both partners:** update your local `main`, then create your **own** branch
+from it (A and B on separate branches).
+
+Reminder — update `main` first:
+
+- **Positron / VS Code / RStudio:** switch to `main` in the branch picker → **pull / sync**.
+- **Terminal:** `git switch main && git pull`.
+
+A fresh `main` is what makes the next step line up into a clean conflict.
+
+## Conflict: Step 3 — edit the same line {.smaller}
+
+::: {.where}
+[EVERYONE]{.badge-everyone} (in your pairs) &nbsp; [Positron]{.tool-pos} → [github.com]{.tool-gh}
+:::
+
+Now both of you change the **same line** of the file — differently:
+
+1. **Partner A:** edit the line → commit → push → PR → **Partner B approves. Merge** to `main`.
+2. **Partner B:** on *your* branch, edit the **same line** to something else →
+   commit → push → **open your PR**.
+
+::: {.panel}
+`main` now has A's version and B's branch has a different one on the **same
+line** → GitHub **can't auto-merge** B's PR. **Partner B resolves it** (next).
 :::
 
 ## Resolve it on github.com {.smaller}
@@ -677,7 +713,7 @@ resolved."** Click **Resolve conflicts** to open the web editor:
 
 ```r
 <<<<<<< your-branch-name
-  paste0("I went on a ", activity, " — best summer ever!")
+  paste0("I went on a ", activity, " — best summer!")
 =======
   paste0("I went on one ", activity, ", it's summer!")
 >>>>>>> main
@@ -707,9 +743,10 @@ the **merge editor** with buttons:
 Pick the right option (or hand-edit), **save**, then **stage** the file and
 **commit** the merge in the Source Control panel, and **push/sync**.
 
-::: {.panel}
-"Current" = your branch · "Incoming" = `main`. That's the same idea as the
-`<<<<<<<` / `>>>>>>>` markers, just with buttons.
+![](images/positron-settings-import-merge.png){width="640" fig-align="center"}
+
+::: {.caption}
+Image: [Posit Positron docs](https://docs.posit.co/ide/server-pro/user/positron/guide/settings.html)
 :::
 
 ## Keep your branch up to date with `main` {.smaller}
@@ -718,23 +755,20 @@ Pick the right option (or hand-edit), **save**, then **stage** the file and
 [EVERYONE]{.badge-everyone} — do this regularly, *not* just when there's a conflict
 :::
 
-The best way to avoid a painful conflict is to pull `main`'s changes into your
-branch **often** while you work. The longer a branch drifts from `main`, the
-harder the eventual merge.
+Pull `main` into your branch **often** — the longer it drifts, the harder the
+merge.
 
 ::: {.panel}
-**Watch out:** clicking **Pull / Sync** only updates your *current* branch from
-its own remote — it does **not** bring `main`'s new commits into your branch. For
-that you must **merge `main` into your branch**.
+**Watch out:** **Pull / Sync** only updates your *current* branch — it does
+**not** pull in `main`'s new commits. For that you must **merge `main` in**.
 :::
 
-How to merge `main` in (after switching to `main` and pulling so it's current):
+How (with `main` already pulled):
 
 - **Positron / VS Code:** `Cmd+Shift+P` → **Git: Merge Branch…** → pick `main`.
-- **Terminal:** `git switch your-branch` then `git merge main`.
+- **Terminal:** `git switch your-branch`, then `git merge main`.
 
-Also: keep branches **short-lived and focused**, keep PRs **small**, and
-**coordinate** when two people touch the same file.
+Also: small, focused branches and PRs, and coordinate on shared files.
 
 # Recap {.divider}
 
@@ -745,9 +779,8 @@ Also: keep branches **short-lived and focused**, keep PRs **small**, and
 - ✅ Set up the **Air** formatter (format on save)
 - ✅ Created and triaged an **issue**, then **branched from it**
 - ✅ Made a change, **committed**, and **pushed** (from the IDE)
-- ✅ Opened a **PR** (`Closes #N`) and assigned a **reviewer**
-- ✅ **Example 1:** requested changes → revised → approved → merged (**closed the issue**) → deleted
-- ✅ **Example 2:** new branch → reviewer edited → approved → merged → deleted
+- ✅ Opened a **PR** and assigned a **reviewer**
+- ✅ **Reviewed code:** requested changes → revised → approved → merged (**closed the issue**) → deleted
 - ✅ Created and **resolved a merge conflict**
 
 ::: {.panel}
