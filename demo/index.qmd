@@ -770,7 +770,7 @@ Also: small, focused branches and PRs, and coordinate on shared files.
 - ✅ Protected `main` with a **ruleset** (PR + 1 review)
 - ✅ **Cloned** the shared repo
 - ✅ Set up the **Air** formatter (format on save)
-- ✅ Created and triaged an **issue**, then **branched from it**
+- ✅ Created an **issue**, then **branched from it**
 - ✅ Made a change, **committed**, and **pushed** (from the IDE)
 - ✅ Opened a **PR** and assigned a **reviewer**
 - ✅ **Reviewed code:** requested changes → revised → approved → merged (**closed the issue**) → deleted
@@ -788,9 +788,9 @@ The full **emLab Standard Operating Procedures** cover all of this in depth:
 :::
 
 - **Getting set up** — git install, PAT/SSH, joining the org
-- **Working with branches** · **Pull Requests** · **Using Issues** · **Rulesets**
-- **Code Review** — planning, standards, and best practices
-- **Code Styling** — Air & Ruff setup
+- **Working with branches, pull requests, using issues, and rulesets**
+- **Code review** — planning, standards, and best practices
+- **Code styling** — Air & Ruff setup
 
 📖 [emlab-ucsb.github.io/SOP](https://emlab-ucsb.github.io/SOP/)
 
