@@ -128,7 +128,11 @@ Everyone gets a local copy of the shared repo and links it to GitHub.
 [EVERYONE]{.badge-everyone} &nbsp; [github.com]{.tool-gh}
 :::
 
-On the shared repo, click the green **Code** button:
+Navigate to our shared repo: 
+
+[github.com/emlab-ucsb/sop-demo](github.com/emlab-ucsb/sop-demo)
+
+Click the green **Code** button:
 
 - **HTTPS** tab if you authenticate with a Personal Access Token (PAT)
 - **SSH** tab if you set up SSH keys
