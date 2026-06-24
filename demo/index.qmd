@@ -601,13 +601,7 @@ machine). Deleting one doesn't delete the other.
 
 ## Talk to your collaborators {.smaller}
 
-::: {.where}
-The most important tool isn't on this list — it's **communication**
-:::
-
-Git coordinates *code* — not your team. Agree on the **conventions** up front.
-
-Worth deciding together:
+**Communication is the most important code review tool.** On your project team, agree on the code review conventions up front.
 
 - **Who merges** — author after approval, or the reviewer?
 - **When a reviewer edits directly** vs. just leaving comments.
@@ -618,7 +612,7 @@ Worth deciding together:
 
 ::: {.panel}
 No single right answer — what matters is the team **decides and writes it down**
-(README or `CONTRIBUTING.md`).
+(in a `README.md` or similar).
 :::
 
 # 7 · Merge conflicts {.divider}
@@ -683,8 +677,6 @@ Reminder — update `main` first:
 
 - **Positron / VS Code / RStudio:** switch to `main` in the branch picker → **pull / sync**.
 - **Terminal:** `git switch main && git pull`.
-
-A fresh `main` is what makes the next step line up into a clean conflict.
 
 ## Conflict: Step 3 — edit the same line {.smaller}
 
