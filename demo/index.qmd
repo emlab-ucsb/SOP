@@ -353,7 +353,7 @@ reformat it to Tidyverse style.
 
 ::: {.panel}
 Working in your own file avoids accidental conflicts. We'll create a conflict
-*on purpose* later in a shared file, to demonstrate how to resolve it.
+*on purpose* later in a shared file to demonstrate how to resolve it.
 :::
 
 ## Commit your work {.smaller}
@@ -507,25 +507,6 @@ Open your **partner's** PR → **Files changed** tab.
 another look before it can merge.
 :::
 
-## Or: the reviewer edits it themselves {.smaller}
-
-::: {.where}
-[WATCH]{.badge-watch} (reviewer's option) &nbsp; [github.com]{.tool-gh}
-:::
-
-Instead of the request-changes round-trip, for a **tiny** fix the reviewer can
-just make the change themselves, then approve:
-
-1. **Files changed** → click the **pencil ✏️** to edit the file in the browser.
-2. Tweak it → **Commit changes** to the PR's branch.
-3. **Review changes → Approve → Submit**, then author can merge pull request.
-
-::: {.panel}
-Talk with your team about expectations for when reviewers should make changes themselves. 
-For anything substantial, leave a comment so the **author** makes the change and keeps
-ownership.
-:::
-
 ## Author makes the change {.smaller}
 
 ::: {.where}
@@ -553,15 +534,34 @@ On GitHub, **Resolve conversation** on the thread, then **re-request review**.
 Art: @livinggoodstudios on Instagram
 :::
 
-## Reviewer approves, author merges {.smaller}
+## Reviewer re-reviews & approves {.smaller}
 
 ::: {.where}
-[EVERYONE]{.badge-everyone} &nbsp; [github.com]{.tool-gh}
+[EVERYONE]{.badge-everyone} (as reviewer) &nbsp; [github.com]{.tool-gh}
 :::
 
-Reviewer: re-open the PR → **Review changes → Approve → Submit**.
+Re-open your partner's PR and look at the new commits in **Files changed**.
 
-Author: the green **Merge pull request** is now enabled → **Confirm merge**.
+For a **tiny** fix, you can also just make the change yourself:
+
+- **Files changed** → click the **pencil ✏️** → edit → **Commit changes** to the
+  PR's branch.
+
+When the changes look good: **Review changes → Approve → Submit**.
+
+::: {.panel}
+Talk with your team about when reviewers should edit directly. For anything
+substantial, leave a comment so the **author** makes the change and keeps
+ownership.
+:::
+
+## Author merges {.smaller}
+
+::: {.where}
+[EVERYONE]{.badge-everyone} (as author) &nbsp; [github.com]{.tool-gh}
+:::
+
+Once approved, the green **Merge pull request** is enabled → **Confirm merge**.
 
 Because your PR said **`Closes #N`**, merging it **auto-closes your issue** —
 check the Issues tab to confirm.
@@ -717,7 +717,7 @@ line, then **Mark as resolved → Commit merge**. The PR is now mergeable.
 
 ::: {.panel}
 GitHub labels the sides with the **branch names** (top = your branch, bottom =
-`main`). It does *not* say "HEAD" — those raw markers only show in a local file.
+`main`).
 :::
 
 ## Resolve it in Positron / VS Code {.smaller}
@@ -741,6 +741,30 @@ Pick the right option (or hand-edit), **save**, then **stage** the file and
 ::: {.caption}
 Image: [Posit Positron docs](https://docs.posit.co/ide/server-pro/user/positron/guide/settings.html)
 :::
+
+## Resolve it in RStudio {.smaller}
+
+::: {.where}
+Alternative — [RStudio]{.tool-rs}
+:::
+
+RStudio has no merge editor — the conflicted file just shows the **raw markers**.
+Edit them by hand, then **stage** and **commit** in the Git pane.
+
+![](images/rstudio-merge-conflict.png){width="620" fig-align="center"}
+
+::: {.caption}
+Image: [NCEAS coreR](https://learning.nceas.ucsb.edu/2023-04-coreR/session_10.html)
+:::
+
+::: {.panel}
+The top (`HEAD`) is **your branch**; the bottom is the **incoming** version.
+Delete the `<<<<<<<` / `=======` / `>>>>>>>` lines and whichever version you
+don't want.
+:::
+
+More on conflicts in RStudio:
+[NCEAS coreR — Collaborating with Git](https://learning.nceas.ucsb.edu/2023-04-coreR/session_10.html)
 
 ## Keep your branch up to date with `main` {.smaller}
 
