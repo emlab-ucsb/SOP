@@ -353,7 +353,7 @@ reformat it to Tidyverse style.
 
 ::: {.panel}
 Working in your own file avoids accidental conflicts. We'll create a conflict
-*on purpose* later, in a shared file.
+*on purpose* later in a shared file, to demonstrate how to resolve it.
 :::
 
 ## Commit your work {.smaller}
