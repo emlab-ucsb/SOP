@@ -435,11 +435,8 @@ After pushing, GitHub shows a **"Compare & pull request"** banner — click it
 - **Description:** what it does and why, plus **`Closes #<issue-number>`**.
 
 ::: {.panel}
-Branching from the issue *links* the two, but that link alone won't close it.
-The **`Closes #N`** keyword is what actually **closes the issue when the PR
-merges** — so add it here. One PR can close several issues:
-`Closes #12, closes #15`. (Keep PRs small and focused; not ready yet? Open a
-**Draft PR**.)
+Branching from the issue *links* the two. In most cases, **closing a PR linked to an issue will also close the issue when the PR merges** by default. You can also use the **`Closes #N`** or **`Fixes #N`** keywords to do so. One PR can close several issues:
+`Closes #12, closes #15`.
 :::
 
 ## Assign your reviewer {.smaller}
