@@ -97,8 +97,8 @@ Watch setup. You'll feel it later when a direct push to `main` is refused.
 Repo: **Settings → Rules → Rulesets → New ruleset → New branch ruleset**.
 
 - **Name ruleset:** `protect-main`
-- **Bypass list (optional):** who may skip the rule 
 - **Enable status:** `Active`
+- **Bypass list (optional):** who may skip the rule 
 - **Target branches:** add target → `Default` (or pattern `~DEFAULT_BRANCH`)
 - **Rules — turn on:**
   - **Restrict deletions**
@@ -398,9 +398,6 @@ git push
 
 ## Branches can be created several ways {.smaller}
 
-::: {.where}
-Good to know — but Danielle says branch from issue!!!
-:::
 
 You can create a branch from:
 
@@ -438,6 +435,9 @@ After pushing, GitHub shows a **"Compare & pull request"** banner — click it
 Branching from the issue *links* the two. In most cases, **closing a PR linked to an issue will also close the issue when the PR merges** by default. You can also use the **`Closes #N`** or **`Fixes #N`** keywords to do so. One PR can close several issues:
 `Closes #12, closes #15`.
 :::
+
+Press **Create pull request**. The PR is now open for review.
+
 
 ## Assign your reviewer {.smaller}
 
@@ -498,7 +498,7 @@ Open your **partner's** PR → **Files changed** tab.
 
 - Hover a line → click the blue **+** → leave a **line comment**, for example:
   - *"Required: make the greeting friendlier — e.g., add an exclamation point."*
-- Click **Review changes** (top right) → choose **Request changes** → **Submit review**.
+- Click **Submit review** → **Request changes** → **Submit review**.
 
 ![](images/exclamation-point.jpeg){width="280" fig-align="center"}
 
@@ -507,32 +507,20 @@ Open your **partner's** PR → **Files changed** tab.
 another look before it can merge.
 :::
 
-## Author makes the change {.smaller}
+## You can also review in your IDE {.smaller}
 
 ::: {.where}
-[EVERYONE]{.badge-everyone} (as author) &nbsp; [Positron]{.tool-pos} → [github.com]{.tool-gh}
+Good to know — [Positron]{.tool-pos} / [VS Code]{.tool-vs} / [RStudio]{.tool-rs}
 :::
 
-Back on **your own branch**, make the simple change your reviewer asked for:
+Switch to the PR branch locally and **run the code** — often the only way to
+catch real errors.
 
-```r
-greet <- function(name) {
-  paste0("The best state in the nation, 
-  New Jersey, welcomes you, ", name, "! 
-    We can't wait for you to taste a bagel.")
-}
-```
-
-Save (Air formats it), then **commit and push** from the Source Control / Git
-panel — the PR updates automatically.
-
-On GitHub, **Resolve conversation** on the thread, then **re-request review**.
-
-![](images/country-nj.png){width="300" fig-align="center"}
-
-::: {.caption}
-Art: @livinggoodstudios on Instagram
+::: {.panel}
+Positron / VS Code's **GitHub Pull Requests** extension even lets you check out
+a PR, comment, and approve without leaving the editor.
 :::
+
 
 ## Reviewer re-reviews & approves {.smaller}
 
@@ -561,10 +549,10 @@ ownership.
 [EVERYONE]{.badge-everyone} (as author) &nbsp; [github.com]{.tool-gh}
 :::
 
-Once approved, the green **Merge pull request** is enabled → **Confirm merge**.
-
-Because your PR said **`Closes #N`**, merging it **auto-closes your issue** —
-check the Issues tab to confirm.
+Once approved, the green **Merge pull request** is enabled. 
+<br>
+<br>
+Choose a merge strategy from the dropdown menu → click **Merge pull request** → **Confirm merge**. 
 
 ::: {.panel}
 **Three merge strategies** (the dropdown on the merge button):
@@ -576,6 +564,9 @@ check the Issues tab to confirm.
 - **Rebase and merge** — replays the branch's commits onto `main` with no merge
   commit; linear history.
 :::
+
+Because your PR said **`Closes #N`**, merging it **auto-closes your issue** —
+check the Issues tab to confirm.
 
 ## Delete the merged branch {.smaller}
 
