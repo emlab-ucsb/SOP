@@ -159,7 +159,7 @@
     "href": "demo/index.html#create-a-branch-ruleset",
     "title": "Git & GitHub at emLab",
     "section": "Create a branch ruleset",
-    "text": "Create a branch ruleset\n\nWATCH   github.com   Settings → Rules → Rulesets\n\nRepo: Settings → Rules → Rulesets → New ruleset → New branch ruleset.\n\nName ruleset: protect-main\nBypass list (optional): who may skip the rule\nEnable status: Active\nTarget branches: add target → Default (or pattern ~DEFAULT_BRANCH)\nRules — turn on:\n\nRestrict deletions\nRequire a pull request before merging\n\nRequire 0 approvals: You can merge your own PR\nRequire 1 approval: Someone else must approve\n\nBlock force pushes\n\n\n\nemLab recommends protecting main — it’s not strictly required, but it’s best practice and we’ll use it today.\n\n\nOptionally show the Copilot code review toggle under Settings → Copilot, and mention it’s a useful first pass but does not replace human review. Keep the bypass list empty for the demo so everyone hits the protection."
+    "text": "Create a branch ruleset\n\nWATCH   github.com   Settings → Rules → Rulesets\n\nRepo: Settings → Rules → Rulesets → New ruleset → New branch ruleset.\n\nName ruleset: protect-main\nEnable status: Active\nBypass list (optional): who may skip the rule\nTarget branches: add target → Default (or pattern ~DEFAULT_BRANCH)\nRules — turn on:\n\nRestrict deletions\nRequire a pull request before merging\n\nRequire 0 approvals: You can merge your own PR\nRequire 1 approval: Someone else must approve\n\nBlock force pushes\n\n\n\nemLab recommends protecting main — it’s not strictly required, but it’s best practice and we’ll use it today.\n\n\nOptionally show the Copilot code review toggle under Settings → Copilot, and mention it’s a useful first pass but does not replace human review. Keep the bypass list empty for the demo so everyone hits the protection."
   },
   {
     "objectID": "demo/index.html#copy-the-repo-url",
@@ -236,14 +236,14 @@
     "href": "demo/index.html#branches-can-be-created-several-ways",
     "title": "Git & GitHub at emLab",
     "section": "Branches can be created several ways",
-    "text": "Branches can be created several ways\n\nGood to know — but Danielle says branch from issue!!!\n\nYou can create a branch from:\n\ngithub.com — from an issue (links it to the issue, like today), or the Branches page → New branch.\nPositron / VS Code — branch picker (bottom-left) → Create new branch….\nRStudio — Git pane → New Branch.\nTerminal — git switch -c your-branch.\n\n\nThe difference: a branch made on GitHub already exists remotely, so you just push / sync. A branch made locally (IDE or terminal) needs a first Publish Branch / git push -u to create it on GitHub."
+    "text": "Branches can be created several ways\nYou can create a branch from:\n\ngithub.com — from an issue (links it to the issue, like today), or the Branches page → New branch.\nPositron / VS Code — branch picker (bottom-left) → Create new branch….\nRStudio — Git pane → New Branch.\nTerminal — git switch -c your-branch.\n\n\nThe difference: a branch made on GitHub already exists remotely, so you just push / sync. A branch made locally (IDE or terminal) needs a first Publish Branch / git push -u to create it on GitHub."
   },
   {
     "objectID": "demo/index.html#open-the-pr",
     "href": "demo/index.html#open-the-pr",
     "title": "Git & GitHub at emLab",
     "section": "Open the PR",
-    "text": "Open the PR\n\nEVERYONE   github.com\n\nAfter pushing, GitHub shows a “Compare & pull request” banner — click it (or Pull requests → New pull request).\n\nBase: main · Compare: your branch\nTitle: summarize the change: “Add greeting function”\nDescription: what it does and why, plus Closes #&lt;issue-number&gt;.\n\n\nBranching from the issue links the two. In most cases, closing a PR linked to an issue will also close the issue when the PR merges by default. You can also use the Closes #N or Fixes #N keywords to do so. One PR can close several issues: Closes #12, closes #15."
+    "text": "Open the PR\n\nEVERYONE   github.com\n\nAfter pushing, GitHub shows a “Compare & pull request” banner — click it (or Pull requests → New pull request).\n\nBase: main · Compare: your branch\nTitle: summarize the change: “Add greeting function”\nDescription: what it does and why, plus Closes #&lt;issue-number&gt;.\n\n\nBranching from the issue links the two. In most cases, closing a PR linked to an issue will also close the issue when the PR merges by default. You can also use the Closes #N or Fixes #N keywords to do so. One PR can close several issues: Closes #12, closes #15.\n\nPress Create pull request. The PR is now open for review."
   },
   {
     "objectID": "demo/index.html#assign-your-reviewer",
@@ -264,14 +264,14 @@
     "href": "demo/index.html#reviewer-requests-changes",
     "title": "Git & GitHub at emLab",
     "section": "Reviewer requests changes",
-    "text": "Reviewer requests changes\n\nEVERYONE (as reviewer)   github.com\n\nOpen your partner’s PR → Files changed tab.\n\nHover a line → click the blue + → leave a line comment, for example:\n\n“Required: make the greeting friendlier — e.g., add an exclamation point.”\n\nClick Review changes (top right) → choose Request changes → Submit review.\n\n\n\n“Request changes” blocks the merge until you re-review — use it when you want another look before it can merge."
+    "text": "Reviewer requests changes\n\nEVERYONE (as reviewer)   github.com\n\nOpen your partner’s PR → Files changed tab.\n\nHover a line → click the blue + → leave a line comment, for example:\n\n“Required: make the greeting friendlier — e.g., add an exclamation point.”\n\nClick Submit review → Request changes → Submit review.\n\n\n\n“Request changes” blocks the merge until you re-review — use it when you want another look before it can merge."
   },
   {
-    "objectID": "demo/index.html#author-makes-the-change",
-    "href": "demo/index.html#author-makes-the-change",
+    "objectID": "demo/index.html#you-can-also-review-in-your-ide",
+    "href": "demo/index.html#you-can-also-review-in-your-ide",
     "title": "Git & GitHub at emLab",
-    "section": "Author makes the change",
-    "text": "Author makes the change\n\nEVERYONE (as author)   Positron → github.com\n\nBack on your own branch, make the simple change your reviewer asked for:\ngreet &lt;- function(name) {\n  paste0(\"The best state in the nation, \n  New Jersey, welcomes you, \", name, \"! \n    We can't wait for you to taste a bagel.\")\n}\nSave (Air formats it), then commit and push from the Source Control / Git panel — the PR updates automatically.\nOn GitHub, Resolve conversation on the thread, then re-request review.\n\n\nArt: @livinggoodstudios on Instagram"
+    "section": "You can also review in your IDE",
+    "text": "You can also review in your IDE\n\nGood to know — Positron / VS Code / RStudio\n\nSwitch to the PR branch locally and run the code — often the only way to catch real errors.\n\nPositron / VS Code’s GitHub Pull Requests extension even lets you check out a PR, comment, and approve without leaving the editor."
   },
   {
     "objectID": "demo/index.html#reviewer-re-reviews-approves",
@@ -285,7 +285,7 @@
     "href": "demo/index.html#author-merges",
     "title": "Git & GitHub at emLab",
     "section": "Author merges",
-    "text": "Author merges\n\nEVERYONE (as author)   github.com\n\nOnce approved, the green Merge pull request is enabled → Confirm merge.\nBecause your PR said Closes #N, merging it auto-closes your issue — check the Issues tab to confirm.\n\nThree merge strategies (the dropdown on the merge button):\n\nCreate a merge commit (default) — keeps every branch commit plus a merge commit; full history.\nSquash and merge — combines all the branch’s commits into one on main; tidy history, handy for messy or exploratory branches.\nRebase and merge — replays the branch’s commits onto main with no merge commit; linear history."
+    "text": "Author merges\n\nEVERYONE (as author)   github.com\n\nOnce approved, the green Merge pull request is enabled.   Choose a merge strategy from the dropdown menu → click Merge pull request → Confirm merge.\n\nThree merge strategies (the dropdown on the merge button):\n\nCreate a merge commit (default) — keeps every branch commit plus a merge commit; full history.\nSquash and merge — combines all the branch’s commits into one on main; tidy history, handy for messy or exploratory branches.\nRebase and merge — replays the branch’s commits onto main with no merge commit; linear history.\n\n\nBecause your PR said Closes #N, merging it auto-closes your issue — check the Issues tab to confirm."
   },
   {
     "objectID": "demo/index.html#delete-the-merged-branch",
@@ -306,42 +306,42 @@
     "href": "demo/index.html#set-up-a-conflict-with-your-partner",
     "title": "Git & GitHub at emLab",
     "section": "Set up a conflict — with your partner",
-    "text": "Set up a conflict — with your partner\n\nEVERYONE (in your pairs)   github.com\n\nA conflict happens when two people change the same line. You’ll create one on purpose with your partner, in your pair’s shared file (e.g. R/danielle-tracey.R).\nIt takes three steps:\n\nPut a shared file on main.\nBoth branch from the updated main.\nBoth edit the same line — the second PR will conflict.\n\nFirst, decide who is Partner A and who is Partner B.\n\nPartner A merges before Partner B opens their PR. Then swap roles so everyone resolves one."
+    "text": "Set up a conflict — with your partner\n\nEVERYONE (in your pairs)   github.com\n\nA conflict happens when multiple people change the same line. You’ll create one on purpose with your partner a shared file (e.g. sop-demo/conflict-files/partners-1.R).\nIt will take three steps:\n\nBoth partners branch from the main.\nPartner A edits a file and merges it to main.\nPartner B edits the same line in the same file on their branch and creates a PR — this will trigger a conflict.\n\nFirst, each pair will be assigned to a file in the conflict-files folder.\nNext, decide who is Partner A and who is Partner B.\n\nPartner A merges before Partner B opens their PR. Then swap roles so everyone resolves one."
   },
   {
-    "objectID": "demo/index.html#conflict-step-1-create-the-shared-file",
-    "href": "demo/index.html#conflict-step-1-create-the-shared-file",
+    "objectID": "demo/index.html#conflict-step-1-both-branch-from-main",
+    "href": "demo/index.html#conflict-step-1-both-branch-from-main",
     "title": "Git & GitHub at emLab",
-    "section": "Conflict: Step 1 — create the shared file",
-    "text": "Conflict: Step 1 — create the shared file\n\nEVERYONE (in your pairs)   Positron → github.com\n\nGet one shared file onto main so you both have it:\n\nPartner A: new branch → add the file → commit → push → open a PR.\n\n# R/danielle-tracey.R\nactivity_message &lt;- function(activity) {\n  paste0(\"I went on one \", activity, \", it's summer!\")\n}\n\nPartner B: review → Approve.\nPartner A: merge → delete the branch.\n\nThe file is now on main."
+    "section": "Conflict: Step 1 — both branch from main",
+    "text": "Conflict: Step 1 — both branch from main\n\nEVERYONE (in your pairs)   Positron / RStudio\n\nBoth partners: Make sure main is up to date first:\n\nPositron / VS Code / RStudio: switch to main in the branch picker → pull / sync.\nTerminal: git switch main && git pull.\n\nBoth partners: Create your own branch from the main (A and B on separate branches)."
   },
   {
-    "objectID": "demo/index.html#conflict-step-2-both-branch-from-main",
-    "href": "demo/index.html#conflict-step-2-both-branch-from-main",
+    "objectID": "demo/index.html#conflict-step-2-partner-a-edits-and-merges-to-main",
+    "href": "demo/index.html#conflict-step-2-partner-a-edits-and-merges-to-main",
     "title": "Git & GitHub at emLab",
-    "section": "Conflict: Step 2 — both branch from main",
-    "text": "Conflict: Step 2 — both branch from main\n\nEVERYONE (in your pairs)   Positron / RStudio\n\nBoth partners: update your local main, then create your own branch from it (A and B on separate branches).\nReminder — update main first:\n\nPositron / VS Code / RStudio: switch to main in the branch picker → pull / sync.\nTerminal: git switch main && git pull."
+    "section": "Conflict: Step 2 — Partner A edits and merges to main",
+    "text": "Conflict: Step 2 — Partner A edits and merges to main\n\nEVERYONE (in your pairs)   Positron → github.com\n\nPartner A edits their assigned file. Partner B should not edit it yet, but prepare for Partner A’s PR.:\n\nPartner A: edit the file → commit → push → PR\n\nPartner B: review and mentally note a line that has changed → approve\nPartner A: merge to main."
   },
   {
-    "objectID": "demo/index.html#conflict-step-3-edit-the-same-line",
-    "href": "demo/index.html#conflict-step-3-edit-the-same-line",
+    "objectID": "demo/index.html#conflict-step-3-partner-b-edits-and-opens-a-pr",
+    "href": "demo/index.html#conflict-step-3-partner-b-edits-and-opens-a-pr",
     "title": "Git & GitHub at emLab",
-    "section": "Conflict: Step 3 — edit the same line",
-    "text": "Conflict: Step 3 — edit the same line\n\nEVERYONE (in your pairs)   Positron → github.com\n\nNow both of you change the same line of the file — differently:\n\nPartner A: edit the line → commit → push → PR → Partner B approves. Merge to main.\nPartner B: on your branch, edit the same line to something else → commit → push → open your PR.\n\n\nmain now has A’s version and B’s branch has a different one on the same line → GitHub can’t auto-merge B’s PR. Partner B resolves it (next)."
+    "section": "Conflict: Step 3 — Partner B edits and opens a PR",
+    "text": "Conflict: Step 3 — Partner B edits and opens a PR\nPartner B, within their branch:\n\nEdit the same line in the same file, commit, and push branch\nOpen PR. GitHub will indicate a merge conflict and block the merge until it’s resolved."
   },
   {
-    "objectID": "demo/index.html#resolve-it-on-github.com",
-    "href": "demo/index.html#resolve-it-on-github.com",
+    "objectID": "demo/index.html#resolve-conflict-on-github.com",
+    "href": "demo/index.html#resolve-conflict-on-github.com",
     "title": "Git & GitHub at emLab",
-    "section": "Resolve it on github.com",
-    "text": "Resolve it on github.com\n\nEVERYONE   github.com\n\nOpen Partner B’s PR. It shows “This branch has conflicts that must be resolved.” Click Resolve conflicts to open the web editor:\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; your-branch-name\n  paste0(\"I went on a \", activity, \" — best summer!\")\n=======\n  paste0(\"I went on one \", activity, \", it's summer!\")\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; main\nDelete the &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers, keep the one correct line, then Mark as resolved → Commit merge. The PR is now mergeable.\n\nGitHub labels the sides with the branch names (top = your branch, bottom = main)."
+    "section": "Resolve conflict on github.com",
+    "text": "Resolve conflict on github.com\n\nEVERYONE   github.com\n\nClick Resolve conflicts to open the web editor:\n\n\n\n\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; your-branch-name\n  paste0(\"I went on a \", activity, \" — best summer!\")\n=======\n  paste0(\"I went on one \", activity, \", it's summer!\")\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; main\nOptions:\n\nUse buttons to choose version to keep.\nManually delete the &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers, keeping the correct line.\n\nMark as resolved → Commit merge. The PR is now mergeable.\n\nGitHub labels the sides with the branch names (top = your branch, bottom = main)."
   },
   {
     "objectID": "demo/index.html#resolve-it-in-positron-vs-code",
     "href": "demo/index.html#resolve-it-in-positron-vs-code",
     "title": "Git & GitHub at emLab",
     "section": "Resolve it in Positron / VS Code",
-    "text": "Resolve it in Positron / VS Code\n\nAlternative — Positron / VS Code\n\nIf you merged main locally (Git: Merge Branch…), the conflicted file opens in the merge editor with buttons:\n\nAccept Current Change — keep your branch’s version.\nAccept Incoming Change — keep the version coming from main.\nAccept Both — keep both, in order.\n\nPick the right option (or hand-edit), save, then stage the file and commit the merge in the Source Control panel, and push/sync.\n\n\nImage: Posit Positron docs"
+    "text": "Resolve it in Positron / VS Code\n\nAlternative — Positron / VS Code\n\nAfter Git: Merge Branch…, the conflicted file opens in the merge editor:\n\nAccept Current Change — your branch’s version.\nAccept Incoming Change — the version from main.\nAccept Both — keep both, in order.\n\nThen save, stage, commit, push.\n\n\n\n\n\n\nImage: Posit Positron docs"
   },
   {
     "objectID": "demo/index.html#resolve-it-in-rstudio",
