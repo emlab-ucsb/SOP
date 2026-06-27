@@ -358,20 +358,25 @@ A plan answers four questions:
 Budget **10–20% of coding time** for it. Bring it up at [kickoff](../03-code/code-review.qmd).
 :::
 
-## Levels of review
+## Types of of code review
 
 ::: {.notes}
-Not every project needs the same review. Walk the three types and when each is appropriate.
+Two dimensions: who reviews (self vs. peer), and what they're checking. Accuracy and efficiency apply to every PR. Reproducibility is a separate final stage for publications.
 :::
 
-| Level | What it involves | When to use |
-|---|---|---|
-| **Self** | Author reads own diff before opening a PR | Every PR |
-| **Accuracy** | Collaborator checks logic, calculations, and code correctness | Partner-facing work and publications |
-| **Reproducibility** | Reviewer independently re-runs the full analysis | Publications — the gold standard |
+**Pull requests** 
+
+| | Timing | What to check | Required? |
+|---|---|---|---|
+| **Self-review** | Ongoing; Before every PR; revisit after receiving PR comments | Read your own diff as if you're the reviewer | Always |
+| **Team member peer review** | Ongoing; for every PR | Accuracy, logic, efficiency | Whenever there's more than one researcher on the project |
 
 ::: {.fragment}
-Decide on the right level early, while the timeline can still accommodate it.
+**Reproducibility check** 
+
+| | Timing | What to check | Required? |
+|---|---|---|---|
+| **External peer reviewer**  | End of project and before submission; again before publication | A designated reviewer re-runs the full analysis independently and regenerates all outputs| Publications and external-facing deliverables |
 :::
 
 ## Best practices {auto-animate="true"}
