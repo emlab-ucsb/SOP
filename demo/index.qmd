@@ -97,8 +97,8 @@ Watch setup. You'll feel it later when a direct push to `main` is refused.
 Repo: **Settings → Rules → Rulesets → New ruleset → New branch ruleset**.
 
 - **Name ruleset:** `protect-main`
-- **Bypass list (optional):** who may skip the rule 
 - **Enable status:** `Active`
+- **Bypass list (optional):** who may skip the rule 
 - **Target branches:** add target → `Default` (or pattern `~DEFAULT_BRANCH`)
 - **Rules — turn on:**
   - **Restrict deletions**
@@ -398,9 +398,6 @@ git push
 
 ## Branches can be created several ways {.smaller}
 
-::: {.where}
-Good to know — but Danielle says branch from issue!!!
-:::
 
 You can create a branch from:
 
@@ -438,6 +435,9 @@ After pushing, GitHub shows a **"Compare & pull request"** banner — click it
 Branching from the issue *links* the two. In most cases, **closing a PR linked to an issue will also close the issue when the PR merges** by default. You can also use the **`Closes #N`** or **`Fixes #N`** keywords to do so. One PR can close several issues:
 `Closes #12, closes #15`.
 :::
+
+Press **Create pull request**. The PR is now open for review.
+
 
 ## Assign your reviewer {.smaller}
 
@@ -498,7 +498,7 @@ Open your **partner's** PR → **Files changed** tab.
 
 - Hover a line → click the blue **+** → leave a **line comment**, for example:
   - *"Required: make the greeting friendlier — e.g., add an exclamation point."*
-- Click **Review changes** (top right) → choose **Request changes** → **Submit review**.
+- Click **Submit review** → **Request changes** → **Submit review**.
 
 ![](images/exclamation-point.jpeg){width="280" fig-align="center"}
 
@@ -507,32 +507,20 @@ Open your **partner's** PR → **Files changed** tab.
 another look before it can merge.
 :::
 
-## Author makes the change {.smaller}
+## You can also review in your IDE {.smaller}
 
 ::: {.where}
-[EVERYONE]{.badge-everyone} (as author) &nbsp; [Positron]{.tool-pos} → [github.com]{.tool-gh}
+Good to know — [Positron]{.tool-pos} / [VS Code]{.tool-vs} / [RStudio]{.tool-rs}
 :::
 
-Back on **your own branch**, make the simple change your reviewer asked for:
+Switch to the PR branch locally and **run the code** — often the only way to
+catch real errors.
 
-```r
-greet <- function(name) {
-  paste0("The best state in the nation, 
-  New Jersey, welcomes you, ", name, "! 
-    We can't wait for you to taste a bagel.")
-}
-```
-
-Save (Air formats it), then **commit and push** from the Source Control / Git
-panel — the PR updates automatically.
-
-On GitHub, **Resolve conversation** on the thread, then **re-request review**.
-
-![](images/country-nj.png){width="300" fig-align="center"}
-
-::: {.caption}
-Art: @livinggoodstudios on Instagram
+::: {.panel}
+Positron / VS Code's **GitHub Pull Requests** extension even lets you check out
+a PR, comment, and approve without leaving the editor.
 :::
+
 
 ## Reviewer re-reviews & approves {.smaller}
 
@@ -561,10 +549,10 @@ ownership.
 [EVERYONE]{.badge-everyone} (as author) &nbsp; [github.com]{.tool-gh}
 :::
 
-Once approved, the green **Merge pull request** is enabled → **Confirm merge**.
-
-Because your PR said **`Closes #N`**, merging it **auto-closes your issue** —
-check the Issues tab to confirm.
+Once approved, the green **Merge pull request** is enabled. 
+<br>
+<br>
+Choose a merge strategy from the dropdown menu → click **Merge pull request** → **Confirm merge**. 
 
 ::: {.panel}
 **Three merge strategies** (the dropdown on the merge button):
@@ -576,6 +564,9 @@ check the Issues tab to confirm.
 - **Rebase and merge** — replays the branch's commits onto `main` with no merge
   commit; linear history.
 :::
+
+Because your PR said **`Closes #N`**, merging it **auto-closes your issue** —
+check the Issues tab to confirm.
 
 ## Delete the merged branch {.smaller}
 
@@ -626,83 +617,65 @@ then resolve it using the IDE and github.com.
 [EVERYONE]{.badge-everyone} (in your pairs) &nbsp; [github.com]{.tool-gh}
 :::
 
-A conflict happens when **two people change the same line**. You'll create one
-on purpose with your partner, in your pair's **shared file** (e.g. `R/danielle-tracey.R`).
+A conflict happens when **multiple people change the same line**. You'll create one
+on purpose with your partner a **shared file** (e.g. `sop-demo/conflict-files/partners-1.R`).
 
-It takes three steps:
+It will take three steps:
 
-1. Put a **shared file** on `main`.
-2. **Both branch** from the updated `main`.
-3. **Both edit the same line** — the second PR will conflict.
+1. Both partners branch from the `main`.
+2. **Partner A** edits a file and merges it to `main`.
+3. **Partner B** edits the same line in the same file on their branch and creates a PR — this will trigger a conflict.
 
-**First, decide who is Partner A and who is Partner B.**
+First, each pair will be assigned to a file in the `conflict-files` folder.
+
+Next, decide who is Partner A and who is Partner B.
 
 ::: {.notes}
 Partner A merges before Partner B opens their PR. Then swap roles so everyone
 resolves one.
 :::
 
-## Conflict: Step 1 — create the shared file {.smaller}
-
-::: {.where}
-[EVERYONE]{.badge-everyone} (in your pairs) &nbsp; [Positron]{.tool-pos} → [github.com]{.tool-gh}
-:::
-
-Get one shared file onto `main` so you both have it:
-
-1. **Partner A:** new branch → add the file → commit → push → open a PR.
-
-```r
-# R/danielle-tracey.R
-activity_message <- function(activity) {
-  paste0("I went on one ", activity, ", it's summer!")
-}
-```
-
-2. **Partner B:** review → **Approve**.
-3. **Partner A:** **merge** → delete the branch.
-
-The file is now on `main`.
-
-## Conflict: Step 2 — both branch from `main` {.smaller}
+## Conflict: Step 1 — both branch from `main` {.smaller}
 
 ::: {.where}
 [EVERYONE]{.badge-everyone} (in your pairs) &nbsp; [Positron]{.tool-pos} / [RStudio]{.tool-rs}
 :::
 
-**Both partners:** update your local `main`, then create your **own** branch
-from it (A and B on separate branches).
-
-Reminder — update `main` first:
+**Both partners:** Make sure `main` is up to date first:
 
 - **Positron / VS Code / RStudio:** switch to `main` in the branch picker → **pull / sync**.
 - **Terminal:** `git switch main && git pull`.
 
-## Conflict: Step 3 — edit the same line {.smaller}
+**Both partners:** Create your **own** branch from the main (A and B on separate branches).
+
+## Conflict: Step 2 — Partner A edits and merges to main {.smaller}
 
 ::: {.where}
 [EVERYONE]{.badge-everyone} (in your pairs) &nbsp; [Positron]{.tool-pos} → [github.com]{.tool-gh}
 :::
 
-Now both of you change the **same line** of the file — differently:
+Partner A edits their assigned file. Partner B should **not** edit it yet, but prepare for Partner A's PR.:
 
-1. **Partner A:** edit the line → commit → push → PR → **Partner B approves. Merge** to `main`.
-2. **Partner B:** on *your* branch, edit the **same line** to something else →
-   commit → push → **open your PR**.
+1. **Partner A:** edit the file → commit → push → PR  
+2. **Partner B:** review and mentally note a line that has changed → approve
+3. **Partner A:** merge to `main`.
 
-::: {.panel}
-`main` now has A's version and B's branch has a different one on the **same
-line** → GitHub **can't auto-merge** B's PR. **Partner B resolves it** (next).
-:::
+## Conflict: Step 3 — Partner B edits and opens a PR {.smaller}
 
-## Resolve it on github.com {.smaller}
+Partner B, **within their branch**:
+
+1. Edit the **same line** in the **same file**, commit, and push branch
+2. Open PR. GitHub will indicate a **merge conflict** and **block the merge** until it's resolved.
+
+## Resolve conflict on github.com {.smaller}
 
 ::: {.where}
 [EVERYONE]{.badge-everyone} &nbsp; [github.com]{.tool-gh}
 :::
 
-Open **Partner B's** PR. It shows **"This branch has conflicts that must be
-resolved."** Click **Resolve conflicts** to open the web editor:
+Click **Resolve conflicts** to open the web editor:
+
+![](images/resolve-merge.png){width="820" fig-align="center" .nostretch}
 
 ```r
 <<<<<<< your-branch-name
@@ -712,8 +685,12 @@ resolved."** Click **Resolve conflicts** to open the web editor:
 >>>>>>> main
 ```
 
-Delete the `<<<<<<<`, `=======`, `>>>>>>>` markers, keep the **one** correct
-line, then **Mark as resolved → Commit merge**. The PR is now mergeable.
+Options:
+
+- Use buttons to choose version to keep.
+- Manually delete the `<<<<<<<`, `=======`, `>>>>>>>` markers, keeping the correct line.
+
+**Mark as resolved → Commit merge**. The PR is now mergeable.
 
 ::: {.panel}
 GitHub labels the sides with the **branch names** (top = your branch, bottom =
@@ -726,17 +703,15 @@ GitHub labels the sides with the **branch names** (top = your branch, bottom =
 Alternative — [Positron]{.tool-pos} / [VS Code]{.tool-vs}
 :::
 
-If you merged `main` locally (`Git: Merge Branch…`), the conflicted file opens in
-the **merge editor** with buttons:
+After `Git: Merge Branch…`, the conflicted file opens in the **merge editor**:
 
-- **Accept Current Change** — keep *your branch's* version.
-- **Accept Incoming Change** — keep the version coming from `main`.
+- **Accept Current Change** — your branch's version.
+- **Accept Incoming Change** — the version from `main`.
 - **Accept Both** — keep both, in order.
 
-Pick the right option (or hand-edit), **save**, then **stage** the file and
-**commit** the merge in the Source Control panel, and **push/sync**.
+Then **save**, **stage**, **commit**, **push**.
 
-![](images/positron-settings-import-merge.png){width="640" fig-align="center"}
+![](images/positron-settings-import-merge.png){width="380" fig-align="center" .nostretch}
 
 ::: {.caption}
 Image: [Posit Positron docs](https://docs.posit.co/ide/server-pro/user/positron/guide/settings.html)
