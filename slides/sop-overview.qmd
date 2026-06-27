@@ -404,16 +404,17 @@ Split responsibilities. Authors make review easy; reviewers are specific and pri
 - Be timely — a stale PR gets harder to merge as the rest of the project moves on.
 :::
 
-## Code review is a collaboration
+##  Some closing thoughts on code review
 
 ::: {.notes}
 Close the section on norms. Review is non-adversarial, a contribution worth recognizing, and needs protected time.
 :::
 
 ::: {.incremental}
-- Review is **not a performance evaluation** — it's how we catch errors before they matter.
-- Time spent reviewing is time spent on the project. It should be treated that way.
-- PIs and PMs: if review isn't in the timeline and budget, it won't happen.
+- Writing good code has always been important - code review just ensures we do it every time
+- AI is making code review more important than ever
+- Finding a mistake during code review is much better than finding it after it's in a report or a paper.
+- Let's embrace the culture of why code review is important; and also plan for the realities of how much work it takes
 :::
 
 ::: {.aside}
