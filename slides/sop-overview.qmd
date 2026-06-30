@@ -3,7 +3,7 @@ title: "Coding & Collaborative Coding at emLab"
 subtitle: "The 2026 SOP refresh: formatters, branch-based development, and code review"
 title-slide-attributes:
   data-background-image: emlab_logo_horizontal.png
-  data-background-size: 50%
+  data-background-size: 30%
   data-background-position: 50% 88%
   data-footer: "false"
 format:
