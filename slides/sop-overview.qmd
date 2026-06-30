@@ -1,42 +1,28 @@
 ---
-title: "Coding & Collaboration at emLab"
-subtitle: "The updated SOP: formatters, branch-based development, and code review"
+title: "Coding & Collaborative Coding at emLab"
+subtitle: "The 2026 SOP refresh: formatters, branch-based development, and code review"
+title-slide-attributes:
+  data-background-image: emlab_logo_horizontal.png
+  data-background-size: 50%
+  data-background-position: 50% 88%
+  data-footer: "false"
 format:
   revealjs:
-    theme: simple
+    theme: [default, emlab-demo.scss]
     slide-number: true
+    progress: true
     transition: slide
     background-transition: fade
-    navigation-mode: linear
     incremental: false
-    code-line-numbers: false
-    self-contained: true
-    include-in-header:
-      text: |
-        <style>
-        .new-badge {
-          background: #2aa198;
-          color: #fff;
-          font-size: 0.42em;
-          padding: 0.12em 0.55em;
-          border-radius: 0.4em;
-          vertical-align: middle;
-          margin-left: 0.45em;
-          font-weight: 700;
-          letter-spacing: 0.06em;
-        }
-        .reveal a { color: #2aa198; }
-        .reveal a:hover { color: #1f7f78; }
-        .semi-transparent { opacity: 0.4; }
-        .no-bullets, .no-bullets li {
-          list-style: none !important;
-          margin-left: 0 !important;
-          padding-left: 0 !important;
-        }
-        .no-bullets li::before, .no-bullets li::marker { content: none !important; }
-        .reveal .small { font-size: 0.75em; }
-        .reveal table { font-size: 0.7em; }
-        </style>
+    history: true
+    code-copy: true
+    code-overflow: wrap
+    embed-resources: true
+    center: false
+    footer: "<img src='emlab_logo_horizontal.png' class='footer-logo'> Collaborative coding at emLab"
+execute:
+  eval: false
+  echo: true
 ---
 
 ## Why this matters
@@ -45,7 +31,8 @@ format:
 Frame the whole talk: code at emLab informs real decisions, so errors carry real costs. Two goals drive everything else: accuracy and reproducibility.
 :::
 
-Our analyses go to policymaker, implementors, funders, and the scientific community. A mistake in the code is a mistake in the science.
+- Our analyses go to policymakers, on-the-ground implementers, funders, and the scientific community. 
+- Our code has real-world impact. And coding mistakes have real-world implications.
 
 Two goals drive all the code we write:
 
@@ -60,18 +47,18 @@ Two goals drive all the code we write:
 Clarify the two tiers. Universal requirements are the shared baseline everyone follows. Best practices are what we aspire to, adapted per project.
 :::
 
-The SOP distinguishes two tiers:
+The SOP distinguishes two tiers for guidelines:
 
 ::: {.incremental}
-- **Universal requirements** — the baseline everyone follows, on every project. This talk will focus 
+- **Universal requirements** — the baseline everyone follows, on every project.
 - **Best practices** — what we aim for, adjusted per project.
 :::
 
 ::: {.fragment}
-This talk is mostly about the requirements, especially the new ones.
+Today's session will focus on universal requirements, particularly the new ones.
 :::
 
-## All universal requirements
+## Universal requirements at a glance
 
 ::: {.notes}
 GitHub is the platform for all coding work. The first two have been in place; the last three are new this revision.
@@ -80,14 +67,14 @@ GitHub is the platform for all coding work. The first two have been in place; th
 All code at emLab must:
 
 ::: {.incremental}
-- Live in a repo under [emlab-ucsb](https://github.com/emlab-ucsb) — with a README and logical structure.
+- Live in a repo under the [emlab-ucsb](https://github.com/emlab-ucsb) GitHub organization— with a README and logical structure.
 - Have every change tracked in Git with clear commit messages.
 - [[NEW]]{.new-badge} Use a [code formatter](../03-code/code-styling.qmd) — Air (R) or Ruff (Python), run on save.
 - [[NEW]]{.new-badge} Follow [branch-based development](../04-gh/05-branches.qmd) — no direct commits to `main`.
-- [[NEW]]{.new-badge} Go through [code review](../03-code/code-review.qmd) via pull requests, planned at project start.
+- [[NEW]]{.new-badge} Go through [code review](../03-code/code-review.qmd) via pull requests, with code review integrated into entire project planning process.
 :::
 
-# 1 · Code formatters {background-color="#2aa198"}
+# 1 · Code formatters {background-color="#044E95"}
 
 ## Style is documentation
 
@@ -95,16 +82,15 @@ All code at emLab must:
 Set up the philosophy before the tooling. 
 :::
 
-Code at emLab needs to be durable — we share code publicaly, hand off projects between team members, take leave, and return to our own work years later.
-
-Style isn't aesthetic — it's how your work stays usable:
+- Code at emLab needs to be durable
+- We share code publicaly, hand off projects between team members, take leave, and return to our own work years later.
 
 ::: {.incremental}
-- diffs reflect *real* changes, not whitespace noise
-- a collaborator can read unfamiliar code without reverse-engineering it
-- future you can pick up where you left off
+- Style isn't *just* aesthetic — it's how your work stays usable:
+  - diffs reflect *real* changes, not whitespace noise
+  - a collaborator can read unfamiliar code without reverse-engineering it
+  - future you can pick up where you left off
 :::
-
 ## Formatters are required [[NEW]]{.new-badge}
 
 ::: {.notes}
@@ -117,12 +103,12 @@ A formatter handles all the spacing, indentation, and line-break decisions autom
 Formatters are **required** for all new code development.
 :::
 
-Both tools run on save, so there's nothing to remember.
+Can be configured to "run on save" - so there's nothing to remember.
 
 ## Air — required for R [[NEW]]{.new-badge}
 
 ::: {.notes}
-Air is built by Posit and enforces Tidyverse style. Two steps: install the extension, enable format-on-save.
+Air is built by Posit and enforces [Tidyverse style guide](https://style.tidyverse.org). Two steps: install the extension, enable format-on-save.
 :::
 
 **Air** is the required R formatter (built by Posit, enforces Tidyverse style).
@@ -142,10 +128,10 @@ Air is built by Posit and enforces Tidyverse style. Two steps: install the exten
 ## Ruff — required for Python [[NEW]]{.new-badge}
 
 ::: {.notes}
-Ruff is the formatter and linter for Python — extremely fast, replaces several older tools. Same pattern: install, enable on save.
+Ruff is the formatter or Python — extremely fast, replaces several older tools. Same pattern: install, enable on save.
 :::
 
-**Ruff** is the required Python formatter and linter — it replaces several older tools.
+**Ruff** is the required Python formatter.
 
 1. Install the **"Ruff"** extension from the marketplace.
 2. Enable format-on-save:
@@ -169,7 +155,7 @@ Ruff is the formatter and linter for Python — extremely fast, replaces several
 Air isn't tightly integrated in RStudio, but styling is still required. Mention the styler fallback and the "end files with a newline" setting.
 :::
 
-Styling is still required in RStudio, where Air is less integrated. Use the `styler` package:
+Styling is still required if you still use RStudio, where Air is less integrated. Use the `styler` package:
 
 ::: {.incremental}
 - `install.packages("styler")`, then **Addins → "Style active file"** before each commit.
@@ -180,9 +166,9 @@ Styling is still required in RStudio, where Air is less integrated. Use the `sty
 Air can also be wired into RStudio as an external CLI formatter — see [Posit's instructions](https://posit-dev.github.io/air/editor-rstudio.html). Full detail: [Code styling](../03-code/code-styling.qmd).
 :::
 
-# 2 · Branch-based development {background-color="#2aa198"}
+# 2 · Branch-based development {background-color="#044E95"}
 
-## The rule [[NEW]]{.new-badge}
+## The universal requirement [[NEW]]{.new-badge}
 
 ::: {.notes}
 State the requirement plainly. All development happens on a branch; we don't commit to main.
@@ -208,6 +194,12 @@ Git history is a sequence of snapshots:
 A --- B --- C --- D   (main)
 ```
 
+## What a branch is {auto-animate="true"}
+
+::: {.notes}
+A branch is a named pointer that moves forward independently, leaving main untouched.
+:::
+
 A **branch** is a named pointer that moves forward independently:
 
 ```
@@ -218,18 +210,34 @@ A --- B --- C --- D           (main)
 
 `main` is untouched until you explicitly merge.
 
+## What a branch is {auto-animate="true"}
+
+::: {.notes}
+When the branch is ready, you merge it back — main advances to include the work, and the branch can be deleted.
+:::
+
+When the work is ready, you **merge** back into `main`:
+
+```
+A --- B --- C --- D ----------- G   (main)
+                  \           /
+                   E --- F ---      (my-branch → merged)
+```
+
+`main` now includes the work; the branch can be deleted.
+
 ## Why not commit to `main`?
 
 ::: {.notes}
 Main is the stable, reviewed record — always runnable. Branch-based dev creates a checkpoint for review. Applies even solo. At emLab, a ruleset enforces it.
 :::
 
-`main` should always run. It's the reviewed, stable version of the project.
+`main` should always run successfully. It's the reviewed, stable version of the project.
 
 ::: {.incremental}
-- Branching creates a checkpoint: work → PR → review → merge.
+- Branching creates an isolated checkpoint: work in the branch → PR → review → merge back to main.
 - This matters even when you're working alone — reviewing your own diff before merging catches things.
-- Most repos block direct pushes to `main`; if you hit that error, you need a branch.
+- Repos can be set to *automatically* block direct pushes to `main`; if you hit that error, you need a branch.
 :::
 
 ## The workflow {auto-animate="true"}
@@ -256,26 +264,26 @@ Two practical habits: pull from main periodically to keep conflicts small; keep 
 :::
 
 ::: {.incremental}
-- **Stay current:** pull from `main` periodically — the longer a branch diverges, the worse the merge.
+- **Stay current:** pull from `main` periodically — the longer a branch diverges, the harder it will be to review and merge.
 - **Stay focused:** one branch, one task. Short-lived branches are easier to review and less likely to conflict.
-- Big task? Break it into branches that build on each other.
+- Are big changes needed? Break them into branches that build on each other.
 :::
 
 ::: {.aside}
 Full detail: [Working with branches](../04-gh/05-branches.qmd).
 :::
 
-## Issues
+## GitHub Issues
 
 ::: {.notes}
 Issues are the right place to flag bugs, questions, and planned work — before writing code. They keep conversation out of Slack and create a searchable record tied to the repo.
 :::
 
-Use an Issue to flag a bug, propose a change, or raise a question — before writing any code.
-
 ::: {.incremental}
+- Issues are an excellent project management and code development tool
+- Use an Issue to flag a bug, propose a change, or raise a question — before writing any code.
 - Keeps the conversation in the repo, not in Slack.
-- Issues can be referenced from commits and PRs ("Closes #42").
+- Reference issues from commits and PRs ("`Closes #42`").
 - When you come back to the code later, you'll know why decisions were made.
 :::
 
@@ -283,7 +291,7 @@ Use an Issue to flag a bug, propose a change, or raise a question — before wri
 Full detail: [Working with Issues](../04-gh/04-issues.qmd)
 :::
 
-# 3 · Pull requests & code review {background-color="#2aa198"}
+# 3 · Pull requests & code review {background-color="#044E95"}
 
 ## Pull requests [[NEW]]{.new-badge}
 
@@ -299,7 +307,9 @@ A **pull request** is how you propose merging your branch into `main` — and ho
 - Leaves a record of what changed and why — useful when something breaks six months later.
 :::
 
+::: {.fragment}
 **All changes to `main` come through a PR.**
+:::
 
 ## Opening a PR
 
@@ -310,10 +320,10 @@ The four fields. Emphasize a good title and description, linking issues, and dra
 Push your branch, then open a PR. Fill out:
 
 ::: {.incremental}
-- **Base:** the branch you're merging *into* — usually `main`.
-- **Compare:** your feature or analysis branch.
+- **Base:** the primary branch you're merging *into* — usually `main`.
+- **Compare:** the new branch you've been working on and are merging *from*.
 - **Title:** a clear, specific summary of what changed.
-- **Description:** what changed, why, and what a reviewer should focus on. Link issues ("Closes #42").
+- **Description:** what changed, why, and what a reviewer should focus on. Link issues ("`Closes #42`").
 :::
 
 ::: {.fragment}
@@ -326,36 +336,16 @@ Not ready for review? Open a **Draft PR**.
 Three outcomes. Distinguish blocking concerns from suggestions.
 :::
 
-A reviewer looks at both the **code** and the **analytical approach**. GitHub gives three options:
+A reviewer looks at both the **code** and the **analytical approach**. GitHub gives three options for the reviewer:
 
 ::: {.incremental}
-- **Comment** — feedback without approving or blocking.
-- **Approve** — there may still be some minor issues to resolve, but the author should be able to handle these without another re-review (*Generally recommended!*)
+- **Comment** — provide feedback without approving or blocking.
+- **Approve** — provide feedback; there may still be minor issues to resolve, but the author should be able to handle these without a re-review (*Generally recommended!*)
 - **Request changes** — large issues must still be resolved, and a **mandatory re-review** is necessary before merge.
 :::
 
 ::: {.fragment}
-In practice, we recommend using **Comment + Approve** on small, low-risk PRs — reserve "Request changes" for substantive concerns.
-
-Flag **blocking concerns** separately from **suggestions**.
-:::
-
-## Plan review up front [[NEW]]{.new-badge}
-
-::: {.notes}
-The biggest cultural shift. Code review is planned at project start, not reactive. Answer four questions. Budget 10-20% of coding time.
-:::
-
-The biggest shift: review is **planned at the start of a project**, not triggered by a journal requirement or an error someone found.
-
-A plan answers four questions:
-
-::: {.incremental}
-- **What** gets reviewed · **when** · **by whom** · **to what standard**
-:::
-
-::: {.fragment}
-Budget **10–20% of coding time** for it. Bring it up at [kickoff](../03-code/code-review.qmd).
+In practice, we recommend using **Comment + Approve** on small, low-risk PRs — reserve **Request changes** for substantive concerns.
 :::
 
 ## Types of of code review
@@ -368,16 +358,25 @@ Two dimensions: who reviews (self vs. peer), and what they're checking. Accuracy
 
 | | Timing | What to check | Required? |
 |---|---|---|---|
-| **Self-review** | Ongoing; Before every PR; revisit after receiving PR comments | Read your own diff as if you're the reviewer | Always |
+| **Self-review** | Ongoing; Before every PR; revisit after receiving PR comments |  Accuracy, logic, efficiency | Always |
 | **Team member peer review** | Ongoing; for every PR | Accuracy, logic, efficiency | Whenever there's more than one researcher on the project |
-
+|||||
 ::: {.fragment}
+| | |  |  |
+|---|---|---|---|
+| **GitHub Copilot AI "peer" review** | Ongoing; for every PR | Accuracy, logic, efficiency | Optional; use with caution, your mileage may vary |
+| | |  |  |
+:::
+
+## Types of of code review
+
+
 **Reproducibility check** 
 
 | | Timing | What to check | Required? |
 |---|---|---|---|
 | **External peer reviewer**  | End of project and before submission; again before publication | A designated reviewer re-runs the full analysis independently and regenerates all outputs| Publications and external-facing deliverables |
-:::
+| | |  |  |
 
 ## Best practices {auto-animate="true"}
 
@@ -388,9 +387,10 @@ Split responsibilities. Authors make review easy; reviewers are specific and pri
 **If your code is being reviewed:**
 
 ::: {.incremental .small}
-- Keep PRs small and focused. Write a clear description.
+- Use coding best practices (good documentation; formatters; function/task-based programming; etc)
+- Keep PRs small and focused. 
+- Write a clear description of what changed and what reviewer should look for.
 - Make sure it runs end-to-end before requesting review.
-- Respond constructively — keep the discussion in the PR.
 :::
 
 ## Best practices {auto-animate="true"}
@@ -400,9 +400,42 @@ Split responsibilities. Authors make review easy; reviewers are specific and pri
 ::: {.incremental .small}
 - Know what kind of review is being asked for.
 - Be specific; label things "Required:" vs. "Nit:".
-- Prioritize correctness over style. For reproducibility review, actually run the code.
+- Prioritize correctness over style. 
+- For reproducibility review, actually run the code.
 - Be timely — a stale PR gets harder to merge as the rest of the project moves on.
 :::
+
+
+## Project management for planning code review [[NEW]]{.new-badge}
+
+
+The fundamental shift: code review is **planned for at the start of a project**, not triggered reactively by a journal requirement or an error someone found.
+
+
+::: {.fragment}
+A code review plan answers four questions:
+:::
+
+::: {.incremental}
+- **What** gets reviewed · **when** · **by whom** · **to what standard**
+:::
+
+## Project management for planning code review [[NEW]]{.new-badge}
+
+- Budget **10–20% of coding time** for it. 
+
+::: {.fragment}
+
+
+- Explicitly discuss [code review plan](../03-code/code-review.qmd):
+
+    - During SOP and budget development
+    - During staffing decisions
+    - At project kickof
+    - Throughout the project
+    - At project exit interview
+:::
+
 
 ##  Some closing thoughts on code review
 
@@ -421,15 +454,9 @@ Close the section on norms. Review is non-adversarial, a contribution worth reco
 Full detail and the plan template: [Code review](../03-code/code-review.qmd).
 :::
 
-# The rest of the SOP {background-color="#2aa198"}
+# The rest of the SOP {background-color="#044E95"}
 
-## Also worth knowing
-
-::: {.notes}
-Lighter touch on the other new code material — mention and point to the chapters.
-:::
-
-More new material in the Code section :
+## Lots of updated material to check out!
 
 ::: {.incremental}
 - **Basic Git** — [setup](../04-gh/01-setup.qmd), [commits](../04-gh/03-commits.qmd), and [Issues](../04-gh/04-issues.qmd).
@@ -437,7 +464,6 @@ More new material in the Code section :
 - **[Functional programming](../03-code/functional-programming.qmd)** — don't repeat yourself; `map`/`apply` over loops.
 - **[Reproducibility](../03-code/index.qmd#reproducibility)** — [`renv`](../03-code/package-reproducibility.qmd) for packages, [`targets`](../03-code/pipeline-reproducibility.qmd) for pipelines.
 - **Quarto** — [chunks](../05-quarto/chunk-best-practices.qmd), [figures & references](../05-quarto/figures-tables-references.qmd), and [presentations](../05-quarto/presentations.qmd) (like this one!)
-:::
 :::
 
 ## Recap
@@ -468,4 +494,4 @@ The full Standard Operating Procedures live at:
 Source: [github.com/emlab-ucsb/SOP](https://github.com/emlab-ucsb/SOP)
 :::
 
-## Questions?
+## Thank you!
