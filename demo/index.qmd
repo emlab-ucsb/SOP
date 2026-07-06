@@ -2,7 +2,7 @@
 title: "Git & GitHub at emLab"
 subtitle: "A hands-on team demo: branches · pull requests · code review · merge conflicts"
 author: "Environmental Markets Lab (emLab)"
-date: today
+date: July 7, 2026
 title-slide-attributes:
   data-background-image: images/emlab_logo_horizontal.svg
   data-background-size: 22%
