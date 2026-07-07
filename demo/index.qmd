@@ -34,8 +34,8 @@ We'll move between **these slides** and **live coding**.
 
 ::: {.panel}
 - The slides contain **instructions** for live-coding.
-- Tools: **github.com**, **Positron**, **RStudio**, **terminal**.
-- Everyone using the **same shared practice repo** today.
+- Tools: **github.com**, **Positron**, **VS Code**, **RStudio**, **terminal**.
+- Everyone using the **same shared practice repo**.
 :::
 
 By the end you'll have practiced these actions:
