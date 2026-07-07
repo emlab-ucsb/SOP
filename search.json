@@ -1936,7 +1936,7 @@
     "href": "demo/index.html#how-this-demo-works",
     "title": "Git & GitHub at emLab",
     "section": "How this demo works",
-    "text": "How this demo works\nWe’ll move between these slides and live coding.\n\n\nThe slides contain instructions for live-coding.\nTools: github.com, Positron, RStudio, terminal.\nEveryone using the same shared practice repo today.\n\n\nBy the end you’ll have practiced these actions:\n\nbranch\ncommit\nopen a PR\nreview a PR\nmerge\nwork with issues\nresolve a merge conflict\n\n\nSet expectations: this is hands-on. Tell people to keep the slides open in one window and their IDE in another. Confirm everyone has been added to the shared repo and can see it on github.com before starting."
+    "text": "How this demo works\nWe’ll move between these slides and live coding.\n\n\nThe slides contain instructions for live-coding.\nTools: github.com, Positron, VS Code, RStudio, terminal.\nEveryone using the same shared practice repo.\n\n\nBy the end you’ll have practiced these actions:\n\nbranch\ncommit\nopen a PR\nreview a PR\nmerge\nwork with issues\nresolve a merge conflict\n\n\nSet expectations: this is hands-on. Tell people to keep the slides open in one window and their IDE in another. Confirm everyone has been added to the shared repo and can see it on github.com before starting."
   },
   {
     "objectID": "demo/index.html#reading-the-slides",
