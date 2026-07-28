@@ -13,6 +13,8 @@ All emLab projects must have a repository under the [emlab-ucsb](https://github.
 
 ## Repository structure
 
+There is no single correct directory structure, and the right organization depends on the nature of the project. What matters is that the structure is logical, consistent within the project, and communicated in the README.
+
 ![](../images/github_project.png) <!-- ``` --> <!-- Github -->
 <!--   |__ emlab-ucsb [organization] -->
 <!--       |__ example-project [repository] -->
