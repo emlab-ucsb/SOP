@@ -241,9 +241,8 @@ format:
           </a>
           <script>
             (function () {
-              // Landing page is navigational, not a reading page
-              const offset = document.querySelector('meta[name="quarto:offset"]');
-              if (offset && offset.getAttribute("content") === "./") return;
+              // Index pages (site root and section landings) are navigational, not reading pages
+              if (/\/(index\.html)?$/.test(window.location.pathname)) return;
               const main = document.getElementById("quarto-document-content");
               if (!main) return;
               const words = (main.textContent.match(/\S+/g) || []).length;
