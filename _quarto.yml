@@ -21,7 +21,6 @@ website:
         contents:
           - 01-files/google-shared-drive.qmd
           - 01-files/grit-data-storage-space.qmd
-          - 01-files/github-structure.qmd
       - section: "Data"
         href: 02-data/index.qmd
         contents:

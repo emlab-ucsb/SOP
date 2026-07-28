@@ -21,7 +21,6 @@ Where things live and how they're organized.
 
 - [Google Shared Drive](01-files/google-shared-drive.qmd)
 - [GRIT Data Storage Space](01-files/grit-data-storage-space.qmd)
-- [GitHub Structure](01-files/github-structure.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4}

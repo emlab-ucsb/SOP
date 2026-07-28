@@ -4,7 +4,7 @@ emLab files live in one of three places, depending on what they are:
 
 - **[Google Shared Drive](google-shared-drive.qmd)** — collaborative Google Docs, Sheets, and Slides.
 - **[GRIT](grit-data-storage-space.qmd)** (emLab's data storage space) — everything else that's stored as a file: data, media, PDFs, Microsoft Office documents, and so on.
-- **[GitHub](github-structure.qmd)** — source code and other version-controlled text.
+- **[GitHub](../04-gh/index.qmd)** — source code and other version-controlled text.
 
 The Google Shared Drive and GRIT use a similar folder layout, but each file belongs to exactly one of them based on its type — never duplicate files between them. The pages linked above describe the conventions for each location.
 
